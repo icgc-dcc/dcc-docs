@@ -1,1 +1,4 @@
 = Repositories
+
+image::/images/icgc-logo.png[ICGC]
+
