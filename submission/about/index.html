@@ -26,7 +26,6 @@
     </head>
 
     <body>
-
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
 
@@ -98,6 +97,12 @@
 
             <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
                 <li >
                     <a rel="next" href="../../cloud/guide/">
                         <i class="fa fa-arrow-left"></i> Previous
@@ -135,10 +140,13 @@
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
+               <div id="mkdocs-search-results"></div>
+               
 
 <h1 id="submission">Submission</h1>
 <h2 id="overview">Overview</h2>
-<p>This is the submission documentation page</p></div>
+<p>This is the submission documentation page</p>
+           </div>
         </div>
 
         <footer class="col-md-12">
@@ -152,5 +160,7 @@
         <script src="../../js/bootstrap-3.0.3.min.js"></script>
         <script src="../../js/highlight.pack.js"></script>
         <script src="../../js/base.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
     </body>
 </html>
