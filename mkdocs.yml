@@ -1,0 +1,11 @@
+site_name: ICGC Docs
+site_url: http://icgc.github.io
+theme: flatly
+repo_url: https://github.com/icgc/icgc-docs
+pages:
+- Home: index.md
+- Submission:
+  - About: 'submission/about.md'
+- Portal:
+  - About: 'portal/about.md'
+
