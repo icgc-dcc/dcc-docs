@@ -41,6 +41,12 @@
 
             <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
                 <li {% if not previous_page %}class="disabled"{% endif %}>
                     <a rel="next" {% if previous_page %}href="{{ previous_page.url }}"{% endif %}>
                         <i class="fa fa-arrow-left"></i> Previous

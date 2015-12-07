@@ -49,6 +49,17 @@ a, a:hover {
    height: 25px;
 }
 
+#mkdocs-search-query {
+    height: 40px;
+    margin-top: 10px;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+
 /*
  * Side navigation
  *
