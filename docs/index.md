@@ -5,5 +5,6 @@ This is the official project documentation site of the ICGC.
 ## Contents
 
 * [Portal](portal/about.md)
+* [Cloud](cloud/guide.md)
 * [Submission](submission/about.md)
 

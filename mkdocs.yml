@@ -1,11 +1,14 @@
 site_name: ICGC Docs
 site_url: http://icgc.github.io
-theme: flatly
 repo_url: https://github.com/icgc/icgc-docs
+copyright: "&copy; 2015 ICGC.org"
+theme_dir: theme
 pages:
 - Home: index.md
-- Submission:
-  - About: 'submission/about.md'
 - Portal:
   - About: 'portal/about.md'
+- Cloud:
+  - Guide: 'cloud/guide.md'
+- Submission:
+  - About: 'submission/about.md'
 
