@@ -31,6 +31,51 @@
             "title": "Overview"
         }, 
         {
+            "location": "/portal/analysis/", 
+            "text": "Analysis\n\n\nOverview\n\n\nThis is the Analysis documentation page", 
+            "title": "Analysis"
+        }, 
+        {
+            "location": "/portal/analysis/#analysis", 
+            "text": "", 
+            "title": "Analysis"
+        }, 
+        {
+            "location": "/portal/analysis/#overview", 
+            "text": "This is the Analysis documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/portal/api/", 
+            "text": "API\n\n\nOverview\n\n\nThis is the API documentation page", 
+            "title": "API"
+        }, 
+        {
+            "location": "/portal/api/#api", 
+            "text": "", 
+            "title": "API"
+        }, 
+        {
+            "location": "/portal/api/#overview", 
+            "text": "This is the API documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/portal/releases/", 
+            "text": "Releases\n\n\nOverview\n\n\nThis is the Releases documentation page", 
+            "title": "Releases"
+        }, 
+        {
+            "location": "/portal/releases/#releases", 
+            "text": "", 
+            "title": "Releases"
+        }, 
+        {
+            "location": "/portal/releases/#overview", 
+            "text": "This is the Releases documentation page", 
+            "title": "Overview"
+        }, 
+        {
             "location": "/portal/search/", 
             "text": "Search\n\n\nOverview\n\n\nSearch is a core component of the Portal", 
             "title": "Search"
@@ -43,6 +88,41 @@
         {
             "location": "/portal/search/#overview", 
             "text": "Search is a core component of the Portal", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/portal/software/", 
+            "text": "Software\n\n\nOverview\n\n\nThis is the Software documentation page\n\n\nRelease Notes", 
+            "title": "Software"
+        }, 
+        {
+            "location": "/portal/software/#software", 
+            "text": "", 
+            "title": "Software"
+        }, 
+        {
+            "location": "/portal/software/#overview", 
+            "text": "This is the Software documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/portal/software/#release-notes", 
+            "text": "", 
+            "title": "Release Notes"
+        }, 
+        {
+            "location": "/cloud/about/", 
+            "text": "About\n\n\nOverview\n\n\nThis is the Portal documentation page", 
+            "title": "About"
+        }, 
+        {
+            "location": "/cloud/about/#about", 
+            "text": "", 
+            "title": "About"
+        }, 
+        {
+            "location": "/cloud/about/#overview", 
+            "text": "This is the Portal documentation page", 
             "title": "Overview"
         }, 
         {
@@ -109,6 +189,116 @@
             "location": "/submission/about/#overview", 
             "text": "This is the documentation page for the ICGC submission system", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/submission/access/", 
+            "text": "Access\n\n\nOverview\n\n\nThis is the Access documentation page", 
+            "title": "Access"
+        }, 
+        {
+            "location": "/submission/access/#access", 
+            "text": "", 
+            "title": "Access"
+        }, 
+        {
+            "location": "/submission/access/#overview", 
+            "text": "This is the Access documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/api/", 
+            "text": "API\n\n\nOverview\n\n\nThis is the API documentation page", 
+            "title": "API"
+        }, 
+        {
+            "location": "/submission/api/#api", 
+            "text": "", 
+            "title": "API"
+        }, 
+        {
+            "location": "/submission/api/#overview", 
+            "text": "This is the API documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/dictionary/", 
+            "text": "Dictionary\n\n\nOverview\n\n\nThis is the Dictionary documentation page", 
+            "title": "Dictionary"
+        }, 
+        {
+            "location": "/submission/dictionary/#dictionary", 
+            "text": "", 
+            "title": "Dictionary"
+        }, 
+        {
+            "location": "/submission/dictionary/#overview", 
+            "text": "This is the Dictionary documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/guide/", 
+            "text": "Guide\n\n\nOverview\n\n\nThis is the Guide documentation page", 
+            "title": "Guide"
+        }, 
+        {
+            "location": "/submission/guide/#guide", 
+            "text": "", 
+            "title": "Guide"
+        }, 
+        {
+            "location": "/submission/guide/#overview", 
+            "text": "This is the Guide documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/methods/", 
+            "text": "Methods\n\n\nOverview\n\n\nThis is the Methods documentation page", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/submission/methods/#methods", 
+            "text": "", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/submission/methods/#overview", 
+            "text": "This is the Methods documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/publication/", 
+            "text": "Publication\n\n\nOverview\n\n\nThis is the Publication documentation page", 
+            "title": "Publication"
+        }, 
+        {
+            "location": "/submission/publication/#publication", 
+            "text": "", 
+            "title": "Publication"
+        }, 
+        {
+            "location": "/submission/publication/#overview", 
+            "text": "This is the Publication documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/software/", 
+            "text": "Software\n\n\nOverview\n\n\nThis is the Software documentation page\n\n\nRelease Notes", 
+            "title": "Software"
+        }, 
+        {
+            "location": "/submission/software/#software", 
+            "text": "", 
+            "title": "Software"
+        }, 
+        {
+            "location": "/submission/software/#overview", 
+            "text": "This is the Software documentation page", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/submission/software/#release-notes", 
+            "text": "", 
+            "title": "Release Notes"
         }
     ]
 }
