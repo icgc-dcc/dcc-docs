@@ -43,7 +43,8 @@ $(function () {
             searchResults.removeChild(searchResults.firstChild);
          }
 
-         if (query === '') {
+
+         if (query.length <= 3 || query === '') {
             $body.show();
             return;
          }
