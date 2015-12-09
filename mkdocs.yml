@@ -7,6 +7,7 @@ pages:
 - Home: index.md
 - Portal:
   - About: 'portal/about.md'
+  - Search: 'portal/search.md'
 - Cloud:
   - Guide: 'cloud/guide.md'
 - Submission:
