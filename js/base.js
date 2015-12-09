@@ -18,6 +18,18 @@ $(function () {
    var $query = $("#mkdocs-search-query");
    var $results = $("#mkdocs-search-results");
    var $body = $("#body");
+
+   // Add header links
+   $(":header", $body).each(function(i, header) {
+    var $header = $(header);
+    var id = $header.attr('id');
+    var icon = '<i class="fa fa-link"></i>';
+
+    if (id) {
+      return $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id).html(icon));
+    }
+  });
+
    $.get(base_url + '/mkdocs/search_index.json', function (data) {
       var index = lunr(function () {
          this.field('title', {
