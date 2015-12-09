@@ -17,17 +17,17 @@
         }, 
         {
             "location": "/portal/about/", 
-            "text": "Portal\n\n\nOverview\n\n\nThis is the portal documentation page", 
+            "text": "About\n\n\nOverview\n\n\nThis is the Portal documentation page", 
             "title": "About"
         }, 
         {
-            "location": "/portal/about/#portal", 
+            "location": "/portal/about/#about", 
             "text": "", 
-            "title": "Portal"
+            "title": "About"
         }, 
         {
             "location": "/portal/about/#overview", 
-            "text": "This is the portal documentation page", 
+            "text": "This is the Portal documentation page", 
             "title": "Overview"
         }, 
         {
@@ -97,7 +97,7 @@
         }, 
         {
             "location": "/submission/about/", 
-            "text": "Submission\n\n\nOverview\n\n\nThis is the submission documentation page", 
+            "text": "Submission\n\n\nOverview\n\n\nThis is the documentation page for the ICGC submission system", 
             "title": "About"
         }, 
         {
@@ -107,7 +107,7 @@
         }, 
         {
             "location": "/submission/about/#overview", 
-            "text": "This is the submission documentation page", 
+            "text": "This is the documentation page for the ICGC submission system", 
             "title": "Overview"
         }
     ]
