@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to ICGC Docs\n\n\nThis is the official project documentation site of the ICGC.\n\n\nContents\n\n\n\n\nPortal\n\n\nCloud\n\n\nSubmission", 
+            "text": "Welcome to ICGC Docs\n\n\nThis is the official project documentation site of the ICGC.\n\n\nContents\n\n\n\n\nPortal\n\n\nCloud\n\n\nSubmission\n\n\n\n\nContact\n\n\nFor support, please contact us at \ndcc-support@icgc.org\n.", 
             "title": "Home"
         }, 
         {
@@ -14,6 +14,11 @@
             "location": "/#contents", 
             "text": "Portal  Cloud  Submission", 
             "title": "Contents"
+        }, 
+        {
+            "location": "/#contact", 
+            "text": "For support, please contact us at  dcc-support@icgc.org .", 
+            "title": "Contact"
         }, 
         {
             "location": "/portal/about/", 
