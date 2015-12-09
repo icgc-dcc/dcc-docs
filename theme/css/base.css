@@ -29,7 +29,9 @@ div.col-md-9 img {
   max-width: 100%;
 }
 
-a, a:hover {
+/* Customization */
+
+a, a:hover, a:focus {
    color: #166aa2;
 }
 

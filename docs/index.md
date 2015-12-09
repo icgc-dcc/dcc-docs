@@ -8,3 +8,6 @@ This is the official project documentation site of the ICGC.
 * [Cloud](cloud/guide.md)
 * [Submission](submission/about.md)
 
+## Contact
+
+For support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org).
