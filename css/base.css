@@ -59,6 +59,14 @@ a, a:hover {
     margin-left: 20px;
 }
 
+.highlight {
+   color: white;
+   background-color: #A32028;
+   padding: 2px 5px;
+   margin: 5px;
+   border-radius: 0.2em;
+}
+
 
 /*
  * Side navigation
