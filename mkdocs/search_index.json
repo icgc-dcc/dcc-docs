@@ -97,13 +97,13 @@
         }, 
         {
             "location": "/submission/about/", 
-            "text": "Submission\n\n\nOverview\n\n\nThis is the documentation page for the ICGC submission system", 
+            "text": "About\n\n\nOverview\n\n\nThis is the documentation page for the ICGC submission system", 
             "title": "About"
         }, 
         {
-            "location": "/submission/about/#submission", 
+            "location": "/submission/about/#about", 
             "text": "", 
-            "title": "Submission"
+            "title": "About"
         }, 
         {
             "location": "/submission/about/#overview", 
