@@ -13,6 +13,7 @@ pages:
   - About: 'portal/about.md'
   - Analysis: 'portal/analysis.md'
   - API: 'portal/api.md'
+  - Publication: 'portal/publication.md'
   - Releases: 'portal/releases.md'
   - Search: 'portal/search.md'
   - Software: 'portal/software.md'
@@ -26,6 +27,5 @@ pages:
   - Dictionary: 'submission/dictionary.md'
   - Guide: 'submission/guide.md'
   - Methods: 'submission/methods.md'
-  - Publication: 'submission/publication.md'
   - Software: 'submission/software.md'
 
