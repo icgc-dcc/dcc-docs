@@ -64,6 +64,33 @@ a, a:hover {
    border-radius: 0.2em;
 }
 
+.header-link {
+  position: absolute;
+  left: -0.55em;
+  opacity: 0;
+
+/*
+  -webkit-transition: opacity 0.1s ease-in-out 0.1s;
+  -moz-transition: opacity 0.1s ease-in-out 0.1s;
+  -ms-transition: opacity 0.1s ease-in-out 0.1s;
+*/
+}
+
+h1:hover .header-link,
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+  opacity: 1;
+}
+
+.header-text-link {
+   color: #000;
+}
+.header-text-link:hover {
+   text-decoration: none;
+}
 
 /*
  * Side navigation
@@ -79,6 +106,8 @@ a, a:hover {
 
 .bs-sidebar.well {
     padding: 0;
+   background-color: #fafafa;
+   border: 1px solid #e6e6e6;
 }
 
 /* First level of nav */

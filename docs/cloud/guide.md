@@ -24,7 +24,7 @@ The figure below illustrates the overall process and systems involved:
     Download or view data with the provided Storage Client or via an external tool
 
 
-[![Cloud Process Diagram](styles/images/repositories/guides/cloud_process_diagram.svg)](styles/images/repositories/guides/cloud_process_diagram.svg "Click Cloud Process Diagram to see the full image.")
+[![Cloud Process Diagram](images/process-diagram.svg)](images/process-diagram "Click Cloud Process Diagram to see the full image.")
 
 The subsequent sections will provide additional details on each of these topics.
 
@@ -62,11 +62,11 @@ Related to Access Tokens is the concept of _Scopes_. Tokens allow you to associa
 
 To acquire an Access Token, you must first obtain DACO Clould Access and login to the Data Portal. After a successful login, there will be _Token Manager_ link in the upper right corner of the page. Clicking on this link will display the Token Manager dialog:
 
-[![Token Manager Link](styles/images/repositories/guides/token_manager_link.png)](styles/images/repositories/guides/token_manager_link.png "Click the Token Manager toolbar to see the full image.")
+[![Token Manager Link](images/token-manager-link.png)](images/token-manager-link.png "Click the Token Manager toolbar to see the full image.")
 
 From this dialog, you can manage the Access Tokens associated with your account. Importantly, you may delete and regenerate an access token if you believe that it has been compromised.
 
-[![Token Manager Screenshot](styles/images/repositories/guides/token_manager_screenshot.png)](styles/images/repositories/guides/token_manager_screenshot.png "Click the Token <anager screenshot to see the full image.")
+[![Token Manager Screenshot](images/token-manager-screenshot.png)](images/token-manager-screenshot.png "Click the Token <anager screenshot to see the full image.")
 
 When creating an Access Token, you will need to specify the Scope associated with the target cloud(s).
 
@@ -194,7 +194,7 @@ Finding files of interest can be done via the Data Portal. Objects are identifie
 
 The Manifest is the main way to define what files should be downloaded by the Storage Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:
 
-[![Download Manifest Dialog](styles/images/repositories/guides/download_manifest_dialog.png)](styles/images/repositories/guides/download_manifest_dialog.png "Click the Download Manifest Dialog screenshot to see the full image.")
+[![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png "Click the Download Manifest Dialog screenshot to see the full image.")
 
 Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Storage Client Usage](#storage-client) section for usage information.
 
