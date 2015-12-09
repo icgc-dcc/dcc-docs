@@ -243,7 +243,7 @@
 <li><a href="#storage-client">Storage Client Usage</a>
     Download or view data with the provided Storage Client or via an external tool</li>
 </ol>
-<p><a href="../styles/images/repositories/guides/cloud_process_diagram.svg" title="Click Cloud Process Diagram to see the full image."><img alt="Cloud Process Diagram" src="../styles/images/repositories/guides/cloud_process_diagram.svg" /></a></p>
+<p><a href="../cloud_process_diagram.svg" title="Click Cloud Process Diagram to see the full image."><img alt="Cloud Process Diagram" src="../cloud_process_diagram.svg" /></a></p>
 <p>The subsequent sections will provide additional details on each of these topics.</p>
 <h3 id="security">Security</h3>
 <p>The usage of the distributed <a href="../../software">Storage Client</a> is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.</p>
@@ -262,9 +262,9 @@
 <p>Related to Access Tokens is the concept of <em>Scopes</em>. Tokens allow you to associate Scopes which limit access to that needed for the target environment. This enhances security by following the <a href="http://www.wikiwand.com/en/Principle_of_least_privilege">Principle of Least Privilege</a>. Cloud specific Scopes will become available after acquiring DACO Cloud Access. An instance of a cloud download token will grant access to all of the available data in that environment.</p>
 <h3 id="token-manager">Token Manager</h3>
 <p>To acquire an Access Token, you must first obtain DACO Clould Access and login to the Data Portal. After a successful login, there will be <em>Token Manager</em> link in the upper right corner of the page. Clicking on this link will display the Token Manager dialog:</p>
-<p><a href="../styles/images/repositories/guides/token_manager_link.png" title="Click the Token Manager toolbar to see the full image."><img alt="Token Manager Link" src="../styles/images/repositories/guides/token_manager_link.png" /></a></p>
+<p><a href="../token_manager_link.png" title="Click the Token Manager toolbar to see the full image."><img alt="Token Manager Link" src="../token_manager_link.png" /></a></p>
 <p>From this dialog, you can manage the Access Tokens associated with your account. Importantly, you may delete and regenerate an access token if you believe that it has been compromised.</p>
-<p><a href="../styles/images/repositories/guides/token_manager_screenshot.png" title="Click the Token &lt;anager screenshot to see the full image."><img alt="Token Manager Screenshot" src="../styles/images/repositories/guides/token_manager_screenshot.png" /></a></p>
+<p><a href="../token_manager_screenshot.png" title="Click the Token &lt;anager screenshot to see the full image."><img alt="Token Manager Screenshot" src="../token_manager_screenshot.png" /></a></p>
 <p>When creating an Access Token, you will need to specify the Scope associated with the target cloud(s).</p>
 <h4 id="aws_1">AWS</h4>
 <p>In the case of the ICGC AWS data set, an access token with the <span class="badge token-badge token-scopes">aws.download</span> scope is required to access the <a href="https://docs.icgc.org/access-controlled-data">controlled access data</a></p>
@@ -338,7 +338,7 @@ tar -xvzf icgc-storage-client.tar.gz
 <li>Export a <em>Manifest</em> for future use with the Storage Client</li>
 </ul>
 <p>The Manifest is the main way to define what files should be downloaded by the Storage Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:</p>
-<p><a href="../styles/images/repositories/guides/download_manifest_dialog.png" title="Click the Download Manifest Dialog screenshot to see the full image."><img alt="Download Manifest Dialog" src="../styles/images/repositories/guides/download_manifest_dialog.png" /></a></p>
+<p><a href="../download_manifest_dialog.png" title="Click the Download Manifest Dialog screenshot to see the full image."><img alt="Download Manifest Dialog" src="../download_manifest_dialog.png" /></a></p>
 <p>Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the <a href="#storage-client">Storage Client Usage</a> section for usage information.</p>
 <h2 id="storage-client-usage">Storage Client Usage</h2>
 <p>This section provides information on how to use the Storage Client once it has been properly downloaded and configured. It assumes the user possesses and has configured the requisite access token discussed previously.</p>
