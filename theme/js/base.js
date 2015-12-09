@@ -43,15 +43,24 @@ $(function () {
             searchResults.removeChild(searchResults.firstChild);
          }
 
-         if (query === '') {
+         if (query.length < 3 || query === '') {
             $body.show();
+            $results.hide();
+
             return;
          }
+
+         $results.delegate("a", "click", function(){
+            $body.show();
+            $results.hide();
+         });
 
          var results = index.search(query);
 
          if (results.length > 0) {
             $body.hide();
+            $results.show();
+
             for (var i = 0; i < results.length; i++) {
                var result = results[i];
                doc = documents[result.ref];

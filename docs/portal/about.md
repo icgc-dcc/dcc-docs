@@ -1,5 +1,5 @@
-# Portal
+# About
 
 ## Overview
 
-This is the portal documentation page
+This is the Portal documentation page
