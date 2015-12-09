@@ -106,6 +106,8 @@ h6:hover .header-link {
 
 .bs-sidebar.well {
     padding: 0;
+   background-color: #fafafa;
+   border: 1px solid #e6e6e6;
 }
 
 /* First level of nav */
