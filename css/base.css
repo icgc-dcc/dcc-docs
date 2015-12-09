@@ -69,9 +69,11 @@ a, a:hover {
   left: -0.5em;
   opacity: 0;
 
+/*
   -webkit-transition: opacity 0.1s ease-in-out 0.1s;
   -moz-transition: opacity 0.1s ease-in-out 0.1s;
   -ms-transition: opacity 0.1s ease-in-out 0.1s;
+*/
 }
 
 h1:hover .header-link,
@@ -81,6 +83,13 @@ h4:hover .header-link,
 h5:hover .header-link,
 h6:hover .header-link {
   opacity: 1;
+}
+
+.header-text-link {
+   color: #000;
+}
+.header-text-link:hover {
+   text-decoration: none;
 }
 
 /*

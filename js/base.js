@@ -20,15 +20,18 @@ $(function () {
    var $body = $("#body");
 
    // Add header links
-   $(":header", $body).each(function(i, header) {
-    var $header = $(header);
-    var id = $header.attr('id');
-    var icon = '<i class="fa fa-link"></i>';
+   $(":header", $body).each(function (i, header) {
+      var $header = $(header);
+      var id = $header.attr('id');
+      var icon = '<i class="fa fa-link"></i>';
 
-    if (id) {
-      return $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id).html(icon));
-    }
-  });
+      if (id) {
+         var title = $header.text();
+         $header.text("");
+         $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id).html(icon));
+         $header.append($("<a/>").addClass("header-text-link").attr("href", "#" + id).text(title));
+      }
+   });
 
    $.get(base_url + '/mkdocs/search_index.json', function (data) {
       var index = lunr(function () {
@@ -62,7 +65,7 @@ $(function () {
             return;
          }
 
-         $results.delegate("a", "click", function(){
+         $results.delegate("a", "click", function () {
             $body.show();
             $results.hide();
          });
