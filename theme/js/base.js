@@ -57,10 +57,13 @@ $(function () {
                doc = documents[result.ref];
                doc.base_url = base_url;
                doc.summary = doc.text.substring(0, 200);
-               var html = '<article><h3><a href="' + doc.location + '">' + doc.title + '</a></h3><p>' + doc.summary + '</p></article>';
 
-               searchResults.insertAdjacentHTML('beforeend', html);
+               var html = '<article><h3><a href="' + doc.location + '">' + doc.title + '</a></h3><p>' + doc.summary + '</p></article>';
+               console.log(query);
+               $results.append(html);
             }
+
+            $results.highlight(query);
          } else {
             $body.show();
          }
