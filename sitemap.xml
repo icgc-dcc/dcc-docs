@@ -30,6 +30,12 @@
     </url>
         
     <url>
+     <loc>http://icgc.github.io/portal/publication/</loc>
+     <lastmod>2015-12-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://icgc.github.io/portal/releases/</loc>
      <lastmod>2015-12-09</lastmod>
      <changefreq>daily</changefreq>
@@ -99,12 +105,6 @@
         
     <url>
      <loc>http://icgc.github.io/submission/methods/</loc>
-     <lastmod>2015-12-09</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc.github.io/submission/publication/</loc>
      <lastmod>2015-12-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
