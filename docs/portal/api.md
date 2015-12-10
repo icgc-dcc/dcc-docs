@@ -2,6 +2,10 @@
 
 The ICGC Portal API can be accessed from the command line using [cURL][1] but we suggest using [httpie][2], a cURL replacement that is particularly well-suited to JSON-based REST APIs. The following examples will contain instuctions for using both cURL and httpie.
 
+ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -- that allows third-party developers to build automation scripts and apps.
+
+Please see [https://dcc.icgc.org/docs/](https://dcc.icgc.org/docs/) for detailed information on the API endpoints, representations and how the API responds to different requests.
+
 ## Controlled Access
 
 ### Logging in from the Command Line
