@@ -1,91 +1,85 @@
-# Software
-
-## Overview
-
-This is the Software documentation page
-
-## Release Notes
+# Portal Software Release Notes
 
 #### Changes in Data Portal Software Release 3.8.20 - Nov 27, 2015
-* Added Drug/Compound entity page which correlates targeted genes and provides context into clinical trials, e.g. Go to Sprycel Compound page ()
-* Added Drug/Compound section in Gene Entity Page, e.g. Go to Compound section in EGFR Gene page ()
+* Added Drug/Compound entity page which correlates targeted genes and provides context into clinical trials, e.g. Go to Sprycel Compound page ([https://dcc.icgc.org/compound/ZINC000003986735](https://dcc.icgc.org/compound/ZINC000003986735 "https://dcc.icgc.org/compound/ZINC000003986735"))
+* Added Drug/Compound section in Gene Entity Page, e.g. Go to Compound section in EGFR Gene page ([https://dcc.icgc.org/genes/ENSG00000146648](https://dcc.icgc.org/genes/ENSG00000146648 "https://dcc.icgc.org/genes/ENSG00000146648"))
 * Added Quick Search support for Drug/Compound, e.g. Type Leukeran in the Quick Search
-* Iobio integration added to aligned BAM files stored in AWS/Collaboratory, e.g. Go to BAM Stats section in
-* Added highlight of genes overlapping with Enrichement Analysis input genes in Pathway Viewer, e.g. Look for R-HSA-5654716 Pathway Viewer in
+* Iobio integration added to aligned BAM files stored in AWS/Collaboratory, e.g. Go to BAM Stats section in [https://dcc.icgc.org/repositories/files/FI9974](https://dcc.icgc.org/repositories/files/FI9974 "https://dcc.icgc.org/repositories/files/FI9974")
+* Added highlight of genes overlapping with Enrichement Analysis input genes in Pathway Viewer, e.g. Look for R-HSA-5654716 Pathway Viewer in [https://dcc.icgc.org/pathways/ea41722b-5f8f-4735-8830-4c2fb52b2ff3](https://dcc.icgc.org/pathways/ea41722b-5f8f-4735-8830-4c2fb52b2ff3 "https://dcc.icgc.org/pathways/ea41722b-5f8f-4735-8830-4c2fb52b2ff3")
 
 #### Changes in Data Portal Software Release 3.8.18.3 - Nov 18, 2015
-* Released ICGC in the Cloud (), see Amazon post:
-* Displayed User Guide to explore and analyze ICGC data stored in Amazon AWS and Collaboratory ()
-* Separated DCC data releases () from Data Repositories ()
+* Released ICGC in the Cloud ([https://dcc.icgc.org/icgc-in-the-cloud](https://dcc.icgc.org/icgc-in-the-cloud "https://dcc.icgc.org/icgc-in-the-cloud")), see Amazon post: [https://aws.amazon.com/blogs/aws/](https://aws.amazon.com/blogs/aws/ "https://aws.amazon.com/blogs/aws/")<span class="ext"></span>
+* Displayed User Guide to explore and analyze ICGC data stored in Amazon AWS and Collaboratory ([https://dcc.icgc.org/icgc-in-the-cloud/guide](https://dcc.icgc.org/icgc-in-the-cloud/guide "https://dcc.icgc.org/icgc-in-the-cloud/guide"))
+* Separated DCC data releases ([https://dcc.icgc.org/releases](https://dcc.icgc.org/releases "https://dcc.icgc.org/releases")) from Data Repositories ([https://dcc.icgc.org/repositories](https://dcc.icgc.org/repositories "https://dcc.icgc.org/repositories"))
 * Re-organized filters and added Analysis Software filter on Data Repositories browser
 * Improved performance of the Advanced Search page
 * Various Bug fixes
 
 #### Changes in Data Portal Software Release 3.8.16.1 - Oct 28, 2015
-* Displayed Pathway Viewer from Reactome Pathway Entity Page, (e.g. , click on "Pathway Viewer" section in the navigation bar: mutated genes are highlighted and mutation count is displayed at the top-right corner of the entity. User should click on entity to view details about genes and mutation count)
-* Displayed Pathway Viewer from an Enrichment Analysis for all the enriched gene sets (e.g. , click on "Open in Pathway Viewer" and navigate through the reactome pathways to view pathway diagrams)
-* Enhanced data repositories, e.g. assigned a File ID FI99999, added Specimen Type facet (link: )
-* Updated File Entity Page layout (e.g. )
+* Displayed Pathway Viewer from Reactome Pathway Entity Page, (e.g. [https://dcc.icgc.org/genesets/R-HSA-392154](https://dcc.icgc.org/genesets/R-HSA-392154 "https://dcc.icgc.org/genesets/R-HSA-392154"), click on "Pathway Viewer" section in the navigation bar: mutated genes are highlighted and mutation count is displayed at the top-right corner of the entity. User should click on entity to view details about genes and mutation count)
+* Displayed Pathway Viewer from an Enrichment Analysis for all the enriched gene sets (e.g. [https://icgc.org/Zir](https://icgc.org/Zir "https://icgc.org/Zir"), click on "Open in Pathway Viewer" and navigate through the reactome pathways to view pathway diagrams)
+* Enhanced data repositories, e.g. assigned a File ID FI99999, added Specimen Type facet (link: [https://dcc.icgc.org/repository/external](https://dcc.icgc.org/repository/external "https://dcc.icgc.org/repository/external"))
+* Updated File Entity Page layout (e.g. [https://dcc.icgc.org/repository/external/files/FI9995](https://dcc.icgc.org/repository/external/files/FI9995 "https://dcc.icgc.org/repository/external/files/FI9995"))
 * When navigating from Donor Entity page to Genome Viewer, the mutation sorting and filter is now carried over
-* Significantly reduced the load time of stacked bar chart in Project Summary page ()
+* Significantly reduced the load time of stacked bar chart in Project Summary page ([https://dcc.icgc.org/projects](https://dcc.icgc.org/projects "https://dcc.icgc.org/projects"))
 * Refactored Browser API to fix various problems that could result in error 500s being returned
 * Bug fixes for Project Sample Sheet, Pie Chart colouring
 
 #### Changes in Data Portal Software Release 3.8.14.4 - Sept 22, 2015
-* Added functionality to view files in external repositories based on filters from advanced search (Go to , select your filters then in Donor tab click on "View in External Repositories" ). Documentation is available here:
-* Added functionality to download donor data and view donor sets in external repositories browser from Data Analysis (icons are available for saved donor sets here: )
-* Added functionality to upload a donor set in Donor facet in Advanced Search () and External Repositories browser ()
+* Added functionality to view files in external repositories based on filters from advanced search (Go to [https://dcc.icgc.org/search](https://dcc.icgc.org/search "https://dcc.icgc.org/search"), select your filters then in Donor tab click on "View in External Repositories" ). Documentation is available here: [https://docs.icgc.org/data-portal-usage#externalrepo](https://docs.icgc.org/data-portal-usage#externalrepo "https://docs.icgc.org/data-portal-usage#externalrepo")
+* Added functionality to download donor data and view donor sets in external repositories browser from Data Analysis (icons are available for saved donor sets here: [https://dcc.icgc.org/analysis/sets](https://dcc.icgc.org/analysis/sets "https://dcc.icgc.org/analysis/sets"))
+* Added functionality to upload a donor set in Donor facet in Advanced Search ([https://dcc.icgc.org/search](https://dcc.icgc.org/search "https://dcc.icgc.org/search")) and External Repositories browser ([https://dcc.icgc.org/repository/external](https://dcc.icgc.org/repository/external "https://dcc.icgc.org/repository/external"))
 * Added full screen support for Genome Viewer
-* Added Tumor Types facet in Projects page ()
+* Added Tumor Types facet in Projects page ([https://dcc.icgc.org/projects](https://dcc.icgc.org/projects "https://dcc.icgc.org/projects"))
 * Bug fixes for gene query in the case of no donor analysis and for Pathway Viewer
 
 #### Changes in Data Portal Software Release 3.8.9.3 - July 3, 2015
 * Added PCAWG section to home page and footer
-* Added PCAWG page -
+* Added PCAWG page - [https://pcawg.icgc.org](https://pcawg.icgc.org)
 * Minor bug fixes
 
 #### Changes in Data Portal Software Release 3.8.8.0 - June 16, 2015
-* Added DCC - [External Repository feature][19]. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here:
-* Added Study facet to filter PCAWG (Pan-Cancer Analysis of Whole Genome) Donors in Advanced Search - Donor tab, e.g. [ PCAWG Donors in Advanced Search ][20]
+* Added DCC - [External Repository feature][1]. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here: [https://docs.icgc.org/data-portal-usage#externalrep](https://docs.icgc.org/data-portal-usage#externalrep "https://docs.icgc.org/data-portal-usage#externalrep")
+* Added Study facet to filter PCAWG (Pan-Cancer Analysis of Whole Genome) Donors in Advanced Search - Donor tab, e.g. [ PCAWG Donors in Advanced Search ][2]
 * Added support for clinical supplementary files (family, exposure, therapy). Displayed in Donor Entity Page and exported in Donors files
-* Added support for pending donors and projects. Documentation is available here:
-* Added preliminary UI / API support for "donor states". API documentation available here:
+* Added support for pending donors and projects. Documentation is available here: [https://docs.icgc.org/data-portal-usage#pendingdonors](https://docs.icgc.org/data-portal-usage#pendingdonors "https://docs.icgc.org/data-portal-usage#pendingdonors")
+* Added preliminary UI / API support for "donor states". API documentation available here: [https://dcc.icgc.org/docs/](https://dcc.icgc.org/docs/ "https://dcc.icgc.org/docs/")
 * Reduced project colour space to primary sites
 * Bug fixes and core javascript libraries upgrades
 
 #### Changes in Data Portal Software Release 3.8.2.3 - April 7, 2015
-* Redesigned Data Analysis feature to improve user experience (). Documentation available here:
-* Added demo analyses: User can launch them from
-* Added Phenotype Comparison analysis to Data Analysis feature ()
-* Added functionality to upload a custom gene set and save it in Data Analysis (). User can then perform analysis on saved gene set
+* Redesigned Data Analysis feature to improve user experience ([https://dcc.icgc.org/analysis/sets](https://dcc.icgc.org/analysis/sets "https://dcc.icgc.org/analysis/sets")). Documentation available here: [https://docs.icgc.org/methods#dataanalysis](https://docs.icgc.org/methods#dataanalysis "https://docs.icgc.org/methods#dataanalysis")
+* Added demo analyses: User can launch them from [https://dcc.icgc.org/analysis](https://dcc.icgc.org/analysis "https://dcc.icgc.org/analysis")
+* Added Phenotype Comparison analysis to Data Analysis feature ([https://dcc.icgc.org/analysis](https://dcc.icgc.org/analysis "https://dcc.icgc.org/analysis"))
+* Added functionality to upload a custom gene set and save it in Data Analysis ([https://dcc.icgc.org/analysis/sets](https://dcc.icgc.org/analysis/sets "https://dcc.icgc.org/analysis/sets")). User can then perform analysis on saved gene set
 * Added version control and version deprecation for data analyses: User will get a warning message on his analyses if ICGC data has been updated
 * Bug fixes and libraries upgrade
 
 #### Changes in Data Portal Software Release 3.8.2.2 - March 16, 2015
-* Added new visualization to show "Donor Count History" ()
+* Added new visualization to show "Donor Count History" ([https://dcc.icgc.org/projects/history](https://dcc.icgc.org/projects/history "https://dcc.icgc.org/projects/history"))
 * Bug fixes
 
 #### Changes in Data Portal Software Release 3.7.6.6 - February 11, 2015
-* Added "GA4GH Beacon" feature ()
-* Added "Saved Sets" feature ()
-* Added "Set Analysis" feature ()
-* Added "Enrichment Analysis" feature ()
-* Projects page layout update and optimization ()
+* Added "GA4GH Beacon" feature ([https://dcc.icgc.org/ga4gh/beacon](https://dcc.icgc.org/ga4gh/beacon "https://dcc.icgc.org/ga4gh/beacon"))
+* Added "Saved Sets" feature ([https://dcc.icgc.org/analysis](https://dcc.icgc.org/analysis "https://dcc.icgc.org/analysis"))
+* Added "Set Analysis" feature ([https://dcc.icgc.org/analysis](https://dcc.icgc.org/analysis "https://dcc.icgc.org/analysis"))
+* Added "Enrichment Analysis" feature ([https://dcc.icgc.org/analysis](https://dcc.icgc.org/analysis "https://dcc.icgc.org/analysis"))
+* Projects page layout update and optimization ([https://dcc.icgc.org/projects](https://dcc.icgc.org/projects "https://dcc.icgc.org/projects"))
 * Various bug fixes
 
 #### Changes in Data Portal Software Release 3.7.6.2 - January 21, 2015
-* "Gene Ontology" quick search ()
-* "Gene Ontology" advanced search ([https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%...][21])
-* "Gene Ontology" entity pages (see )
-* Updated "Reactome Pathway" data (see )
-* Update "Cancer Gene Census" data (see )
+* "Gene Ontology" quick search ([https://dcc.icgc.org/q?q=GO:1901662](https://dcc.icgc.org/q?q=GO:1901662 "https://dcc.icgc.org/q?q=GO:1901662"))
+* "Gene Ontology" advanced search ([https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%...][3])
+* "Gene Ontology" entity pages (see [https://dcc.icgc.org/genesets/GO:0008195](https://dcc.icgc.org/genesets/GO:0008195 "https://dcc.icgc.org/genesets/GO:0008195"))
+* Updated "Reactome Pathway" data (see [https://dcc.icgc.org/genesets/REACT_13797](https://dcc.icgc.org/genesets/REACT_13797 "https://dcc.icgc.org/genesets/REACT_13797"))
+* Update "Cancer Gene Census" data (see [https://dcc.icgc.org/genesets/GS1](https://dcc.icgc.org/genesets/GS1 "https://dcc.icgc.org/genesets/GS1"))
 * Generalized "Pathway", "Cancer Gene Census" and "Gene Ontology" into unified "Gene Set" integration
 * Various small fixes
 
 #### Changes in Data Portal Software Release 3.7.4.1 - December 3, 2014
-* Added new visualization showing "Number of Somatic Mutations in Donor's Exomes Across Cancer Projects" (see )
-* Users can now upload their own custom gene list in Advanced Search (see )
-* Added Markdown support for data repository for inline viewing of README files (see )
+* Added new visualization showing "Number of Somatic Mutations in Donor's Exomes Across Cancer Projects" (see [https://dcc.icgc.org/projects](https://dcc.icgc.org/projects "https://dcc.icgc.org/projects"))
+* Users can now upload their own custom gene list in Advanced Search (see [https://dcc.icgc.org/search/g](https://dcc.icgc.org/search/g "https://dcc.icgc.org/search/g"))
+* Added Markdown support for data repository for inline viewing of README files (see [https://dcc.icgc.org/repository](https://dcc.icgc.org/repository "https://dcc.icgc.org/repository"))
 * Improved general client-side page responsiveness of chart rendering
 * Minor bug fixes
 
@@ -112,70 +106,6 @@ This is the Software documentation page
 * Added "Asynchronous Download" feature
 * Added "Public RESTful API" feature
 
-[‹ ICGC Publication Guidelines][22] [up][23] [Methods ›][24]
-
-* [International Cancer Genome Consortium (ICGC)][25]
-    * [Cancer Genome Projects][26]
-    * [Committees and Working Groups][27]
-    * [Policies and Guidelines][28]
-    * [Media][29]
-* [ICGC Data Portal (DCC)][2]
-    *
-    * [DCC Cancer Projects][30]
-    * [DCC Advanced Search][31]
-    * [DCC Data Repository][32]
-    * [**DCC Documentation**][33]
-* [Data Access Compliance Office (DACO)][3]
-    * [Access Forms][34]
-    * [Research Practices][35]
-    * [International Data Access Committee][36]
-    * [DACO Approved Projects][37]
-* [Contact Us][4]
-    * [info@icgc.org][4]
-    * [Terms & Conditions][38] | [Privacy Policy][39]
-    * © 2012 [International Cancer Genome Consortium][25]. All rights reserved.
-* For ICGC Data Portal (DCC) submission support, please contact:  [dcc-support@icgc.org][40]
-* ![Connected with the Central User Directory][41] This site is connected with the [Central User Directory][42].
-
-[1]: http://icgc.org
-[2]: http://dcc.icgc.org/
-[3]: http://icgc.org/daco
-[4]: http://icgc.org/icgc/contacts
-[5]: /user/login
-[6]: https://docs.icgc.org/files/logo_dcc.jpg
-[7]: /
-[8]: /home ""
-[9]: /data-portal "Data Portal"
-[10]: /data-submission "Data Submission"
-[11]: /contact-us "Contact Us"
-[12]: /data-portal
-[13]: /access-controlled-data
-[14]: /icgc-publication-guidelines
-[15]: /portal-software-release-notes
-[16]: /methods
-[17]: /data-portal-usage
-[18]: /data-portal-api
-[19]: https://dcc.icgc.org/repository/external
-[20]: https://dcc.icgc.org/search?filters=%7B%22donor%22:%7B%22studies%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D
-[21]: https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%3A%7B%22is%22%3A%5B%22GO%3A1901662%22%5D%7D%7D%7D "https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%3A%7B%22is%22%3A%5B%22GO%3A1901662%22%5D%7D%7D%7D"
-[22]: /icgc-publication-guidelines "Go to previous page"
-[23]: /data-portal "Go to parent page"
-[24]: /methods "Go to next page"
-[25]: http://icgc.org/
-[26]: http://icgc.org/icgc/cgp
-[27]: http://icgc.org/icgc/committees-and-working-groups
-[28]: http://icgc.org/icgc/goals-structure-policies-guidelines
-[29]: http://icgc.org/icgc/media
-[30]: http://dcc.icgc.org/projects
-[31]: http://dcc.icgc.org/search
-[32]: http://dcc.icgc.org/repository
-[33]: http://docs.icgc.org
-[34]: http://icgc.org/daco/access-forms
-[35]: http://icgc.org/daco/research-practices
-[36]: http://icgc.org/daco/idac
-[37]: http://icgc.org/daco/approved-projects
-[38]: http://icgc.org/terms-and-conditions
-[39]: http://icgc.org/privacy-policy
-[40]: mailto:dcc-support@icgc.org
-[41]: https://docs.icgc.org/sites/all/modules/ud/images/white-cud-badge.png "Connected with the Central User Directory"
-[42]: http://cud.oicr.on.ca/node/7656 "More about the Central User Directory"
+[1]: https://dcc.icgc.org/repository/external
+[2]: https://dcc.icgc.org/search?filters=%7B%22donor%22:%7B%22studies%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D
+[3]: https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%3A%7B%22is%22%3A%5B%22GO%3A1901662%22%5D%7D%7D%7D "https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%3A%7B%22is%22%3A%5B%22GO%3A1901662%22%5D%7D%7D%7D"
