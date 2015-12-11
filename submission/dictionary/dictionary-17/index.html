@@ -222,9 +222,11 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dictionary">Dictionary</a></li>
+        <li class="main active"><a href="#dictionary-v09a-june-2014-release-17">Dictionary v0.9a (June., 2014. Release 17)</a></li>
         
-            <li><a href="#overview">Overview</a></li>
+            <li><a href="#migrating-validated-release-16-data-to-release-17">MIGRATING VALIDATED RELEASE 16 DATA TO RELEASE 17</a></li>
+        
+            <li><a href="#changes-to-specifications-since-version-08d-march-2014">Changes to Specifications Since Version 0.8d (March., 2014)</a></li>
         
     
     </ul>
@@ -232,9 +234,94 @@
             <div class="col-md-9" role="main">
                
 
-<h1 id="dictionary">Dictionary</h1>
-<h2 id="overview">Overview</h2>
-<p>This is the Dictionary documentation page</p>
+<h1 id="dictionary-v09a-june-2014-release-17">Dictionary v0.9a (June., 2014. Release 17)</h1>
+<h4 id="migrating-validated-release-16-data-to-release-17">MIGRATING VALIDATED RELEASE 16 DATA TO RELEASE 17</h4>
+<p>Since changes to dictionary are minimal in this Release, DCC has made available migration scripts to help you convert your validated Release 16 submission files to Release 17. The scripts will perform the folllowing:</p>
+<ul>
+<li>Removes columns no longer required</li>
+<li>Performs the specimen_type mapping between old specimen_type terms and the new specimen_type terms. (Note: Perl script added for Perl users)</li>
+</ul>
+<p>Download the script package from here or at GitHub . For more details, please review the README file in the package before executing.</p>
+<h4 id="changes-to-specifications-since-version-08d-march-2014">Changes to Specifications Since Version 0.8d (March., 2014)</h4>
+<p><em>Revisions to Data Elements: Changes</em></p>
+<p><strong>Specimen Data File (specimen) </strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Element ID</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>specimen_type</td>
+<td><ul><li>Mandatory. No longer accepts -777/-888</li><li>New specimen_type codelist</li><li>Please see the <a href="https://docs.icgc.org/specimen-type-mapping"> specimen mapping </a> table describing how to map the <a href="http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_type.v1">old</a> specimen_type terms to the <a href="https://docs.icgc.org/controlled-vocabulary-09a#specimen.0.specimen_type.v3">new</a> specimen_type terms. For TCGA projects, this table also provides mapping between TCGA specimen types and the new specimen_type terms. </li></ul></td>
+</tr>
+<tr>
+<td>specimen_type_other</td>
+<td>New MVEL script restriction. If specimen_type is either "Normal - other", "Primary tumour - other" or "Recurrent tumour - other", then specimen_type_other field must be filled in</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analyzed Sample Data File (sample) </strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Element ID</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>analyzed_sample_type</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>analyzed_sample_type_other</td>
+<td>Removed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>All Data Type Files</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Element ID</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>note</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>raw_data_accession</td>
+<td><ul><li>The regular expression has been modified to allow submitters to submit:<ul><li>Both EGA Study and Dataset IDs, delimited by a colon. Example: EGAS00001000354:EGAD00001000983</li></li><li>submit EGA Sample ID, provided the EGA Study and Dataset accession IDs are submitted as well (delimited by a colon). Example: EGAS00001000354:EGAD00001000983:EGAN00001142752</li></ul><li>Submitting just the EGA Study/Dataset accession IDs for raw_data_accession (as in previous Releases) is still valid.</li></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Copy Number - Metadata file (cnsm_m)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Element ID</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sequencing_strategy</td>
+<td><ul><li>Mandatory. No longer accepts -777/-888</li></ul></td>
+</tr>
+</tbody>
+</table>
+<p><em>Revisions to CV Tables:</em></p>
+<p><a href="https://docs.icgc.org/controlled-vocabulary#specimen.0.specimen_type.v3">**specimen.0.specimen_type.v3</a>**</p>
+<ul>
+<li>New more comprehensive specimen types.</li>
+<li>In line with PanCancer tumour/normal designations</li>
+</ul>
            </div>
            </div>
         </div>

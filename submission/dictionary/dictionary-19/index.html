@@ -231,273 +231,207 @@
                
 
 <h1 id="dictionary-v011c-april-2015-release-19">Dictionary v0.11c (April., 2015, Release 19)</h1>
-<pre><code class="markdown">May 15, 2015:
-- Added new term to donor.0.disease_status_last_followup.v1: &quot;no evidence of disease&quot;.
-</code></pre>
-
-<pre><code class="markdown">April 20 2015:
-Change between 0.11b and 0.11c:
-- Changed cancer_history_first_degree_relative to &quot;N/A Valid&quot; (for DCC-only data).
-</code></pre>
-
-<pre><code class="markdown">April 10 2015:
-Change between 0.11a and 0.11b:
-- Added new term &quot;Unknown&quot; to family.0.relationship_sex.v1 CV list.
-- relationship_disease_icd10: Removed script restriction to allow 'N/A'
-- Updated therapy.0.therapy_type.v1 CV list (used by first_therapy_type and second_therapy_type tables) to include three additional therapies.
-</code></pre>
-
-<pre style="color:#333">
-<div>
-<b>Changes to Specifications Since Version 0.10a (October., 2014)</b>
-<u>Revisions to Data Elements: Changes</u>
-<b>All Files</b>
-<div>
+<p>May 15, 2015:</p>
+<ul>
+<li>Added new term to donor.0.disease_status_last_followup.v1: "no evidence of disease".</li>
+</ul>
+<p>April 20 2015:
+Change between 0.11b and 0.11c:</p>
+<ul>
+<li>Changed cancer_history_first_degree_relative to "N/A Valid" (for DCC-only data).</li>
+</ul>
+<p>April 10 2015:
+Change between 0.11a and 0.11b:</p>
+<ul>
+<li>Added new term "Unknown" to family.0.relationship_sex.v1 CV list.</li>
+<li>relationship_disease_icd10: Removed script restriction to allow 'N/A'</li>
+<li>Updated therapy.0.therapy_type.v1 CV list (used by first_therapy_type and second_therapy_type tables) to include three additional therapies.</li>
+</ul>
+<p>Changes to Specifications Since Version 0.10a (October., 2014)
+Revisions to Data Elements: Changes
+All Files</p>
 <table>
-<tbody>
+<thead>
 <tr>
 <th>Data Element ID</th>
 <th>Comment</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td><span>donor_id, specimen_id, analyzed_sample_id</span></td>
-<td>
-<li>Added an MVEL script restriction to prevent ICGC-reserved prefixes from being used in identifier fields.</li>
-</td>
+<td>donor_id, specimen_id, analyzed_sample_id</td>
+<td>Added an MVEL script restriction to prevent ICGC-reserved prefixes from being used in identifier fields.</td>
 </tr>
 </tbody>
 </table>
-</div>
-**Donor Clinical File**
-<div>
+<p><strong>Donor Clinical File</strong></p>
 <table>
-<tbody>
+<thead>
 <tr>
 <th>Data Element ID</th>
 <th>Comment</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td><span>prior_malignancy</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>prior_malignancy</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>cancer_type_prior_malignancy</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>cancer_type_prior_malignancy</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>donor_age_at_diagnosis, donor_age_at_enrollment, donor_age_at_last_followup</span></td>
-<td>
-<li>Updated MVEL script to prevent donor age from being expressed in days</li>
-</td>
+<td>donor_age_at_diagnosis, donor_age_at_enrollment, donor_age_at_last_followup</td>
+<td>Updated MVEL script to prevent donor age from being expressed in days</td>
 </tr>
 <tr>
-<td><span>cancer_history_first_degree_relative</span></td>
-<td>
-<li>Updated MVEL script to prevent donor age from being expressed in days</li>
-</td>
+<td>cancer_history_first_degree_relative</td>
+<td>Updated MVEL script to prevent donor age from being expressed in days</td>
 </tr>
 </tbody>
 </table>
-</div>
-**Specimen Clinical File**
-<div>
+<p><strong>Specimen Clinical File</strong></p>
 <table>
-<tbody>
+<thead>
 <tr>
 <th>Data Element ID</th>
 <th>Comment</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td><span>specimen_type_other</span></td>
-<td>
-<li>MVEL script added to check for a required value if 'specimen_type' is indicated 'Normal - other', 'Primary tumour - other' or 'Recurrent tumour - other'</li>
-</td>
+<td>specimen_type_other</td>
+<td>MVEL script added to check for a required value if 'specimen_type' is indicated 'Normal - other', 'Primary tumour - other' or 'Recurrent tumour - other'</td>
 </tr>
 <tr>
-<td><span>specimen_donor_treatment_type_other</span></td>
-<td>
-<li>MVEL script added to check for required value if 'specimen_donor_treatment_type' is indicated 'other thearpy'</li>
-</td>
+<td>specimen_donor_treatment_type_other</td>
+<td>MVEL script added to check for required value if 'specimen_donor_treatment_type' is indicated 'other thearpy'</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div>
-**Donor Family Clinical File**
-<table></table>
+<p><strong>Donor Family Clinical File</strong></p>
 <table>
-<tbody>
+<thead>
 <tr>
 <th>Data Element ID</th>
 <th>Comment</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td><span>donor_has_relative_with_cancer_history</span></td>
-<td>
-<li>New clinical field for PCAWG data</li></li>
-</td>
+<td>donor_has_relative_with_cancer_history</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>relationship_type</span></td>
-<td>
-<li>MVEL script added to check for a required value if 'cancer_history_first_degree_relative' is indicated as 'Yes'</li>
-</td>
+<td>relationship_type</td>
+<td>MVEL script added to check for a required value if 'cancer_history_first_degree_relative' is indicated as 'Yes'</td>
 </tr>
 <tr>
-<td><span>relationship_type_other</span></td>
-<td>
-<li>MVEL script added to check for a required value if 'relationship_type' is indicated as 'other'</li>
-</td>
+<td>relationship_type_other</td>
+<td>MVEL script added to check for a required value if 'relationship_type' is indicated as 'other'</td>
 </tr>
 <tr>
-<td><span>relationship_sex</span></td>
-<td>
-<li>MVEL script added to check for a required value if 'relationship_type' is specified</li>
-</td>
+<td>relationship_sex</td>
+<td>MVEL script added to check for a required value if 'relationship_type' is specified</td>
 </tr>
 <tr>
-<td><span>relationship_disease_icd10</span></td>
-<td>
-<li>MVEL script added to check for a required value if 'relationship_type' is specified</li>
-</td>
+<td>relationship_disease_icd10</td>
+<td>MVEL script added to check for a required value if 'relationship_type' is specified</td>
 </tr>
 <tr>
-<td><span>relationship_disease</span></td>
-<td>
-<li>MVEL script added to check for a required value if 'relationship_type' is specified</li>
-</td>
+<td>relationship_disease</td>
+<td>MVEL script added to check for a required value if 'relationship_type' is specified</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div>
-**Donor Exposure Clinical File**
-<table></table>
+<p><strong>Donor Exposure Clinical File</strong></p>
 <table>
-<tbody>
+<thead>
 <tr>
 <th>Data Element ID</th>
 <th>Comment</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td><span>tobacco_smoking_history_indicator</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>tobacco_smoking_history_indicator</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>tobacco_smoking_history_intensity</span></td>
-<td>
-<li>New clinical field for PCAWG data</li></li>
-</td>
+<td>tobacco_smoking_history_intensity</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>alcohol_history</span></td>
-<td>
-<li>New clinical field for PCAWG data</li></li>
-</td>
+<td>alcohol_history</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>alcohol_history_intensity</span></td>
-<td>
-<li>New clinical field for PCAWG data</li></li>
-</td>
+<td>alcohol_history_intensity</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div>
-**Donor Postresection Therapy Clinical File**
-<table></table>
+<p><strong>Donor Postresection Therapy Clinical File</strong></p>
 <table>
-<tbody>
+<thead>
 <tr>
 <th>Data Element ID</th>
 <th>Comment</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td><span>first_therapy_start_interval</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>first_therapy_start_interval</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>first_therapy_duration</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>first_therapy_duration</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>first_therapy_type</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>first_therapy_type</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>first_therapy_response</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>first_therapy_response</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>first_therapy_therapeutic_intent</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>first_therapy_therapeutic_intent</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>second_therapy_start_interval</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>second_therapy_start_interval</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>second_therapy_duration</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>second_therapy_duration</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>second_therapy_type</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>second_therapy_type</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>second_therapy_response</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>second_therapy_response</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>second_therapy_therapeutic_intent</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>second_therapy_therapeutic_intent</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>other_therapy</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>other_therapy</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 <tr>
-<td><span>other_therapy_response</span></td>
-<td>
-<li>New clinical field for PCAWG data</li>
-</td>
+<td>other_therapy_response</td>
+<td>New clinical field for PCAWG data</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out <a href="https://submissions.dcc.icgc.org/dictionary.html">here</a>
-</div>
-</pre>
+<p>Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out <a href="https://submissions.dcc.icgc.org/dictionary.html">here</a></p>
            </div>
            </div>
         </div>
