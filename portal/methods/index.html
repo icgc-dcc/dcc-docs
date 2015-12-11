@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/portal/methods/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+   <title>Methods - ICGC Docs</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../about/">About</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../access/">Access</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../analysis/">Analysis</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../api/">API</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Methods</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../projects/">Projects</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../publication/">Publication</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../releases/">Releases</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../repositories/">Repositories</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../search/">Search</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../software/">Software</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../cloud/about/">About</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../cloud/guide/">Guide</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../submission/about/">About</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../submission/api/">API</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../submission/dictionary/">Dictionary</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../submission/guide/">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../submission/software/">Software</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../api/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../projects/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/icgc/icgc-docs">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#methods">Methods</a></li>
+        
+            <li><a href="#gene-sets-source">Gene sets source</a></li>
+        
+            <li><a href="#gene-set-enrichment-analysis">Gene Set Enrichment Analysis</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+               
+
+<h1 id="methods">Methods</h1>
+<p>The ICGC Data Portal uses gene models produced by Ensembl <a href="http://www.ensembl.org">http://www.ensembl.org</a>.</p>
+<p>The canonical gene data (release 75) is available from Ensembl FTP site at <a href="ftp://ftp.ensembl.org/pub/release-75/mysql/homo_sapiens_core_75_37/"> ftp://ftp.ensembl.org/pub/release-75/mysql/homo_sapiens_core_75_37</a>. We downloaded files with gene, transcript, translation, exon, xref, and domain etc data, built a document-oriented data store with essential gene information. We then further integrated gene summary information downloaded from NCBI Entrez Gene. This gene document is then integrated with somatic mutation datasets based on mutation consequence annotation (described in the next section) results.</p>
+<p>As part of the effort to enable cross cancer projects functional analysis, we perform standardized gene consequences annotation, using Sequence Ontology's controlled vocabulary regarding mutation-induced changes (<a href="../www.sequenceontology.org">www.sequenceontology.org</a>). This type of annotation provides a list of predicted gene effects, such as a non-conservative amino acid substitution, but does not attempt to prioritize the changes by their functional impact. Simple somatic mutation data submitted by member projects are annotated using the variant annotation tool SnpEff (v3.3c, ) recommended by the ICGC Mutation Consequences and Pathways (MUCOPA) Working Subgroup (Nature Methods, 2013, PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=23900255">23900255</a>).</p>
+<p>In order to assess functional impact of non-synonymous (SO term: <a href="http://www.sequenceontology.org/miso/current_release/term/SO:0001583"><em>missense_variant</em></a>) somatic mutations on protein coding genes, we used well-known prediction tools (currently <a href="http://www.ncbi.nlm.nih.gov/pubmed/23033316">FatHMM</a>, with more to be added such as <a href="http://mutationassessor.org/">Mutation Assessor</a> and <a href="http://sift.jcvi.org/">SIFT</a>) to compute functional impact scores and assign impact categories. ICGC DCC defines the following four categories: <em>High</em>, <em>Medium</em>, <em>Low</em> and <em>Unknown</em>.</p>
+<p>We first compute original impact prediction with these different tools for all simple somatic mutations (<em>SSM</em>) that cause <em>missense</em> consequence, each mutation is expressed at amino acid level, e.g., <em>ENSP00000358548 Q61R</em> to feed into individual functional impact prediction tools. When a mutation affects multiple splice forms of the same gene, prediction will be performed on all of them whenever possible. For a particular mutation, using a simple rule-based approach, predictions for each transcript isoform reported by different tools will then be summarized to a single impact category. The rule is straightforward: the highest impact category will be picked up from results of all tools. When no prediction is reported, <em>Unknown</em> is assigned.</p>
+<p>For all other SSMs that cause consequence other than <em>missense</em>, impact category will be assigned based on consequence type a mutation causes. <em>High</em> impact will be assigned for <em>frameshift_variant, non_conservative_missense_variant, initiator_codon_variant, stop_gained</em> and <em>stop_lost</em>, <em>Unknown</em> will be assigned for all other mutations.</p>
+<p>In order to assess how often a particular simple somatic mutation (SSM) occurs in cancer patients, we establishes specific criteria to determine whether SSMs reported from different donors are considered to be the same. When all of these fields from two reported SSMs: chromosome, chromosome start, chromosome end, mutation type, DNA change, genome assembly version are identical, they are merged into one mutation entity. With this, we build a non-redundant collection of all simple somatic mutations. Each mutation entry in the collection is assigned a stable identifier for persisted referencing portal wide and across releases. Information for linking these non-redundant SSMs to the reported ones is also kept, enabling mutation counts across donors.</p>
+<p>When a somatic mutation falls on the same position as a germline SNP, there is potential to leak a small amount of germline data. To prevent this, as of Release 15, ICGC DCC will be censoring the patient's germline genotype in the case where it does not match the reference genome allele:</p>
+<ul>
+<li>the mutated allele from control genotype will be replaced with the reference gernome allele when we publish to the open-access tier.</li>
+<li>the germline genotype that was censored will be flagged internally and the patient's true genotype will only be available to researchers' with access to controlled tier.</li>
+</ul>
+<p>Upon a valid submission, a report will be generated indicating the total number of submitted simple somatic mutation observations, and the total number of controlled access simple somatic mutation observations:</p>
+<ol>
+<li>Total number of the submitted SSM observations</li>
+<li>Number of SSMs marked as controlled (containing germline data)</li>
+<li>Percentage of observations marked as controlled</li>
+</ol>
+<p><strong>Example of open access simple somatic mutation:</strong></p>
+<ul>
+<li>The alleles in the control_genotype match the reference_genome_allele. This mutation will be accessible for both open-access and controlled-access tiers.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>reference_genome_allele</th>
+<th>control_genotype</th>
+<th>tumour_genotype</th>
+<th>mutated_from_allele</th>
+<th>mutated_to_allele</th>
+<th>masked_flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>A/A</td>
+<td>A/G</td>
+<td>A</td>
+<td>G</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example of controlled access simple somatic mutation:</strong></p>
+<ul>
+<li>The control_genotype contains an allele (T) which is different from the reference_genome_allele (G).</li>
+<li>This mutation will only be accessible at the controlled-access tier</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>reference_genome_allele</th>
+<th>control_genotype</th>
+<th>tumour_genotype</th>
+<th>mutated_from_allele</th>
+<th>mutated_to_allele</th>
+<th>masked_flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td>G/T</td>
+<td>G/C</td>
+<td>T</td>
+<td>C</td>
+<td>Controlled</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>How this mutation will be censored in <em>open-access tier</em>:<ul>
+<li>The mutated_from_allele (T) will be masked using the reference_genome_allele (G) so the true germline allele (T) will not be leaked. This masked mutation will be accessible in open-access tier.</li>
+<li>Please be advised that the open-access tier contains a small fraction of mutations that are masked (ie. they are different from the original true mutations). To access the original true mutations, one must apply for access to controlled-access to <a href="http://icgc.org/daco">DACO</a> (Data Access Compliance Office) </li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>reference_genome_allele</th>
+<th>control_genotype</th>
+<th>tumour_genotype</th>
+<th>mutated_from_allele</th>
+<th>mutated_to_allele</th>
+<th>masked_flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td></td>
+<td></td>
+<td>G</td>
+<td>C</td>
+<td>Masked</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gene-sets-source">Gene sets source</h3>
+<p><strong>Reactome Pathways</strong></p>
+<ul>
+<li>Pathway entries: <a href="http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens" title="http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens">http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/ho...</a></li>
+<li>Pathway to gene mapping file: <a href="http://www.reactome.org/download/current/UniProt2Reactome.txt" title="http://www.reactome.org/download/current/UniProt2Reactome.txt">http://www.reactome.org/download/current/UniProt2Reactome.txt</a></li>
+<li>Pathway summation file: <a href="http://www.reactome.org/download/current/pathway2summation.txt" title="http://www.reactome.org/download/current/pathway2summation.txt">http://www.reactome.org/download/current/pathway2summation.txt</a></li>
+</ul>
+<p><strong>Gene Ontology</strong></p>
+<p>Note that ICGC does not display complete list of GO terms available on GO website (exclusion of obsolete GO and GO that are not annotated to human genes).</p>
+<ul>
+<li>Inferred Trees: <a href="http://geneontology.org/ontology/go.owl" title="http://geneontology.org/ontology/go.owl">http://geneontology.org/ontology/go.owl</a></li>
+<li>GO Terms: <a href="http://purl.obolibrary.org/obo/go.obo" title="http://purl.obolibrary.org/obo/go.obo">http://purl.obolibrary.org/obo/go.obo</a></li>
+<li>GO Associations: <a href="http://geneontology.org/gene-associations/gene_association.goa_human.gz" title="http://geneontology.org/gene-associations/gene_association.goa_human.gz">http://geneontology.org/gene-associations/gene_association.goa_human.gz</a></li>
+</ul>
+<p><strong>Curated Gene Sets</strong></p>
+<ul>
+<li>Cancer Gene Census: <a href="http://cancer.sanger.ac.uk/cancergenome/projects/census/">http://cancer.sanger.ac.uk/cancergenome/projects/census/</a></li>
+</ul>
+<h3 id="gene-set-enrichment-analysis">Gene Set Enrichment Analysis</h3>
+<p>Gene Set Enrichment Analysis is a method to identify statistically significantly over-represented groups of gene sets (eg, pathways or GO terms) when comparing user input genes and genes from a chosen background (such as all genes annotated with GO biological process terms). You can launch Enrichment Analysis from the Gene tab in Advanced Search or from Set Analysis.</p>
+<p>Statistical methods used in Gene Set Enrichment Analysis:</p>
+<ul>
+<li>Hypergeometric test to calculate significance of over-representation.</li>
+<li>Benjamini-Hochberg procedure is used for multiple test correction by controlling user selected FDR threshold.</li>
+</ul>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../js/base.js"></script>
+        <script>var base_url = '../..';</script>
+    </body>
+</html>

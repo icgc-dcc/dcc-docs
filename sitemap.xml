@@ -18,6 +18,12 @@
     </url>
         
     <url>
+     <loc>http://icgc.github.io/portal/access/</loc>
+     <lastmod>2015-12-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://icgc.github.io/portal/analysis/</loc>
      <lastmod>2015-12-11</lastmod>
      <changefreq>daily</changefreq>
@@ -25,6 +31,12 @@
         
     <url>
      <loc>http://icgc.github.io/portal/api/</loc>
+     <lastmod>2015-12-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io/portal/methods/</loc>
      <lastmod>2015-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -92,12 +104,6 @@
     </url>
         
     <url>
-     <loc>http://icgc.github.io/submission/access/</loc>
-     <lastmod>2015-12-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://icgc.github.io/submission/api/</loc>
      <lastmod>2015-12-11</lastmod>
      <changefreq>daily</changefreq>
@@ -111,12 +117,6 @@
         
     <url>
      <loc>http://icgc.github.io/submission/guide/</loc>
-     <lastmod>2015-12-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc.github.io/submission/methods/</loc>
      <lastmod>2015-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
