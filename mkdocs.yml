@@ -28,6 +28,12 @@ pages:
   - About: 'submission/about.md'
   - API: 'submission/api.md'
   - Dictionary: 'submission/dictionary.md'
+  - Dictionary - Release 20: 'submission/dictionary_20.md'
+  - Dictionary - Release 19: 'submission/dictionary_19.md'
+  - Dictionary - Release 18: 'submission/dictionary_18.md'
+  - Dictionary - Release 17: 'submission/dictionary_17.md'
+  - Dictionary - Release 16: 'submission/dictionary_16.md'
+  - Dictionary - Release 15: 'submission/dictionary_15.md'
   - Guide: 'submission/guide.md'
   - Software: 'submission/software.md'
 
