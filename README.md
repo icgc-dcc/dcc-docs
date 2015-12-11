@@ -19,5 +19,5 @@ mkdocs serve
 ## Deploy
 
 ```shell
-mkdoc gh-deploy --clean
+mkdocs gh-deploy --clean
 ```
