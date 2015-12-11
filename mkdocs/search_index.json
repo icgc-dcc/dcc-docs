@@ -126,6 +126,21 @@
             "title": "Overview"
         }, 
         {
+            "location": "/portal/repositories/", 
+            "text": "Repositories\n\n\nOverview\n\n\nThis is the Repositories documentation page", 
+            "title": "Repositories"
+        }, 
+        {
+            "location": "/portal/repositories/#repositories", 
+            "text": "", 
+            "title": "Repositories"
+        }, 
+        {
+            "location": "/portal/repositories/#overview", 
+            "text": "This is the Repositories documentation page", 
+            "title": "Overview"
+        }, 
+        {
             "location": "/portal/search/", 
             "text": "Search\n\n\nOverview\n\n\nSearch is a core component of the Portal", 
             "title": "Search"

@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://icgc.github.io/submission/software/">
+        <link rel="canonical" href="http://icgc.github.io/portal/repositories/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-   <title>Software - ICGC Docs</title>
+   <title>Repositories - ICGC Docs</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -55,44 +55,44 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         <li >
-                            <a href="../../portal/about/">About</a>
+                            <a href="../about/">About</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/analysis/">Analysis</a>
+                            <a href="../analysis/">Analysis</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/api/">API</a>
+                            <a href="../api/">API</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/projects/">Projects</a>
+                            <a href="../projects/">Projects</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/publication/">Publication</a>
+                            <a href="../publication/">Publication</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/releases/">Releases</a>
+                            <a href="../releases/">Releases</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Repositories</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/repositories/">Repositories</a>
+                            <a href="../search/">Search</a>
                         </li>
                     
                         <li >
-                            <a href="../../portal/search/">Search</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../portal/software/">Software</a>
+                            <a href="../software/">Software</a>
                         </li>
                     
                     </ul>
@@ -117,36 +117,36 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         <li >
-                            <a href="../about/">About</a>
+                            <a href="../../submission/about/">About</a>
                         </li>
                     
                         <li >
-                            <a href="../access/">Access</a>
+                            <a href="../../submission/access/">Access</a>
                         </li>
                     
                         <li >
-                            <a href="../api/">API</a>
+                            <a href="../../submission/api/">API</a>
                         </li>
                     
                         <li >
-                            <a href="../dictionary/">Dictionary</a>
+                            <a href="../../submission/dictionary/">Dictionary</a>
                         </li>
                     
                         <li >
-                            <a href="../guide/">Guide</a>
+                            <a href="../../submission/guide/">Guide</a>
                         </li>
                     
                         <li >
-                            <a href="../methods/">Methods</a>
+                            <a href="../../submission/methods/">Methods</a>
                         </li>
                     
-                        <li class="active">
-                            <a href="./">Software</a>
+                        <li >
+                            <a href="../../submission/software/">Software</a>
                         </li>
                     
                     </ul>
@@ -164,12 +164,12 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li >
-                    <a rel="next" href="../methods/">
+                    <a rel="next" href="../releases/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
-                <li class="disabled">
-                    <a rel="prev" >
+                <li >
+                    <a rel="prev" href="../search/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -194,11 +194,9 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#software">Software</a></li>
+        <li class="main active"><a href="#repositories">Repositories</a></li>
         
             <li><a href="#overview">Overview</a></li>
-        
-            <li><a href="#release-notes">Release Notes</a></li>
         
     
     </ul>
@@ -206,28 +204,9 @@
             <div class="col-md-9" role="main">
                
 
-<h1 id="software">Software</h1>
+<h1 id="repositories">Repositories</h1>
 <h2 id="overview">Overview</h2>
-<p>This is the Software documentation page</p>
-<h2 id="release-notes">Release Notes</h2>
-<h4 id="changes-in-submission-system-software-release-3611-october-10-2014">Changes in Submission System Software Release 3.6.1.1 - October 10, 2014</h4>
-<ul>
-<li>Added "header-only file validation" to inform the user of an unintended empty submission file</li>
-<li>Added "sample type validation" to verify that samples referenced in meta file <code>analyzed_sample_id</code>, <code>matched_sample_id</code> and <code>reference_sample_type</code> fields are consistent with the <code>specimen_type</code> field found in the associated specimen files.</li>
-</ul>
-<h4 id="changes-in-submission-system-software-release-26-march-17-2014">Changes in Submission System Software Release 2.6 - March 17, 2014</h4>
-<ul>
-<li>Incremental data submission. Users can now manage their data submission directory and upload only new data. Please see <a href="../../incremental-submission-feature">here</a> for more information</li>
-<li>Support multiple files. Data can be split in multiple files per data type</li>
-<li>Selective data validation. Users can now validate data by data type and not anymore the whole submission each time.</li>
-<li>New user interface</li>
-<li>Faster validation engine</li>
-<li>Many bug fixes</li>
-</ul>
-<p>For more information, please see the Submission System Guide available <a href="../../data-submission"> here </a>. Please don't hesitate to contact us at <a href="mailto:dcc-support@icgc.org">dcc-support@icgc.org</a> if you have any questions or to report any bugs.</p>
-<p>Sincerely,
-The DCC team.</p>
-<p>NIGHT MODE</p>
+<p>This is the Repositories documentation page</p>
            </div>
            </div>
         </div>
