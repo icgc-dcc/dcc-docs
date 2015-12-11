@@ -16,6 +16,7 @@ pages:
   - Projects: 'portal/projects.md'
   - Publication: 'portal/publication.md'
   - Releases: 'portal/releases.md'
+  - Repositories: 'portal/repositories.md'
   - Search: 'portal/search.md'
   - Software: 'portal/software.md'
 - Cloud:
