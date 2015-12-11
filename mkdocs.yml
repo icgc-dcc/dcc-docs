@@ -11,8 +11,10 @@ pages:
 - Home: index.md
 - Portal:
   - About: 'portal/about.md'
+  - Access: 'portal/access.md'
   - Analysis: 'portal/analysis.md'
   - API: 'portal/api.md'
+  - Methods: 'portal/methods.md'
   - Projects: 'portal/projects.md'
   - Publication: 'portal/publication.md'
   - Releases: 'portal/releases.md'
@@ -24,10 +26,8 @@ pages:
   - Guide: 'cloud/guide.md'
 - Submission:
   - About: 'submission/about.md'
-  - Access: 'submission/access.md'
   - API: 'submission/api.md'
   - Dictionary: 'submission/dictionary.md'
   - Guide: 'submission/guide.md'
-  - Methods: 'submission/methods.md'
   - Software: 'submission/software.md'
 

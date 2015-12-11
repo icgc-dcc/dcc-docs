@@ -33,6 +33,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 
 
 | Project Key  |  Country |  Project Name |  EMBARGO STATUS |
+| ---- | ---- | ---- | ---- |
 | [PACA-AU][2] |  Australia |  Pancreatic Cancer - AU |  No Embargo. Data available without limitations |
 | [PACA-CA][3] |  Canada |  Pancreatic Cancer - CA |  No Embargo. Data available without limitations |
 | [PRAD-CA][4] |  Canada |  Prostate Adenocarcinoma - CA |  No Embargo. Data available without limitations |
