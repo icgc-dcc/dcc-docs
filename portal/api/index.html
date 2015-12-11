@@ -186,9 +186,15 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#api">API</a></li>
+        <li class="main active"><a href="#data-portal-api-international-cancer-genome-consortium">Data Portal API | International Cancer Genome Consortium</a></li>
         
-            <li><a href="#overview">Overview</a></li>
+            <li><a href="#controlled-access">Controlled Access</a></li>
+        
+            <li><a href="#downloading-static-files">Downloading Static Files</a></li>
+        
+            <li><a href="#dynamic-filtered-download">Dynamic Filtered Download</a></li>
+        
+            <li><a href="#common-errors">Common Errors</a></li>
         
     
     </ul>
@@ -196,10 +202,112 @@
             <div class="col-md-9" role="main">
                
 
-<h1 id="api">API</h1>
-<h2 id="overview">Overview</h2>
+<h1 id="data-portal-api-international-cancer-genome-consortium">Data Portal API | International Cancer Genome Consortium</h1>
+<p>The ICGC Portal API can be accessed from the command line using <a href="http://curl.haxx.se/docs/manpage.html">cURL</a> but we suggest using <a href="https://github.com/jakubroztocil/httpie">httpie</a>, a cURL replacement that is particularly well-suited to JSON-based REST APIs. The following examples will contain instuctions for using both cURL and httpie.</p>
 <p>ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -- that allows third-party developers to build automation scripts and apps.</p>
 <p>Please see <a href="https://dcc.icgc.org/docs/">https://dcc.icgc.org/docs/</a> for detailed information on the API endpoints, representations and how the API responds to different requests.</p>
+<h2 id="controlled-access">Controlled Access</h2>
+<h3 id="logging-in-from-the-command-line">Logging in from the Command Line</h3>
+<p>Logging in to the <strong>ICGC Portal API</strong> from the command line requires an ICGC.org account.</p>
+<p><strong>Request</strong></p>
+<pre><code>$ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d {"username":"...","password":"..."}
+
+$ http POST username="..." password="..." 'https://dcc.icgc.org/api/v1/auth/login'
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>{token: YOUR_DCC_PORTAL_TOKEN_HERE}
+</code></pre>
+<h2 id="downloading-static-files">Downloading Static Files</h2>
+<p><strong>Request</strong></p>
+<pre><code>$ curl -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
+
+$ http -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>% Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
+                               Dload  Upload   Total   Spent    Left     Speed
+100 21.8M  100 21.8M    0     0  27.6M      0 --:--:-- --:--:-- --:--:-- 27.5M
+</code></pre>
+<h3 id="controlled-access_1">Controlled Access</h3>
+<p><strong>Request</strong></p>
+<pre><code>$ curl -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+
+$ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>% Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
+                               Dload  Upload   Total   Spent    Left     Speed
+100 21.8M  100 21.8M    0     0  27.6M      0 --:--:-- --:--:-- --:--:-- 27.5M
+</code></pre>
+<h2 id="dynamic-filtered-download">Dynamic Filtered Download</h2>
+<h3 id="start-a-job">Start a job</h3>
+<p><strong>Request</strong></p>
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&amp;info=[{"key":"ssm","value":"TSV"}]&amp;email=YOUR@EMAIL.COM'
+
+$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"ssm","value":"TSV"}]' 'email==YOUR@EMAIL.COM'
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>{"downloadId":"YOUR_DOWNLOAD_ID"}
+</code></pre>
+<p><strong>Optional</strong></p>
+<p>You can include your email address in the request to recieve email updates on the status of your download but it is not required. You can also view the status of your download by going to <code>https://dcc.icgc.orb/downloads/YOUR_DOWNLOAD_ID</code></p>
+<h3 id="view-status">View status</h3>
+<p><strong>Request</strong></p>
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
+
+$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>[{
+    "downloadId": "YOUR_DOWNLOAD_ID",
+    "progress": [
+        {
+            "completed": "true",
+            "dataType": "ssm",
+            "denominator": "328238",
+            "numerator": "629347",
+            "percentage": "0.5"
+        }
+    ],
+    "status": "RUNNING"
+}]
+</code></pre>
+<h3 id="downloading">Downloading</h3>
+<p>When you see <code>"status": "SUCCEEDED"</code> you can download the file.</p>
+<p><strong>Request</strong></p>
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
+
+$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
+</code></pre>
+<p><strong>Response</strong></p>
+<pre><code>% Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
+                               Dload  Upload   Total   Spent    Left     Speed
+100 12.3M    0 12.3M    0     0   471k      0 --:--:--  0:00:26 --:--:-- 3411k
+</code></pre>
+<h3 id="controlled-access_2">Controlled Access</h3>
+<p>If the Dynamic Download Job contains controlled access data you must include your <code>dcc_portal_token</code> with every request.</p>
+<p><strong>Request</strong></p>
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&amp;info=[{"key":"sgv","value":"TSV"}]&amp;email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+
+$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"sgv","value":"TSV"}]' 'email==YOUR@EMAIL.COM' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+</code></pre>
+<p><strong>Request</strong></p>
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+
+$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+</code></pre>
+<p><strong>Request</strong></p>
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
+
+$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+</code></pre>
+<h2 id="common-errors">Common Errors</h2>
+<h3 id="file-downloaded-successfully-but-only-133b">File downloaded successfully but only 133B</h3>
+<p>Look into the file, you should see a message along the lines of:</p>
+<pre><code>Error(code=404, message=Download with id '/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' not found.)
+</code></pre>
+<p><strong>Solution</strong></p>
+<p>Make sure the path to the file is correct and if you are trying to download a controlled access file make sure your <code>dcc_access_token</code> is valid.</p>
            </div>
            </div>
         </div>
