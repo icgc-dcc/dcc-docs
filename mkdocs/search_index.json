@@ -132,17 +132,17 @@
         }, 
         {
             "location": "/portal/releases/", 
-            "text": "Releases\n\n\nOverview\n\n\nThis is the Releases documentation page", 
+            "text": "Data Releases\n\n\nOverview\n\n\nA DCC data release is a data set produced from clinical and experimental data submitted through the ICGC Data Submission site. (\nSomeone please update this and provides the proper definition of our data release\n)\n\n\n[\n]\n(images/dcc-data-releases \"Click on the image to see it in full.\")\n\n\nThe \nDCC Data Releases\n page is where you can browse and download archive data files for every DCC data release in the past. It can be located by clicking/tapping the blue disk icon on the top of the Data Portal site.\n\n\nPast data releases are listed in table form, from \nRelease 14\n to the most current release. \n\n\nClicking a directory link navigates to the directory containing the release data content. The breadcrumb on the top of the table provides a context of where you are currently within directory hierarchy, and a way to quickly jump back to a particular level in the directory path.\n\n\n[\n]\n(images/data-release-16 \"Click on the image to see it in full.\")\n\n\nEach directory has a README.txt file, whose content is displayed below the table for your viewing convenience. Starting from \nRelease 16\n, summary information is included in each release archive. For example, the \nRelease 16\n directory shows two sub-directories, \nSummary\n and \nProjects\n. Under the \nSummary\n directory, summary files are available for download; large data files are located in the \nProjects\n directory. Releases prior to \nRelease 16\n only provide large data files.\n\n\n[\n]\n(images/legacy-data-releases \"Click on the image to see it in full.\")\n\n\nReleases prior to \nRelease 14\n can be located via the \"legacy_data_releases\" link below \"release_14\". \n\n\nClicking a file link initiates a download - most Web browsers prompt the user for where to save the file.", 
             "title": "Releases"
         }, 
         {
-            "location": "/portal/releases/#releases", 
+            "location": "/portal/releases/#data-releases", 
             "text": "", 
-            "title": "Releases"
+            "title": "Data Releases"
         }, 
         {
             "location": "/portal/releases/#overview", 
-            "text": "This is the Releases documentation page", 
+            "text": "A DCC data release is a data set produced from clinical and experimental data submitted through the ICGC Data Submission site. ( Someone please update this and provides the proper definition of our data release )  [ ]\n(images/dcc-data-releases \"Click on the image to see it in full.\")  The  DCC Data Releases  page is where you can browse and download archive data files for every DCC data release in the past. It can be located by clicking/tapping the blue disk icon on the top of the Data Portal site.  Past data releases are listed in table form, from  Release 14  to the most current release.   Clicking a directory link navigates to the directory containing the release data content. The breadcrumb on the top of the table provides a context of where you are currently within directory hierarchy, and a way to quickly jump back to a particular level in the directory path.  [ ]\n(images/data-release-16 \"Click on the image to see it in full.\")  Each directory has a README.txt file, whose content is displayed below the table for your viewing convenience. Starting from  Release 16 , summary information is included in each release archive. For example, the  Release 16  directory shows two sub-directories,  Summary  and  Projects . Under the  Summary  directory, summary files are available for download; large data files are located in the  Projects  directory. Releases prior to  Release 16  only provide large data files.  [ ]\n(images/legacy-data-releases \"Click on the image to see it in full.\")  Releases prior to  Release 14  can be located via the \"legacy_data_releases\" link below \"release_14\".   Clicking a file link initiates a download - most Web browsers prompt the user for where to save the file.", 
             "title": "Overview"
         }, 
         {
