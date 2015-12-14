@@ -1,5 +1,5 @@
 <h1 class="title">
- Analyzed Sample Data File (sample)
+ Analyzed Sample Data File (sample) - v0.10a
 </h1>
 <div id="content-group" class="content-group row nested " style="width:100%">
  <div id="content-group-inner" class="content-group-inner inner">
@@ -10,7 +10,7 @@
     <div id="content-inner" class="content-inner block">
      <div id="content-inner-inner" class="content-inner-inner inner">
       <div id="content-content" class="content-content">
-       <div id="node-6975" class="node odd full-node node-type-book">
+       <div id="node-6658" class="node odd full-node node-type-book">
         <div class="inner">
          <div class="content clearfix">
           <div class="file">
@@ -489,14 +489,14 @@
                 <div class="link">
                  <small>
                   [
-                  <a href="#sample.0.study.v3">
-                   sample.0.study.v3
+                  <a href="#sample.0.study.v1">
+                   sample.0.study.v1
                   </a>
                   ]
                  </small>
                 </div>
                 <div class="list">
-                 <dl title="sample.0.study.v3" class="codes-list">
+                 <dl title="sample.0.study.v1" class="codes-list">
                   <dt>
                    <small>
                     1
@@ -504,14 +504,14 @@
                   </dt>
                   <dd>
                    <small>
-                    PCAWG
+                    PanCancer Study
                    </small>
                   </dd>
                  </dl>
                 </div>
                </td>
                <td class="bool isfalse">
-                <span class="label" title="Value optional">
+                <span class="label" title="Value optional, VALID if value is set to NULL code -999">
                  Optional
                 </span>
                </td>
@@ -558,14 +558,14 @@
           </p>
           <div id="book-navigation-6310" class="book-navigation">
            <div class="page-links clear-block">
-            <a href="/specimen-data-file-specimen" class="page-previous" title="Go to previous page">
-             ‹ Specimen Data File (specimen)
+            <a href="/specimen-data-file-specimen-10a" class="page-previous" title="Go to previous page">
+             ‹ Specimen Data File (specimen) - v0.10a
             </a>
-            <a href="/dictionary" class="page-up" title="Go to parent page">
+            <a href="/dictionary-v10a-october-2014" class="page-up" title="Go to parent page">
              up
             </a>
-            <a href="/simple-somatic-mutations-ssm-analysis-metadata-file-m" class="page-next" title="Go to next page">
-             Simple Somatic Mutations (ssm) - Analysis Metadata File (m) ›
+            <a href="/donor-biomarkers-biomarker-10a" class="page-next" title="Go to next page">
+             Donor Biomarkers (biomarker) - v0.10a ›
             </a>
            </div>
           </div>
@@ -574,7 +574,7 @@
         <!-- /inner -->
         <!-- regular node view template HTML here -->
        </div>
-       <!-- /node-6975 -->
+       <!-- /node-6658 -->
       </div>
       <!-- /content-content -->
      </div>
