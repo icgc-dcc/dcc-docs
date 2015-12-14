@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/submission/dictionary/release-17/icgc-simple-somatic-mutation-format-09a/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+   <title>ICGC Simple Somatic Mutation Format - 0.9a - ICGC Docs</title>
+
+        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../../css/highlight.css">
+        <link href="../../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../api/">API</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Dictionary</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../">Release Notes</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 20</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../release-20/">Dictionary - Release 20</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/analyzed-sample-data-file-sample/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/array-based-dna-methylation-metharray-analysis-metadata-file-m/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/array-based-dna-methylation-metharray-primary-file-p/">Array-based DNA Methylation (meth_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/array-based-gene-expression-exparray-analysis-metadata-file-m/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/array-based-gene-expression-exparray-primary-file-p/">Array-based Gene Expression (exp_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/controlled-vocabulary/">Controlled Vocabulary (CV) Tables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/copy-number-somatic-mutations-cnsm-primary-analysis-file-p/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/donor-biomarker/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/donor-data-file-donor/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/donor-exposure/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/donor-family/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/donor-postresection-therapy/">Donor Postresection Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/donor-surgery/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/protein-expression-pexp-analysis-metadata-file-m/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/protein-expression-pexp-primary-analysis-file-p/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/sequencing-based-dna-methylation-methseq-primary-file-p/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/sequencing-based-gene-expression-expseq-analysis-metadata-file-m/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/sequencing-based-gene-expression-expseq-primary-file-p/">Sequencing-based Gene Expression (exp_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/sequencing-based-mirna-expression-mirnaseq-primary-file-p/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/simple-germline-variation-sgv-analysis-metadata-file-m/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/simple-germline-variation-sgv-primary-analysis-file-p/">Simple Germline Variation (sgv) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/simple-somatic-mutations-ssm-analysis-metadata-file-m/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/simple-somatic-mutations-ssm-primary-analysis-file-p/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/specimen-data-file-specimen/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/splice-variation-jcn-analysis-metadata-file-m/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/splice-variation-jcn-primary-analysis-file-p/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/structural-somatic-mutations-stsm-analysis-metadata-file-m/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/structural-somatic-mutations-stsm-primary-analysis-file-p/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-20/structural-somatic-mutations-stsm-secondary-analysis-file-s/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 19</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../release-19/">Dictionary - Release 19</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/pancancer-clinical-data-requirements/">PanCancer Clinical Data Requirements</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/analyzed-sample-data-file-sample-11c/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/array-based-dna-methylation-metharray-analysis-metadata-file-m-11c/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/array-based-dna-methylation-metharray-primary-file-p-11c/">Array-based DNA Methylation (meth_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/array-based-gene-expression-exparray-analysis-metadata-file-m-11c/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/array-based-gene-expression-exparray-primary-file-p-11c/">Array-based Gene Expression (exp_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/controlled-vocabulary-11c/">Controlled Vocabulary (CV) Tables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-11c/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-11c/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/donor-biomarker-11c/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/donor-data-file-donor-11c/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/donor-exposure-11c/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/donor-family-11c/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/donor-postresection-therapy-11c/">Donor Postresection Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/donor-surgery-11c/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/protein-expression-pexp-analysis-metadata-file-m-11c/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/protein-expression-pexp-primary-analysis-file-p-11c/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-11c/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/sequencing-based-dna-methylation-methseq-primary-file-p-11c/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-11c/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/sequencing-based-gene-expression-expseq-primary-file-p-11c/">Sequencing-based Gene Expression (exp_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-11c/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/sequencing-based-mirna-expression-mirnaseq-primary-file-p-11c/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/simple-germline-variation-sgv-analysis-metadata-file-m-11c/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/simple-germline-variation-sgv-primary-analysis-file-p-11c/">Simple Germline Variation (sgv) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/simple-somatic-mutations-ssm-analysis-metadata-file-m-11c/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/simple-somatic-mutations-ssm-primary-analysis-file-p-11c/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/specimen-data-file-specimen-11c/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/splice-variation-jcn-analysis-metadata-file-m-11c/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/splice-variation-jcn-primary-analysis-file-p-11c/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/structural-somatic-mutations-stsm-analysis-metadata-file-m-11c/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/structural-somatic-mutations-stsm-primary-analysis-file-p-11c/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-19/structural-somatic-mutations-stsm-secondary-analysis-file-s-11c/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 18</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../release-18/">Dictionary - Release 18</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/analyzed-sample-data-file-sample-10a/">Analyzed Sample Data File (sample) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/array-based-dna-methylation-metharray-analysis-metadata-file-m-10a/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/array-based-dna-methylation-metharray-primary-file-p-10a/">Array-based DNA Methylation (meth_array) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/array-based-gene-expression-exparray-analysis-metadata-file-m-10a/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/array-based-gene-expression-exparray-primary-file-p-10a/">Array-based Gene Expression (exp_array) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/controlled-vocabulary-10a/">Controlled Vocabulary (CV) Tables -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-10a/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-10a/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-10a/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/donor-biomarkers-biomarker-10a/">Donor Biomarkers (biomarker) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/donor-data-file-donor-10a/">Donor Data File (donor) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/donor-exposure-exposure-10a/">Donor Exposure (exposure) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/donor-family-family-10a/">Donor Family (family) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/donor-surgery-surgery-10a/">Donor Surgery (surgery) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/donor-therapy-therapy-10a/">Donor Therapy (therapy) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/methylation-array-manifests/">Methylation Array Manifests</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/protein-expression-pexp-analysis-metadata-file-m-10a/">Protein Expression (pexp) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/protein-expression-pexp-primary-analysis-file-p-10a/">Protein Expression (pexp) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-10a/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/sequencing-based-dna-methylation-methseq-primary-file-p-10a/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-10a/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/sequencing-based-gene-expression-expseq-primary-file-p-10a/">Sequencing-based Gene Expression (exp_seq) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-10a/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/sequencing-based-mirna-expression-mirnaseq-primary-file-p-10a/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/simple-germline-variation-sgv-analysis-metadata-file-m-10a/">Simple Germline Variation (sgv) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/simple-germline-variation-sgv-primary-analysis-file-p-10a/">Simple Germline Variation (sgv) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/simple-somatic-mutations-ssm-analysis-metadata-file-m-10a/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/simple-somatic-mutations-ssm-primary-analysis-file-p-10a/">Simple Somatic Mutations (ssm) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/specimen-data-file-specimen-10a/">Specimen Data File (specimen) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/splice-variation-jcn-analysis-metadata-file-m-10a/">Splice Variation (jcn) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/splice-variation-jcn-analysis-metadata-file-m-dummy/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/splice-variation-jcn-primary-analysis-file-p-10a/">Splice Variation (jcn) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/structural-somatic-mutations-stsm-analysis-metadata-file-m-10a/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/structural-somatic-mutations-stsm-primary-analysis-file-p-10a/">Structural Somatic Mutations (stsm) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-18/structural-somatic-mutations-stsm-secondary-analysis-file-s-10a/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s) -v0.10a</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 17</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../">Dictionary - Release 17</a>
+</li>
+
+        
+            
+<li >
+    <a href="../analyzed-sample-data-file-sample-09a/">Analyzed Sample Data File (sample) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../array-based-dna-methylation-metharray-analysis-metadata-file-m-09a/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../array-based-dna-methylation-metharray-primary-file-p-09a/">Array-based DNA Methylation (meth_array) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../array-based-gene-expression-exparray-analysis-metadata-file-m-09a/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../array-based-gene-expression-exparray-primary-file-p-09a/">Array-based Gene Expression (exp_array) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../controlled-vocabulary-09a/">Controlled Vocabulary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-09a/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../copy-number-somatic-mutations-cnsm-primary-analysis-file-p-09a/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-v09a/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-biomarkers-biomarker-09a/">Donor Biomarkers (biomarker) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-data-file-donor-09a/">Donor Data File (donor) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-exposure-exposure-09a/">Donor Exposure (exposure) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-family-family-09a/">Donor Family (family) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-surgery-surgery-09a/">Donor Surgery (surgery) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-therapy-therapy-09a/">Donor Therapy (therapy) - 0.9a</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">ICGC Simple Somatic Mutation Format - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../list-institutions-09a/">List of Institutions - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../methylation-array-manifests-09a/">MVEL Script Restriction Example Cases - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mvel-script-restriction-example-cases-09a/">Methylation Array Manifests - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../protein-expression-pexp-analysis-metadata-file-m-09a/">Protein Expression (pexp) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../protein-expression-pexp-primary-analysis-file-p-09a/">Protein Expression (pexp) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-09a/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sequencing-based-dna-methylation-methseq-primary-file-p-09a/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sequencing-based-gene-expression-expseq-analysis-metadata-file-m-09a/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sequencing-based-gene-expression-expseq-primary-file-p-09a/">Sequencing-based Gene Expression (exp_seq) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-09a/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sequencing-based-mirna-expression-mirnaseq-primary-file-p-09a/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../simple-germline-variation-sgv-analysis-metadata-file-m-09a/">Simple Germline Variation (sgv) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../simple-germline-variation-sgv-primary-analysis-file-p-09a/">Simple Germline Variation (sgv) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../simple-somatic-mutations-ssm-analysis-metadata-file-m-09a/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../simple-somatic-mutations-ssm-primary-analysis-file-p-09a/">Simple Somatic Mutations (ssm) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../specimen-data-file-specimen-09a/">Specimen Data File (specimen) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../specimen-type-mapping-09a/">Specimen Type Mapping - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../splice-variation-jcn-analysis-metadata-file-m-09a/">Splice Variation (jcn) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../splice-variation-jcn-analysis-metadata-file-m-dummy/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../splice-variation-jcn-primary-analysis-file-p-09a/">Splice Variation (jcn) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../structural-somatic-mutations-stsm-analysis-metadata-file-m-09a/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../structural-somatic-mutations-stsm-primary-analysis-file-p-09a/">Structural Somatic Mutations (stsm) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../structural-somatic-mutations-stsm-secondary-analysis-file-s-09a/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s) - 0.9a</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 16</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../release-16/">Dictionary - Release 16</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/analyzed-sample-data-file-sample-08d/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/array-based-dna-methylation-metharray-analysis-metadata-file-m-08d/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/array-based-dna-methylation-metharray-primary-file-p-08d/">Array-based DNA Methylation (meth_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/array-based-gene-expression-exparray-analysis-metadata-file-m-08d/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/array-based-gene-expression-exparray-primary-file-p-08d/">Array-based Gene Expression (exp_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/controlled-vocabulary-08d/">Controlled Vocabulary-08d</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-08d/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-08d/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-08d/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/donor-biomarkers-biomarker-08d/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/donor-data-file-donor-08d/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/donor-exposure-exposure-08d/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/donor-family-family-08d/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/donor-surgery-surgery-08d/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/donor-therapy-therapy-08d/">Donor Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/icgc-simple-somatic-mutation-format-08d/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/list-institutions-08d/">List of Institutions</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/methylation-array-manifests-08d/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/mvel-script-restriction-example-cases-08d/">Methylation Array Manifests</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/protein-expression-pexp-analysis-metadata-file-m-08d/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/protein-expression-pexp-primary-analysis-file-p-08d/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-08d/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/sequencing-based-dna-methylation-methseq-primary-file-p-08d/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-08d/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/sequencing-based-gene-expression-expseq-primary-file-p-08d/">Sequencing-based Gene Expression (exp_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-08d/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/sequencing-based-mirna-expression-mirnaseq-primary-file-p-08d/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/simple-germline-variation-sgv-analysis-metadata-file-m-08d/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/simple-germline-variation-sgv-primary-analysis-file-p-08d/">Simple Germline Variation (sgv) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/simple-somatic-mutations-ssm-analysis-metadata-file-m-08d/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/simple-somatic-mutations-ssm-primary-analysis-file-p-08d/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/specimen-data-file-specimen-08d/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/splice-variation-jcn-analysis-metadata-file-m-08d/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/splice-variation-jcn-primary-analysis-file-p-08d/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/structural-somatic-mutations-stsm-analysis-metadata-file-m-08d/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-16/structural-somatic-mutations-stsm-primary-analysis-file-p-08d/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 15</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../release-15/">Dictionary - Release 15</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/analyzed-sample-data-file-sample-v0.7e/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/controlled-vocabulary-v0.7e/">Controlled Vocabulary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-v0.7e/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-v0.7e/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-v0.7e/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/donor-biomarkers-biomarker-v0.7e/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/donor-data-file-donor-v0.7e/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/donor-exposure-exposure-v0.7e/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/donor-family-family-v0.7e/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/donor-surgery-surgery-v0.7e/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/donor-therapy-therapy-v0.7e/">Donor Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/gene-expression-gene-analysis-metadata-file-m-v0.7e/">Gene Expression (gene) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/gene-expression-gene-primary-analysis-file-g-v0.7e/">Gene Expression (gene) - Primary Analysis File (g)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/icgc-simple-somatic-mutation-format-v0.7e/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/list-institutions-v0.7e/">List of Institutions</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/mirna-expression-mirna-analysis-metadata-file-m-v0.7e/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/mirna-expression-mirna-primary-analysis-file-p-v0.7e/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/mirna-expression-mirna-secondary-analysis-file-s-v0.7e/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/protein-expression-pexp-analysis-metadata-file-m-v0.7e/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/protein-expression-pexp-primary-analysis-file-p-v0.7e/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/sequencing-based-dna-methylation-methseq-primary-file-p-08d/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/simple-germline-variation-sgv-analysis-metadata-file-m-v0.7e/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/simple-somatic-mutations-ssm-analysis-metadata-file-m-v0.7e/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/simple-somatic-mutations-ssm-primary-analysis-file-p-v0.7e/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/specimen-data-file-specimen-v0.7e/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/splice-variation-jcn-analysis-metadata-file-m-v0.7e/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/splice-variation-jcn-primary-analysis-file-p-v0.7e/">miRNA Expression (mirna) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/structural-somatic-mutations-stsm-analysis-metadata-file-m-v0.7e/">miRNA Expression (mirna) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e/">miRNA Expression (mirna) - Secondary Analysis File (s)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../../faq/">FAQ</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../guide/">Guide</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+    </ul>
+</div></div>
+            
+            <div class="col-md-9" role="main">
+               
+
+<h1 class="title">
+ ICGC Simple Somatic Mutation Format - 0.9a
+</h1>
+
+<div id="content-group" class="content-group row nested " style="width:100%">
+ <div id="content-group-inner" class="content-group-inner inner">
+  <div id="content-region" class="content-region row nested">
+   <div id="content-region-inner" class="content-region-inner inner">
+    <a name="main-content-area" id="main-content-area">
+    </a>
+    <div id="content-inner" class="content-inner block">
+     <div id="content-inner-inner" class="content-inner-inner inner">
+      <div id="content-content" class="content-content">
+       <div id="node-6554" class="node odd full-node node-type-book">
+        <div class="inner">
+         <div class="content clearfix">
+          <div class="view" id="content">
+           <div class="wiki-content group" id="main-content">
+            <div>
+             <h3 id="important_notes">
+              Important Notes
+             </h3>
+             <h4 id="ICGCSimpleSomaticMutationFormat-chromosomecoordinates">
+              chromosome coordinates
+             </h4>
+             <ul>
+              <li>
+               The first base of a chromosome starts at 1 and counts onward along the forward strand until the end.
+              </li>
+              <li>
+               The value of chromosome_start must be less than or equal to chromosome_end
+              </li>
+              <li>
+               The size of a feature is calculated as: chromosome_end - chromosome_start + 1
+              </li>
+              <li>
+               For mutations that are single-base substitutions, deletions or multiple-base substitutions, use the start and end coordinates of the corresponding chromosome interval on the reference genome where the mutation occurs.
+              </li>
+              <li>
+               For mutations that are insertions, use the coordinates of the position on the chromosome that is immediately after the insertion point.
+              </li>
+             </ul>
+             <h4 id="ICGCSimpleSomaticMutationFormat-chromosome_strand">
+              chromosome_strand
+             </h4>
+             <ul>
+              <li>
+               &#39;chromosome_strand&#39; is used to record the reference genome strand on which the genotype alleles are located
+              </li>
+              <li>
+               In ICGC simple somatic mutation format, we require the forward strand sequence is always used for genotypes
+              </li>
+              <li>
+               &#39;chromosome_strand&#39; does not have anything to do with the strandness of the gene that contains the simple mutation
+              </li>
+             </ul>
+             <h4 id="ICGCSimpleSomaticMutationFormat-control_genotype,tumour_genotype" style="list-style-type: none;background-image: none;">
+              control_genotype, tumour_genotype
+             </h4>
+             <ul>
+              <li>
+               Genotype is presented as nucleotide sequence of all allele(s). For example, in a diploid genome on chromosome 1 at position 12345, if one allele on the forward strand is A and the other is G, then the genotype is presented as A/G and &#39;chromosome_strand&#39; being &#39;1&#39; (i.e. forward strand)
+              </li>
+              <li>
+               In the case that the genotype is hemizygous (e.g. G allele is missing), it can be presented as A/-.
+              </li>
+              <li>
+               &#39;control_genotype&#39; and &#39;tumour_genotype&#39; are used to record genotype for the matched control sample and the primary tumour sample, respectively. Both genotypes must be presented using the same strand of the reference genome.
+              </li>
+             </ul>
+             <h4 id="ICGCSimpleSomaticMutationFormat-reference_genome_allele">
+              reference_genome_allele
+             </h4>
+             <ul>
+              <li>
+               &#39;reference_genome_allele&#39; is the forward strand nucleotide(s) at the corresponding location on the reference genome where the somatic mutation is detected in the tumour sample.
+              </li>
+             </ul>
+             <h3 id="examples">
+              Examples of different types of simple somatic mutations
+             </h3>
+             <ul>
+              <li>
+               <a href="#how1">
+                How do I represent an insertion?
+               </a>
+              </li>
+              <li>
+               <a href="#how2">
+                How do I represent a deletion?
+               </a>
+              </li>
+              <li>
+               <a href="#how3">
+                How do I represent a single-base substitution/mismatch?
+               </a>
+              </li>
+              <li>
+               <a href="#how4">
+                How do I represent a multiple-base substitution?
+               </a>
+               <br>
+               <br>
+               <br>
+              </li>
+             </ul>
+             <h3 id="how1">
+              How do I represent an insertion?
+             </h3>
+             <p>
+              <a href="#examples">
+               back to top
+              </a>
+             </p>
+             <p>
+             </p>
+            </div>
+            <ul>
+             <li>
+              Use the position of the nucleotide on the chromosome that is immediately
+              <strong>
+               after
+              </strong>
+              the insertion point. The rationale is that the inserted base starts at the specified chromosome start position.
+             </li>
+             <li>
+              Example: an insertion of a single base &#34;
+              <span style="color: rgb(255,0,0);">
+               T
+              </span>
+              &#34; after &#34;
+              <span style="color: rgb(0,0,255);">
+               A
+              </span>
+              &#34; at position 56. Use position 56 to represent the insertion chromosome start position.
+             </li>
+            </ul>
+            <p>
+            </p>
+            <div>
+             <table class="confluenceTable">
+              <tbody style="margin-left: 30.0px;">
+               <tr style="margin-left: 30.0px;">
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 Position
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 55
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 56
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 57
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 58
+                </th>
+               </tr>
+               <tr style="margin-left: 30.0px;">
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 Reference Genome
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  A
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  G
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  C
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  A
+                 </span>
+                </td>
+               </tr>
+               <tr style="margin-left: 30.0px;">
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 Tumour Genome
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  A
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(255,0,0);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  G
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  C
+                 </span>
+                </td>
+               </tr>
+              </tbody>
+             </table>
+             <p>
+              <br>
+             </p>
+            </div>
+            <div>
+             <table class="confluenceTable">
+              <tbody style="margin-left: 30.0px;">
+               <tr style="margin-left: 30.0px;">
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 mutation type
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 chromosome start
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 chromosome end
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 reference genome allele
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 control genotype
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 tumour genotype
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 mutated from allele
+                </th>
+                <th class="confluenceTh" style="margin-left: 30.0px;">
+                 <p>
+                  mutated to allele
+                 </p>
+                </th>
+               </tr>
+               <tr style="margin-left: 30.0px;">
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 insertion
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 56
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 56
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 -
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 - / -
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 - /T
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 -
+                </td>
+                <td class="confluenceTd" style="margin-left: 30.0px;">
+                 T
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+            <h3 id="how2">
+             How do I represent a deletion?
+            </h3>
+            <p>
+             <a href="#examples">
+              back to top
+             </a>
+            </p>
+            <p>
+            </p>
+            <ul>
+             <li style="list-style-type: none;background-image: none;">
+              <ul>
+               <li>
+                Use the start position and end position of the deleted mutated fragment to represent the deletion.
+               </li>
+               <li>
+                Example: A deletion of &#34;TCTT&#34; at chromosome start position 124.
+               </li>
+              </ul>
+             </li>
+            </ul>
+            <p style="margin-left: 30.0px;">
+            </p>
+            <div>
+             <table class="confluenceTable">
+              <tbody style="margin-left: 60.0px;">
+               <tr style="margin-left: 60.0px;">
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 Position
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 123
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 124
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 125
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 126
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;" colspan="1">
+                 127
+                </th>
+               </tr>
+               <tr style="margin-left: 60.0px;">
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 Reference Genome
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  C
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  C
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+               </tr>
+               <tr style="margin-left: 60.0px;">
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 Tumour Genome
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  C
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(255,0,0);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(255,0,0);">
+                  C
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(255,0,0);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                 <span style="color: rgb(255,0,0);">
+                  T
+                 </span>
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+            <div>
+             <br>
+             <table class="confluenceTable">
+              <tbody style="margin-left: 60.0px;">
+               <tr style="margin-left: 60.0px;">
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 mutation type
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 chromosome start
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 chromosome end
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 reference genome allele
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 control genotype
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 tumour genotype
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 mutated from allele
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 <p style="text-align: left;">
+                  mutated to allele
+                 </p>
+                </th>
+               </tr>
+               <tr style="margin-left: 60.0px;">
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  deletion
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  124
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  127
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  TCTT
+                 </span>
+                 <span>
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  TCTT/TCTT
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  TCTT/-
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span>
+                  TCTT
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 -
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+            <p>
+             <br>
+             <br>
+            </p>
+            <h3 id="how3">
+             How do I represent a single-base substitution?
+            </h3>
+            <p>
+             <a href="#examples">
+              back to top
+             </a>
+            </p>
+            <p>
+            </p>
+            <ul>
+             <li style="list-style-type: none;background-image: none;">
+              <ul>
+               <li>
+                Use the corresponding chromosome interval on the reference genome where the single-base mutation is located.
+               </li>
+               <li>
+                Example: A mutation occurs at position 51 where
+                <span style="color: rgb(0,0,255);">
+                 G
+                </span>
+                is substituted with
+                <span style="color: rgb(255,0,0);">
+                 C
+                 <span style="color: rgb(0,0,0);">
+                  . The chromosome start position will be 51.
+                 </span>
+                </span>
+               </li>
+              </ul>
+             </li>
+            </ul>
+            <p>
+            </p>
+            <div>
+             <table class="confluenceTable">
+              <tbody style="margin-left: 60.0px;">
+               <tr style="margin-left: 60.0px;">
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 Position
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 50
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 51
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 52
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 53
+                </th>
+               </tr>
+               <tr style="margin-left: 60.0px;">
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 Reference Genome
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  G
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  A
+                 </span>
+                </td>
+               </tr>
+               <tr style="margin-left: 60.0px;">
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 Tumour Genome
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(255,0,0);">
+                  C
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  T
+                 </span>
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 <span style="color: rgb(0,0,255);">
+                  A
+                 </span>
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+            <div>
+             <table class="confluenceTable">
+              <tbody style="margin-left: 60.0px;">
+               <tr style="margin-left: 60.0px;">
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 mutation type
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 chromosome start
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 chromosome end
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 reference genome allele
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 control genotype
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 tumour genotype
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 mutated from allele
+                </th>
+                <th class="confluenceTh" style="margin-left: 60.0px;">
+                 <p>
+                  mutated to allele
+                 </p>
+                </th>
+               </tr>
+               <tr style="margin-left: 60.0px;">
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 single-base substitution
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 51
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 51
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 G
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 G/G
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 G/C
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 G
+                </td>
+                <td class="confluenceTd" style="margin-left: 60.0px;">
+                 C
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+            <h3 id="how4">
+             How do I represent a multiple-base substitution?
+            </h3>
+            <p>
+             <a href="#examples">
+              back to top
+             </a>
+            </p>
+            <div>
+             <p>
+             </p>
+             <ul>
+              <li style="list-style-type: none;background-image: none;">
+               <ul>
+                <li>
+                 Use the start and end coordinates of the mutated fragment.
+                </li>
+                <li>
+                 Example: The sequence &#34;ACTCAGACC&#34; starting from position 50 to 58 is substituted with the sequence &#34;TTGT&#34;.
+                </li>
+               </ul>
+              </li>
+             </ul>
+             <p>
+             </p>
+             <p>
+             </p>
+             <div>
+              <table class="confluenceTable">
+               <tbody style="margin-left: 60.0px;">
+                <tr style="margin-left: 60.0px;">
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  Position
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  50
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  51
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  52
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  53
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;" colspan="1">
+                  54
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;" colspan="1">
+                  55
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;" colspan="1">
+                  56
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;" colspan="1">
+                  57
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;" colspan="1">
+                  58
+                 </th>
+                </tr>
+                <tr style="margin-left: 60.0px;">
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  Reference Genome
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(0,0,255);">
+                   A
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(0,0,255);">
+                   C
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(0,0,255);">
+                   T
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(0,0,255);">
+                   C
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                  <span style="color: rgb(0,0,255);">
+                   A
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                  <span style="color: rgb(0,0,255);">
+                   G
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                  <span style="color: rgb(0,0,255);">
+                   A
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                  <span style="color: rgb(0,0,255);">
+                   C
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;" colspan="1">
+                  <span style="color: rgb(0,0,255);">
+                   C
+                  </span>
+                 </td>
+                </tr>
+                <tr style="margin-left: 60.0px;">
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  Tumour Genome
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(255,0,0);">
+                   T
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(255,0,0);">
+                   T
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(255,0,0);">
+                   G
+                  </span>
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  <span style="color: rgb(255,0,0);">
+                   T
+                  </span>
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+             <div>
+              <br>
+              <table class="confluenceTable">
+               <tbody style="margin-left: 60.0px;">
+                <tr style="margin-left: 60.0px;">
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  mutation type
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  chromosome start
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  chromosome end
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  reference genome allele
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  control genotype
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  tumour genotype
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  mutated from allele
+                 </th>
+                 <th class="confluenceTh" style="margin-left: 60.0px;">
+                  <p>
+                   mutated to allele
+                  </p>
+                 </th>
+                </tr>
+                <tr style="margin-left: 60.0px;">
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  multiple-base substitution
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  50
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  58
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  ACTCAGACC/ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  ACTCAGACC/TTGT
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" style="margin-left: 60.0px;">
+                  TTGT
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+             <p>
+             </p>
+             <h3 id="ICGCSimpleSomaticMutationFormat-VCF-likevs.ICGC-likeMutationFormat:">
+              <strong>
+               VCF-like vs. ICGC-like Mutation Format:
+              </strong>
+             </h3>
+             <p>
+              The table below highlights the differences between VCF-like mutation format and the mutation format used by ICGC.
+             </p>
+             <p>
+              <strong>
+               <br>
+              </strong>
+             </p>
+             <div>
+              <table class="confluenceTable">
+               <tbody>
+                <tr>
+                 <th class="confluenceTh">
+                  Format
+                 </th>
+                 <th class="confluenceTh">
+                  mutation type
+                 </th>
+                 <th class="confluenceTh">
+                  chromosome start
+                 </th>
+                 <th class="confluenceTh">
+                  chromosome end
+                 </th>
+                 <th class="confluenceTh">
+                  reference genome allele
+                 </th>
+                 <th class="confluenceTh">
+                  control genotype
+                 </th>
+                 <th class="confluenceTh">
+                  tumour genotype
+                 </th>
+                 <th class="confluenceTh">
+                  <p>
+                   <span style="color: rgb(0,0,255);">
+                    mutated from allele
+                   </span>
+                  </p>
+                  <p>
+                   <span style="color: rgb(0,0,255);">
+                    (new field)
+                   </span>
+                  </p>
+                 </th>
+                 <th class="confluenceTh">
+                  <p>
+                   <span style="color: rgb(0,0,255);">
+                    mutated to allele
+                   </span>
+                  </p>
+                  <p>
+                   <span style="color: rgb(0,0,255);">
+                    (new field)
+                   </span>
+                  </p>
+                 </th>
+                </tr>
+                <tr>
+                 <td class="confluenceTd">
+                  VCF-like
+                 </td>
+                 <td class="confluenceTd">
+                  deletion
+                 </td>
+                 <td class="confluenceTd">
+                  49510010
+                 </td>
+                 <td class="confluenceTd">
+                  49510012
+                 </td>
+                 <td class="confluenceTd">
+                  TGA
+                 </td>
+                 <td class="confluenceTd">
+                  TGA/TGA
+                 </td>
+                 <td class="confluenceTd">
+                  TGA/T
+                 </td>
+                 <td class="confluenceTd">
+                 </td>
+                 <td class="confluenceTd">
+                 </td>
+                </tr>
+                <tr>
+                 <td class="confluenceTd">
+                  ICGC Format
+                 </td>
+                 <td class="confluenceTd">
+                  deletion
+                 </td>
+                 <td class="confluenceTd">
+                  49510011
+                 </td>
+                 <td class="confluenceTd">
+                  49510012
+                 </td>
+                 <td class="confluenceTd">
+                  GA
+                 </td>
+                 <td class="confluenceTd">
+                  GA/GA
+                 </td>
+                 <td class="confluenceTd">
+                  GA/-
+                 </td>
+                 <td class="confluenceTd">
+                  GA
+                 </td>
+                 <td class="confluenceTd">
+                  -
+                 </td>
+                </tr>
+                <tr>
+                 <td class="confluenceTd">
+                  VCF-like
+                 </td>
+                 <td class="confluenceTd">
+                  insertion
+                 </td>
+                 <td class="confluenceTd">
+                  115303927
+                 </td>
+                 <td class="confluenceTd">
+                  115303927
+                 </td>
+                 <td class="confluenceTd">
+                  A
+                 </td>
+                 <td class="confluenceTd">
+                  A/A
+                 </td>
+                 <td class="confluenceTd">
+                  A/AT
+                 </td>
+                 <td class="confluenceTd">
+                 </td>
+                 <td class="confluenceTd">
+                 </td>
+                </tr>
+                <tr>
+                 <td class="confluenceTd">
+                  <p>
+                   ICGC Format
+                  </p>
+                 </td>
+                 <td class="confluenceTd">
+                  insertion
+                 </td>
+                 <td class="confluenceTd">
+                  115303927
+                 </td>
+                 <td class="confluenceTd">
+                  115303927
+                 </td>
+                 <td class="confluenceTd">
+                  -
+                 </td>
+                 <td class="confluenceTd">
+                  -/-
+                 </td>
+                 <td class="confluenceTd">
+                  -/T
+                 </td>
+                 <td class="confluenceTd">
+                  -
+                 </td>
+                 <td class="confluenceTd">
+                  T
+                 </td>
+                </tr>
+                <tr>
+                 <td class="confluenceTd" colspan="1">
+                  VCF-like
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  multiple-base substitution
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  39884779
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  39884787
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC/ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC/TTGT
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                 </td>
+                </tr>
+                <tr>
+                 <td class="confluenceTd" colspan="1">
+                  ICGC-like
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  multiple-base substitution
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  39884779
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  39884787
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC/ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC/TTGT
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  ACTCAGACC
+                 </td>
+                 <td class="confluenceTd" colspan="1">
+                  TTGT
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+            </div>
+           </div>
+          </div>
+          <h3>
+           <a name="masking" style="text-decoration: none; color: rgb(0,0,0);">
+            Germline Data Masking
+           </a>
+          </h3>
+          <p>
+           As of Release 15, ICGC DCC will be censoring the patient&#39;s germline genotype in Simple Somatic Mutation data in the case where genotype consists of allele(s) that does not match the reference genome allele. Detailed explanation is
+           <a href="/methods#masking">
+            here
+           </a>
+           .
+          </p>
+          <div id="book-navigation-6310" class="book-navigation">
+           <div class="page-links clear-block">
+            <a href="/simple-somatic-mutations-ssm-primary-analysis-file-p-09a" class="page-previous" title="Go to previous page">
+             ‹ Simple Somatic Mutations (ssm) - Primary Analysis File (p) - 0.9a
+            </a>
+            <a href="/dictionary-v09a-june-2014-release-17" class="page-up" title="Go to parent page">
+             up
+            </a>
+            <a href="/simple-germline-variation-sgv-analysis-metadata-file-m-09a" class="page-next" title="Go to next page">
+             Simple Germline Variation (sgv) - Analysis Metadata File (m) - 0.9a ›
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+        <!-- /inner -->
+        <!-- regular node view template HTML here -->
+       </div>
+       <!-- /node-6554 -->
+      </div>
+      <!-- /content-content -->
+     </div>
+     <!-- /content-inner-inner -->
+    </div>
+    <!-- /content-inner -->
+   </div>
+   <!-- /content-region-inner -->
+  </div>
+  <!-- /content-region -->
+ </div>
+ <!-- /content-group-inner -->
+</div>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../../js/highlight.pack.js"></script>
+        <script src="../../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../../../js/base.js"></script>
+        <script>var base_url = '../../../..';</script>
+    </body>
+</html>

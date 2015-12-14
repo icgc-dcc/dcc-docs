@@ -188,8 +188,6 @@ h6:hover .header-link {
 }
 
 .dropdown-submenu>.dropdown-menu {
-    max-height:500px;
-    overflow:scroll;
     top: 0;
     left: 100%;
     margin-top: -6px;
