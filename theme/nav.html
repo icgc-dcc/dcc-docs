@@ -44,6 +44,7 @@
                 </li>
             </ul>
 
+            {% if false %}
             <ul class="nav navbar-nav navbar-right">
                 <li {% if not previous_page %}class="disabled"{% endif %}>
                     <a rel="next" {% if previous_page %}href="{{ previous_page.url }}"{% endif %}>
@@ -68,6 +69,7 @@
                 </li>
                 {% endif %}
             </ul>
+            {% endif %}
         </div>
     </div>
 </div>

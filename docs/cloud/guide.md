@@ -1,6 +1,6 @@
 ## Overview
 
-This user guide describes the steps to securely explore and analyze ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](https://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](/icgc-in-the-cloud/).
+This user guide describes the steps to securely explore and analyze ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](http://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](https://dcc.icgc.org/icgc-in-the-cloud).
 
 Please see [Terms](#terms) for a glossary of terms used in this guide.
 
@@ -8,29 +8,29 @@ Please see [Terms](#terms) for a glossary of terms used in this guide.
 
 The figure below illustrates the overall process and systems involved:
 
-1.  [Authorization](#auth)
+1.  [Authorization](#authorization)
     Apply for DACO _Cloud Access_ if not already approved
     Upon approval, login to the _Data Portal_
     Generate an _Access Token_ for cloud download
-2.  [Compute Prerequistes](#preqs)
+2.  [Compute Prerequistes](#compute-prerequisites)
     Provision a _Compute Instance_ in the target cloud
-3.  [Installation](#install)
+3.  [Installation](#installation)
     Download and install the ICGC _Storage Client_
-4.  [Configuration](#config)
+4.  [Configuration](#configuration)
     Configure the Storage Client to use the generated Access Token
-5.  [File Search](#fs-search)
+5.  [File Search](#file-search)
     Identify files of interest using the Data Portal
-6.  [Storage Client Usage](#storage-client)
+6.  [Storage Client Usage](#storage-client-usage)
     Download or view data with the provided Storage Client or via an external tool
 
 
-[![Cloud Process Diagram](images/process-diagram.svg)](images/process-diagram "Click Cloud Process Diagram to see the full image.")
+[![Cloud Process Diagram](images/process-diagram.png)](images/process-diagram.png "Click Cloud Process Diagram to see the full image.")
 
 The subsequent sections will provide additional details on each of these topics.
 
 ### Security
 
-The usage of the distributed [Storage Client](/software) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
+The usage of the distributed [Storage Client](https://dcc.icgc.org/software) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
 
 #### AWS
 
@@ -50,7 +50,7 @@ There are two prerequesites to using the Storage Client: DACO Cloud Access statu
 
 ### DACO Cloud Access
 
-DACO Cloud Access is prerequisite to using the Storage Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#auth-token). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon ().
+DACO Cloud Access is prerequisite to using the Storage Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon ().
 
 ### Access Tokens
 
@@ -72,16 +72,16 @@ When creating an Access Token, you will need to specify the Scope associated wit
 
 #### AWS
 
-In the case of the ICGC AWS data set, an access token with the <span class="badge token-badge token-scopes">aws.download</span> scope is required to access the [controlled access data](https://docs.icgc.org/access-controlled-data)
+In the case of the ICGC AWS data set, an access token with the <span class="badge token-badge token-scopes">aws.download</span> scope is required to access the [controlled access data](/portal/access)
 
 #### Collaboratory
 
-In the case of the ICGC Collaboratory data set, an access token with the <span class="badge token-badge token-scopes">collab.download</span> scope is required to access the [controlled access data](https://docs.icgc.org/access-controlled-data)
+In the case of the ICGC Collaboratory data set, an access token with the <span class="badge token-badge token-scopes">collab.download</span> scope is required to access the [controlled access data](/portal/access)
 
 
 You can verify that your Access Token has the desired scopes by inspecting it in the table at the bottom of the dialog. For security purposes, Access Tokens must remain private and not be shared with anyone.
 
-Following the creation of a Compute Instance, discussed in the next section, you will need to edit the Storage Client client configuration file to include the generated Access Token. See the [Configuration](#config) section for additional information.
+Following the creation of a Compute Instance, discussed in the next section, you will need to edit the Storage Client client configuration file to include the generated Access Token. See the [Configuration](#configuration) section for additional information.
 
 ## Compute Prerequisites
 
@@ -132,7 +132,7 @@ wget -O icgc-storage-client.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-
 tar -xvzf icgc-storage-client.tar.gz
 ```
 
-After untaring the archive, the Storage Client will be available at `bin/icgc-storage-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](/software) page.
+After untaring the archive, the Storage Client will be available at `bin/icgc-storage-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](https://dcc.icgc.org/software) page.
 
 ### Install from Docker Image
 
@@ -150,7 +150,7 @@ Once pulled, you can open a shell in the container by executing:
 docker run -it icgc/icgc-storage-client
 ```
 
-There is no entry point or command defined for the image. The software may be located at `/icgc/icgc-storage-client` which is also the working directory of the container. All other steps for [using the Storage Client](#storage-client) will be the same for both Docker and tarball installations.
+There is no entry point or command defined for the image. The software may be located at `/icgc/icgc-storage-client` which is also the working directory of the container. All other steps for [using the Storage Client](#storage-client-usage) will be the same for both Docker and tarball installations.
 
 ## Configuration
 
@@ -158,18 +158,18 @@ The configuration of the Storage Client is stored in the `conf/application.prope
 
 ### Access Configuration
 
-The main configuration element is the access token generated in [Access Token](#auth-token) above. Configuration is stored in the `conf/` directory of the distribution.
+The main configuration element is the access token generated in [Access Token](#access-tokens) above. Configuration is stored in the `conf/` directory of the distribution.
 
 Edit `application.properties` and add the generated accesss token to the line:
 
 ```
-accessToken=access token
+accessToken=<access token>
 ```
 
 When using Docker, this can also be set with an environmental variable:
 
 ```
-docker run -it -e ACCESSTOKEN=access token icgc/icgc-storage-client
+docker run -it -e ACCESSTOKEN=<access token> icgc/icgc-storage-client
 ```
 
 #### Collaboratory
@@ -178,7 +178,7 @@ In addition to the above, you will need to change the `bin/icgc-storage-client` 
 
 ### Transport Configuration
 
-Based on the target Compute Instance defined in [Compute Prerequisites](#preqs) and transfer speed requirements, it may be necessary to make changes to how the Storage Client transfers data. This is achieved by setting `transport.parallel` and `transport.memory`:
+Based on the target Compute Instance defined in [Compute Prerequisites](#compute-prerequisites) and transfer speed requirements, it may be necessary to make changes to how the Storage Client transfers data. This is achieved by setting `transport.parallel` and `transport.memory`:
 
 *   `transport.parallel` controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
 *   `transport.memory` is the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of `1` (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance.
@@ -187,7 +187,7 @@ Based on the target Compute Instance defined in [Compute Prerequisites](#preqs) 
 
 Finding files of interest can be done via the Data Portal. Objects are identified by their _Object ID_.
 
-*   Navigate to [repository file search](/repositories)
+*   Navigate to [repository file search](https://dcc.icgc.org/repositories)
 *   Click on the `AWS` or `Collaboratory` filter in the left hand pane
 *   Filter based on properties of interest (e.g. donor id, specimen id, etc.)
 *   Export a _Manifest_ for future use with the Storage Client
@@ -196,7 +196,7 @@ The Manifest is the main way to define what files should be downloaded by the St
 
 [![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png "Click the Download Manifest Dialog screenshot to see the full image.")
 
-Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Storage Client Usage](#storage-client) section for usage information.
+Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Storage Client Usage](#storage-client-usage) section for usage information.
 
 ## Storage Client Usage
 
@@ -234,8 +234,8 @@ bin/icgc-storage-client url --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
 
 An example of using `wget`:
 
-```
-bin/icgc-storage-client url --object-id Object ID
+```bash
+bin/icgc-storage-client url --object-id <Object ID>
 Resolving URL for object: ddcdd044-adda-5f09-8849-27d6038f8ccd (offset = 0, length = -1)
 https://s3-external-1.amazonaws.com/snip>
 
@@ -260,7 +260,7 @@ Downloads will be stored in the `--output-dir`.
 
 #### Manifest
 
-Using a Manifest is ideal for downloading multiple files identified through the Data Portal. The [repository file search](/repositories) allows one to generate a Manifest file that can be supplied for bulk downloading files. It also provides some additional metadata for selected files that gives the donor, specimen and sample context.
+Using a Manifest is ideal for downloading multiple files identified through the Data Portal. The [repository file search](https://dcc.icgc.org/repositories) allows one to generate a Manifest file that can be supplied for bulk downloading files. It also provides some additional metadata for selected files that gives the donor, specimen and sample context.
 
 ```
 bin/icgc-storage-client download --manifest manifest.txt --output-dir data
@@ -385,7 +385,7 @@ See the `manifest` command for more details on how to specify a Manifest.
 
 #### Mount in Docker
 
-To avoid having to install the FUSE and Java dependencies when working with the `mount` command, it is very convenient to mount from within a Docker container. This is also useful for creating a custom image for analysis that derives from the one published by ICGC. First, ensure that Docker and the Storage Client image is installed. See the [Installation](#install) section for details.
+To avoid having to install the FUSE and Java dependencies when working with the `mount` command, it is very convenient to mount from within a Docker container. This is also useful for creating a custom image for analysis that derives from the one published by ICGC. First, ensure that Docker and the Storage Client image is installed. See the [Installation](#installation) section for details.
 
 Next, export the access token generated from the portal:
 
@@ -446,7 +446,7 @@ Pre-signed URLs are valid for 1 day from the time they are issued. For security 
 
 ##### Does the client maintain state?
 
-Yes, the client maintains state in the working directory in a hidden file `.<span class="token operator"><</span>Object ID<span class="token operator">></span>/meta`. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the `mount` command with the `--cache-metadata` option, `.entities.cache` and `.objects.cache` are stored in the current working directory.
+Yes, the client maintains state in the working directory in a hidden file `.<Object ID>/meta`. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the `mount` command with the `--cache-metadata` option, `.entities.cache` and `.objects.cache` are stored in the current working directory.
 
 ##### Why do I get a security exception when I try to download an object?
 
