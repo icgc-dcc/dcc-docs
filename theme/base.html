@@ -45,7 +45,7 @@
         <div class="container">
             <div id="mkdocs-search-results"></div>
             <div id="body">
-            {% if meta.toc is undefined or meta.toc is defined and meta.toc == true %}
+            {% if toc.children and (meta.toc is undefined or meta.toc is defined and meta.toc == true) %}
             <div class="col-md-3">{% include "toc.html" %}</div>
             {% endif %}
             <div class="col-md-9" role="main">
