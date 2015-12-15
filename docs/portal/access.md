@@ -31,4 +31,4 @@ Please note: PCAWG data set is currently restricted to the researchers who are p
 [5]: http://tcga-data.nci.nih.gov/
 [6]: https://cghub.ucsc.edu/
 [7]: http://dcc.icgc.org
-[8]: methods#masking
+[8]: methods#germline-data-masking

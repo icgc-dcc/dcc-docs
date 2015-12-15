@@ -23,6 +23,6 @@ For more information, please see the Submission System Guide available [ here ][
 Sincerely,
 The DCC team.
 
-[1]: /incremental-submission-feature
-[2]: /data-submission
+[1]: guide/incremental-submission-feature.md
+[2]: about.md
 [3]: mailto:dcc-support@icgc.org

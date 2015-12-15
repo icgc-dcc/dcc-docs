@@ -4,7 +4,7 @@
 
 There are five major steps in the data submission process:
 
-1. Obtain login/password account from EGA's [EBI][1] repository/>
+1. Obtain login/password account from EGA's [EBI repository][1]
 2. [Submit raw sequence data to the European Genome-phenome Archive][2]
 3. [Prepare the ICGC submission files according to DCC data format specifications][3]
 4. [Submit files to the DCC Secure FTP server][4]

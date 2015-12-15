@@ -251,6 +251,12 @@ pages:
   - List of Institutions: 'submission/list-institutions.md'
   - FAQ: 'submission/faq.md'
   - Guide:
+    - Guide Overview:
+      - Overview: 'submission/guide.md'
+      - Submitting Raw Data to EGA: 'submission/guide/overview/submitting-raw-data-ega.md'
+      - Submission File Format: 'submission/guide/overview/submission-file-format.md'
+      - File Submission: 'submission/guide/overview/file-submission.md'
+      - Submission Validation: 'submission/guide/overview/submission-validation.md'
     - DCC Data Element Specifications: 'submission/guide/dcc-data-element-specifications.md'
     - Clinical Data Submission File Specifications: 'submission/guide/clinical-data-submission-file-specifications.md'
     - Experimental Data Submission File Specifications: 'submission/guide/experimental-data-submission-file-specifications.md'
@@ -260,10 +266,4 @@ pages:
     - ICGC Simple Somatic Mutation Format: 'submission/guide/icgc-simple-somatic-mutation-format.md'
     - Sample Type Specification: 'submission/guide/sample-type-specification.md'
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
-    - Guide Overview:
-      - Overview: 'submission/guide.md'
-      - Submitting Raw Data to EGA: 'submission/guide/overview/submitting-raw-data-ega.md'
-      - Submission File Format: 'submission/guide/overview/submission-file-format.md'
-      - File Submission: 'submission/guide/overview/file-submission.md'
-      - Submission Validation: 'submission/guide/overview/submission-validation.md'
   - Software: 'submission/software.md'
