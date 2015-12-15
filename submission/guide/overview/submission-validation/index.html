@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/submission/guide/overview/submission-validation/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+   <title>Submission Validation - ICGC Docs</title>
+
+        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../../css/highlight.css">
+        <link href="../../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../api/">API</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Dictionary</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/">Release Notes</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 20</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/">Dictionary - Release 20</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/analyzed-sample-data-file-sample/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/array-based-dna-methylation-metharray-analysis-metadata-file-m/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/array-based-dna-methylation-metharray-primary-file-p/">Array-based DNA Methylation (meth_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/array-based-gene-expression-exparray-analysis-metadata-file-m/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/array-based-gene-expression-exparray-primary-file-p/">Array-based Gene Expression (exp_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/controlled-vocabulary/">Controlled Vocabulary (CV) Tables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/copy-number-somatic-mutations-cnsm-primary-analysis-file-p/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/donor-biomarker/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/donor-data-file-donor/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/donor-exposure/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/donor-family/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/donor-postresection-therapy/">Donor Postresection Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/donor-surgery/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/protein-expression-pexp-analysis-metadata-file-m/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/protein-expression-pexp-primary-analysis-file-p/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/sequencing-based-dna-methylation-methseq-primary-file-p/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/sequencing-based-gene-expression-expseq-analysis-metadata-file-m/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/sequencing-based-gene-expression-expseq-primary-file-p/">Sequencing-based Gene Expression (exp_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/sequencing-based-mirna-expression-mirnaseq-primary-file-p/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/simple-germline-variation-sgv-analysis-metadata-file-m/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/simple-germline-variation-sgv-primary-analysis-file-p/">Simple Germline Variation (sgv) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/simple-somatic-mutations-ssm-analysis-metadata-file-m/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/simple-somatic-mutations-ssm-primary-analysis-file-p/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/specimen-data-file-specimen/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/splice-variation-jcn-analysis-metadata-file-m/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/splice-variation-jcn-primary-analysis-file-p/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/structural-somatic-mutations-stsm-analysis-metadata-file-m/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/structural-somatic-mutations-stsm-primary-analysis-file-p/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-20/structural-somatic-mutations-stsm-secondary-analysis-file-s/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 19</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/">Dictionary - Release 19</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/pancancer-clinical-data-requirements/">PanCancer Clinical Data Requirements</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/analyzed-sample-data-file-sample-11c/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/array-based-dna-methylation-metharray-analysis-metadata-file-m-11c/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/array-based-dna-methylation-metharray-primary-file-p-11c/">Array-based DNA Methylation (meth_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/array-based-gene-expression-exparray-analysis-metadata-file-m-11c/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/array-based-gene-expression-exparray-primary-file-p-11c/">Array-based Gene Expression (exp_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/controlled-vocabulary-11c/">Controlled Vocabulary (CV) Tables</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-11c/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-11c/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/donor-biomarker-11c/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/donor-data-file-donor-11c/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/donor-exposure-11c/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/donor-family-11c/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/donor-postresection-therapy-11c/">Donor Postresection Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/donor-surgery-11c/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/protein-expression-pexp-analysis-metadata-file-m-11c/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/protein-expression-pexp-primary-analysis-file-p-11c/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-11c/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/sequencing-based-dna-methylation-methseq-primary-file-p-11c/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-11c/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/sequencing-based-gene-expression-expseq-primary-file-p-11c/">Sequencing-based Gene Expression (exp_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-11c/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/sequencing-based-mirna-expression-mirnaseq-primary-file-p-11c/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/simple-germline-variation-sgv-analysis-metadata-file-m-11c/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/simple-germline-variation-sgv-primary-analysis-file-p-11c/">Simple Germline Variation (sgv) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/simple-somatic-mutations-ssm-analysis-metadata-file-m-11c/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/simple-somatic-mutations-ssm-primary-analysis-file-p-11c/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/specimen-data-file-specimen-11c/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/splice-variation-jcn-analysis-metadata-file-m-11c/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/splice-variation-jcn-primary-analysis-file-p-11c/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/structural-somatic-mutations-stsm-analysis-metadata-file-m-11c/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/structural-somatic-mutations-stsm-primary-analysis-file-p-11c/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-19/structural-somatic-mutations-stsm-secondary-analysis-file-s-11c/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 18</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/">Dictionary - Release 18</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/analyzed-sample-data-file-sample-10a/">Analyzed Sample Data File (sample) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/array-based-dna-methylation-metharray-analysis-metadata-file-m-10a/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/array-based-dna-methylation-metharray-primary-file-p-10a/">Array-based DNA Methylation (meth_array) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/array-based-gene-expression-exparray-analysis-metadata-file-m-10a/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/array-based-gene-expression-exparray-primary-file-p-10a/">Array-based Gene Expression (exp_array) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/controlled-vocabulary-10a/">Controlled Vocabulary (CV) Tables -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-10a/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-10a/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-10a/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/donor-biomarkers-biomarker-10a/">Donor Biomarkers (biomarker) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/donor-data-file-donor-10a/">Donor Data File (donor) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/donor-exposure-exposure-10a/">Donor Exposure (exposure) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/donor-family-family-10a/">Donor Family (family) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/donor-surgery-surgery-10a/">Donor Surgery (surgery) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/donor-therapy-therapy-10a/">Donor Therapy (therapy) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/methylation-array-manifests/">Methylation Array Manifests</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/protein-expression-pexp-analysis-metadata-file-m-10a/">Protein Expression (pexp) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/protein-expression-pexp-primary-analysis-file-p-10a/">Protein Expression (pexp) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-10a/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/sequencing-based-dna-methylation-methseq-primary-file-p-10a/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-10a/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/sequencing-based-gene-expression-expseq-primary-file-p-10a/">Sequencing-based Gene Expression (exp_seq) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-10a/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/sequencing-based-mirna-expression-mirnaseq-primary-file-p-10a/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/simple-germline-variation-sgv-analysis-metadata-file-m-10a/">Simple Germline Variation (sgv) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/simple-germline-variation-sgv-primary-analysis-file-p-10a/">Simple Germline Variation (sgv) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/simple-somatic-mutations-ssm-analysis-metadata-file-m-10a/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/simple-somatic-mutations-ssm-primary-analysis-file-p-10a/">Simple Somatic Mutations (ssm) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/specimen-data-file-specimen-10a/">Specimen Data File (specimen) - v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/splice-variation-jcn-analysis-metadata-file-m-10a/">Splice Variation (jcn) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/splice-variation-jcn-analysis-metadata-file-m-dummy/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/splice-variation-jcn-primary-analysis-file-p-10a/">Splice Variation (jcn) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/structural-somatic-mutations-stsm-analysis-metadata-file-m-10a/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/structural-somatic-mutations-stsm-primary-analysis-file-p-10a/">Structural Somatic Mutations (stsm) - Primary Analysis File (p) -v0.10a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-18/structural-somatic-mutations-stsm-secondary-analysis-file-s-10a/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s) -v0.10a</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 17</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/">Dictionary - Release 17</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/analyzed-sample-data-file-sample-09a/">Analyzed Sample Data File (sample) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/array-based-dna-methylation-metharray-analysis-metadata-file-m-09a/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/array-based-dna-methylation-metharray-primary-file-p-09a/">Array-based DNA Methylation (meth_array) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/array-based-gene-expression-exparray-analysis-metadata-file-m-09a/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/array-based-gene-expression-exparray-primary-file-p-09a/">Array-based Gene Expression (exp_array) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/controlled-vocabulary-09a/">Controlled Vocabulary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-09a/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-09a/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-v09a/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/donor-biomarkers-biomarker-09a/">Donor Biomarkers (biomarker) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/donor-data-file-donor-09a/">Donor Data File (donor) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/donor-exposure-exposure-09a/">Donor Exposure (exposure) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/donor-family-family-09a/">Donor Family (family) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/donor-surgery-surgery-09a/">Donor Surgery (surgery) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/donor-therapy-therapy-09a/">Donor Therapy (therapy) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/icgc-simple-somatic-mutation-format-09a/">ICGC Simple Somatic Mutation Format - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/list-institutions-09a/">List of Institutions - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/methylation-array-manifests-09a/">MVEL Script Restriction Example Cases - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/mvel-script-restriction-example-cases-09a/">Methylation Array Manifests - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/protein-expression-pexp-analysis-metadata-file-m-09a/">Protein Expression (pexp) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/protein-expression-pexp-primary-analysis-file-p-09a/">Protein Expression (pexp) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-09a/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/sequencing-based-dna-methylation-methseq-primary-file-p-09a/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-09a/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/sequencing-based-gene-expression-expseq-primary-file-p-09a/">Sequencing-based Gene Expression (exp_seq) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-09a/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/sequencing-based-mirna-expression-mirnaseq-primary-file-p-09a/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/simple-germline-variation-sgv-analysis-metadata-file-m-09a/">Simple Germline Variation (sgv) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/simple-germline-variation-sgv-primary-analysis-file-p-09a/">Simple Germline Variation (sgv) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/simple-somatic-mutations-ssm-analysis-metadata-file-m-09a/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/simple-somatic-mutations-ssm-primary-analysis-file-p-09a/">Simple Somatic Mutations (ssm) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/specimen-data-file-specimen-09a/">Specimen Data File (specimen) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/specimen-type-mapping-09a/">Specimen Type Mapping - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/splice-variation-jcn-analysis-metadata-file-m-09a/">Splice Variation (jcn) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/splice-variation-jcn-analysis-metadata-file-m-dummy/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/splice-variation-jcn-primary-analysis-file-p-09a/">Splice Variation (jcn) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/structural-somatic-mutations-stsm-analysis-metadata-file-m-09a/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/structural-somatic-mutations-stsm-primary-analysis-file-p-09a/">Structural Somatic Mutations (stsm) - Primary Analysis File (p) - 0.9a</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-17/structural-somatic-mutations-stsm-secondary-analysis-file-s-09a/">Structural Somatic Mutations (stsm) - Secondary Analysis File (s) - 0.9a</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 16</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/">Dictionary - Release 16</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/analyzed-sample-data-file-sample-08d/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/array-based-dna-methylation-metharray-analysis-metadata-file-m-08d/">Array-based DNA Methylation (meth_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/array-based-dna-methylation-metharray-primary-file-p-08d/">Array-based DNA Methylation (meth_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/array-based-gene-expression-exparray-analysis-metadata-file-m-08d/">Array-based Gene Expression (exp_array) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/array-based-gene-expression-exparray-primary-file-p-08d/">Array-based Gene Expression (exp_array) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/controlled-vocabulary-08d/">Controlled Vocabulary-08d</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-08d/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-08d/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-08d/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/donor-biomarkers-biomarker-08d/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/donor-data-file-donor-08d/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/donor-exposure-exposure-08d/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/donor-family-family-08d/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/donor-surgery-surgery-08d/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/donor-therapy-therapy-08d/">Donor Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/icgc-simple-somatic-mutation-format-08d/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/list-institutions-08d/">List of Institutions</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/methylation-array-manifests-08d/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/mvel-script-restriction-example-cases-08d/">Methylation Array Manifests</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/protein-expression-pexp-analysis-metadata-file-m-08d/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/protein-expression-pexp-primary-analysis-file-p-08d/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m-08d/">Sequencing-based DNA Methylation (meth_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/sequencing-based-dna-methylation-methseq-primary-file-p-08d/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/sequencing-based-gene-expression-expseq-analysis-metadata-file-m-08d/">Sequencing-based Gene Expression (exp_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/sequencing-based-gene-expression-expseq-primary-file-p-08d/">Sequencing-based Gene Expression (exp_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m-08d/">Sequencing-based miRNA Expression (mirna_seq) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/sequencing-based-mirna-expression-mirnaseq-primary-file-p-08d/">Sequencing-based miRNA Expression (mirna_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/simple-germline-variation-sgv-analysis-metadata-file-m-08d/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/simple-germline-variation-sgv-primary-analysis-file-p-08d/">Simple Germline Variation (sgv) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/simple-somatic-mutations-ssm-analysis-metadata-file-m-08d/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/simple-somatic-mutations-ssm-primary-analysis-file-p-08d/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/specimen-data-file-specimen-08d/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/splice-variation-jcn-analysis-metadata-file-m-08d/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/splice-variation-jcn-primary-analysis-file-p-08d/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/structural-somatic-mutations-stsm-analysis-metadata-file-m-08d/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-16/structural-somatic-mutations-stsm-primary-analysis-file-p-08d/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 15</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/">Dictionary - Release 15</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/analyzed-sample-data-file-sample-v0.7e/">Analyzed Sample Data File (sample)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/controlled-vocabulary-v0.7e/">Controlled Vocabulary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-v0.7e/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-v0.7e/">Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-v0.7e/">Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/donor-biomarkers-biomarker-v0.7e/">Donor Biomarkers (biomarker)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/donor-data-file-donor-v0.7e/">Donor Data File (donor)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/donor-exposure-exposure-v0.7e/">Donor Exposure (exposure)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/donor-family-family-v0.7e/">Donor Family (family)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/donor-surgery-surgery-v0.7e/">Donor Surgery (surgery)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/donor-therapy-therapy-v0.7e/">Donor Therapy (therapy)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/gene-expression-gene-analysis-metadata-file-m-v0.7e/">Gene Expression (gene) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/gene-expression-gene-primary-analysis-file-g-v0.7e/">Gene Expression (gene) - Primary Analysis File (g)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/icgc-simple-somatic-mutation-format-v0.7e/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/list-institutions-v0.7e/">List of Institutions</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/mirna-expression-mirna-analysis-metadata-file-m-v0.7e/">Protein Expression (pexp) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/mirna-expression-mirna-primary-analysis-file-p-v0.7e/">Protein Expression (pexp) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/mirna-expression-mirna-secondary-analysis-file-s-v0.7e/">Sequencing-based DNA Methylation (meth_seq) - Primary File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/protein-expression-pexp-analysis-metadata-file-m-v0.7e/">Simple Germline Variation (sgv) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/protein-expression-pexp-primary-analysis-file-p-v0.7e/">Simple Somatic Mutations (ssm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/sequencing-based-dna-methylation-methseq-primary-file-p-08d/">Simple Somatic Mutations (ssm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/simple-germline-variation-sgv-analysis-metadata-file-m-v0.7e/">Specimen Data File (specimen)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/simple-somatic-mutations-ssm-analysis-metadata-file-m-v0.7e/">Splice Variation (jcn) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/simple-somatic-mutations-ssm-primary-analysis-file-p-v0.7e/">Splice Variation (jcn) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/specimen-data-file-specimen-v0.7e/">Structural Somatic Mutations (stsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/splice-variation-jcn-analysis-metadata-file-m-v0.7e/">Structural Somatic Mutations (stsm) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/splice-variation-jcn-primary-analysis-file-p-v0.7e/">miRNA Expression (mirna) - Analysis Metadata File (m)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/structural-somatic-mutations-stsm-analysis-metadata-file-m-v0.7e/">miRNA Expression (mirna) - Primary Analysis File (p)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dictionary/release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e/">miRNA Expression (mirna) - Secondary Analysis File (s)</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../../faq/">FAQ</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide Overview</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+</li>
+
+        
+            
+<li >
+    <a href="../submission-file-format/">Submission File Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../file-submission/">File Submission</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Submission Validation</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../../software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#submission-validation">Submission Validation</a></li>
+        <li>
+           <ul class="nav">
+           
+               <li><a href="#steps">Steps:</a></li>
+           
+           </ul>
+       </li>
+    
+    </ul>
+</div></div>
+            
+            <div class="col-md-9" role="main">
+               
+
+<h1 id="submission-validation">Submission Validation</h1>
+<p>ICGC DCC provides an online submission/validation system that allows submitter to upload their data (via SFTP), validate the submission, and receive a detailed report back indicating any errors with your submission files. For first time submitters, we recommend you upload a subset of your data so the validation, correction, and re-validation process can be as streamlined as possible. You can upload and re-validate your data as many times as you like during a particular submission period. Once completed and validated you can then "sign off" on your submission which will then be included in the next DCC release. Any submitted files not yet validated or signed off by the DCC release will automatically be moved to the next release.</p>
+<h3 id="steps">Steps:</h3>
+<ol>
+<li>Once you have successfully uploaded your submission files via SFTP, you can validate your submission by going to the ICGC data submission web interface at . Log in using your ICGC submission system username and password.</li>
+</ol>
+<p><img alt="" src="http://docs.icgc.org/files/login_0.png" /></p>
+<ol>
+<li>To see the details of a release click on its name in the release list. This will load a detailed Release Summary view which will give a summary of the release as well as a list of all of your submissions for that release. A submission will have one of the following states:</li>
+<li>NOT VALIDATED - the initial state upon uploading. Submissions will also revert to this state if there are any changes made after validation, such as uploading or removing a file, or a dictionary change by the administrator</li>
+<li>QUEUED - the submission is queued and awaiting validation. During this state the submission can not be modified via SFTP.</li>
+<li>VALID - the submission has passed validation successfully, and is ready to be signed off on by the submitter to be included in the next release</li>
+<li>INVALID - the submission did not pass validation, and changes must be made to the data, as explained in the reports. When the changes are made and reuploaded the state will change back to NOT VALIDATED automatically.</li>
+<li>SIGNED OFF - the submissions has been approved by the submitter and is locked for further modification. It will be included in the next release.</li>
+<li>ERROR - a server-side error occurred during validation. The DCC team has been notified and will investigate.</li>
+</ol>
+<p><img alt="" src="http://docs.icgc.org/files/submission-table_0.png" /></p>
+<ul>
+<li>To view details of a submission click on its name in the submission table. This will load the Submission Summary where you will see all the files in the current submission, their sizes, last-modifies dates, their status, and their validation reports (if available).</li>
+</ul>
+<p><img alt="" src="http://docs.icgc.org/files/pre-validation.png" /></p>
+<ul>
+<li>To validate a submission you can either click on the <strong>Validate</strong> button located in the "Actions" column of the submission table on the <em>Release Summary</em> page or the <strong>Launch Validation</strong> button at the top of the <em>Submission Summary</em> page. You will be prompted to enter an email address in order to notify you when validation is complete.</li>
+</ul>
+<p><img alt="" src="http://docs.icgc.org/files/validation-popup_0.png" /></p>
+<p>The submission will be queued for validation.</p>
+<p>NEW: Submitters can now cancel their validation by clicking on the "Cancel Validation" button.</p>
+<p><img alt="" src="http://docs.icgc.org/files/validating_0.png" /></p>
+<ul>
+<li>Once validation is finished, you will receive an email showing you the validation results and a link to the validation report.</li>
+</ul>
+<p><img alt="" src="http://docs.icgc.org/files/valid-submission.png" /></p>
+<ul>
+<li>To view reports click on the "view" button next to a project name in the Report column or on the Project Key; then, on the Submission Summary page, click on "view" in the Report column the view a report for that file.</li>
+</ul>
+<p><img alt="" src="http://docs.icgc.org/files/view-ssm_p-report.png" /></p>
+<ul>
+<li>Once your submission validates as VALID and you are satisfied that it is complete, you can sign off of the project using the SIGN OFF button .</li>
+</ul>
+<p><img alt="" src="http://docs.icgc.org/files/sign-off-submission.png" /></p>
+<p>Only projects that have been signed off will be included in releases.</p>
+<p><img alt="" src="http://docs.icgc.org/files/signed-off-table.png" /></p>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../../js/highlight.pack.js"></script>
+        <script src="../../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../../../js/base.js"></script>
+        <script>var base_url = '../../../..';</script>
+    </body>
+</html>
