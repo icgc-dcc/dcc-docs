@@ -248,5 +248,11 @@ pages:
       - miRNA Expression (mirna) - Primary Analysis File (p): 'submission/dictionary/release-15/structural-somatic-mutations-stsm-analysis-metadata-file-m-v0.7e.md'
       - miRNA Expression (mirna) - Secondary Analysis File (s): 'submission/dictionary/release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e.md'
   - FAQ: 'submission/faq.md'
-  - Guide: 'submission/guide.md'
+  - Guide:
+    - Guide Overview:
+      - Overview: 'submission/guide.md'
+      - Submitting Raw Data to EGA: 'submission/guide/overview/submitting-raw-data-ega.md'
+      - Submission File Format: 'submission/guide/overview/submission-file-format.md'
+      - File Submission: 'submission/guide/overview/file-submission.md'
+      - Submission Validation: 'submission/guide/overview/submission-validation.md'
   - Software: 'submission/software.md'
