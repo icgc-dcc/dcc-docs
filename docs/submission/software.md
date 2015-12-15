@@ -26,5 +26,3 @@ The DCC team.
 [1]: /incremental-submission-feature
 [2]: /data-submission
 [3]: mailto:dcc-support@icgc.org
-
- NIGHT MODE

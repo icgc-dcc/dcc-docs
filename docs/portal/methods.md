@@ -1,19 +1,24 @@
 # Methods 
 
+### Gene model
 The ICGC Data Portal uses gene models produced by Ensembl [http://www.ensembl.org](http://www.ensembl.org).
 
 The canonical gene data (release 75) is available from Ensembl FTP site at [ ftp://ftp.ensembl.org/pub/release-75/mysql/homo_sapiens_core_75_37][1]. We downloaded files with gene, transcript, translation, exon, xref, and domain etc data, built a document-oriented data store with essential gene information. We then further integrated gene summary information downloaded from NCBI Entrez Gene. This gene document is then integrated with somatic mutation datasets based on mutation consequence annotation (described in the next section) results.
 
+### Mutation consequence annotation
 As part of the effort to enable cross cancer projects functional analysis, we perform standardized gene consequences annotation, using Sequence Ontology's controlled vocabulary regarding mutation-induced changes ([www.sequenceontology.org][2]). This type of annotation provides a list of predicted gene effects, such as a non-conservative amino acid substitution, but does not attempt to prioritize the changes by their functional impact. Simple somatic mutation data submitted by member projects are annotated using the variant annotation tool SnpEff (v3.3c, ) recommended by the ICGC Mutation Consequences and Pathways (MUCOPA) Working Subgroup (Nature Methods, 2013, PMID:[23900255][3]).
 
+### Mutation function impact prediction
 In order to assess functional impact of non-synonymous (SO term: [_missense_variant_][4]) somatic mutations on protein coding genes, we used well-known prediction tools (currently [FatHMM][5], with more to be added such as [Mutation Assessor][6] and [SIFT][7]) to compute functional impact scores and assign impact categories. ICGC DCC defines the following four categories: _High_, _Medium_, _Low_ and _Unknown_.
 
 We first compute original impact prediction with these different tools for all simple somatic mutations (_SSM_) that cause _missense_ consequence, each mutation is expressed at amino acid level, e.g., _ENSP00000358548 Q61R_ to feed into individual functional impact prediction tools. When a mutation affects multiple splice forms of the same gene, prediction will be performed on all of them whenever possible. For a particular mutation, using a simple rule-based approach, predictions for each transcript isoform reported by different tools will then be summarized to a single impact category. The rule is straightforward: the highest impact category will be picked up from results of all tools. When no prediction is reported, _Unknown_ is assigned.
 
 For all other SSMs that cause consequence other than _missense_, impact category will be assigned based on consequence type a mutation causes. _High_ impact will be assigned for _frameshift_variant, non_conservative_missense_variant, initiator_codon_variant, stop_gained_ and _stop_lost_, _Unknown_ will be assigned for all other mutations.
 
+### Simple somatic mutation frequencies
 In order to assess how often a particular simple somatic mutation (SSM) occurs in cancer patients, we establishes specific criteria to determine whether SSMs reported from different donors are considered to be the same. When all of these fields from two reported SSMs: chromosome, chromosome start, chromosome end, mutation type, DNA change, genome assembly version are identical, they are merged into one mutation entity. With this, we build a non-redundant collection of all simple somatic mutations. Each mutation entry in the collection is assigned a stable identifier for persisted referencing portal wide and across releases. Information for linking these non-redundant SSMs to the reported ones is also kept, enabling mutation counts across donors.
 
+### Germline data masking
 When a somatic mutation falls on the same position as a germline SNP, there is potential to leak a small amount of germline data. To prevent this, as of Release 15, ICGC DCC will be censoring the patient's germline genotype in the case where it does not match the reference genome allele:
 
 * the mutated allele from control genotype will be replaced with the reference gernome allele when we publish to the open-access tier.

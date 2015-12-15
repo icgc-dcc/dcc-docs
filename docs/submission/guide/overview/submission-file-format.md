@@ -234,4 +234,4 @@ ICGC DCC cannot accept clinical data on its own without experimental data.
 </tr>
 </tbody></table>
 
-[1]: http://docs.icgc.org/dictionary-v07a-dec-2013
+[1]: /submission/dictionary/release-17.md

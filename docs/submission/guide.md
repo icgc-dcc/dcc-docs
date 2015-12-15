@@ -17,10 +17,8 @@ When submitting experimental data to the ICGC DCC, please make sure you've alrea
 _Please contact the DCC ([_dcc-support@icgc.org][6]_) if you have any questions or comments about the data submission process._
 
 [1]: https://www.ebi.ac.uk/ega/
-[2]: http://docs.icgc.org/submitting-raw-data-ega
-[3]: http://docs.icgc.org/submission-file-format
-[4]: http://docs.icgc.org/file-submission
-[5]: http://docs.icgc.org/submission-validation
+[2]: guide/overview/submitting-raw-data-ega.md
+[3]: guide/overview//submission-file-format.md
+[4]: guide/overview//file-submission
+[5]: guide/overview//submission-validation
 [6]: mailto:dcc-support@icgc.org
-
- NIGHT MODE
