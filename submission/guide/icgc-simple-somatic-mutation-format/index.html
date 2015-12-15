@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/submission/guide/icgc-simple-somatic-mutation-format/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+   <title>ICGC Simple Somatic Mutation Format - ICGC Docs</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../icgc-dcc-project-codes/">ICGC DCC Project Codes</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../list-institutions/">List of Institutions</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../faq/">FAQ</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dcc-data-element-specifications/">DCC Data Element Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../incremental-submission-feature/">Incremental Submission Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../selective-validation-feature/">Selective Validation Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sample-type-specification/">Sample Type Specification</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide Overview</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-file-format/">Submission File Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/file-submission/">File Submission</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-validation/">Submission Validation</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            
+            <div class="col-md-9" role="main">
+               
+
+<h1 id="icgc-simple-somatic-mutation-format">ICGC Simple Somatic Mutation Format</h1>
+<h3 id="important-notes">Important Notes</h3>
+<h4 id="chromosome-coordinates">chromosome coordinates</h4>
+<ul>
+<li>The first base of a chromosome starts at 1 and counts onward along the forward strand until the end.</li>
+<li>The value of chromosome_start must be less than or equal to chromosome_end</li>
+<li>The size of a feature is calculated as: chromosome_end - chromosome_start + 1</li>
+<li>For mutations that are single-base substitutions, deletions or multiple-base substitutions, use the start and end coordinates of the corresponding chromosome interval on the reference genome where the mutation occurs.</li>
+<li>For mutations that are insertions, use the coordinates of the position on the chromosome that is immediately after the insertion point.</li>
+</ul>
+<h4 id="chromosome_strand">chromosome_strand</h4>
+<ul>
+<li>'chromosome_strand' is used to record the reference genome strand on which the genotype alleles are located</li>
+<li>In ICGC simple somatic mutation format, we require the forward strand sequence is always used for genotypes</li>
+<li>'chromosome_strand' does not have anything to do with the strandness of the gene that contains the simple mutation</li>
+</ul>
+<h4 id="control_genotype-tumour_genotype">control_genotype, tumour_genotype</h4>
+<ul>
+<li>Genotype is presented as nucleotide sequence of all allele(s). For example, in a diploid genome on chromosome 1 at position 12345, if one allele on the forward strand is A and the other is G, then the genotype is presented as A/G and 'chromosome_strand' being '1' (i.e. forward strand)</li>
+<li>In the case that the genotype is hemizygous (e.g. G allele is missing), it can be presented as A/-.</li>
+<li>'control_genotype' and 'tumour_genotype' are used to record genotype for the matched control sample and the primary tumour sample, respectively. Both genotypes must be presented using the same strand of the reference genome.</li>
+</ul>
+<h4 id="reference_genome_allele">reference_genome_allele</h4>
+<ul>
+<li>'reference_genome_allele' is the forward strand nucleotide(s) at the corresponding location on the reference genome where the somatic mutation is detected in the tumour sample.</li>
+</ul>
+<h3 id="how-do-i-represent-an-insertion">How do I represent an insertion?</h3>
+<ul>
+<li>Use the position of the nucleotide on the chromosome that is immediately <strong>after</strong> the insertion point. The rationale is that the inserted base starts at the specified chromosome start position.</li>
+<li>Example: an insertion of a single base "T" after "A" at position 56. Use position 56 to represent the insertion chromosome start position.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>55</th>
+<th>56</th>
+<th>57</th>
+<th>58</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference Genome</td>
+<td>A</td>
+<td>G</td>
+<td>C</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Tumour Genome</td>
+<td>A</td>
+<td>T</td>
+<td>G</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mutation type</th>
+<th>chromosome start</th>
+<th>chromosome end</th>
+<th>reference genome allele</th>
+<th>control genotype</th>
+<th>tumour genotype</th>
+<th>mutated from allele</th>
+<th>mutated to allele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>insertion</td>
+<td>56</td>
+<td>56</td>
+<td>-</td>
+<td>- / -</td>
+<td>- /T</td>
+<td>-</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-do-i-represent-a-deletion">How do I represent a deletion?</h3>
+<ul>
+<li>Use the start position and end position of the deleted mutated fragment to represent the deletion.</li>
+<li>Example: A deletion of "TCTT" at chromosome start position 124.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>123</th>
+<th>124</th>
+<th>125</th>
+<th>126</th>
+<th>127</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference Genome</td>
+<td>C</td>
+<td>T</td>
+<td>C</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>Tumour Genome</td>
+<td>C</td>
+<td>T</td>
+<td>C</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mutation type</th>
+<th>chromosome start</th>
+<th>chromosome end</th>
+<th>reference genome allele</th>
+<th>control genotype</th>
+<th>tumour genotype</th>
+<th>mutated from allele</th>
+<th>mutated to allele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deletion</td>
+<td>124</td>
+<td>127</td>
+<td>TCTTT</td>
+<td>TCTT/TCTT</td>
+<td>TCTT/-</td>
+<td>TCTT</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-do-i-represent-a-single-base-substitution">How do I represent a single-base substitution?</h3>
+<ul>
+<li>Use the corresponding chromosome interval on the reference genome where the single-base mutation is located.</li>
+<li>Example: A mutation occurs at position 51 where G is substituted with C. The chromosome start position will be 51.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>50</th>
+<th>51</th>
+<th>52</th>
+<th>53</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference Genome</td>
+<td>T</td>
+<td>G</td>
+<td>T</td>
+<td>A</td>
+<td></td>
+</tr>
+<tr>
+<td>Tumour Genome</td>
+<td>T</td>
+<td>C</td>
+<td>T</td>
+<td>A</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mutation type</th>
+<th>chromosome start</th>
+<th>chromosome end</th>
+<th>reference genome allele</th>
+<th>control genotype</th>
+<th>tumour genotype</th>
+<th>mutated from allele</th>
+<th>mutated to allele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>single-base substitution</td>
+<td>51</td>
+<td>51</td>
+<td>G</td>
+<td>G/G</td>
+<td>G/C</td>
+<td>G</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-do-i-represent-a-multiple-base-substitution">How do I represent a multiple-base substitution?</h3>
+<ul>
+<li>Use the start and end coordinates of the mutated fragment.</li>
+<li>Example: The sequence "ACTCAGACC" starting from position 50 to 58 is substituted with the sequence "TTGT".</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>50</th>
+<th>51</th>
+<th>52</th>
+<th>53</th>
+<th>54</th>
+<th>55</th>
+<th>56</th>
+<th>57</th>
+<th>58</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference Genome</td>
+<td>A</td>
+<td>C</td>
+<td>T</td>
+<td>C</td>
+<td>A</td>
+<td>G</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Tumour Genome</td>
+<td>T</td>
+<td>T</td>
+<td>G</td>
+<td>T</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mutation type</th>
+<th>chromosome start</th>
+<th>chromosome end</th>
+<th>reference genome allele</th>
+<th>control genotype</th>
+<th>tumour genotype</th>
+<th>mutated from allele</th>
+<th>mutated to allele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multiple-base substitution</td>
+<td>50</td>
+<td>58</td>
+<td>ACTCAGACC</td>
+<td>ACTCAGACC/ACTCAGACC</td>
+<td>ACTCAGACC/TTGT</td>
+<td>ACTCAGACC</td>
+<td>TTGT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vcf-like-vs-icgc-like-mutation-format"><strong>VCF-like vs. ICGC-like Mutation Format:</strong></h3>
+<p>The table below highlights the differences between VCF-like mutation format and the mutation format used by ICGC.</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>mutation type</th>
+<th>chromosome start</th>
+<th>chromosome end</th>
+<th>reference genome allele</th>
+<th>control genotype</th>
+<th>tumour genotype</th>
+<th>mutated from allele (new field)</th>
+<th>mutated to allele (new field)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCF-like</td>
+<td>deletion</td>
+<td>49510010</td>
+<td>49510012</td>
+<td>TGA</td>
+<td>TGA/TGA</td>
+<td>TGA/T</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ICGC Format</td>
+<td>deletion</td>
+<td>49510011</td>
+<td>49510012</td>
+<td>GA</td>
+<td>GA/GA</td>
+<td>GA/-</td>
+<td>GA</td>
+<td>-</td>
+</tr>
+<tr>
+<td>VCF-like</td>
+<td>insertion</td>
+<td>115303927</td>
+<td>115303927</td>
+<td>A</td>
+<td>A/A</td>
+<td>A/AT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ICGC Format</td>
+<td>insertion</td>
+<td>115303927</td>
+<td>115303927</td>
+<td>-</td>
+<td>-/-</td>
+<td>-/T</td>
+<td>-</td>
+<td>T</td>
+</tr>
+<tr>
+<td>VCF-like</td>
+<td>multiple-base substitution</td>
+<td>39884779</td>
+<td>39884787</td>
+<td>ACTCAGACC</td>
+<td>ACTCAGACC/ACTCAGACC</td>
+<td>ACTCAGACC/TTGT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ICGC-like</td>
+<td>multiple-base substitution</td>
+<td>39884779</td>
+<td>39884787</td>
+<td>ACTCAGACC</td>
+<td>ACTCAGACC/ACTCAGACC</td>
+<td>ACTCAGACC/TTGT</td>
+<td>ACTCAGACC</td>
+<td>TTGT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="germline-data-masking">Germline Data Masking</h3>
+<p>As of Release 15, ICGC DCC will be censoring the patient's germline genotype in Simple Somatic Mutation data in the case where genotype consists of allele(s) that does not match the reference genome allele. Detailed explanation is <a href="../../../portal/methods/#germline-data-masking">here</a>.</p>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script>var base_url = '../../..';</script>
+    </body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/submission/guide/sample-type-specification/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+   <title>Sample Type Specification - ICGC Docs</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../icgc-dcc-project-codes/">ICGC DCC Project Codes</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../list-institutions/">List of Institutions</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../faq/">FAQ</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dcc-data-element-specifications/">DCC Data Element Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../incremental-submission-feature/">Incremental Submission Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../selective-validation-feature/">Selective Validation Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+</li>
+
+        
+            
+<li >
+    <a href="../icgc-simple-somatic-mutation-format/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Sample Type Specification</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide Overview</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-file-format/">Submission File Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/file-submission/">File Submission</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-validation/">Submission Validation</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            
+            <div class="col-md-9" role="main">
+               
+
+<h1 id="sample-type-specification">Sample Type Specification</h1>
+<h2 id="summary">Summary</h2>
+<p>This specification details what the expected specimen_type/reference_sample_type should be for the sample ID fields analyzed_sample_id and matched_sample_id in each of the metadata files.</p>
+<h2 id="specimen-type-categories">Specimen Type Categories</h2>
+<p>We can categorize the terms in the <a href="http://docs.icgc.org/controlled-vocabulary#specimen.0.specimen_type.v3">specimen_type</a> codelist into two categories - Normal or Non-Normal. The Non-Normal category encompasses all types of Primary tumour, Recurrent tumour, Metastatic tumour, Xenograft and Cell line tumours.</p>
+<table>
+<thead>
+<tr>
+<th>Normal</th>
+<th>Non-Normal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal - solid tissue</td>
+<td>Primary tumour - solid tissue</td>
+</tr>
+<tr>
+<td>Normal - blood derived</td>
+<td>Primary tumour - blood derived (peripheral blood)</td>
+</tr>
+<tr>
+<td>Normal - bone marrow</td>
+<td>Primary tumour - blood derived (bone marrow)</td>
+</tr>
+<tr>
+<td>Normal - tissue adjacent to primary</td>
+<td>Primary tumour - additional new primary</td>
+</tr>
+<tr>
+<td>Normal - other</td>
+<td>Primary tumour - other</td>
+</tr>
+<tr>
+<td>Normal - lymph node</td>
+<td>Primary tumour - lymph node</td>
+</tr>
+<tr>
+<td>Normal - EBV immortalized</td>
+<td>Recurrent tumour - solid tissue</td>
+</tr>
+<tr>
+<td>Normal - buccal cell</td>
+<td>Recurrent tumour - blood derived (peripheral blood)</td>
+</tr>
+<tr>
+<td></td>
+<td>Recurrent tumour - blood derived (bone marrow)</td>
+</tr>
+<tr>
+<td></td>
+<td>Recurrent tumour - other</td>
+</tr>
+<tr>
+<td></td>
+<td>Metastatic tumour - NOS</td>
+</tr>
+<tr>
+<td></td>
+<td>Metastatic tumour - lymph node</td>
+</tr>
+<tr>
+<td></td>
+<td>Metastatic tumour - metastasis local to lymph node</td>
+</tr>
+<tr>
+<td></td>
+<td>Metastatic tumour - metastasis to distant location</td>
+</tr>
+<tr>
+<td></td>
+<td>Metastatic tumour - additional metastatic</td>
+</tr>
+<tr>
+<td></td>
+<td>Xenograft - derived from primary tumour</td>
+</tr>
+<tr>
+<td></td>
+<td>Xenograft - derived from tumour cell line</td>
+</tr>
+<tr>
+<td></td>
+<td>Cell line - derived from tumour</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-sample-types">Expected Sample Types</h2>
+<p>In order to denote a mutation for simple somatic, copy number and structural somatic mutations, a non-normal analyzed sample must be compared against a normal sample. For simple germline variation, the analyzed sample must always be normal.</p>
+<table>
+<tbody>
+<tr>
+<th>Data Type</th>
+<th>File-specific Sample Field</th>
+<th>Expected specimen_type</th>
+<th>Expected reference_sample_type</th>
+</tr>
+<tr>
+<td rowspan="2" class="confluenceTd">ssm_m</td>
+<td class="confluenceTd">
+<p>analyzed_sample_id</p>
+</td>
+<td class="confluenceTd">Non-normal</td>
+<td class="highlight-grey confluenceTd" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td class="confluenceTd">matched_sample_id</td>
+<td class="confluenceTd">Normal</td>
+<td class="highlight-grey confluenceTd" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td rowspan="2" class="confluenceTd">cnsm_m</td>
+<td class="confluenceTd">analyzed_sample_id</td>
+<td class="confluenceTd">Non-normal</td>
+<td class="highlight-grey confluenceTd" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td class="confluenceTd">matched_sample_id</td>
+<td class="confluenceTd">Normal</td>
+<td class="highlight-grey confluenceTd" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td rowspan="2" class="confluenceTd">stsm_m</td>
+<td class="confluenceTd">analyzed_sample_id</td>
+<td class="confluenceTd">Non-normal</td>
+<td class="highlight-grey confluenceTd" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">matched_sample_id</td>
+<td colspan="1" class="confluenceTd">Normal</td>
+<td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">sgv_m</td>
+<td colspan="1" class="confluenceTd">analyzed_sample_id</td>
+<td colspan="1" class="confluenceTd">Normal</td>
+<td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">jcn_m</td>
+<td colspan="1" class="confluenceTd"><span>analyzed_sample_id</span></td>
+<td colspan="1" class="confluenceTd">Any</td>
+<td colspan="1" class="confluenceTd"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">pexp_m</td>
+<td colspan="1" class="confluenceTd"><span>analyzed_sample_id</span></td>
+<td colspan="1" class="confluenceTd">Any</td>
+<td colspan="1" class="confluenceTd"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">meth_array_m</td>
+<td colspan="1" class="confluenceTd"><span>analyzed_sample_id</span></td>
+<td colspan="1" class="confluenceTd"><span>Any</span></td>
+<td colspan="1" class="confluenceTd"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">meth_seq_m</td>
+<td colspan="1" class="confluenceTd"><span>analyzed_sample_id</span></td>
+<td colspan="1" class="confluenceTd"><span>Any</span></td>
+<td colspan="1" class="confluenceTd"> </td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">exp_array_m</td>
+<td colspan="1" class="confluenceTd">analyzed_sample_id</td>
+<td colspan="1" class="confluenceTd">Any</td>
+<td rowspan="3" class="confluenceTd">
+
+<li>If specimen_type for analyzed_sample_id is Normal:<br>
+<ul><a href="http://docs.icgc.org/controlled-vocabulary#GLOBAL.0.reference_sample_type.v1">reference_sample_type</a> cannot be "matched_normal"</ul>
+</li>
+<p>
+</p><li>If the specimen_type for analyzed_sample_id is Non-normal:<br>
+<ul><a href="http://docs.icgc.org/controlled-vocabulary#GLOBAL.0.reference_sample_type.v1">reference_sample_type</a> can be any reference_sample_type</ul>
+</li>
+<p></p>
+
+</td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">exp_seq_m</td>
+<td colspan="1" class="confluenceTd">analyzed_sample_id</td>
+<td colspan="1" class="confluenceTd"><span>Any</span></td>
+</tr>
+<tr>
+<td colspan="1" class="confluenceTd">mirna_seq_m</td>
+<td colspan="1" class="confluenceTd">analyzed_sample_id</td>
+<td colspan="1" class="confluenceTd"><span>Any</span></td>
+</tr>
+</tbody>
+</table>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script>var base_url = '../../..';</script>
+    </body>
+</html>

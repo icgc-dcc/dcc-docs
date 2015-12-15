@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/submission/guide/incremental-submission-feature/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+   <title>Incremental Submission Feature - ICGC Docs</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../icgc-dcc-project-codes/">ICGC DCC Project Codes</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../list-institutions/">List of Institutions</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../faq/">FAQ</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dcc-data-element-specifications/">DCC Data Element Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Incremental Submission Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../selective-validation-feature/">Selective Validation Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+</li>
+
+        
+            
+<li >
+    <a href="../icgc-simple-somatic-mutation-format/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sample-type-specification/">Sample Type Specification</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide Overview</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-file-format/">Submission File Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/file-submission/">File Submission</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-validation/">Submission Validation</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            
+            <div class="col-md-9" role="main">
+               
+
+<h1 id="incremental-submission-feature">Incremental Submission Feature</h1>
+<h3 id="overview">Overview</h3>
+<p>New the Release 15 submission system is the <em>Incremental Submission</em> feature. <em>Incremental Submission</em> adds the ability to only upload new data for the current release. All data from previous releases will be maintained by the system and automatically copied to the current release. Additionally, submitters are now able to download their submitted data. This provides a model where submitters are in full control of their effective data set and can use the submission system as a canonical data store.</p>
+<h3 id="file-naming">File Naming</h3>
+<p>To aid submitters in managing their data as they see best, the dictionary now allows a looser naming convention for files. As a consequence, multiple files per file schema may be submitted. For example, the donor schema now allows submitters to name their files using a custom segment conforming to the following regex:  </p>
+<pre><code class="text">&quot;^donor(\.[a-zA-Z0-9]+)?\.txt(?:\.gz|\.bz2)?$&quot;
+</code></pre>
+
+<p>Thus one may choose to adopt a naming scheme such as: </p>
+<pre><code class="text">donor.01.txt, donor.02.txt, donor.03.txt
+</code></pre>
+
+<p>Alternatively one could embed a date:</p>
+<pre><code class="text">donor.20130101.txt, donor.20130201.txt, donor.20130301.txt`
+</code></pre>
+
+<p>With this scheme in place, a submitter can upload <code>donor.20130101.txt</code> in Release 1, <code>donor.20130201.txt</code> in Release 2 and <code>donor.20130301.txt</code> in Release 3. The effective submission will be the combined set of files.  </p>
+<h3 id="data-management">Data Management</h3>
+<p>It is the responsibility of the submitter to ensure data remains consistent from release to release. In the case of deleted records, one must remove the records and their dependent records from all files and resubmit. The appropriate file split strategies should chosen by submitters to simplify operations between releases and interoperate with existing pipelines.</p>
+<h3 id="notes">Notes</h3>
+<p>In the current implementation each time a validation is performed it will validate the entire data set. However, in combination with <a href="../selective-validation-feature/">_Selective Validation</a>_ the total validation time should be greatly reduced.</p>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script>var base_url = '../../..';</script>
+    </body>
+</html>

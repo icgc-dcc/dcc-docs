@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://icgc.github.io/submission/guide/clinical-data-submission-file-specifications/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+   <title>Clinical Data Submission File Specifications - ICGC Docs</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">ICGC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../icgc-dcc-project-codes/">ICGC DCC Project Codes</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../list-institutions/">List of Institutions</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../faq/">FAQ</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../dcc-data-element-specifications/">DCC Data Element Specifications</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Clinical Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../incremental-submission-feature/">Incremental Submission Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../selective-validation-feature/">Selective Validation Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+</li>
+
+        
+            
+<li >
+    <a href="../icgc-simple-somatic-mutation-format/">ICGC Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sample-type-specification/">Sample Type Specification</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide Overview</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-file-format/">Submission File Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/file-submission/">File Submission</a>
+</li>
+
+        
+            
+<li >
+    <a href="../overview/submission-validation/">Submission Validation</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div id="mkdocs-search-results"></div>
+            <div id="body">
+            
+            <div class="col-md-9" role="main">
+               
+
+<h1 id="clinical-data-submission-file-specifications-international-cancer-genome-consortium">Clinical Data Submission File Specifications | International Cancer Genome Consortium</h1>
+<h3 id="overview">Overview</h3>
+<p>There are three <strong>required</strong> clinical and tissue annotation submission files, and five <strong>optional</strong> template files:</p>
+<p><img alt="" src="http://docs.icgc.org/files/clinical-file-relationship.png" /></p>
+<p><strong><em>All data submissions to the DCC must include the three core clinical data files.</em></strong></p>
+<h4 id="core-clinical-data-files">Core Clinical Data Files</h4>
+<ol>
+<li><em>Donor Data File (donor)</em><br />
+<strong>Mandatory</strong> information about the donor's age, gender and vital status.</li>
+<li><em>Specimen Data File (specimen)</em><br />
+<strong>Mandatory</strong> information about a specimen that was obtained from a donor. There may be several specimens per donor that were obtained concurrently or at different times.</li>
+<li><em>Analyzed Sample Data File (sample)</em><br />
+<strong>Mandatory</strong> information about an analyzed sample that was subjected to molecular analysis. There may be several analyzed samples per specimen, for example, when a tumour is used to derive xenografts and cell lines.</li>
+</ol>
+<p><strong>_A project may choose not to use one or more of the five template tables. </strong>The five templates can be extended by each project to describe disease-specific clinical and specimen attributes for the cancer in question.<strong><br />
+_</strong></p>
+<h4 id="optional-template-files">Optional Template Files</h4>
+<ol>
+<li><em>Donor Surgical Procedures (surgery)</em><br />
+<strong>Template</strong> details about surgical procedures undergone by donor; allows for mapping a surgical procedure to a specimen.</li>
+<li><em>Donor Environmental Exposure (exposure)</em><br />
+<strong>Template</strong> details about donor's antecedent environmental exposures, such as smoking history.</li>
+<li><em>Donor Family History (family)</em><br />
+<strong>Template</strong> details about family history of the donor.</li>
+<li><em>Donor Biomarkers (biomarker)</em><br />
+<strong>Template</strong> details about biomarkers present in donor's tumour.</li>
+<li><em>Donor Therapy (therapy)</em><br />
+<strong>Template</strong> details about the type and duration of therapy the donor received.</li>
+</ol>
+<h3 id="clinical-data-encoding-notes">Clinical Data Encoding Notes</h3>
+<h4 id="coding-of-donor-ids">Coding of donor IDs</h4>
+<p>The three mandatory data files contain donor, specimen and analyzed sample IDs respectively. These IDs are to be coded specifically for ICGC purposes and must follow the following rules:</p>
+<ul>
+<li>Only the submitting group will keep the key that will permit to link back the data to the individual donors.</li>
+<li>The key must not be communicated to the data users.</li>
+<li>It should not be derived from other IDs such as biobank or hospital identifiers. <em>These IDs are to be coded in such a way that they cannot be tracked back to the individual donors, except by the submitting group.</em></li>
+<li>IDs are assigned by each submitting group, and must be unique within all the data submitted by that group (i.e. <strong>no duplicate IDs allowed</strong>).</li>
+</ul>
+<p>Coded donor IDs referring to the same donor should remain consistent across different submissions from the same submitting group.</p>
+<h4 id="time-intervals">Time intervals</h4>
+<p>To prevent potential identification of donors, the timing of all significant events in the patient history are given in terms of <em>days</em> counted from the date of primary diagnosis. The date of primary diagnosis is the date on which a <strong>definitive</strong> diagnostic procedure was performed, whether it be a fine needle aspiration, biopsy, or an unequivocal imaging procedure.</p>
+           </div>
+           </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <center>&copy; 2015 ICGC.org</center>
+            
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+        <script src="../../../js/jquery.highlight-4.closure.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script>var base_url = '../../..';</script>
+    </body>
+</html>
