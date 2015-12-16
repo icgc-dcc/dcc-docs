@@ -203,10 +203,10 @@ _Description:_
 
 ![][9]
 
-[3]: /submission/images/clinical_event_times.png
-[4]: /submission/images/donor_interval_of_last_followup_script_0.png
-[5]: /submission/images/donor_survival_time_script.png
-[6]: /submission/images/donor_relapse_interval_script.png
-[7]: /submission/images/donor_primary_treatment_interval_script_0.png
-[8]: /submission/images/donor_age_at_diagnosis_script.png
-[9]: /submission/images/donor_age_at_enrollment_script.png
+[3]: /submission/images/clinical-event-times.png
+[4]: /submission/images/donor-interval-of-last-followup-script-0.png
+[5]: /submission/images/donor-survival-time-script.png
+[6]: /submission/images/donor-relapse-interval-script.png
+[7]: /submission/images/donor-primary-treatment-interval-script-0.png
+[8]: /submission/images/donor-age-at-diagnosis-script.png
+[9]: /submission/images/donor-age-at-enrollment-script.png

@@ -1,15 +1,15 @@
 # Dictionary v0.11c (April., 2015, Release 19)
 
-May 15, 2015:
+#### **May 15, 2015**
 
 * Added new term to donor.0.disease_status_last_followup.v1: "no evidence of disease".
 
-April 20 2015:
+#### **April 20 2015**
 Change between 0.11b and 0.11c:
 
 * Changed cancer_history_first_degree_relative to "N/A Valid" (for DCC-only data).
 
-April 10 2015:
+#### **April 10 2015**
 Change between 0.11a and 0.11b:
 
 * Added new term "Unknown" to family.0.relationship_sex.v1 CV list.

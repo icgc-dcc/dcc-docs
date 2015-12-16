@@ -19,7 +19,7 @@ An example file is shown below (note that parts of the lines are omitted for rea
 | m124  |  ssm_175270973 |  1 | 15 | 39884792    |   39884792 | C | C/C | 	C | T | C/T
 | m124  |  ssm_4545634   |  3 | 12 | 23454340    |    23454341 | GA    |    GA/GA  |   GA | - | GA/-
 
-### ICGC DCC Data File Specification:
+### ICGC DCC Data File Specification
 
 ICGC DCC provides a data file specification for each data type which details the required format to construct a valid submission file. You can view the current ICGC DCC Data Specification [here ][1].
 
@@ -37,7 +37,7 @@ ICGC DCC provides a data file specification for each data type which details the
 | Examples |  Examples of valid values |
 | Notes |  Additional notes describing requirements/restrictions and cross-field validation checks |
 
-### Data specification colour coding:
+### Data specification colour coding
 
 | Colour code: |  Description |
 | ---- | ---- |
@@ -47,18 +47,21 @@ ICGC DCC provides a data file specification for each data type which details the
 
 Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice:  
 
+```shell
 curl -v -XGET  -H "Accept: application/json"
+```
 
 To access the JSON format of the controlled vocabulary tables via REST webservice:  
 
+```shell
 curl -v -XGET  -H "Accept: application/json"
-
+```
 
 ICGC DCC cannot accept clinical data on its own without experimental data.
 
 ### File Naming Conventions
 
-#### Clinical/Experimental Files:
+#### Clinical/Experimental Files
 
 <table class="confluenceTable">
 <tbody>

@@ -27,4 +27,4 @@ We propose that the whole process be relatively short, maybe 1 or 2 months. Thus
 
 ### Flowchart
 
-![](/submission/images/DataSubmissionBPMN.png)
+![](/submission/images/data-submission-bpmn.png)

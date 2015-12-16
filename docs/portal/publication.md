@@ -29,7 +29,7 @@ All data shall become free of a publication moratorium when either the data is p
 
 The quantity of data on which the initial global analysis will be carried out will vary between tumour types but is likely to be data on 100 tumour samples for more common tumour types and fewer for rarer tumour types. Details of the status of a publication moratorium is specified for individual projects below:
 
-### Current Moratorium Status for ICGC projects
+## Current Moratorium Status for ICGC projects
 
 
 | Project Key  |  Country |  Project Name |  EMBARGO STATUS |
@@ -74,7 +74,7 @@ For Moratorium status on TARGET projects, please visit [https://ocg.cancer.gov/p
 
 Data users should freely analyze pre-publication data and act responsibly in publishing analyses of those data in a manner that respects the terms described by the data producers. Data users are responsible for accurately citing the source of pre-publication data, including the version of the dataset. Data users are encouraged to [contact the data producers][35] to discuss publication plans in cases of uncertainty. For questions regarding moratorium status, please contact DCC HelpDesk at [dcc-support@icgc.org][36]
 
-[1]: /submission/images/ICGC_embargo.png
+[1]: /submission/images/ICGC-embargo.png
 [2]: https://dcc.icgc.org/projects/PACA-AU
 [3]: https://dcc.icgc.org/projects/PACA-CA
 [4]: https://dcc.icgc.org/projects/PRAD-CA

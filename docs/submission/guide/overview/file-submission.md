@@ -1,6 +1,6 @@
 # File Submission
 
-### Important Notes:
+### Important Notes
 
 Incremental Submission is a new feature offered by the submission system that allows you to upload just new data files for the current release (instead of resubmitting files containing all of your previous data along with your new data). All your data from previous releases will be maintained in the system and get automatically copied into the current release. Additionally, submitters are now also able to download their actual submitted data from the submission system. This means that data submitters are in full control of their effective data set and can use the submission system as a canonical data store.
 

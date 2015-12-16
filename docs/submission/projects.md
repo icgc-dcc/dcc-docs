@@ -1,5 +1,10 @@
-# ICGC DCC Project Codes
+# Projects
 
+## Overview
+
+ICGC is made up of a number of projects from around the world. [Project codes](projects.md#project-codes) are the canonical way to reference a particular project.
+
+## Project Codes
 | DCC Project Code |  Project Name |  Country |
 | ----- | ----- | ----- |
 | ALL-US |  Acute Lymphoblastic Leukemia - TARGET, US |  US |

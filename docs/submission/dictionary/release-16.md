@@ -2,17 +2,17 @@
 
 NEW: Our new Dictionary Comparison Tool highlights differences between different dictionary versions. Please try it out [here][15]
 
-March 31th 2014:  
+#### **March 31th 2014**
 **Change between 0.8c and 0.8d:** 
 
 * Modified MVEL script restriction for "mutated_to_allele" in SSM Primary data file specification to handle homozygous -> heterozygous mutations. 
 
-March 19th 2014:  
+#### **March 19th 2014**
 **Change between 0.8b and 0.8c:** 
 
 * Changed "total_read_count" in [exp_seq_m](http://docs.icgc.org/sequencing-based-gene-expression-expseq-analysis-metadata-file-m) and [mirna_seq_m](http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m) to accept N/A reserve codes. Also added a link to WHO International Histological Classification of Tumours for the "tumour_histological_type" field in [specimen data specification](http://docs.icgc.org/specimen-data-file-specimen) 
 
-March 11th 2014:  
+#### **March 11th 2014**
 **Change between 0.8a and 0.8b:** 
 
 * Added a MVEL script restriction for "mutated_to_allele" field in Simple Somatic Mutations Primary File (ssm_p). See example [here](http://docs.icgc.org/mvel-script-restriction-examples) 

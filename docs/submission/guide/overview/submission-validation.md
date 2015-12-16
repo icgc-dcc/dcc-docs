@@ -2,7 +2,7 @@
 
 ICGC DCC provides an online submission/validation system that allows submitter to upload their data (via SFTP), validate the submission, and receive a detailed report back indicating any errors with your submission files. For first time submitters, we recommend you upload a subset of your data so the validation, correction, and re-validation process can be as streamlined as possible. You can upload and re-validate your data as many times as you like during a particular submission period. Once completed and validated you can then "sign off" on your submission which will then be included in the next DCC release. Any submitted files not yet validated or signed off by the DCC release will automatically be moved to the next release.
 
-### Steps:
+### Steps
 
 1. Once you have successfully uploaded your submission files via SFTP, you can validate your submission by going to the ICGC data submission web interface at . Log in using your ICGC submission system username and password.
 
@@ -49,12 +49,12 @@ Only projects that have been signed off will be included in releases.
 
 ![][9]
 
-[1]: /submission/images/login_0.png
-[2]: /submission/images/submission-table_0.png
+[1]: /submission/images/login-0.png
+[2]: /submission/images/submission-table-0.png
 [3]: /submission/images/pre-validation.png
-[4]: /submission/images/validation-popup_0.png
-[5]: /submission/images/validating_0.png
+[4]: /submission/images/validation-popup-0.png
+[5]: /submission/images/validating-0.png
 [6]: /submission/images/valid-submission.png
-[7]: /submission/images/view-ssm_p-report.png
+[7]: /submission/images/view-ssm-p-report.png
 [8]: /submission/images/sign-off-submission.png
 [9]: /submission/images/signed-off-table.png
