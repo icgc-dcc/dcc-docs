@@ -1,21 +1,8 @@
 # API
 
-## Code Lists
+This is the public API documentation for the Submission System.
 
-### Get codelist by name
-This is open-access (since 13/07/22 - 1.10 re-deployment)
-This gets a single codelist, keep in mind the "Add Codelist" below consumes an array of code lists so you will _most likely want to use the "Get Codelist" request below!_
-```shell
-curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists/myCodeListName -H "Accept: application/json"
-```
-
-### Get codelists
-This is open-access (since 13/03/19 - 1.3 re-deployment)
-
-The following will return a JSON document that includes an array of all the code lists on the server.
-curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists -H "Accept: application/json"
-
-## Release and dictionary states clarification
+## Release and Dictionary States
 
 A dictionary can be either OPENED or CLOSED. A release can also be OPENED or COMPLETED, yet the two have slightly different meaning so this may be confusing. To summarize:
 
@@ -31,10 +18,24 @@ A dictionary can be either OPENED or CLOSED. A release can also be OPENED or COM
 
 So basically, COMPLETing a release CLOSes the dictionary it uses, **if** that dictionary was still OPENED (**else** leaves it CLOSED)
 
+## Code Lists
+
+### Get Code List by Name
+This is open-access (since 13/07/22 - 1.10 re-deployment)
+This gets a single codelist, keep in mind the "Add Codelist" below consumes an array of code lists so you will _most likely want to use the "Get Codelist" request below!_
+```shell
+curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists/myCodeListName -H "Accept: application/json"
+```
+
+### Get All Code Lists
+This is open-access (since 13/03/19 - 1.3 re-deployment)
+
+The following will return a JSON document that includes an array of all the code lists on the server.
+curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists -H "Accept: application/json"
+
 ## Dictionaries
 
 Please be careful adding dictionaries. The code list fields are not validated currently (but they will be in a future release, see DCC-898). This means you need to be extremely careful when uploading/updating a dictionary since you can refer to code lists that don't exist. Please double-check your code list references before uploading dictionaries.
-
 
 ### Get Current Dictionary
 
@@ -49,7 +50,7 @@ curl -v -XGET https://submissions.dcc.icgc.org/ws/nextRelease/dictionary -H "Acc
 
 * This uses a different end-point, the `NextRelease` end-point
 
-### Get Array of Dictionaries
+### Get All Dictionaries
 
 This is open-access (since 13/07/22 - 1.10 re-deployment)
 
@@ -59,7 +60,7 @@ This will give you all the dictionaries as an array:
 curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries -H "Accept: application/json"
 ```
 
-### Get dictionary by version
+### Get Dictionary by Version
 
 This is open-access (since 13/07/22 - 1.10 re-deployment)
 
