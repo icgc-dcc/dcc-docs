@@ -272,7 +272,7 @@
         }, 
         {
             "location": "/portal/repositories/", 
-            "text": "Repositories\n\n\nOverview\n\n\nThis is the Repositories documentation page", 
+            "text": "Repositories\n\n\nOverview\n\n\nBrowser\n\n\nFiltering\n\n\nDonor Filters\n\n\nFile Filters\n\n\nResults\n\n\nFile entities\n\n\nBAM Statistics\n\n\niobio\n\n\nManifests\n\n\nReferencing files for download (see Cloud Guide section)\n\n\nDonor Sets\n\n\nSaving a list of donors for Advanced Search", 
             "title": "Repositories"
         }, 
         {
@@ -282,8 +282,48 @@
         }, 
         {
             "location": "/portal/repositories/#overview", 
-            "text": "This is the Repositories documentation page", 
+            "text": "", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/portal/repositories/#browser", 
+            "text": "", 
+            "title": "Browser"
+        }, 
+        {
+            "location": "/portal/repositories/#filtering", 
+            "text": "", 
+            "title": "Filtering"
+        }, 
+        {
+            "location": "/portal/repositories/#donor-filters", 
+            "text": "", 
+            "title": "Donor Filters"
+        }, 
+        {
+            "location": "/portal/repositories/#file-filters", 
+            "text": "", 
+            "title": "File Filters"
+        }, 
+        {
+            "location": "/portal/repositories/#results", 
+            "text": "File entities", 
+            "title": "Results"
+        }, 
+        {
+            "location": "/portal/repositories/#bam-statistics", 
+            "text": "iobio", 
+            "title": "BAM Statistics"
+        }, 
+        {
+            "location": "/portal/repositories/#manifests", 
+            "text": "Referencing files for download (see Cloud Guide section)", 
+            "title": "Manifests"
+        }, 
+        {
+            "location": "/portal/repositories/#donor-sets", 
+            "text": "Saving a list of donors for Advanced Search", 
+            "title": "Donor Sets"
         }, 
         {
             "location": "/portal/search/", 
