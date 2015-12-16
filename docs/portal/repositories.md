@@ -53,15 +53,21 @@ The summary section provides general information on the file.
 
 #### File Copies
 
-The File Copies section provides information on the file a means to download [Manifest](repositories.md#manifests) and Metadata for the file.
+The File Copies section provides information on the file entity, a means to download [Manifest](repositories.md#manifests) and see/download Metadata for the file.
 
 [![](images/file-entity-file-copies.png)](images/file-entity-file-copies.png "Click on the image to see it in full")
 
 #### Donor
 
+The Donor section provides information on the Donor that corresponds to the file selected.
+
+[![](images/file-entity-donor.png)](images/file-entity-donor.png "Click on the image to see it in full")
+
 #### BAM Statistics
 
-iobio
+The BAM Stats section provides general information on the BAM file selected. This section is _only_ visible if the file selected is a BAM file _and_ the repository the file belongs in is AWS or Collaboratory
+
+[![](images/file-entity-iobio.png)](images/file-entity-iobio.png "Click on the image to see it in full")
 
 ### Manifests
 
