@@ -74,7 +74,7 @@ For Moratorium status on TARGET projects, please visit [https://ocg.cancer.gov/p
 
 Data users should freely analyze pre-publication data and act responsibly in publishing analyses of those data in a manner that respects the terms described by the data producers. Data users are responsible for accurately citing the source of pre-publication data, including the version of the dataset. Data users are encouraged to [contact the data producers][35] to discuss publication plans in cases of uncertainty. For questions regarding moratorium status, please contact DCC HelpDesk at [dcc-support@icgc.org][36]
 
-[1]: https://docs.icgc.org/files/ICGC_embargo.png?1435950164
+[1]: /submission/images/ICGC_embargo.png
 [2]: https://dcc.icgc.org/projects/PACA-AU
 [3]: https://dcc.icgc.org/projects/PACA-CA
 [4]: https://dcc.icgc.org/projects/PRAD-CA

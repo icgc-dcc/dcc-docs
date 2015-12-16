@@ -5,7 +5,7 @@ The following instructions are meant to provide ICGC members with guidance on su
 
 #### Overview of the EGA metadata xml files
 
-![](https://docs.icgc.org/files/EGAmeta.png)
+![](/submission/images/EGAmeta.png)
 
 Below are example template files for POLICY, STUDY, DATASET, SAMPLE, EXPERIMENT, and RUN metadata.
 

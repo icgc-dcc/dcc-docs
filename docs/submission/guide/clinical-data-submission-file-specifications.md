@@ -50,4 +50,4 @@ Coded donor IDs referring to the same donor should remain consistent across diff
 
 To prevent potential identification of donors, the timing of all significant events in the patient history are given in terms of _days_ counted from the date of primary diagnosis. The date of primary diagnosis is the date on which a **definitive** diagnostic procedure was performed, whether it be a fine needle aspiration, biopsy, or an unequivocal imaging procedure.
 
-[1]: http://docs.icgc.org/files/clinical-file-relationship.png
+[1]: /submission/images/clinical-file-relationship.png

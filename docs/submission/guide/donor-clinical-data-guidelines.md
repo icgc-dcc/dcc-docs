@@ -54,9 +54,9 @@ This table summarizes the required fields (for data completeness), and describes
 </td>
 <td colspan="1" class="confluenceTd"><strong>alive</strong></td>
 <td colspan="1" class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="https://docs.icgc.org/files/public/na_placeholder_0.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="https://docs.icgc.org/files/public/na_placeholder_0.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="https://docs.icgc.org/files/public/na_placeholder_0.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
 
 <p><strong>Checks:</strong></p>
 <p>If data provided for "donor_survival_time" and "donor_interval_of_last_followup":</p>
@@ -65,9 +65,9 @@ This table summarizes the required fields (for data completeness), and describes
 
 </td>
 <td class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="https://docs.icgc.org/files/public/required_placeholder.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="https://docs.icgc.org/files/public/na_placeholder_0.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="https://docs.icgc.org/files/public/required_placeholder.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
 
 <p><strong>Checks:</strong></p>
 <li>
@@ -82,15 +82,15 @@ This table summarizes the required fields (for data completeness), and describes
 <tr>
 <td colspan="1" class="confluenceTd"><strong>deceased</strong></td>
 <td colspan="1" class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="https://docs.icgc.org/files/public/na_placeholder_0.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="https://docs.icgc.org/files/public/required_placeholder.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="https://docs.icgc.org/files/public/na_placeholder_0.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
 
 </td>
 <td class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="https://docs.icgc.org/files/public/required_placeholder.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="https://docs.icgc.org/files/public/required_placeholder.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="https://docs.icgc.org/files/public/required_placeholder.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
 
 <p><strong>Checks:</strong></p>
 <li>
@@ -203,12 +203,10 @@ _Description:_
 
 ![][9]
 
-[1]: https://docs.icgc.org/files/public/na_placeholder_0.png
-[2]: https://docs.icgc.org/files/public/required_placeholder.png
-[3]: https://docs.icgc.org/files/public/clinical_event_times.png
-[4]: https://docs.icgc.org/files/public/donor_interval_of_last_followup_script_0.png
-[5]: https://docs.icgc.org/files/public/donor_survival_time_script.png
-[6]: https://docs.icgc.org/files/public/donor_relapse_interval_script.png
-[7]: https://docs.icgc.org/files/public/donor_primary_treatment_interval_script_0.png
-[8]: https://docs.icgc.org/files/public/donor_age_at_diagnosis_script.png
-[9]: https://docs.icgc.org/files/public/donor_age_at_enrollment_script.png
+[3]: /submission/images/clinical_event_times.png
+[4]: /submission/images/donor_interval_of_last_followup_script_0.png
+[5]: /submission/images/donor_survival_time_script.png
+[6]: /submission/images/donor_relapse_interval_script.png
+[7]: /submission/images/donor_primary_treatment_interval_script_0.png
+[8]: /submission/images/donor_age_at_diagnosis_script.png
+[9]: /submission/images/donor_age_at_enrollment_script.png

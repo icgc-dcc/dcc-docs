@@ -49,12 +49,12 @@ Only projects that have been signed off will be included in releases.
 
 ![][9]
 
-[1]: http://docs.icgc.org/files/login_0.png
-[2]: http://docs.icgc.org/files/submission-table_0.png
-[3]: http://docs.icgc.org/files/pre-validation.png
-[4]: http://docs.icgc.org/files/validation-popup_0.png
-[5]: http://docs.icgc.org/files/validating_0.png
-[6]: http://docs.icgc.org/files/valid-submission.png
-[7]: http://docs.icgc.org/files/view-ssm_p-report.png
-[8]: http://docs.icgc.org/files/sign-off-submission.png
-[9]: http://docs.icgc.org/files/signed-off-table.png
+[1]: /submission/images/login_0.png
+[2]: /submission/images/submission-table_0.png
+[3]: /submission/images/pre-validation.png
+[4]: /submission/images/validation-popup_0.png
+[5]: /submission/images/validating_0.png
+[6]: /submission/images/valid-submission.png
+[7]: /submission/images/view-ssm_p-report.png
+[8]: /submission/images/sign-off-submission.png
+[9]: /submission/images/signed-off-table.png
