@@ -433,11 +433,11 @@
         <li>
            <ul class="nav">
            
-               <li><a href="#code-lists">Code lists</a></li>
+               <li><a href="#code-lists">Code Lists</a></li>
            
                <li><a href="#release-and-dictionary-states-clarification">Release and dictionary states clarification</a></li>
            
-               <li><a href="#dictionary">Dictionary</a></li>
+               <li><a href="#dictionaries">Dictionaries</a></li>
            
            </ul>
        </li>
@@ -449,90 +449,25 @@
                
 
 <h1 id="api">API</h1>
-<h3 id="code-lists">Code lists</h3>
-<h5 id="get-codelist-by-name">Get codelist by name</h5>
+<h2 id="code-lists">Code Lists</h2>
+<h3 id="get-codelist-by-name">Get codelist by name</h3>
 <p>This is open-access (since 13/07/22 - 1.10 re-deployment)
 This gets a single codelist, keep in mind the "Add Codelist" below consumes an array of code lists so you will <em>most likely want to use the "Get Codelist" request below!</em></p>
-<pre><code class="shell">curl -v -XGET http://hwww{1,2}-dcc:5380/ws/codeLists/myCodeListName -H &quot;Accept: application/json&quot;
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists/myCodeListName -H &quot;Accept: application/json&quot;
 </code></pre>
 
-<h5 id="get-codelists">Get codelists</h5>
-<p>This is open-access (since 13/03/19 - 1.3 re-deployment)  </p>
+<h3 id="get-codelists">Get codelists</h3>
+<p>This is open-access (since 13/03/19 - 1.3 re-deployment)</p>
 <p>The following will return a JSON document that includes an array of all the code lists on the server.
-curl -v -XGET http://hwww{1,2}-dcc:5380/ws/codeLists -H "Accept: application/json"</p>
-<h5 id="add-codelists">Add codelists</h5>
-<p>This will not reset the states of submissions. This POST assumes you are submitting a JSON document with an array of code lists.  You could, in theory, get the current code lists via the GET above, modify the code lists you care about (ensure you give it a unique "name"), and then post the updated code list document below.  This will create a new code lists with a new name that you can later reference in an updated dictionary. Note, you should remove "created", "id", and "lastUpdate" fields if you're modifying the codeLists that you retrieved from the server.</p>
-<pre><code class="shell">cat /path/to/codeListArray.json
-[
-  {
-    &quot;label&quot;: &quot;some label&quot;,
-    &quot;name&quot;: &quot;myCodeListName&quot;,
-    &quot;terms&quot;: [
-      {
-        &quot;code&quot;: &quot;1&quot;,
-        &quot;uri&quot;: &quot;[http://...&quot;](http://...),
-        &quot;value&quot;: &quot;male&quot;
-      },
-      {
-        &quot;code&quot;: &quot;2&quot;,
-        &quot;uri&quot;: &quot;[http://...&quot;](http://...),
-        &quot;value&quot;: &quot;female&quot;
-      }
-    ]
-  },
-  { ...
-]
-
-curl -v -H &quot;Accept: application/json&quot; -XPOST http://hwww{1,2}-dcc:5380/ws/codeLists -H &quot;Authorization: X-DCC-Auth $(echo -n icgcdcc:${ADMIN_PASSWD?} | base64)&quot; -H &quot;Content-Type: application/json&quot; --data @/path/to/codeListArray.json
-</code></pre>
-
-<p>Notes:</p>
-<ul>
-<li>The file must contain an <strong>array</strong> of <code>CodeList</code> documents (possibly only one)</li>
-<li>The <em>name</em> property is the one that may be referred to from a dictionary (see section below), this must be unique (check the old code lists first)</li>
-<li>More than one <em>Field</em> may refer to a <em>CodeList</em> (in the dictionary)</li>
-<li>The POST will return 201 if the code lists are created properly, you can check the codelist using the GET above</li>
-</ul>
-<h5 id="add-terms-codelist-elements">Add terms (codelist elements)</h5>
-<p>This <strong>WILL</strong> reset the states of <strong>INVALID</strong> submissions <strong>IF</strong> the current dictionary (see <a href="#AdminSOP-Getcurrentdictionary">Getcurrentdictionary</a>) makes use of the target codelist  </p>
-<pre><code class="shell">cat /path/to/termArray.json
-[
-  {
-    &quot;code&quot;: &quot;12&quot;,
-    &quot;uri&quot;: null,
-    &quot;value&quot;: &quot;value for 12&quot;
-  },
-  {
-    &quot;code&quot;: &quot;11&quot;,
-    &quot;uri&quot;: null,
-    &quot;value&quot;: &quot;value for 13&quot;
-  }
-]
-
-curl -v -XPOST http://hwww{1,2}-dcc:5380/ws/codeLists/${CODELIST_NAME?}/terms -H &quot;Authorization: X-DCC-Auth $(echo -n icgcdcc:${ADMIN_PASSWD?} | base64)&quot; -H &quot;Content-Type: application/json&quot; --data @/path/to/termArray.json -H &quot;Accept: application/json&quot;
-</code></pre>
-
-<p>Notes:</p>
-<ul>
-<li>The file must contain an <strong>array</strong> of <code>Term</code> documents (possibly only one)</li>
-<li>The <code>CodeList</code> referred to in the URL must already exist</li>
-</ul>
-<h5 id="updating-a-codelist-label">Updating a codelist label</h5>
-<p>This will not reset the states of submissions. This just updates the label on the code list, not very functional. In the future we'll probably allow the ability to change dbxref and other fields on the code list object using this resource.</p>
-<pre><code class="shell">curl -v -H &quot;Authorization: X-DCC-Auth $(echo -n icgcdcc:${ADMIN_PASSWD?} | base64)&quot; -XPUT http://hwww{1,2}-dcc:5380/ws/codeLists/${CODELIST_NAME?} -H &quot;Content-Type: application/json&quot; --data '{&quot;name&quot;:&quot;dr__donor_sex&quot;, &quot;label&quot;: &quot;some new label&quot;}' -H &quot;Accept: application/json&quot;
-</code></pre>
-
-<p>Notes:
-<em>   The <code>CodeList</code> referred to in the URL must already exist
-</em>   In the future we may support updating more than just the <em>label</em></p>
-<h3 id="release-and-dictionary-states-clarification">Release and dictionary states clarification</h3>
+curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists -H "Accept: application/json"</p>
+<h2 id="release-and-dictionary-states-clarification">Release and dictionary states clarification</h2>
 <p>A dictionary can be either OPENED or CLOSED. A release can also be OPENED or COMPLETED, yet the two have slightly different meaning so this may be confusing. To summarize:</p>
 <ul>
 <li>COMPLETED release: frozen past releases</li>
 <li>OPENED release: the "next" release - only ever one at a time</li>
 <li>CLOSED dictionary: frozen dictionary that <strong>is</strong> used by a past release (an OPENED release could use a CLOSED or OPENED dictionary)</li>
 <li>
-<p>OPENED dictionary: updatable dictionary that <strong>is not</strong> used by a past release   </p>
+<p>OPENED dictionary: updatable dictionary that <strong>is not</strong> used by a past release </p>
 <ul>
 <li>there could be no OPENED dictionary at a given time</li>
 <li>there could also be more than one OPENED dictionary (think "unused" dictionary - maybe WIP ones for instance)</li>
@@ -542,65 +477,27 @@ curl -v -XPOST http://hwww{1,2}-dcc:5380/ws/codeLists/${CODELIST_NAME?}/terms -H
 </li>
 </ul>
 <p>So basically, COMPLETing a release CLOSes the dictionary it uses, <strong>if</strong> that dictionary was still OPENED (<strong>else</strong> leaves it CLOSED)</p>
-<h3 id="dictionary">Dictionary</h3>
+<h2 id="dictionaries">Dictionaries</h2>
 <p>Please be careful adding dictionaries. The code list fields are not validated currently (but they will be in a future release, see DCC-898). This means you need to be extremely careful when uploading/updating a dictionary since you can refer to code lists that don't exist. Please double-check your code list references before uploading dictionaries.</p>
-<h5 id="get-current-dictionary">Get current dictionary</h5>
+<h3 id="get-current-dictionary">Get Current Dictionary</h3>
 <p>This is open-access (since 13/03/19 - 1.3 re-deployment)</p>
-<pre><code class="shell">curl -v -XGET http://hwww{1,2}-dcc:5380/ws/nextRelease/dictionary -H &quot;Accept: application/json&quot;
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/nextRelease/dictionary -H &quot;Accept: application/json&quot;
 </code></pre>
 
-<p>Note:  </p>
+<p>Note:</p>
 <ul>
 <li>This uses a different end-point, the <code>NextRelease</code> end-point</li>
 </ul>
-<h5 id="get-array-of-dictionaries">Get Array of Dictionaries</h5>
+<h3 id="get-array-of-dictionaries">Get Array of Dictionaries</h3>
 <p>This is open-access (since 13/07/22 - 1.10 re-deployment)</p>
 <p>This will give you all the dictionaries as an array:</p>
-<pre><code class="shell">curl -v -XGET http://hwww{1,2}-dcc:5380/ws/dictionaries -H &quot;Accept: application/json&quot;
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries -H &quot;Accept: application/json&quot;
 </code></pre>
 
-<h5 id="get-dictionary-by-version">Get dictionary by version</h5>
+<h3 id="get-dictionary-by-version">Get dictionary by version</h3>
 <p>This is open-access (since 13/07/22 - 1.10 re-deployment)</p>
-<pre><code class="shell">curl -v -XGET http://hwww{1,2}-dcc:5380/ws/dictionaries/myVersion -H &quot;Accept: application/json&quot;
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/0.10a -H &quot;Accept: application/json&quot;
 </code></pre>
-
-<h5 id="add-dictionary">Add dictionary</h5>
-<p>This will <strong>not</strong> reset the states of submissions (not until you associate with an OPEN release).</p>
-<pre><code class="shell">cat /path/to/dictionary.json
-{
-  &quot;version&quot;: &quot;myVersion&quot;
-  &quot;state&quot;: &quot;OPENED&quot;,
-  &quot;files&quot;: [
-    {
-      &quot;fields&quot;: [
-        {
-          &quot;name&quot;: &quot;donor_id&quot;,
-          &quot;restrictions&quot;: [
-          ...
-}
-
-curl -v -H &quot;Authorization: X-DCC-Auth $(echo -n icgcdcc:${ADMIN_PASSWD?} | base64)&quot; -XPOST http://hwww{1,2}-dcc:5380/ws/dictionaries -H &quot;Content-Type: application/json&quot; --data @/path/to/dictionary.json -H &quot;Accept: application/json&quot;
-</code></pre>
-
-<p>Notes:</p>
-<ul>
-<li>Please refer to the <a href="../../display/DCCSOFT/Dictionary+Curator+SOP">Dictionary Curator SOP</a> for help with the <code>Dictionary</code></li>
-<li>Please respect the following constraints: <a href="#AdminSOP-Dictionaryconstraints">Dictionaryconstraints</a> (for now)</li>
-<li>The <em>version</em> property is the one that may be referred to from a release (see section below)</li>
-<li>Any <em>codelist</em> referred to must already exists</li>
-<li>More than one <em>Release</em> may refer to a <em>Dictionary</em></li>
-<li>If you are editing a sample dictionary you downloaded make sure you change the state to "OPENED" and not "CLOSED" otherwise the add dictionary action will fail</li>
-</ul>
-<h5 id="update-dictionary">Update dictionary</h5>
-<p>This <strong>WILL</strong> reset the states of submissions for the given release <strong>IF</strong> the OPENED release points to it (updating any other OPENED dictionary will not since no release uses them yet)  </p>
-<pre><code class="shell">curl -v -H &quot;Authorization: X-DCC-Auth $(echo -n icgcdcc:${ADMIN_PASSWD?} | base64)&quot; -XPUT http://hwww{1,2}-dcc:5380/ws/dictionaries/myVersion -H &quot;Content-Type: application/json&quot; --data @/path/to/updated/dictionary.json -H &quot;Accept: application/json&quot;
-</code></pre>
-
-<p>Notes:</p>
-<ul>
-<li>The dictionary must be <strong>OPENED</strong> (ie. not used by a past release)</li>
-<li>The <em>version</em> in the <em>json</em> file <strong>must</strong> match that of the URL</li>
-</ul>
            </div>
            </div>
         </div>
