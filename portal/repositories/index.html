@@ -280,13 +280,13 @@
                     
                         
 <li >
-    <a href="../../submission/icgc-dcc-project-codes/">ICGC DCC Project Codes</a>
+    <a href="../../submission/projects/">Projects</a>
 </li>
 
                     
                         
 <li >
-    <a href="../../submission/list-institutions/">List of Institutions</a>
+    <a href="../../submission/institutions/">Institutions</a>
 </li>
 
                     
@@ -448,14 +448,102 @@
 
 <h1 id="repositories">Repositories</h1>
 <h2 id="overview">Overview</h2>
+<p>The ICGC Data Repositories page is a means for users to browse through ICGC data. The ICGC data is periodically being aggregated and indexed, and is hosted on multiple archives and cloud repositories worldwide. The feature is best utilized through the use diverse filters provided, allowing the user to narrow down on projects throughout the repositories.</p>
 <h2 id="browser">Browser</h2>
+<p>The browser is made up of multiple parts, including <a href="./#filtering">Filter Facets</a>, <a href="./#results">Results</a>, <a href="./#BAM-statistics">BAM statistics</a>, <a href="./#manifests">Manifests</a>, and <a href="./#donor-sets">Donor Sets</a>. </p>
+<p><a href="../images/data-repository-browser.png" title="Click on the image to see it in full"><img alt="" src="../images/data-repository-browser.png" /></a></p>
 <h3 id="filtering">Filtering</h3>
+<p>ICGC data is filter through the use of facets. Users can use the facets to check off desired attributes within a project file, and all the files with that attribute will be returned. Filters within the same facet, and across multiple facets can be overlapped. The two types of filters are <a href="./#donor-filters">Donor Filters</a> and <a href="./#file-filters">File Filters</a>.</p>
 <h4 id="donor-filters">Donor Filters</h4>
+<p>Donor Filters correspond to facets that will filter by the donor's attributes. These filters are used if the user is looking for <em>donors</em> of a certain characteristic.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../images/file-filter-file-id.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-file-id.png" /></a></td>
+<td>Filter by File ID, File Name or Object ID</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-repository.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-repository.png" /></a></td>
+<td>Filter by a list of repositories</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-data-type.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-data-type.png" /></a></td>
+<td>Filter by the Data Type of the file</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-experimental-strategy.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-experimental-strategy.png" /></a></td>
+<td>Filter by the Experimental Strategy of the file</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-in-study.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-in-study.png" /></a></td>
+<td>Filter by files in certain studies</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-file-format.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-file-format.png" /></a></td>
+<td>Filter by the format of the file</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-analysis-software.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-analysis-software.png" /></a></td>
+<td>Filter by the analysis software used</td>
+</tr>
+<tr>
+<td><a href="../images/file-filter-access.png" title="Click on the image to see it in full"><img alt="" src="../images/file-filter-access.png" /></a></td>
+<td>Filter by whether or not the file is controlled</td>
+</tr>
+</tbody>
+</table>
 <h4 id="file-filters">File Filters</h4>
+<p>File Filters correspond to facets that will filter by the file's attributes. These filters are used if the user is looking for <em>files</em> of a certain characteristic.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../images/donor-filter-donor-id.png" title="Click on the image to see it in full"><img alt="" src="../images/donor-filter-donor-id.png" /></a></td>
+<td>Filter by a Donor ID</td>
+</tr>
+<tr>
+<td><a href="../images/donor-filter-project.png" title="Click on the image to see it in full"><img alt="" src="../images/donor-filter-project.png" /></a></td>
+<td>Filter by a certain project</td>
+</tr>
+<tr>
+<td><a href="../images/donor-filter-primary-site.png" title="Click on the image to see it in full"><img alt="" src="../images/donor-filter-primary-site.png" /></a></td>
+<td>Filter by the primary affected site of the donor</td>
+</tr>
+<tr>
+<td><a href="../images/donor-filter-specimen-type.png" title="Click on the image to see it in full"><img alt="" src="../images/donor-filter-specimen-type.png" /></a></td>
+<td>Filter by the specimen type</td>
+</tr>
+<tr>
+<td><a href="../images/donor-filter-in-study.png" title="Click on the image to see it in full"><img alt="" src="../images/donor-filter-in-study.png" /></a></td>
+<td>Filter by donors in certain studies</td>
+</tr>
+</tbody>
+</table>
 <h3 id="results">Results</h3>
-<p>File entities</p>
+<p>Each result that returns from the filters can be selected for more details. Selecting a file will bring you to a file entity page, which provides information on the file. </p>
+<h4 id="summary">Summary</h4>
+<p>The summary section provides general information on the file.</p>
+<p><a href="../images/file-entity-summary.png" title="Click on the image to see it in full"><img alt="" src="../images/file-entity-summary.png" /></a></p>
+<h4 id="file-copies">File Copies</h4>
+<p>The File Copies section provides information on the file entity, a means to download <a href="./#manifests">Manifest</a> and see/download Metadata for the file.</p>
+<p><a href="../images/file-entity-file-copies.png" title="Click on the image to see it in full"><img alt="" src="../images/file-entity-file-copies.png" /></a></p>
+<h4 id="donor">Donor</h4>
+<p>The Donor section provides information on the Donor that corresponds to the file selected.</p>
+<p><a href="../images/file-entity-donor.png" title="Click on the image to see it in full"><img alt="" src="../images/file-entity-donor.png" /></a></p>
 <h4 id="bam-statistics">BAM Statistics</h4>
-<p>iobio</p>
+<p>The BAM Stats section provides </p>
+<p><a href="../images/file-entity-iobio.png" title="Click on the image to see it in full"><img alt="" src="../images/file-entity-iobio.png" /></a></p>
 <h3 id="manifests">Manifests</h3>
 <p>Referencing files for download (see Cloud Guide section)</p>
 <h3 id="donor-sets">Donor Sets</h3>

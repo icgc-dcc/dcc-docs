@@ -116,13 +116,13 @@
     </url>
         
     <url>
-     <loc>http://icgc.github.io/submission/icgc-dcc-project-codes/</loc>
+     <loc>http://icgc.github.io/submission/projects/</loc>
      <lastmod>2015-12-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc.github.io/submission/list-institutions/</loc>
+     <loc>http://icgc.github.io/submission/institutions/</loc>
      <lastmod>2015-12-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
