@@ -58,7 +58,7 @@ If a user is satisfied with the table generated, they can export and download th
 
 [![](images/projects-history-area.png)](images/projects-history-area.png "Click on the image to see it in full")
 
-The history tab allows a user to visualize the history of each project within it's lifetime as a DCC cancer project. Selecting Area will show the cumulative count of Donors of all the projects.
+The history tab allows a user to visualize the history of every project in the current set of projects within it's lifetime as a DCC cancer project. Selecting Area will show the cumulative count of Donors of all the projects. The set of projects can be filtered through [Filtering](projects.md#filtering).
 
 [![](images/projects-history-line.png)](images/projects-history-line.png "Click on the image to see it in full")
 
