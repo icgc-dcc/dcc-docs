@@ -11,7 +11,7 @@
 
    <title>Analysis - ICGC Docs</title>
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
         <link href="../../css/base.css" rel="stylesheet">
@@ -210,6 +210,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -222,6 +228,12 @@
             
 <li >
     <a href="../../submission/dictionary/release-18/">Dictionary - Release 18</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/dictionary/release-18/analyzed-sample-data-file-sample-10a/">Analyzed Sample Data File (sample) - v0.10a</a>
 </li>
 
         
@@ -429,11 +441,15 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#analysis">Analysis</a></li>
+        <li class="main active"><a href="#data-analysis">Data Analysis</a></li>
         <li>
            <ul class="nav">
            
-               <li><a href="#overview">Overview</a></li>
+               <li><a href="#objective">Objective</a></li>
+           
+               <li><a href="#how-to-use-data-analysis-feature">How to use Data Analysis feature</a></li>
+           
+               <li><a href="#list-of-actual-analyses-on-data-portal">List of actual analyses on data portal</a></li>
            
            </ul>
        </li>
@@ -444,9 +460,41 @@
             <div class="col-md-9" role="main">
                
 
-<h1 id="analysis">Analysis</h1>
-<h2 id="overview">Overview</h2>
-<p>This is the Analysis documentation page</p>
+<h1 id="data-analysis">Data Analysis</h1>
+<h3 id="objective">Objective</h3>
+<p>Data analysis is a virtual environment that allows Data Portal users to create and save donor, gene and mutation sets of their interest, and then launch various analyses using selected set(s) as input.<br />
+The ICGC Data Portal will provide analysis tools such as Enrichment Analysis, Set Operation or Phenotype Comparison.</p>
+<h3 id="how-to-use-data-analysis-feature">How to use Data Analysis feature</h3>
+<ol>
+<li>Go to Advanced Search, execute your query (e.g. upload gene set and add consequence type criteria) then save the resulting donors, genes or mutations set, which will be saved in Data Analysis. You can execute other queries and save corresponding sets.</li>
+<li>Go to Data Analysis &gt; Saved Sets tab: this page displays your saved sets. You can delete them or view content in Advanced Search.</li>
+<li>Go to Data Analysis &gt; Launch Analysis tab. Select the analysis you want to launch, for example Set Operation. Then select the input saved sets you want to use and click on Run button.</li>
+<li>Data Analysis &gt; Result tab: Analysis result is then displayed in this tab, for example a venn diagram. You can perform Set Operation and save result as a new set or view set in Advanced Search.</li>
+</ol>
+<h3 id="list-of-actual-analyses-on-data-portal">List of actual analyses on data portal</h3>
+<ul>
+<li>
+<p>Enrichment Analysis:</p>
+<ul>
+<li>Select a gene set with a maximum of 10,000 genes to launch Enrichment Analysis.</li>
+<li>See calculation methodology on this link: <a href="https://docs.icgc.org/methods#enrichmentanalysis">https://docs.icgc.org/methods#enrichmentanalysis</a>.</li>
+</ul>
+</li>
+<li>
+<p>Set Operation:</p>
+<ul>
+<li>Select 2 to 3 saved sets of the same type (donor, gene or mutation) to run Set Operation.</li>
+<li>Find out intersection, union, not included etc from selected input sets, for e.g. common genes between 2 or 3 gene sets, mutations in set A that are not in set B.</li>
+</ul>
+</li>
+<li>
+<p>Phenotype Comparison:</p>
+<ul>
+<li>Select 2 or 3 donor sets from your saved sets.</li>
+<li>Compare characteristics between your donor sets, currently: gender, vital status and age at diagnosis (but other phenotypes to come).</li>
+</ul>
+</li>
+</ul>
            </div>
            </div>
         </div>

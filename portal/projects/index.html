@@ -11,7 +11,7 @@
 
    <title>Projects - ICGC Docs</title>
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
         <link href="../../css/base.css" rel="stylesheet">
@@ -210,6 +210,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -222,6 +228,12 @@
             
 <li >
     <a href="../../submission/dictionary/release-18/">Dictionary - Release 18</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/dictionary/release-18/analyzed-sample-data-file-sample-10a/">Analyzed Sample Data File (sample) - v0.10a</a>
 </li>
 
         
@@ -435,6 +447,8 @@
            
                <li><a href="#overview">Overview</a></li>
            
+               <li><a href="#browser">Browser</a></li>
+           
            </ul>
        </li>
     
@@ -446,7 +460,65 @@
 
 <h1 id="projects">Projects</h1>
 <h2 id="overview">Overview</h2>
-<p>This is the Projects documentation page</p>
+<p>The Projects page presents the list of all the cancer projects involved in the International Cancer Genome Consortium (ICGC).</p>
+<p>A cancer project is characterized by a catalogue of genomic abnormalities (somatic mutations, abnormal expression of genes, epigenetic modifications) affecting donors.</p>
+<h2 id="browser">Browser</h2>
+<h3 id="filtering">Filtering</h3>
+<p>ICGC cancer projects can be filtered through the use of filtering facets, much like <a href="../search/">Advanced Search</a> and <a href="../repositories/#filtering">Data Repositories</a>. Users can use the facets to check off desired attributes within a project file, and all the files with that attribute will be returned. Filters within the same facet, and across multiple facets can be overlapped.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../images/projects-project-id.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-project-id.png" /></a></td>
+<td>Filter by Project ID</td>
+</tr>
+<tr>
+<td><a href="../images/projects-primary-site.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-primary-site.png" /></a></td>
+<td>Filter by Primary Site affected</td>
+</tr>
+<tr>
+<td><a href="../images/projects-country.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-country.png" /></a></td>
+<td>Filter by Project Country origin</td>
+</tr>
+<tr>
+<td><a href="../images/projects-available-data-type.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-available-data-type.png" /></a></td>
+<td>Filter by Available Data Type</td>
+</tr>
+<tr>
+<td><a href="../images/projects-tumour-type.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-tumour-type.png" /></a></td>
+<td>Filter by Tumour Type</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabs">Tabs</h3>
+<p>When looking at the projects returned from filtering, a user can switch between looking at a <a href="./#summary">Summary</a>, the <a href="./#details">Details</a>, or the <a href="./#history">History</a> of the projects.</p>
+<p><a href="../images/projects-tabs.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-tabs.png" /></a></p>
+<h4 id="summary">Summary</h4>
+<p><a href="../images/projects-summary.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-summary.png" /></a></p>
+<p>The summary tab allows a user to visualize general statistics on the current set of projects, which can be filtered through <a href="./#filtering">Filtering</a>. </p>
+<p><a href="../images/projects-donor-distribution.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-donor-distribution.png" /></a></p>
+<p>The Donor Distribution pie chart allows a user to see the amount of donors corresponding to each Primary Site. The inner circle displays how many donors contribute to a generalized site, such as Blood or Brain, whereas the outer circle splits up the different projects in each generalized site, ultimately displaying how many donors are in each project as well.</p>
+<p><a href="../images/projects-top-20-chart.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-top-20-chart.png" /></a></p>
+<p>The Top 20 Mutated Genes with High Functional Impact SSMs chart visualizes the comparison between the top 20 mutated genes with high functional impact SSMs. The chart shows how many donors are affected by each of the top 20 genes.</p>
+<p><a href="../images/projects-number-of-somatic-mutations.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-number-of-somatic-mutations.png" /></a></p>
+<p>The Number of Somatic Mutations in Donor's Exomes Across Cancer Projects chart visualizes the number of mutations per megabase.</p>
+<h4 id="details">Details</h4>
+<p><a href="../images/projects-details.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-details.png" /></a></p>
+<p>The details tab allows a user to visualize detailed statistics on each project within the current set of projects, which can be filtered through <a href="./#filtering">Filtering</a>. </p>
+<p><a href="../images/projects-details-export-as-tsv.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-details-export-as-tsv.png" /></a></p>
+<p>If a user is satisfied with the table generated, they can export and download the table as a TSV file.</p>
+<h4 id="history">History</h4>
+<p><a href="../images/projects-history-area.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-history-area.png" /></a></p>
+<p>The history tab allows a user to visualize the history of each project within it's lifetime as a DCC cancer project. Selecting Area will show the cumulative count of Donors of all the projects.</p>
+<p><a href="../images/projects-history-line.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-history-line.png" /></a></p>
+<p>Selecting Line will show the history of the donor count of each individual project.</p>
+<p><a href="../images/projects-history-area-hover.png" title="Click on the image to see it in full"><img alt="" src="../images/projects-history-area-hover.png" /></a></p>
+<p>Hovering over a place in the graph allows the user to see the project, the release number and the number of donors at that time. The same functionality exists for the Line graph as well.</p>
            </div>
            </div>
         </div>

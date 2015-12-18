@@ -11,7 +11,7 @@
 
    <title>Releases - ICGC Docs</title>
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
         <link href="../../css/base.css" rel="stylesheet">
@@ -210,6 +210,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -222,6 +228,12 @@
             
 <li >
     <a href="../../submission/dictionary/release-18/">Dictionary - Release 18</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/dictionary/release-18/analyzed-sample-data-file-sample-10a/">Analyzed Sample Data File (sample) - v0.10a</a>
 </li>
 
         
@@ -460,10 +472,23 @@
 <h3 id="release-directories">Release Directories</h3>
 <p>Each directory has a README.txt file, whose content is displayed below the table for your viewing convenience. Starting from <em>Release 16</em>, summary information is included in each release archive. For example, the <em>Release 16</em> directory shows two sub-directories, <em>Summary</em> and <em>Projects</em>. Under the <em>Summary</em> directory, summary files are available for download; large data files are located in the <em>Projects</em> directory. Releases prior to <em>Release 16</em> only provide large data files.</p>
 <p><a href="../images/legacy-data-releases.png" title="Click on the image to see it in full."><img alt="DCC Data Releases" src="../images/legacy-data-releases.png" /></a></p>
-<h3 id="legacy-directories">Legacy Directories</h3>
+<h4 id="legacy-directories">Legacy Directories</h4>
 <p>Releases prior to <em>Release 14</em> can be located via the "legacy_data_releases" link below "release_14". These are copies of the FTP archives which were previously hosted at <a href="">ftp://data.dcc.icgc.org</a>.</p>
 <h2 id="downloads">Downloads</h2>
 <p>Clicking a file link initiates a download - most Web browsers prompt the user for where to save the file. Note that tools such as <code>wget</code> can also be used. Our API also supports the <code>-c</code> option to continue interrupted downloads.</p>
+<h3 id="having-trouble-downloading-a-file-from-dcc-repository">Having trouble downloading a file from DCC Repository?</h3>
+<p><strong>Wget: Resume Broken Download</strong><br />
+The GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.<br />
+Use the -c or --continue option to continue getting a partially downloaded file. This is useful when you want to finish a download started by a previous instance of wget, or by another program.</p>
+<p>The syntax is:<br />
+wget -c url<br />
+wget --continue url<br />
+wget --continue [options] url</p>
+<p>Example:<br />
+Download a file using Wget utility<br />
+$ wget <a href="https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_mutation.aggregated.vcf.gz">https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...</a></p>
+<p>Resume partially downloaded file:<br />
+$ wget -c <a href="https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_mutation.aggregated.vcf.gz">https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...</a></p>
            </div>
            </div>
         </div>
