@@ -1,5 +1,3 @@
-toc: false
-
 <h1 class="title">
  Analyzed Sample Data File (sample)
 </h1>

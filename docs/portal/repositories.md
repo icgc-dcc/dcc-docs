@@ -71,8 +71,25 @@ The BAM Stats section provides general information on the BAM file selected. Thi
 
 ### Manifests
 
-Referencing files for download (see Cloud Guide section)
+A Manifest is a text file that is the main way to notify download clients what files should be downloaded. Each file entity has a Manifest per repository, and can be downloaded on the [File Copies](repositories.md#file-copies) section.
+
+If the situation comes up where more than one file is needed, the **Download manifests** button can be used to download all the selected files, or if none are selected, all the files. The result would be a single Manifest file for each repository, containing all the files that belonged to that repository and were selected.
+[![](images/data-repositories-download-manifests.png)](images/data-repositories-download-manifests.png "Click on the image to see it in full")
+[![](images/data-repository-selected-files.png)](images/data-repository-selected-files.png "Click on the image to see it in full")
+Selected 4(four) out of 7(seven) files in the same repository.
+
+
+[![](images/data-repository-download-manifest-modal.png)](images/data-repository-download-manifest-modal.png "Click on the image to see it in full")
+Only one Manifest file because the 4(four) files were in the same repository.
+
+**Note**
+For repositories such as Collaboratory and AWS, the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click [here](/cloud/guide.md#overview)
 
 ### Donor Sets
 
-Saving a list of donors for Advanced Search
+A user has the ability to save a list of donors, using the "SAVE DONOR SET" feature. Saving a donor set allows for cross feature interaction. Once a donor set is saved, a user has the opportunity to upload it onto [Advanced Search](search.md). The result is a much higher level of detail comparing the similarities of the donors.
+
+[![](images/data-repositories-save-donor-set.png)](images/data-repositories-save-donor-set.png "Click on the image to see it in full")
+[![](images/data-repositories-save-donor-set-modal.png)](images/data-repositories-save-donor-set-modal.png "Click on the image to see it in full")
+
+A user is able to choose how many of the donors to save starting from the top down, name the donor set, and set a note.

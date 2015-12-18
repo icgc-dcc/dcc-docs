@@ -22,10 +22,27 @@ Each directory has a README.txt file, whose content is displayed below the table
 
 [![DCC Data Releases](images/legacy-data-releases.png)](images/legacy-data-releases.png "Click on the image to see it in full.")
 
-### Legacy Directories
+#### Legacy Directories
 
 Releases prior to *Release 14* can be located via the "legacy\_data\_releases" link below "release\_14". These are copies of the FTP archives which were previously hosted at [ftp://data.dcc.icgc.org]().
 
 ## Downloads
 
 Clicking a file link initiates a download - most Web browsers prompt the user for where to save the file. Note that tools such as `wget` can also be used. Our API also supports the `-c` option to continue interrupted downloads.
+
+### Having trouble downloading a file from DCC Repository?
+**Wget: Resume Broken Download**  
+The GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.  
+Use the -c or --continue option to continue getting a partially downloaded file. This is useful when you want to finish a download started by a previous instance of wget, or by another program.
+
+The syntax is:  
+wget -c url  
+wget --continue url  
+wget --continue [options] url
+
+Example:  
+Download a file using Wget utility  
+$ wget [https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...](https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_mutation.aggregated.vcf.gz)
+
+Resume partially downloaded file:  
+$ wget -c [https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...](https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_mutation.aggregated.vcf.gz)

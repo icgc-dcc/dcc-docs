@@ -73,7 +73,7 @@ pages:
 #      - Array-based Gene Expression (exp_array) - Analysis Metadata File (m): 'submission/dictionary/release-19/array-based-gene-expression-exparray-analysis-metadata-file-m-11c.md'
 #      - Array-based Gene Expression (exp_array) - Primary File (p): 'submission/dictionary/release-19/array-based-gene-expression-exparray-primary-file-p-11c.md'
 #      - Controlled Vocabulary (CV) Tables: 'submission/dictionary/release-19/controlled-vocabulary-11c.md'
-#      - Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m): 'submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c.md'
+      - Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m): 'submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c.md'
 #      - Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p): 'submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-11c.md'
 #      - Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s): 'submission/dictionary/release-19/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-11c.md'
 #      - Donor Biomarkers (biomarker): 'submission/dictionary/release-19/donor-biomarker-11c.md'
@@ -102,7 +102,7 @@ pages:
 #      - Structural Somatic Mutations (stsm) - Secondary Analysis File (s): 'submission/dictionary/release-19/structural-somatic-mutations-stsm-secondary-analysis-file-s-11c.md'
     - Release 18:
       - Dictionary - Release 18: 'submission/dictionary/release-18.md'
-#      - Analyzed Sample Data File (sample) - v0.10a: 'submission/dictionary/release-18/analyzed-sample-data-file-sample-10a.md'
+      - Analyzed Sample Data File (sample) - v0.10a: 'submission/dictionary/release-18/analyzed-sample-data-file-sample-10a.md'
 #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) -v0.10a: 'submission/dictionary/release-18/array-based-dna-methylation-metharray-analysis-metadata-file-m-10a.md'
 #      - Array-based DNA Methylation (meth_array) - Primary File (p) -v0.10a: 'submission/dictionary/release-18/array-based-dna-methylation-metharray-primary-file-p-10a.md'
 #      - Array-based Gene Expression (exp_array) - Analysis Metadata File (m) -v0.10a: 'submission/dictionary/release-18/array-based-gene-expression-exparray-analysis-metadata-file-m-10a.md'
