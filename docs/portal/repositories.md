@@ -6,13 +6,13 @@ The ICGC Data Repositories page is a means for users to browse through ICGC data
 
 ## Browser
 
-The browser is made up of multiple parts, including [Filter Facets](repositories.md#filtering), [Results](repositories.md#results), [BAM statistics](repositories.md#BAM-statistics), [Manifests](repositories.md#manifests), and [Donor Sets](repositories.md#donor-sets). 
+The browser is made up of multiple parts, including [Filter Facets](repositories.md#filtering), [Results](repositories.md#results), [BAM statistics](repositories.md#bam-statistics), [Manifests](repositories.md#manifests), and [Donor Sets](repositories.md#donor-sets). 
 
 [![](images/data-repository-browser.png)](images/data-repository-browser.png "Click on the image to see it in full")
 
 ### Filtering
 
-ICGC data is filter through the use of facets. Users can use the facets to check off desired attributes within a project file, and all the files with that attribute will be returned. Filters within the same facet, and across multiple facets can be overlapped. The two types of filters are [Donor Filters](repositories.md#donor-filters) and [File Filters](repositories.md#file-filters).
+ICGC data is filtered through the use of facets, much like [Advanced Search](search.md) and [Projects](projects.md#filtering). Users can use the facets to check off desired attributes within a project file, and all the files with that attribute will be returned. Filters within the same facet, and across multiple facets can be overlapped. The two types of filters are [Donor Filters](repositories.md#donor-filters) and [File Filters](repositories.md#file-filters).
 
 #### Donor Filters
 
