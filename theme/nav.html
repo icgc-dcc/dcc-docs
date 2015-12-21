@@ -37,12 +37,13 @@
             {% endfor %}
             </ul>
 
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <input name="q" id="mkdocs-search-query" type="text" autocomplete="off" placeholder="Search docs">
-                </li>
-            </ul>
+            <!-- Search -->
+            <div class="searchbox-container col-sm-3 col-md-3 pull-right">
+               <form class="searchbox navbar-form" role="search">
+                  <input id="mkdocs-search-query" type="search" placeholder="Search..." autocomplete="off" name="search" class="searchbox-input">
+                  <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+               </form>
+            </div>
 
             {% if false %}
             <ul class="nav navbar-nav navbar-right">
