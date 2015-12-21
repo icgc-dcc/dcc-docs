@@ -7,7 +7,7 @@ $(function () {
 
    // Enable side ToC
    $('body').scrollspy({
-      target: '.bs-sidebar',
+      target: '.bs-sidebar'
    });
 
    // Prevent disabled links from causing a page reload
@@ -15,7 +15,7 @@ $(function () {
       event.preventDefault();
    });
 
-   var $query = $("#mkdocs-search-query");
+   var $query = $(".searchbox-input");
    var $results = $("#mkdocs-search-results");
    var $body = $("#body");
 
@@ -30,6 +30,41 @@ $(function () {
          $header.text("");
          $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id).html(icon));
          $header.append($("<a/>").addClass("header-text-link").attr("href", "#" + id).text(title));
+      }
+   });
+
+   var submitIcon = $('.searchbox-icon');
+   var inputBox = $('.searchbox-input');
+   var $search = $('.searchbox');
+   var isOpen = false;
+
+   $search.submit(function (e) {
+      e.preventDefault();
+      submitIcon.click();
+   })
+
+   submitIcon.click(function () {
+      if (isOpen == false) {
+         inputBox.val("");
+         $search.addClass('searchbox-open');
+         inputBox.focus();
+         isOpen = true;
+      } else {
+         $search.removeClass('searchbox-open');
+         inputBox.focusout();
+         isOpen = false;
+      }
+   });
+   submitIcon.mouseup(function () {
+      return false;
+   });
+   $search.mouseup(function () {
+      return false;
+   });
+   $(document).mouseup(function () {
+      if (isOpen == true) {
+         $('.searchbox-icon').css('display', 'block');
+         submitIcon.click();
       }
    });
 
@@ -101,8 +136,7 @@ $(function () {
          search();
       }
 
-      searchInput.addEventListener("keyup", search);
-
+      searchInput.addEventListener("keyup", debounce(search, 300));
    });
 
    function getSearchTerm() {
@@ -115,4 +149,20 @@ $(function () {
          }
       }
    }
+
+   function debounce(func, wait, immediate) {
+      var timeout;
+      return function () {
+         var context = this,
+            args = arguments;
+         var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+         };
+         var callNow = immediate && !timeout;
+         clearTimeout(timeout);
+         timeout = setTimeout(later, wait);
+         if (callNow) func.apply(context, args);
+      };
+   };
 });
