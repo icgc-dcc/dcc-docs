@@ -267,3 +267,8 @@ pages:
     - Sample Type Specification: 'submission/guide/sample-type-specification.md'
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
   - Software: 'submission/software.md'
+extra:
+  project_org: 'ICGC'
+  project_description: 'Docs'
+  version: 1.0
+

@@ -11,11 +11,13 @@
         {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
-
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
         <link href="{{ base_url }}/css/bootstrap-custom.css" rel="stylesheet">
         <link href="{{ base_url }}/css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
         <link href="{{ base_url }}/css/base.css" rel="stylesheet">
+        <link href="{{ base_url }}/css/icgc-common.css" rel="stylesheet">
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
@@ -54,11 +56,12 @@
            </div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
+        <footer class="row">
+aaa
             {% if copyright %}
                 <center>{{ copyright }}</center>
             {% endif %}
+
         </footer>
 
         <script src="{{ base_url }}/js/jquery-1.10.2.min.js"></script>

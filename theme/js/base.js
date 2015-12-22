@@ -15,6 +15,23 @@ $(function () {
       event.preventDefault();
    });
 
+   function _initMenuNavBar(container, subContainer) {
+      var menuBar = $('.menu-bar'),
+          container = $(container);
+
+
+      container.find(subContainer)
+        .hover(function() {
+            var dropdownItem = $(this);
+            menuBar.css({width: dropdownItem.width() ,left: dropdownItem.position().left});
+         },
+         function() {
+            menuBar.css({width: 0});
+         });
+   }
+
+   _initMenuNavBar('.navbar-nav', '> li');
+
    var $query = $(".searchbox-input");
    var $results = $("#mkdocs-search-results");
    var $body = $("#body");
