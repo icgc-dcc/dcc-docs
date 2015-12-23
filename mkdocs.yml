@@ -5,7 +5,7 @@
 site_name: ICGC Docs
 site_url: http://icgc.github.io
 repo_url: https://github.com/icgc/icgc-docs
-copyright: "&copy; 2015 ICGC.org"
+copyright: "&copy; 2015-2016"
 theme_dir: theme
 pages:
 - Home: index.md
