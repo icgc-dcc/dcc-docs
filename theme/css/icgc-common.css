@@ -424,6 +424,9 @@ footer .logo img:hover {
 
 
 @media screen and (max-width: 768px) {
+  h1 a[class^="header-text"] {
+    line-height: 4.5rem;
+  }
 
   .navbar-default .navbar-nav > .active > a,
   .navbar-default .navbar-nav > .active > a:hover,
