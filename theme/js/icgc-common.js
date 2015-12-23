@@ -4,7 +4,7 @@ $(function() {
 
     function _initHeaders(confineToContainerID) {
       var header = $(confineToContainerID + ' h1');
-      header.prepend('<span class="badge"><i class="fa fa-book"></i></span>');
+      header.prepend('<span class="header-badge"><i class="fa fa-book"></i></span>');
     }
 
     function _initLinks(confineToContainerID) {

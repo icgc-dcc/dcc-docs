@@ -118,7 +118,7 @@ $(function () {
                doc.base_url = base_url;
                doc.summary = doc.text.substring(0, 200);
 
-               var html = '<article class="search-item animated fadeInLeft"><h3><span class="badge"><i class="fa fa-book"></i></span> <a href="' + doc.location + '">' + doc.title + '</a></h3><p>' + doc.summary + '</p></article>';
+               var html = '<article class="search-item animated fadeInLeft"><h3><span class="header-badge"><i class="fa fa-book"></i></span> <a href="' + doc.location + '">' + doc.title + '</a></h3><p>' + doc.summary + '</p></article>';
                console.log(query);
                $results.append(html);
             }
