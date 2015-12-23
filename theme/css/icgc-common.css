@@ -339,6 +339,7 @@ table a:not(.btn), .table a:not(.btn) {
   background-color: #fff;
   border: solid 2px #ccc;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .navbar-default .navbar-form {
