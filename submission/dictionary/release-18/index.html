@@ -10,11 +10,13 @@
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
    <title>Dictionary - Release 18 - ICGC Docs</title>
-
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
         <link href="../../../css/bootstrap-custom.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../../css/highlight.css">
         <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/icgc-common.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -25,8 +27,10 @@
         
     </head>
 
-    <body>
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <body data-spy="scroll">
+        <div class="parent-container">
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="background-container"></div>
     <div class="container">
 
         <!-- Collapsed navigation -->
@@ -40,7 +44,8 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../../..">ICGC Docs</a>
+            <a class="navbar-brand" href="../../..">
+                <span class="project-org">ICGC</span> Docs</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -420,6 +425,7 @@
                 </li>
             
             
+                <li class="menu-bar"></li>
             </ul>
 
             <!-- Search -->
@@ -435,11 +441,11 @@
     </div>
 </div>
 
-        <div class="container">
-            <div id="mkdocs-search-results"></div>
-            <div id="body">
-            
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="container">
+                <div id="mkdocs-search-results"></div>
+                <div id="body">
+                
+                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#dictionary-v010a-october-2014-release-18">Dictionary v0.10a (October., 2014, Release 18)</a></li>
@@ -453,9 +459,9 @@
     
     </ul>
 </div></div>
-            
-            <div class="col-md-9" role="main">
-               
+                
+                <div class="col-md-9 main-container" role="main">
+                   
 
 <h1 id="dictionary-v010a-october-2014-release-18">Dictionary v0.10a (October., 2014, Release 18)</h1>
 <h5 id="changes-to-specifications-since-version-09a-june-2014">Changes to Specifications Since Version 0.9a (June., 2014)</h5>
@@ -496,23 +502,43 @@
 <li>New raw data repository TARGET added to codelist.</li>
 </ul>
 <p>Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out <a href="https://submissions.dcc.icgc.org/dictionary.html">here</a></p>
-           </div>
-           </div>
+               </div>
+               </div>
+            </div>
+
+            <footer>
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="/img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            &copy; 2015-2016 <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        
+                        <small class="version-caption">
+                            ICGC Docs Version 1.0
+                        </small>
+                        
+                    </div>
+                </div>
+                
+            </footer>
+
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="../../../js/jquery.highlight-4.closure.js"></script>
+            <script src="../../../js/base.js"></script>
+            <script src="../../../js/icgc-common.js"></script>
+            <script>var base_url = '../../..';</script>
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-            
-                <center>&copy; 2015 ICGC.org</center>
-            
-        </footer>
-
-        <script src="../../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../../js/highlight.pack.js"></script>
-        <script src="../../../mkdocs/js/lunr-0.5.7.min.js"></script>
-        <script src="../../../js/jquery.highlight-4.closure.js"></script>
-        <script src="../../../js/base.js"></script>
-        <script>var base_url = '../../..';</script>
     </body>
 </html>

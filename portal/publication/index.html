@@ -10,11 +10,13 @@
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
    <title>Publication - ICGC Docs</title>
-
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
         <link href="../../css/bootstrap-custom.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
         <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/icgc-common.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -25,8 +27,10 @@
         
     </head>
 
-    <body>
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <body data-spy="scroll">
+        <div class="parent-container">
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="background-container"></div>
     <div class="container">
 
         <!-- Collapsed navigation -->
@@ -40,7 +44,8 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../..">ICGC Docs</a>
+            <a class="navbar-brand" href="../..">
+                <span class="project-org">ICGC</span> Docs</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -420,6 +425,7 @@
                 </li>
             
             
+                <li class="menu-bar"></li>
             </ul>
 
             <!-- Search -->
@@ -435,11 +441,11 @@
     </div>
 </div>
 
-        <div class="container">
-            <div id="mkdocs-search-results"></div>
-            <div id="body">
-            
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="container">
+                <div id="mkdocs-search-results"></div>
+                <div id="body">
+                
+                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#icgc-publication-guidelines">ICGC Publication Guidelines</a></li>
@@ -457,9 +463,9 @@
     
     </ul>
 </div></div>
-            
-            <div class="col-md-9" role="main">
-               
+                
+                <div class="col-md-9 main-container" role="main">
+                   
 
 <h1 id="icgc-publication-guidelines">ICGC Publication Guidelines</h1>
 <p>Members of the ICGC are committed to the principles of rapid data release. However, like other large-scale genomic projects, members do not consider the deposition of its data into its own or public databases to be the equivalent of publication in a peer-reviewed journal. Therefore, although the data are available to others, the members still consider them to be formally unpublished.</p>
@@ -689,23 +695,43 @@
 <p>For Moratorium status on TCGA projects, please visit <a href="http://cancergenome.nih.gov/publications/publicationguidelines">http://cancergenome.nih.gov/publications/publicationguidelines</a></p>
 <p>For Moratorium status on TARGET projects, please visit <a href="https://ocg.cancer.gov/programs/target/target-publication-guidelines">https://ocg.cancer.gov/programs/target/target-publication-guidelines</a></p>
 <p>Data users should freely analyze pre-publication data and act responsibly in publishing analyses of those data in a manner that respects the terms described by the data producers. Data users are responsible for accurately citing the source of pre-publication data, including the version of the dataset. Data users are encouraged to <a href="https://icgc.org/icgc/cgp-template-letters">contact the data producers</a> to discuss publication plans in cases of uncertainty. For questions regarding moratorium status, please contact DCC HelpDesk at <a href="mailto:dcc-support@icgc.org">dcc-support@icgc.org</a></p>
-           </div>
-           </div>
+               </div>
+               </div>
+            </div>
+
+            <footer>
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="/img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            &copy; 2015-2016 <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        
+                        <small class="version-caption">
+                            ICGC Docs Version 1.0
+                        </small>
+                        
+                    </div>
+                </div>
+                
+            </footer>
+
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="../../js/jquery.highlight-4.closure.js"></script>
+            <script src="../../js/base.js"></script>
+            <script src="../../js/icgc-common.js"></script>
+            <script>var base_url = '../..';</script>
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-            
-                <center>&copy; 2015 ICGC.org</center>
-            
-        </footer>
-
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script src="../../mkdocs/js/lunr-0.5.7.min.js"></script>
-        <script src="../../js/jquery.highlight-4.closure.js"></script>
-        <script src="../../js/base.js"></script>
-        <script>var base_url = '../..';</script>
     </body>
 </html>

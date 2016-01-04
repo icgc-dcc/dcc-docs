@@ -11,11 +11,13 @@
         {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
-
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
         <link href="{{ base_url }}/css/bootstrap-custom.css" rel="stylesheet">
         <link href="{{ base_url }}/css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
         <link href="{{ base_url }}/css/base.css" rel="stylesheet">
+        <link href="{{ base_url }}/css/icgc-common.css" rel="stylesheet">
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
@@ -39,37 +41,58 @@
         {% endif %}
     </head>
 
-    <body>
-        {% include "nav.html" %}
+    <body data-spy="scroll">
+        <div class="parent-container">
+            {% include "nav.html" %}
 
-        <div class="container">
-            <div id="mkdocs-search-results"></div>
-            <div id="body">
-            {% if toc and ((toc | first) is defined) %}
-            <div class="col-md-3">{% include "toc.html" %}</div>
-            {% endif %}
-            <div class="col-md-9" role="main">
-               {% include "content.html" %}
-           </div>
-           </div>
+            <div class="container">
+                <div id="mkdocs-search-results"></div>
+                <div id="body">
+                {% if toc and ((toc | first) is defined) %}
+                <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
+                {% endif %}
+                <div class="col-md-9 main-container" role="main">
+                   {% include "content.html" %}
+               </div>
+               </div>
+            </div>
+
+            <footer>
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="/img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                {% if copyright %}
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            {{ copyright }} <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        {% if config.extra.version %}
+                        <small class="version-caption">
+                            {{ site_name }} Version {{ config.extra.version }}
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </footer>
+
+            <script src="{{ base_url }}/js/jquery-1.10.2.min.js"></script>
+            <script src="{{ base_url }}/js/bootstrap-3.0.3.min.js"></script>
+            <script src="{{ base_url }}/js/highlight.pack.js"></script>
+            <script src="{{ base_url }}/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="{{ base_url }}/js/jquery.highlight-4.closure.js"></script>
+            <script src="{{ base_url }}/js/base.js"></script>
+            <script src="{{ base_url }}/js/icgc-common.js"></script>
+            <script>var base_url = '{{ base_url }}';</script>
+            {%- for path in extra_javascript %}
+            <script src="{{ path }}"></script>
+            {%- endfor %}
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-            {% if copyright %}
-                <center>{{ copyright }}</center>
-            {% endif %}
-        </footer>
-
-        <script src="{{ base_url }}/js/jquery-1.10.2.min.js"></script>
-        <script src="{{ base_url }}/js/bootstrap-3.0.3.min.js"></script>
-        <script src="{{ base_url }}/js/highlight.pack.js"></script>
-        <script src="{{ base_url }}/mkdocs/js/lunr-0.5.7.min.js"></script>
-        <script src="{{ base_url }}/js/jquery.highlight-4.closure.js"></script>
-        <script src="{{ base_url }}/js/base.js"></script>
-        <script>var base_url = '{{ base_url }}';</script>
-        {%- for path in extra_javascript %}
-        <script src="{{ path }}"></script>
-        {%- endfor %}
     </body>
 </html>

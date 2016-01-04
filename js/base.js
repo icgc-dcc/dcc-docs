@@ -7,12 +7,13 @@ $(function () {
 
    // Enable side ToC
    $('body').scrollspy({
-      target: '.bs-sidebar'
+      target: '.bs-sidebar',
+      offset: -12
    });
 
    // Prevent disabled links from causing a page reload
-   $("li.disabled a").click(function () {
-      event.preventDefault();
+   $("li.disabled a").click(function (e) {
+      e.preventDefault();
    });
 
    var $query = $(".searchbox-input");
@@ -28,7 +29,7 @@ $(function () {
       if (id) {
          var title = $header.text();
          $header.text("");
-         $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id).html(icon));
+         $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id)); //.html(icon));
          $header.append($("<a/>").addClass("header-text-link").attr("href", "#" + id).text(title));
       }
    });
@@ -117,7 +118,7 @@ $(function () {
                doc.base_url = base_url;
                doc.summary = doc.text.substring(0, 200);
 
-               var html = '<article><h3><a href="' + doc.location + '">' + doc.title + '</a></h3><p>' + doc.summary + '</p></article>';
+               var html = '<article class="search-item animated fadeInLeft"><h3><span class="header-badge"><i class="fa fa-book"></i></span> <a href="' + doc.location + '">' + doc.title + '</a></h3><p>' + doc.summary + '</p></article>';
                console.log(query);
                $results.append(html);
             }

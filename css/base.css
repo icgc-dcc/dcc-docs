@@ -10,8 +10,8 @@ h5[id]:before,
 h6[id]:before {
   content: "";
   display: block;
-  margin-top: -75px;
-  height: 75px;
+  margin-top: -80px;
+  height: 80px;
 }
 
 ul.nav li.main {
