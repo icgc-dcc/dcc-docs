@@ -248,6 +248,19 @@ table a:not(.btn), .table a:not(.btn) {
   position:relative;
 }
 
+.bs-sidebar .nav .nav {
+  display: block;
+}
+
+.header-text-link .fa {
+  display: none;
+}
+.header-text-link:hover .fa {
+  display: inline-block;
+  color: #166aa2;
+  opacity: 0.3;
+}
+
 @media (min-width: 992px) {
   .bs-sidebar.affix,
   .bs-sidebar.affix-bottom {
@@ -355,6 +368,35 @@ table a:not(.btn), .table a:not(.btn) {
 .navbar-default .navbar-toggle:focus .icon-bar  {
   background-color: #fff;
 }
+
+/* Tables */
+
+table {
+  border: 1px solid #e6e6e6;
+}
+.table-striped > tbody > tr > td:first-of-type {
+  white-space: nowrap;
+}
+
+.table-striped > tbody > tr > td {
+  line-height: inherit;
+  text-align: left;
+  padding: .2rem .4rem;
+  border-left: 1px solid #e6e6e6;
+}
+
+.table-striped > tbody > tr:hover {
+  background-color: #fff;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.table-striped > tbody > tr:hover:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
 
 /* Search */
 
