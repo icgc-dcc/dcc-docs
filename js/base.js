@@ -24,13 +24,18 @@ $(function () {
    $(":header", $body).each(function (i, header) {
       var $header = $(header);
       var id = $header.attr('id');
-      var icon = '<i class="fa fa-link"></i>';
+      var icon = '&nbsp;<i class="fa fa-anchor"></i>';
 
       if (id) {
          var title = $header.text();
          $header.text("");
-         $header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id)); //.html(icon));
-         $header.append($("<a/>").addClass("header-text-link").attr("href", "#" + id).text(title));
+         //$header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id)); //.html(icon));
+         $header.append($("<a/>")
+           .addClass("header-text-link")
+           .attr("href", "#" + id)
+           .attr("title", "Click on this header and copy URL to link to this section.")
+           .append(title)
+           .append(icon));
       }
    });
 
