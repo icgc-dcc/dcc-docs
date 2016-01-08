@@ -11,6 +11,11 @@
         {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
+
+        {% if current_page.title == 'Dictionary' %}
+        {% include "dictionary-viewer.html" %}
+        {% endif %}
+
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
               type='text/css'>
         <link href="{{ base_url }}/css/bootstrap-custom.css" rel="stylesheet">
@@ -21,6 +26,8 @@
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
+
+
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>

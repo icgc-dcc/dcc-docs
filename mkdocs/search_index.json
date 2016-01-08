@@ -1604,6 +1604,11 @@
             "location": "/submission/software/#changes-in-submission-system-software-release-26-march-17-2014", 
             "text": "Incremental data submission. Users can now manage their data submission directory and upload only new data. Please see  here  for more information  Support multiple files. Data can be split in multiple files per data type  Selective data validation. Users can now validate data by data type and not anymore the whole submission each time.  New user interface  Faster validation engine  Many bug fixes   For more information, please see the Submission System Guide available   here  . Please don't hesitate to contact us at  dcc-support@icgc.org  if you have any questions or to report any bugs.  Sincerely,\nThe DCC team.", 
             "title": "Changes in Submission System Software Release 2.6 - March 17, 2014"
+        }, 
+        {
+            "location": "/submission/dictionary-viewer/", 
+            "text": "TO\n                        \n\n                        \n\n                    \n\n                    \n\n                    View as:\n                                \n\n                                \n\n                    \n\n                    \n\n                        \n \n additions\n\n                        \n \n changes", 
+            "title": "Dictionary"
         }
     ]
 }

@@ -6,11 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://icgc.github.io/submission/software/">
+        <link rel="canonical" href="http://icgc.github.io/submission/dictionary-viewer/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-   <title>Software - ICGC Docs</title>
+   <title>Dictionary - ICGC Docs</title>
 
+        
+        <link href="http://localhost:8080/styles/dictionary.css" rel="stylesheet">
+<link href="../../css/dictionary-viewer.css" rel="stylesheet">
+<script src="http://localhost:8080/scripts/dictionary.js"></script>
+<script src="../../js/dictionary-viewer.js"></script>
         
 
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
@@ -161,7 +166,7 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
@@ -421,8 +426,8 @@
 
                     
                         
-<li class="active">
-    <a href="./">Software</a>
+<li >
+    <a href="../software/">Software</a>
 </li>
 
                     
@@ -431,8 +436,8 @@
             
             
             
-                <li >
-                    <a href="../dictionary-viewer/">Dictionary</a>
+                <li class="active">
+                    <a href="./">Dictionary</a>
                 </li>
             
             
@@ -456,47 +461,53 @@
                 <div id="mkdocs-search-results"></div>
                 <div id="body">
                 
-                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#software">Software</a></li>
-        <li>
-           <ul class="nav">
-           
-               <li><a href="#overview">Overview</a></li>
-           
-               <li><a href="#release-notes">Release Notes</a></li>
-           
-           </ul>
-       </li>
-    
-    </ul>
-</div></div>
-                
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="software">Software</h1>
-<h2 id="overview">Overview</h2>
-<p>This is the Software documentation page</p>
-<h2 id="release-notes">Release Notes</h2>
-<h4 id="changes-in-submission-system-software-release-3611-october-10-2014">Changes in Submission System Software Release 3.6.1.1 - October 10, 2014</h4>
-<ul>
-<li>Added "header-only file validation" to inform the user of an unintended empty submission file</li>
-<li>Added "sample type validation" to verify that samples referenced in meta file <code>analyzed_sample_id</code>, <code>matched_sample_id</code> and <code>reference_sample_type</code> fields are consistent with the <code>specimen_type</code> field found in the associated specimen files.</li>
-</ul>
-<h4 id="changes-in-submission-system-software-release-26-march-17-2014">Changes in Submission System Software Release 2.6 - March 17, 2014</h4>
-<ul>
-<li>Incremental data submission. Users can now manage their data submission directory and upload only new data. Please see <a href="../guide/incremental-submission-feature/">here</a> for more information</li>
-<li>Support multiple files. Data can be split in multiple files per data type</li>
-<li>Selective data validation. Users can now validate data by data type and not anymore the whole submission each time.</li>
-<li>New user interface</li>
-<li>Faster validation engine</li>
-<li>Many bug fixes</li>
-</ul>
-<p>For more information, please see the Submission System Guide available <a href="../about/"> here </a>. Please don't hesitate to contact us at <a href="mailto:dcc-support@icgc.org">dcc-support@icgc.org</a> if you have any questions or to report any bugs.</p>
-<p>Sincerely,
-The DCC team.</p>
+<div data-ng-app="DictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main" style="overflow:hidden">
+    <div data-ng-show="DictionaryViewCtrl.versionRange.from" ng-cloak>
+        <div class="dictionary-viewer-controls row">
+            <div class="form-group col-md-2">
+              <input class="form-control" type="search" role="search" placeholder="Search Dictionary" data-ng-model="DictionaryViewCtrl.searchQuery">
+            </div>
+            <div class="form-group col-md-4 version-select-container">
+                        <select class="form-control version-selector"
+                                data-ng-options="viewType for viewType in DictionaryViewCtrl.getDictionaryVersionList()"
+                                data-ng-model="DictionaryViewCtrl.versionRange.from"
+                                data-ng-change="DictionaryViewCtrl.setDictionaryVersionFilterRange(DictionaryViewCtrl.versionRange.from, DictionaryViewCtrl.versionRange.to)">
+                        </select>
+                        TO
+                        <select class="form-control version-selector"
+                                data-ng-options="viewType for viewType in DictionaryViewCtrl.getDictionaryVersionList()"
+                                data-ng-model="DictionaryViewCtrl.versionRange.to"
+                                data-ng-change="DictionaryViewCtrl.setDictionaryVersionFilterRange(DictionaryViewCtrl.versionRange.from, DictionaryViewCtrl.versionRange.to)">
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 view-select-container">
+                    View as:
+                                <select class="form-control view-selector"
+                                        data-ng-options="viewType for viewType in DictionaryViewCtrl.viewTypes"
+                                        data-ng-model="DictionaryViewCtrl.viewMode"
+                                        data-ng-change="DictionaryViewCtrl.setView(DictionaryViewCtrl.viewMode)">
+                                </select>
+                    </div>
+                    <div class="col-md-3 changes-container">
+                        <div class="pill addition"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</div>
+                        <div class="pill change"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</div>
+                    </div>
+        </div>
+        <div>
+        <dictionary-viewer
+                        class="dictionary-viewer-content"
+                        data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
+                        data-template-url="http://localhost:8080"
+                        data-show-header-nav="false"
+                        data-hide-graph-legend="false"
+                        data-search-query="DictionaryViewCtrl.searchQuery"
+                        ></dictionary-viewer>
+        </div>
+    </div>
+</div>
                </div>
                </div>
             </div>
