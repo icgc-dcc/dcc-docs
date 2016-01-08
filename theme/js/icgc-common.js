@@ -57,6 +57,12 @@ $(function() {
       windowEl.resize(_recalcMax)
     }
 
+    function _calcMainContentWidth() {
+      if ($('.full-width-content').length) {
+        $('.main-container').addClass('col-md-12').removeClass('col-md-9').css({borderLeft: 'none'});
+      }
+    }
+
     var _bsSidebar = $('.bs-sidebar');
 
     if (_bsSidebar.length) {
@@ -68,6 +74,7 @@ $(function() {
     _initMenuNavBar('.navbar-nav', '> li');
     _initHeaders(BODY_ID);
     _initLinks(BODY_ID);
+    _calcMainContentWidth();
   }
 
   /////////////////////////////////////////

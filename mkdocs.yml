@@ -267,8 +267,13 @@ pages:
     - Sample Type Specification: 'submission/guide/sample-type-specification.md'
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
   - Software: 'submission/software.md'
+- Dictionary: 'submission/dictionary-viewer.md'
 extra:
   project_org: 'ICGC'
   project_description: 'Docs'
   version: 1.0
+  dictionary_viewer_base_url: 'http://localhost:8080'
+  dictionary_viewer_js_rel_url: '/scripts/dictionary.js'
+  dictionary_viewer_css_rel_url: '/styles/dictionary.css'
+
 
