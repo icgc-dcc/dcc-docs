@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://icgc.github.io/submission/dictionary/release-19/">
+        <link rel="canonical" href="http://icgc.github.io/submission/dictionary/about/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-   <title>Dictionary - Release 19 - ICGC Docs</title>
+   <title>About - ICGC Docs</title>
 
         
 
@@ -313,8 +313,8 @@
                     <ul class="dropdown-menu">
                     
                         
-<li >
-    <a href="../about/">About</a>
+<li class="active">
+    <a href="./">About</a>
 </li>
 
                     
@@ -357,14 +357,14 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="./">Dictionary - Release 19</a>
+<li >
+    <a href="../release-19/">Dictionary - Release 19</a>
 </li>
 
         
             
 <li >
-    <a href="copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
+    <a href="../release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c/">Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m)</a>
 </li>
 
         
@@ -465,15 +465,11 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dictionary-v011c-april-2015-release-19">Dictionary v0.11c (April., 2015, Release 19)</a></li>
+        <li class="main active"><a href="#about">About</a></li>
         <li>
            <ul class="nav">
            
-               <li><a href="#may-15-2015">May 15, 2015</a></li>
-           
-               <li><a href="#april-20-2015">April 20 2015</a></li>
-           
-               <li><a href="#april-10-2015">April 10 2015</a></li>
+               <li><a href="#overview">Overview</a></li>
            
            </ul>
        </li>
@@ -484,208 +480,8 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="dictionary-v011c-april-2015-release-19">Dictionary v0.11c (April., 2015, Release 19)</h1>
-<h4 id="may-15-2015"><strong>May 15, 2015</strong></h4>
-<ul>
-<li>Added new term to donor.0.disease_status_last_followup.v1: "no evidence of disease".</li>
-</ul>
-<h4 id="april-20-2015"><strong>April 20 2015</strong></h4>
-<p>Change between 0.11b and 0.11c:</p>
-<ul>
-<li>Changed cancer_history_first_degree_relative to "N/A Valid" (for DCC-only data).</li>
-</ul>
-<h4 id="april-10-2015"><strong>April 10 2015</strong></h4>
-<p>Change between 0.11a and 0.11b:</p>
-<ul>
-<li>Added new term "Unknown" to family.0.relationship_sex.v1 CV list.</li>
-<li>relationship_disease_icd10: Removed script restriction to allow 'N/A'</li>
-<li>Updated therapy.0.therapy_type.v1 CV list (used by first_therapy_type and second_therapy_type tables) to include three additional therapies.</li>
-</ul>
-<p>Changes to Specifications Since Version 0.10a (October., 2014)
-Revisions to Data Elements: Changes
-All Files</p>
-<table>
-<thead>
-<tr>
-<th>Data Element ID</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>donor_id, specimen_id, analyzed_sample_id</td>
-<td>Added an MVEL script restriction to prevent ICGC-reserved prefixes from being used in identifier fields.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Donor Clinical File</strong></p>
-<table>
-<thead>
-<tr>
-<th>Data Element ID</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>prior_malignancy</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>cancer_type_prior_malignancy</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>donor_age_at_diagnosis, donor_age_at_enrollment, donor_age_at_last_followup</td>
-<td>Updated MVEL script to prevent donor age from being expressed in days</td>
-</tr>
-<tr>
-<td>cancer_history_first_degree_relative</td>
-<td>Updated MVEL script to prevent donor age from being expressed in days</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Specimen Clinical File</strong></p>
-<table>
-<thead>
-<tr>
-<th>Data Element ID</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>specimen_type_other</td>
-<td>MVEL script added to check for a required value if 'specimen_type' is indicated 'Normal - other', 'Primary tumour - other' or 'Recurrent tumour - other'</td>
-</tr>
-<tr>
-<td>specimen_donor_treatment_type_other</td>
-<td>MVEL script added to check for required value if 'specimen_donor_treatment_type' is indicated 'other thearpy'</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Donor Family Clinical File</strong></p>
-<table>
-<thead>
-<tr>
-<th>Data Element ID</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>donor_has_relative_with_cancer_history</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>relationship_type</td>
-<td>MVEL script added to check for a required value if 'cancer_history_first_degree_relative' is indicated as 'Yes'</td>
-</tr>
-<tr>
-<td>relationship_type_other</td>
-<td>MVEL script added to check for a required value if 'relationship_type' is indicated as 'other'</td>
-</tr>
-<tr>
-<td>relationship_sex</td>
-<td>MVEL script added to check for a required value if 'relationship_type' is specified</td>
-</tr>
-<tr>
-<td>relationship_disease_icd10</td>
-<td>MVEL script added to check for a required value if 'relationship_type' is specified</td>
-</tr>
-<tr>
-<td>relationship_disease</td>
-<td>MVEL script added to check for a required value if 'relationship_type' is specified</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Donor Exposure Clinical File</strong></p>
-<table>
-<thead>
-<tr>
-<th>Data Element ID</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tobacco_smoking_history_indicator</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>tobacco_smoking_history_intensity</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>alcohol_history</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>alcohol_history_intensity</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Donor Postresection Therapy Clinical File</strong></p>
-<table>
-<thead>
-<tr>
-<th>Data Element ID</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>first_therapy_start_interval</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>first_therapy_duration</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>first_therapy_type</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>first_therapy_response</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>first_therapy_therapeutic_intent</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>second_therapy_start_interval</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>second_therapy_duration</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>second_therapy_type</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>second_therapy_response</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>second_therapy_therapeutic_intent</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>other_therapy</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-<tr>
-<td>other_therapy_response</td>
-<td>New clinical field for PCAWG data</td>
-</tr>
-</tbody>
-</table>
-<p>Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out <a href="https://submissions.dcc.icgc.org/dictionary.html">here</a></p>
+<h1 id="about">About</h1>
+<h2 id="overview">Overview</h2>
                </div>
                </div>
             </div>

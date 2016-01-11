@@ -110,12 +110,6 @@
     </url>
         
     <url>
-     <loc>http://icgc.github.io</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://icgc.github.io/submission/projects/</loc>
      <lastmod>2016-01-11</lastmod>
      <changefreq>daily</changefreq>
@@ -148,11 +142,61 @@
     
 
     
+        
+    <url>
+     <loc>http://icgc.github.io/submission/dictionary/about/</loc>
+     <lastmod>2016-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     <url>
      <loc>http://icgc.github.io/submission/dictionary-viewer/</loc>
      <lastmod>2016-01-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>http://icgc.github.io/submission/dictionary/</loc>
+     <lastmod>2016-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://icgc.github.io</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
