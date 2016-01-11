@@ -1,4 +1,4 @@
-<div data-ng-app="DictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main" style="overflow:hidden">
+<div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main" style="overflow:hidden">
     <div data-ng-show="DictionaryViewCtrl.versionRange.from" ng-cloak>
         <div class="dictionary-viewer-controls row">
             <div class="form-group col-md-2">
@@ -34,7 +34,7 @@
         <dictionary-viewer
                         class="dictionary-viewer-content"
                         data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
-                        data-template-url="http://localhost:8080"
+                        data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
                         data-show-header-nav="false"
                         data-hide-graph-legend="false"
                         data-search-query="DictionaryViewCtrl.searchQuery"
