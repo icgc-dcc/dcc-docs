@@ -144,19 +144,19 @@
     
         
     <url>
-     <loc>http://icgc.github.io/submission/dictionary/about/</loc>
+     <loc>http://icgc.github.io/dictionary/about/</loc>
      <lastmod>2016-01-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc.github.io/submission/dictionary-viewer/</loc>
+     <loc>http://icgc.github.io/dictionary/viewer/</loc>
      <lastmod>2016-01-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc.github.io/submission/dictionary/</loc>
+     <loc>http://icgc.github.io/dictionary/releases/</loc>
      <lastmod>2016-01-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
