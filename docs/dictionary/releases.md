@@ -1,4 +1,4 @@
-# Data Dictionary Release Notes
+# Dictionary Release Notes
 
 * [Dictionary v0.12e (August 2015, Current for Release 20)][1]
 * [Dictionary v0.11c (April., 2015, Release 19)][2]
