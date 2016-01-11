@@ -13,8 +13,13 @@
 
         
         <link href="http://hsubmission-dcc.oicr.on.ca:5380/dictionary/styles/dictionary.css" rel="stylesheet">
+<link href="../../vendor/angular-loading-bar/loading-bar.min.css" rel="stylesheet">
 <link href="../../css/dictionary-viewer.css" rel="stylesheet">
+
+
 <script src="http://hsubmission-dcc.oicr.on.ca:5380/dictionary/scripts/dictionary.js"></script>
+<script src="../../vendor/angular-animate/angular-animate.min.js"></script>
+<script src="../../vendor/angular-loading-bar/loading-bar.min.js"></script>
 <script src="../../js/dictionary-viewer.js"></script>
         
 
@@ -23,6 +28,8 @@
         <link href="../../css/bootstrap-custom.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../fonts/fontello/css/icgc-icons.css" rel="stylesheet">
+        <link href="../../fonts/fontello/css/animation.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
         <link href="../../css/icgc-common.css" rel="stylesheet">
 
@@ -454,7 +461,7 @@
             <div class="searchbox-container col-sm-3 col-md-3 pull-right">
                <form class="searchbox navbar-form" role="search">
                   <input id="mkdocs-search-query" type="search" placeholder="Search..." autocomplete="off" name="search" class="searchbox-input">
-                  <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+                  <span class="searchbox-icon"><i class="icon-search"></i></span>
                </form>
             </div>
 
@@ -471,6 +478,7 @@
                    
 
 <div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main" style="overflow:hidden">
+    <h2 class="loading-app" data-ng-if="!  DictionaryViewCtrl.versionRange.from"><i class="animate-spin icon-spinner"></i> Loading...</h2>
     <div data-ng-show="DictionaryViewCtrl.versionRange.from" ng-cloak>
         <div class="dictionary-viewer-controls row">
             <div class="form-group col-md-2">
@@ -548,6 +556,7 @@
             <script src="../../js/highlight.pack.js"></script>
             <script src="../../mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="../../js/jquery.highlight-4.closure.js"></script>
+            <script src="../../js/jquery.bootstrap-autohidingnavbar.min.js"></script>
             <script src="../../js/base.js"></script>
             <script src="../../js/icgc-common.js"></script>
             <script>var base_url = '../..';</script>

@@ -1,4 +1,4 @@
-angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp'])
+angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', 'chieffancypants.loadingBar'])
   .controller('DictionaryViewerCtrl', function($scope, DictionaryService, DictionaryViewerConstants){
     var _controller = this;
 

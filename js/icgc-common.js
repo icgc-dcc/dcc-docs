@@ -4,7 +4,7 @@ $(function() {
 
     function _initHeaders(confineToContainerID) {
       var header = $(confineToContainerID + ' h1');
-      header.prepend('<span class="header-badge"><i class="fa fa-book"></i></span>');
+      header.prepend('<span class="header-badge"><i class="icon-book-open"></i></span>');
     }
 
     function _initLinks(confineToContainerID) {
@@ -17,14 +17,14 @@ $(function() {
 
         // If the link already has an font awesome icon associated skip it
         if (! anchor.find('*[class*="fa-"]').length) {
-          anchor.prepend('&nbsp;<i class="fa fa-external-link"></i>&nbsp;');
+          anchor.prepend('&nbsp;<i class="icon-external-link"></i>');
         }
 
       });
 
 
       // Ensure all mail links have the appropriate icon.
-      $('a[href^="mailto"]').prepend('&nbsp;<i class="fa fa-envelope"></i>&nbsp;');
+      $('a[href^="mailto"]').prepend('&nbsp;<i class="icon-mail"></i>');
     }
 
     function _initMenuNavBar(container, subContainer) {
@@ -40,6 +40,8 @@ $(function() {
           function () {
             menuBar.css({width: 0});
           });
+
+      $('.navbar.navbar-default').autoHidingNavbar({hideOffset: _hideMenuOffset});
     }
 
     function _ensureMaxHeight(resizingEl) {
@@ -53,9 +55,36 @@ $(function() {
         resizingEl.css({overflow: 'auto', maxHeight: resizeElHeight + 'px'});
       }
 
-      windowEl.scroll(_recalcMax);
+      var _prevScrollOffset = 0,
+          _document = $(document);
+
+
+      function _onScroll() {
+        var currentScrollOffset = windowEl.scrollTop(),
+            delta = currentScrollOffset - _prevScrollOffset,
+            absDelta = Math.abs(delta),
+            scrollPosition = windowEl.height() + currentScrollOffset,
+            scrollHeight = _document.height(),
+            shouldResetNav = (scrollPosition + _hideMenuOffset) >=  scrollHeight;
+
+        if (delta > 0 && absDelta >= _hideMenuOffset && ! shouldResetNav) {
+          resizingEl.css({top: 10});
+          _prevScrollOffset = currentScrollOffset;
+        }
+        else if (delta < 0 && absDelta >= _hideMenuOffset || shouldResetNav) {
+          resizingEl.css({top: ''});
+          _prevScrollOffset = currentScrollOffset;
+        }
+
+        _recalcMax();
+      }
+
+
+      windowEl.scroll(_onScroll);
       windowEl.resize(_recalcMax)
     }
+
+
 
     function _calcMainContentWidth() {
       if ($('.full-width-content').length) {
@@ -70,6 +99,7 @@ $(function() {
     }
 
     var BODY_ID = '#body';
+    var _hideMenuOffset = 60;
 
     _initMenuNavBar('.navbar-nav', '> li');
     _initHeaders(BODY_ID);
