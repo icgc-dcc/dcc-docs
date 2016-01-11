@@ -2,7 +2,7 @@
 
 ### How do I upload my files to the submission system?
 
-Before using the web-based submission system, you must upload your submission files to the SFTP server. Logging into the web submission system can be accomplished using your existing project SFTP account and password. For more details, visit the [File Submission][1] page.  
+Before using the web-based submission system, you must upload your submission files to the SFTP server. Logging into the web submission system can be accomplished using your existing project SFTP account and password. For more details, visit the [File Submission][1] page.
 
 
 ### Where can I find that latest DCC data file specification?
@@ -90,10 +90,10 @@ Please be advised that donors, specimen, and analyzed_samples with no associated
 Cellularity is defined as the proportion of tumour nuclei to total number of nuclei in a given specimen or analyzed sample. The cellularity at the specimen level (ie. pathologist reported) could be different from the cellularity reported at the sample level (ie. using sequencing methods such as cell sorting). The two fields "percentage_of_cellularity" and "level_of_cellularity" record the same piece of information, but give the submitter the option to submit the information as either an integer value (percentage_of_cellularity) or a range of percentages (level_of_cellularity). An example would be in the case where a pathologist can only specify the cellularity of a specimen to be within a certain range (40-50% for example), then the "level_of_cellularity" data element could be populated with "3" (which defines 41-60% in the controlled vocabulary table), and "percentage_of_cellularity" could be populated with "-888" (not applicable).
 
 [1]: guide/overview/file-submission.md
-[2]: dictionary/release-20.md
+[2]: /dictionary/release-20.md
 [3]: guide/overview/submission-file-format.md
 [4]: guide/icgc-simple-somatic-mutation-format.md
-[5]: dictionary.md
+[5]: /dictionary/releases.md
 [6]: guide/dcc-data-element-specifications.md#missing-or-unknown-values
 [7]: mailto:dcc-support@icgc.org
 [8]: http://www.ebi.ac.uk/ega/dacs/EGAC00001000010

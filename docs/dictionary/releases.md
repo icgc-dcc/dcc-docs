@@ -7,9 +7,9 @@
 * [Dictionary v0.8d (Mar., 2014. Release 16)][5]
 * [Dictionary v0.7e (Jan., 2014. Release 15)][6]
 
-[1]: dictionary/release-20.md
-[2]: dictionary/release-19.md
-[3]: dictionary/release-18.md
-[4]: dictionary/release-17.md
-[5]: dictionary/release-16.md
-[6]: dictionary/release-15.md
+[1]: release-20.md
+[2]: release-19.md
+[3]: release-18.md
+[4]: release-17.md
+[5]: release-16.md
+[6]: release-15.md

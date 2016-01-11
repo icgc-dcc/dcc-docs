@@ -16,7 +16,7 @@ An example file is shown below (note that parts of the lines are omitted for rea
 | m124  |  ssm_3396649   |  3 | 20 | 49510011    |    49510012 | GA     |   GA/GA  |   GA | - | GA/-
 | m124  |  ssm_61023021  |  2 | X | 115303927    |   115303927 | -     |    -/-   |    - | T | -/T
 | m124  |  ssm_175270973 |  4 | 15 | 39884779    |    39884787 | ACTCAGACC | ACTCAGACC/ACTCAGACC | ACTCAGACC | TTGT | ACTCAGACC/TTGT
-| m124  |  ssm_175270973 |  1 | 15 | 39884792    |   39884792 | C | C/C | 	C | T | C/T
+| m124  |  ssm_175270973 |  1 | 15 | 39884792    |   39884792 | C | C/C |    C | T | C/T
 | m124  |  ssm_4545634   |  3 | 12 | 23454340    |    23454341 | GA    |    GA/GA  |   GA | - | GA/-
 
 ### ICGC DCC Data File Specification
@@ -45,13 +45,13 @@ ICGC DCC provides a data file specification for each data type which details the
 | #ccffcc |  Identifier data element |
 | #F5F5F5 |  Optional value |
 
-Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice:  
+Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice:
 
 ```shell
 curl -v -XGET  -H "Accept: application/json"
 ```
 
-To access the JSON format of the controlled vocabulary tables via REST webservice:  
+To access the JSON format of the controlled vocabulary tables via REST webservice:
 
 ```shell
 curl -v -XGET  -H "Accept: application/json"
@@ -237,4 +237,4 @@ ICGC DCC cannot accept clinical data on its own without experimental data.
 </tr>
 </tbody></table>
 
-[1]: /submission/dictionary/release-17.md
+[1]: /dictionary/release-17.md
