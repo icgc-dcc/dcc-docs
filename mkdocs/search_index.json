@@ -1412,7 +1412,7 @@
         }, 
         {
             "location": "/dictionary/about/", 
-            "text": "About\n\n\nOverview\n\n\nThe ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and specific restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC.\n\n\nValidating files needs to be driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.\n\n\nViewer\n\n\nTo view the dictionary and compare existing versions, please see the \nDictionary Viewer\n.", 
+            "text": "About\n\n\nOverview\n\n\nThe ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and specific restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC. These rules are captured in a document called a \nData Dictionary\n (\nDictionary\n for short).\n\n\nFile validation is also driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.\n\n\nModel\n\n\nThe basic conceptual model of the dictionary is presented below:\n\n\n\n\nViewer\n\n\nTo view the dictionary and compare existing versions, please see the \nDictionary Viewer\n.\n\n\nRelease Notes\n\n\nTo view high level notes on dictionary changes, please see \nReleases\n.", 
             "title": "About"
         }, 
         {
@@ -1422,13 +1422,23 @@
         }, 
         {
             "location": "/dictionary/about/#overview", 
-            "text": "The ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and specific restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC.  Validating files needs to be driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.", 
+            "text": "The ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and specific restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC. These rules are captured in a document called a  Data Dictionary  ( Dictionary  for short).  File validation is also driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/dictionary/about/#model", 
+            "text": "The basic conceptual model of the dictionary is presented below:", 
+            "title": "Model"
         }, 
         {
             "location": "/dictionary/about/#viewer", 
             "text": "To view the dictionary and compare existing versions, please see the  Dictionary Viewer .", 
             "title": "Viewer"
+        }, 
+        {
+            "location": "/dictionary/about/#release-notes", 
+            "text": "To view high level notes on dictionary changes, please see  Releases .", 
+            "title": "Release Notes"
         }, 
         {
             "location": "/dictionary/viewer/", 
@@ -1437,13 +1447,13 @@
         }, 
         {
             "location": "/dictionary/releases/", 
-            "text": "Data Dictionary Release Notes\n\n\n\n\nDictionary v0.12e (August 2015, Current for Release 20)\n\n\nDictionary v0.11c (April., 2015, Release 19)\n\n\nDictionary v0.10a (October., 2014, Release 18)\n\n\nDictionary v0.9a (June., 2014. Release 17)\n\n\nDictionary v0.8d (Mar., 2014. Release 16)\n\n\nDictionary v0.7e (Jan., 2014. Release 15)", 
+            "text": "Dictionary Release Notes\n\n\n\n\nDictionary v0.12e (August 2015, Current for Release 20)\n\n\nDictionary v0.11c (April., 2015, Release 19)\n\n\nDictionary v0.10a (October., 2014, Release 18)\n\n\nDictionary v0.9a (June., 2014. Release 17)\n\n\nDictionary v0.8d (Mar., 2014. Release 16)\n\n\nDictionary v0.7e (Jan., 2014. Release 15)", 
             "title": "Release Notes"
         }, 
         {
-            "location": "/dictionary/releases/#data-dictionary-release-notes", 
+            "location": "/dictionary/releases/#dictionary-release-notes", 
             "text": "Dictionary v0.12e (August 2015, Current for Release 20)  Dictionary v0.11c (April., 2015, Release 19)  Dictionary v0.10a (October., 2014, Release 18)  Dictionary v0.9a (June., 2014. Release 17)  Dictionary v0.8d (Mar., 2014. Release 16)  Dictionary v0.7e (Jan., 2014. Release 15)", 
-            "title": "Data Dictionary Release Notes"
+            "title": "Dictionary Release Notes"
         }, 
         {
             "location": "/dictionary/release-20/", 
