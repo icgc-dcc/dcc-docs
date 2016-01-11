@@ -272,7 +272,7 @@ extra:
   project_org: 'ICGC'
   project_description: 'Docs'
   version: 1.0
-  dictionary_viewer_base_url: 'http://localhost:8080'
+  dictionary_viewer_base_url: 'http://hsubmission-dcc.oicr.on.ca:5380/dictionary'
   dictionary_viewer_js_rel_url: '/scripts/dictionary.js'
   dictionary_viewer_css_rel_url: '/styles/dictionary.css'
 
