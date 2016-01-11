@@ -1,7 +1,7 @@
 /* General Styles */
 html, body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: .7rem;
+  font-size: .78rem;
   line-height: 1.618rem;
   background: #efefef;
   height: 100%;
@@ -86,6 +86,10 @@ table a:not(.btn), .table a:not(.btn) {
   text-decoration: none;
 }
 
+.loading-app {
+  color: #000;
+}
+
 .header-badge {
   width: 4rem;
   height: 4rem;
@@ -96,6 +100,7 @@ table a:not(.btn), .table a:not(.btn) {
   border-radius: 50%;
   text-align: center;
   margin-right: 1rem;
+  vertical-align: text-top;
 }
 
 /* */
@@ -112,7 +117,7 @@ table a:not(.btn), .table a:not(.btn) {
   background: transparent;
   margin-bottom: 1rem;
   padding: 0rem 0rem;
-  position:fixed;
+  /* position:fixed; */
   margin: 0 auto 0 auto;
   max-width: 1280px;
 }
