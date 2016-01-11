@@ -12,7 +12,7 @@
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
-        {% if current_page.title == 'Dictionary' %}
+        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
         {% include "dictionary-viewer.html" %}
         {% endif %}
 
