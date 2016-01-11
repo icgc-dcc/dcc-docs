@@ -1,4 +1,4 @@
-angular.module('DictionaryViewerApp')
+angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp'])
   .controller('DictionaryViewerCtrl', function($scope, DictionaryService, DictionaryViewerConstants){
     var _controller = this;
 
