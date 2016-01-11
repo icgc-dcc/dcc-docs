@@ -3,6 +3,22 @@
   width: 100%;
 }
 
+.table.table-file-metadata {
+  width: 60%;
+}
+
+.table.table-file-metadata th {
+  font-size: 1.1rem;
+}
+.table.table-file-metadata th,
+.table.table-file-metadata td {
+  font-weight: 300;
+}
+
+.table.table-file-metadata td {
+  font-size: 1rem;
+}
+
 .dictionary-viewer-main .pill {
   padding: 6px 6px;
   background: #000;
