@@ -132,11 +132,16 @@ a:focus {
 
 .navbar-brand {
   background: url(../img/icgc-logo.png) no-repeat left center;
-  background-size: 18%;
+  background-size: 15%;
   padding-left: 45px;
   font-size: 2em;
   line-height: 21px !important;
   margin-left: 15px !important;
+  margin-right: 1rem;
+}
+
+.navbar-brand > span {
+  margin-left: 0.5rem;
 }
 
 .highlight {
