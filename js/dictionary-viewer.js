@@ -3,7 +3,7 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
     var _controller = this;
 
     _controller.searchQuery = '';
-    _controller.baseDictionaryURL = 'http://hsubmission-dcc.oicr.on.ca:5380';
+    _controller.baseDictionaryURL = window.$icgcApp.dictionaryViewer.config.baseDictionaryURL || 'https://submissions.dcc.icgc.org';
     _controller.viewMode = DictionaryService.getCurrentViewType();
     _controller.viewTypes = DictionaryService.getViewTypes();
     _controller.setView = DictionaryService.setView;

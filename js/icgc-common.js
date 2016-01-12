@@ -2,6 +2,11 @@ $(function() {
 
   function init() {
 
+    // Initialize a JS global to be used with dynamic JS Apps
+    if (typeof window.$icgcApp === 'undefined') {
+      window.$icgcApp = {config: {}};
+    }
+
     function _initHeaders(confineToContainerID) {
       var header = $(confineToContainerID + ' h1');
       header.prepend('<span class="header-badge"><i class="icon-book-open"></i></span>');

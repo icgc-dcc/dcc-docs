@@ -12,12 +12,24 @@
    <title>Viewer - ICGC Docs</title>
 
         
-        <link href="http://hsubmission-dcc.oicr.on.ca:5380/dictionary/styles/dictionary.css" rel="stylesheet">
+        <link href="https://submissions.dcc.icgc.org/dictionary/styles/dictionary.css" rel="stylesheet">
 <link href="../../vendor/angular-loading-bar/loading-bar.min.css" rel="stylesheet">
 <link href="../../css/dictionary-viewer.css" rel="stylesheet">
 
+<script type="application/javascript">
+    (function() {
+        window.$icgcApp = window.$icgcApp || {};
 
-<script src="http://hsubmission-dcc.oicr.on.ca:5380/dictionary/scripts/dictionary.js"></script>
+
+        window.$icgcApp.dictionaryViewer = {
+            config: {
+                baseDictionaryURL:  'https://submissions.dcc.icgc.org'
+            }
+        };
+
+    })();
+</script>
+<script src="https://submissions.dcc.icgc.org/dictionary/scripts/dictionary.js"></script>
 <script src="../../vendor/angular-animate/angular-animate.min.js"></script>
 <script src="../../vendor/angular-loading-bar/loading-bar.min.js"></script>
 <script src="../../js/dictionary-viewer.js"></script>
