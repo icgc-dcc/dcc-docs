@@ -17,6 +17,10 @@ pre.code-shard {
   max-width: 172px;
 }
 
+.selection_wrapper {
+  margin-bottom: 6rem;
+}
+
 
 .navbar.navbar-default {
   padding-right: 0 !important;
