@@ -3,6 +3,19 @@
   width: 100%;
 }
 
+body {
+  padding-right: 0 !important;
+}
+
+.navbar.navbar-default {
+  padding-right: 0 !important;
+}
+
+.vis-wrapper {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
 .table.table-file-metadata {
   width: 60%;
 }
@@ -17,6 +30,11 @@
 
 .table.table-file-metadata td {
   font-size: 1rem;
+}
+
+.table.table-file-metadata td.regex {
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
 .dictionary-viewer-main .pill {
@@ -57,7 +75,17 @@
   font-size: 14px;
   padding: 12px 12px;
   height: 34px;
+  border-color: #e6e6e6;
+  outline: rgb(115, 179, 229);
 }
+
+.dictionary-viewer-main .form-control:focus {
+  outline: 5px auto rgb(115, 179, 229);
+  outline-offset: -2px;
+  border: solid 1px rgb(115, 179, 229);
+}
+
+
 
 .dictionary-viewer-main {
   display: block;
