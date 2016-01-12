@@ -1,4 +1,4 @@
-# API
+# Submission API
 
 This is the public API documentation for the Submission System.
 
