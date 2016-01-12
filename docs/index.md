@@ -13,7 +13,7 @@ The ICGC documentation is divided into the following top-level sections:
 
 ## Contributing
 
-To help contribute to the documentation, open a pull request at <a href="https://github.com/icgc/icgc-docs"><i class="fa fa-github"></i> https://github.com/icgc/icgc-docs</a>.
+To help contribute to the documentation, open a pull request at <a href="https://github.com/icgc-dcc/dcc-docs"><i class="fa fa-github"></i> https://github.com/icgc-dcc/dcc-docs</a>.
 
 ## Contact
 
