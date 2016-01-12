@@ -7,6 +7,17 @@ body {
   padding-right: 0 !important;
 }
 
+pre.code-shard {
+  background-color: #f5f2f0;
+  font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+  white-space: pre-wrap;
+}
+
+.code-constrained-width {
+  max-width: 172px;
+}
+
+
 .navbar.navbar-default {
   padding-right: 0 !important;
 }
