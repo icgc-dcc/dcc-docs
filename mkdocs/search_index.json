@@ -2,17 +2,17 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to ICGC Docs\n\n\nThis is the official project documentation site of the ICGC.\n\n\nContents\n\n\nThe ICGC documentation is divided into the following top-level sections:\n\n\n\n\nPortal\n\n\nCloud\n\n\nSubmission\n\n\nDictionary\n\n\n\n\nContributing\n\n\nTo help contribute to the documentation, open a pull request at \n https://github.com/icgc-dcc/dcc-docs\n.\n\n\nContact\n\n\nFor support, please contact us at \ndcc-support@icgc.org\n.", 
+            "text": "Welcome to ICGC DCC Docs\n\n\nThis is the official project documentation site of the ICGC DCC.\n\n\nContents\n\n\nThe DCC documentation is divided into the following top-level sections:\n\n\n\n\nPortal\n\n\nCloud\n\n\nSubmission\n\n\nDictionary\n\n\n\n\nContributing\n\n\nTo help contribute to the documentation, open a pull request at \n https://github.com/icgc-dcc/dcc-docs\n.\n\n\nContact\n\n\nFor support, please contact us at \ndcc-support@icgc.org\n.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-icgc-docs", 
-            "text": "This is the official project documentation site of the ICGC.", 
-            "title": "Welcome to ICGC Docs"
+            "location": "/#welcome-to-icgc-dcc-docs", 
+            "text": "This is the official project documentation site of the ICGC DCC.", 
+            "title": "Welcome to ICGC DCC Docs"
         }, 
         {
             "location": "/#contents", 
-            "text": "The ICGC documentation is divided into the following top-level sections:   Portal  Cloud  Submission  Dictionary", 
+            "text": "The DCC documentation is divided into the following top-level sections:   Portal  Cloud  Submission  Dictionary", 
             "title": "Contents"
         }, 
         {
