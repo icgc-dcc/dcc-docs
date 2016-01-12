@@ -7,8 +7,9 @@ This is the official project documentation site of the ICGC.
 The ICGC documentation is divided into the following top-level sections:
 
 * [Portal](portal/about.md)
-* [Cloud](cloud/guide.md)
+* [Cloud](cloud/about.md)
 * [Submission](submission/about.md)
+* [Dictionary](dictionary/about.md)
 
 ## Contributing
 
