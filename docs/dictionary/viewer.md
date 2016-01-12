@@ -1,4 +1,4 @@
-<div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main" style="overflow:hidden">
+<div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main">
     <h2 class="loading-app" data-ng-if="!  DictionaryViewCtrl.versionRange.from"><i class="animate-spin icon-spinner"></i> Loading...</h2>
     <div data-ng-show="DictionaryViewCtrl.versionRange.from" ng-cloak>
         <div class="dictionary-viewer-controls row">
@@ -39,7 +39,7 @@
                         data-show-header-nav="false"
                         data-hide-graph-legend="false"
                         data-search-query="DictionaryViewCtrl.searchQuery"
-                        ></dictionary-viewer>
+                       ></dictionary-viewer>
         </div>
     </div>
 </div>
