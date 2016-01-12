@@ -1,10 +1,10 @@
-# Welcome to ICGC Docs
+# Welcome to ICGC DCC Docs
 
-This is the official project documentation site of the ICGC.
+This is the official project documentation site of the ICGC DCC.
 
 ## Contents
 
-The ICGC documentation is divided into the following top-level sections:
+The DCC documentation is divided into the following top-level sections:
 
 * [Portal](portal/about.md)
 * [Cloud](cloud/about.md)
