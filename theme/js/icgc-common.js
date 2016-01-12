@@ -9,6 +9,10 @@ $(function() {
 
     function _initHeaders(confineToContainerID) {
       var header = $(confineToContainerID + ' h1');
+      if (header.hasClass('no-auto-render')) {
+        return;
+      }
+
       header.prepend('<span class="header-badge"><i class="icon-book-open"></i></span>');
     }
 

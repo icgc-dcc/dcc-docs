@@ -1,3 +1,11 @@
+<h1 id="dictionary-viewer" class="no-auto-render">
+    <span class="header-badge" style="padding: 0.90rem 1.0rem 1.2rem 1.6rem;">
+        <i class="fa fa-sitemap"></i>
+    </span>
+    <a class="header-text-link" href="#dictionary-viewer" title="Click on this header and copy URL to link to this section.">
+        Dictionary Viewer&nbsp;<i class="fa fa-anchor"></i>
+    </a>
+</h1>
 <div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main">
     <h2 class="loading-app" data-ng-if="!  DictionaryViewCtrl.versionRange.from"><i class="animate-spin icon-spinner"></i> Loading...</h2>
     <div data-ng-show="DictionaryViewCtrl.versionRange.from" ng-cloak>

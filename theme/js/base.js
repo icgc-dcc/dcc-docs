@@ -23,6 +23,11 @@ $(function () {
    // Add header links
    $(":header", $body).each(function (i, header) {
       var $header = $(header);
+
+      if ($header.hasClass('no-auto-render')) {
+         return;
+      }
+
       var id = $header.attr('id');
       var icon = '&nbsp;<i class="fa fa-anchor"></i>';
 
