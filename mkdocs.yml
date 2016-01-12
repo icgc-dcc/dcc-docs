@@ -2,7 +2,7 @@
 # ICGC Docs - Config
 #
 
-site_name: ICGC Docs
+site_name: ICGC DCC Docs
 site_url: http://icgc.github.io
 repo_url: https://github.com/icgc/icgc-docs
 copyright: "&copy; 2015-2016"
@@ -271,11 +271,9 @@ pages:
   #      - miRNA Expression (mirna) - Secondary Analysis File (s): 'dictionary/release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e.md'
 extra:
   project_org: 'ICGC'
-  project_description: 'Docs'
+  project_description: 'DCC Docs'
   version: 1.0
   dictionary_viewer_page_id: 'Viewer'
   dictionary_viewer_base_url: 'https://submissions.dcc.icgc.org' #'http://hsubmission-dcc.oicr.on.ca:5380'
   dictionary_viewer_js_rel_url: '/dictionary/scripts/dictionary.js'
   dictionary_viewer_css_rel_url: '/dictionary/styles/dictionary.css'
-
-
