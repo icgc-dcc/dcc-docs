@@ -53,7 +53,7 @@ pages:
   - Release Notes: 'dictionary/releases.md'
   - Release 20:
     - Dictionary - Release 20: 'dictionary/release-20.md'
-    - Analyzed Sample Data File (sample): 'dictionary/release-20/analyzed-sample-data-file-sample.md'
+  #      - Analyzed Sample Data File (sample): 'dictionary/release-20/analyzed-sample-data-file-sample.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m): 'dictionary/release-20/array-based-dna-methylation-metharray-analysis-metadata-file-m.md'
   #      - Array-based DNA Methylation (meth_array) - Primary File (p): 'dictionary/release-20/array-based-dna-methylation-metharray-primary-file-p.md'
   #      - Array-based Gene Expression (exp_array) - Analysis Metadata File (m): 'dictionary/release-20/array-based-gene-expression-exparray-analysis-metadata-file-m.md'
@@ -95,7 +95,7 @@ pages:
   #      - Array-based Gene Expression (exp_array) - Analysis Metadata File (m): 'dictionary/release-19/array-based-gene-expression-exparray-analysis-metadata-file-m-11c.md'
   #      - Array-based Gene Expression (exp_array) - Primary File (p): 'dictionary/release-19/array-based-gene-expression-exparray-primary-file-p-11c.md'
   #      - Controlled Vocabulary (CV) Tables: 'dictionary/release-19/controlled-vocabulary-11c.md'
-    - Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m): 'dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c.md'
+  #      - Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m): 'dictionary/release-19/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-11c.md'
   #      - Copy Number Somatic Mutations (cnsm) - Primary Analysis File (p): 'dictionary/release-19/copy-number-somatic-mutations-cnsm-primary-analysis-file-p-11c.md'
   #      - Copy Number Somatic Mutations (cnsm) - Secondary Analysis File (s): 'dictionary/release-19/copy-number-somatic-mutations-cnsm-secondary-analysis-file-s-11c.md'
   #      - Donor Biomarkers (biomarker): 'dictionary/release-19/donor-biomarker-11c.md'
@@ -124,7 +124,7 @@ pages:
   #      - Structural Somatic Mutations (stsm) - Secondary Analysis File (s): 'dictionary/release-19/structural-somatic-mutations-stsm-secondary-analysis-file-s-11c.md'
   - Release 18:
     - Dictionary - Release 18: 'dictionary/release-18.md'
-    - Analyzed Sample Data File (sample) - v0.10a: 'dictionary/release-18/analyzed-sample-data-file-sample-10a.md'
+  #      - Analyzed Sample Data File (sample) - v0.10a: 'dictionary/release-18/analyzed-sample-data-file-sample-10a.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) -v0.10a: 'dictionary/release-18/array-based-dna-methylation-metharray-analysis-metadata-file-m-10a.md'
   #      - Array-based DNA Methylation (meth_array) - Primary File (p) -v0.10a: 'dictionary/release-18/array-based-dna-methylation-metharray-primary-file-p-10a.md'
   #      - Array-based Gene Expression (exp_array) - Analysis Metadata File (m) -v0.10a: 'dictionary/release-18/array-based-gene-expression-exparray-analysis-metadata-file-m-10a.md'
