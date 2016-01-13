@@ -49,19 +49,24 @@ $(function() {
           searchCancelIconEl.show();
         }
 
+        function __abortQuery(e) {
+            if (e) {
+              e.stopPropagation();
+            }
+
+            searchCancelIconEl.hide();
+            searchIconEl.show();
+            $resultsContainer.hide();
+            $body.show();
+            submitIcon.click();
+        }
+
         $search.submit(function (e) {
           e.preventDefault();
           submitIcon.click();
         });
 
-        searchCancelIconEl.click(function() {
-          searchCancelIconEl.hide();
-          searchIconEl.show();
-          $resultsContainer.hide();
-          $body.show();
-          submitIcon.click();
-          submitIcon.click();
-        });
+        searchCancelIconEl.click(__abortQuery);
 
         submitIcon.click(function () {
           if (_isSearchActive == false) {
@@ -87,7 +92,14 @@ $(function() {
 
         $(document).mouseup(function () {
           if (_isSearchActive == true) {
-            __switchToCancelIcon();
+            var query = $.trim($inputBox.val());
+
+            if (query.length >= _VALID_QUERY_LENGTH) {
+              __switchToCancelIcon();
+            }
+            else {
+              __abortQuery();
+            }
           }
         });
       }
@@ -107,8 +119,7 @@ $(function() {
       ////////////////////////////////////////////
 
       function _initSearchIndex() {
-        var $query = $('.searchbox-input'),
-            $results = $('#mkdocs-search-results'),
+        var $results = $('#mkdocs-search-results'),
             $searchContentBody = $('#search-body');
 
         $.get(base_url + '/mkdocs/search_index.json', function (data) {
@@ -131,12 +142,12 @@ $(function() {
           }
 
           function __search() {
-            var query = $query.val();
+            var query = $inputBox.val();
 
 
             $results.empty();
 
-            if (query.length < 3 || query === '') {
+            if (query.length < _VALID_QUERY_LENGTH || query === '') {
               $body.show();
               $resultsContainer.hide();
 
@@ -218,7 +229,8 @@ $(function() {
       var $body = $(confineToContainerID),
           $resultsContainer = $('#mkdocs-search-results-container'),
           $inputBox = $('.searchbox-input'),
-          _isSearchActive = false;
+          _isSearchActive = false,
+          _VALID_QUERY_LENGTH = 3;
 
 
       _init();
