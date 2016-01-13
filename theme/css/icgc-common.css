@@ -377,8 +377,29 @@ code {
   color: #e9931c;
 }
 
+#mkdocs-search-results-container {
+  display: none;
+  padding: 2rem 2rem;
+}
+
+#mkdocs-search-results-container h1 .header-badge {
+  background-color: #d33682;
+}
+
+#mkdocs-search-results-container .highlight {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-weight: 600;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+#search-body {
+  padding: 0.5rem 0rem 1.5rem 1rem;
+}
+
 #mkdocs-search-results {
-  background-color: #efefef;
   padding: 0rem 1rem;
 }
 
@@ -386,21 +407,34 @@ code {
   line-height: 4.5rem;
 }
 
-.search-item:first-child {
-  margin-top: 0rem;
-}
-
-.search-item:last-child {
-  margin-bottom: 0rem;
-}
-
 .search-item {
-  margin: 0.5rem 0rem 0.5rem 0rem;
   padding: 1rem 1rem;
-  background-color: #fff;
-  border: solid 2px #ccc;
-  border-radius: 5px;
+  display: table;
+  background-color: transparent;
   overflow: hidden;
+  width: 100%;
+}
+
+.search-item .doc-type-icon-container .header-badge {
+  font-size: 1.5rem;
+  padding: 0.75rem 1.2rem 0.75rem 1.2rem;
+}
+
+.search-item > div {
+  display: table-cell;
+  padding: 1rem 0rem;
+}
+
+.search-item .doc-type-icon-container {
+  vertical-align: middle;
+  width: 52px;
+}
+
+.search-item .search-body {
+  padding-left: 1.5rem;
+}
+.search-item .search-body p {
+  margin: 1rem 0rem 0rem 0rem;
 }
 
 .navbar-default .navbar-form {
@@ -642,8 +676,8 @@ footer .logo img:hover {
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-5%, 0, 0);
+    transform: translate3d(-5%, 0, 0);
   }
 
   to {
@@ -656,8 +690,8 @@ footer .logo img:hover {
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-5%, 0, 0);
+    transform: translate3d(-5%, 0, 0);
   }
 
   to {
@@ -670,4 +704,29 @@ footer .logo img:hover {
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }

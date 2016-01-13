@@ -55,7 +55,7 @@
             {% include "nav.html" %}
 
             <div class="container">
-                <div id="mkdocs-search-results"></div>
+                {% include "search.html" %}
                 <div id="body">
                 {% if toc and ((toc | first) is defined) %}
                 <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
