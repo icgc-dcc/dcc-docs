@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://icgc.github.io/submission/guide/about/">
+        <link rel="canonical" href="http://icgc.github.io/submission/guide/intro/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-   <title>About - ICGC DCC Docs</title>
+   <title>Introduction - ICGC DCC Docs</title>
 
         
 
@@ -204,7 +204,7 @@
         
             
 <li class="active">
-    <a href="./">About</a>
+    <a href="./">Introduction</a>
 </li>
 
         
@@ -240,13 +240,43 @@
         
             
 <li >
+    <a href="../icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
     <a href="../clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
 </li>
 
         
             
 <li >
+    <a href="../icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../sample-type-specification/">Sample Type Specification</a>
+</li>
+
+        
+            
+<li >
     <a href="../experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+</li>
+
+        
+            
+<li >
+    <a href="../mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
 </li>
 
         
@@ -259,30 +289,6 @@
             
 <li >
     <a href="../selective-validation-feature/">Selective Validation Feature</a>
-</li>
-
-        
-            
-<li >
-    <a href="../donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
-</li>
-
-        
-            
-<li >
-    <a href="../icgc-simple-somatic-mutation-format/">ICGC Simple Somatic Mutation Format</a>
-</li>
-
-        
-            
-<li >
-    <a href="../sample-type-specification/">Sample Type Specification</a>
-</li>
-
-        
-            
-<li >
-    <a href="../mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
 </li>
 
         
@@ -444,7 +450,9 @@
         <li>
            <ul class="nav">
            
-               <li><a href="#submission-overview">Submission Overview</a></li>
+               <li><a href="#overview">Overview</a></li>
+           
+               <li><a href="#support">Support</a></li>
            
            </ul>
        </li>
@@ -456,18 +464,40 @@
                    
 
 <h1 id="submission-guide">Submission Guide</h1>
-<h2 id="submission-overview">Submission Overview</h2>
+<h2 id="overview">Overview</h2>
 <p>There are five major steps in the data submission process:</p>
 <ol>
 <li>Obtain login/password account from EGA's <a href="https://www.ebi.ac.uk/ega/">EBI repository</a></li>
 <li><a href="../overview/submitting-raw-data-ega/">Submit raw sequence data to the European Genome-phenome Archive</a></li>
 <li><a href="../overview/submission-file-format/">Prepare the ICGC submission files according to DCC data format specifications</a></li>
-<li><a href="../overview/file-submission">Submit files to the DCC Secure FTP server</a></li>
+<li><a href="../overview/file-submission">Submit files to the DCC Secure SFTP server</a></li>
 <li><a href="../overview/submission-validation">Validate submission files using web-based submission system</a></li>
 </ol>
-<p>For Release 15, all submitted data must be based on <strong>Human reference genome assembly</strong> <strong><em>GRCh37</em></strong> and <strong>Ensembl gene set</strong> <strong><em>version 69</em></strong>.</p>
+<p><strong>Note:</strong> For Release 15, all submitted data must be based on <strong>Human reference genome assembly</strong> <strong><em>GRCh37</em></strong> and <strong>Ensembl gene set</strong> <strong><em>version 69</em></strong>.</p>
 <p>When submitting experimental data to the ICGC DCC, please make sure you've already deposited your raw data to the appropriate public data repositories (eg: sequencing reads to EBI EGA). You will need to populate the data elements <em>raw_data_repository</em> and <em>raw_data_accession</em> with the correct repository and accession number respectively.</p>
-<p><em>Please contact the DCC (<a href="mailto:dcc-support@icgc.org">_dcc-support@icgc.org</a></em>) if you have any questions or comments about the data submission process._</p>
+<h3 id="timeline">Timeline</h3>
+<p>The DCC publishes submissions to the community in curated batches called <em>Releases</em>. The general frequency of releases is 3 per year. Once a release is completed, a new one is created, and so on. Many releases exist at the same time, but only one of them is being prepared. The following diagram tries to demonstrate that releases happen sequentially and only one is ever being prepared:</p>
+<p><img alt="" src="../../../submission/images/submissions-timeline.png" /></p>
+<p>The process goes like this:</p>
+<ol>
+<li>A Release is created and is immediately set in the <code>OPENED</code> state. When the <code>Release</code>is in this state:<ul>
+<li>the data dictionary can be amended according to some constraints (see the DD spec)</li>
+<li>changing the dictionary requires that already validated submissions be re-validated (probably done manually)</li>
+<li>members can upload files for their (SFTP) projects and obtain validation reports.</li>
+<li><code>VALID</code> submissions can be "signed off". At which point the submission directory becomes read-only.</li>
+</ul>
+</li>
+<li>After a period of time, the release is moved to the <code>COMPLETED</code>state. At which point:<ul>
+<li>this release is frozen, everything about it can be read back, but nothing can be modified</li>
+<li>a new release is created and the process starts again.</li>
+</ul>
+</li>
+</ol>
+<p>We propose that the whole process be relatively short, maybe 1 or 2 months. Thus, if a project misses a release, they can simply submit for the next which will be just a few weeks later.</p>
+<h3 id="flowchart">Flowchart</h3>
+<p><img alt="" src="../../../submission/images/data-submission-bpmn.png" /></p>
+<h2 id="support">Support</h2>
+<p>Please contact the DCC (<a href="mailto:dcc-support@icgc.org">dcc-support@icgc.org</a>) if you have any questions or comments about the data submission process.</p>
                </div>
                </div>
             </div>
