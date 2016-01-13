@@ -67,7 +67,6 @@ a:focus
 
 a[class^="header"] {
   background-color: transparent;
-  cursor: default;
 }
 
 a[class^="header"]:focus,
@@ -377,6 +376,10 @@ code {
   color: #e9931c;
 }
 
+.search-cancel-bttn {
+  display: none;
+}
+
 #mkdocs-search-results-container {
   display: none;
   padding: 2rem 2rem;
@@ -398,6 +401,7 @@ code {
 #search-body {
   padding: 0.5rem 0rem 1.5rem 1rem;
 }
+
 
 #mkdocs-search-results {
   padding: 0rem 1rem;
@@ -435,6 +439,30 @@ code {
 }
 .search-item .search-body p {
   margin: 1rem 0rem 0rem 0rem;
+}
+
+.search-item .search-body .location-field {
+  margin-top: 0rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.search-item .search-body .location-field a [class^="icon-"] {
+  display: none;
+  color: #000;
+}
+
+.search-item .search-body .location-field a {
+  line-height: 1rem;
+  color: #999;
+}
+
+.search-item .search-body .location-field a:hover {
+  color: #000;
+}
+
+.search-item .search-body .location-field a:hover [class^="icon-"] {
+  display: inline;
 }
 
 .navbar-default .navbar-form {
