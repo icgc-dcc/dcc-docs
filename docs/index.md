@@ -1,6 +1,6 @@
-# Welcome to ICGC DCC Docs
+# Welcome
 
-This is the official project documentation site of the ICGC DCC.
+This is the official project documentation site of the [ICGC](https://icgc.org/) DCC.
 
 ## Contents
 

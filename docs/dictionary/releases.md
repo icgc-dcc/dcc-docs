@@ -1,5 +1,7 @@
 # Dictionary Release Notes
 
+This pages lists the dictionary release notes for each submission cycle. You can find additional details by following the links below.
+
 * [Dictionary v0.12e (August 2015, Current for Release 20)][1]
 * [Dictionary v0.11c (April., 2015, Release 19)][2]
 * [Dictionary v0.10a (October., 2014, Release 18)][3]

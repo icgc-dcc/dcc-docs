@@ -1,4 +1,6 @@
-# Dictionary v0.9a (June., 2014. Release 17)
+# Dictionary v0.9a
+
+### June., 2014. Release 17
 
 #### MIGRATING VALIDATED RELEASE 16 DATA TO RELEASE 17
 
@@ -20,7 +22,7 @@ _Revisions to Data Elements: Changes_
 | specimen_type | <ul><li>Mandatory. No longer accepts -777/-888</li><li>New specimen_type codelist</li><li>Please see the [ specimen mapping ][1] table describing how to map the [old][2] specimen_type terms to the [new][3] specimen_type terms. For TCGA projects, this table also provides mapping between TCGA specimen types and the new specimen_type terms. </li></ul>|
 | specimen_type_other | New MVEL script restriction. If specimen_type is either "Normal - other", "Primary tumour - other" or "Recurrent tumour - other", then specimen_type_other field must be filled in |
 
- 
+
 
 **Analyzed Sample Data File (sample) **
 
@@ -29,7 +31,7 @@ _Revisions to Data Elements: Changes_
 | analyzed_sample_type | Removed |
 | analyzed_sample_type_other | Removed |
 
- 
+
 
 **All Data Type Files**
 
@@ -38,7 +40,7 @@ _Revisions to Data Elements: Changes_
 | note | Removed |
 | raw_data_accession | <ul><li>The regular expression has been modified to allow submitters to submit:<ul><li>Both EGA Study and Dataset IDs, delimited by a colon. Example: EGAS00001000354:EGAD00001000983</li></li><li>submit EGA Sample ID, provided the EGA Study and Dataset accession IDs are submitted as well (delimited by a colon). Example: EGAS00001000354:EGAD00001000983:EGAN00001142752</li></ul><li>Submitting just the EGA Study/Dataset accession IDs for raw_data_accession (as in previous Releases) is still valid.</li> |
 
- 
+
 
 **Copy Number - Metadata file (cnsm_m)**
 
@@ -46,7 +48,7 @@ _Revisions to Data Elements: Changes_
 | ----- | ---- |
 | sequencing_strategy | <ul><li>Mandatory. No longer accepts -777/-888</li></ul> |
 
- 
+
 
 _Revisions to CV Tables:_
 
