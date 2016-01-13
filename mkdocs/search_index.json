@@ -961,19 +961,19 @@
             "title": "What are \"percentage_of_cellularity\" and \"level_of_cellularity\" fields in the Specimen and Analyzed Sample Data File data file specifications? Do I need to fill both in?"
         }, 
         {
-            "location": "/submission/guide/", 
-            "text": "Guide\n\n\nOverview\n\n\nThere are five major steps in the data submission process:\n\n\n\n\nObtain login/password account from EGA's \nEBI repository\n\n\nSubmit raw sequence data to the European Genome-phenome Archive\n\n\nPrepare the ICGC submission files according to DCC data format specifications\n\n\nSubmit files to the DCC Secure FTP server\n\n\nValidate submission files using web-based submission system\n\n\n\n\nFor Release 15, all submitted data must be based on \nHuman reference genome assembly\n \nGRCh37\n and \nEnsembl gene set\n \nversion 69\n.\n\n\nWhen submitting experimental data to the ICGC DCC, please make sure you've already deposited your raw data to the appropriate public data repositories (eg: sequencing reads to EBI EGA). You will need to populate the data elements \nraw_data_repository\n and \nraw_data_accession\n with the correct repository and accession number respectively.\n\n\nPlease contact the DCC (\n_dcc-support@icgc.org\n) if you have any questions or comments about the data submission process._", 
-            "title": "Overview"
+            "location": "/submission/guide/about/", 
+            "text": "Submission Guide\n\n\nSubmission Overview\n\n\nThere are five major steps in the data submission process:\n\n\n\n\nObtain login/password account from EGA's \nEBI repository\n\n\nSubmit raw sequence data to the European Genome-phenome Archive\n\n\nPrepare the ICGC submission files according to DCC data format specifications\n\n\nSubmit files to the DCC Secure FTP server\n\n\nValidate submission files using web-based submission system\n\n\n\n\nFor Release 15, all submitted data must be based on \nHuman reference genome assembly\n \nGRCh37\n and \nEnsembl gene set\n \nversion 69\n.\n\n\nWhen submitting experimental data to the ICGC DCC, please make sure you've already deposited your raw data to the appropriate public data repositories (eg: sequencing reads to EBI EGA). You will need to populate the data elements \nraw_data_repository\n and \nraw_data_accession\n with the correct repository and accession number respectively.\n\n\nPlease contact the DCC (\n_dcc-support@icgc.org\n) if you have any questions or comments about the data submission process._", 
+            "title": "About"
         }, 
         {
-            "location": "/submission/guide/#guide", 
+            "location": "/submission/guide/about/#submission-guide", 
             "text": "", 
-            "title": "Guide"
+            "title": "Submission Guide"
         }, 
         {
-            "location": "/submission/guide/#overview", 
+            "location": "/submission/guide/about/#submission-overview", 
             "text": "There are five major steps in the data submission process:   Obtain login/password account from EGA's  EBI repository  Submit raw sequence data to the European Genome-phenome Archive  Prepare the ICGC submission files according to DCC data format specifications  Submit files to the DCC Secure FTP server  Validate submission files using web-based submission system   For Release 15, all submitted data must be based on  Human reference genome assembly   GRCh37  and  Ensembl gene set   version 69 .  When submitting experimental data to the ICGC DCC, please make sure you've already deposited your raw data to the appropriate public data repositories (eg: sequencing reads to EBI EGA). You will need to populate the data elements  raw_data_repository  and  raw_data_accession  with the correct repository and accession number respectively.  Please contact the DCC ( _dcc-support@icgc.org ) if you have any questions or comments about the data submission process._", 
-            "title": "Overview"
+            "title": "Submission Overview"
         }, 
         {
             "location": "/submission/guide/overview/submitting-raw-data-ega/", 
@@ -1412,7 +1412,7 @@
         }, 
         {
             "location": "/dictionary/about/", 
-            "text": "About\n\n\nOverview\n\n\nThe ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and specific restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC. These rules are captured in a document called a \nData Dictionary\n (\nDictionary\n for short).\n\n\nFile validation is also driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.\n\n\nModel\n\n\nThe basic conceptual model of the dictionary is presented below:\n\n\n\n\nViewer\n\n\nTo view the dictionary and compare existing versions, please see the \nDictionary Viewer\n.\n\n\nRelease Notes\n\n\nTo view high level notes on dictionary changes, please see \nReleases\n.", 
+            "text": "About\n\n\nOverview\n\n\nThe ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC. These rules are captured in a document called a \nData Dictionary\n (\nDictionary\n for short).\n\n\nFile validation is also driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.\n\n\nModel\n\n\nThe basic conceptual model of the dictionary is presented below:\n\n\n\n\nViewer\n\n\nTo view the dictionary and compare existing versions, please see the \nDictionary Viewer\n.\n\n\nRelease Notes\n\n\nTo view high level notes on dictionary changes, please see \nReleases\n.", 
             "title": "About"
         }, 
         {
@@ -1422,7 +1422,7 @@
         }, 
         {
             "location": "/dictionary/about/#overview", 
-            "text": "The ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and specific restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC. These rules are captured in a document called a  Data Dictionary  ( Dictionary  for short).  File validation is also driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.", 
+            "text": "The ICGC DCC is tasked with managing the data for the consortium. This data adheres to specific formats and restrictions to ensure a standard of quality and correctness.\nThis is the case for data submitted by partner sites, but also for derived data produced by the DCC. These rules are captured in a document called a  Data Dictionary  ( Dictionary  for short).  File validation is also driven by the rules set forth in these dictionaries.\nThus, they are the canonical reference for most of the validation pipeline and other downstream tools.", 
             "title": "Overview"
         }, 
         {
