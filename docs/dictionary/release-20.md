@@ -1,4 +1,6 @@
-# Dictionary v0.12e (August 2015, Current for Release 20)
+# Dictionary v0.12e
+
+### August 2015, Current for Release 20
 
 #### **September 25, 2015**
 Updated to dictionary version 0.12e. Change between 0.12d and 0.12e:
@@ -8,7 +10,7 @@ Updated to dictionary version 0.12e. Change between 0.12d and 0.12e:
 #### **September 22, 2015**
 Updated to dictionary version 0.12d. Change between 0.12c and 0.12d:
 
-* Removed validation check requiring "donor_interval_of_last_followup" to be greater than or equal to "donor_survival_time" when donor is deceased. 
+* Removed validation check requiring "donor_interval_of_last_followup" to be greater than or equal to "donor_survival_time" when donor is deceased.
 
 Reasoning: In some cases, information on a donor's vital status after they died was obtained via phone calls from/to families or from obituaries rather than a full clinical followup. A full followup was done prior while the donor was alive, and this followup interval is more informative rather than the followup phone call done after the donor died. The removal of this validation check will allow "donor_interval_of_last_followup" to be less than "donor_survival_time" if the donor is deceased.
 

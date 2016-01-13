@@ -1,21 +1,23 @@
-# Dictionary v0.8d (Mar., 2014. Release 16)
+# Dictionary v0.8d
+
+### Mar., 2014. Release 16
 
 NEW: Our new Dictionary Comparison Tool highlights differences between different dictionary versions. Please try it out [here][15]
 
 #### **March 31th 2014**
-**Change between 0.8c and 0.8d:** 
+**Change between 0.8c and 0.8d:**
 
-* Modified MVEL script restriction for "mutated_to_allele" in SSM Primary data file specification to handle homozygous -> heterozygous mutations. 
+* Modified MVEL script restriction for "mutated_to_allele" in SSM Primary data file specification to handle homozygous -> heterozygous mutations.
 
 #### **March 19th 2014**
-**Change between 0.8b and 0.8c:** 
+**Change between 0.8b and 0.8c:**
 
-* Changed "total_read_count" in [exp_seq_m](http://docs.icgc.org/sequencing-based-gene-expression-expseq-analysis-metadata-file-m) and [mirna_seq_m](http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m) to accept N/A reserve codes. Also added a link to WHO International Histological Classification of Tumours for the "tumour_histological_type" field in [specimen data specification](http://docs.icgc.org/specimen-data-file-specimen) 
+* Changed "total_read_count" in [exp_seq_m](http://docs.icgc.org/sequencing-based-gene-expression-expseq-analysis-metadata-file-m) and [mirna_seq_m](http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m) to accept N/A reserve codes. Also added a link to WHO International Histological Classification of Tumours for the "tumour_histological_type" field in [specimen data specification](http://docs.icgc.org/specimen-data-file-specimen)
 
 #### **March 11th 2014**
-**Change between 0.8a and 0.8b:** 
+**Change between 0.8a and 0.8b:**
 
-* Added a MVEL script restriction for "mutated_to_allele" field in Simple Somatic Mutations Primary File (ssm_p). See example [here](http://docs.icgc.org/mvel-script-restriction-examples) 
+* Added a MVEL script restriction for "mutated_to_allele" field in Simple Somatic Mutations Primary File (ssm_p). See example [here](http://docs.icgc.org/mvel-script-restriction-examples)
 
 ##### Changes to Specifications Since Version 0.7e (Jan., 2014)
 
@@ -42,7 +44,7 @@ _Revisions to Data Elements: Additions_
 | ----- | ---- |
 | study |<ul><li>new</li><li>allows submitter to indicate if sample is part of study (ie. PanCancer)</li></ul> |
 
- 
+
 
 _Revisions to Data Elements: Changes_
 
@@ -52,7 +54,7 @@ _Revisions to Data Elements: Changes_
 | ----- | ---- |
 | biological_validation_status | changed to accept N/A reserve code -888 |
 
- 
+
 
 **Simple Somatic Mutations (ssm) - Primary Analysis File (p):**
 
@@ -60,7 +62,7 @@ _Revisions to Data Elements: Changes_
 | ----- | ---- |
 | biological_validation_status | changed to accept N/A reserve code -888 |
 
- 
+
 
 [1]: https://docs.icgc.org/incremental-submission-feature
 [2]: https://docs.icgc.org/selective-validation-feature

@@ -1,4 +1,6 @@
-# Dictionary v0.10a (October., 2014, Release 18)
+# Dictionary v0.10a
+
+### October., 2014, Release 18
 
 ##### Changes to Specifications Since Version 0.9a (June., 2014)
 
@@ -10,7 +12,7 @@ _Revisions to Data Elements: Changes_
 | ---- | ---- |
 | matched_sample_id | Added an MVEL script restriction to prevent identical sample identifiers in both the matched_sample_id field and analyzed_sample_id fields. |
 
- 
+
 
 **All Metadata Files**
 
@@ -18,7 +20,7 @@ _Revisions to Data Elements: Changes_
 | ----- | ---- |
 | raw_data_accession | Updated MVEL script to check format of accession ID when raw_data_repository is TARGET |
 
- 
+
 
 _Revisions to CV Tables:_
 

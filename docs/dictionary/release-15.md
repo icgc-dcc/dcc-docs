@@ -1,22 +1,24 @@
-# Dictionary v0.7e (Jan., 2014. Release 15)
+# Dictionary v0.7e
+
+### Jan., 2014. Release 15
 
 #### January 10th 2014
-**Change between 0.7d and 0.7e:** 
+**Change between 0.7d and 0.7e:**
 
-* Removed MVEL script restriction for expressed_allele in Simple Somatic Mutations Primary (ssm_p) data file specification  
+* Removed MVEL script restriction for expressed_allele in Simple Somatic Mutations Primary (ssm_p) data file specification
 
 #### January 6th 2014
-**Change between 0.7c and 0.7d:** 
+**Change between 0.7c and 0.7d:**
 
-* MVEL script restriction changed in Simple Somatic Mutations (ssm_p) and Simple Germline Variation (sgv_p) Primary data file specification so mutant_allele_read_count and variant_allele_read_count can also be equal to total_read_count  
+* MVEL script restriction changed in Simple Somatic Mutations (ssm_p) and Simple Germline Variation (sgv_p) Primary data file specification so mutant_allele_read_count and variant_allele_read_count can also be equal to total_read_count
 
 #### December 12th 2013
-**Change between 0.7b and 0.7c:** 
+**Change between 0.7b and 0.7c:**
 
-* Allows submission of RNAseq data. **Please note, we are not accepting array-based data though for this Release**  
+* Allows submission of RNAseq data. **Please note, we are not accepting array-based data though for this Release**
 
 #### December 11th 2013
-**Change between 0.7a and 0.7b:** 
+**Change between 0.7a and 0.7b:**
 
 * A check was added to ensure the chromosome start position is less than or equal to the chromosome end position. This check was implemented in the MVEL script restriction for the "chromosome_start" and "chromosome_end" data elements.
 
@@ -113,7 +115,7 @@ Changes made to Simple Somatic Mutations (SSM) primary file to handle open/contr
 * removed "**uri**" and "**db_xref**" from all submission files
 * added **"biological_validation_status**" and "**biological_validation_platform**" to all primary files
 
- 
+
 
 _Revisions to CV Tables:_
 
@@ -140,4 +142,4 @@ _Revisions to CV Tables:_
 
 **GLOBAL.0.biological_validation_status.v1**:
 
-* new table for "biological_validation_status" data element in primary files  
+* new table for "biological_validation_status" data element in primary files

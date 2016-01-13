@@ -1,4 +1,6 @@
-# Dictionary v0.11c (April., 2015, Release 19)
+# Dictionary v0.11c
+
+### April., 2015, Release 19
 
 #### **May 15, 2015**
 
