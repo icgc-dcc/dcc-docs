@@ -26,14 +26,14 @@ $(function() {
 
         // If the link already has an font awesome icon associated skip it
         if (! anchor.find('*[class*="fa-"]').length) {
-          anchor.prepend('&nbsp;<i class="icon-external-link"></i>');
+          anchor.prepend('&nbsp;<i class="icon-external-link"></i>&nbsp;');
         }
 
       });
 
 
       // Ensure all mail links have the appropriate icon.
-      $('a[href^="mailto"]').prepend('&nbsp;<i class="icon-mail"></i>');
+      $('a[href^="mailto"]').prepend('&nbsp;<i class="icon-mail"></i>&nbsp;');
     }
 
     function _initMenuNavBar(container, subContainer) {
