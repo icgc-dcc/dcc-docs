@@ -1,3 +1,5 @@
+# Cloud Guide
+
 ## Overview
 
 This user guide describes the steps to securely explore and analyze ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](http://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](https://dcc.icgc.org/icgc-in-the-cloud).
