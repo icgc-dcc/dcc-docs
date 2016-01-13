@@ -41,25 +41,39 @@ $(function() {
 
         var $search = $('.searchbox'),
             submitIcon = $('.searchbox-icon'),
-            inputBox = $('.searchbox-input'),
-            isOpen = false;
+            searchIconEl = submitIcon.find('.search-bttn'),
+            searchCancelIconEl = submitIcon.find('.search-cancel-bttn');
 
-          $search.submit(function (e) {
+        function __switchToCancelIcon() {
+          searchIconEl.hide();
+          searchCancelIconEl.show();
+        }
+
+        $search.submit(function (e) {
           e.preventDefault();
           submitIcon.click();
         });
 
+        searchCancelIconEl.click(function() {
+          searchCancelIconEl.hide();
+          searchIconEl.show();
+          $resultsContainer.hide();
+          $body.show();
+          submitIcon.click();
+          submitIcon.click();
+        });
+
         submitIcon.click(function () {
-          if (isOpen == false) {
-            inputBox.val('');
+          if (_isSearchActive == false) {
+            $inputBox.val('');
             $search.addClass('searchbox-open');
-            inputBox.focus();
-            isOpen = true;
+            $inputBox.focus();
+            _isSearchActive = true;
           }
           else {
             $search.removeClass('searchbox-open');
-            inputBox.focusout();
-            isOpen = false;
+            $inputBox.focusout();
+            _isSearchActive = false;
           }
         });
 
@@ -72,9 +86,8 @@ $(function() {
         });
 
         $(document).mouseup(function () {
-          if (isOpen == true) {
-            $('.searchbox-icon').css('display', 'block');
-            submitIcon.click();
+          if (_isSearchActive == true) {
+            __switchToCancelIcon();
           }
         });
       }
@@ -95,8 +108,6 @@ $(function() {
 
       function _initSearchIndex() {
         var $query = $('.searchbox-input'),
-            $body = $(confineToContainerID),
-            $resultsContainer = $('#mkdocs-search-results-container'),
             $results = $('#mkdocs-search-results'),
             $searchContentBody = $('#search-body');
 
@@ -145,16 +156,23 @@ $(function() {
               $resultsContainer.show();
               $searchContentBody.html('<strong>' + results.length  + '</strong> results found for <strong>' + query  + '</strong>' );
 
+              var baseHostURL = location.protocol + '//' + location.hostname + (location.port &&
+                                                                            (location.port != 80 && location.port != 443) ? (':' + location.port) : '') +
+                            '/';
+
               for (var i = 0; i < results.length; i++) {
                 var result = results[i];
                 doc = documents[result.ref];
                 doc.base_url = base_url;
                 doc.summary = doc.text.substring(0, 200);
+                var hostURL = baseHostURL + doc.location.replace(/[\.]+\//g, '');
+
 
                 resultsHTML += '<div class="search-item animated fadeInLeft">' +
                                '<div class="doc-type-icon-container"><span class="header-badge"><i class="icon-book-open"></i></span></div>' +
                                '<div class="search-body">' +
                                '<a href="' + doc.location + '">' + doc.title + '</a>' +
+                               '<p class="location-field"><a href="' + doc.location + '">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></a></p>' +
                                '<p>' + doc.summary + '</p>' +
                                '</div>' +
 
@@ -167,7 +185,12 @@ $(function() {
               $results.highlight(query);
             }
             else {
-              $body.show();
+              if (! _isSearchActive) {
+                $body.show();
+              }
+              else {
+                $searchContentBody.html('<strong>' + results.length  + '</strong> results found for <strong>' + query  + '</strong>' );
+              }
             }
           }
 
@@ -191,6 +214,12 @@ $(function() {
         _addSearchListeners();
         _initSearchIndex();
       }
+
+      var $body = $(confineToContainerID),
+          $resultsContainer = $('#mkdocs-search-results-container'),
+          $inputBox = $('.searchbox-input'),
+          _isSearchActive = false;
+
 
       _init();
 
