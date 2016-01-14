@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//</loc>
+     <loc>http://docs.dcc.icgc.org/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -12,83 +12,67 @@
     
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/about/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/about/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/access/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/access/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/analysis/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/analysis/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/api/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/api/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/methods/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/methods/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/projects/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/projects/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/publication/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/publication/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/releases/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/releases/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/repositories/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/repositories/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/search/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/search/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//portal/software/</loc>
-     <lastmod>2016-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//cloud/about/</loc>
-     <lastmod>2016-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//cloud/guide/</loc>
+     <loc>http://docs.dcc.icgc.org/portal/software/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -98,43 +82,13 @@
     
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//submission/about/</loc>
+     <loc>http://docs.dcc.icgc.org/cloud/about/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//submission/api/</loc>
-     <lastmod>2016-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//submission/projects/</loc>
-     <lastmod>2016-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//submission/institutions/</loc>
-     <lastmod>2016-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//submission/faq/</loc>
-     <lastmod>2016-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//submission/software/</loc>
+     <loc>http://docs.dcc.icgc.org/cloud/guide/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -144,55 +98,101 @@
     
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//dictionary/about/</loc>
+     <loc>http://docs.dcc.icgc.org/submission/about/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//dictionary/viewer/</loc>
+     <loc>http://docs.dcc.icgc.org/submission/api/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs//dictionary/releases/</loc>
+     <loc>http://docs.dcc.icgc.org/submission/projects/</loc>
      <lastmod>2016-01-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
+     <loc>http://docs.dcc.icgc.org/submission/institutions/</loc>
+     <lastmod>2016-01-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org/submission/faq/</loc>
+     <lastmod>2016-01-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
+     <loc>http://docs.dcc.icgc.org/submission/software/</loc>
+     <lastmod>2016-01-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org/dictionary/about/</loc>
+     <lastmod>2016-01-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org/dictionary/viewer/</loc>
+     <lastmod>2016-01-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org/dictionary/releases/</loc>
+     <lastmod>2016-01-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
+     <loc>http://docs.dcc.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
+     <loc>http://docs.dcc.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
+     <loc>http://docs.dcc.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://icgc-dcc.github.io/dcc-docs/</loc>
+     <loc>http://docs.dcc.icgc.org</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.dcc.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
