@@ -3,7 +3,7 @@
 #
 
 site_name: ICGC DCC Docs
-site_url: http://icgc-dcc.github.io/dcc-docs/
+site_url: http://docs.dcc.icgc.org
 repo_url: https://github.com/icgc-dcc/dcc-docs
 copyright: "&copy; 2015-2016"
 theme_dir: theme

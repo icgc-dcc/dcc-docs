@@ -1,6 +1,12 @@
 # ICCC DCC - Docs
 
-Documentation for ICGC DCC using [mkdocs](http://www.mkdocs.org/) and GitHub Pages hosted at [http://icgc-dcc.github.io/dcc-docs](http://icgc-dcc.github.io/dcc-docs).
+Documentation for ICGC DCC using [mkdocs](http://www.mkdocs.org/) and GitHub Pages hosted at [http://icgc-dcc.github.io/dcc-docs](http://icgc-dcc.github.io/dcc-docs)
+
+## Domain
+
+A custom domain is setup on the `gh-pages` branch in the `CNAME` file:
+
+[http://docs.dcc.icgc.org](http://docs.dcc.icgc.org)
 
 ## Setup
 
