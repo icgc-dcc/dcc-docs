@@ -188,7 +188,7 @@ $(function() {
                                '</div>' +
 
                                '</div>';
-                console.log(query);
+                //console.log(query);
 
               }
 
