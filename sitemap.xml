@@ -134,6 +134,12 @@
     </url>
         
     <url>
+     <loc>http://docs.dcc.icgc.org</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.dcc.icgc.org/submission/software/</loc>
      <lastmod>2016-01-15</lastmod>
      <changefreq>daily</changefreq>

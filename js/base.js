@@ -16,8 +16,6 @@ $(function () {
       e.preventDefault();
    });
 
-   var $query = $(".searchbox-input");
-   var $results = $("#mkdocs-search-results");
    var $body = $("#body");
 
    // Add header links
@@ -29,7 +27,7 @@ $(function () {
       }
 
       var id = $header.attr('id');
-      var icon = '&nbsp;<i class="fa fa-anchor"></i>';
+      var icon = '&nbsp;<i class="icon-share-1"></i>';
 
       if (id) {
          var title = $header.text();

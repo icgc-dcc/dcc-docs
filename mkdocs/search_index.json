@@ -1456,6 +1456,16 @@
             "title": "Details"
         }, 
         {
+            "location": "/submission/pcawg/pancancer-clinical-data-requirements/", 
+            "text": "PanCancer Clinical Data Requirements\n\n\nPlease see \nhttps://docs.icgc.org/pancancer-clinical-data-requirements", 
+            "title": "PanCancer Clinical Data Requirements"
+        }, 
+        {
+            "location": "/submission/pcawg/pancancer-clinical-data-requirements/#pancancer-clinical-data-requirements", 
+            "text": "Please see  https://docs.icgc.org/pancancer-clinical-data-requirements", 
+            "title": "PanCancer Clinical Data Requirements"
+        }, 
+        {
             "location": "/submission/software/", 
             "text": "Software\n\n\nOverview\n\n\nThis is the Software documentation page\n\n\nRelease Notes\n\n\nChanges in Submission System Software Release 3.6.1.1 - October 10, 2014\n\n\n\n\nAdded \"header-only file validation\" to inform the user of an unintended empty submission file\n\n\nAdded \"sample type validation\" to verify that samples referenced in meta file \nanalyzed_sample_id\n, \nmatched_sample_id\n and \nreference_sample_type\n fields are consistent with the \nspecimen_type\n field found in the associated specimen files.\n\n\n\n\nChanges in Submission System Software Release 2.6 - March 17, 2014\n\n\n\n\nIncremental data submission. Users can now manage their data submission directory and upload only new data. Please see \nhere\n for more information\n\n\nSupport multiple files. Data can be split in multiple files per data type\n\n\nSelective data validation. Users can now validate data by data type and not anymore the whole submission each time.\n\n\nNew user interface\n\n\nFaster validation engine\n\n\nMany bug fixes\n\n\n\n\nFor more information, please see the Submission System Guide available \n here \n. Please don't hesitate to contact us at \ndcc-support@icgc.org\n if you have any questions or to report any bugs.\n\n\nSincerely,\nThe DCC team.", 
             "title": "Software"

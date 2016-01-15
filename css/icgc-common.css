@@ -297,12 +297,13 @@ code {
   display: block;
 }
 
-.header-text-link .fa {
+.header-text-link [class^="icon-"] {
   display: none;
 }
-.header-text-link:hover .fa {
+.header-text-link:hover [class^="icon-"] {
   display: inline-block;
-  color: #166aa2;
+  /* color: #166aa2; */
+  color: #555;
   opacity: 0.3;
 }
 
