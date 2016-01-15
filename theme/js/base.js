@@ -16,8 +16,6 @@ $(function () {
       e.preventDefault();
    });
 
-   var $query = $(".searchbox-input");
-   var $results = $("#mkdocs-search-results");
    var $body = $("#body");
 
    // Add header links
