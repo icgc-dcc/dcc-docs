@@ -47,6 +47,8 @@ pages:
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
     - Incremental Submission Feature: 'submission/guide/incremental-submission-feature.md'
     - Selective Validation Feature: 'submission/guide/selective-validation-feature.md'
+  - PCAWG:
+    - PanCancer Clinical Data Requirements: 'submission/pcawg/pancancer-clinical-data-requirements.md'
   - Software: 'submission/software.md'
 - Dictionary:
   - About: 'dictionary/about.md'
