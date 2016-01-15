@@ -1,6 +1,7 @@
 angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', 'chieffancypants.loadingBar'])
-  .controller('DictionaryViewerCtrl', function($scope, DictionaryService, DictionaryViewerConstants){
-    var _controller = this;
+  .controller('DictionaryViewerCtrl', function($scope, $timeout, $location, $anchorScroll, DictionaryService, DictionaryViewerConstants){
+    var _controller = this,
+        _firstRun = true;
 
     _controller.searchQuery = '';
     _controller.baseDictionaryURL = window.$icgcApp.dictionaryViewer.config.baseDictionaryURL || 'https://submissions.dcc.icgc.org';
@@ -15,5 +16,17 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
       var changeReport = DictionaryService.generateChangeList();
       _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
       _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
+
+      if (_firstRun) {
+
+        _firstRun = false;
+
+        $timeout(function() {
+          if ($location.hash()) {
+            $anchorScroll.yOffset = 30;
+            $anchorScroll();
+          }
+        }, 0);
+      }
     });
   });
