@@ -29,7 +29,7 @@ $(function () {
       }
 
       var id = $header.attr('id');
-      var icon = '&nbsp;<i class="fa fa-anchor"></i>';
+      var icon = '&nbsp;<i class="icon-share-1"></i>';
 
       if (id) {
          var title = $header.text();

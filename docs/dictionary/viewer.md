@@ -3,7 +3,7 @@
         <i class="fa fa-sitemap"></i>
     </span>
     <a class="header-text-link" href="#dictionary-viewer" title="Click on this header and copy URL to link to this section.">
-        Dictionary Viewer&nbsp;<i class="fa fa-anchor"></i>
+        Dictionary Viewer&nbsp;<i class="icon-share-1"></i>
     </a>
 </h1>
 <div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main">
