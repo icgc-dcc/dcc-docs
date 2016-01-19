@@ -15,16 +15,14 @@ The following section explains error messages relating to submission problems wi
 
 #### The following samples have data submitted to PCAWG, but have not been included in this DCC submission.
 * Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.
-
-Solution:
-* Add missing samples to DCC submission and ensure the study field is correctly completed for each PCAWG sample
+* Solution:
+  * Add missing samples to DCC submission and ensure the study field is correctly completed for each PCAWG sample
 
 #### Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.
 * The "study" field in the DCC sample submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG
-
-Solutions:
-* The "study" field in the sample.txt file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field
-* Sample ID format is inconsistent between DCC and PCAWG. Make sure you are using the same sample ID name you submitted in PCAWG.
+* Solutions:
+  * The "study" field in the sample.txt file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field
+  * Sample ID format is inconsistent between DCC and PCAWG. Make sure you are using the same sample ID name you submitted in PCAWG.
 
 
 
