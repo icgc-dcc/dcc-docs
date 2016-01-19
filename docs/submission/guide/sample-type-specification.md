@@ -28,6 +28,9 @@ We can categorize the terms in the [specimen_type][1] codelist into two categori
 |   |  Xenograft - derived from primary tumour |
 |   |  Xenograft - derived from tumour cell line |
 |   |  Cell line - derived from tumour |
+|   |  Primary tumour - lymph node |
+|   |  Metastatic tumour - other |
+|   |  Cell line - derived from xenograft tumour |
 
 ## Expected Sample Types
 
