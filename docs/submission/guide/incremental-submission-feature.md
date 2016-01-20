@@ -2,7 +2,7 @@
 
 ### Overview
 
-New the Release 15 submission system is the _Incremental Submission_ feature. _Incremental Submission_ adds the ability to only upload new data for the current release. All data from previous releases will be maintained by the system and automatically copied to the current release. Additionally, submitters are now able to download their submitted data. This provides a model where submitters are in full control of their effective data set and can use the submission system as a canonical data store.
+_Incremental Submission_ adds the ability to only upload new data for the current release. All data from previous releases will be maintained by the system and automatically copied to the current release. Additionally, submitters are now able to download their submitted data. This provides a model where submitters are in full control of their effective data set and can use the submission system as a canonical data store.
 
 ### File Naming
 
