@@ -2,7 +2,7 @@
 
 ### Overview:
 
-During the past few Releases, DCC has requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of the last ICGC Release (Release 20) has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This will result in large differences in the amount and completeness of clinical data, making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, especially for some critical fields, DCC will be contacting some PCAWG projects on a project-by-project basis with regards to significant missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should be fixed by Feburary 5th 2015. This date is set by the PCAWG Steering Committee (Stein, Campbell, Getz & Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows. 
+During the past few Releases, DCC has requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of the last ICGC Release (Release 20) has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This will result in large differences in the amount and completeness of clinical data, making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, especially for some critical fields, DCC will be contacting some PCAWG projects on a project-by-project basis with regards to missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should be fixed by Feburary 5th 2016. This date is set by the PCAWG Steering Committee (Stein, Campbell, Getz & Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows. 
 
 The DCC Submission system will report the following issues with PCAWG data during validation:
 
@@ -14,11 +14,14 @@ The DCC Submission system will report the following issues with PCAWG data durin
 The following section explains error messages relating to submission problems with PCAWG data:
 
 #### The following samples have data submitted to PCAWG, but have not been included in this DCC submission.
+
 * Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.
 * Solution:
   * Add missing samples to DCC submission and ensure the study field is correctly completed for each PCAWG sample
 
+
 #### Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.
+
 * The "study" field in the DCC sample submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG
 * Solutions:
   * The "study" field in the sample.txt file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field
@@ -33,9 +36,11 @@ The following section explains error messages relating to submission problems wi
 No. Please use "no evidence of disease" in the disease_status_last_followup field.
 
 
+
 #### What if response is unknown or there is some response but not sure about the classification according to RECIST?
 
 If you are unable to classify the response, then please enter unknown. Please note that you may be contacted by PCAWG staff at a later date to clarify why this entry is unknown.
+
 
 
 #### What are the missing/unknown DCC reserve codes?
@@ -51,9 +56,11 @@ If you are unable to classify the response, then please enter unknown. Please no
 Please see [here][1] for more details.
 
 
+
 #### What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?
 
 The dictionary allows “relationship_age” to be specified as “N/A Valid”. Therefore, you can submit one of the Missing/Unknown DCC Reserve Codes if the relationship_age is unknown.
+
 
 
 #### Can you please clarify what ‘diagnosis’ refers to in the Donor table? We have been using age at surgery to avoid (survival) biases when analyzing the data; however, if we use age at surgery then donor_age_at_diagnosis equals donor_age_at_enrollment. In addition, donor_tumour_stage_at_diagnosis would then be equal to tumour_stage.
@@ -61,9 +68,11 @@ The dictionary allows “relationship_age” to be specified as “N/A Valid”.
 Diagnosis refers to the point of clinical diagnosis by the primary physician of the patient, (although diagnosis may not be official until surgery or biopsy is undertaken so this can be a little vague). In this context, age at diagnosis refers to the age at which the primary diagnosis was made and so age at enrolment would then equal age at surgery.
 
 
+
 #### Does the field “tumour_confirmed” in the Specimen table refer to a pathological confirmation of the presence of tumour?
 
 This refers to the fact that a tumour has been confirmed as malignant by clinical means – usually this would be by histopathological review of the sample.
+
 
 
 #### For the smoking and alcohol variables requested in the Donor Exposure tables, some of this data may predate diagnosis and therefore a current smoker then may not be a current smoker at diagnosis. Are these variables supposed to reflect the status at the time of diagnosis, surgery? If so, then we may not have this for everyone (can be obtained via EPR online records but the data is not always so accurate in chart notes so we always use our questionnaire data if available).
