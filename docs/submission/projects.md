@@ -35,7 +35,7 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | GACA-CN |  Gastric Cancer - CN |  China |
 | GBM-CN |  Glioblastoma multiforme - CN |  China |
 | GBM-US |  Brain Glioblastoma Multiforme - TCGA, US |  US |
-| HNCA-MX |  Head and Neck Cancer - SIGMA, MX |   |
+| HNCA-MX |  Head and Neck Cancer - SIGMA, MX | Mexico |
 | HNSC-US |  Head and Neck Squamous Cell Carcinoma - TCGA, US |  US |
 | KICH-US |  Kidney Chromophobe - TCGA, US |  US |
 | KIRC-US |  Kidney Renal Clear Cell Carcinoma - TCGA, US |  US |
