@@ -37,27 +37,12 @@ ICGC DCC provides a data file specification for each data type which details the
 | Examples |  Examples of valid values |
 | Notes |  Additional notes describing requirements/restrictions and cross-field validation checks |
 
-### Data specification colour coding
+### Current Dictionary and Codelists
 
-| Colour code: |  Description |
-| ---- | ---- |
-| #EEEEFF |  Data element requires a value |
-| #ccffcc |  Identifier data element |
-| #F5F5F5 |  Optional value |
+To view current dictionary, please go to [Dictionary Viewer][2]. Green-highlighted rows, such as "donor_id" are considered identifier data fields (foreign keys) and must be unique for each row.
 
-Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice:
+Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice. Please see [Submission API][3] for details
 
-```shell
-curl -v -XGET  -H "Accept: application/json"
-```
-
-To access the JSON format of the controlled vocabulary tables via REST webservice:
-
-```shell
-curl -v -XGET  -H "Accept: application/json"
-```
-
-ICGC DCC cannot accept clinical data on its own without experimental data.
 
 ### File Naming Conventions
 
@@ -238,3 +223,5 @@ ICGC DCC cannot accept clinical data on its own without experimental data.
 </tbody></table>
 
 [1]: /dictionary/release-17.md
+[2]: /dictionary/viewer
+[3]: /submission/api
