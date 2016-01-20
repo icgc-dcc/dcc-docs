@@ -50,11 +50,11 @@ Only projects that have been signed off will be included in releases.
 ![][9]
 
 [1]: /submission/images/login-0.png
-[2]: /submission/images/submission-table-0.png
+[2]: /submission/images/submission-table_0.png
 [3]: /submission/images/pre-validation.png
-[4]: /submission/images/validation-popup-0.png
-[5]: /submission/images/validating-0.png
+[4]: /submission/images/validation-popup-_0.png
+[5]: /submission/images/validating-_0.png
 [6]: /submission/images/valid-submission.png
-[7]: /submission/images/view-ssm-p-report.png
+[7]: /submission/images/view-ssm_p-report.png
 [8]: /submission/images/sign-off-submission.png
 [9]: /submission/images/signed-off-table.png
