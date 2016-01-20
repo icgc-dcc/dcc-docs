@@ -54,9 +54,9 @@ This table summarizes the required fields (for data completeness), and describes
 </td>
 <td colspan="1" class="confluenceTd"><strong>alive</strong></td>
 <td colspan="1" class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-_placeholder-0.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 
 <p><strong>Checks:</strong></p>
 <p>If data provided for "donor_survival_time" and "donor_interval_of_last_followup":</p>
@@ -65,9 +65,9 @@ This table summarizes the required fields (for data completeness), and describes
 
 </td>
 <td class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required-placeholder.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required-placeholder.png"></span></p>
 
 <p><strong>Checks:</strong></p>
 <li>
@@ -82,15 +82,15 @@ This table summarizes the required fields (for data completeness), and describes
 <tr>
 <td colspan="1" class="confluenceTd"><strong>deceased</strong></td>
 <td colspan="1" class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na_placeholder_0.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required-placeholder.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 
 </td>
 <td class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
-<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
-<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required_placeholder.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required-placeholder.png"></span></p>
+<p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required-placeholder.png"></span></p>
+<p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-error"><img src="/submission/images/required-placeholder.png"></span></p>
 
 <p><strong>Checks:</strong></p>
 <li>
