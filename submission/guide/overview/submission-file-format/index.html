@@ -503,7 +503,7 @@
            
                <li><a href="#icgc-dcc-data-file-specification">ICGC DCC Data File Specification</a></li>
            
-               <li><a href="#data-specification-colour-coding">Data specification colour coding</a></li>
+               <li><a href="#current-dictionary-and-codelists">Current Dictionary and Codelists</a></li>
            
                <li><a href="#file-naming-conventions">File Naming Conventions</a></li>
            
@@ -679,38 +679,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="data-specification-colour-coding">Data specification colour coding</h3>
-<table>
-<thead>
-<tr>
-<th>Colour code:</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>#EEEEFF</td>
-<td>Data element requires a value</td>
-</tr>
-<tr>
-<td>#ccffcc</td>
-<td>Identifier data element</td>
-</tr>
-<tr>
-<td>#F5F5F5</td>
-<td>Optional value</td>
-</tr>
-</tbody>
-</table>
-<p>Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice:</p>
-<pre><code class="shell">curl -v -XGET  -H &quot;Accept: application/json&quot;
-</code></pre>
-
-<p>To access the JSON format of the controlled vocabulary tables via REST webservice:</p>
-<pre><code class="shell">curl -v -XGET  -H &quot;Accept: application/json&quot;
-</code></pre>
-
-<p>ICGC DCC cannot accept clinical data on its own without experimental data.</p>
+<h3 id="current-dictionary-and-codelists">Current Dictionary and Codelists</h3>
+<p>To view current dictionary, please go to <a href="/dictionary/viewer.md">Dictionary Viewer</a>. Green-highlighted rows, such as "donor_id" are considered identifier data fields (foreign keys) and must be unique for each row.</p>
+<p>Alternatively, you can also access the JSON format of the DCC Data Specification via REST webservice. Please see <a href="/submission/api.md">Submission API</a> for details</p>
 <h3 id="file-naming-conventions">File Naming Conventions</h3>
 <h4 id="clinicalexperimental-files">Clinical/Experimental Files</h4>
 <table class="confluenceTable">

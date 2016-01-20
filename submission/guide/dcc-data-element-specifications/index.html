@@ -531,13 +531,6 @@
 <li>Identifiers cannot begin with DO<em>, SA</em> or SP*. These prefixes are reserved for ICGC IDs.</li>
 </ul>
 <p><strong>The same identifier value should not be re-used to refer to two different entities, but can occur more than once within submission files when used to refer to the same entity.</strong></p>
-<h3 id="required-vs-optional-fields">Required vs. Optional Fields</h3>
-<p>All data elements as defined here, both required (R) and optional (O), must be present in submission files. Where data cannot be provided for a required field, it is acceptable to use an appropriate placeholder value described below.</p>
-<p>Examples:</p>
-<ul>
-<li>The data element "quality_score" is "Optional". If data cannot be provided for this data element, an empty string is a valid value</li>
-<li>The data element "variation_calling_algorithm" is "Required" and accepts "N/A Valid" values. If no data can be provided for this data element, the appropriate reserve code (see below) can be used (ie. -888).</li>
-</ul>
 <h3 id="missing-or-unknown-values">Missing or Unknown Values</h3>
 <p>When preparing submission files, providing a <strong><em>null</em></strong> value (or empty string) for any of the required data elements <strong>is not valid</strong>.</p>
 <p>For any of the data elements described (excluding those containing identifiers) where a value <em>cannot be provided</em>, the following reserve codes should be used in place of a <em>null</em> value:</p>
@@ -570,7 +563,7 @@
 <li>The stable gene ID for a given mutation/variant is unknown. The data element "gene_stable_id" can be submitted as -777 (data verified to be unknown) </li>
 </ul>
 <h3 id="cross-field-validation-and-regular-expression-restrictions">Cross-field validation and regular expression restrictions:</h3>
-<p>Regular expressions (in Java format) specifying the exact format required, as well as examples for certain data elements are provided to help the submitter conform their data to the DCC Data Element specifications. In addition, as of Release 15, DCC has implemented "script restrictions" using <a href="http://mvel.codehaus.org/Language+Guide+for+2.0">MVEL</a>, to ensure cross-field validation checks. For the advanced user, you will be able to see the actual cross-field validation scripts in the JSON format of the DCC Data Element specification. There is also text in the HTML data file specification tables explaining the different types of restrictions put into place to help the submitter ensure their data is valid. </p>
+<p>Regular expressions (in Java format) specifying the exact format required, as well as examples for certain data elements are provided to help the submitter conform their data to the DCC Data Element specifications. In addition, as of Release 15, DCC has implemented "script restrictions" using <a href="https://en.wikisource.org/wiki/MVEL_Language_Guide">MVEL</a>, to ensure cross-field validation checks. For the advanced user, you will be able to see the actual cross-field validation scripts in the JSON format of the DCC Data Element specification. There is also text in the HTML data file specification tables explaining the different types of restrictions put into place to help the submitter ensure their data is valid. </p>
                </div>
                </div>
             </div>
