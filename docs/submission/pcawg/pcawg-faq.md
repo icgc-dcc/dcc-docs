@@ -49,7 +49,7 @@ This refers to the fact that a tumour has been confirmed as malignant by clinica
 The fields regarding exposure should reflect exposures prior to diagnosis. Please enter any available information and PCAWG staff will follow up with you following submission if anything is unclear.  
 
 
-#### What should I enter if the there are multiple answers to the first_therapy_type in the Donor table? For example, if the patient undertook pre-surgery Chemo to reduce Tumor-size, prior to surgery, this is a combination 2+7; simply typing 8/other in such cases would be a loss-of-information).
+#### What should I enter if the there are multiple answers to the first_therapy_type in the Donor table? For example, if the patient undertook pre-surgery Chemo to reduce Tumor-size, prior to surgery, this is a combination 2+7; simply typing 8/other in such cases would be a loss-of-information.
 
 The fields in the therapy.txt file are aimed at collecting post resection therapies and outcomes specifically. Pre-surgery information should be submitted in the “specimen_donor_treatment_type” field in the specimen.txt file. Using this example, if the patient had chemotherapy to reduce the tumour, and then had surgery to remove it, and this was the source of the specimen sequenced, you can submit chemotherapy in the “specimen_donor_treatment_type” field, and surgery should be recorded in the “specimen_donor_treatment_type_other” field (this field is free-text).
 
