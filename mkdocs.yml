@@ -281,6 +281,7 @@ pages:
   - Source Code: 'software/code.md'
   - Development: 'software/development.md'
 extra:
+  project_root_dir: '/'
   project_org: 'ICGC'
   project_description: 'DCC Docs'
   version: 1.0
