@@ -1,0 +1,42 @@
+{
+  "defaultBaseFromURL": "http://docs.icgc.org",
+  "defaultBaseToURL": "http://docs.icgc.org",
+
+  "redirects": [
+
+    {
+      "from": "/data-portal-api",
+      "to": "/portal/api"
+    },
+    {
+      "from": "/data-portal-usage#ExternalRepoList",
+      "to": "/portal/repositories"
+    },
+    {
+      "from": "/data-submission",
+      "to": "/submission/about"
+    },
+    {
+      "from": "/pancancer-clinical-data-requirements",
+      "to": "/submission/pcawg/pancancer-clinical-data-requirements"
+    },
+    {
+      "from": "/data-portal",
+      "to": "/portal"
+    },
+    {
+      "from": "/dictionary",
+      "to": "/dictionary/about"
+    },
+    {
+      "from": "/access-controlled-data",
+      "to": "/portal/access"
+    },
+    {
+      "from": "/data-portal-usage#dataanalysis",
+      "to": "/portal/analysis"
+    }
+
+  ]
+
+}
