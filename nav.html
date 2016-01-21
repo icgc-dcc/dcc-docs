@@ -13,7 +13,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="{{ homepage_url }}">
+            <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ homepage_url }}">
                 <span class="project-org">{{ config.extra.project_org }}</span> {{ config.extra.project_description }}</a>
         </div>
 
@@ -33,7 +33,7 @@
                 </li>
             {% else %}
                 <li {% if nav_item.active %}class="active"{% endif %}>
-                    <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                    <a href="{{ config.extra.project_root_dir }}{{ nav_item.url }}">{{ nav_item.title }}</a>
                 </li>
             {% endif %}
             {% endfor %}
