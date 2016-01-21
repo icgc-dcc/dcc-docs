@@ -211,4 +211,32 @@
         
     
 
+    
+        
+    <url>
+     <loc>http://docs.icgc.org/software/about/</loc>
+     <lastmod>2016-01-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.icgc.org/software/binaries/</loc>
+     <lastmod>2016-01-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.icgc.org/software/code/</loc>
+     <lastmod>2016-01-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.icgc.org/software/development/</loc>
+     <lastmod>2016-01-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>

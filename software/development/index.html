@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.icgc.org/software/development/">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+
+   <title>Development - ICGC DCC Docs</title>
+
+        
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
+        <link href="/css/bootstrap-custom.css" rel="stylesheet">
+        <link href="/css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
+        <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
+        <link href="/css/base.css" rel="stylesheet">
+        <link href="/css/icgc-common.css" rel="stylesheet">
+
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body data-spy="scroll">
+        <div class="parent-container">
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="background-container"></div>
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">
+                <span class="project-org">ICGC</span> DCC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../portal/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/access/">Access</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/analysis/">Analysis</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/methods/">Methods</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/publication/">Publication</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/releases/">Releases</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/repositories/">Repositories</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/search/">Search</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../portal/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../cloud/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../cloud/guide/">Guide</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../submission/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../submission/api/">API</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../submission/projects/">Projects</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../submission/institutions/">Institutions</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../submission/faq/">FAQ</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../submission/guide/intro/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/overview/submission-file-format/">Submission File Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/overview/file-submission/">File Submission</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/overview/submission-validation/">Submission Validation</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/dcc-data-element-specifications/">DCC Data Element Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/sample-type-specification/">Sample Type Specification</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/incremental-submission-feature/">Incremental Submission Feature</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/guide/selective-validation-feature/">Selective Validation Feature</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">PCAWG</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../submission/pcawg/pancancer-clinical-data-requirements/">PanCancer Clinical Data Requirements</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../submission/pcawg/pcawg-faq/">FAQ</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../submission/software/">Software</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dictionary <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../dictionary/about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../dictionary/viewer/">Viewer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../dictionary/releases/">Release Notes</a>
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 21</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-21/">Dictionary - Release 21</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 20</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-20/">Dictionary - Release 20</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 19</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-19/">Dictionary - Release 19</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 18</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-18/">Dictionary - Release 18</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 17</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-17/">Dictionary - Release 17</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 16</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-16/">Dictionary - Release 16</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 15</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../dictionary/release-15/">Dictionary - Release 15</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../about/">About</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../binaries/">Binaries</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../code/">Source Code</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Development</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+                <li class="menu-bar"></li>
+            </ul>
+
+            <!-- Search -->
+            <div class="searchbox-container col-sm-3 col-md-3 pull-right">
+               <form class="searchbox navbar-form" role="search">
+                  <input id="mkdocs-search-query" type="search" placeholder="Search..." autocomplete="off" name="search" class="searchbox-input">
+                  <span class="searchbox-icon">
+                      <i class="icon-search search-bttn"></i>
+                      <i class="icon-cancel search-cancel-bttn"></i>
+                  </span>
+               </form>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+            <div class="container">
+                
+
+<div id="mkdocs-search-results-container" class="row">
+    <div class="col-md-12">
+        <h1 id="dictionary-viewer" class="no-auto-render">
+            <span class="header-badge" style="padding: 0.90rem 1.0rem 1.2rem 1.6rem;">
+                <i class="icon-search"></i>
+            </span> Search Results
+        </h1>
+        <div id="search-body">
+
+        </div>
+        <div id="mkdocs-search-results">
+
+        </div>
+    </div>
+</div>
+                <div id="body">
+                
+                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#development">Development</a></li>
+        <li>
+           <ul class="nav">
+           
+           </ul>
+       </li>
+    
+    </ul>
+</div></div>
+                
+                <div class="col-md-9 main-container" role="main">
+                   
+
+<h1 id="development">Development</h1>
+<ul>
+<li><a href="#general_convensions">General Conventions</a></li>
+<li><a href="#warnins">Warnings</a></li>
+<li><a href="#other">Other</a></li>
+<li><a href="#comments">Comments</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#anti_patterns">Anti Patterns</a></li>
+</ul>
+</li>
+<li><a href="#annotations">Annotations</a><ul>
+<li><a href="#order">Order</a></li>
+</ul>
+</li>
+<li><a href="#bash">Bash Conventions</a></li>
+<li><a href="#bash_style">Style Guide</a></li>
+<li><a href="#bash_file_name">File Names</a></li>
+<li><a href="#bash_header">Header</a></li>
+<li><a href="#java">Java Conventions</a></li>
+<li><a href="#java_enums">Enums</a></li>
+<li><a href="#java_comments">Comments</a><ul>
+<li><a href="#java_comments_prefer">Prefer // to /<em> </em>/</a></li>
+<li><a href="#java_comments_field">Field Comments</a></li>
+</ul>
+</li>
+<li><a href="#java_if_blocks">If Blocks</a></li>
+<li><a href="#java_ternary">Ternary operator</a></li>
+<li><a href="#java_not">Avoid the ! operator</a></li>
+<li><a href="#java_functional">Functional Programming</a></li>
+<li><a href="#coffee">CoffeeScript Conventions</a></li>
+<li><a href="#coffee_imports">Module Imports</a></li>
+<li><a href="#coffe_whitespace">Whitespace in Expressions and Statements</a><ul>
+<li><a href="#coffe_whitespace_1">Avoid extraneous whitespace in the following situations</a></li>
+<li><a href="#coffe_whitespace_2">Always surround these binary operators with a single space on either side</a></li>
+</ul>
+</li>
+<li><a href="#coffe_naming">Naming Conventions</a></li>
+<li><a href="#coffe_functions">Functions</a></li>
+<li><a href="#coffe_strings">Strings</a></li>
+<li><a href="#coffe_conditionals">Conditionals</a></li>
+<li><a href="#coffe_loops">Looping and Comprehensions Best Practices</a></li>
+<li><a href="#bp">Best Practices</a></li>
+<li><a href="#bp_test">Tests</a></li>
+<li><a href="#bp_injections">Injection</a></li>
+<li><a href="#bp_null">Using null</a><ul>
+<li><a href="#bp_null_methods">Using 2 methods</a></li>
+<li><a href="#bp_null_opt">Using Optional</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="general-conventions"><a name="general_convensions"></a> General Conventions</h2>
+<h4 id="warnings"><a name="warnins"></a> Warnings</h4>
+<p>Source code in develop or a pending pull-request <strong>should have no warnings.</strong> Efforts should be made to ensure all warnings are addressed by committing code. <code>@SuppressWarnings</code> should be used only as a last resort.</p>
+<h4 id="other"><a name="other"></a> Other</h4>
+<p>For good or bad, we typically checkin all formatters to each projects' .settings folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:</p>
+<ul>
+<li>indentation is 2 spaces</li>
+<li>lines can have a length of up to 120 characters</li>
+<li>hard wrapping is maintained for developer control</li>
+</ul>
+<p>What is not covered by the Eclipse formatter is ordering within a class file. Here are the conventions we should enforce:</p>
+<ol>
+<li>package declaration</li>
+<li>imports</li>
+<li>class declaration</li>
+<li>static members (logger, etc.) 5. members</li>
+<li>constructors</li>
+<li>methods</li>
+<li>inner classes</li>
+</ol>
+<p>Ordering also depends on accessibility (members, methods and inner classes):</p>
+<ol>
+<li>public</li>
+<li>protected</li>
+<li>package private (default visibility)</li>
+<li>private</li>
+</ol>
+<pre><code class="java">package org.icgc.dcc;
+import java.util.List;
+
+public class TheClass {
+  private static final Logger log = LoggerFactory.getLogger(TheClass.class);
+  private static final String SOME_CONSTANT = &quot;Some Constant Value&quot;;
+
+  protected String someString;
+
+  private final Dependency dependency;
+
+  public TheClass(Dependency dependency) {
+    this.dependency = dependency;
+  }
+
+  public void useDependency() {
+    dependency.useIt();
+  }
+
+  protected void doSomething() {
+  }
+
+  void packageCallable() {
+  }
+
+  private void myMethod() {
+  }
+
+  public class AnotherClass {
+    // ...
+  }
+
+  private class YetAnotherClass {
+    // ...
+  }
+}
+</code></pre>
+
+<h4 id="comments"><a name="comments"></a> Comments</h4>
+<h6 id="general"><a name="general"></a> General</h6>
+<ul>
+<li>Capitalize the first letter in every comment. E.g. <code>// This is a comment</code></li>
+<li>Add a single space after the comment character(s). E.g. <code>// This is a comment</code></li>
+</ul>
+<h6 id="anti-patterns"><a name="anti_patterns"></a> Anti Patterns</h6>
+<p><strong>Do not commit commented code.</strong> The only exception to this rule is for code that <strong>will</strong> eventually be uncommented. For example, if something is implemented correctly, but depends on something not yet implemented, you could commit this code commented. Otherwise, always remove commented code from the source. Source control is used to keep track of old code.</p>
+<pre><code class="java">public void myMethod() {
+  // TODO: uncomment when TheOtherClass is implemented correctly
+  // theOtherClassInstance.callMe();
+  // Do nothing for now.
+}
+</code></pre>
+
+<p>Comments inline in the code should be kept to a <strong>minimal</strong>. Normally, code is self-explanatory, if it is not, it's probably to complex and should be rewritten.</p>
+<p>Acceptable comments are:</p>
+<ul>
+<li>for referring to JIRA issues: <code>// Added clause to fix DCC-467</code></li>
+<li>for explaining a complex if/else if clause (when not possible to rewrite)</li>
+<li>for providing examples (this is usually for configuration files): <code># http.port=4567</code></li>
+<li>for specifying that code is incomplete: <code>// TODO: complete this switch case</code></li>
+<li>for specifying a side-effect that is not apparent in the code itself: <code>// By setting this to null, we allow the GC to collect this earlier</code></li>
+</ul>
+<p>They should <strong>not</strong> be used:</p>
+<ul>
+<li>to comment unexplained behaviour (code should be fixed, not commented): <code>// Don't know what this is doing</code></li>
+<li>to capture personal thoughts or things you've learned: <code>// Framework X allows this</code></li>
+</ul>
+<p><strong>Do not commit auto-generated comments.</strong> Eclipse has a nasty habit of generating comments, delete them before commiting:</p>
+<pre><code class="java">  /*
+   * (non-Javadoc)
+   *
+   * @see org.apache.sshd.server.PasswordAuthenticator#authenticate(java.lang.String,
+   * java.lang.String, org.apache.sshd.server.session.ServerSession)
+   */
+  @Override
+  public boolean authenticate(String username, String password, ServerSession session) {
+    return authenticate(username, password,
+      session.getIoSession().getRemoteAddress().toString());
+  }
+</code></pre>
+
+<p><strong>Do not comment getters and setters.</strong> If Eclipse generated them <strong>delete</strong> them.</p>
+<pre><code class="java">/**
+ * @return name
+ */
+public String getName() {
+  return name;
+}
+
+/**
+ * @param name
+ */
+public void setName(String name) {
+  this.name = name;
+}
+</code></pre>
+
+<h4 id="annotations"><a name="annotations"></a> Annotations</h4>
+<h6 id="order"><a name="order"></a> Order</h6>
+<p>Put more important annotations close to the method/class signature. Good rule of thumb is the logging annotation should be farthest away.</p>
+<p>Good Order:</p>
+<pre><code class="java">@Slf4j
+@Lazy
+@Configuration
+public class SomeClass {
+</code></pre>
+
+<p>Bad Order:</p>
+<pre><code class="java">@Lazy
+@Configuration
+@Slf4j
+public class SomeClass {
+</code></pre>
+
+<h2 id="bash-conventions"><a name="bash"></a> Bash Conventions</h2>
+<h4 id="style-guide"><a name="bash_style"></a> Style Guide</h4>
+<p>The convensions should follow the ones described in <a href="http://robertmuth.blogspot.ca/2012/08/better-bash-scripting-in-15-minutes.html">this article</a>.</p>
+<h4 id="file-names"><a name="bash_file_name"></a> File Names</h4>
+<p>An example of a <strong>good</strong> file name:</p>
+<pre><code class="bash">perform-release.sh
+</code></pre>
+
+<p>An example of a <strong>bad</strong> file name:</p>
+<pre><code class="bash">perform_release.sh
+perform_release
+performRelease.sh
+performRelease
+</code></pre>
+
+<h4 id="header"><a name="bash_header"></a> Header</h4>
+<p>Each script should begin with header such as the following:</p>
+<pre><code class="bash">#!/bin/bash
+#
+# Copyright (c) 2016 The Ontario Institute for Cancer Research. All rights reserved.
+#
+# This program and the accompanying materials are made available under the terms of the GNU Public License v3.0.
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# Description:
+#   Runs the annotator
+#
+# Usage:
+#   ./annotator.sh &lt;--working-dir /path/to/the/dir&gt; [--project-names A,B] [--file-types ssm|sgv|ssm,sgv]
+#
+# Example:
+#   ./annotator.sh --working-dir /tmp/ICGC20 --project-names ALL_US --file-types ssm,sgv
+</code></pre>
+
+<h2 id="java-conventions"><a name="java"></a> Java Conventions</h2>
+<h4 id="enums"><a name="java_enums"></a> Enums</h4>
+<p>Use all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:</p>
+<pre><code class="java">// Like this
+if(myValue == MyEnum.CONSTANT) {
+  // do something
+}
+
+// Not like this
+if(MyEnum.CONSTANT.equals(myValue)) {
+  // do something
+}
+</code></pre>
+
+<h4 id="comments_1"><a name="java_comments"></a> Comments</h4>
+<h6 id="prefer-to"><a name="java_comments_prefer"></a> Prefer <code>//</code> to <code>/* */</code></h6>
+<p>There is no particular rationale for this style other than it is common in our codebase.</p>
+<pre><code class="java">￼￼￼// good
+</code></pre>
+
+<pre><code class="java">￼￼￼￼/* bad */
+</code></pre>
+
+<h6 id="field-comments"><a name="java_comments_field"></a> Field Comments</h6>
+<p>In general, if there are no specific comments that you have time to place atop class fields, it would be nice for the causal reader to add a comment that at least specifies their role. These should be specified as below, in the same general order, omitting empty sections:</p>
+<pre><code class="java">/**
+ * Constants.
+ */
+
+/**
+ * Dependencies.
+ */
+
+/**
+ * Configuration.
+ */
+
+/**
+ * Metadata.
+ */
+
+/**
+ * State.
+ */
+</code></pre>
+
+<p>These are the most common roles in practice which helps to mentally parse, navigate and index into the code.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Constants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Constants</td>
+<td><code>public</code> or <code>private</code> <code>static</code> <code>final</code> object references / primitive values.</td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td>Collaborators required for delegation and interaction. When using Spring, these will typically be <code>@Autowired</code></td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>Behavioural configuration parameters that have been externalized to alter runtime functionality depending on context. Examples could be a database name, index name, number of threads, etc.</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>Similar to configuration, but with the purpose to describe other data. Examples include a data model, schema, field name</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Mutable state that changes over the objects lifetime. Examples include a stack, list, buffer, etc.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="if-blocks"><a name="java_if_blocks"></a> If Blocks</h4>
+<p>Always surround your if blocks with curly brackets:</p>
+<pre><code class="java">// like this:
+if(someCondition) {
+  doSomething();
+}
+
+// not like this:
+if(someCondition) doSomething();
+</code></pre>
+
+<h4 id="ternary-operator"><a name="java_ternary"></a> Ternary operator</h4>
+<p>Ternary operator is acceptable when returning or assigning:</p>
+<pre><code class="java">public Result someMethod() {
+  return valid ? doIt() : dontDoIt();
+}
+
+public void someOtherMethod() {
+  int length = string != null ? string.length() : 0;
+}
+</code></pre>
+
+<h4 id="avoid-the-operator"><a name="java_not"></a> Avoid the ! operator</h4>
+<p>Inverting a condition using the ! operator is ok, but it often leads to mis-reading the code, for two reasons:</p>
+<ol>
+<li>it is small</li>
+<li>it is inserted at the begining of the clause (yet, we read from left to right, so we have to remember that the condition was inverted)</li>
+</ol>
+<p>Since there is no benefit in terms of performance, it is recommended to avoid using it and replace it with a comparision with false:</p>
+<pre><code class="java">// Like so:
+// This reads as &quot;If myCondition is false&quot;
+if(myCondition == false) {
+  doSomething();
+}
+
+// Not like so:
+// This reads as &quot;If not myCondition is true&quot;
+if(!myCondition) {
+  doSomething()
+}
+</code></pre>
+
+<h4 id="functional-programming"><a name="java_functional"></a> Functional Programming</h4>
+<p>Get familiar with Guava's Functional Idioms. And use them when it helps (read the Caveats on their Wiki). They allow transforming collections from one type to another without writing a for loop. They allow finding or filtering collections without any branching (if statement). Some examples:</p>
+<pre><code class="java">public Iterable&lt;WantedType&gt; getListOfWanted() {
+  // say we have this list and we want to transform that into a sequence of WantedType instead (which is a member of Unwanted)
+  List&lt;Unwanted&gt; theListToTransform = getUnwanted();
+
+  return Iterables.transform(theListToTransform, new Function&lt;Unwanted, WantedType&gt;() {
+
+    public WantedType apply(Unwanted object) {
+       return object.getWanted();
+    }
+
+  });
+}
+</code></pre>
+
+<p>The example above demonstrates the <code>transform</code> method of the <code>Iterables</code> class. It is an extremely useful method which simply calls
+your apply method for each element in an <code>Iterable</code> (any collection). The result is a new <code>Iterable</code> that is actually a view of the first. What is very nice about this is that it's a zero-copy operation. The instance returned is not a new collection, it is a view of the original that will transform the elements one-by-one as one iterates on the sequence. To make a List out of an <code>Iterable</code>, call <code>ImmutableList.copyOf</code></p>
+<p>Furthermore, you can compose <code>Function</code> instances, see the <code>Functions</code> class.</p>
+<p>Similar to <code>Functions</code> are <code>Predicates</code>: instead of returning another type, they return a <code>boolean</code>. These are used to filter and find elements in a collection.</p>
+<pre><code class="java">￼￼￼￼public AnInstance getByName(final String name) {
+  List&lt;AnInstance&gt; instances = getInstances();
+
+    return Iterables.find(instances, new Predicate&lt;AnInstance&gt;() {
+
+      public boolean apply(AnInstance object) {
+        return object.getName().equals(name);
+      }
+
+    });
+}
+</code></pre>
+
+<p>Again, this is using the <code>Iterables</code> class, but this time for finding a single element in an <code>Iterable</code>. The benefit of this is that a <code>Predicate</code> can actually be written once and reused in multiple places. Think of a <code>Predicate</code> as a reusable condition within the brakets of an <code>if()</code> statement.</p>
+<p>As <a href="https://code.google.com/p/guava-libraries/wiki/GuavaExplained">Guava's Wiki</a> mentions, don't be function simply to be functional. Do it when there's a net saving (improved readability or efficiency).</p>
+<h2 id="coffeescript-conventions"><a name="coffee"></a> CoffeeScript Conventions</h2>
+<p>Influenced by <a href="https://github.com/polarmobile/coffeescript-style-guide">Polar's CoffeeScript Conventions</a></p>
+<h4 id="module-imports"><a name="coffee_imports"></a> Module Imports</h4>
+<p><code>require</code> statements should be placed on separate lines.</p>
+<pre><code class="js">require 'lib/setup'
+Backbone = require 'backbone'
+</code></pre>
+
+<p>These statements should be grouped in the following order:</p>
+<ol>
+<li>Third party library imports (Backbone, handlebars, etc)</li>
+<li>Chaplin (any Classes being pulled in from Chaplin)</li>
+<li>Models</li>
+<li>Collections</li>
+<li>Views</li>
+<li>Templates</li>
+</ol>
+<h4 id="whitespace-in-expressions-and-statements"><a name="coffe_whitespace"></a> Whitespace in Expressions and Statements</h4>
+<h6 id="avoid-extraneous-whitespace-in-the-following-situations"><a name="coffe_whitespace_1"></a> Avoid extraneous whitespace in the following situations</h6>
+<p>Immediately inside parentheses, brackets or braces:</p>
+<pre><code class="js">($ 'body') # Yes
+( $ 'body' ) # No
+</code></pre>
+
+<p>Immediately before a comma:</p>
+<pre><code class="js">console.log x, y # Yes
+console.log x , y # No
+</code></pre>
+
+<h6 id="always-surround-these-binary-operators-with-a-single-space-on-either-side"><a name="coffe_whitespace_2"></a> Always surround these binary operators with a single space on either side</h6>
+<ul>
+<li>assignment: <code>=</code></li>
+<li>augmented assignment: <code>+=</code>, <code>-=</code>, etc.</li>
+<li>comparisons: <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, unless, etc.</li>
+<li>arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, etc.</li>
+</ul>
+<p><em>(Do not use more than one space around these operators)</em></p>
+<pre><code class="js"># Yes
+  x = 1
+  y = 1
+  fooBar = 3
+
+# No
+  x  =  1
+  y = 1
+  fooBar  =3
+</code></pre>
+
+<h4 id="naming-conventions"><a name="coffe_naming"></a> Naming Conventions</h4>
+<p>Use <code>camelCase</code> (with a leading lowercase character) to name all variables, methods, and object properties.</p>
+<p>Use <code>CamelCase</code> (with a leading uppercase character) to name all classes.</p>
+<p>For constants, use all uppercase with underscores: <code>CONSTANT_LIKE_THIS</code></p>
+<p>Methods and variables that are intended to be "private" should begin with a leading underscore: <code>_privateMethod: -&gt;</code></p>
+<h4 id="functions"><a name="coffe_functions"></a> Functions</h4>
+<p><em>(These guidelines also apply to the methods of a class.)</em></p>
+<p>When declaring a function that takes arguments, always use a single space after the closing parenthesis of the arguments list:</p>
+<pre><code class="js">foo = (arg1, arg2) -&gt; # Yes
+foo = (arg1, arg2)-&gt; # No
+</code></pre>
+
+<p>Do not use parentheses when declaring functions that take no arguments:</p>
+<pre><code class="js">bar = -&gt; # Yes
+bar = () -&gt; # No
+</code></pre>
+
+<p>In cases where method calls are being chained and the code does not fit on a single line, each call should be placed on a separate line and indented by one level (i.e., two spaces), with a leading <code>.</code>.</p>
+<pre><code class="js">[1..3]
+  .map((x) -&gt; x * x)
+  .concat([10..12])
+  .filter((x) -&gt; x &lt; 11)
+  .reduce((x, y) -&gt; x + y)
+</code></pre>
+
+<p>When calling functions that terminate a line omit the parentheses:</p>
+<pre><code class="js">new Baz 12 instead of new Baz(12)
+
+foo(4).bar 8 instead of foo(4).bar(8)
+
+brush.ellipse {x: 10, y: 20} instead of brush.ellipse({x: 10, y: 20})
+</code></pre>
+
+<h4 id="strings"><a name="coffe_strings"></a> Strings</h4>
+<p>Use string interpolation instead of string concatenation:</p>
+<pre><code class="js">&quot;this is an #{adjective} string&quot; # Yes
+&quot;this is an &quot; + adjective + &quot; string&quot; # No
+</code></pre>
+
+<p>Prefer single quoted strings (<code>''</code>) instead of double quoted (<code>""</code>) strings, unless features like string interpolation are being used for the given string.</p>
+<h4 id="conditionals"><a name="coffe_conditionals"></a> Conditionals</h4>
+<p>Favor unless over if for negative conditions.</p>
+<p>Instead of using <code>unless...else</code>, use <code>if...else</code>:</p>
+<pre><code class="js"># Yes
+  if true ...
+  else ...
+
+# No
+  unless false
+    ...
+  else
+    ...
+</code></pre>
+
+<p>Multi-line if/else clauses should use indentation:</p>
+<pre><code class="js"># Yes
+  if true
+    ...
+  else
+    ...
+
+# No
+  if true then ...
+  else ...
+</code></pre>
+
+<h4 id="looping-and-comprehensions"><a name="coffe_loops"></a> Looping and Comprehensions</h4>
+<p>Take advantage of comprehensions whenever possible:</p>
+<pre><code class="js"># Yes
+result = (item.name for item in array)
+
+# No
+results = []
+for item in array
+  results.push item.name
+</code></pre>
+
+<p>To filter:</p>
+<pre><code class="js">result = (item for item in array when item.name is &quot;test&quot;)
+</code></pre>
+
+<p>To iterate over the keys and values of objects:</p>
+<pre><code class="js">object = one: 1, two: 2
+alert(&quot;#{key} = #{value}&quot;) for key, value of object
+</code></pre>
+
+<h2 id="best-practices"><a name="bp"></a> Best Practices</h2>
+<h4 id="tests"><a name="bp_test"></a> Tests</h4>
+<p>Use long method names that convey the purpose of a test. Method names should have the following naming convention: <code>test_methodBeingEx ercised_purposeOfTheTest</code>.</p>
+<p>For example:</p>
+<pre><code class="java">￼￼￼￼class ClassUnderTest {
+  public void doSomething(String param) {
+     // Something
+  }
+}
+
+class ClassUnderTestTest {
+  @Test
+  public void test_doSomething_doesSomethingWithString() {
+    new ClassUnderTest().doSomething(&quot;do it!&quot;)
+  }
+
+  @Test
+  public void test_doSomething_throwsWhenArgumentIsNull() {
+    new ClassUnderTest().doSomething(null)
+  }
+
+  @Test
+  public void test_doSomething_throwsWhenArgumentIsInvalid() {
+    new ClassUnderTest().doSomething(&quot;invalid string&quot;)
+  }
+}
+</code></pre>
+
+<h4 id="injection"><a name="bp_injections"></a> Injection</h4>
+<ol>
+<li>Use constructor injection and reduce visibility of injected class as much as possible.</li>
+<li>Use Guava's Preconditions (<code>checkArgument</code>, <code>checkState</code>, etc.) When checking arguments for not-nullness, use checkArgument ins
+tead of <code>checkNull</code>. The later throws an <code>NullPointerException</code> which is a bit confusing.</li>
+</ol>
+<pre><code class="java">￼￼￼class TheClass {
+
+  private final Dependency dependency;
+
+  @Inject
+  public TheClass(Dependency dependency) {
+    checkArgument(dependency != null);
+    this.dependency = dependency;
+  }
+}
+</code></pre>
+
+<h4 id="using-null"><a name="bp_null"></a> Using <code>null</code></h4>
+<p>Avoid returning <code>null</code> in a method. Methods should be written in a way that they either succeed (return an actual value) or fail (throw an exception). Returning null creates a third execution path that is prone to causing problems.</p>
+<p>To avoid returning <code>null</code>, you have a few options:</p>
+<ol>
+<li>create 2 methods, one for testing, one for executing</li>
+<li>use <code>Optional</code></li>
+</ol>
+<h6 id="using-2-methods"><a name="bp_null_methods"></a> Using 2 methods</h6>
+<p>The first case is ok when the test is fast. For example:</p>
+<pre><code class="java">class MyClass {
+
+  private String mayBeNullForSomeReason;
+
+  public boolean hasString() {
+    return mayBeNullForSomeReason != null;
+  }
+
+  public String getString() {
+    checkState(hasString());
+    return mayBeNullForSomeReason;
+  }
+}
+</code></pre>
+
+<p>The example is not very convincing, but the idea is that a method exists for testing the expectation before actually invoking the actual method of interest. Why is this better? A few reasons:</p>
+<ol>
+<li>It conveys the intention clearly: it is clear that getString() will never return null and that if you don't want to handle the exception, call hasString first.</li>
+<li>There's no chance of getting an <code>NPE</code> in a very far-away piece of code. Imagine that the calling code is calling <code>getString()</code> but not using it until something else happens. The <code>NPE</code> will be thrown when that something else happens instead of when <code>getString()</code> was called (possibly at the wrong time).</li>
+</ol>
+<h6 id="using-optional"><a name="bp_null_opt"></a> Using Optional</h6>
+<p>The second method is to use the <code>Optional</code> class in Guava. This allows a method a value that may or may not be null. So the method itself always returns a value, but it is this value that may be absent. Reusing the same example as above:</p>
+<pre><code class="java">class MyClass {
+
+  private String mayBeNullForSomeReason;
+
+  public Optional&lt;String&gt; getString() {
+    return new Optional(mayBeNullForSomeReason);
+  }
+}
+</code></pre>
+
+<p>Again, the benefits are similar as above. The main difference is that this creates an additional instance (<code>Optional</code>) which may not be possible when dealing with large amount of data (creating a million <code>Optional</code> instances is not a good idea). This strategy is good for implementing find operations: ones that iterate over collections or make similar expensive processes that may result in nothing. So instead of returning null in those cases, return an <code>Optional</code>.</p>
+<p>So both solutions are better than returning <code>null</code>, but are not necessarily applicable in the same situations.</p>
+               </div>
+               </div>
+            </div>
+
+            <footer>
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            &copy; 2015-2016 <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        
+                        <small class="version-caption">
+                            ICGC DCC Docs Version 1.0
+                        </small>
+                        
+                    </div>
+                </div>
+                
+            </footer>
+
+            <script src="/js/jquery-1.10.2.min.js"></script>
+            <script src="/js/bootstrap-3.0.3.min.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/jquery.highlight-4.closure.js"></script>
+            <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+            <script src="/js/base.js"></script>
+            <script src="/js/icgc-common.js"></script>
+            <script>var base_url = '../..';</script>
+        </div>
+    </body>
+</html>
