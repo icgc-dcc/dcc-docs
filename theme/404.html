@@ -8,18 +8,18 @@
         {% if site_author %}<meta name="author" content="{{ site_author }}">{% endif %}
         {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
         {% if favicon %}<link rel="shortcut icon" href="{{ favicon }}">
-        {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
+        {% else %}<link rel="shortcut icon" href="/img/favicon.ico">{% endif %}
 
    <title>Not Found - {{ site_name }}</title>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
               type='text/css'>
-        <link href="{{ base_url }}/css/bootstrap-custom.css" rel="stylesheet">
-        <link href="{{ base_url }}/css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
-        <link href="{{ base_url }}/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
-        <link href="{{ base_url }}/fonts/fontello/css/animation.css" rel="stylesheet">
-        <link href="{{ base_url }}/css/base.css" rel="stylesheet">
-        <link href="{{ base_url }}/css/icgc-common.css" rel="stylesheet">
+        <link href="/css/bootstrap-custom.css" rel="stylesheet">
+        <link href="/css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
+        <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
+        <link href="/css/base.css" rel="stylesheet">
+        <link href="/css/icgc-common.css" rel="stylesheet">
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
@@ -52,26 +52,43 @@
             <div class="container">
                 {% include "search.html" %}
                 <div id="body">
-                <div class="col-md-12 main-container" role="main">
-                   <h1>Not Found!</h1>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-               </div>
+                    <div class="col-md-12 main-container" role="main">
+                        <h2 class="loading-app no-auto-render" id="redirect-lookup-container"><i class="animate-spin icon-spinner"></i> Looking for the Requested Page...</h2>
+                        <div id="page-not-found-container">
+                            <h1 class="no-auto-render">
+                                <span class="header-badge custom-badge" style="background-color: #CC334A; ">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </span>
+                                Sorry the Page Cannot be Found!</h1>
+                            <p style="height: 30rem">
+                                Sorry, we couldn't find the page you were looking for. If you believe this is an error please contact us at
+                                <a href="mailto:dcc-support@icgc.org?subject=ICGC%20DCC%20Document%20Page%20Not%20Found">dcc-support@icgc.org</a>.
+                            </p>
+                        </div>
+                        <div id="redirect-page-found-container">
+                            <h1 class="no-auto-render">
+                                <span class="header-badge custom-badge" style="background-color: #16984D; ">
+                                    <i class="fa fa-share"></i>
+                                </span>
+                                Looks Like this Page Moved!
+                            </h1>
+                            <div style="height: 30rem;">
+                                <p>
+                                    We are redirecting you to the requested page in <strong id="redirect-timer" style="position: relative; top: 0rem; left: 0; display: inline-block;"></strong> seconds.
+                                </p>
+                                <p>
+                                    Optionally you can also click on <a id="redirect-link"></a> to go there now.
+                                </p>
+                        </div>
+                        </div>
+                   </div>
                </div>
             </div>
 
             <footer>
                 <div class="row">
                     <div class="col-md-12 logo">
-                        <a href="http://oicr.on.ca/" target="_blank"><img src="{{ base_url }}/img/OICR2logo.png"></a>
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="/img/OICR2logo.png"></a>
                     </div>
                 </div>
 
@@ -93,14 +110,15 @@
                 {% endif %}
             </footer>
 
-            <script src="{{ base_url }}/js/jquery-1.10.2.min.js"></script>
-            <script src="{{ base_url }}/js/bootstrap-3.0.3.min.js"></script>
-            <script src="{{ base_url }}/js/highlight.pack.js"></script>
-            <script src="{{ base_url }}/mkdocs/js/lunr-0.5.7.min.js"></script>
-            <script src="{{ base_url }}/js/jquery.highlight-4.closure.js"></script>
-            <script src="{{ base_url }}/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="{{ base_url }}/js/base.js"></script>
-            <script src="{{ base_url }}/js/icgc-common.js"></script>
+            <script src="/js/jquery-1.10.2.min.js"></script>
+            <script src="/js/bootstrap-3.0.3.min.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/jquery.highlight-4.closure.js"></script>
+            <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+            <script src="/js/base.js"></script>
+            <script src="/js/icgc-common.js"></script>
+            <script src="/js/404.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>

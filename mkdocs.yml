@@ -275,6 +275,11 @@ pages:
   #      - miRNA Expression (mirna) - Analysis Metadata File (m): 'dictionary/release-15/splice-variation-jcn-primary-analysis-file-p-v0.7e.md'
   #      - miRNA Expression (mirna) - Primary Analysis File (p): 'dictionary/release-15/structural-somatic-mutations-stsm-analysis-metadata-file-m-v0.7e.md'
   #      - miRNA Expression (mirna) - Secondary Analysis File (s): 'dictionary/release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e.md'
+- Software:
+  - About: 'software/about.md'
+  - Binaries: 'software/binaries.md'
+  - Source Code: 'software/code.md'
+  - Development: 'software/development.md'
 extra:
   project_org: 'ICGC'
   project_description: 'DCC Docs'
