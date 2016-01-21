@@ -1,6 +1,10 @@
 {% if not nav_item.children %}
 <li {% if nav_item.active %}class="active"{% endif %}>
+    {% if disableRootNavPrefixing %}
+    <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+    {% else %}
     <a href="{{ config.extra.project_root_dir }}{{ nav_item.url }}">{{ nav_item.title }}</a>
+    {% endif %}
 </li>
 {% else %}
   <li class="dropdown-submenu">
