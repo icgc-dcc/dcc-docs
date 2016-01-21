@@ -6,7 +6,7 @@ Documentation for ICGC DCC using [mkdocs](http://www.mkdocs.org/) and GitHub Pag
 
 A custom domain is setup on the `gh-pages` branch in the `CNAME` file:
 
-[http://docs.dcc.icgc.org](http://docs.dcc.icgc.org)
+[http://docs.icgc.org](http://docs.icgc.org)
 
 ## Setup
 
