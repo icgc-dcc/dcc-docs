@@ -501,7 +501,7 @@
            
                <li><a href="#overview">Overview:</a></li>
            
-               <li><a href="#error-messages">Error Messages</a></li>
+               <li><a href="#interpreting-error-messages-related-to-pcawg-data">Interpreting Error Messages related to PCAWG Data</a></li>
            
                <li><a href="#frequently-asked-questions-regarding-pcawg-clinical-data-submission">Frequently Asked Questions regarding PCAWG Clinical Data Submission</a></li>
            
@@ -516,33 +516,41 @@
 
 <h1 id="pcawg-clinical-data-requirements">PCAWG Clinical Data Requirements</h1>
 <h3 id="overview">Overview:</h3>
-<p>During the past few Releases, DCC has requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of the last ICGC Release (Release 20) has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This will result in large differences in the amount and completeness of clinical data, making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, especially for some critical fields, DCC will be contacting some PCAWG projects on a project-by-project basis with regards to missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should be fixed by Feburary 5th 2016. This date is set by the PCAWG Steering Committee (Stein, Campbell, Getz &amp; Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows. </p>
+<p>The Pan-Cancer Analysis of Whole Genomes (PCAWG) is an international ICGC initiative to analyze approximately 2500 whole tumor/normal pairs of genome with their clinical outcome. The Data Coordinating Centre has always requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of ICGC Release 20 has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This incompleteness of clinical data is making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, DCC has been contacting PCAWG projects with regards to missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should expected to be fixed by Feburary 5th 2016. This date was set by the PCAWG Steering Committee (Stein, Campbell, Getz &amp; Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows.</p>
 <p>The DCC Submission system will report the following issues with PCAWG data during validation:</p>
 <ul>
 <li>Missing PCAWG donors and/or samples in DCC </li>
-<li>Mislabelled PCAWG samples in DCC</li>
+<li>Mislabeled PCAWG samples in DCC</li>
 </ul>
-<h3 id="error-messages">Error Messages</h3>
-<p>The following section explains error messages relating to submission problems with PCAWG data:</p>
-<h4 id="the-following-samples-have-data-submitted-to-pcawg-but-have-not-been-included-in-this-dcc-submission">The following samples have data submitted to PCAWG, but have not been included in this DCC submission.</h4>
+<h3 id="interpreting-error-messages-related-to-pcawg-data">Interpreting Error Messages related to PCAWG Data</h3>
+<p>The following section explains error messages relating to submission problems with PCAWG data, and how to resolve the issue:</p>
+<pre><code>&quot;The following samples have data submitted to PCAWG, but have not been included in this DCC submission.&quot;
+</code></pre>
+
 <ul>
-<li>Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.</li>
-<li>Solution:</li>
+<li>Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
 <li>Add missing samples to DCC submission and ensure the study field is correctly completed for each PCAWG sample</li>
 </ul>
-<h4 id="sample-is-marked-as-in-pcawg-study-in-this-submission-however-it-does-not-actually-exist-in-pcawg">Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.</h4>
+<pre><code>&quot;Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.&quot;
+</code></pre>
+
 <ul>
-<li>The "study" field in the DCC sample submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG</li>
-<li>Solutions:</li>
+<li>The "study" field in the DCC sample submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG<blockquote>
+<p>Solutions:</p>
+</blockquote>
+</li>
 <li>The "study" field in the sample.txt file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field</li>
 <li>Sample ID format is inconsistent between DCC and PCAWG. Make sure you are using the same sample ID name you submitted in PCAWG.</li>
 </ul>
 <h3 id="frequently-asked-questions-regarding-pcawg-clinical-data-submission">Frequently Asked Questions regarding PCAWG Clinical Data Submission</h3>
-<h4 id="is-ned-no-evidence-of-disease-the-same-as-complete_remission">Is NED (No Evidence of Disease) the same as complete_remission?</h4>
+<h4 id="1-is-ned-no-evidence-of-disease-the-same-as-complete_remission">1. Is NED (No Evidence of Disease) the same as complete_remission?</h4>
 <p>No. Please use "no evidence of disease" in the disease_status_last_followup field.</p>
-<h4 id="what-if-response-is-unknown-or-there-is-some-response-but-not-sure-about-the-classification-according-to-recist">What if response is unknown or there is some response but not sure about the classification according to RECIST?</h4>
+<h4 id="2-what-if-response-is-unknown-or-there-is-some-response-but-not-sure-about-the-classification-according-to-recist">2. What if response is unknown or there is some response but not sure about the classification according to RECIST?</h4>
 <p>If you are unable to classify the response, then please enter unknown. Please note that you may be contacted by PCAWG staff at a later date to clarify why this entry is unknown.</p>
-<h4 id="what-are-the-missingunknown-dcc-reserve-codes">What are the missing/unknown DCC reserve codes?</h4>
+<h4 id="3-what-are-the-missingunknown-dcc-reserve-codes">3. What are the missing/unknown DCC reserve codes?</h4>
 <table>
 <thead>
 <tr>
@@ -566,13 +574,13 @@
 <li><strong>'N/A Invalid'</strong> indicates the field does not accept -777 or -888 reserve codes. A valid value must be provided</li>
 </ul>
 <p>Please see <a href="guide/dcc-data-element-specifications.md#missing-or-unknown-values">here</a> for more details.</p>
-<h4 id="what-should-i-enter-if-the-answer-to-the-question-about-relationship_age-in-the-donor-family-table-is-unknown">What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?</h4>
+<h4 id="4-what-should-i-enter-if-the-answer-to-the-question-about-relationship_age-in-the-donor-family-table-is-unknown">4. What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?</h4>
 <p>The dictionary allows “relationship_age” to be specified as “N/A Valid”. Therefore, you can submit one of the Missing/Unknown DCC Reserve Codes if the relationship_age is unknown.</p>
-<h4 id="can-you-please-clarify-what-diagnosis-refers-to-in-the-donor-table-we-have-been-using-age-at-surgery-to-avoid-survival-biases-when-analyzing-the-data-however-if-we-use-age-at-surgery-then-donor_age_at_diagnosis-equals-donor_age_at_enrollment-in-addition-donor_tumour_stage_at_diagnosis-would-then-be-equal-to-tumour_stage">Can you please clarify what ‘diagnosis’ refers to in the Donor table? We have been using age at surgery to avoid (survival) biases when analyzing the data; however, if we use age at surgery then donor_age_at_diagnosis equals donor_age_at_enrollment. In addition, donor_tumour_stage_at_diagnosis would then be equal to tumour_stage.</h4>
+<h4 id="5-can-you-please-clarify-what-diagnosis-refers-to-in-the-donor-table-we-have-been-using-age-at-surgery-to-avoid-survival-biases-when-analyzing-the-data-however-if-we-use-age-at-surgery-then-donor_age_at_diagnosis-equals-donor_age_at_enrollment-in-addition-donor_tumour_stage_at_diagnosis-would-then-be-equal-to-tumour_stage">5. Can you please clarify what ‘diagnosis’ refers to in the Donor table? We have been using age at surgery to avoid (survival) biases when analyzing the data; however, if we use age at surgery then donor_age_at_diagnosis equals donor_age_at_enrollment. In addition, donor_tumour_stage_at_diagnosis would then be equal to tumour_stage.</h4>
 <p>Diagnosis refers to the point of clinical diagnosis by the primary physician of the patient, (although diagnosis may not be official until surgery or biopsy is undertaken so this can be a little vague). In this context, age at diagnosis refers to the age at which the primary diagnosis was made and so age at enrolment would then equal age at surgery.</p>
-<h4 id="does-the-field-tumour_confirmed-in-the-specimen-table-refer-to-a-pathological-confirmation-of-the-presence-of-tumour">Does the field “tumour_confirmed” in the Specimen table refer to a pathological confirmation of the presence of tumour?</h4>
+<h4 id="6-does-the-field-tumour_confirmed-in-the-specimen-table-refer-to-a-pathological-confirmation-of-the-presence-of-tumour">6. Does the field “tumour_confirmed” in the Specimen table refer to a pathological confirmation of the presence of tumour?</h4>
 <p>This refers to the fact that a tumour has been confirmed as malignant by clinical means – usually this would be by histopathological review of the sample.</p>
-<h4 id="for-the-smoking-and-alcohol-variables-requested-in-the-donor-exposure-tables-some-of-this-data-may-predate-diagnosis-and-therefore-a-current-smoker-then-may-not-be-a-current-smoker-at-diagnosis-are-these-variables-supposed-to-reflect-the-status-at-the-time-of-diagnosis-surgery-if-so-then-we-may-not-have-this-for-everyone-can-be-obtained-via-epr-online-records-but-the-data-is-not-always-so-accurate-in-chart-notes-so-we-always-use-our-questionnaire-data-if-available">For the smoking and alcohol variables requested in the Donor Exposure tables, some of this data may predate diagnosis and therefore a current smoker then may not be a current smoker at diagnosis. Are these variables supposed to reflect the status at the time of diagnosis, surgery? If so, then we may not have this for everyone (can be obtained via EPR online records but the data is not always so accurate in chart notes so we always use our questionnaire data if available).</h4>
+<h4 id="7-for-the-smoking-and-alcohol-variables-requested-in-the-donor-exposure-tables-some-of-this-data-may-predate-diagnosis-and-therefore-a-current-smoker-then-may-not-be-a-current-smoker-at-diagnosis-are-these-variables-supposed-to-reflect-the-status-at-the-time-of-diagnosis-surgery-if-so-then-we-may-not-have-this-for-everyone-can-be-obtained-via-epr-online-records-but-the-data-is-not-always-so-accurate-in-chart-notes-so-we-always-use-our-questionnaire-data-if-available">7. For the smoking and alcohol variables requested in the Donor Exposure tables, some of this data may predate diagnosis and therefore a current smoker then may not be a current smoker at diagnosis. Are these variables supposed to reflect the status at the time of diagnosis, surgery? If so, then we may not have this for everyone (can be obtained via EPR online records but the data is not always so accurate in chart notes so we always use our questionnaire data if available).</h4>
 <p>The fields regarding exposure should reflect exposures prior to diagnosis. Please enter any available information and PCAWG staff will follow up with you following submission if anything is unclear.  </p>
 <h4 id="what-should-i-enter-if-the-there-are-multiple-answers-to-the-first_therapy_type-in-the-donor-table-for-example-if-the-patient-undertook-pre-surgery-chemo-to-reduce-tumor-size-prior-to-surgery-this-is-a-combination-27-simply-typing-8other-in-such-cases-would-be-a-loss-of-information">What should I enter if the there are multiple answers to the first_therapy_type in the Donor table? For example, if the patient undertook pre-surgery Chemo to reduce Tumor-size, prior to surgery, this is a combination 2+7; simply typing 8/other in such cases would be a loss-of-information).</h4>
 <p>The fields in the therapy.txt file are aimed at collecting post resection therapies and outcomes specifically. Pre-surgery information should be submitted in the “specimen_donor_treatment_type” field in the specimen.txt file. Using this example, if the patient had chemotherapy to reduce the tumour, and then had surgery to remove it, and this was the source of the specimen sequenced, you can submit chemotherapy in the “specimen_donor_treatment_type” field, and surgery should be recorded in the “specimen_donor_treatment_type_other” field (this field is free-text).</p>
