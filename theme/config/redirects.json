@@ -22,7 +22,7 @@
     },
     {
       "from": "/data-portal",
-      "to": "/portal"
+      "to": "/portal/about"
     },
     {
       "from": "/dictionary",
