@@ -49,6 +49,7 @@ pages:
     - Selective Validation Feature: 'submission/guide/selective-validation-feature.md'
   - PCAWG:
     - PanCancer Clinical Data Requirements: 'submission/pcawg/pancancer-clinical-data-requirements.md'
+    - FAQ: 'submission/pcawg/pancancer-clinical-data-requirements.md'
   - Software: 'submission/software.md'
 - Dictionary:
   - About: 'dictionary/about.md'
