@@ -2,7 +2,7 @@
 
 ### Overview
 
-New in Release 15 submission system is the _Selective Validation_ feature. The purpose of _Selective Validation_ is to allow a project submitter to validate a subset of their submitted _Data Types_ in batches. This should produce considerable time savings since once a _Data Type_ is successfully validated, it does not need to be validated again for the current release (some exceptions apply, please see below). 
+The purpose of _Selective Validation_ is to allow a project submitter to validate a subset of their submitted _Data Types_ in batches. This should produce considerable time savings since once a _Data Type_ is successfully validated, it does not need to be validated again for the current release (some exceptions apply, please see below). 
 
 ### Details
 

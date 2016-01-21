@@ -26,15 +26,6 @@ In general, the following rules apply to identifiers:
 
 **The same identifier value should not be re-used to refer to two different entities, but can occur more than once within submission files when used to refer to the same entity.**
 
-### Required vs. Optional Fields
-
-All data elements as defined here, both required (R) and optional (O), must be present in submission files. Where data cannot be provided for a required field, it is acceptable to use an appropriate placeholder value described below.
-
-Examples:
-
-* The data element "quality_score" is "Optional". If data cannot be provided for this data element, an empty string is a valid value
-* The data element "variation_calling_algorithm" is "Required" and accepts "N/A Valid" values. If no data can be provided for this data element, the appropriate reserve code (see below) can be used (ie. -888).
-
 ### Missing or Unknown Values
 
 When preparing submission files, providing a **_null_** value (or empty string) for any of the required data elements **is not valid**.
@@ -63,4 +54,4 @@ Regular expressions (in Java format) specifying the exact format required, as we
 
  
 
-[1]: http://mvel.codehaus.org/Language+Guide+for+2.0
+[1]: https://en.wikisource.org/wiki/MVEL_Language_Guide

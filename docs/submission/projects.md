@@ -20,6 +20,7 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | BRCA-MX |  Breast Cancer - SIGMA, MX |  Mexico |
 | BRCA-UK |  Breast Triple Negative/Lobular Cancer - UK |  United Kingdom |
 | BRCA-US |  Breast Cancer - TCGA, US |  US |
+| BTCA-JP |  Biliary tract cancer - JP |  Japan |
 | BTCA-SG |  Biliary tract cancer - Gall bladder cancer/Cholangiocarcinoma - SG |  Singapore |
 | CCSK-US |  Clear Cell Sarcomas of the Kidney - TARGET, US |  US |
 | CESC-US |  Cervical Squamous Cell Carcinoma - TCGA, US |  US |
@@ -27,13 +28,14 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | CMDI-UK |  Chronic Myeloid Disorders - UK |  United Kingdom |
 | COAD-US |  Colon Adenocarcinoma - TCGA, US |  US |
 | COCA-CN |  Colorectal Cancer - CN |  China |
+| DLBC-US |  Lymphoid Neoplasm Diffuse Large B-cell Lymphoma - TCGA, US |  US |
 | EOPC-DE |  Early Onset Prostate Cancer - DE |  Ger |
 | ESAD-UK |  Esophageal Adenocarcinoma - UK |  United Kingdom |
 | ESCA-CN |  Esophageal Cancer - CN |  China |
 | GACA-CN |  Gastric Cancer - CN |  China |
 | GBM-CN |  Glioblastoma multiforme - CN |  China |
 | GBM-US |  Brain Glioblastoma Multiforme - TCGA, US |  US |
-| HNCA-MX |  Head and Neck Cancer - SIGMA, MX |   |
+| HNCA-MX |  Head and Neck Cancer - SIGMA, MX | Mexico |
 | HNSC-US |  Head and Neck Squamous Cell Carcinoma - TCGA, US |  US |
 | KICH-US |  Kidney Chromophobe - TCGA, US |  US |
 | KIRC-US |  Kidney Renal Clear Cell Carcinoma - TCGA, US |  US |
@@ -55,6 +57,7 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | LUSC-KR |  Lung Cancer - Squamous cell carcinoma - KR |  South Korea |
 | LUSC-US |  Lung Squamous Cell Carcinoma - TCGA, US |  US |
 | MALY-DE |  Malignant Lymphoma - DE |  Germany |
+| MELA-AU |  Skin Cancer - AU |  Australia |
 | NACA-CN |  Nasopharyngeal cancer - CN |  China |
 | NBL-US |  Neuroblastoma - TARGET, US |  US |
 | NHLY-MX |  Non Hodgkin Lymphoma - SIGMA, MX |  Mexico |
@@ -64,11 +67,11 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | OV-CN |  Ovarian cancer - CN |  China |
 | OV-US |  Ovarian Serous Cystadenocarcinoma - TCGA, US |  US |
 | PAAD-US |  Pancreatic Cancer - TCGA, US |  US |
-| PACA-AU |  Pancreatic Cancer - AU |  Australia |
+| PACA-AU |  Pancreatic Cancer Endocrine Neoplasms- AU |  Australia |
 | PACA-CA |  Pancreatic Cancer - CA |  Canada |
 | PACA-CN |  Pancreatic Ductal adenocarcinoma - CN |  China |
-| PACA-IT |  Pancreatic Cancer - IT |  Italy |
 | PAEN-AU |  Pancreatic Cancer Endocrine neoplasms - AU |  Australia |
+| PAEN-IT |  Pancreatic Endocrine Neoplasms- IT |  Italy |
 | PBCA-DE |  Pediatric Brain Cancer - DE |  Germany |
 | PEME-CA |  Pediatric Medulloblastoma - CA |  Canada |
 | PRAD-CA |  Prostate Adenocarcinoma - CA |  Canada |
@@ -81,6 +84,7 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | RECA-EU |  Renal Cell Cancer - EU/FR |  European Union/France |
 | RT-US |  Rhabdoid Tumors - TARGET, US |  US |
 | RTBL-FR |  Eye cancer - Retinoblastoma - FR |  France |
+| SARC-US |  Sarcoma - TCGA, US |  US |
 | SKCA-BR |  Skin Adenocarcinoma - BR |  Brazil |
 | SKCM-US |  Skin Cutaneous melanoma - TCGA, US |  US |
 | STAD-US |  Gastric Adenocarcinoma - TCGA, US |  US |

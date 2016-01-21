@@ -47,11 +47,15 @@ pages:
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
     - Incremental Submission Feature: 'submission/guide/incremental-submission-feature.md'
     - Selective Validation Feature: 'submission/guide/selective-validation-feature.md'
+  - PCAWG:
+    - PanCancer Clinical Data Requirements: 'submission/pcawg/pancancer-clinical-data-requirements.md'
   - Software: 'submission/software.md'
 - Dictionary:
   - About: 'dictionary/about.md'
   - Viewer: 'dictionary/viewer.md'
   - Release Notes: 'dictionary/releases.md'
+  - Release 21:
+    - Dictionary - Release 21: 'dictionary/release-21.md'
   - Release 20:
     - Dictionary - Release 20: 'dictionary/release-20.md'
   #      - Analyzed Sample Data File (sample): 'dictionary/release-20/analyzed-sample-data-file-sample.md'
