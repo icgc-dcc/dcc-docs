@@ -82,11 +82,11 @@ $(function() {
       loadingEl.hide();
       pageNotFoundContainer.hide();
       redirectLinkEl.attr('href', destinationURL).text(destinationURL);
-      pageFoundContainer.show('slow');
+      pageFoundContainer.show();
     })
-    .fail(function(){
+    .fail(function() {
       loadingEl.hide();
-      pageNotFoundContainer.show('slow');
+      pageNotFoundContainer.show();
     });
 
 });
