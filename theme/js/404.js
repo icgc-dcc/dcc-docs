@@ -70,11 +70,44 @@ $(function() {
     _self.redirect = _redirect;
   }
 
-  var redirector = new Redirector(),
+  var TIMEOUT_IN_SECONDS = 5,
+      redirector = new Redirector(null, (TIMEOUT_IN_SECONDS * 1000)),
       pageNotFoundContainer = $('#page-not-found-container'),
       pageFoundContainer = $('#redirect-page-found-container'),
       redirectLinkEl = $('#redirect-link'),
+      redirectCountdownEl = $('#redirect-timer'),
       loadingEl = $('#redirect-lookup-container');
+
+  function renderTimer(timeoutInSeconds) {
+
+    var text = timeoutInSeconds;
+
+    if (timeoutInSeconds > 0) {
+      redirectCountdownEl.stop().animate({opacity: 1}, 100);
+    }
+    else {
+      redirectCountdownEl.stop().css({opacity: 1}, 100);
+    }
+
+
+    if (timeoutInSeconds === 0) {
+      text = '0 (redirecting)';
+    }
+
+    redirectCountdownEl.text(text);
+
+    if (timeoutInSeconds > 0) {
+      redirectCountdownEl.animate({opacity: 0}, 900);
+    }
+
+    timeoutInSeconds--;
+
+    if (timeoutInSeconds >= 0) {
+      setTimeout(function() { renderTimer(timeoutInSeconds); }, 1000);
+    }
+  }
+
+
 
   redirector
     .redirect()
@@ -83,6 +116,7 @@ $(function() {
       pageNotFoundContainer.hide();
       redirectLinkEl.attr('href', destinationURL).text(destinationURL);
       pageFoundContainer.show();
+      renderTimer(TIMEOUT_IN_SECONDS);
     })
     .fail(function() {
       loadingEl.hide();
