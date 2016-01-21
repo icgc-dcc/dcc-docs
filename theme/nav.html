@@ -13,7 +13,11 @@
             </button>
 
             <!-- Main title -->
+            {% if disableRootNavPrefixing %}
+            <a class="navbar-brand" href="{{ homepage_url }}">
+            {% else %}
             <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ homepage_url }}">
+            {% endif %}
                 <span class="project-org">{{ config.extra.project_org }}</span> {{ config.extra.project_description }}</a>
         </div>
 
