@@ -52,19 +52,31 @@
             <div class="container">
                 {% include "search.html" %}
                 <div id="body">
-                <div class="col-md-12 main-container" role="main">
-                   <h1>Not Found!</h1>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-               </div>
+                    <div class="col-md-12 main-container" role="main">
+                        <h2 class="loading-app no-auto-render" id="redirect-lookup-container"><i class="animate-spin icon-spinner"></i> Looking for the Requested Page...</h2>
+                        <div id="page-not-found-container">
+                            <h1 class="no-auto-render">
+                                <span class="header-badge custom-badge" style="background-color: #CC334A; ">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </span>
+                                Sorry the Page Cannot be Found!</h1>
+                            <p style="height: 30rem">
+                                Sorry, we couldn't find the page you were looking for. If you believe this is an error please contact us at
+                                <a href="mailto:dcc-support@icgc.org?subject=ICGC%20DCC%20Document%20Page%20Not%20Found">dcc-support@icgc.org</a>.
+                            </p>
+                        </div>
+                        <div id="redirect-page-found-container">
+                            <h1 class="no-auto-render">
+                                <span class="header-badge custom-badge" style="background-color: #16984D; ">
+                                    <i class="fa fa-share"></i>
+                                </span>
+                                Looks Like this Page Moved!
+                            </h1>
+                            <p style="height: 30rem">
+                                We are redirecting you to the requested page in 5 seconds. Or click on <a id="redirect-link"></a> to go there now.
+                            </p>
+                        </div>
+                   </div>
                </div>
             </div>
 
@@ -101,6 +113,7 @@
             <script src="{{ base_url }}/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
             <script src="{{ base_url }}/js/base.js"></script>
             <script src="{{ base_url }}/js/icgc-common.js"></script>
+            <script src="{{ base_url }}/js/404.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
             <script src="{{ path }}"></script>

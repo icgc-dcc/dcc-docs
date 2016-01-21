@@ -133,6 +133,10 @@ code {
   vertical-align: text-top;
 }
 
+.header-badge.custom-badge {
+  padding: 0.90rem 1.0rem 1.2rem 1.6rem;
+}
+
 /* */
 .parent-container {
   max-width: 1280px;
@@ -150,6 +154,7 @@ code {
   /* position:fixed; */
   margin: 0 auto 0 auto;
   max-width: 1280px;
+  height: 63px;
 }
 
 .navbar-default .background-container {
@@ -582,6 +587,12 @@ footer .logo img:hover {
     line-height: 4.5rem;
   }
 
+  table,
+  table.table {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+  }
+
   .navbar-default .navbar-nav > .active > a
 
    {
@@ -641,6 +652,12 @@ footer .logo img:hover {
     background-color: #fff;
   }
 
+}
+
+
+#page-not-found-container,
+#redirect-page-found-container {
+  display: none;
 }
 
 /* Animations */
