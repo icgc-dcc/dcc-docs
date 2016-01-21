@@ -659,15 +659,15 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="submitting-raw-data-to-ega"><a class="toclink" href="#submitting-raw-data-to-ega">Submitting Raw Data to EGA</a></h1>
+<h1 id="submitting-raw-data-to-ega">Submitting Raw Data to EGA</h1>
 <p>The following instructions are meant to provide ICGC members with guidance on submitting raw sequence data to the European Genome-Phenome Archive (EGA). ICGC members are encouraged to consult the EGA guidelines prior to data submission. Detailed instructions on data submission are available EGA website at  and an FAQ is provided at .</p>
-<h4 id="overview-of-the-ega-metadata-xml-files"><a class="toclink" href="#overview-of-the-ega-metadata-xml-files">Overview of the EGA metadata xml files</a></h4>
+<h4 id="overview-of-the-ega-metadata-xml-files">Overview of the EGA metadata xml files</h4>
 <p><img alt="" src="../../../../submission/images/ega-meta.png" /></p>
 <p>Below are example template files for POLICY, STUDY, DATASET, SAMPLE, EXPERIMENT, and RUN metadata.</p>
 <pre><code class="text">Submissions from ICGC members do not need to include a dac.xml, as the ICGC DAC (Data Access Committee) already exists in the EGA system. The submitters only need to refer to the ICGC DAC in the policy.xml, as shown in the following policy.xml example.
 </code></pre>
 
-<h4 id="policy-xml-file"><a class="toclink" href="#policy-xml-file">POLICY XML file</a></h4>
+<h4 id="policy-xml-file">POLICY XML file</h4>
 <pre><code class="xml">&lt;?xml version = '1.0' encoding = 'UTF-8'?&gt;
 &lt;POLICY_SET&gt;
     &lt;POLICY alias=&quot;ICGC Data Access Agreements&quot; center_name=&quot;YOUR_CENTER_NAME_HERE&quot; broker_name=&quot;EGA&quot;&gt;
@@ -692,9 +692,9 @@
 <li>If your center’s name is incorrect or missing from here, please contact the DCC to have your center’s record added or revised.</li>
 <li>The value of center_name should reflect the submitter’s affiliation and should remain consistent in the metadata XML for all subsequent submissions to EGA.</li>
 </ul>
-<h4 id="dataset-and-study-xml-files"><a class="toclink" href="#dataset-and-study-xml-files">DATASET and STUDY XML files</a></h4>
+<h4 id="dataset-and-study-xml-files">DATASET and STUDY XML files</h4>
 <p>The following examples of DATASET and STUDY xml files are written as per EGA's specifications with key items required for all ICGC submissions populated.</p>
-<h5 id="dataset-xml-file"><a class="toclink" href="#dataset-xml-file">DATASET XML file</a></h5>
+<h5 id="dataset-xml-file">DATASET XML file</h5>
 <pre><code class="xml">&lt;?xml version = '1.0' encoding = 'UTF-8'?&gt;
 &lt;DATASETS&gt;
     &lt;DATASET alias=&quot;DS20110311&quot; center_name=&quot;OICR&quot; broker_name=&quot;&quot;&gt;
@@ -714,7 +714,7 @@
 &lt;/DATASETS&gt;
 </code></pre>
 
-<h5 id="study-xml-file"><a class="toclink" href="#study-xml-file">STUDY XML file</a></h5>
+<h5 id="study-xml-file">STUDY XML file</h5>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;STUDY_SET&gt;
     &lt;STUDY alias=&quot;Pancreatic Cancer Genome Sequencing&quot; center_name=&quot;OICR&quot;&gt;
@@ -744,9 +744,9 @@
 &lt;/STUDY_SET&gt;
 </code></pre>
 
-<h4 id="sample-experiment-and-run-xml-files"><a class="toclink" href="#sample-experiment-and-run-xml-files">SAMPLE, EXPERIMENT and RUN XML files</a></h4>
+<h4 id="sample-experiment-and-run-xml-files">SAMPLE, EXPERIMENT and RUN XML files</h4>
 <p>For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.</p>
-<h5 id="fragment-of-the-sample-xml-file"><a class="toclink" href="#fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</a></h5>
+<h5 id="fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</h5>
 <pre><code class="xml">&lt;SAMPLE alias=&quot;CLLS0123&quot; ….&gt;
     &lt;SAMPLE_ATTRIBUTES&gt;
         &lt;SAMPLE_ATTRIBUTE&gt;
@@ -761,7 +761,7 @@
 &lt;/SAMPLE&gt;
 </code></pre>
 
-<h5 id="fragment-of-the-experiment-xml-file"><a class="toclink" href="#fragment-of-the-experiment-xml-file">Fragment of the EXPERIMENT XML file</a></h5>
+<h5 id="fragment-of-the-experiment-xml-file">Fragment of the EXPERIMENT XML file</h5>
 <pre><code class="xml">&lt;EXPERIMENT_SET&gt;
     &lt;EXPERIMENT alias=&quot;EXP12345&quot; … &gt;
         &lt;STUDY_REF refname=&quot;Pancreatic Cancer Genome Sequencing&quot; /&gt;
@@ -770,7 +770,7 @@
             &lt;SAMPLE_DESCRIPTOR refname=&quot;CLLS0123&quot; /&gt;
 </code></pre>
 
-<h5 id="fragment-of-the-run-xml-file"><a class="toclink" href="#fragment-of-the-run-xml-file">Fragment of the RUN XML file</a></h5>
+<h5 id="fragment-of-the-run-xml-file">Fragment of the RUN XML file</h5>
 <pre><code class="xml">&lt;RUN alias=&quot;SC_RUN_4000_2&quot;/&gt;
     &lt;EXPERIMENT_REF refname=&quot;EXP12345&quot;/&gt;
     &lt;DATA_BLOCK&gt;

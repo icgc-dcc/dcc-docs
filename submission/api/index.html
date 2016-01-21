@@ -657,9 +657,9 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="submission-api"><a class="toclink" href="#submission-api">Submission API</a></h1>
+<h1 id="submission-api">Submission API</h1>
 <p>This is the public API documentation for the Submission System.</p>
-<h2 id="release-and-dictionary-states"><a class="toclink" href="#release-and-dictionary-states">Release and Dictionary States</a></h2>
+<h2 id="release-and-dictionary-states">Release and Dictionary States</h2>
 <p>A dictionary can be either OPENED or CLOSED. A release can also be OPENED or COMPLETED, yet the two have slightly different meaning so this may be confusing. To summarize:</p>
 <ul>
 <li>COMPLETED release: frozen past releases</li>
@@ -667,19 +667,19 @@
 <li>CLOSED dictionary: frozen dictionary that was used by a past release</li>
 <li>OPENED dictionary: updatable dictionary that <strong>is not</strong> used by a past release </li>
 </ul>
-<h2 id="code-lists"><a class="toclink" href="#code-lists">Code Lists</a></h2>
-<h3 id="get-code-list-by-name"><a class="toclink" href="#get-code-list-by-name">Get Code List by Name</a></h3>
+<h2 id="code-lists">Code Lists</h2>
+<h3 id="get-code-list-by-name">Get Code List by Name</h3>
 <p>The following will get a single codelist in JSON format, where 'myCodeListName' is the name of the codelist you want to retrieve</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists/myCodeListName -H &quot;Accept: application/json&quot;
 </code></pre>
 
-<h3 id="get-all-code-lists"><a class="toclink" href="#get-all-code-lists">Get All Code Lists</a></h3>
+<h3 id="get-all-code-lists">Get All Code Lists</h3>
 <p>The following will return a JSON document that includes an array of all the code lists on the server.</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/codeLists -H &quot;Accept: application/json&quot;
 </code></pre>
 
-<h2 id="dictionaries"><a class="toclink" href="#dictionaries">Dictionaries</a></h2>
-<h3 id="get-current-dictionary"><a class="toclink" href="#get-current-dictionary">Get Current Dictionary</a></h3>
+<h2 id="dictionaries">Dictionaries</h2>
+<h3 id="get-current-dictionary">Get Current Dictionary</h3>
 <p>This will return the current dictionary in JSON format.</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/nextRelease/dictionary -H &quot;Accept: application/json&quot;
 </code></pre>
@@ -688,12 +688,12 @@
 <ul>
 <li>This uses a different end-point, the <code>NextRelease</code> end-point</li>
 </ul>
-<h3 id="get-all-dictionaries"><a class="toclink" href="#get-all-dictionaries">Get All Dictionaries</a></h3>
+<h3 id="get-all-dictionaries">Get All Dictionaries</h3>
 <p>This will give you all the dictionaries, including past CLOSED dictionaries, as an array.</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries -H &quot;Accept: application/json&quot;
 </code></pre>
 
-<h3 id="get-dictionary-by-version"><a class="toclink" href="#get-dictionary-by-version">Get Dictionary by Version</a></h3>
+<h3 id="get-dictionary-by-version">Get Dictionary by Version</h3>
 <p>The following allows you to retrieve a particular version of the dictionary, where 'versionNum' is the dictionary version number you want to retrieve.</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versionNum -H &quot;Accept: application/json&quot;
 </code></pre>

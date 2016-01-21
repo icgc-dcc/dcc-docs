@@ -5,10 +5,6 @@
   "redirects": [
 
     {
-      "from": "/404.html",
-      "to": "/portal/api"
-    },
-    {
       "from": "/data-portal-api",
       "to": "/portal/api"
     },

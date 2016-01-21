@@ -661,13 +661,13 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="donor-clinical-data-guidelines"><a class="toclink" href="#donor-clinical-data-guidelines">Donor Clinical Data Guidelines</a></h1>
-<h3 id="changes-to-data-dictionary-for-release-20-include"><a class="toclink" href="#changes-to-data-dictionary-for-release-20-include">Changes to Data Dictionary for Release 20 include:</a></h3>
+<h1 id="donor-clinical-data-guidelines">Donor Clinical Data Guidelines</h1>
+<h3 id="changes-to-data-dictionary-for-release-20-include">Changes to Data Dictionary for Release 20 include:</h3>
 <ul>
 <li>Implementation of new rules requiring values for certain donor clinical fields</li>
 <li>Validation checks to ensure that the clinical data provided is correct</li>
 </ul>
-<h3 id="why"><a class="toclink" href="#why">Why?</a></h3>
+<h3 id="why">Why?</h3>
 <ul>
 <li>We have received many requests from users of the DCC Data Portal about the lack of clinical data for some ICGC projects, making it difficult to carry out a complete analysis of different cancer types (i.e., survival analysis). A review of Release 19 data also found discrepancies in the clinical data for some projects. In an effort to correct this, we implemented validation rules to identify and flag these discrepancies and any empty required data fields.</li>
 </ul>
@@ -713,7 +713,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="summary-of-donor-clinical-field-requirements"><a class="toclink" href="#summary-of-donor-clinical-field-requirements">Summary of Donor Clinical Field requirements:</a></h3>
+<h3 id="summary-of-donor-clinical-field-requirements">Summary of Donor Clinical Field requirements:</h3>
 <p>This table summarizes the required fields (for data completeness), and describes the rules which ensure the clinical data is correct</p>
 <table class="confluenceTable">
 <tbody>
@@ -792,12 +792,12 @@
 </tbody>
 </table>
 
-<h3 id="clinical-data-events-and-time-relationship"><a class="toclink" href="#clinical-data-events-and-time-relationship">Clinical Data Events and Time Relationship:</a></h3>
+<h3 id="clinical-data-events-and-time-relationship">Clinical Data Events and Time Relationship:</h3>
 <p>This diagram summarizes how the different donor clinical events relate to time.</p>
 <p>If the patient is alive, the "donor_survival_time" should be equal to the "donor_interval_of_last_followup" (124 days)</p>
 <p>However, if the the patient is deceased, the "donor_survival_time" (163 days) should be less than (or equal) to the "donor_interval_of_last_followup" (175 days)</p>
 <p><img alt="" src="../../../submission/images/clinical-event-times.png" /></p>
-<h3 id="description-of-script-restrictions-added-to-donor-file-for-release-20"><a class="toclink" href="#description-of-script-restrictions-added-to-donor-file-for-release-20">Description of Script Restrictions added to Donor File for Release 20:</a></h3>
+<h3 id="description-of-script-restrictions-added-to-donor-file-for-release-20">Description of Script Restrictions added to Donor File for Release 20:</h3>
 <p>Five script restrictions have been added:</p>
 <p><strong>1. </strong></p>
 <p><em>Field:</em><strong> "donor_interval_of_last_followup"</strong></p>

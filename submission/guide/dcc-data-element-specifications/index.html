@@ -653,11 +653,11 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="dcc-data-element-specifications"><a class="toclink" href="#dcc-data-element-specifications">DCC Data Element Specifications</a></h1>
-<h2 id="general-notes-on-data-elements"><a class="toclink" href="#general-notes-on-data-elements">General Notes on Data Elements</a></h2>
-<h3 id="column-order-and-case"><a class="toclink" href="#column-order-and-case">Column Order and Case</a></h3>
+<h1 id="dcc-data-element-specifications">DCC Data Element Specifications</h1>
+<h2 id="general-notes-on-data-elements">General Notes on Data Elements</h2>
+<h3 id="column-order-and-case">Column Order and Case</h3>
 <p><strong>Column order and case must match the data file specification order/case.</strong></p>
-<h3 id="data-elements-containing-identifiers"><a class="toclink" href="#data-elements-containing-identifiers">Data Elements Containing Identifiers</a></h3>
+<h3 id="data-elements-containing-identifiers">Data Elements Containing Identifiers</h3>
 <p>Certain data elements described in the submission manual are regarded as "identifiers". Examples include:</p>
 <ul>
 <li>Donor: "donor_id"</li>
@@ -674,7 +674,7 @@
 <li>Identifiers cannot begin with DO<em>, SA</em> or SP*. These prefixes are reserved for ICGC IDs.</li>
 </ul>
 <p><strong>The same identifier value should not be re-used to refer to two different entities, but can occur more than once within submission files when used to refer to the same entity.</strong></p>
-<h3 id="missing-or-unknown-values"><a class="toclink" href="#missing-or-unknown-values">Missing or Unknown Values</a></h3>
+<h3 id="missing-or-unknown-values">Missing or Unknown Values</h3>
 <p>When preparing submission files, providing a <strong><em>null</em></strong> value (or empty string) for any of the required data elements <strong>is not valid</strong>.</p>
 <p>For any of the data elements described (excluding those containing identifiers) where a value <em>cannot be provided</em>, the following reserve codes should be used in place of a <em>null</em> value:</p>
 <table>
@@ -705,7 +705,7 @@
 <li>A variation algorithm was not used, so the "variation_algorithm" data element can be submitted as -888 (not applicable)</li>
 <li>The stable gene ID for a given mutation/variant is unknown. The data element "gene_stable_id" can be submitted as -777 (data verified to be unknown) </li>
 </ul>
-<h3 id="cross-field-validation-and-regular-expression-restrictions"><a class="toclink" href="#cross-field-validation-and-regular-expression-restrictions">Cross-field validation and regular expression restrictions:</a></h3>
+<h3 id="cross-field-validation-and-regular-expression-restrictions">Cross-field validation and regular expression restrictions:</h3>
 <p>Regular expressions (in Java format) specifying the exact format required, as well as examples for certain data elements are provided to help the submitter conform their data to the DCC Data Element specifications. In addition, as of Release 15, DCC has implemented "script restrictions" using <a href="https://en.wikisource.org/wiki/MVEL_Language_Guide">MVEL</a>, to ensure cross-field validation checks. For the advanced user, you will be able to see the actual cross-field validation scripts in the JSON format of the DCC Data Element specification. There is also text in the HTML data file specification tables explaining the different types of restrictions put into place to help the submitter ensure their data is valid. </p>
                </div>
                </div>
