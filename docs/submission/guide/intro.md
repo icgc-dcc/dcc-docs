@@ -10,7 +10,7 @@ There are five major steps in the data submission process:
 4. [Submit files to the DCC Secure SFTP server][4]
 5. [Validate submission files using web-based submission system][5]
 
-**Note:** For Release 15, all submitted data must be based on **Human reference genome assembly** **_GRCh37_** and **Ensembl gene set** **_version 69_**.
+**Note:** Since Release 15, all submitted data must be based on **Human reference genome assembly** **_GRCh37_** and **Ensembl gene set** **_version 69_**. This will be so until the end of the ICGC data submission process.
 
 When submitting experimental data to the ICGC DCC, please make sure you've already deposited your raw data to the appropriate public data repositories (eg: sequencing reads to EBI EGA). You will need to populate the data elements _raw_data_repository_ and _raw_data_accession_ with the correct repository and accession number respectively.
 
