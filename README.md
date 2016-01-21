@@ -1,4 +1,4 @@
-# ICCC DCC - Docs
+# ICGC DCC - Docs
 
 Documentation for ICGC DCC using [mkdocs](http://www.mkdocs.org/) and GitHub Pages hosted at [http://icgc-dcc.github.io/dcc-docs](http://icgc-dcc.github.io/dcc-docs)
 
