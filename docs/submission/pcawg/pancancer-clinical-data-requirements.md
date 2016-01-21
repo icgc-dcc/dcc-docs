@@ -2,28 +2,30 @@
 
 ### Overview:
 
-During the past few Releases, DCC has requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of the last ICGC Release (Release 20) has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This will result in large differences in the amount and completeness of clinical data, making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, especially for some critical fields, DCC will be contacting some PCAWG projects on a project-by-project basis with regards to missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should be fixed by Feburary 5th 2016. This date is set by the PCAWG Steering Committee (Stein, Campbell, Getz & Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows. 
+The Pan-Cancer Analysis of Whole Genomes (PCAWG) is an international ICGC initiative to analyze approximately 2500 whole tumor/normal pairs of genome with their clinical outcome. The Data Coordinating Centre has always requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of ICGC Release 20 has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This incompleteness of clinical data is making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, DCC has been contacting PCAWG projects with regards to missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should expected to be fixed by Feburary 5th 2016. This date was set by the PCAWG Steering Committee (Stein, Campbell, Getz & Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows.
 
 The DCC Submission system will report the following issues with PCAWG data during validation:
 
 * Missing PCAWG donors and/or samples in DCC 
-* Mislabelled PCAWG samples in DCC
+* Mislabeled PCAWG samples in DCC
 
 
-### Error Messages
-The following section explains error messages relating to submission problems with PCAWG data:
+### Interpreting Error Messages related to PCAWG Data
+The following section explains error messages relating to submission problems with PCAWG data, and how to resolve the issue:
 
-#### The following samples have data submitted to PCAWG, but have not been included in this DCC submission.
+```
+"The following samples have data submitted to PCAWG, but have not been included in this DCC submission."
+```
 
 * Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.
-* Solution:
+> Solution:
   * Add missing samples to DCC submission and ensure the study field is correctly completed for each PCAWG sample
 
-
-#### Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.
-
+```
+"Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG."
+```
 * The "study" field in the DCC sample submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG
-* Solutions:
+> Solutions:
   * The "study" field in the sample.txt file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field
   * Sample ID format is inconsistent between DCC and PCAWG. Make sure you are using the same sample ID name you submitted in PCAWG.
 
@@ -31,19 +33,19 @@ The following section explains error messages relating to submission problems wi
 
 ### Frequently Asked Questions regarding PCAWG Clinical Data Submission
 
-#### Is NED (No Evidence of Disease) the same as complete_remission?
+#### 1. Is NED (No Evidence of Disease) the same as complete_remission?
 
 No. Please use "no evidence of disease" in the disease_status_last_followup field.
 
 
 
-#### What if response is unknown or there is some response but not sure about the classification according to RECIST?
+#### 2. What if response is unknown or there is some response but not sure about the classification according to RECIST?
 
 If you are unable to classify the response, then please enter unknown. Please note that you may be contacted by PCAWG staff at a later date to clarify why this entry is unknown.
 
 
 
-#### What are the missing/unknown DCC reserve codes?
+#### 3. What are the missing/unknown DCC reserve codes?
 
 | Code | Meaning |
 | ---- | ---- |
@@ -57,25 +59,25 @@ Please see [here][1] for more details.
 
 
 
-#### What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?
+#### 4. What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?
 
 The dictionary allows “relationship_age” to be specified as “N/A Valid”. Therefore, you can submit one of the Missing/Unknown DCC Reserve Codes if the relationship_age is unknown.
 
 
 
-#### Can you please clarify what ‘diagnosis’ refers to in the Donor table? We have been using age at surgery to avoid (survival) biases when analyzing the data; however, if we use age at surgery then donor_age_at_diagnosis equals donor_age_at_enrollment. In addition, donor_tumour_stage_at_diagnosis would then be equal to tumour_stage.
+#### 5. Can you please clarify what ‘diagnosis’ refers to in the Donor table? We have been using age at surgery to avoid (survival) biases when analyzing the data; however, if we use age at surgery then donor_age_at_diagnosis equals donor_age_at_enrollment. In addition, donor_tumour_stage_at_diagnosis would then be equal to tumour_stage.
 
 Diagnosis refers to the point of clinical diagnosis by the primary physician of the patient, (although diagnosis may not be official until surgery or biopsy is undertaken so this can be a little vague). In this context, age at diagnosis refers to the age at which the primary diagnosis was made and so age at enrolment would then equal age at surgery.
 
 
 
-#### Does the field “tumour_confirmed” in the Specimen table refer to a pathological confirmation of the presence of tumour?
+#### 6. Does the field “tumour_confirmed” in the Specimen table refer to a pathological confirmation of the presence of tumour?
 
 This refers to the fact that a tumour has been confirmed as malignant by clinical means – usually this would be by histopathological review of the sample.
 
 
 
-#### For the smoking and alcohol variables requested in the Donor Exposure tables, some of this data may predate diagnosis and therefore a current smoker then may not be a current smoker at diagnosis. Are these variables supposed to reflect the status at the time of diagnosis, surgery? If so, then we may not have this for everyone (can be obtained via EPR online records but the data is not always so accurate in chart notes so we always use our questionnaire data if available).
+#### 7. For the smoking and alcohol variables requested in the Donor Exposure tables, some of this data may predate diagnosis and therefore a current smoker then may not be a current smoker at diagnosis. Are these variables supposed to reflect the status at the time of diagnosis, surgery? If so, then we may not have this for everyone (can be obtained via EPR online records but the data is not always so accurate in chart notes so we always use our questionnaire data if available).
 
 The fields regarding exposure should reflect exposures prior to diagnosis. Please enter any available information and PCAWG staff will follow up with you following submission if anything is unclear.  
 
