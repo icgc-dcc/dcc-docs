@@ -298,8 +298,30 @@ code {
   border: none;
 }
 
-.bs-sidebar .nav .nav {
+.bs-sidebar .main .nav .nav .active a {
+  font-weight: 300;
+}
+
+.bs-sidebar .main .nav:first-child .active a,
+.bs-sidebar2 > .nav > .main.active  > .nav > li > a
+{
+  font-weight: bold;
+}
+
+.bs-sidebar .main .nav,
+.bs-sidebar .main .nav:first-child .active
+{
+  padding-left: 0rem;
+  font-weight: bold;
+}
+
+.bs-sidebar .nav .nav .nav {
   display: block;
+  padding-left: 1.5rem;
+}
+
+.bs-sidebar .nav .nav > li > a {
+  font-weight: normal;
 }
 
 .header-text-link [class^="icon-"] {
@@ -660,10 +682,23 @@ footer .logo img:hover {
   display: none;
 }
 
+.focus-anchor {
+
+}
+
 /* Animations */
 .animated {
   -webkit-animation-duration: 0.25s;
   animation-duration: 0.25s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.animated-long {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   backface-visibility: hidden;
@@ -775,4 +810,44 @@ footer .logo img:hover {
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes focusText {
+  0% {
+    color: #000;
+    font-size: inherit;
+  }
+
+  50% {
+    color: #e9931c;
+    font-size: 110%;
+  }
+
+  100% {
+    color: #000;
+    font-size: inherit;
+  }
+}
+
+@keyframes focusText {
+  0% {
+    color: #000;
+    font-size: inherit;
+  }
+
+  50% {
+    color: #e9931c;
+    font-size: 110%;
+  }
+
+  100% {
+    color: #000;
+    font-size: inherit;
+  }
+}
+
+.focusText {
+  -webkit-animation-name: focusText;
+  animation-name: focusText;
 }
