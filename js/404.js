@@ -4,7 +4,7 @@ $(function() {
   function Redirector(redirectJSONURL, timeOutMS) {
 
     var _self = this,
-        _currentPath = location.pathname,
+        _currentPath = location.pathname + location.hash,
         _redirectMap = null,
         _timeOutMS = timeOutMS || 5000,
         _redirectJSONConfigURL = redirectJSONURL || '/config/redirects.json';
