@@ -289,20 +289,35 @@ $(function() {
           footerHeight = footer.outerHeight(),
           footerOffsetTop = footer.offset().top,
           OFFSET = -(100 + footerHeight),
-          resizeElHeight = 0; /*,
-          sideNav = $('.bs-sidenav'); */
+          resizeElHeight = 0,
+          sideNav = $('.bs-sidenav'),
+          pageContainer = $('.parent-container'),
+          initPageProgressPercentage = parseFloat(
+            Math.min(1, (windowEl.scrollTop() + windowEl.height())/pageContainer.outerHeight())
+          ).toFixed(3);
 
 
       function _recalcMax() {
         var resizeHeight = resizingEl.outerHeight(),
             distance = Math.round(footerOffsetTop - resizeHeight - windowEl.scrollTop() - footerHeight /* <-- offset */),
-            windowHeight =  windowEl.height(); //,
-            //pageProgressPercentage = Math.min(1, (windowEl.scrollTop() + windowHeight)/$('.parent-container').height());
+            windowHeight =  windowEl.height(),
+            sideNavHeight =  sideNav.outerHeight(),
+            pageProgressPercentage = parseFloat(
+              Math.min(1, (windowEl.scrollTop() + windowHeight)/pageContainer.outerHeight())
+            ).toFixed(3),
+            offset = Math.round(sideNavHeight * (pageProgressPercentage - initPageProgressPercentage)),
+            evalPercent = pageProgressPercentage * 100;
 
-    //console.log(Math.round(pageProgressPercentage *  $('.bs-sidenav').height()) + 'px');
-        //resizingEl.scrollTop(Math.round((pageProgressPercentage * sideNav.height()) - (0.33 * sideNav.height()) - 60));
-
-        //console.log(pageProgressPercentage);
+        ///console.log(pageProgressPercentage - initPageProgressPercentage, offset);
+        if (evalPercent > 2 && evalPercent < 98) {
+          resizingEl.scrollTop(offset - 10);
+        }
+        else if  (evalPercent < 2) {
+          resizingEl.scrollTop(0);
+        }
+        else {
+          resizingEl.scrollTop(pageContainer.outerHeight());
+        }
 
         if (distance > 0) {
           resizingEl.css({overflow: 'auto', maxHeight: (windowHeight - Math.round(1.5 * _hideMenuOffset)) + 'px'}, 'fast');
