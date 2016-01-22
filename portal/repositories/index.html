@@ -762,12 +762,30 @@ Selected 4(four) out of 7(seven) files in the same repository.</p>
 <p><a href="../images/data-repository-download-manifest-modal.png" title="Click on the image to see it in full"><img alt="" src="../images/data-repository-download-manifest-modal.png" /></a>
 Only one Manifest file because the 4(four) files were in the same repository.</p>
 <p><strong>Note</strong>
-For repositories such as Collaboratory and AWS, the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click <a href="/cloud/guide.md#overview">here</a></p>
+For repositories such as Collaboratory and AWS, the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click <a href="../../cloud/guide/#overview">here</a></p>
 <h3 id="donor-sets">Donor Sets</h3>
 <p>A user has the ability to save a list of donors, using the "SAVE DONOR SET" feature. Saving a donor set allows for cross feature interaction. Once a donor set is saved, a user has the opportunity to upload it onto <a href="../search/">Advanced Search</a>. The result is a much higher level of detail comparing the similarities of the donors.</p>
 <p><a href="../images/data-repositories-save-donor-set.png" title="Click on the image to see it in full"><img alt="" src="../images/data-repositories-save-donor-set.png" /></a>
 <a href="../images/data-repositories-save-donor-set-modal.png" title="Click on the image to see it in full"><img alt="" src="../images/data-repositories-save-donor-set-modal.png" /></a></p>
 <p>A user is able to choose how many of the donors to save starting from the top down, name the donor set, and set a note.</p>
+<h3 id="having-trouble-downloading-a-file-from-dcc-repository">Having trouble downloading a file from DCC Repository?</h3>
+<h4 id="wget-resume-broken-download">Wget: Resume Broken Download</h4>
+<p>The GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
+Use the <code>-c</code> or <code>--continue</code> option to continue getting a partially downloaded file. This is useful when you want to finish a download started by a previous instance of <code>wget</code>, or by another program.</p>
+<p>The syntax is:</p>
+<pre><code>wget -c url
+wget --continue url
+wget --continue [options] url
+</code></pre>
+
+<p><strong>Example</strong>:
+Download a file using Wget utility</p>
+<pre><code>$ wget https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...
+</code></pre>
+
+<p><strong>Resume partially downloaded file</strong>:</p>
+<pre><code>$ wget -c https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...
+</code></pre>
                </div>
                </div>
             </div>
