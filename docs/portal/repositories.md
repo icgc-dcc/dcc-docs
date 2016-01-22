@@ -93,3 +93,26 @@ A user has the ability to save a list of donors, using the "SAVE DONOR SET" feat
 [![](images/data-repositories-save-donor-set-modal.png)](images/data-repositories-save-donor-set-modal.png "Click on the image to see it in full")
 
 A user is able to choose how many of the donors to save starting from the top down, name the donor set, and set a note.
+
+### Having trouble downloading a file from DCC Repository?
+#### Wget: Resume Broken Download
+The GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
+Use the ```-c``` or ```--continue``` option to continue getting a partially downloaded file. This is useful when you want to finish a download started by a previous instance of ```wget```, or by another program.
+
+The syntax is:
+```
+wget -c url
+wget --continue url
+wget --continue [options] url
+```
+
+**Example**:
+Download a file using Wget utility
+```
+$ wget https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...
+```
+
+**Resume partially downloaded file**:
+```
+$ wget -c https://dcc.icgc.org/api/v1/download?fn=/current/Summary/simple_somatic_...
+```
