@@ -344,6 +344,11 @@ code {
 }
 
 @media (max-width: 992px) {
+
+  .navbar-default {
+    height: auto;
+  }
+
   .main-container {
     border: none;
   }
