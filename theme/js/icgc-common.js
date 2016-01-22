@@ -309,7 +309,7 @@ $(function() {
             evalPercent = pageProgressPercentage * 100;
 
         ///console.log(pageProgressPercentage - initPageProgressPercentage, offset);
-        if (evalPercent > 2 && evalPercent < 98) {
+        /*if (evalPercent > 2 && evalPercent < 98) {
           resizingEl.scrollTop(offset - 40);
         }
         else if  (evalPercent < 2) {
@@ -317,7 +317,7 @@ $(function() {
         }
         else {
           resizingEl.scrollTop(pageContainer.outerHeight());
-        }
+        }*/
 
         if (distance > 0) {
           resizingEl.css({overflow: 'auto', maxHeight: (windowHeight - Math.round(1.5 * _hideMenuOffset)) + 'px'}, 'fast');
