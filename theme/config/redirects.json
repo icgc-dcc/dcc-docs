@@ -3,7 +3,10 @@
   "defaultBaseToURL": "http://docs.icgc.org",
 
   "redirects": [
-
+    {
+      "from": "/data-portal-usage#troubledownloading",
+      "to": "/portal/repositories/#having-trouble-downloading-a-file-from-dcc-repository"
+    },
     {
       "from": "/data-portal-api",
       "to": "/portal/api"
