@@ -349,6 +349,10 @@ code {
     height: auto;
   }
 
+  #body {
+    margin-top: 100px;
+  }
+
   .main-container {
     border: none;
   }
@@ -610,6 +614,11 @@ footer .logo img:hover {
 
 
 @media screen and (max-width: 768px) {
+
+  #body {
+    margin-top: inherit;
+  }
+
   h1 a[class^="header-text"] {
     line-height: 4.5rem;
   }
