@@ -36,7 +36,7 @@
         
     </head>
 
-    <body data-spy="scroll">
+    <body>
         <div class="parent-container">
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="background-container"></div>
@@ -615,7 +615,7 @@
     </div>
 </div>
 
-            <div class="container">
+            <div id="docs-container" class="container">
                 
 
 <div id="mkdocs-search-results-container" class="row">
@@ -638,26 +638,52 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#icgc-simple-somatic-mutation-format">ICGC Simple Somatic Mutation Format</a></li>
-        <li>
+        <li class="main active"><a href="#icgc-simple-somatic-mutation-format">ICGC Simple Somatic Mutation Format</a>
            <ul class="nav">
            
-               <li><a href="#important-notes">Important Notes</a></li>
+               <li class=""><a href="#important-notes">Important Notes</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#chromosome-coordinates">chromosome coordinates</a></li>
+                        
+                        <li class=""><a href="#chromosome_strand">chromosome_strand</a></li>
+                        
+                        <li class=""><a href="#control_genotype-tumour_genotype">control_genotype, tumour_genotype</a></li>
+                        
+                        <li class=""><a href="#reference_genome_allele">reference_genome_allele</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#how-do-i-represent-an-insertion">How do I represent an insertion?</a></li>
+               <li class=""><a href="#how-do-i-represent-an-insertion">How do I represent an insertion?</a>
+               
+               </li>
            
-               <li><a href="#how-do-i-represent-a-deletion">How do I represent a deletion?</a></li>
+               <li class=""><a href="#how-do-i-represent-a-deletion">How do I represent a deletion?</a>
+               
+               </li>
            
-               <li><a href="#how-do-i-represent-a-single-base-substitution">How do I represent a single-base substitution?</a></li>
+               <li class=""><a href="#how-do-i-represent-a-single-base-substitution">How do I represent a single-base substitution?</a>
+               
+               </li>
            
-               <li><a href="#how-do-i-represent-a-multiple-base-substitution">How do I represent a multiple-base substitution?</a></li>
+               <li class=""><a href="#how-do-i-represent-a-multiple-base-substitution">How do I represent a multiple-base substitution?</a>
+               
+               </li>
            
-               <li><a href="#vcf-like-vs-icgc-like-mutation-format">VCF-like vs. ICGC-like Mutation Format:</a></li>
+               <li class=""><a href="#vcf-like-vs-icgc-like-mutation-format">VCF-like vs. ICGC-like Mutation Format:</a>
+               
+               </li>
            
-               <li><a href="#germline-data-masking">Germline Data Masking</a></li>
+               <li class=""><a href="#germline-data-masking">Germline Data Masking</a>
+               
+               </li>
            
            </ul>
        </li>
+        </li>
     
     </ul>
 </div></div>
@@ -1035,7 +1061,7 @@
                </div>
             </div>
 
-            <footer>
+            <footer id="docs-footer">
                 <div class="row">
                     <div class="col-md-12 logo">
                         <a href="http://oicr.on.ca/" target="_blank"><img src="../../../img/OICR2logo.png"></a>

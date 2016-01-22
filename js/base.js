@@ -1,4 +1,8 @@
 $(function () {
+
+   var scrollSpyTarget = '.bs-sidebar',
+       scrollBody = $('html, body');
+
    // Hightlight code
    hljs.initHighlightingOnLoad();
 
@@ -7,8 +11,35 @@ $(function () {
 
    // Enable side ToC
    $('body').scrollspy({
-      target: '.bs-sidebar',
-      offset: -12
+      target: scrollSpyTarget,
+      offset: 0
+   });
+
+   $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
+
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      // store hash
+      var hash = this.hash,
+          scrollTargetEl = $(hash);
+
+      // animate
+      scrollBody.animate({
+         scrollTop: scrollTargetEl.offset().top
+      }, 300, function(){
+
+         var targetEl = scrollTargetEl.find('a'),
+             classes = 'animated-long focusText';
+
+         targetEl.addClass(classes);
+
+        setTimeout(function() { targetEl.removeClass(classes); }, 1100);
+         // when done, add hash to url
+         // (default click behaviour)
+         window.location.hash = hash;
+      });
+
    });
 
    // Prevent disabled links from causing a page reload

@@ -36,7 +36,7 @@
         
     </head>
 
-    <body data-spy="scroll">
+    <body>
         <div class="parent-container">
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="background-container"></div>
@@ -615,7 +615,7 @@
     </div>
 </div>
 
-            <div class="container">
+            <div id="docs-container" class="container">
                 
 
 <div id="mkdocs-search-results-container" class="row">
@@ -638,16 +638,28 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#about">About</a></li>
-        <li>
+        <li class="main active"><a href="#about">About</a>
            <ul class="nav">
            
-               <li><a href="#overview">Overview</a></li>
+               <li class=""><a href="#overview">Overview</a>
+               
+               </li>
            
-               <li><a href="#iccg-compute-cloud-partners">ICCG Compute Cloud Partners</a></li>
+               <li class=""><a href="#iccg-compute-cloud-partners">ICCG Compute Cloud Partners</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#aws">AWS</a></li>
+                        
+                        <li class=""><a href="#collaboratory">Collaboratory</a></li>
+                        
+                    </ul>
+               
+               </li>
            
            </ul>
        </li>
+        </li>
     
     </ul>
 </div></div>
@@ -668,7 +680,7 @@
                </div>
             </div>
 
-            <footer>
+            <footer id="docs-footer">
                 <div class="row">
                     <div class="col-md-12 logo">
                         <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>

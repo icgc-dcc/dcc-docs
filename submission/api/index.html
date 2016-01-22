@@ -36,7 +36,7 @@
         
     </head>
 
-    <body data-spy="scroll">
+    <body>
         <div class="parent-container">
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="background-container"></div>
@@ -615,7 +615,7 @@
     </div>
 </div>
 
-            <div class="container">
+            <div id="docs-container" class="container">
                 
 
 <div id="mkdocs-search-results-container" class="row">
@@ -638,18 +638,42 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#submission-api">Submission API</a></li>
-        <li>
+        <li class="main active"><a href="#submission-api">Submission API</a>
            <ul class="nav">
            
-               <li><a href="#release-and-dictionary-states">Release and Dictionary States</a></li>
+               <li class=""><a href="#release-and-dictionary-states">Release and Dictionary States</a>
+               
+               </li>
            
-               <li><a href="#code-lists">Code Lists</a></li>
+               <li class=""><a href="#code-lists">Code Lists</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#get-code-list-by-name">Get Code List by Name</a></li>
+                        
+                        <li class=""><a href="#get-all-code-lists">Get All Code Lists</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#dictionaries">Dictionaries</a></li>
+               <li class=""><a href="#dictionaries">Dictionaries</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#get-current-dictionary">Get Current Dictionary</a></li>
+                        
+                        <li class=""><a href="#get-all-dictionaries">Get All Dictionaries</a></li>
+                        
+                        <li class=""><a href="#get-dictionary-by-version">Get Dictionary by Version</a></li>
+                        
+                    </ul>
+               
+               </li>
            
            </ul>
        </li>
+        </li>
     
     </ul>
 </div></div>
@@ -701,7 +725,7 @@
                </div>
             </div>
 
-            <footer>
+            <footer id="docs-footer">
                 <div class="row">
                     <div class="col-md-12 logo">
                         <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>

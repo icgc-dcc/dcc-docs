@@ -36,7 +36,7 @@
         
     </head>
 
-    <body data-spy="scroll">
+    <body>
         <div class="parent-container">
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="background-container"></div>
@@ -615,7 +615,7 @@
     </div>
 </div>
 
-            <div class="container">
+            <div id="docs-container" class="container">
                 
 
 <div id="mkdocs-search-results-container" class="row">
@@ -638,30 +638,128 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#cloud-guide">Cloud Guide</a></li>
-        <li>
+        <li class="main active"><a href="#cloud-guide">Cloud Guide</a>
            <ul class="nav">
            
-               <li><a href="#overview">Overview</a></li>
+               <li class=""><a href="#overview">Overview</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#process">Process</a></li>
+                        
+                        <li class=""><a href="#security">Security</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#authorization">Authorization</a></li>
+               <li class=""><a href="#authorization">Authorization</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#daco-cloud-access">DACO Cloud Access</a></li>
+                        
+                        <li class=""><a href="#access-tokens">Access Tokens</a></li>
+                        
+                        <li class=""><a href="#token-manager">Token Manager</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#compute-prerequisites">Compute Prerequisites</a></li>
+               <li class=""><a href="#compute-prerequisites">Compute Prerequisites</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#compute-instance">Compute Instance</a></li>
+                        
+                        <li class=""><a href="#resources">Resources</a></li>
+                        
+                        <li class=""><a href="#operating-system">Operating System</a></li>
+                        
+                        <li class=""><a href="#dependencies">Dependencies</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#installation">Installation</a></li>
+               <li class=""><a href="#installation">Installation</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#install-from-tarball">Install from Tarball</a></li>
+                        
+                        <li class=""><a href="#install-from-docker-image">Install from Docker Image</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#configuration">Configuration</a></li>
+               <li class=""><a href="#configuration">Configuration</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#access-configuration">Access Configuration</a></li>
+                        
+                        <li class=""><a href="#transport-configuration">Transport Configuration</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#file-search">File Search</a></li>
+               <li class=""><a href="#file-search">File Search</a>
+               
+               </li>
            
-               <li><a href="#storage-client-usage">Storage Client Usage</a></li>
+               <li class=""><a href="#storage-client-usage">Storage Client Usage</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#help">Help</a></li>
+                        
+                        <li class=""><a href="#url-command">URL Command</a></li>
+                        
+                        <li class=""><a href="#download-command">Download Command</a></li>
+                        
+                        <li class=""><a href="#manifest-command">Manifest Command</a></li>
+                        
+                        <li class=""><a href="#view-command">View Command</a></li>
+                        
+                        <li class=""><a href="#mount-command">Mount Command</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#faqs">FAQs</a></li>
+               <li class=""><a href="#faqs">FAQs</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#where-can-i-find-the-bundle-id-associated-with-an-object-id">Where can I find the Bundle ID associated with an Object ID?</a></li>
+                        
+                        <li class=""><a href="#where-are-detailed-storage-client-logs-stored">Where are detailed Storage Client logs stored?</a></li>
+                        
+                        <li class=""><a href="#how-long-will-pre-signed-urls-remain-valid">How long will pre-signed URLs remain valid?</a></li>
+                        
+                        <li class=""><a href="#does-the-client-maintain-state">Does the client maintain state?</a></li>
+                        
+                        <li class=""><a href="#why-do-i-get-a-security-exception-when-i-try-to-download-an-object">Why do I get a security exception when I try to download an object?</a></li>
+                        
+                        <li class=""><a href="#i-cant-use-the-result-of-a-url-command-with-samtools">I can’t use the result of a url command with samtools:</a></li>
+                        
+                        <li class=""><a href="#how-do-i-report-a-bug-in-the-software">How do I report a bug in the software?</a></li>
+                        
+                    </ul>
+               
+               </li>
            
-               <li><a href="#terms">Terms</a></li>
+               <li class=""><a href="#terms">Terms</a>
+               
+               </li>
            
            </ul>
        </li>
+        </li>
     
     </ul>
 </div></div>
@@ -1037,7 +1135,7 @@ samtools view /mnt/fff75930-0f8c-4c99-9b48-732e7ed4c625/443a7a6ab964e41c011cc9a3
                </div>
             </div>
 
-            <footer>
+            <footer id="docs-footer">
                 <div class="row">
                     <div class="col-md-12 logo">
                         <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>

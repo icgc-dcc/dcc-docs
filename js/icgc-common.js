@@ -285,13 +285,33 @@ $(function() {
 
     function _ensureMaxHeight(resizingEl) {
       var windowEl = $(window),
-        OFFSET = -(80 + 200),
-        resizeElHeight = 0;
+          footer = $('#docs-footer'),
+          footerHeight = footer.outerHeight(),
+          footerOffsetTop = footer.offset().top,
+          OFFSET = -(100 + footerHeight),
+          resizeElHeight = 0; /*,
+          sideNav = $('.bs-sidenav'); */
 
 
       function _recalcMax() {
-        resizeElHeight = windowEl.height() + OFFSET;
-        resizingEl.css({overflow: 'auto', maxHeight: resizeElHeight + 'px'});
+        var resizeHeight = resizingEl.outerHeight(),
+            distance = Math.round(footerOffsetTop - resizeHeight - windowEl.scrollTop() - footerHeight /* <-- offset */),
+            windowHeight =  windowEl.height(); //,
+            //pageProgressPercentage = Math.min(1, (windowEl.scrollTop() + windowHeight)/$('.parent-container').height());
+
+    //console.log(Math.round(pageProgressPercentage *  $('.bs-sidenav').height()) + 'px');
+        //resizingEl.scrollTop(Math.round((pageProgressPercentage * sideNav.height()) - (0.33 * sideNav.height()) - 60));
+
+        //console.log(pageProgressPercentage);
+
+        if (distance > 0) {
+          resizingEl.css({overflow: 'auto', maxHeight: (windowHeight - Math.round(1.5 * _hideMenuOffset)) + 'px'}, 'fast');
+        }
+        else {
+          resizeElHeight = windowHeight + OFFSET;
+          resizingEl.css({overflow: 'auto', maxHeight: resizeElHeight + 'px'});
+        }
+
       }
 
       var _prevScrollOffset = 0,
