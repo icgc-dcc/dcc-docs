@@ -310,7 +310,7 @@ $(function() {
 
         ///console.log(pageProgressPercentage - initPageProgressPercentage, offset);
         if (evalPercent > 2 && evalPercent < 98) {
-          resizingEl.scrollTop(offset - 10);
+          resizingEl.scrollTop(offset - 50);
         }
         else if  (evalPercent < 2) {
           resizingEl.scrollTop(0);
