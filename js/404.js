@@ -4,7 +4,7 @@ $(function() {
   function Redirector(redirectJSONURL, timeOutMS) {
 
     var _self = this,
-        _currentPath = location.pathname + location.hash,
+        _currentPath = (location.pathname + location.hash).toLowerCase(),
         _redirectMap = null,
         _timeOutMS = timeOutMS || 5000,
         _redirectJSONConfigURL = redirectJSONURL || '/config/redirects.json';
@@ -13,9 +13,11 @@ $(function() {
       var redirects = _redirectMap.redirects;
 
       for (var i = 0; i < redirects.length; i++) {
-        var redirectRule = redirects[i];
+        var redirectRule = redirects[i],
+            fromURLRedirect = redirectRule.from.toLowerCase();
 
-        if (_currentPath.indexOf(redirectRule.from) >= 0 && typeof redirectRule.to === 'string') {
+        // Note this is a case insensitive (exact) string match trailing slashes may break the comparison
+        if (_currentPath.indexOf(fromURLRedirect) >= 0 && typeof redirectRule.to === 'string') {
           var targetURL = _redirectMap.defaultBaseToURL + redirectRule.to;
 
           defer.resolve(targetURL);
