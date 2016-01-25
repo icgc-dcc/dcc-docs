@@ -690,14 +690,50 @@ footer .logo img:hover {
 
 }
 
+/* Bootstrap Alerts */
+.alert {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #166aa2;
+  -webkit-border-radius: initial;
+  -moz-border-radius: initial;
+  border-radius: initial;
+  display: table;
+  padding: 1rem 1rem;
+}
 
+.alert .alert-indicator-icon,
+.alert .alert-indicator-text {
+  display: table-cell;
+}
+
+.alert .alert-indicator-text {
+  padding-left: 1rem;
+}
+
+.alert .alert-indicator-icon {
+  vertical-align: middle;
+  text-align: center;
+  margin: 0rem auto;
+  max-width: 32px;
+}
+
+.alert .alert-indicator-icon i {
+  font-size: 2.8rem;
+  color: #166aa2;
+}
+
+.alert.alert-info {
+  background-color: rgba(218, 242, 251, 0.6);
+  border: 1px solid rgba(22, 106, 162, 0.49);
+
+  border-left: solid 5px #166aa2;
+}
+
+/* 404 Page */
 #page-not-found-container,
 #redirect-page-found-container {
   display: none;
-}
-
-.focus-anchor {
-
 }
 
 /* Animations */
