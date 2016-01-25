@@ -40,9 +40,10 @@
       "to": "/portal/analysis"
     },
     {
-      "from": "/submission/projects/#project-codes",
-      "to": "/submission/projects/"
+      "from": "/icgc-dcc-project-codes",
+      "to": "/submission/projects/#project-codes"
     }
+
   ]
 
 }
