@@ -99,6 +99,8 @@ pre code {
 
 pre code {
   border: none;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 code {
@@ -106,6 +108,7 @@ code {
   margin: 0 2px;
   padding: 0 5px;
   white-space: pre-wrap;
+  word-break: break-all;
   border: 1px solid #eaeaea;
   background-color: #f8f8f8;
   border-radius: 3px;
@@ -456,6 +459,7 @@ code {
   padding: 1rem 1rem;
   display: table;
   background-color: transparent;
+  word-wrap: break-word;
   overflow: hidden;
   width: 100%;
 }
@@ -478,8 +482,11 @@ code {
 .search-item .search-body {
   padding-left: 1.5rem;
 }
+
 .search-item .search-body p {
   margin: 1rem 0rem 0rem 0rem;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .search-item .search-body .location-field {
