@@ -38,8 +38,11 @@
     {
       "from": "/data-portal-usage#dataanalysis",
       "to": "/portal/analysis"
+    },
+    {
+      "from": "/icgc-dcc-project-codes",
+      "to": "/submission/projects/"
     }
-
   ]
 
 }
