@@ -158,7 +158,7 @@ code {
   /* position:fixed; */
   margin: 0 auto 0 auto;
   max-width: 1280px;
-  height: 63px;
+  height: 64px;
 }
 
 .navbar-default .background-container {
@@ -569,8 +569,7 @@ footer {
   padding: 1.3rem 3rem;
   z-index: 100;
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0rem 0rem 0.5rem 0rem;
 }
 
 footer .logo a:hover {

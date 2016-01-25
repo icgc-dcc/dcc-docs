@@ -373,7 +373,7 @@ $(function() {
     }
 
     var BODY_ID = '#body';
-    var _hideMenuOffset = 60;
+    var _hideMenuOffset = 64;
 
     _initMenuNavBar('.navbar-nav', '> li');
     _initHeaders(BODY_ID);
