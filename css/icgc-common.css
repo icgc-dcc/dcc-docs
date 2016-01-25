@@ -486,7 +486,7 @@ code {
 .search-item .search-body p {
   margin: 1rem 0rem 0rem 0rem;
   word-wrap: break-word;
-  white-space: pre-wrap;
+  white-space: normal;
 }
 
 .search-item .search-body .location-field {
