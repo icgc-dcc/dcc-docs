@@ -626,6 +626,30 @@ footer .logo img:hover {
     margin-top: inherit;
   }
 
+  .search-item .doc-type-icon-container {
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+
+  .search-item > div {
+    display: block;
+    padding: 1rem 0rem;
+    width: 100%;
+  }
+
+  .search-item .search-body p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    /* Adds a hyphen where the word breaks */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+
+
   h1 a[class^="header-text"] {
     line-height: 4.5rem;
   }
