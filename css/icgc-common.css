@@ -525,9 +525,6 @@ code {
 table {
   border: 1px solid #e6e6e6;
 }
-.table-striped > tbody > tr > td:first-of-type {
-  white-space: nowrap;
-}
 
 .table-striped > tbody > tr > td {
   line-height: inherit;
