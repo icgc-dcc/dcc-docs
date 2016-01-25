@@ -366,6 +366,51 @@ $(function() {
       }
     }
 
+    function _initAlerts() {
+      $('.alert').each(function() {
+        var alertContainer = $(this),
+            supportedAlertTypes = ['alert-info'];
+
+        for (var i = 0; i < supportedAlertTypes.length; i++) {
+          var alertTypeClass = supportedAlertTypes[i];
+
+          if (!  alertContainer.hasClass(alertTypeClass)) {
+            continue;
+          }
+
+          var iconClass = null,
+              alertText = '';
+
+          switch (alertTypeClass) {
+            case 'alert-info':
+              iconClass = 'icon-pencil';
+            break;
+            case 'alert-warning':
+              iconClass = 'icon-attention-1';
+              break;
+           default:
+             break;
+          }
+
+          if( ! iconClass ) {
+            continue;
+          }
+
+
+          alertText = alertContainer.text();
+          alertContainer.empty();
+          alertContainer.append('<div class="alert-indicator-icon">' +
+                                '<i class="' + iconClass + '"></i>' +
+                                '</div>' +
+                                '<div class="alert-indicator-text">' +
+                                alertText + '</div>');
+
+
+        }
+
+      });
+    }
+
     var _bsSidebar = $('.bs-sidebar');
 
     if (_bsSidebar.length) {
@@ -380,6 +425,7 @@ $(function() {
     _initLinks(BODY_ID);
     _initSearch(BODY_ID);
     _calcMainContentWidth();
+    _initAlerts();
   }
 
   /////////////////////////////////////////
