@@ -289,19 +289,19 @@ $(function() {
           footerHeight = footer.outerHeight(),
           footerOffsetTop = footer.offset().top,
           OFFSET = -(100 + footerHeight),
-          resizeElHeight = 0,
-          sideNav = $('.bs-sidenav'),
+          resizeElHeight = 0;//,
+          /* sideNav = $('.bs-sidenav'),
           pageContainer = $('.parent-container'),
-          initPageProgressPercentage = parseFloat(
+          /*initPageProgressPercentage = parseFloat(
             Math.min(1, (windowEl.scrollTop() + windowEl.height())/pageContainer.outerHeight())
-          ).toFixed(3);
+          ).toFixed(3); */
 
 
       function _recalcMax() {
         var resizeHeight = resizingEl.outerHeight(),
             distance = Math.round(footerOffsetTop - resizeHeight - windowEl.scrollTop() - footerHeight /* <-- offset */),
-            windowHeight =  windowEl.height(),
-            sideNavHeight =  sideNav.outerHeight(),
+            windowHeight =  windowEl.height();//,
+            /*sideNavHeight =  sideNav.outerHeight(),
             pageProgressPercentage = parseFloat(
               Math.min(1, (windowEl.scrollTop() + windowHeight)/pageContainer.outerHeight())
             ).toFixed(3),
@@ -426,6 +426,22 @@ $(function() {
     _initSearch(BODY_ID);
     _calcMainContentWidth();
     _initAlerts();
+
+    setTimeout(function() {
+      fontSpy('icgc-icons', {
+        glyphs: '\ue800\ue8019\ue81c\ue843',
+        success: function () {
+          $(BODY_ID).removeClass('fadeInBlurIntro').addClass('fadeInBlur');
+        },
+        failure: function () {
+          $(BODY_ID).removeClass('fadeInBlurIntro').addClass('fadeInBlur');
+        }
+      });
+
+    }, 0);
+
+
+
   }
 
   /////////////////////////////////////////
