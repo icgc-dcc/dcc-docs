@@ -673,6 +673,10 @@ footer .logo img:hover {
     height: 64px;
   }
 
+  .navbar-default .container {
+    background: #fff;
+  }
+
 
   .navbar-default .navbar-nav > .active > a {
     border: none;
