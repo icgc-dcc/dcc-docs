@@ -944,8 +944,8 @@ footer .logo img:hover {
   -webkit-animation-name: fadeInBlurIntro;
   animation-name: fadeInBlurIntro;
   /* Force animation  */
-  -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
 }
 
 
