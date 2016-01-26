@@ -125,8 +125,6 @@ code {
 
 #body {
   opacity: 0;
-  -webkit-animation-duration: 0s;
-  animation-duration: 0s; /* 0.2s */
   -moz-animation-fill-mode: both;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
@@ -945,6 +943,8 @@ footer .logo img:hover {
 .fadeInBlurIntro {
   -webkit-animation-name: fadeInBlurIntro;
   animation-name: fadeInBlurIntro;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
 }
 
 
@@ -992,8 +992,8 @@ footer .logo img:hover {
   -webkit-animation-name: fadeInBlur;
   animation-name: fadeInBlur;
   /* Force animation  */
-  -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
+  -webkit-animation-duration: 0s;
+  animation-duration: 0s;
 }
 
 
