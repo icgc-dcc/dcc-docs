@@ -675,6 +675,9 @@ footer .logo img:hover {
 
   .navbar-default .container {
     background: #fff;
+  }
+
+  .navbar-collapse.in {
     border-bottom: solid 1px #e6e6e6;
   }
 
