@@ -669,6 +669,11 @@ footer .logo img:hover {
     word-wrap: break-word;
   }
 
+  .navbar-default {
+    height: 64px;
+  }
+
+
   .navbar-default .navbar-nav > .active > a {
     border: none;
     background-color: transparent;
