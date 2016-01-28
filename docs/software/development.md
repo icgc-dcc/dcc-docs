@@ -1,50 +1,12 @@
 # Development
 
-- [General Conventions](#general_convensions)
-  - [Warnings](#warnins)
-  - [Other](#other)
-  - [Comments](#comments)
-     - [General](#general)
-     - [Anti Patterns](#anti_patterns)
-  - [Annotations](#annotations)
-     - [Order](#order)
-- [Bash Conventions](#bash)
-  - [Style Guide](#bash_style)
-  - [File Names](#bash_file_name)
-  - [Header](#bash_header)
-- [Java Conventions](#java)
-  - [Enums](#java_enums)
-  - [Comments](#java_comments)
-     - [Prefer // to /* */](#java_comments_prefer)
-     - [Field Comments](#java_comments_field)
-  - [If Blocks](#java_if_blocks)
-  - [Ternary operator](#java_ternary)
-  - [Avoid the ! operator](#java_not)
-  - [Functional Programming](#java_functional)
-- [CoffeeScript Conventions](#coffee)
-  - [Module Imports](#coffee_imports)
-  - [Whitespace in Expressions and Statements](#coffe_whitespace)
-     - [Avoid extraneous whitespace in the following situations](#coffe_whitespace_1)
-     - [Always surround these binary operators with a single space on either side](#coffe_whitespace_2)
-  - [Naming Conventions](#coffe_naming)
-  - [Functions](#coffe_functions)
-  - [Strings](#coffe_strings)
-  - [Conditionals](#coffe_conditionals)
-  - [Looping and Comprehensions Best Practices](#coffe_loops)
-- [Best Practices](#bp)
-  - [Tests](#bp_test)
-  - [Injection](#bp_injections)
-  - [Using null](#bp_null)
-     - [Using 2 methods](#bp_null_methods)
-     - [Using Optional](#bp_null_opt)
+## General Conventions
 
-## <a name="general_convensions"></a> General Conventions
-
-#### <a name="warnins"></a> Warnings
+### Warnings
 
 Source code in develop or a pending pull-request **should have no warnings.** Efforts should be made to ensure all warnings are addressed by committing code. `@SuppressWarnings` should be used only as a last resort.
 
-#### <a name="other"></a> Other
+### Other
 
 
 For good or bad, we typically checkin all formatters to each projects' .settings folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:
@@ -110,14 +72,14 @@ public class TheClass {
 }
 ```
 
-#### <a name="comments"></a> Comments
+### Comments
 
-###### <a name="general"></a> General
+####  General
 
 - Capitalize the first letter in every comment. E.g. `// This is a comment`
 - Add a single space after the comment character(s). E.g. `// This is a comment`
 
-###### <a name="anti_patterns"></a> Anti Patterns
+#### Anti Patterns
 
 **Do not commit commented code.** The only exception to this rule is for code that **will** eventually be uncommented. For example, if something is implemented correctly, but depends on something not yet implemented, you could commit this code commented. Otherwise, always remove commented code from the source. Source control is used to keep track of old code.
 
@@ -178,9 +140,9 @@ public void setName(String name) {
 }
 ```
 
-#### <a name="annotations"></a> Annotations
+###  Annotations
 
-###### <a name="order"></a> Order
+#### Order
 
 Put more important annotations close to the method/class signature. Good rule of thumb is the logging annotation should be farthest away.
 
@@ -202,13 +164,13 @@ Bad Order:
 public class SomeClass {
 ```
 
-## <a name="bash"></a> Bash Conventions
+##  Bash Conventions
 
-#### <a name="bash_style"></a> Style Guide
+###  Style Guide
 
 The convensions should follow the ones described in [this article](http://robertmuth.blogspot.ca/2012/08/better-bash-scripting-in-15-minutes.html).
 
-#### <a name="bash_file_name"></a> File Names
+####  File Names
 
 An example of a **good** file name:
 
@@ -225,7 +187,7 @@ performRelease.sh
 performRelease
 ```
 
-#### <a name="bash_header"></a> Header
+#### Header
 
 Each script should begin with header such as the following:
 
@@ -258,9 +220,9 @@ Each script should begin with header such as the following:
 #   ./annotator.sh --working-dir /tmp/ICGC20 --project-names ALL_US --file-types ssm,sgv
 ```
 
-## <a name="java"></a> Java Conventions
+##  Java Conventions
 
-#### <a name="java_enums"></a> Enums
+###  Enums
 
 Use all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:
 
@@ -276,9 +238,9 @@ if(MyEnum.CONSTANT.equals(myValue)) {
 }
 ```
 
-#### <a name="java_comments"></a> Comments
+###  Comments
 
-###### <a name="java_comments_prefer"></a> Prefer `//` to `/* */`
+#### Prefer `//` to `/* */`
 
 There is no particular rationale for this style other than it is common in our codebase.
 
@@ -290,7 +252,7 @@ There is no particular rationale for this style other than it is common in our c
 ￼￼￼￼/* bad */
 ```
 
-###### <a name="java_comments_field"></a> Field Comments
+#### Field Comments
 
 In general, if there are no specific comments that you have time to place atop class fields, it would be nice for the causal reader to add a comment that at least specifies their role. These should be specified as below, in the same general order, omitting empty sections:
 
@@ -326,7 +288,7 @@ These are the most common roles in practice which helps to mentally parse, navig
 | Metadata      | Similar to configuration, but with the purpose to describe other data. Examples include a data model, schema, field name |
 | State         | Mutable state that changes over the objects lifetime. Examples include a stack, list, buffer, etc. |
 
-#### <a name="java_if_blocks"></a> If Blocks
+### If Blocks
 
 Always surround your if blocks with curly brackets:
 
@@ -340,7 +302,7 @@ if(someCondition) {
 if(someCondition) doSomething();
 ```
 
-#### <a name="java_ternary"></a> Ternary operator
+### Ternary operator
 
 Ternary operator is acceptable when returning or assigning:
 
@@ -354,7 +316,7 @@ public void someOtherMethod() {
 }
 ```
 
-#### <a name="java_not"></a> Avoid the ! operator
+### Avoid the ! operator
 
 Inverting a condition using the ! operator is ok, but it often leads to mis-reading the code, for two reasons:
 
@@ -377,7 +339,7 @@ if(!myCondition) {
 }
 ```
 
-#### <a name="java_functional"></a> Functional Programming
+### Functional Programming
 
 Get familiar with Guava's Functional Idioms. And use them when it helps (read the Caveats on their Wiki). They allow transforming collections from one type to another without writing a for loop. They allow finding or filtering collections without any branching (if statement). Some examples:
 
@@ -421,11 +383,11 @@ Again, this is using the `Iterables` class, but this time for finding a single e
 
 As [Guava's Wiki](https://code.google.com/p/guava-libraries/wiki/GuavaExplained) mentions, don't be function simply to be functional. Do it when there's a net saving (improved readability or efficiency).
 
-## <a name="coffee"></a> CoffeeScript Conventions
+## CoffeeScript Conventions
 
 Influenced by [Polar's CoffeeScript Conventions](https://github.com/polarmobile/coffeescript-style-guide)
 
-#### <a name="coffee_imports"></a> Module Imports
+### Module Imports
 
 `require` statements should be placed on separate lines.
 
@@ -443,9 +405,9 @@ These statements should be grouped in the following order:
 5. Views
 6. Templates
 
-#### <a name="coffe_whitespace"></a> Whitespace in Expressions and Statements
+###  Whitespace in Expressions and Statements
 
-###### <a name="coffe_whitespace_1"></a> Avoid extraneous whitespace in the following situations
+#### Avoid extraneous whitespace in the following situations
 
 Immediately inside parentheses, brackets or braces:
 
@@ -461,7 +423,7 @@ console.log x, y # Yes
 console.log x , y # No
 ```
 
-###### <a name="coffe_whitespace_2"></a> Always surround these binary operators with a single space on either side
+#### Always surround these binary operators with a single space on either side
 
 - assignment: `=`
 - augmented assignment: `+=`, `-=`, etc.
@@ -482,7 +444,7 @@ console.log x , y # No
   fooBar  =3
 ```
 
-#### <a name="coffe_naming"></a> Naming Conventions
+###  Naming Conventions
 
 Use `camelCase` (with a leading lowercase character) to name all variables, methods, and object properties.
 
@@ -492,7 +454,7 @@ For constants, use all uppercase with underscores: `CONSTANT_LIKE_THIS`
 
 Methods and variables that are intended to be "private" should begin with a leading underscore: `_privateMethod: ->`
 
-#### <a name="coffe_functions"></a> Functions
+###  Functions
 
 *(These guidelines also apply to the methods of a class.)*
 
@@ -530,7 +492,7 @@ foo(4).bar 8 instead of foo(4).bar(8)
 brush.ellipse {x: 10, y: 20} instead of brush.ellipse({x: 10, y: 20})
 ```
 
-#### <a name="coffe_strings"></a> Strings
+###  Strings
 
 Use string interpolation instead of string concatenation:
 
@@ -541,7 +503,7 @@ Use string interpolation instead of string concatenation:
 
 Prefer single quoted strings (`''`) instead of double quoted (`""`) strings, unless features like string interpolation are being used for the given string.
 
-#### <a name="coffe_conditionals"></a> Conditionals
+### Conditionals
 
 Favor unless over if for negative conditions.
 
@@ -573,7 +535,7 @@ Multi-line if/else clauses should use indentation:
   else ...
 ```
 
-#### <a name="coffe_loops"></a> Looping and Comprehensions
+### Looping and Comprehensions
 
 Take advantage of comprehensions whenever possible:
 
@@ -600,9 +562,9 @@ object = one: 1, two: 2
 alert("#{key} = #{value}") for key, value of object
 ```
 
-## <a name="bp"></a> Best Practices
+##  Best Practices
 
-#### <a name="bp_test"></a> Tests
+### Tests
 
 Use long method names that convey the purpose of a test. Method names should have the following naming convention: `test_methodBeingEx ercised_purposeOfTheTest`.
 
@@ -633,7 +595,7 @@ class ClassUnderTestTest {
 }
 ```
 
-#### <a name="bp_injections"></a> Injection
+### Injection
 
 1. Use constructor injection and reduce visibility of injected class as much as possible.
 2. Use Guava's Preconditions (`checkArgument`, `checkState`, etc.) When checking arguments for not-nullness, use checkArgument ins
@@ -652,7 +614,7 @@ tead of `checkNull`. The later throws an `NullPointerException` which is a bit c
 }
 ```
 
-#### <a name="bp_null"></a> Using `null`
+### Using `null`
 
 Avoid returning `null` in a method. Methods should be written in a way that they either succeed (return an actual value) or fail (throw an exception). Returning null creates a third execution path that is prone to causing problems.
 
@@ -661,7 +623,7 @@ To avoid returning `null`, you have a few options:
 1. create 2 methods, one for testing, one for executing
 2. use `Optional`
 
-###### <a name="bp_null_methods"></a> Using 2 methods
+### Using 2 methods
 
 The first case is ok when the test is fast. For example:
 
@@ -686,7 +648,7 @@ The example is not very convincing, but the idea is that a method exists for tes
 1. It conveys the intention clearly: it is clear that getString() will never return null and that if you don't want to handle the exception, call hasString first.
 2. There's no chance of getting an `NPE` in a very far-away piece of code. Imagine that the calling code is calling `getString()` but not using it until something else happens. The `NPE` will be thrown when that something else happens instead of when `getString()` was called (possibly at the wrong time).
 
-###### <a name="bp_null_opt"></a> Using Optional
+### Using Optional
 
 The second method is to use the `Optional` class in Guava. This allows a method a value that may or may not be null. So the method itself always returns a value, but it is this value that may be absent. Reusing the same example as above:
 
