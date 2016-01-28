@@ -641,6 +641,92 @@
         <li class="main active"><a href="#development">Development</a>
            <ul class="nav">
            
+               <li class=""><a href="#general-conventions">General Conventions</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#warnings">Warnings</a></li>
+                        
+                        <li class=""><a href="#other">Other</a></li>
+                        
+                        <li class=""><a href="#comments">Comments</a></li>
+                        
+                        <li class=""><a href="#annotations">Annotations</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#bash-conventions">Bash Conventions</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#style-guide">Style Guide</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#java-conventions">Java Conventions</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#enums">Enums</a></li>
+                        
+                        <li class=""><a href="#comments_1">Comments</a></li>
+                        
+                        <li class=""><a href="#if-blocks">If Blocks</a></li>
+                        
+                        <li class=""><a href="#ternary-operator">Ternary operator</a></li>
+                        
+                        <li class=""><a href="#avoid-the-operator">Avoid the ! operator</a></li>
+                        
+                        <li class=""><a href="#functional-programming">Functional Programming</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#coffeescript-conventions">CoffeeScript Conventions</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#module-imports">Module Imports</a></li>
+                        
+                        <li class=""><a href="#whitespace-in-expressions-and-statements">Whitespace in Expressions and Statements</a></li>
+                        
+                        <li class=""><a href="#naming-conventions">Naming Conventions</a></li>
+                        
+                        <li class=""><a href="#functions">Functions</a></li>
+                        
+                        <li class=""><a href="#strings">Strings</a></li>
+                        
+                        <li class=""><a href="#conditionals">Conditionals</a></li>
+                        
+                        <li class=""><a href="#looping-and-comprehensions">Looping and Comprehensions</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#best-practices">Best Practices</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#tests">Tests</a></li>
+                        
+                        <li class=""><a href="#injection">Injection</a></li>
+                        
+                        <li class=""><a href="#using-null">Using null</a></li>
+                        
+                        <li class=""><a href="#using-2-methods">Using 2 methods</a></li>
+                        
+                        <li class=""><a href="#using-optional">Using Optional</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
            </ul>
        </li>
         </li>
@@ -652,59 +738,10 @@
                    
 
 <h1 id="development">Development</h1>
-<ul>
-<li><a href="#general_convensions">General Conventions</a></li>
-<li><a href="#warnins">Warnings</a></li>
-<li><a href="#other">Other</a></li>
-<li><a href="#comments">Comments</a><ul>
-<li><a href="#general">General</a></li>
-<li><a href="#anti_patterns">Anti Patterns</a></li>
-</ul>
-</li>
-<li><a href="#annotations">Annotations</a><ul>
-<li><a href="#order">Order</a></li>
-</ul>
-</li>
-<li><a href="#bash">Bash Conventions</a></li>
-<li><a href="#bash_style">Style Guide</a></li>
-<li><a href="#bash_file_name">File Names</a></li>
-<li><a href="#bash_header">Header</a></li>
-<li><a href="#java">Java Conventions</a></li>
-<li><a href="#java_enums">Enums</a></li>
-<li><a href="#java_comments">Comments</a><ul>
-<li><a href="#java_comments_prefer">Prefer // to /<em> </em>/</a></li>
-<li><a href="#java_comments_field">Field Comments</a></li>
-</ul>
-</li>
-<li><a href="#java_if_blocks">If Blocks</a></li>
-<li><a href="#java_ternary">Ternary operator</a></li>
-<li><a href="#java_not">Avoid the ! operator</a></li>
-<li><a href="#java_functional">Functional Programming</a></li>
-<li><a href="#coffee">CoffeeScript Conventions</a></li>
-<li><a href="#coffee_imports">Module Imports</a></li>
-<li><a href="#coffe_whitespace">Whitespace in Expressions and Statements</a><ul>
-<li><a href="#coffe_whitespace_1">Avoid extraneous whitespace in the following situations</a></li>
-<li><a href="#coffe_whitespace_2">Always surround these binary operators with a single space on either side</a></li>
-</ul>
-</li>
-<li><a href="#coffe_naming">Naming Conventions</a></li>
-<li><a href="#coffe_functions">Functions</a></li>
-<li><a href="#coffe_strings">Strings</a></li>
-<li><a href="#coffe_conditionals">Conditionals</a></li>
-<li><a href="#coffe_loops">Looping and Comprehensions Best Practices</a></li>
-<li><a href="#bp">Best Practices</a></li>
-<li><a href="#bp_test">Tests</a></li>
-<li><a href="#bp_injections">Injection</a></li>
-<li><a href="#bp_null">Using null</a><ul>
-<li><a href="#bp_null_methods">Using 2 methods</a></li>
-<li><a href="#bp_null_opt">Using Optional</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="general-conventions"><a name="general_convensions"></a> General Conventions</h2>
-<h4 id="warnings"><a name="warnins"></a> Warnings</h4>
+<h2 id="general-conventions">General Conventions</h2>
+<h3 id="warnings">Warnings</h3>
 <p>Source code in develop or a pending pull-request <strong>should have no warnings.</strong> Efforts should be made to ensure all warnings are addressed by committing code. <code>@SuppressWarnings</code> should be used only as a last resort.</p>
-<h4 id="other"><a name="other"></a> Other</h4>
+<h3 id="other">Other</h3>
 <p>For good or bad, we typically checkin all formatters to each projects' .settings folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:</p>
 <ul>
 <li>indentation is 2 spaces</li>
@@ -766,13 +803,13 @@ public class TheClass {
 }
 </code></pre>
 
-<h4 id="comments"><a name="comments"></a> Comments</h4>
-<h6 id="general"><a name="general"></a> General</h6>
+<h3 id="comments">Comments</h3>
+<h4 id="general">General</h4>
 <ul>
 <li>Capitalize the first letter in every comment. E.g. <code>// This is a comment</code></li>
 <li>Add a single space after the comment character(s). E.g. <code>// This is a comment</code></li>
 </ul>
-<h6 id="anti-patterns"><a name="anti_patterns"></a> Anti Patterns</h6>
+<h4 id="anti-patterns">Anti Patterns</h4>
 <p><strong>Do not commit commented code.</strong> The only exception to this rule is for code that <strong>will</strong> eventually be uncommented. For example, if something is implemented correctly, but depends on something not yet implemented, you could commit this code commented. Otherwise, always remove commented code from the source. Source control is used to keep track of old code.</p>
 <pre><code class="java">public void myMethod() {
   // TODO: uncomment when TheOtherClass is implemented correctly
@@ -825,8 +862,8 @@ public void setName(String name) {
 }
 </code></pre>
 
-<h4 id="annotations"><a name="annotations"></a> Annotations</h4>
-<h6 id="order"><a name="order"></a> Order</h6>
+<h3 id="annotations">Annotations</h3>
+<h4 id="order">Order</h4>
 <p>Put more important annotations close to the method/class signature. Good rule of thumb is the logging annotation should be farthest away.</p>
 <p>Good Order:</p>
 <pre><code class="java">@Slf4j
@@ -842,10 +879,10 @@ public class SomeClass {
 public class SomeClass {
 </code></pre>
 
-<h2 id="bash-conventions"><a name="bash"></a> Bash Conventions</h2>
-<h4 id="style-guide"><a name="bash_style"></a> Style Guide</h4>
+<h2 id="bash-conventions">Bash Conventions</h2>
+<h3 id="style-guide">Style Guide</h3>
 <p>The convensions should follow the ones described in <a href="http://robertmuth.blogspot.ca/2012/08/better-bash-scripting-in-15-minutes.html">this article</a>.</p>
-<h4 id="file-names"><a name="bash_file_name"></a> File Names</h4>
+<h4 id="file-names">File Names</h4>
 <p>An example of a <strong>good</strong> file name:</p>
 <pre><code class="bash">perform-release.sh
 </code></pre>
@@ -857,7 +894,7 @@ performRelease.sh
 performRelease
 </code></pre>
 
-<h4 id="header"><a name="bash_header"></a> Header</h4>
+<h4 id="header">Header</h4>
 <p>Each script should begin with header such as the following:</p>
 <pre><code class="bash">#!/bin/bash
 #
@@ -887,8 +924,8 @@ performRelease
 #   ./annotator.sh --working-dir /tmp/ICGC20 --project-names ALL_US --file-types ssm,sgv
 </code></pre>
 
-<h2 id="java-conventions"><a name="java"></a> Java Conventions</h2>
-<h4 id="enums"><a name="java_enums"></a> Enums</h4>
+<h2 id="java-conventions">Java Conventions</h2>
+<h3 id="enums">Enums</h3>
 <p>Use all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:</p>
 <pre><code class="java">// Like this
 if(myValue == MyEnum.CONSTANT) {
@@ -901,8 +938,8 @@ if(MyEnum.CONSTANT.equals(myValue)) {
 }
 </code></pre>
 
-<h4 id="comments_1"><a name="java_comments"></a> Comments</h4>
-<h6 id="prefer-to"><a name="java_comments_prefer"></a> Prefer <code>//</code> to <code>/* */</code></h6>
+<h3 id="comments_1">Comments</h3>
+<h4 id="prefer-to">Prefer <code>//</code> to <code>/* */</code></h4>
 <p>There is no particular rationale for this style other than it is common in our codebase.</p>
 <pre><code class="java">￼￼￼// good
 </code></pre>
@@ -910,7 +947,7 @@ if(MyEnum.CONSTANT.equals(myValue)) {
 <pre><code class="java">￼￼￼￼/* bad */
 </code></pre>
 
-<h6 id="field-comments"><a name="java_comments_field"></a> Field Comments</h6>
+<h4 id="field-comments">Field Comments</h4>
 <p>In general, if there are no specific comments that you have time to place atop class fields, it would be nice for the causal reader to add a comment that at least specifies their role. These should be specified as below, in the same general order, omitting empty sections:</p>
 <pre><code class="java">/**
  * Constants.
@@ -964,7 +1001,7 @@ if(MyEnum.CONSTANT.equals(myValue)) {
 </tr>
 </tbody>
 </table>
-<h4 id="if-blocks"><a name="java_if_blocks"></a> If Blocks</h4>
+<h3 id="if-blocks">If Blocks</h3>
 <p>Always surround your if blocks with curly brackets:</p>
 <pre><code class="java">// like this:
 if(someCondition) {
@@ -975,7 +1012,7 @@ if(someCondition) {
 if(someCondition) doSomething();
 </code></pre>
 
-<h4 id="ternary-operator"><a name="java_ternary"></a> Ternary operator</h4>
+<h3 id="ternary-operator">Ternary operator</h3>
 <p>Ternary operator is acceptable when returning or assigning:</p>
 <pre><code class="java">public Result someMethod() {
   return valid ? doIt() : dontDoIt();
@@ -986,7 +1023,7 @@ public void someOtherMethod() {
 }
 </code></pre>
 
-<h4 id="avoid-the-operator"><a name="java_not"></a> Avoid the ! operator</h4>
+<h3 id="avoid-the-operator">Avoid the ! operator</h3>
 <p>Inverting a condition using the ! operator is ok, but it often leads to mis-reading the code, for two reasons:</p>
 <ol>
 <li>it is small</li>
@@ -1006,7 +1043,7 @@ if(!myCondition) {
 }
 </code></pre>
 
-<h4 id="functional-programming"><a name="java_functional"></a> Functional Programming</h4>
+<h3 id="functional-programming">Functional Programming</h3>
 <p>Get familiar with Guava's Functional Idioms. And use them when it helps (read the Caveats on their Wiki). They allow transforming collections from one type to another without writing a for loop. They allow finding or filtering collections without any branching (if statement). Some examples:</p>
 <pre><code class="java">public Iterable&lt;WantedType&gt; getListOfWanted() {
   // say we have this list and we want to transform that into a sequence of WantedType instead (which is a member of Unwanted)
@@ -1041,9 +1078,9 @@ your apply method for each element in an <code>Iterable</code> (any collection).
 
 <p>Again, this is using the <code>Iterables</code> class, but this time for finding a single element in an <code>Iterable</code>. The benefit of this is that a <code>Predicate</code> can actually be written once and reused in multiple places. Think of a <code>Predicate</code> as a reusable condition within the brakets of an <code>if()</code> statement.</p>
 <p>As <a href="https://code.google.com/p/guava-libraries/wiki/GuavaExplained">Guava's Wiki</a> mentions, don't be function simply to be functional. Do it when there's a net saving (improved readability or efficiency).</p>
-<h2 id="coffeescript-conventions"><a name="coffee"></a> CoffeeScript Conventions</h2>
+<h2 id="coffeescript-conventions">CoffeeScript Conventions</h2>
 <p>Influenced by <a href="https://github.com/polarmobile/coffeescript-style-guide">Polar's CoffeeScript Conventions</a></p>
-<h4 id="module-imports"><a name="coffee_imports"></a> Module Imports</h4>
+<h3 id="module-imports">Module Imports</h3>
 <p><code>require</code> statements should be placed on separate lines.</p>
 <pre><code class="js">require 'lib/setup'
 Backbone = require 'backbone'
@@ -1058,8 +1095,8 @@ Backbone = require 'backbone'
 <li>Views</li>
 <li>Templates</li>
 </ol>
-<h4 id="whitespace-in-expressions-and-statements"><a name="coffe_whitespace"></a> Whitespace in Expressions and Statements</h4>
-<h6 id="avoid-extraneous-whitespace-in-the-following-situations"><a name="coffe_whitespace_1"></a> Avoid extraneous whitespace in the following situations</h6>
+<h3 id="whitespace-in-expressions-and-statements">Whitespace in Expressions and Statements</h3>
+<h4 id="avoid-extraneous-whitespace-in-the-following-situations">Avoid extraneous whitespace in the following situations</h4>
 <p>Immediately inside parentheses, brackets or braces:</p>
 <pre><code class="js">($ 'body') # Yes
 ( $ 'body' ) # No
@@ -1070,7 +1107,7 @@ Backbone = require 'backbone'
 console.log x , y # No
 </code></pre>
 
-<h6 id="always-surround-these-binary-operators-with-a-single-space-on-either-side"><a name="coffe_whitespace_2"></a> Always surround these binary operators with a single space on either side</h6>
+<h4 id="always-surround-these-binary-operators-with-a-single-space-on-either-side">Always surround these binary operators with a single space on either side</h4>
 <ul>
 <li>assignment: <code>=</code></li>
 <li>augmented assignment: <code>+=</code>, <code>-=</code>, etc.</li>
@@ -1089,12 +1126,12 @@ console.log x , y # No
   fooBar  =3
 </code></pre>
 
-<h4 id="naming-conventions"><a name="coffe_naming"></a> Naming Conventions</h4>
+<h3 id="naming-conventions">Naming Conventions</h3>
 <p>Use <code>camelCase</code> (with a leading lowercase character) to name all variables, methods, and object properties.</p>
 <p>Use <code>CamelCase</code> (with a leading uppercase character) to name all classes.</p>
 <p>For constants, use all uppercase with underscores: <code>CONSTANT_LIKE_THIS</code></p>
 <p>Methods and variables that are intended to be "private" should begin with a leading underscore: <code>_privateMethod: -&gt;</code></p>
-<h4 id="functions"><a name="coffe_functions"></a> Functions</h4>
+<h3 id="functions">Functions</h3>
 <p><em>(These guidelines also apply to the methods of a class.)</em></p>
 <p>When declaring a function that takes arguments, always use a single space after the closing parenthesis of the arguments list:</p>
 <pre><code class="js">foo = (arg1, arg2) -&gt; # Yes
@@ -1122,14 +1159,14 @@ foo(4).bar 8 instead of foo(4).bar(8)
 brush.ellipse {x: 10, y: 20} instead of brush.ellipse({x: 10, y: 20})
 </code></pre>
 
-<h4 id="strings"><a name="coffe_strings"></a> Strings</h4>
+<h3 id="strings">Strings</h3>
 <p>Use string interpolation instead of string concatenation:</p>
 <pre><code class="js">&quot;this is an #{adjective} string&quot; # Yes
 &quot;this is an &quot; + adjective + &quot; string&quot; # No
 </code></pre>
 
 <p>Prefer single quoted strings (<code>''</code>) instead of double quoted (<code>""</code>) strings, unless features like string interpolation are being used for the given string.</p>
-<h4 id="conditionals"><a name="coffe_conditionals"></a> Conditionals</h4>
+<h3 id="conditionals">Conditionals</h3>
 <p>Favor unless over if for negative conditions.</p>
 <p>Instead of using <code>unless...else</code>, use <code>if...else</code>:</p>
 <pre><code class="js"># Yes
@@ -1155,7 +1192,7 @@ brush.ellipse {x: 10, y: 20} instead of brush.ellipse({x: 10, y: 20})
   else ...
 </code></pre>
 
-<h4 id="looping-and-comprehensions"><a name="coffe_loops"></a> Looping and Comprehensions</h4>
+<h3 id="looping-and-comprehensions">Looping and Comprehensions</h3>
 <p>Take advantage of comprehensions whenever possible:</p>
 <pre><code class="js"># Yes
 result = (item.name for item in array)
@@ -1175,8 +1212,8 @@ for item in array
 alert(&quot;#{key} = #{value}&quot;) for key, value of object
 </code></pre>
 
-<h2 id="best-practices"><a name="bp"></a> Best Practices</h2>
-<h4 id="tests"><a name="bp_test"></a> Tests</h4>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="tests">Tests</h3>
 <p>Use long method names that convey the purpose of a test. Method names should have the following naming convention: <code>test_methodBeingEx ercised_purposeOfTheTest</code>.</p>
 <p>For example:</p>
 <pre><code class="java">￼￼￼￼class ClassUnderTest {
@@ -1203,7 +1240,7 @@ class ClassUnderTestTest {
 }
 </code></pre>
 
-<h4 id="injection"><a name="bp_injections"></a> Injection</h4>
+<h3 id="injection">Injection</h3>
 <ol>
 <li>Use constructor injection and reduce visibility of injected class as much as possible.</li>
 <li>Use Guava's Preconditions (<code>checkArgument</code>, <code>checkState</code>, etc.) When checking arguments for not-nullness, use checkArgument ins
@@ -1221,14 +1258,14 @@ tead of <code>checkNull</code>. The later throws an <code>NullPointerException</
 }
 </code></pre>
 
-<h4 id="using-null"><a name="bp_null"></a> Using <code>null</code></h4>
+<h3 id="using-null">Using <code>null</code></h3>
 <p>Avoid returning <code>null</code> in a method. Methods should be written in a way that they either succeed (return an actual value) or fail (throw an exception). Returning null creates a third execution path that is prone to causing problems.</p>
 <p>To avoid returning <code>null</code>, you have a few options:</p>
 <ol>
 <li>create 2 methods, one for testing, one for executing</li>
 <li>use <code>Optional</code></li>
 </ol>
-<h6 id="using-2-methods"><a name="bp_null_methods"></a> Using 2 methods</h6>
+<h3 id="using-2-methods">Using 2 methods</h3>
 <p>The first case is ok when the test is fast. For example:</p>
 <pre><code class="java">class MyClass {
 
@@ -1250,7 +1287,7 @@ tead of <code>checkNull</code>. The later throws an <code>NullPointerException</
 <li>It conveys the intention clearly: it is clear that getString() will never return null and that if you don't want to handle the exception, call hasString first.</li>
 <li>There's no chance of getting an <code>NPE</code> in a very far-away piece of code. Imagine that the calling code is calling <code>getString()</code> but not using it until something else happens. The <code>NPE</code> will be thrown when that something else happens instead of when <code>getString()</code> was called (possibly at the wrong time).</li>
 </ol>
-<h6 id="using-optional"><a name="bp_null_opt"></a> Using Optional</h6>
+<h3 id="using-optional">Using Optional</h3>
 <p>The second method is to use the <code>Optional</code> class in Guava. This allows a method a value that may or may not be null. So the method itself always returns a value, but it is this value that may be absent. Reusing the same example as above:</p>
 <pre><code class="java">class MyClass {
 
