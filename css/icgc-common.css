@@ -123,7 +123,7 @@ code {
   color: #219161;
 }
 
-#body {
+.loading-content {
   opacity: 0;
   -moz-animation-fill-mode: both;
   -webkit-animation-fill-mode: both;
