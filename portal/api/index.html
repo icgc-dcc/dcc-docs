@@ -34,6 +34,7 @@
         <![endif]-->
 
         
+        <script src="/js/jquery-1.10.2.min.js"></script>
     </head>
 
     <body>
@@ -103,6 +104,14 @@
 <li class="active">
     
     <a href="./">API</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../api-endpoints/">API Endpoints</a>
     
 </li>
 
@@ -700,7 +709,7 @@
 <h1 id="portal-api">Portal API</h1>
 <p>The ICGC Portal API can be accessed from the command line using <a href="http://curl.haxx.se/docs/manpage.html">cURL</a> but we suggest using <a href="https://github.com/jakubroztocil/httpie">httpie</a>, a cURL replacement that is particularly well-suited to JSON-based REST APIs. The following examples will contain instuctions for using both cURL and httpie.</p>
 <p>ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -- that allows third-party developers to build automation scripts and apps.</p>
-<p>Please see <a href="https://dcc.icgc.org/docs/">https://dcc.icgc.org/docs/</a> for detailed information on the API endpoints, representations and how the API responds to different requests.</p>
+<p>Please see the <a href="../../portal/api-endpoints/">API Endpoint Documentation</a> for detailed information on the API endpoints, representations and how the API responds to different requests.</p>
 <h2 id="controlled-access">Controlled Access</h2>
 <h3 id="logging-in-from-the-command-line">Logging in from the Command Line</h3>
 <p>Logging in to the <strong>ICGC Portal API</strong> from the command line requires an ICGC.org account.</p>
@@ -848,7 +857,6 @@ $ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar 'Coo
                 
             </footer>
 
-            <script src="/js/jquery-1.10.2.min.js"></script>
             <script src="/js/jQuery-FontSpy.js"></script>
             <script src="/js/bootstrap-3.0.3.min.js"></script>
             <script src="/js/highlight.pack.js"></script>

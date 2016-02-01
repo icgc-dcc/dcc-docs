@@ -1,0 +1,239 @@
+body, html {
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  background: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container .swagger-ui .swagger-ui-wrap {
+  font-family: "Droid Sans", sans-serif;
+  font-weight: normal;
+}
+
+.endpoint-header {
+  display: inline-block;
+}
+
+.endpoint-server-config-container {
+  position: relative;
+  display: table;
+  width: 60%;
+  float: right;
+  min-width: 300px;
+}
+
+
+.endpoint-server-config-container > div {
+  display: table-cell;
+  vertical-align: middle;
+  height: 3rem;
+}
+
+.endpoint-server-label {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  display:table-cell;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.endpoint-server-config-container .btn-group-container {
+  padding-right: 1rem;
+  display: none;
+  padding-bottom: 0rem;
+  -webkit-transition: color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+}
+
+#swagger-error {
+  border: solid 1px #d52932;
+  border-left: solid 4px #d52932;
+  background-color: rgba(213, 41, 50, 0.2);
+  padding: 1rem;
+  display: none;
+}
+
+
+.endpoint-controls a.invalid:hover,
+.endpoint-controls a.disabled:hover {
+  cursor: not-allowed;
+}
+
+.endpoint-controls a.disabled {
+  color: #ccc;
+}
+
+.endpoint-controls a.valid {
+  color: #4ca149;
+}
+
+.endpoint-controls a.invalid {
+  color: #d52932;
+}
+
+
+.endpoint-controls {
+  display: inline-block;
+  font-size: 2rem;
+  float:right;
+  width: 65%;
+}
+
+.inline-block-container {
+  display: inline-block;
+  position: relative;
+  width: 90%;
+  line-height: 2rem;
+}
+
+.endpoint-controls a,
+.endpoint-controls a:hover
+.endpoint-controls a:focus {
+  color: #000;
+  background-color: transparent;
+}
+
+#save-base-server-bttn {
+  display: none;
+}
+
+
+
+.swagger-ui-wrap ul#resources span.path a {
+  font-weight: normal;
+}
+
+.swagger-ui-wrap ul#resources {
+  line-height: 1rem;
+  font-size: 0.9rem;
+}
+
+.swagger-ui a:hover {
+  background: transparent;
+}
+
+.swagger-ui-wrap ul#resources input.submit {
+  display: block;
+  clear: none;
+  float: left;
+  padding: 6px 8px;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.5rem;
+}
+
+
+.h1-wrap {
+  height: 63px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+header {
+  margin-bottom: 1rem;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  max-width: 1280px;
+  background: #f2f2f2;
+}
+
+header #brand {
+  white-space: nowrap;
+  vertical-align: middle;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: .8rem;
+  padding-left: 1rem;
+}
+
+header #brand #icgc {
+  color: #283e5d;
+  font-weight: bold;
+}
+
+header #brand a {
+  color: #333333;
+  font-size: 2.6rem;
+  vertical-align: middle;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  text-decoration: none;
+}
+
+header #brand a:hover {
+  text-decoration: none;
+  background: none;
+}
+
+header #brand img {
+  height: 3.4rem;
+  width: 3.4rem;
+  vertical-align: top;
+}
+
+header .header-container {
+  display: table;
+  width: 100%;
+  background: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+section {
+  padding-left: 2rem;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.7rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 2.3rem;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h2, h3, h4 {
+  line-height: 1.25em;
+  margin-top: 0.5em;
+  margin-bottom: 0.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+summary {
+  padding: 1rem 1rem 2rem 0rem;
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+  font-weight: normal;
+}
+
+#resources_container {
+  font-size: 1rem;
+}
+
+ #swagger-ui-container.swagger-ui-wrap {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#message-bar {
+  display: none;
+}

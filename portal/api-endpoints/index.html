@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         
+        
+        <link rel="canonical" href="http://docs.icgc.org/portal/api-endpoints/">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+
+   <title>API Endpoints - ICGC DCC Docs</title>
+
+        
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
+        <link href="/css/bootstrap-custom.css" rel="stylesheet">
+        <link href="/css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
+        <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
+        <link href="/css/base.css" rel="stylesheet">
+        <link href="/css/icgc-common.css" rel="stylesheet">
+
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script src="/js/jquery-1.10.2.min.js"></script>
+    </head>
+
+    <body>
+        <div class="parent-container">
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="background-container"></div>
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+            <a class="navbar-brand" href="../..">
+            
+                <span class="project-org">ICGC</span> DCC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="/../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../access/">Access</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../analysis/">Analysis</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../api/">API</a>
+    
+</li>
+
+                    
+                        
+<li class="active">
+    
+    <a href="./">API Endpoints</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../methods/">Methods</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../projects/">Projects</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../publication/">Publication</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../releases/">Releases</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../repositories/">Repositories</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../search/">Search</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../software/">Software</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../cloud/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../cloud/guide/">Guide</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../submission/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/api/">API</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/projects/">Projects</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/institutions/">Institutions</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/faq/">FAQ</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../submission/guide/intro/">Introduction</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submission-file-format/">Submission File Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/file-submission/">File Submission</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submission-validation/">Submission Validation</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/dcc-data-element-specifications/">DCC Data Element Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/sample-type-specification/">Sample Type Specification</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/incremental-submission-feature/">Incremental Submission Feature</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/selective-validation-feature/">Selective Validation Feature</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">PCAWG</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../submission/pcawg/pancancer-clinical-data-requirements/">PanCancer Clinical Data Requirements</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/pcawg/pcawg-faq/">FAQ</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/software/">Software</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dictionary <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/viewer/">Viewer</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/releases/">Release Notes</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 21</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-21/">Dictionary - Release 21</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 20</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-20/">Dictionary - Release 20</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 19</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-19/">Dictionary - Release 19</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 18</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-18/">Dictionary - Release 18</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 17</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-17/">Dictionary - Release 17</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 16</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-16/">Dictionary - Release 16</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 15</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-15/">Dictionary - Release 15</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../software/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/binaries/">Binaries</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/code/">Source Code</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/development/">Development</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+                <li class="menu-bar"></li>
+            </ul>
+
+            <!-- Search -->
+            <div class="searchbox-container col-sm-3 col-md-3 pull-right">
+               <form class="searchbox navbar-form" role="search">
+                  <input id="mkdocs-search-query" type="search" placeholder="Search..." autocomplete="off" name="search" class="searchbox-input">
+                  <span class="searchbox-icon">
+                      <i class="icon-search search-bttn"></i>
+                      <i class="icon-cancel search-cancel-bttn"></i>
+                  </span>
+               </form>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+            <div id="docs-container" class="container">
+                
+
+<div id="mkdocs-search-results-container" class="row">
+    <div class="col-md-12">
+        <h1 id="dictionary-viewer" class="no-auto-render">
+            <span class="header-badge" style="padding: 0.90rem 1.0rem 1.2rem 1.6rem;">
+                <i class="icon-search"></i>
+            </span> Search Results
+        </h1>
+        <div id="search-body">
+
+        </div>
+        <div id="mkdocs-search-results">
+
+        </div>
+    </div>
+</div>
+                <div id="body" class="fadeInBlurIntro loading-content">
+                
+                <div class="col-md-9 main-container" role="main">
+                   
+
+<h1 id="dictionary-viewer" class="no-auto-render">
+    <span class="header-badge" style="padding: 0.75rem 0.5rem 0.75rem 1.35rem">
+        <i class="icon-flow-branch"></i>
+    </span>
+    <a class="header-text-link" style="vertical-align: top" href="#dictionary-viewer" title="Click on this header and copy URL to link to this section.">
+        API Endpoints&nbsp;<i class="icon-share-1"></i>
+    </a>
+</h1>
+
+<p><div class="light swagger-ui full-width-content">
+    <div class="content">
+      <section>
+        <h2>Overview</h2>
+        <summary>
+          ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -- that allows third-party developers to build automation scripts and apps. This documentation describes ICGC API in details, including data model information of both inputs (parameters) and outputs (response records). It also allows you to interact with and test out each API directly on this page, which shall provide clear insights into how the API responds to different parameters.
+        </summary>
+      </section>
+      <section>
+        <div class="endpoint-banner">
+            <h2 class="endpoint-header">Endpoints</h2>
+            <div class="endpoint-controls">
+                <div class="endpoint-server-config-container">
+                    <div class="endpoint-server-label"></div>
+                    <div class="btn-group-container">
+                        <div id="url-input-group" class="input-group input-group-sm">
+                            <input type="text" id="server-endpoint-url" class="form-control"  placeholder="http://some-api-server.org" value="" size="20">
+                            <span class="input-group-addon" id="server-endpoint-url-path"></span>
+                        </div>
+                    </div>
+                    <div>
+                         <a href="#" id="change-base-server-bttn" title="Click the cog to change where the API page is point at...">
+                            <i class="icon-cog"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <article>
+          <div id="swagger-error">
+             Sorry, I could not find valid Endpoint API Data at the specified url.
+          </div>
+          <div id="message-bar" class="swagger-ui-wrap">
+            &nbsp;
+          </div>
+          <div id="swagger-ui-container" class="swagger-ui-wrap" />
+        </article>
+      </section>
+    </div>
+  </div></p>
+<p><script type="text/javascript" src="/vendor/swagger-ui/lib/shred.bundle.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <script src="/vendor/swagger-ui/lib/jquery.slideto.min.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/lib/jquery.wiggle.min.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/lib/jquery.ba-bbq.min.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/lib/handlebars-1.0.0.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/lib/underscore-min.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/lib/backbone-min.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/lib/swagger.js" type='text/javascript'></script>
+  <script src="/vendor/swagger-ui/swagger-ui.js" type='text/javascript'></script>
+  <script src="/js/api-endpoint.js"></script>
+  <link href='/vendor/swagger-ui/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='/vendor/swagger-ui/css/styles.css' media='screen' rel='stylesheet' type='text/css'/></p>
+               </div>
+               </div>
+            </div>
+
+            <footer id="docs-footer">
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            &copy; 2015-2016 <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        
+                        <small class="version-caption">
+                            ICGC DCC Docs Version 1.0
+                        </small>
+                        
+                    </div>
+                </div>
+                
+            </footer>
+
+            <script src="/js/jQuery-FontSpy.js"></script>
+            <script src="/js/bootstrap-3.0.3.min.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/jquery.highlight-4.closure.js"></script>
+            <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+            <script src="/js/base.js"></script>
+            <script src="/js/icgc-common.js"></script>
+            <script>var base_url = '../..';</script>
+        </div>
+    </body>
+</html>
