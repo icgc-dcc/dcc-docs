@@ -19,7 +19,7 @@
             <h2 class="endpoint-header">Endpoints</h2>
             <div class="endpoint-controls">
                 <div class="endpoint-server-config-container">
-                    <div class="endpoint-server-label"></div>
+                    <div><i class="fa fa-cloud"></i> <span class="endpoint-server-label"></span></div>
                     <div class="btn-group-container">
                         <div id="url-input-group" class="input-group input-group-sm">
                             <input type="text" id="server-endpoint-url" class="form-control"  placeholder="http://some-api-server.org" value="" size="20">
