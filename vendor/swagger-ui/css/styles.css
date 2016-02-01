@@ -38,10 +38,15 @@ body, html {
   text-align: right;
 }
 
+.endpoint-server-config-container [class^="fa"] {
+  color: #aaa;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
 .endpoint-server-label {
   font-size: 1.2rem;
   vertical-align: middle;
-  display:table-cell;
 }
 
 .endpoint-server-config-container .btn-group-container {
@@ -50,6 +55,7 @@ body, html {
   -webkit-transition: color 1s ease-in-out;
   transition: color 1s ease-in-out;
   padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 #swagger-error {
