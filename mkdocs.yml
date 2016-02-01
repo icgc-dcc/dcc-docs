@@ -280,6 +280,7 @@ pages:
   - Binaries: 'software/binaries.md'
   - Source Code: 'software/code.md'
   - Development: 'software/development.md'
+  - API Endpoints: 'software/api-endpoints.md'
 extra:
   project_root_dir: '/'
   project_org: 'ICGC'

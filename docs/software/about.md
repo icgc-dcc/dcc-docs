@@ -10,3 +10,5 @@ For information about source code, project and repositories please see [here](co
 
 For information about development, please see [here](development.md)
 
+For information about our API end points, please see [here](api-endpoints.md)
+
