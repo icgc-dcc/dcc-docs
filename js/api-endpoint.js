@@ -119,13 +119,15 @@ $(function () {
 
     if (_isConfigControlOpen) {
       _endpointInputContainerEl.hide();
-      _endpointLabelEl.show();
-      _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
+      _endpointLabelEl.show('fast', function() {
+        _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
+      });
     }
     else {
-      _endpointLabelEl.hide();
-      _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
-      _endpointInputContainerEl.css('display', 'table-cell');
+      _endpointLabelEl.hide('fast',function() {
+        _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
+        _endpointInputContainerEl.css('display', 'table-cell');
+      });
     }
 
     _isConfigControlOpen = ! _isConfigControlOpen;
