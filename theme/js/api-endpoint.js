@@ -54,7 +54,14 @@ $(function () {
       dom_id: "swagger-ui-container",
       supportedSubmitMethods: ['get', 'post', 'put'],
       onComplete: function(){
-        //log("Loaded SwaggerUI")
+
+        if (_hasReloadedRequest) {
+          return;
+        }
+
+        _hasReloadedRequest = true;
+
+        console.log("Loaded SwaggerUI");
         _errorAlert.hide();
 
         $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
@@ -66,6 +73,7 @@ $(function () {
         if (_isConfigControlOpen) {
           _toggleServerConfig(null, false);
         }
+
       },
       onFailure: function() {
         log("Unable to Load SwaggerUI");
@@ -105,6 +113,7 @@ $(function () {
 
   function updateAPIServer(url) {
     if (window.swaggerUi && typeof window.swaggerUi.updateSwaggerUi === 'function') {
+      _hasReloadedRequest = false;
       window.swaggerUi.updateSwaggerUi({url: url || _getEndpointURL() });
     }
   }
@@ -185,7 +194,8 @@ $(function () {
       _toggleServerConfigBttn = $('#change-base-server-bttn'),
       _saveServerConfigBttn = $('#change-base-server-bttn'),
       _errorAlert = $('#swagger-error'),
-      _isConfigControlOpen = false;
+      _isConfigControlOpen = false,
+      _hasReloadedRequest = false;
 
 
   _init();
