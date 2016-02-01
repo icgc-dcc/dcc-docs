@@ -135,7 +135,7 @@ $(function () {
     else {
 
       if (! _endpointInputEl.val() ) {
-        _setBaseEndpointURL();
+        _setBaseEndpointURL(BASE_URL);
       }
 
       if (shouldAnimate !== false) {
