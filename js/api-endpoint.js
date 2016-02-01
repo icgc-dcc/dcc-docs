@@ -64,7 +64,7 @@ $(function () {
         $('[src="images/logo_small.png"]').attr('src', '/vendor/swagger-ui/images/logo_small.png');
 
         if (_isConfigControlOpen) {
-          _toggleServerConfig();
+          _toggleServerConfig(null, false);
         }
       },
       onFailure: function() {
@@ -109,25 +109,46 @@ $(function () {
     }
   }
 
-  function _toggleServerConfig(e) {
+  function _toggleServerConfig(e, shouldAnimate) {
     if (e) {
       e.preventDefault();
     }
+
+
 
 
     _toggleServerConfigBttn.addClass('animate-spin');
 
     if (_isConfigControlOpen) {
       _endpointInputContainerEl.hide();
-      _endpointLabelEl.show('fast', function() {
+
+      if (shouldAnimate !== false) {
+        _endpointLabelEl.stop().show('fast', function () {
+          _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
+        });
+      }
+      else {
+        _endpointLabelEl.show();
         _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
-      });
+      }
     }
     else {
-      _endpointLabelEl.hide('fast',function() {
+
+      if (! _endpointInputEl.val() ) {
+        _setBaseEndpointURL();
+      }
+
+      if (shouldAnimate !== false) {
+        _endpointLabelEl.stop().hide('fast', function () {
+          _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
+          _endpointInputContainerEl.css('display', 'table-cell');
+        });
+      }
+      else {
+        _endpointLabelEl.hide();
         _toggleServerConfigBttn.removeClass('invalid valid animate-spin');
         _endpointInputContainerEl.css('display', 'table-cell');
-      });
+      }
     }
 
     _isConfigControlOpen = ! _isConfigControlOpen;
