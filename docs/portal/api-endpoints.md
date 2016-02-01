@@ -30,14 +30,14 @@
                          <a href="#" id="change-base-server-bttn" title="Click the cog to change where the API page is point at...">
                             <i class="icon-cog"></i>
                          </a>
-                         <a href="#" id="save-base-server-bttn" title="Click the disk to save where the API page is point at...">
-                            <i class="icon-floppy"></i>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
         <article>
+          <div id="swagger-error">
+             Sorry, I could not find valid Endpoint API Data at the specified url.
+          </div>
           <div id="message-bar" class="swagger-ui-wrap">
             &nbsp;
           </div>
@@ -48,6 +48,7 @@
   </div>
 
   <script type="text/javascript" src="/vendor/swagger-ui/lib/shred.bundle.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
   <script src="/vendor/swagger-ui/lib/jquery.slideto.min.js" type='text/javascript'></script>
   <script src="/vendor/swagger-ui/lib/jquery.wiggle.min.js" type='text/javascript'></script>
   <script src="/vendor/swagger-ui/lib/jquery.ba-bbq.min.js" type='text/javascript'></script>
