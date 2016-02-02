@@ -55,6 +55,12 @@ $(function () {
       supportedSubmitMethods: ['get', 'post', 'put'],
       onComplete: function(){
 
+        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+
+        // Fix static urls for images
+        $('[src="images/throbber.gif"]').attr('src', '/vendor/swagger-ui/images/throbber.gif');
+        $('[src="images/logo_small.png"]').attr('src', '/vendor/swagger-ui/images/logo_small.png');
+
         if (_hasReloadedRequest) {
           return;
         }
@@ -63,12 +69,6 @@ $(function () {
 
         console.log("Loaded SwaggerUI");
         _errorAlert.hide();
-
-        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-
-        // Fix static urls for images
-        $('[src="images/throbber.gif"]').attr('src', '/vendor/swagger-ui/images/throbber.gif');
-        $('[src="images/logo_small.png"]').attr('src', '/vendor/swagger-ui/images/logo_small.png');
 
         if (_isConfigControlOpen) {
           _toggleServerConfig(null, false);
