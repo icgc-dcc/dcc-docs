@@ -428,7 +428,10 @@ $(function() {
     _initAlerts();
 
     var _handleFontTransition = function () {
-      $(BODY_ID).removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
+      var bodyEl =  $(BODY_ID);
+      if (bodyEl.hasClass('loading-content')) {
+        bodyEl.removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
+      }
     };
 
     setTimeout(function() {
