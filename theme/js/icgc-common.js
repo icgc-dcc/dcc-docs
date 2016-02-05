@@ -443,6 +443,23 @@ $(function() {
 
     }, 0);
 
+    $.scrollUp({
+      scrollName: 'scroll-up-indicator',
+      scrollDistance: 300,
+      scrollFrom: 'top',
+      scrollSpeed: 300,
+      easingType: 'swing',
+      animation: 'fade',
+      animationSpeed: 200,
+      scrollText: 'Scroll to top',
+      scrollTitle: 'Scroll to the top of this page.',
+      scrollImg: {
+        active: true
+      },
+      activeOverlay: false,
+      zIndex: 100000
+    });
+
 
 
   }
