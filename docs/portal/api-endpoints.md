@@ -48,7 +48,7 @@
   </div>
 
   <script type="text/javascript" src="/vendor/swagger-ui/lib/shred.bundle.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <script src="/js/jquery-migrate-1.2.1.min.js"></script>
   <script src="/vendor/swagger-ui/lib/jquery.slideto.min.js" type='text/javascript'></script>
   <script src="/vendor/swagger-ui/lib/jquery.wiggle.min.js" type='text/javascript'></script>
   <script src="/vendor/swagger-ui/lib/jquery.ba-bbq.min.js" type='text/javascript'></script>
