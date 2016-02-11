@@ -10,6 +10,7 @@ The DCC documentation is divided into the following top-level sections:
 * [Cloud](cloud/about.md)
 * [Submission](submission/about.md)
 * [Dictionary](dictionary/about.md)
+* [Software](software/about.md)
 
 ## Contributing
 
