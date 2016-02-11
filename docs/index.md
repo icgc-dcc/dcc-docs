@@ -1,6 +1,6 @@
 # Welcome
 
-This is the official project documentation site of the [ICGC](https://icgc.org/) DCC.
+This is the official project documentation site of the [ICGC](https://icgc.org/) Data Coordination Center (DCC) and its [Data Portal](https://dcc.icgc.org).
 
 ## Contents
 
