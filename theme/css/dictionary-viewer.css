@@ -85,12 +85,20 @@ pre.code-shard {
   background-color: rgb(115, 190, 72);
 }
 
-.pill-tab-bttn.change {
+.pill-tab-bttn.remove {
   background-color: rgb(167, 22, 23);
 }
 
-.pill-tab-bttn.change:hover {
+.pill-tab-bttn.remove:hover {
   background-color: rgb(215, 22, 23);
+}
+
+.pill-tab-bttn.change {
+  background-color: rgb(158, 123, 5);
+}
+
+.pill-tab-bttn.change:hover {
+  background-color: rgb(210, 175, 5);
 }
 
 .minimap-container {
@@ -176,20 +184,23 @@ pre.code-shard {
 .dictionary-viewer-main .nav-tabs {
   border-bottom-color: #ccc;
 }
+.dictionary-viewer-main .nav-tabs>li {
+  margin-right: -.25rem;
+}
 
 .dictionary-viewer-main .nav-tabs>li.active>a:focus,
 .dictionary-viewer-main .nav-tabs>li.active>a {
-  border-top-width: 2px;
+  border-top-width: 1px;
   border-left: solid 1px #ccc;
   border-right: solid 1px #ccc;
 }
 
 .dictionary-viewer-main .nav-tabs>li>a {
-  background-color: #dedede;
+  background-color: #f2f2f2;
   border-radius: 0px;
   color: #000;
-
-  border-top-width: 2px;
+  border-color: #ccc;
+  border-top-width: 1px;
   border-bottom: none;
 }
 
@@ -215,8 +226,9 @@ pre.code-shard {
 
 .dictionary-viewer-main .nav-tabs>li>a:hover,
 .dictionary-viewer-main .nav-tabs>li>a:focus {
-  background-color: #efefef;
+  background-color: #fafafa;
   border-color: #ccc;
+  border-top-width: 1px;
 }
 
 
@@ -226,17 +238,13 @@ pre.code-shard {
   background: #fff;
   color: #333;
   cursor: default;
+  border-top-width: 1px;
+  border-bottom-color: transparent;
 }
 
 .tab-container {
   margin: 0px;
   border-top: none;
-}
-
-.dictionary-viewer-main .nav-tabs>li.active>a,
-.dictionary-viewer-main .nav-tabs>li.active>a:focus,
-.dictionary-viewer-main .nav-tabs>li.active>a:hover {
-  border-bottom-color: transparent;
 }
 
 .dictionary-viewer-main #jsonviewer {

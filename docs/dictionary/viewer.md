@@ -41,8 +41,9 @@
             </div>
             <div style="text-align:right;">
                 <div class="changes-container">
-                    <a class="pill pill-tab-bttn addition" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.setView('report')"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</a>
-                    <a class="pill pill-tab-bttn change" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.setView('report')"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</a>
+                    <a class="pill pill-tab-bttn addition" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.switchToReportView('additions')"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</a>
+                    <a class="pill pill-tab-bttn change" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.switchToReportView('modifications')"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</a>
+                    <a class="pill pill-tab-bttn remove" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.switchToReportView('deletions')"><i class="fa fa-minus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsRemovedCount"></span> removals</a>
                 </div>
             </div>
         </div>

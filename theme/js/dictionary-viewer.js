@@ -8,17 +8,13 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
 
     _controller.viewTypes = DictionaryService.getViewTypes();
 
-    _controller.setView = function(viewMode) {
-      // Get the current view in case it was changed somewhere else - i.e. user clicked
-      // a tab in the directive.
-      _controller.viewMode = DictionaryService.getCurrentViewType();
+    _controller.switchToReportView = function(reportAnchor) {
+      var search = $location.search();
 
-      if (viewMode === _controller.viewMode) {
-        return;
-      }
+      _controller.viewMode = 'report';
+      search.viewMode = _controller.viewMode;
 
-      _controller.viewMode = viewMode;
-      DictionaryService.setView(viewMode);
+      $location.search(search).hash(reportAnchor);
     };
 
     _controller.setDictionaryVersionFilterRange = DictionaryService.setDictionaryFilterRange;
@@ -26,9 +22,10 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
     _controller.getDictionaryVersionList = DictionaryService.getDictionaryVersionList;
 
     $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function(){
-      var changeReport = DictionaryService.generateChangeList();
+      var changeReport = DictionaryService.generateChangeList(); console.log(changeReport);
       _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
       _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
+      _controller.fieldsRemovedCount = changeReport.fieldsRemoved.length;
       _controller.latestDictionaryVersion = DictionaryService.getLatestDictionaryVersion();
 
       if (_firstRun) {
