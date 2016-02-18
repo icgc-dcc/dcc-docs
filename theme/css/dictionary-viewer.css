@@ -16,10 +16,12 @@ pre.code-shard {
 
 .code-zoom-indicator {
   position: absolute;
-  top: 40%;
-  left: 35%;
+  top: 10%;
+  left: 30%;
   font-size: 4rem;
-  opacity: 0.35;
+  opacity: 0.1;
+  height: 4rem;
+  width: 4rem;
   transition: opacity 0.5s ease-in-out;
 }
 td:hover .code-zoom-indicator {
@@ -161,7 +163,7 @@ td:hover .code-zoom-indicator {
 }
 
 .bttn-hover-expand-caption:hover span {
-  width: 230px;
+  width: 150px;
 }
 
 .dictionary-viewer-main .dictionary-viewer-content {

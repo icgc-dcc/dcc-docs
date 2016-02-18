@@ -13,7 +13,7 @@
             <div class="dictionary-viewer-controls" data-ng-style="{'margin-bottom':DictionaryViewCtrl.versionRange.from === DictionaryViewCtrl.versionRange.to ? '0rem' : 'inherit'}">
                 <div class="version-select-container col-md-8">
                     <div class="version-label">
-                        <span data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">Compare</span> Dictionary Version
+                        <span data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">Compare</span> Version
                     </div>
                      <div class="version-selector-container">
                         <select class="form-control version-selector"
@@ -23,8 +23,8 @@
                                 data-ng-change="DictionaryViewCtrl.setDictionaryVersionFilterRange(DictionaryViewCtrl.versionRange.from, DictionaryViewCtrl.versionRange.to)">
                         </select>
                         <div style="display: inline-block" data-ng-if="! DictionaryViewCtrl.shouldCompareDictionaries">
-                            <a href="javascript:void(0)" title="Compare Dictionary Versions" class="btn bttn-hover-expand-caption btn-primary" data-ng-click="DictionaryViewCtrl.shouldCompareDictionaries = true"><i class="fa fa-random"></i>
-                                <span>Compare Dictionary Versions</span>
+                            <a href="javascript:void(0)" title="Compare Dictionary Versions" class="btn bttn-hover-expand-caption btn-primary" data-ng-click="DictionaryViewCtrl.shouldCompareDictionaries = true"><i class="fa fa-random"></i><!--
+                                --><span>Compare Versions</span>
                             </a>
                         </div>
                         <div style="display: inline-block" data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">
@@ -52,7 +52,7 @@
                     <dictionary-viewer
                                 class="dictionary-viewer-content"
                                 data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
-                            data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
+                                data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
                                 data-show-header-nav="false"
                                 data-hide-graph-legend="false"
                                 data-search-query="DictionaryViewCtrl.searchQuery"
