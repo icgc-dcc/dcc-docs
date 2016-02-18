@@ -69,12 +69,28 @@ pre.code-shard {
   padding: 3px 7px;
 }
 
-.pill.addition {
-  background-color: rgb(73, 146, 70);
+
+
+.pill.pill-tab-bttn {
+  transition: background-color 0.25s ease-in;
+  width: auto;
 }
 
-.pill.change {
+.pill-tab-bttn.addition {
+  background-color: rgb(73, 146, 70);
+
+}
+
+.pill-tab-bttn.addition:hover {
+  background-color: rgb(115, 190, 72);
+}
+
+.pill-tab-bttn.change {
   background-color: rgb(167, 22, 23);
+}
+
+.pill-tab-bttn.change:hover {
+  background-color: rgb(215, 22, 23);
 }
 
 .minimap-container {
@@ -98,19 +114,37 @@ pre.code-shard {
   border: solid 1px rgb(115, 179, 229);
 }
 
-
-
 .dictionary-viewer-main {
   display: block;
   width: 100%;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
 }
 
 .dictionary-viewer-main .dictionary-viewer-content {
   width: 100%;
 }
+
+.dictionary-header > .current-version-label {
+  padding: 0.5rem 0rem;
+}
+
 .dictionary-viewer-controls {
   margin-bottom: 2rem;
+}
+
+.dictionary-viewer-controls label {
+  margin: 0px 1rem;
+}
+
+.version-select-container .version-label {
+  width: 17%;
+  display:inline-block;
+  line-height: 24px;
+}
+
+.version-selector-container {
+  width: 82%;
+  display:inline-block;
 }
 
 .dictionary-viewer-controls .view-select-container {
@@ -118,7 +152,10 @@ pre.code-shard {
 }
 
 .dictionary-viewer-controls .version-select-container {
-  text-align: right;
+  text-align: left;
+  padding-left: 0rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .dictionary-viewer-controls .changes-container {
@@ -133,13 +170,100 @@ pre.code-shard {
   display: inline-block;
   width: 12rem;
 }
-.jsoneditor .search .frame table {
-  border: none;
-  margin-top: 4px;
+
+/* Tabs */
+
+.dictionary-viewer-main .nav-tabs {
+  border-bottom-color: #ccc;
 }
 
-.jsoneditor .search .results {
-  line-height: 28px;
+.dictionary-viewer-main .nav-tabs>li.active>a:focus,
+.dictionary-viewer-main .nav-tabs>li.active>a {
+  border-top-width: 2px;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+}
+
+.dictionary-viewer-main .nav-tabs>li>a {
+  background-color: #dedede;
+  border-radius: 0px;
+  color: #000;
+
+  border-top-width: 2px;
+  border-bottom: none;
+}
+
+.dictionary-viewer-main .nav-tabs>li>a.graph-tab:hover,
+.dictionary-viewer-main .nav-tabs>li.active>a.graph-tab {
+  border-top-color: #6d72c5;
+}
+
+.dictionary-viewer-main .nav-tabs>li>a.table-tab:hover,
+.dictionary-viewer-main .nav-tabs>li.active>a.table-tab {
+  border-top-color: #d33682;
+}
+
+.dictionary-viewer-main .nav-tabs>li>a.codelist-tab:hover,
+.dictionary-viewer-main .nav-tabs>li.active>a.codelist-tab {
+  border-top-color: #1a9900;
+}
+
+.dictionary-viewer-main .nav-tabs>li>a.report-tab:hover,
+.dictionary-viewer-main .nav-tabs>li.active>a.report-tab {
+  border-top-color: #1693c0;
+}
+
+.dictionary-viewer-main .nav-tabs>li>a:hover,
+.dictionary-viewer-main .nav-tabs>li>a:focus {
+  background-color: #efefef;
+  border-color: #ccc;
+}
+
+
+.dictionary-viewer-main .nav-tabs>li.active>a,
+.dictionary-viewer-main .nav-tabs>li.active>a:focus,
+.dictionary-viewer-main .nav-tabs>li.active>a:hover {
+  background: #fff;
+  color: #333;
+  cursor: default;
+}
+
+.tab-container {
+  margin: 0px;
+  border-top: none;
+}
+
+.dictionary-viewer-main .nav-tabs>li.active>a,
+.dictionary-viewer-main .nav-tabs>li.active>a:focus,
+.dictionary-viewer-main .nav-tabs>li.active>a:hover {
+  border-bottom-color: transparent;
+}
+
+.dictionary-viewer-main #jsonviewer {
+  margin: 0rem 1rem;
+}
+
+.jsoneditor-tree,
+.jsoneditor-values {
+  border: none;
+}
+
+.jsoneditor-search,
+.jsoneditor-search table {
+  border: none;
+  margin-top: 2px;
+}
+
+table.jsoneditor-search div.jsoneditor-frame {
+  margin-top: 2px;
+}
+
+table.jsoneditor-search div.jsoneditor-results {
+  margin-top: 0.4rem;
+}
+
+table.jsoneditor-search input {
+  margin-top: 0rem;
 }
 
 .jsoneditor .search input {
