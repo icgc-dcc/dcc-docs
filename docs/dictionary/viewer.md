@@ -39,16 +39,17 @@
                     </select>
                 </div>
             </div>
-                    <div class="col-md-3 changes-container">
-                        <div class="pill addition"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</div>
-                        <div class="pill change"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</div>
+            <div style="text-align:right;">
+                <div class="changes-container">
+                    <a class="pill pill-tab-bttn addition" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.setView('report')"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</a>
+                    <a class="pill pill-tab-bttn change" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.setView('report')"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</a>
                 </div>
             </div>
-        <div>
+        </div>
                 <dictionary-viewer
                             class="dictionary-viewer-content"
                             data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
-                        data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
+                            data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
                             data-show-header-nav="false"
                             data-hide-graph-legend="false"
                             data-search-query="DictionaryViewCtrl.searchQuery"
