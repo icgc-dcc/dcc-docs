@@ -20,13 +20,18 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
     _controller.setDictionaryVersionFilterRange = DictionaryService.setDictionaryFilterRange;
     _controller.versionRange = DictionaryService.dictionaryVersionRange();
     _controller.getDictionaryVersionList = DictionaryService.getDictionaryVersionList;
+    _controller.shouldCompareDictionaries = false;
 
     $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function(){
-      var changeReport = DictionaryService.generateChangeList(); console.log(changeReport);
+      var changeReport = DictionaryService.generateChangeList();
       _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
       _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
       _controller.fieldsRemovedCount = changeReport.fieldsRemoved.length;
       _controller.latestDictionaryVersion = DictionaryService.getLatestDictionaryVersion();
+
+      if (! _controller.shouldCompareDictionaries) {
+        _controller.shouldCompareDictionaries = _controller.versionRange.from !== _controller.versionRange.to;
+      }
 
       if (_firstRun) {
 

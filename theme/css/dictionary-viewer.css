@@ -11,6 +11,19 @@ pre.code-shard {
   background-color: #f5f2f0;
   font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
   white-space: pre-wrap;
+  position: relative;
+}
+
+.code-zoom-indicator {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  font-size: 4rem;
+  opacity: 0.35;
+  transition: opacity 0.5s ease-in-out;
+}
+td:hover .code-zoom-indicator {
+  opacity: 1;
 }
 
 .code-constrained-width {
@@ -128,8 +141,35 @@ pre.code-shard {
   padding: 0.5rem 1rem;
 }
 
+.bttn-hover-expand-caption {
+  height: 45px;
+}
+
+
+.bttn-hover-expand-caption span {
+  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  width: 0px;
+  vertical-align: top;
+}
+
+.bttn-hover-expand-caption:hover {
+  border-radius: 0px;
+}
+
+.bttn-hover-expand-caption:hover span {
+  width: 230px;
+}
+
 .dictionary-viewer-main .dictionary-viewer-content {
   width: 100%;
+}
+
+.dictionary-header {
+  text-align: right;
 }
 
 .dictionary-header > .current-version-label {
@@ -137,7 +177,8 @@ pre.code-shard {
 }
 
 .dictionary-viewer-controls {
-  margin-bottom: 2rem;
+  height: 8rem;
+  margin-bottom: 3rem;
 }
 
 .dictionary-viewer-controls label {
@@ -145,14 +186,16 @@ pre.code-shard {
 }
 
 .version-select-container .version-label {
-  width: 17%;
   display:inline-block;
   line-height: 24px;
 }
 
 .version-selector-container {
-  width: 82%;
   display:inline-block;
+}
+
+.dictionary-viewer-controls > div {
+  margin-top: 1rem;
 }
 
 .dictionary-viewer-controls .view-select-container {
@@ -162,12 +205,11 @@ pre.code-shard {
 .dictionary-viewer-controls .version-select-container {
   text-align: left;
   padding-left: 0rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
-.dictionary-viewer-controls .changes-container {
+.changes-container {
   text-align: right;
+  margin-bottom: 2rem;
 }
 
 .dictionary-viewer-controls .view-selector {
