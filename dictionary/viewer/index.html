@@ -14,7 +14,7 @@
    <title>Viewer - ICGC DCC Docs</title>
 
         
-        <link href="https://submissions.dcc.icgc.org/dictionary/styles/dictionary.css" rel="stylesheet">
+        <link href="http://localhost:8080/styles/dictionary.css" rel="stylesheet">
 <link href="../../vendor/angular-loading-bar/loading-bar.min.css" rel="stylesheet">
 <link href="../../css/dictionary-viewer.css" rel="stylesheet" media="screen">
 <link href="../../css/dictionary-viewer-print.css" rel="stylesheet" media="print">
@@ -32,7 +32,7 @@
 
     })();
 </script>
-<script src="https://submissions.dcc.icgc.org/dictionary/scripts/dictionary.js"></script>
+<script src="http://localhost:8080/scripts/dictionary.js"></script>
 <script src="../../vendor/angular-animate/angular-animate.min.js"></script>
 <script src="../../vendor/angular-loading-bar/loading-bar.min.js"></script>
 <script src="../../js/dictionary-viewer.js"></script>
@@ -672,7 +672,8 @@
                     <dictionary-viewer
                                 class="dictionary-viewer-content"
                                 data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
-                                data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
+                                data-template-url-prod="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
+                                                                data-template-url="http://localhost:9000"
                                 data-show-header-nav="false"
                                 data-hide-graph-legend="false"
                                 data-search-query="DictionaryViewCtrl.searchQuery"
