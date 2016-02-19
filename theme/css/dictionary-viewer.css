@@ -291,6 +291,10 @@ td:hover .code-zoom-indicator {
   border-top: none;
 }
 
+.dictionary_table .data-type-list {
+  color: #000;
+}
+
 .dictionary-viewer-main #jsonviewer {
   margin: 0rem 1rem;
 }
