@@ -55,11 +55,19 @@ pages:
 - Dictionary:
   - About: 'dictionary/about.md'
   - Viewer: 'dictionary/viewer.md'
-  - Release Notes: 'dictionary/releases.md'
-  - Release 21:
-    - Dictionary - Release 21: 'dictionary/release-21.md'
-  - Release 20:
-    - Dictionary - Release 20: 'dictionary/release-20.md'
+  - Release Notes:
+    - Overview: 'dictionary/releases.md'
+    - Release 21: 'dictionary/release-21.md'
+    - Release 20: 'dictionary/release-20.md'
+    - Release 19: 'dictionary/release-19.md'
+    - Release 18: 'dictionary/release-18.md'
+    - Release 17: 'dictionary/release-17.md'
+    - Release 16: 'dictionary/release-16.md'
+    - Release 15: 'dictionary/release-15.md'
+#  - Release 21:
+#    - Dictionary - Release 21: 'dictionary/release-21.md'
+#  - Release 20:
+#    - Dictionary - Release 20: 'dictionary/release-20.md'
   #      - Analyzed Sample Data File (sample): 'dictionary/release-20/analyzed-sample-data-file-sample.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m): 'dictionary/release-20/array-based-dna-methylation-metharray-analysis-metadata-file-m.md'
   #      - Array-based DNA Methylation (meth_array) - Primary File (p): 'dictionary/release-20/array-based-dna-methylation-metharray-primary-file-p.md'
@@ -93,8 +101,8 @@ pages:
   #      - Structural Somatic Mutations (stsm) - Analysis Metadata File (m): 'dictionary/release-20/structural-somatic-mutations-stsm-analysis-metadata-file-m.md'
   #      - Structural Somatic Mutations (stsm) - Primary Analysis File (p): 'dictionary/release-20/structural-somatic-mutations-stsm-primary-analysis-file-p.md'
   #      - Structural Somatic Mutations (stsm) - Secondary Analysis File (s): 'dictionary/release-20/structural-somatic-mutations-stsm-secondary-analysis-file-s.md'
-  - Release 19:
-    - Dictionary - Release 19: 'dictionary/release-19.md'
+#  - Release 19:
+#    - Dictionary - Release 19: 'dictionary/release-19.md'
   #      - PanCancer Clinical Data Requirements: 'dictionary/release-19/pancancer-clinical-data-requirements.md'
   #      - Analyzed Sample Data File (sample): 'dictionary/release-19/analyzed-sample-data-file-sample-11c.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m): 'dictionary/release-19/array-based-dna-methylation-metharray-analysis-metadata-file-m-11c.md'
@@ -129,8 +137,8 @@ pages:
   #      - Structural Somatic Mutations (stsm) - Analysis Metadata File (m): 'dictionary/release-19/structural-somatic-mutations-stsm-analysis-metadata-file-m-11c.md'
   #      - Structural Somatic Mutations (stsm) - Primary Analysis File (p): 'dictionary/release-19/structural-somatic-mutations-stsm-primary-analysis-file-p-11c.md'
   #      - Structural Somatic Mutations (stsm) - Secondary Analysis File (s): 'dictionary/release-19/structural-somatic-mutations-stsm-secondary-analysis-file-s-11c.md'
-  - Release 18:
-    - Dictionary - Release 18: 'dictionary/release-18.md'
+#  - Release 18:
+#    - Dictionary - Release 18: 'dictionary/release-18.md'
   #      - Analyzed Sample Data File (sample) - v0.10a: 'dictionary/release-18/analyzed-sample-data-file-sample-10a.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) -v0.10a: 'dictionary/release-18/array-based-dna-methylation-metharray-analysis-metadata-file-m-10a.md'
   #      - Array-based DNA Methylation (meth_array) - Primary File (p) -v0.10a: 'dictionary/release-18/array-based-dna-methylation-metharray-primary-file-p-10a.md'
@@ -166,8 +174,8 @@ pages:
   #      - Structural Somatic Mutations (stsm) - Analysis Metadata File (m) -v0.10a: 'dictionary/release-18/structural-somatic-mutations-stsm-analysis-metadata-file-m-10a.md'
   #      - Structural Somatic Mutations (stsm) - Primary Analysis File (p) -v0.10a: 'dictionary/release-18/structural-somatic-mutations-stsm-primary-analysis-file-p-10a.md'
   #      - Structural Somatic Mutations (stsm) - Secondary Analysis File (s) -v0.10a: 'dictionary/release-18/structural-somatic-mutations-stsm-secondary-analysis-file-s-10a.md'
-  - Release 17:
-    - Dictionary - Release 17: 'dictionary/release-17.md'
+#  - Release 17:
+#    - Dictionary - Release 17: 'dictionary/release-17.md'
   #      - Analyzed Sample Data File (sample) - 0.9a: 'dictionary/release-17/analyzed-sample-data-file-sample-09a.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m) - 0.9a: 'dictionary/release-17/array-based-dna-methylation-metharray-analysis-metadata-file-m-09a.md'
   #      - Array-based DNA Methylation (meth_array) - Primary File (p) - 0.9a: 'dictionary/release-17/array-based-dna-methylation-metharray-primary-file-p-09a.md'
@@ -207,8 +215,8 @@ pages:
   #      - Structural Somatic Mutations (stsm) - Analysis Metadata File (m) - 0.9a: 'dictionary/release-17/structural-somatic-mutations-stsm-analysis-metadata-file-m-09a.md'
   #      - Structural Somatic Mutations (stsm) - Primary Analysis File (p) - 0.9a: 'dictionary/release-17/structural-somatic-mutations-stsm-primary-analysis-file-p-09a.md'
   #      - Structural Somatic Mutations (stsm) - Secondary Analysis File (s) - 0.9a: 'dictionary/release-17/structural-somatic-mutations-stsm-secondary-analysis-file-s-09a.md'
-  - Release 16:
-    - Dictionary - Release 16: 'dictionary/release-16.md'
+#  - Release 16:
+#    - Dictionary - Release 16: 'dictionary/release-16.md'
   #      - Analyzed Sample Data File (sample): 'dictionary/release-16/analyzed-sample-data-file-sample-08d.md'
   #      - Array-based DNA Methylation (meth_array) - Analysis Metadata File (m): 'dictionary/release-16/array-based-dna-methylation-metharray-analysis-metadata-file-m-08d.md'
   #      - Array-based DNA Methylation (meth_array) - Primary File (p): 'dictionary/release-16/array-based-dna-methylation-metharray-primary-file-p-08d.md'
@@ -245,8 +253,8 @@ pages:
   #      - Splice Variation (jcn) - Primary Analysis File (p): 'dictionary/release-16/splice-variation-jcn-primary-analysis-file-p-08d.md'
   #      - Structural Somatic Mutations (stsm) - Analysis Metadata File (m): 'dictionary/release-16/structural-somatic-mutations-stsm-analysis-metadata-file-m-08d.md'
   #      - Structural Somatic Mutations (stsm) - Primary Analysis File (p): 'dictionary/release-16/structural-somatic-mutations-stsm-primary-analysis-file-p-08d.md'
-  - Release 15:
-    - Dictionary - Release 15: 'dictionary/release-15.md'
+#  - Release 15:
+#    - Dictionary - Release 15: 'dictionary/release-15.md'
   #      - Analyzed Sample Data File (sample): 'dictionary/release-15/analyzed-sample-data-file-sample-v0.7e.md'
   #      - Controlled Vocabulary: 'dictionary/release-15/controlled-vocabulary-v0.7e.md'
   #      - Copy Number Somatic Mutations (cnsm) - Analysis Metadata File (m): 'dictionary/release-15/copy-number-somatic-mutations-cnsm-analysis-metadata-file-m-v0.7e.md'
