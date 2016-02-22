@@ -624,6 +624,8 @@
                         
                         <li class=""><a href="#import-dcc-import">Import (dcc-import)</a></li>
                         
+                        <li class=""><a href="#repository-dcc-repository">Repository (dcc-repository)</a></li>
+                        
                         <li class=""><a href="#iobio-dcc-iobio">iobio (dcc-iobio)</a></li>
                         
                         <li class=""><a href="#parent-dcc-parent">Parent (dcc-parent)</a></li>
@@ -645,8 +647,6 @@
 <h1 id="source-code">Source Code</h1>
 <h2 id="overview">Overview</h2>
 <p>All source code may be found on the <a href="https://github.com/icgc-dcc">ICGC DCC GitHub repository</a>.</p>
-<div class="alert alert-info" role="alert">Note that the DCC is in the process of open-sourcing its repository. This will include inline documentation and configuration management of the operating environment</div>
-
 <h2 id="projects">Projects</h2>
 <h3 id="common-libraries-dcc-common">Common Libraries (<code>dcc-common</code>)</h3>
 <p><a href="https://github.com/icgc-dcc/dcc-common">Common Libraries GitHub repository</a></p>
@@ -657,8 +657,8 @@
 <p>This project includes <a href="https://www.ansible.com/">Ansible</a> playbooks for provisioning ETL, Portal, Downloader and Submission systems as well
 as docker containers for provisioning software on docker hosts.</p>
 <h3 id="submission-system-dcc-submission">Submission System (<code>dcc-submission</code>)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-submission">Submission System GitHub repository</a>
-Software for accepting and validating ICGC clinical and experimental data files. This system powers <a href="https://submissions.dcc.icgc.org/">https://submissions.dcc.icgc.org/</a> and provides the main input to the ETL system.</p>
+<p><a href="https://github.com/icgc-dcc/dcc-submission">Submission System GitHub repository</a></p>
+<p>Software for accepting and validating ICGC clinical and experimental data files. This system powers <a href="https://submissions.dcc.icgc.org/">https://submissions.dcc.icgc.org/</a> and provides the main input to the ETL system.</p>
 <h3 id="data-downloader-dcc-downloader">Data Downloader (<code>dcc-downloader</code>)</h3>
 <p><a href="https://github.com/icgc-dcc/dcc-downloader">Data Downloader GitHub repository</a></p>
 <p>Software component for Archiving and Downloading data used by the Data Portal. Contains the client code as well the oozie
@@ -681,6 +681,9 @@ data which are then used in the Data Portal.</p>
 <p><a href="https://github.com/icgc-dcc/dcc-import">Import GitHub repository</a></p>
 <p>Project which contains all the import modules used for importing reference data for use by the ETL pipeline. Imported data
 is staged in MongoDB.</p>
+<h3 id="repository-dcc-repository">Repository (<code>dcc-repository</code>)</h3>
+<p><a href="https://github.com/icgc-dcc/dcc-repository">Repository GitHub repository</a></p>
+<p>Importer for the ICGC "Data Repository" feature which imports file metadata from various external data repositories.</p>
 <h3 id="iobio-dcc-iobio">iobio (<code>dcc-iobio</code>)</h3>
 <p><a href="https://github.com/icgc-dcc/dcc-iobio">iobio GitHub repository</a></p>
 <p>The ICGC customized iobio containers for accessing ICGC cloud based files. Currently contains the
