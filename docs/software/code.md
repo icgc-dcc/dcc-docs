@@ -4,8 +4,6 @@
 
 All source code may be found on the [ICGC DCC GitHub repository](https://github.com/icgc-dcc).
 
-<div class="alert alert-info" role="alert">Note that the DCC is in the process of open-sourcing its repository. This will include inline documentation and configuration management of the operating environment</div>
-
 ## Projects
 
 ### Common Libraries (`dcc-common`)
@@ -23,6 +21,7 @@ as docker containers for provisioning software on docker hosts.
 
 ### Submission System (`dcc-submission`)
 [Submission System GitHub repository](https://github.com/icgc-dcc/dcc-submission)
+
 Software for accepting and validating ICGC clinical and experimental data files. This system powers [https://submissions.dcc.icgc.org/](https://submissions.dcc.icgc.org/) and provides the main input to the ETL system.
 
 ### Data Downloader (`dcc-downloader`)
@@ -59,6 +58,11 @@ data which are then used in the Data Portal.
 
 Project which contains all the import modules used for importing reference data for use by the ETL pipeline. Imported data
 is staged in MongoDB.
+
+### Repository (`dcc-repository`)
+[Repository GitHub repository](https://github.com/icgc-dcc/dcc-repository)
+
+Importer for the ICGC "Data Repository" feature which imports file metadata from various external data repositories.
 
 ### iobio (`dcc-iobio`)
 [iobio GitHub repository](https://github.com/icgc-dcc/dcc-iobio)
