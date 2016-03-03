@@ -5,44 +5,31 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
 
     _controller.searchQuery = '';
     _controller.baseDictionaryURL = window.$icgcApp.dictionaryViewer.config.baseDictionaryURL || 'https://submissions.dcc.icgc.org';
-
+    _controller.viewMode = DictionaryService.getCurrentViewType();
     _controller.viewTypes = DictionaryService.getViewTypes();
-
-    _controller.switchToReportView = function(reportAnchor) {
-      var search = $location.search();
-
-      _controller.viewMode = 'report';
-      search.viewMode = _controller.viewMode;
-
-      $location.search(search).hash(reportAnchor);
-    };
-
+    _controller.setView = DictionaryService.setView;
     _controller.setDictionaryVersionFilterRange = DictionaryService.setDictionaryFilterRange;
     _controller.versionRange = DictionaryService.dictionaryVersionRange();
     _controller.getDictionaryVersionList = DictionaryService.getDictionaryVersionList;
-    _controller.shouldCompareDictionaries = false;
 
-    $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function(){
-      var changeReport = DictionaryService.generateChangeList();
-      _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
-      _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
-      _controller.fieldsRemovedCount = changeReport.fieldsRemoved.length;
-      _controller.latestDictionaryVersion = DictionaryService.getLatestDictionaryVersion();
+    $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function () {
+      var changeReport = DictionaryService.generateChangeList().then(function () {
 
-      if (! _controller.shouldCompareDictionaries) {
-        _controller.shouldCompareDictionaries = _controller.versionRange.from !== _controller.versionRange.to;
-      }
+        _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
+        _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
 
-      if (_firstRun) {
+        if (_firstRun) {
 
-        _firstRun = false;
+          _firstRun = false;
 
-        $timeout(function() {
-          if ($location.hash()) {
-            $anchorScroll.yOffset = 30;
-            $anchorScroll();
-          }
-        }, 0);
-      }
+          $timeout(function () {
+            if ($location.hash()) {
+              $anchorScroll.yOffset = 30;
+              $anchorScroll();
+            }
+          }, 0);
+        }
+
+      });
     });
   });
