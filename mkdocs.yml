@@ -295,7 +295,7 @@ extra:
   project_description: 'DCC Docs'
   version: 1.0
   dictionary_viewer_page_id: 'Viewer'
-  dictionary_viewer_base_url: 'https://submissions.dcc.icgc.org' #'http://hsubmission-dcc.oicr.on.ca:5380'
+  dictionary_viewer_base_url: 'https://submissions.dcc.icgc.org'
   dictionary_viewer_js_rel_url: '/dictionary/scripts/dictionary.js'
   dictionary_viewer_css_rel_url: '/dictionary/styles/dictionary.css'
   api_endpoint_page_id: 'API Endpoints'
