@@ -624,6 +624,10 @@
                         
                         <li class=""><a href="#get-dictionary-by-version">Get Dictionary by Version</a></li>
                         
+                        <li class=""><a href="#get-all-dictionary-versions">Get All Dictionary Versions</a></li>
+                        
+                        <li class=""><a href="#get-current-dictionary_1">Get Current Dictionary</a></li>
+                        
                     </ul>
                
                </li>
@@ -677,6 +681,16 @@
 <h3 id="get-dictionary-by-version">Get Dictionary by Version</h3>
 <p>The following allows you to retrieve a particular version of the dictionary, where 'versionNum' is the dictionary version number you want to retrieve.</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versionNum -H &quot;Accept: application/json&quot;
+</code></pre>
+
+<h3 id="get-all-dictionary-versions">Get All Dictionary Versions</h3>
+<p>The following allows you to retrieve all available dictionary versions. Each version will also have a list of releases that it is associated with. </p>
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versions -H &quot;Accept: application/json&quot;
+</code></pre>
+
+<h3 id="get-current-dictionary_1">Get Current Dictionary</h3>
+<p>The following allows you to retrieve the current dictionary. </p>
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/current -H &quot;Accept: application/json&quot;
 </code></pre>
                </div>
                </div>
