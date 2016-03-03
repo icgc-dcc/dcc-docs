@@ -77,8 +77,9 @@ After a user has identified the project files they are interested in, using down
 
 Tab-delimited .txt manifest files are used for files that are located in the AWS-Virginia or Collaboratory repos and are used by the [icgc-storage-client](https://dcc.icgc.org/software).
 
-Note:
-accessing data in AWS-Virginia will require you to run the icgc-storage-client from an EC2 VM. You will need an Amazon Web Services account to do this. [Collaboratory](http://docs.icgc.org/cloud/about/#collaboratory) is currently in a closed beta and the data there is not yet publicly available. Contact <help@cancercollaboratory.org> for more information.
+*Note: accessing data in AWS-Virginia will require you to run the icgc-storage-client from an EC2 VM. You will need an Amazon Web Services account to do this.*
+
+*Note: [Collaboratory](http://docs.icgc.org/cloud/about/#collaboratory) is currently in a closed beta and the data there is not yet publicly available. Contact <help@cancercollaboratory.org> for more information.*
 
 A project file entity has a manifest for each repository it is hosted on, and can be downloaded on the [File Copies](repositories.md#file-copies) section.
 
