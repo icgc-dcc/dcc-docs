@@ -1,14 +1,14 @@
 angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', 'chieffancypants.loadingBar'])
-  .controller('DictionaryViewerCtrl', function($scope, $timeout, $location, $anchorScroll, DictionaryService, DictionaryViewerConstants){
+  .controller('DictionaryViewerCtrl', function ($scope, $timeout, $location, $anchorScroll, DictionaryService, DictionaryViewerConstants) {
     var _controller = this,
-        _firstRun = true;
+      _firstRun = true;
 
     _controller.searchQuery = '';
     _controller.baseDictionaryURL = window.$icgcApp.dictionaryViewer.config.baseDictionaryURL || 'https://submissions.dcc.icgc.org';
 
     _controller.viewTypes = DictionaryService.getViewTypes();
 
-    _controller.switchToReportView = function(reportAnchor) {
+    _controller.switchToReportView = function (reportAnchor) {
       var search = $location.search();
 
       _controller.viewMode = 'report';
@@ -22,27 +22,30 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
     _controller.getDictionaryVersionList = DictionaryService.getDictionaryVersionList;
     _controller.shouldCompareDictionaries = false;
 
-    $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function(){
-      var changeReport = DictionaryService.generateChangeList();
-      _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
-      _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
-      _controller.fieldsRemovedCount = changeReport.fieldsRemoved.length;
-      _controller.latestDictionaryVersion = DictionaryService.getLatestDictionaryVersion();
+    $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function () {
+      DictionaryService.generateChangeList().then(function (changeReport) {
 
-      if (! _controller.shouldCompareDictionaries) {
-        _controller.shouldCompareDictionaries = _controller.versionRange.from !== _controller.versionRange.to;
-      }
+        _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
+        _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
+        _controller.fieldsRemovedCount = changeReport.fieldsRemoved.length;
+        _controller.latestDictionaryVersion = DictionaryService.getLatestDictionaryVersion();
 
-      if (_firstRun) {
+        if (!_controller.shouldCompareDictionaries) {
+          _controller.shouldCompareDictionaries = _controller.versionRange.from !== _controller.versionRange.to;
+        }
 
-        _firstRun = false;
+        if (_firstRun) {
 
-        $timeout(function() {
-          if ($location.hash()) {
-            $anchorScroll.yOffset = 30;
-            $anchorScroll();
-          }
-        }, 0);
-      }
+          _firstRun = false;
+
+          $timeout(function () {
+            if ($location.hash()) {
+              $anchorScroll.yOffset = 30;
+              $anchorScroll();
+            }
+          }, 0);
+        }
+
+      });
     });
   });
