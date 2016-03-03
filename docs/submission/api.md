@@ -55,3 +55,19 @@ The following allows you to retrieve a particular version of the dictionary, whe
 ```shell
 curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versionNum -H "Accept: application/json"
 ```
+
+### Get All Dictionary Versions
+
+The following allows you to retrieve all available dictionary versions. Each version will also have a list of releases that it is associated with. 
+
+```shell
+curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versions -H "Accept: application/json"
+```
+
+### Get Current Dictionary
+
+The following allows you to retrieve the current dictionary. 
+
+```shell
+curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/current -H "Accept: application/json"
+```
