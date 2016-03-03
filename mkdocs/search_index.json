@@ -1857,7 +1857,7 @@
         }, 
         {
             "location": "/software/code/", 
-            "text": "Source Code\n\n\nOverview\n\n\nAll source code may be found on the \nICGC DCC GitHub repository\n.\n\n\nNote that the DCC is in the process of open-sourcing its repository. This will include inline documentation and configuration management of the operating environment\n\n\n\nProjects\n\n\nCommon Modules (dcc-common)\n\n\nCommon Modules GitHub repository\n\n\nModules in this project contain common classes used by the ICGC DCC projects. \n\n\nModules\n\n\n\n\nCascading Libraries\n\n\nPortal Client Libraries\n\n\nPortal Core Libraries\n\n\nHadoop Libraries\n\n\nMetadata Libraries\n\n\nTesting Libraries\n\n\n\n\nConfiguration Management (dcc-cm)\n\n\nConfiguration Management GitHub repository\n\n\nAutomation and configuration management for DCC operational environments. \n\n\nThis project includes ansible playbooks for provisioning ETL, Portal, Downloader and Submission systems as well\nas docker containers for provisioning software on docker hosts. \n\n\nData Downloader (dcc-downloader)\n\n\nData Downloader GitHub repository\n\n\nSoftware component for Archiving and Downloading data used by the Data Portal. Contains the client code as well the oozie\nworkflows for execution on Hadoop. \n\n\nData Portal (dcc-portal)\n\n\nPortal GitHub repository\n\n\nProject powering the ICGC Data Portal used for exploring, visualizing, and downloading ICGC data. \n\n\nThe repository contains the source code which powers the Data Portal's API, UI, as well as the underlying query infrastructure. \n\n\nDocs (dcc-docs)\n\n\nDocs GitHub repository\n\n\nSource code for this site. Powered by mkdocs and GitHub Pages. \n\n\nETL (dcc-etl)\n\n\nETL GitHub repository\n\n\nParent project for all the modules that make up the ETL pipeline for transforming project submissions into Data Portal products. \n\n\nModules\n\n\n\n\nClient\n\n\nCore\n\n\nAnnotator\n\n\nLoader\n\n\nExporter\n\n\nImporter\n\n\nSummarizer\n\n\nIndexer\n\n\n\n\nID (dcc-id)\n\n\nID GitHub repository\n\n\nThe ID project is used by DCC ETL project to obfuscate sensitive clinical data. It generates surrogate IDs for submitted clinical\ndata which are then used in the Data Portal. \n\n\nImport (dcc-import)\n\n\nImport GitHub repository\n\n\nProject which contains all the import modules used for importing reference data for use by the ETL pipeline. Imported data\nis staged in MongoDB.\n\n\nModules\n\n\n\n\nClient\n\n\nCore\n\n\nDiagram\n\n\nDrug\n\n\nCGC\n\n\nGene Set\n\n\nGene\n\n\nGO\n\n\nPathway\n\n\nProject\n\n\n\n\niobio (dcc-iobio)\n\n\niobio GitHub repository\n\n\nThe ICGC customized iobio containers for accessing ICGC cloud based files. Currently contains the\nICGC customized bam.iobio container. \n\n\nMajor changes over the base iobio container are related to security improvements and integration of \nthe ICGC Storage Client. \n\n\nParent (dcc-parent)\n\n\nParent POM GitHub repository\n\n\nThis project provides a default configuration for Maven builds for use in ICGC DCC projects.", 
+            "text": "Source Code\n\n\nOverview\n\n\nAll source code may be found on the \nICGC DCC GitHub repository\n.\n\n\nNote that the DCC is in the process of open-sourcing its repository. This will include inline documentation and configuration management of the operating environment", 
             "title": "Source Code"
         }, 
         {
@@ -1869,76 +1869,6 @@
             "location": "/software/code/#overview", 
             "text": "All source code may be found on the  ICGC DCC GitHub repository .  Note that the DCC is in the process of open-sourcing its repository. This will include inline documentation and configuration management of the operating environment", 
             "title": "Overview"
-        }, 
-        {
-            "location": "/software/code/#projects", 
-            "text": "", 
-            "title": "Projects"
-        }, 
-        {
-            "location": "/software/code/#common-modules-dcc-common", 
-            "text": "Common Modules GitHub repository  Modules in this project contain common classes used by the ICGC DCC projects.", 
-            "title": "Common Modules (dcc-common)"
-        }, 
-        {
-            "location": "/software/code/#modules", 
-            "text": "Cascading Libraries  Portal Client Libraries  Portal Core Libraries  Hadoop Libraries  Metadata Libraries  Testing Libraries", 
-            "title": "Modules"
-        }, 
-        {
-            "location": "/software/code/#configuration-management-dcc-cm", 
-            "text": "Configuration Management GitHub repository  Automation and configuration management for DCC operational environments.   This project includes ansible playbooks for provisioning ETL, Portal, Downloader and Submission systems as well\nas docker containers for provisioning software on docker hosts.", 
-            "title": "Configuration Management (dcc-cm)"
-        }, 
-        {
-            "location": "/software/code/#data-downloader-dcc-downloader", 
-            "text": "Data Downloader GitHub repository  Software component for Archiving and Downloading data used by the Data Portal. Contains the client code as well the oozie\nworkflows for execution on Hadoop.", 
-            "title": "Data Downloader (dcc-downloader)"
-        }, 
-        {
-            "location": "/software/code/#data-portal-dcc-portal", 
-            "text": "Portal GitHub repository  Project powering the ICGC Data Portal used for exploring, visualizing, and downloading ICGC data.   The repository contains the source code which powers the Data Portal's API, UI, as well as the underlying query infrastructure.", 
-            "title": "Data Portal (dcc-portal)"
-        }, 
-        {
-            "location": "/software/code/#docs-dcc-docs", 
-            "text": "Docs GitHub repository  Source code for this site. Powered by mkdocs and GitHub Pages.", 
-            "title": "Docs (dcc-docs)"
-        }, 
-        {
-            "location": "/software/code/#etl-dcc-etl", 
-            "text": "ETL GitHub repository  Parent project for all the modules that make up the ETL pipeline for transforming project submissions into Data Portal products.", 
-            "title": "ETL (dcc-etl)"
-        }, 
-        {
-            "location": "/software/code/#modules_1", 
-            "text": "Client  Core  Annotator  Loader  Exporter  Importer  Summarizer  Indexer", 
-            "title": "Modules"
-        }, 
-        {
-            "location": "/software/code/#id-dcc-id", 
-            "text": "ID GitHub repository  The ID project is used by DCC ETL project to obfuscate sensitive clinical data. It generates surrogate IDs for submitted clinical\ndata which are then used in the Data Portal.", 
-            "title": "ID (dcc-id)"
-        }, 
-        {
-            "location": "/software/code/#import-dcc-import", 
-            "text": "Import GitHub repository  Project which contains all the import modules used for importing reference data for use by the ETL pipeline. Imported data\nis staged in MongoDB.", 
-            "title": "Import (dcc-import)"
-        }, 
-        {
-            "location": "/software/code/#modules_2", 
-            "text": "Client  Core  Diagram  Drug  CGC  Gene Set  Gene  GO  Pathway  Project", 
-            "title": "Modules"
-        }, 
-        {
-            "location": "/software/code/#iobio-dcc-iobio", 
-            "text": "iobio GitHub repository  The ICGC customized iobio containers for accessing ICGC cloud based files. Currently contains the\nICGC customized bam.iobio container.   Major changes over the base iobio container are related to security improvements and integration of \nthe ICGC Storage Client.", 
-            "title": "iobio (dcc-iobio)"
-        }, 
-        {
-            "location": "/software/code/#parent-dcc-parent", 
-            "text": "Parent POM GitHub repository  This project provides a default configuration for Maven builds for use in ICGC DCC projects.", 
-            "title": "Parent (dcc-parent)"
         }, 
         {
             "location": "/software/development/", 

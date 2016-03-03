@@ -13,8 +13,7 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
     _controller.getDictionaryVersionList = DictionaryService.getDictionaryVersionList;
 
     $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function () {
-      var changeReport = DictionaryService.generateChangeList().then(function () {
-
+      DictionaryService.generateChangeList().then(function (changeReport) {
         _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
         _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
 
@@ -29,7 +28,8 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
             }
           }, 0);
         }
-
+        
+        
       });
     });
   });

@@ -656,34 +656,6 @@
                
                </li>
            
-               <li class=""><a href="#projects">Projects</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#common-modules-dcc-common">Common Modules (dcc-common)</a></li>
-                        
-                        <li class=""><a href="#configuration-management-dcc-cm">Configuration Management (dcc-cm)</a></li>
-                        
-                        <li class=""><a href="#data-downloader-dcc-downloader">Data Downloader (dcc-downloader)</a></li>
-                        
-                        <li class=""><a href="#data-portal-dcc-portal">Data Portal (dcc-portal)</a></li>
-                        
-                        <li class=""><a href="#docs-dcc-docs">Docs (dcc-docs)</a></li>
-                        
-                        <li class=""><a href="#etl-dcc-etl">ETL (dcc-etl)</a></li>
-                        
-                        <li class=""><a href="#id-dcc-id">ID (dcc-id)</a></li>
-                        
-                        <li class=""><a href="#import-dcc-import">Import (dcc-import)</a></li>
-                        
-                        <li class=""><a href="#iobio-dcc-iobio">iobio (dcc-iobio)</a></li>
-                        
-                        <li class=""><a href="#parent-dcc-parent">Parent (dcc-parent)</a></li>
-                        
-                    </ul>
-               
-               </li>
-           
            </ul>
        </li>
         </li>
@@ -698,80 +670,6 @@
 <h2 id="overview">Overview</h2>
 <p>All source code may be found on the <a href="https://github.com/icgc-dcc">ICGC DCC GitHub repository</a>.</p>
 <div class="alert alert-info" role="alert">Note that the DCC is in the process of open-sourcing its repository. This will include inline documentation and configuration management of the operating environment</div>
-
-<h2 id="projects">Projects</h2>
-<h3 id="common-modules-dcc-common">Common Modules (dcc-common)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-common">Common Modules GitHub repository</a></p>
-<p>Modules in this project contain common classes used by the ICGC DCC projects. </p>
-<h4 id="modules">Modules</h4>
-<ul>
-<li><a href="https://github.com/icgc-dcc/dcc-common/blob/develop/dcc-common-cascading/README.md">Cascading Libraries</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-common/blob/develop/dcc-common-client/README.md">Portal Client Libraries</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-common/blob/develop/dcc-common-core/README.md">Portal Core Libraries</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-common/blob/develop/dcc-common-hadoop/README.md">Hadoop Libraries</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-common/blob/develop/dcc-common-meta/README.md">Metadata Libraries</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-common/blob/develop/dcc-common-test/README.md">Testing Libraries</a></li>
-</ul>
-<h3 id="configuration-management-dcc-cm">Configuration Management (dcc-cm)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-cm">Configuration Management GitHub repository</a></p>
-<p>Automation and configuration management for DCC operational environments. </p>
-<p>This project includes ansible playbooks for provisioning ETL, Portal, Downloader and Submission systems as well
-as docker containers for provisioning software on docker hosts. </p>
-<h3 id="data-downloader-dcc-downloader">Data Downloader (dcc-downloader)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-downloader">Data Downloader GitHub repository</a></p>
-<p>Software component for Archiving and Downloading data used by the Data Portal. Contains the client code as well the oozie
-workflows for execution on Hadoop. </p>
-<h3 id="data-portal-dcc-portal">Data Portal (dcc-portal)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-portal">Portal GitHub repository</a></p>
-<p>Project powering the ICGC Data Portal used for exploring, visualizing, and downloading ICGC data. </p>
-<p>The repository contains the source code which powers the Data Portal's API, UI, as well as the underlying query infrastructure. </p>
-<h3 id="docs-dcc-docs">Docs (dcc-docs)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-docs">Docs GitHub repository</a></p>
-<p>Source code for this site. Powered by mkdocs and GitHub Pages. </p>
-<h3 id="etl-dcc-etl">ETL (dcc-etl)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-etl">ETL GitHub repository</a></p>
-<p>Parent project for all the modules that make up the ETL pipeline for transforming project submissions into Data Portal products. </p>
-<h4 id="modules_1">Modules</h4>
-<ul>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-client/README.md">Client</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-core/README.md">Core</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/cc-etl-annotator/README.md">Annotator</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-loader/README.md">Loader</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-exporter/README.md">Exporter</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-importer/README.md">Importer</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-summarizer/README.md">Summarizer</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-etl/blob/develop/dcc-etl-indexer/README.md">Indexer</a></li>
-</ul>
-<h3 id="id-dcc-id">ID (dcc-id)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-id">ID GitHub repository</a></p>
-<p>The ID project is used by DCC ETL project to obfuscate sensitive clinical data. It generates surrogate IDs for submitted clinical
-data which are then used in the Data Portal. </p>
-<h3 id="import-dcc-import">Import (dcc-import)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-import">Import GitHub repository</a></p>
-<p>Project which contains all the import modules used for importing reference data for use by the ETL pipeline. Imported data
-is staged in MongoDB.</p>
-<h4 id="modules_2">Modules</h4>
-<ul>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-client/README.md">Client</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-core/README.md">Core</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-diagram/README.md">Diagram</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-drug/README.md">Drug</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-cgc/README.md">CGC</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-geneset/README.md">Gene Set</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-gene/README.md">Gene</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-go/README.md">GO</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-pathway/README.md">Pathway</a></li>
-<li><a href="https://github.com/icgc-dcc/dcc-import/blob/develop/dcc-import-project/README.md">Project</a></li>
-</ul>
-<h3 id="iobio-dcc-iobio">iobio (dcc-iobio)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-iobio">iobio GitHub repository</a></p>
-<p>The ICGC customized iobio containers for accessing ICGC cloud based files. Currently contains the
-ICGC customized bam.iobio container. </p>
-<p>Major changes over the base iobio container are related to security improvements and integration of 
-the ICGC Storage Client. </p>
-<h3 id="parent-dcc-parent">Parent (dcc-parent)</h3>
-<p><a href="https://github.com/icgc-dcc/dcc-parent">Parent POM GitHub repository</a></p>
-<p>This project provides a default configuration for Maven builds for use in ICGC DCC projects. </p>
                </div>
                </div>
             </div>
