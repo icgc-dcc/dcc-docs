@@ -12,21 +12,24 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
     _controller.versionRange = DictionaryService.dictionaryVersionRange();
     _controller.getDictionaryVersionList = DictionaryService.getDictionaryVersionList;
 
-    $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function(){
-      var changeReport = DictionaryService.generateChangeList();
-      _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
-      _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
+    $scope.$on(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, function () {
+      var changeReport = DictionaryService.generateChangeList().then(function () {
 
-      if (_firstRun) {
+        _controller.fieldsAddedCount = changeReport.fieldsAdded.length;
+        _controller.fieldsChangedCount = changeReport.fieldsChanged.length;
 
-        _firstRun = false;
+        if (_firstRun) {
 
-        $timeout(function() {
-          if ($location.hash()) {
-            $anchorScroll.yOffset = 30;
-            $anchorScroll();
-          }
-        }, 0);
-      }
+          _firstRun = false;
+
+          $timeout(function () {
+            if ($location.hash()) {
+              $anchorScroll.yOffset = 30;
+              $anchorScroll();
+            }
+          }, 0);
+        }
+
+      });
     });
   });
