@@ -26,7 +26,7 @@ $(function () {
 
       // animate
       scrollBody.animate({
-         scrollTop: scrollTargetEl.offset().top
+         scrollTop: scrollTargetEl.offset().top + 7
       }, 300, function(){
 
          var targetEl = scrollTargetEl.find('a'),
