@@ -2,7 +2,9 @@
 
 ## Overview
 
-The ICGC Data Repositories page is a means for users to browse through ICGC data. The ICGC data is periodically being aggregated and indexed, and is hosted on multiple archives and cloud repositories worldwide. The feature is best utilized through the use diverse filters provided, allowing the user to narrow down on projects throughout the repositories.
+The ICGC Portal is a search tool aggregating metadata about clinical, raw and experimental data. The data is actually housed on separate repositories belonging to ICGC member projects. The Data Repositories page allows users to browse the federated metadata, providing diverse filters to help refine searches.
+
+Once users identify the files they are interested in through the Data Portal, retrieving the actual data is a separate operation that must be performed against the data’s home repositories.  In some cases, the data overlaps between repostories, but depending on the user's interests, it’s likely that downloads will need to occur from multiple repositories. While ICGC strives to consolidate as much as possible, it is an ongoing process that is subject to restrictions imposed by the governance of some data sets.
 
 ## Browser
 
@@ -71,9 +73,15 @@ The BAM Stats section provides general information on the BAM file selected. Thi
 
 ### Manifests
 
-A Manifest is a text file that is the main way to notify download clients what files should be downloaded. Each file entity has a Manifest per repository, and can be downloaded on the [File Copies](repositories.md#file-copies) section.
+After a user has identified the project files they are interested in, using download clients will be necessary to actually retrieve the data from their host repositories. There are currently two different manifest file formats in use at ICGC; XML manifests are specific to GNOS repositories and are used by the [GeneTorrent transfer client](https://cghub.ucsc.edu/software/downloads.html).
 
-If the situation comes up where more than one file is needed, the **Download manifests** button can be used to download all the selected files, or if none are selected, all the files. The result would be a single Manifest file for each repository, containing all the files that belonged to that repository and were selected.
+Tab-delimited .txt manifest files are used for files that are located in the AWS-Virginia or Collaboratory repos and are used by the [icgc-storage-client](https://dcc.icgc.org/software).
+
+*Refer to the [Cloud Guide](http://docs.icgc.org/cloud/guide/#compute-prerequisites) for important details about the pre-requisites necessary to access data in the AWS-Virginia and Collaboratory cloud repositories.*
+
+A project file entity has a manifest for each repository it is hosted on, and can be downloaded on the [File Copies](repositories.md#file-copies) section.
+
+If the situation occurs where more than one file is needed, the **Download manifests** button can be used to download the selected files all at once. If none are selected, all the files are included. The result would be a single Manifest file for each repository, containing all the files that belonged to that repository (and selected, if applicable).
 [![](images/data-repositories-download-manifests.png)](images/data-repositories-download-manifests.png "Click on the image to see it in full")
 [![](images/data-repository-selected-files.png)](images/data-repository-selected-files.png "Click on the image to see it in full")
 Selected 4(four) out of 7(seven) files in the same repository.
@@ -83,7 +91,7 @@ Selected 4(four) out of 7(seven) files in the same repository.
 Only one Manifest file because the 4(four) files were in the same repository.
 
 **Note**
-For repositories such as Collaboratory and AWS, the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click [here](/cloud/guide.md#overview)
+For repositories such as Collaboratory and [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws/), the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click [here](/cloud/guide.md#overview)
 
 ### Donor Sets
 
