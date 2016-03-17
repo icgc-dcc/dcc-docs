@@ -330,7 +330,8 @@ $(function() {
       }
 
       var _prevScrollOffset = 0,
-          _document = $(document);
+          _document = $(document),
+          _anchorOffsetMap = [];
 
 
       function _onScroll() {
@@ -350,10 +351,57 @@ $(function() {
           _prevScrollOffset = currentScrollOffset;
         }
 
+        var mainContainer = $('.main-container'),
+          selectedNavRegion = _bsSidebar.find('.main');
+
+        // TODO: Could improve the search complexity O(n) given that the list is sorted by offset
+        var findAnchorForOffset = function(offset) {
+
+          if (! _anchorOffsetMap.length) {
+            return 0;
+          }
+          else if (_anchorOffsetMap.length === 1) {
+            return _anchorOffsetMap[0];
+          }
+
+          var i = 0;
+
+          for (; i < _anchorOffsetMap.length; i++) {
+            if (_anchorOffsetMap[i].offset > offset) {
+              break;
+            }
+          }
+
+          return _anchorOffsetMap[i - 1];
+        };
+
+        var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top + $('#docs-footer').outerHeight() - $(window).outerHeight());
+        var percentPageScrolled = Math.min(1.0, $(window).scrollTop() / scollableDistance);
+
+        var proposedOffset  = selectedNavRegion.outerHeight() * percentPageScrolled,
+            anchorOffset = findAnchorForOffset(proposedOffset);
+
+        _bsSidebar.stop().animate({
+          scrollTop: Math.min(anchorOffset.offset - anchorOffset.height * 2, proposedOffset)
+        }, 200);
+
         _recalcMax();
       }
 
 
+      var totalAnchorHeight = 0;
+
+      _bsSidebar.find('a').each(function() {
+        var anchor = $(this),
+            anchorHeight = anchor.outerHeight();
+
+        _anchorOffsetMap.push({offset: totalAnchorHeight, height: anchorHeight});
+
+        totalAnchorHeight += anchorHeight;
+      });
+
+
+      _bsSidebar.scroll(function(e) { e.stopPropagation(); });
       windowEl.scroll(_onScroll);
       windowEl.resize(_recalcMax)
     }
