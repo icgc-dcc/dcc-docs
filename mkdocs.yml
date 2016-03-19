@@ -286,6 +286,7 @@ pages:
   #      - miRNA Expression (mirna) - Secondary Analysis File (s): 'dictionary/release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e.md'
 - Software:
   - About: 'software/about.md'
+  - Releases: 'software/releases.md'
   - Binaries: 'software/binaries.md'
   - Source Code: 'software/code.md'
   - Development: 'software/development.md'
