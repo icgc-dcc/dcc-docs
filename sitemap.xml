@@ -184,6 +184,12 @@
     </url>
         
     <url>
+     <loc>http://docs.icgc.org/software/releases/</loc>
+     <lastmod>2016-03-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://docs.icgc.org/software/binaries/</loc>
      <lastmod>2016-03-19</lastmod>
      <changefreq>daily</changefreq>

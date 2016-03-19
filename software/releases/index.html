@@ -8,10 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          
         
-        <link rel="canonical" href="http://docs.icgc.org/portal/api/">
+        <link rel="canonical" href="http://docs.icgc.org/software/releases/">
         <link rel="shortcut icon" href="/img/favicon.ico">
 
-   <title>API - ICGC DCC Docs</title>
+   <title>Releases - ICGC DCC Docs</title>
 
         
 
@@ -72,14 +72,14 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
     
-    <a href="../about/">About</a>
+    <a href="../../portal/about/">About</a>
     
 </li>
 
@@ -87,7 +87,7 @@
                         
 <li >
     
-    <a href="../access/">Access</a>
+    <a href="../../portal/access/">Access</a>
     
 </li>
 
@@ -95,15 +95,7 @@
                         
 <li >
     
-    <a href="../analysis/">Analysis</a>
-    
-</li>
-
-                    
-                        
-<li class="active">
-    
-    <a href="./">API</a>
+    <a href="../../portal/analysis/">Analysis</a>
     
 </li>
 
@@ -111,7 +103,7 @@
                         
 <li >
     
-    <a href="../api-endpoints/">API Endpoints</a>
+    <a href="../../portal/api/">API</a>
     
 </li>
 
@@ -119,7 +111,7 @@
                         
 <li >
     
-    <a href="../methods/">Methods</a>
+    <a href="../../portal/api-endpoints/">API Endpoints</a>
     
 </li>
 
@@ -127,7 +119,7 @@
                         
 <li >
     
-    <a href="../projects/">Projects</a>
+    <a href="../../portal/methods/">Methods</a>
     
 </li>
 
@@ -135,7 +127,7 @@
                         
 <li >
     
-    <a href="../publication/">Publication</a>
+    <a href="../../portal/projects/">Projects</a>
     
 </li>
 
@@ -143,7 +135,7 @@
                         
 <li >
     
-    <a href="../releases/">Releases</a>
+    <a href="../../portal/publication/">Publication</a>
     
 </li>
 
@@ -151,7 +143,7 @@
                         
 <li >
     
-    <a href="../repositories/">Repositories</a>
+    <a href="../../portal/releases/">Releases</a>
     
 </li>
 
@@ -159,7 +151,7 @@
                         
 <li >
     
-    <a href="../search/">Search</a>
+    <a href="../../portal/repositories/">Repositories</a>
     
 </li>
 
@@ -167,7 +159,15 @@
                         
 <li >
     
-    <a href="../software/">Software</a>
+    <a href="../../portal/search/">Search</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/software/">Software</a>
     
 </li>
 
@@ -511,14 +511,22 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
     
-    <a href="../../software/about/">About</a>
+    <a href="../about/">About</a>
+    
+</li>
+
+                    
+                        
+<li class="active">
+    
+    <a href="./">Releases</a>
     
 </li>
 
@@ -526,7 +534,7 @@
                         
 <li >
     
-    <a href="../../software/releases/">Releases</a>
+    <a href="../binaries/">Binaries</a>
     
 </li>
 
@@ -534,7 +542,7 @@
                         
 <li >
     
-    <a href="../../software/binaries/">Binaries</a>
+    <a href="../code/">Source Code</a>
     
 </li>
 
@@ -542,15 +550,7 @@
                         
 <li >
     
-    <a href="../../software/code/">Source Code</a>
-    
-</li>
-
-                    
-                        
-<li >
-    
-    <a href="../../software/development/">Development</a>
+    <a href="../development/">Development</a>
     
 </li>
 
@@ -603,54 +603,8 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#portal-api">Portal API</a>
+        <li class="main active"><a href="#storage-client-release-log">Storage Client - Release Log</a>
            <ul class="nav">
-           
-               <li class=""><a href="#controlled-access">Controlled Access</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#logging-in-from-the-command-line">Logging in from the Command Line</a></li>
-                        
-                    </ul>
-               
-               </li>
-           
-               <li class=""><a href="#downloading-static-files">Downloading Static Files</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#controlled-access_1">Controlled Access</a></li>
-                        
-                    </ul>
-               
-               </li>
-           
-               <li class=""><a href="#dynamic-filtered-download">Dynamic Filtered Download</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#start-a-job">Start a job</a></li>
-                        
-                        <li class=""><a href="#view-status">View status</a></li>
-                        
-                        <li class=""><a href="#downloading">Downloading</a></li>
-                        
-                        <li class=""><a href="#controlled-access_2">Controlled Access</a></li>
-                        
-                    </ul>
-               
-               </li>
-           
-               <li class=""><a href="#common-errors">Common Errors</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#file-downloaded-successfully-but-only-133b">File downloaded successfully but only 133B</a></li>
-                        
-                    </ul>
-               
-               </li>
            
            </ul>
        </li>
@@ -662,128 +616,43 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="portal-api">Portal API</h1>
-<p>The ICGC Portal API can be accessed from the command line using <a href="http://curl.haxx.se/docs/manpage.html">cURL</a> but we suggest using <a href="https://github.com/jakubroztocil/httpie">httpie</a>, a cURL replacement that is particularly well-suited to JSON-based REST APIs. The following examples will contain instuctions for using both cURL and httpie.</p>
-<p>ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -- that allows third-party developers to build automation scripts and apps.</p>
-<p>Please see the <a href="../../portal/api-endpoints/">API Endpoint Documentation</a> for detailed information on the API endpoints, representations and how the API responds to different requests.</p>
-<h2 id="controlled-access">Controlled Access</h2>
-<h3 id="logging-in-from-the-command-line">Logging in from the Command Line</h3>
-<p>Logging in to the <strong>ICGC Portal API</strong> from the command line requires an ICGC.org account.</p>
-<p><strong>Request</strong></p>
-<pre><code>$ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d {&quot;username&quot;:&quot;...&quot;,&quot;password&quot;:&quot;...&quot;}
-
-$ http POST username=&quot;...&quot; password=&quot;...&quot; 'https://dcc.icgc.org/api/v1/auth/login'
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>{token: YOUR_DCC_PORTAL_TOKEN_HERE}
-</code></pre>
-
-<h2 id="downloading-static-files">Downloading Static Files</h2>
-<p><strong>Request</strong></p>
-<pre><code>$ curl -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
-
-$ http -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>% Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
-                               Dload  Upload   Total   Spent    Left     Speed
-100 21.8M  100 21.8M    0     0  27.6M      0 --:--:-- --:--:-- --:--:-- 27.5M
-</code></pre>
-
-<h3 id="controlled-access_1">Controlled Access</h3>
-<p><strong>Request</strong></p>
-<pre><code>$ curl -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-
-$ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>% Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
-                               Dload  Upload   Total   Spent    Left     Speed
-100 21.8M  100 21.8M    0     0  27.6M      0 --:--:-- --:--:-- --:--:-- 27.5M
-</code></pre>
-
-<h2 id="dynamic-filtered-download">Dynamic Filtered Download</h2>
-<h3 id="start-a-job">Start a job</h3>
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM'
-
-$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM'
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>{&quot;downloadId&quot;:&quot;YOUR_DOWNLOAD_ID&quot;}
-</code></pre>
-
-<p><strong>Optional</strong></p>
-<p>You can include your email address in the request to recieve email updates on the status of your download but it is not required. You can also view the status of your download by going to <code>https://dcc.icgc.orb/downloads/YOUR_DOWNLOAD_ID</code></p>
-<h3 id="view-status">View status</h3>
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>[{
-    &quot;downloadId&quot;: &quot;YOUR_DOWNLOAD_ID&quot;,
-    &quot;progress&quot;: [
-        {
-            &quot;completed&quot;: &quot;true&quot;,
-            &quot;dataType&quot;: &quot;ssm&quot;,
-            &quot;denominator&quot;: &quot;328238&quot;,
-            &quot;numerator&quot;: &quot;629347&quot;,
-            &quot;percentage&quot;: &quot;0.5&quot;
-        }
-    ],
-    &quot;status&quot;: &quot;RUNNING&quot;
-}]
-</code></pre>
-
-<h3 id="downloading">Downloading</h3>
-<p>When you see <code>"status": "SUCCEEDED"</code> you can download the file.</p>
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>% Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
-                               Dload  Upload   Total   Spent    Left     Speed
-100 12.3M    0 12.3M    0     0   471k      0 --:--:--  0:00:26 --:--:-- 3411k
-</code></pre>
-
-<h3 id="controlled-access_2">Controlled Access</h3>
-<p>If the Dynamic Download Job contains controlled access data you must include your <code>dcc_portal_token</code> with every request.</p>
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-
-$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-</code></pre>
-
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-</code></pre>
-
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-</code></pre>
-
-<h2 id="common-errors">Common Errors</h2>
-<h3 id="file-downloaded-successfully-but-only-133b">File downloaded successfully but only 133B</h3>
-<p>Look into the file, you should see a message along the lines of:</p>
-<pre><code>Error(code=404, message=Download with id '/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' not found.)
-</code></pre>
-
-<p><strong>Solution</strong></p>
-<p>Make sure the path to the file is correct and if you are trying to download a controlled access file make sure your <code>dcc_access_token</code> is valid.</p>
+<h1 id="storage-client-release-log">Storage Client - Release Log</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Release Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0.5</td>
+<td>Dec 5, 2015</td>
+<td>GA Client release - cleaned up command line arguments; removed obsolete, unused options</td>
+</tr>
+<tr>
+<td>1.0.8</td>
+<td>Feb 11, 2016</td>
+<td>Improved informational and error messages to user</td>
+</tr>
+<tr>
+<td>1.0.9</td>
+<td>Feb 17, 2016</td>
+<td>Perform check for adequate disk space before beginning downloads</td>
+</tr>
+<tr>
+<td>1.0.10</td>
+<td>Feb 19, 2016</td>
+<td>Additional user informational message improvements</td>
+</tr>
+<tr>
+<td>1.0.12</td>
+<td>Mar 19, 2016</td>
+<td>Fixed application of HTTP timeouts for uploads / downloads</td>
+</tr>
+</tbody>
+</table>
                </div>
                </div>
             </div>
