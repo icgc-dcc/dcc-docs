@@ -57,4 +57,4 @@ If the patient went on to have for example radiotherapy afterwards, this would b
 
 If you are not sure if therapy took place before or after the specimen was resected for analyses, please enter the information in the “specimen_donor_treatment_type_other” as this is free text and you may add a notification that the timing of therapy it is not clear.
 
-[1]: /guide/dcc-data-element-specifications.md#missing-or-unknown-values
+[1]: /submission/guide/dcc-data-element-specifications/#missing-or-unknown-values
