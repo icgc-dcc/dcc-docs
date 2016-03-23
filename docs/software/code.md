@@ -20,7 +20,7 @@ This project includes [Ansible](https://www.ansible.com/) playbooks for provisio
 as docker containers for provisioning software on docker hosts.
 
 ### Storage System (`dcc-storage`)
-[Stroage System GitHub repository](https://github.com/icgc-dcc/dcc-storage)
+[Storage System GitHub repository](https://github.com/icgc-dcc/dcc-storage)
 
 Software for uploading and downloading ICGC files in cloud environments. This system powers [ICGC in the Cloud](/cloud/about/).
 
