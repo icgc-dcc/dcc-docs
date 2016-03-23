@@ -19,6 +19,11 @@ Installation automation and [configuration management](https://www.wikiwand.com/
 This project includes [Ansible](https://www.ansible.com/) playbooks for provisioning ETL, Portal, Downloader and Submission systems as well
 as docker containers for provisioning software on docker hosts.
 
+### Storage System (`dcc-storage`)
+[Stroage System GitHub repository](https://github.com/icgc-dcc/dcc-storage)
+
+Software for uploading and downloading ICGC files in cloud environments. This system powers [ICGC in the Cloud](/cloud/about/).
+
 ### Submission System (`dcc-submission`)
 [Submission System GitHub repository](https://github.com/icgc-dcc/dcc-submission)
 
