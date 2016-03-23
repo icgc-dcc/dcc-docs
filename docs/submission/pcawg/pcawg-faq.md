@@ -22,7 +22,6 @@ If you are unable to classify the response, then please enter unknown. Please no
 * **'N/A Valid'** indicates the field accepts -777 or -888 reserve codes
 * **'N/A Invalid'** indicates the field does not accept -777 or -888 reserve codes. A valid value must be provided
 
-Please see [here][1] for more details.
 
 
 #### 4. What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?
