@@ -25,7 +25,6 @@ If you are unable to classify the response, then please enter unknown. Please no
 Please see [here][1] for more details.
 
 
-
 #### 4. What should I enter if the answer to the question about relationship_age in the Donor Family table is unknown?
 
 The dictionary allows “relationship_age” to be specified as “N/A Valid”. Therefore, you can submit one of the Missing/Unknown DCC Reserve Codes if the relationship_age is unknown.
