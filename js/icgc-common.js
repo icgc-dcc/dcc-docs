@@ -7,6 +7,53 @@ $(function() {
       window.$icgcApp = {config: {}};
     }
 
+    function _initScrollSpy() {
+      var scrollSpyTarget = '.bs-sidebar',
+        scrollBody = $('html, body');
+
+
+      // Stripe tables
+      $('table').addClass('table table-striped table-hover');
+
+      // Enable side ToC
+      $('body').scrollspy({
+        target: scrollSpyTarget,
+        offset: 0
+      });
+
+      $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
+
+        // prevent default anchor click behavior
+        e.preventDefault();
+
+        // store hash
+        var hash = this.hash,
+          scrollTargetEl = $(hash);
+
+        // animate
+        scrollBody.animate({
+          scrollTop: scrollTargetEl.offset().top + 7
+        }, 300, function(){
+
+          var targetEl = scrollTargetEl.find('a'),
+            classes = 'animated-long focusText';
+
+          targetEl.addClass(classes);
+
+          setTimeout(function() { targetEl.removeClass(classes); }, 1100);
+          // when done, add hash to url
+          // (default click behaviour)
+          window.location.hash = hash;
+        });
+
+      });
+
+      // Prevent disabled links from causing a page reload
+      $("li.disabled a").click(function (e) {
+        e.preventDefault();
+      });
+    }
+
 
     function _initSearch(confineToContainerID) {
 
@@ -238,12 +285,40 @@ $(function() {
     }
 
     function _initHeaders(confineToContainerID) {
-      var header = $(confineToContainerID + ' h1');
-      if (header.hasClass('no-auto-render')) {
+
+      var $body = $(confineToContainerID);
+
+      // Add header links
+      $(":header", $body).each(function (i, header) {
+        var $header = $(header);
+
+        if ($header.hasClass('no-auto-render')) {
+          return;
+        }
+
+        var id = $header.attr('id');
+        var icon = '&nbsp;<i class="icon-share-1"></i>';
+
+        if (id) {
+          var title = $header.text();
+          $header.text("");
+          //$header.prepend($("<a/>").addClass("header-link").attr("href", "#" + id)); //.html(icon));
+          $header.append($("<a/>")
+            .addClass("header-text-link")
+            .attr("href", "#" + id)
+            .attr("title", "Click on this header and copy URL to link to this section.")
+            .append(title)
+            .append(icon));
+        }
+      });
+
+      var mainHeader = $('h1', $body);
+
+      if (mainHeader.hasClass('no-auto-render')) {
         return;
       }
 
-      header.prepend('<span class="header-badge"><i class="icon-book-open"></i></span>');
+      mainHeader.prepend('<span class="header-badge"><i class="icon-book-open"></i></span>');
     }
 
     function _initLinks(confineToContainerID) {
@@ -459,6 +534,27 @@ $(function() {
       });
     }
 
+    function _initScrollUpIndicator() {
+      $.scrollUp({
+        scrollName: 'scroll-up-indicator',
+        scrollDistance: 300,
+        scrollFrom: 'top',
+        scrollSpeed: 300,
+        easingType: 'swing',
+        animation: 'fade',
+        animationSpeed: 200,
+        scrollText: 'Scroll to top',
+        scrollTitle: 'Scroll to the top of this page.',
+        scrollImg: {
+          active: true
+        },
+        activeOverlay: false,
+        zIndex: 100000
+      });
+
+      $('#scroll-up-indicator').html('<span style="display: none">Scroll to the top of this page.</span>');
+    }
+
     var _bsSidebar = $('.bs-sidebar');
 
     if (_bsSidebar.length) {
@@ -468,12 +564,17 @@ $(function() {
     var BODY_ID = '#body';
     var _hideMenuOffset = 64;
 
+    _initScrollSpy();
     _initMenuNavBar('.navbar-nav', '> li');
     _initHeaders(BODY_ID);
     _initLinks(BODY_ID);
     _initSearch(BODY_ID);
     _calcMainContentWidth();
     _initAlerts();
+    _initScrollUpIndicator();
+
+    // Hightlight code
+    hljs.initHighlightingOnLoad();
 
     var _handleFontTransition = function () {
       var bodyEl =  $(BODY_ID);
@@ -490,24 +591,6 @@ $(function() {
       });
 
     }, 0);
-
-    $.scrollUp({
-      scrollName: 'scroll-up-indicator',
-      scrollDistance: 300,
-      scrollFrom: 'top',
-      scrollSpeed: 300,
-      easingType: 'swing',
-      animation: 'fade',
-      animationSpeed: 200,
-      scrollText: 'Scroll to top',
-      scrollTitle: 'Scroll to the top of this page.',
-      scrollImg: {
-        active: true
-      },
-      activeOverlay: false,
-      zIndex: 100000
-    });
-
 
 
   }
