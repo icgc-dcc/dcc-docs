@@ -17,7 +17,7 @@ The ICGC Data Portal will provide analysis tools such as Enrichment Analysis, Se
 * Enrichment Analysis:
 
     * Select a gene set with a maximum of 10,000 genes to launch Enrichment Analysis.
-    * See calculation methodology on this link: [https://docs.icgc.org/methods#enrichmentanalysis](https://docs.icgc.org/methods#enrichmentanalysis).
+    * See calculation methodology on this link: [http://docs.icgc.org/portal/methods/#gene-set-enrichment-analysis](/portal/methods/#gene-set-enrichment-analysis).
   
 * Set Operation:
 
