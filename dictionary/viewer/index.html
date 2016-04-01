@@ -667,7 +667,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <input class="form-control" type="search" role="search" placeholder="Search Dictionary" data-ng-model="DictionaryViewCtrl.searchQuery">
+                    <input class="form-control" type="search" role="search" placeholder="Search Dictionary"  data-ng-model-options="{debounce: 350}" data-ng-model="DictionaryViewCtrl.searchQuery">
                 </div>
             </div>
             <div style="text-align:right;" data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">
