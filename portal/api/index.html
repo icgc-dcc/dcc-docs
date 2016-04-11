@@ -709,7 +709,7 @@ $ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.or
 <h2 id="dynamic-filtered-download">Dynamic Filtered Download</h2>
 <h3 id="start-a-job">Start a job</h3>
 <p><strong>Request</strong></p>
-<pre><code>$ url -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM'
+<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM'
 
 $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM'
 </code></pre>
