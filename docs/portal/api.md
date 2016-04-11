@@ -6,6 +6,8 @@ ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -
 
 Please see the [API Endpoint Documentation](/portal/api-endpoints/) for detailed information on the API endpoints, representations and how the API responds to different requests.
 
+The following examples are known to work with [curl](https://curl.haxx.se/) v7.43.0 and [httpie](https://github.com/jkbrzt/httpie#http-method) v0.9.3.
+
 ## Controlled Access
 
 ### Logging in from the Command Line
@@ -14,9 +16,9 @@ Logging in to the **ICGC Portal API** from the command line requires an ICGC.org
 
 **Request**
 ```
-$ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d {"username":"...","password":"..."}
+$ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d '{"username":"...","password":"..."}'
 
-$ http POST username="..." password="..." 'https://dcc.icgc.org/api/v1/auth/login'
+$ http 'https://dcc.icgc.org/api/v1/auth/login' username='...' password='...'
 ```
 **Response**
 
@@ -61,7 +63,7 @@ $ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.or
 **Request**
 
 ```
-$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]&email=YOUR@EMAIL.COM'
+$ url -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]&email=YOUR@EMAIL.COM'
 
 $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"ssm","value":"TSV"}]' 'email==YOUR@EMAIL.COM'
 ```
@@ -130,7 +132,7 @@ If the Dynamic Download Job contains controlled access data you must include you
 **Request**
 
 ```
-$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"sgv","value":"TSV"}]&email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"sgv","value":"TSV"}]&email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 
 $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"sgv","value":"TSV"}]' 'email==YOUR@EMAIL.COM' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 ```
@@ -148,7 +150,7 @@ $ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' 'Cookie:dc
 ```
 $ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
 
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
 ```
 
 ## Common Errors
