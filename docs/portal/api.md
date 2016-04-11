@@ -63,7 +63,7 @@ $ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.or
 **Request**
 
 ```
-$ url -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]&email=YOUR@EMAIL.COM'
+$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]&email=YOUR@EMAIL.COM'
 
 $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"ssm","value":"TSV"}]' 'email==YOUR@EMAIL.COM'
 ```
