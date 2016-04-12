@@ -712,6 +712,8 @@
                         
                         <li class=""><a href="#i-cant-use-the-result-of-a-url-command-with-samtools">I can’t use the result of a url command with samtools:</a></li>
                         
+                        <li class=""><a href="#why-is-my-total-bytes-read-count-different-from-my-total-bytes-written">Why is my 'Total bytes read' count different from my 'Total bytes written'?</a></li>
+                        
                         <li class=""><a href="#how-do-i-report-a-bug-in-the-software">How do I report a bug in the software?</a></li>
                         
                     </ul>
@@ -1016,12 +1018,25 @@ samtools view /mnt/fff75930-0f8c-4c99-9b48-732e7ed4c625/443a7a6ab964e41c011cc9a3
 <h5 id="how-long-will-pre-signed-urls-remain-valid">How long will pre-signed URLs remain valid?</h5>
 <p>Pre-signed URLs are valid for 1 day from the time they are issued. For security purposes, a URL issued to one user must not be used by another and must be kept private.</p>
 <h5 id="does-the-client-maintain-state">Does the client maintain state?</h5>
-<p>Yes, the client maintains state in the working directory in a hidden file <code>.&lt;Object ID&gt;/meta</code>. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the <code>mount</code> command with the <code>--cache-metadata</code> option, <code>.entities.cache</code> and <code>.objects.cache</code> are stored in the current working directory.</p>
+<p>Yes, the client maintains state, for <em>downloads</em>, in the working directory in a hidden file <code>.&lt;Object ID&gt;/meta</code>. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the <code>mount</code> command with the <code>--cache-metadata</code> option, <code>.entities.cache</code> and <code>.objects.cache</code> are stored in the current working directory.</p>
 <h5 id="why-do-i-get-a-security-exception-when-i-try-to-download-an-object">Why do I get a security exception when I try to download an object?</h5>
 <p>If you are targeting the AWS cloud, ensure that you are running within the <code>us-east-1</code> <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones">region</a>. If you are targeting Collaboratory, make sure you are inside the OpenStack environment.</p>
 <h5 id="i-cant-use-the-result-of-a-url-command-with-samtools">I can’t use the result of a <code>url</code> command with <code>samtools</code>:</h5>
 <p><code>samtools</code> doesn’t support the HTTPS protocol<span style="color: rgb(160, 58, 58);">*</span>, which is required by ICGC to access S3-stored data files. Use the client <code>view</code> command to pipe data to samtools, download the desired files locally, or use the mount command to create a FUSE mount of the ICGC data files.</p>
 <p><span style="color: rgb(160, 58, 58);">*</span> <strong>Update</strong>: As of commit <a href="https://github.com/samtools/htslib/commit/fe1f08a3a80b8a5a17fa56b3fc1808ab2ac25d63">fe1f08a</a> <code>samtools</code> now supports file access over HTTPS and Amazon S3.</p>
+<h5 id="why-is-my-total-bytes-read-count-different-from-my-total-bytes-written">Why is my 'Total bytes read' count different from my 'Total bytes written'?</h5>
+<pre><code>./icgc/bin/icgc-storage-client --profile collab download --object-id 6d89e978-34f6-5074-b30e-01b7203fcbb3 --output-dir /tmp
+Downloading...
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+100% [##################################################]  Parts: 208/208, Checksum: 100%, Write/sec: 47.7M/s, Read/sec: 48.1M/s
+Finalizing...
+Total execution time:         1.301 h
+
+Total bytes read    : 225,224,593,891
+Total bytes written : 223,331,450,672
+</code></pre>
+
+<p>Because of the size of BAM files, ICGC upload/downloads tend to be long-running, making them susceptible to any of the myriad ways a network can fail. ICGC attempts to recover from these usually-brief outages automatically and this often necessitates repeat downloads of sub-parts of the file. This will result in a "Total bytes read" amount larger than the "Total bytes written". The total byte counts are informational only and not used to determine "correctness" or "completeness" of any given download.</p>
 <h5 id="how-do-i-report-a-bug-in-the-software">How do I report a bug in the software?</h5>
 <p>Please contact <a href="mailto:dcc-support@icgc.org">dcc-support@icgc.org</a> and include the version of the software in the body of the message (<code>bin/icgc-storage-client --version</code>).</p>
 <h2 id="terms">Terms</h2>
