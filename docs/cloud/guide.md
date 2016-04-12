@@ -448,7 +448,7 @@ Pre-signed URLs are valid for 1 day from the time they are issued. For security 
 
 ##### Does the client maintain state?
 
-Yes, the client maintains state in the working directory in a hidden file `.<Object ID>/meta`. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the `mount` command with the `--cache-metadata` option, `.entities.cache` and `.objects.cache` are stored in the current working directory.
+Yes, the client maintains state, for *downloads*, in the working directory in a hidden file `.<Object ID>/meta`. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the `mount` command with the `--cache-metadata` option, `.entities.cache` and `.objects.cache` are stored in the current working directory.
 
 ##### Why do I get a security exception when I try to download an object?
 
@@ -459,6 +459,22 @@ If you are targeting the AWS cloud, ensure that you are running within the `us-e
 `samtools` doesn’t support the HTTPS protocol<span style="color: rgb(160, 58, 58);">*</span>, which is required by ICGC to access S3-stored data files. Use the client `view` command to pipe data to samtools, download the desired files locally, or use the mount command to create a FUSE mount of the ICGC data files.
 
 <span style="color: rgb(160, 58, 58);">*</span> **Update**: As of commit [fe1f08a](https://github.com/samtools/htslib/commit/fe1f08a3a80b8a5a17fa56b3fc1808ab2ac25d63) `samtools` now supports file access over HTTPS and Amazon S3.
+
+##### Why is my 'Total bytes read' count different from my 'Total bytes written'?
+
+```
+./icgc/bin/icgc-storage-client --profile collab download --object-id 6d89e978-34f6-5074-b30e-01b7203fcbb3 --output-dir /tmp
+Downloading...
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+100% [##################################################]  Parts: 208/208, Checksum: 100%, Write/sec: 47.7M/s, Read/sec: 48.1M/s
+Finalizing...
+Total execution time:         1.301 h
+
+Total bytes read    : 225,224,593,891
+Total bytes written : 223,331,450,672
+```
+
+Because of the size of BAM files, ICGC upload/downloads tend to be long-running, making them susceptible to any of the myriad ways a network can fail. ICGC attempts to recover from these usually-brief outages automatically and this often necessitates repeat downloads of sub-parts of the file. This will result in a "Total bytes read" amount larger than the "Total bytes written". The total byte counts are informational only and not used to determine "correctness" or "completeness" of any given download.
 
 ##### How do I report a bug in the software?
 
