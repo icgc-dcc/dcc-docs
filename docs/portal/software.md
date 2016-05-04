@@ -2,6 +2,11 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### Changes in Data Portal Software Release 4.0.14 - May 4th, 2016
+* Iobio integration added to VCF files stored in AWS/Collaboratory.  e.g. Go to VCF Stats section in [https://dcc.icgc.org/repositories/files/FI378419](https://dcc.icgc.org/repositories/files/FI378419)
+* Fixed truncated or failing downloads that were occuring for some users.
+* Various minor bug fixes.
+
 #### Changes in Data Portal Software Release 3.8.20 - Nov 27, 2015
 * Added Drug/Compound entity page which correlates targeted genes and provides context into clinical trials, e.g. Go to Sprycel Compound page ([https://dcc.icgc.org/compound/ZINC000003986735](https://dcc.icgc.org/compound/ZINC000003986735))
 * Added Drug/Compound section in Gene Entity Page, e.g. Go to Compound section in EGFR Gene page ([https://dcc.icgc.org/genes/ENSG00000146648](https://dcc.icgc.org/genes/ENSG00000146648))
