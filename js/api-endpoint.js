@@ -114,7 +114,7 @@ $(function () {
   function updateAPIServer(url) {
     if (window.swaggerUi && typeof window.swaggerUi.updateSwaggerUi === 'function') {
       _hasReloadedRequest = false;
-      window.swaggerUi.updateSwaggerUi({url: url || _getEndpointURL() });
+      window.swaggerUi.updateSwaggerUi({url: (url || _getEndpointURL()) + '?t=' + new Date().getTime() });
     }
   }
 
