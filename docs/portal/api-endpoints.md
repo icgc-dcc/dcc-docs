@@ -2,7 +2,7 @@
     <span class="header-badge" style="padding: 0.75rem 0.5rem 0.75rem 1.35rem">
         <i class="icon-flow-branch"></i>
     </span>
-    <a class="header-text-link" style="vertical-align: top" href="#dictionary-viewer" title="Click on this header and copy URL to link to this section.">
+    <a class="header-text-link" style="vertical-align: top" href="#endpoints" title="Click on this header and copy URL to link to this section.">
         API Endpoints&nbsp;<i class="icon-share-1"></i>
     </a>
 </h1>
@@ -35,28 +35,35 @@
             </div>
         </div>
         <article>
-          <div id="swagger-error">
-             Sorry, I could not find valid Endpoint API Data at the specified url.
-          </div>
-          <div id="message-bar" class="swagger-ui-wrap">
-            &nbsp;
-          </div>
-          <div id="swagger-ui-container" class="swagger-ui-wrap" />
+            <div class="swagger-section">
+            <div id="swagger-error">
+              Sorry, I could not find valid Endpoint API Data at the specified url.
+            </div>
+            <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+            <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+            <input type="hidden" id="input_apiKey">
+            </div>
         </article>
       </section>
     </div>
   </div>
 
-  <script type="text/javascript" src="/vendor/swagger-ui/lib/shred.bundle.js"></script>
-  <script src="/js/jquery-migrate-1.2.1.min.js"></script>
-  <script src="/vendor/swagger-ui/lib/jquery.slideto.min.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/lib/jquery.wiggle.min.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/lib/jquery.ba-bbq.min.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/lib/handlebars-1.0.0.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/lib/underscore-min.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/lib/backbone-min.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/lib/swagger.js" type='text/javascript'></script>
-  <script src="/vendor/swagger-ui/swagger-ui.js" type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/jquery.slideto.min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/jquery.wiggle.min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/handlebars-2.0.0.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/underscore-min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/backbone-min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/swagger-ui.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/highlight.7.3.pack.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/jsoneditor.min.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/marked.js' type='text/javascript'></script>
+  <script src='/vendor/swagger-ui/lib/swagger-oauth.js' type='text/javascript'></script>
   <script src="/js/api-endpoint.js"></script>
+
+  <link href='/vendor/swagger-ui/css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='/vendor/swagger-ui/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='/vendor/swagger-ui/css/reset.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='/vendor/swagger-ui/css/print.css' media='print' rel='stylesheet' type='text/css'/>
   <link href='/vendor/swagger-ui/css/styles.css' media='screen' rel='stylesheet' type='text/css'/>

@@ -76,7 +76,6 @@ $(function () {
 
       },
       onFailure: function() {
-        log("Unable to Load SwaggerUI");
         _errorAlert.fadeIn('fast');
       },
       docExpansion: "none"
@@ -183,7 +182,7 @@ $(function () {
   }
 
   var BASE_URL = 'https://dcc.icgc.org',
-    BASE_PATH = '/api/api-docs',
+    BASE_PATH = '/api/swagger.json',
     _currentBaseURL = null,
     _currentBasePath = null;
 
