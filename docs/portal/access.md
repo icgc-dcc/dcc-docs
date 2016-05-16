@@ -19,9 +19,9 @@ The PCAWG data set consists of uniformly aligned (by BWA-MEM) sample-level BAM f
 PCAWG data are stored in individual GNOS repositories hosted at different academic centres globally. To improve accessibility some data entries have been synchronized among GNOS repositories.
 
 * You can browse and search for PCAWG data files on ICGC Data Portal - Repository Browser [https://dcc.icgc.org/repositories](https://dcc.icgc.org/repositories).
-* For actual data download, you will need to apply for data access via ICGC DACO for non-TCGA portion of the ICGC data, and via dbGAP for TCGA portion.
+* For actual data download, you will need to apply for data access via ICGC DACO for non-TCGA portion of the ICGC data, and via [dbGAP][10] for the [TCGA portion][11].
 
-For more information on ICGC/TCGA PCWAG Status, please go to .  
+For more information on ICGC/TCGA PCAWG Status, please go to [http://pancancer.info/][9].  
 Please note: PCAWG data set is currently restricted to the researchers who are part of the PCAWG study and will be open to the broader community at the end of the study.
 
 [1]: http://icgc.org/daco
@@ -32,3 +32,6 @@ Please note: PCAWG data set is currently restricted to the researchers who are p
 [6]: https://cghub.ucsc.edu/
 [7]: http://dcc.icgc.org
 [8]: methods#germline-data-masking
+[9]: http://pancancer.info/
+[10]: http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v5.p5
+[11]: https://tcga-data.nci.nih.gov/tcga/tcgaAccessTiers.jsp
