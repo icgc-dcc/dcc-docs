@@ -59,15 +59,19 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [BOCA-UK][20] |  United Kingdom |  Bone Cancer - UK |  No Embargo. Data available without limitations |
 | [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR |  Publication limitations in place until 2017-06-15 |
-| [ESCA-CN][25] |  China |  Esophageal Cancer - CN |  Publication limitations in place until 2016-05-14 |
+| [ESCA-CN][25] |  China |  Esophageal Cancer - CN |  No Embargo. Data available without limitations |
 | [COCA-CN][26] |  China |  Colorectal Cancer - CN |  Publication limitations in place until 2017-01-14 |
 | [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  Publication limitations in place until 2017-01-14 |
 | [LIAD-FR][29] |  France |  Benign Liver Tumour - FR |  Publication limitations in place until 2016-09-11 |
 | [BOCA-FR][30] |  France |  Bone Cancer - Ewing Sarcoma - FR |  Publication limitations in place until 2017-01-14 |
 | [LIHM-FR][31] |  France |  Liver Hepatocellular Macronodules - FR |  Publication limitations in place until 2017-01-14 |
 | [PACA-IT][32] |  Italy |  Pancreatic Cancer - IT |  Publication limitations in place until 2017-01-14 |
-| [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  Publication limitations in place until 2016-04-01 |
+| [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [BTCA-JP][37] |  Japan |  Biliary Tract Cancer - JP |  Publication limitations in place until 2016-11-27 |
+| [LICA-CN][38] |  China |  Liver Cancer - CN |  Publication limitations in place until 2017-05-16 |
+| [LAML-CN][39] |  China |  Leukemia - CN |  Publication limitations in place until 2018-05-16 |
+
+
 
 For Moratorium status on TCGA projects, please visit [http://cancergenome.nih.gov/publications/publicationguidelines](http://cancergenome.nih.gov/publications/publicationguidelines)
 
@@ -112,3 +116,5 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [35]: https://icgc.org/icgc/cgp-template-letters
 [36]: mailto:dcc-support@icgc.org
 [37]: https://dcc.icgc.org/projects/BTCA-JP
+[38]: https://dcc.icgc.org/projects/LICA-CN
+[39]: https://dcc.icgc.org/projects/LAML-CN
