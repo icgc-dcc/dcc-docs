@@ -8,5 +8,7 @@
 1.0.10 | Feb 19, 2016 | Additional user informational message improvements
 1.0.12 | Mar 19, 2016 | Fixed application of HTTP timeouts for uploads / downloads
 1.0.13 | Mar 22, 2016 | Fixed infinite loop in download when part size mismatches stream length
+1.0.14 | May 2, 2016 | Validate java version, validate repository code in download manifest files against client profile
+1.0.15 | May 19, 2016 | Accept multiple object id's with --object-id parameter
 
 

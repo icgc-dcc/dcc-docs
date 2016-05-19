@@ -250,12 +250,18 @@ The `download` command allows fast parallel download of remote objects. It can b
 
 Note that the Storage Client is able to resume an interrupted download session. Simply rerun the same command again and it will continue.
 
-#### Single Object
+#### Object ID
 
-This mode is most useful when downloading a single object given a known Object ID, perhaps acquired from the Data Portal:
+This mode is useful when downloading an ad-hoc list of one or more objects with known Object ID's, perhaps acquired from the Data Portal:
 
 ```
 bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --output-dir data
+```
+
+You can also specify multiple object id's separated by spaces
+
+```
+bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 008da0c1-70cc-61ae-3bab-09aa17fad451 --output-dir data
 ```
 
 Downloads will be stored in the `--output-dir`.
