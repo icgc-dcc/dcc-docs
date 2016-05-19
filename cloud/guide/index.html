@@ -885,9 +885,13 @@ wget https://s3-external-1.amazonaws.com/snip&gt;
 <h3 id="download-command">Download Command</h3>
 <p>The <code>download</code> command allows fast parallel download of remote objects. It can be run in one of two modes: (a) single object mode and (b) Manifest driven mode</p>
 <p>Note that the Storage Client is able to resume an interrupted download session. Simply rerun the same command again and it will continue.</p>
-<h4 id="single-object">Single Object</h4>
-<p>This mode is most useful when downloading a single object given a known Object ID, perhaps acquired from the Data Portal:</p>
+<h4 id="object-id">Object ID</h4>
+<p>This mode is useful when downloading an ad-hoc list of one or more objects with known Object ID's, perhaps acquired from the Data Portal:</p>
 <pre><code>bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --output-dir data
+</code></pre>
+
+<p>You can also specify multiple object id's separated by spaces</p>
+<pre><code>bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 008da0c1-70cc-61ae-3bab-09aa17fad451 --output-dir data
 </code></pre>
 
 <p>Downloads will be stored in the <code>--output-dir</code>.</p>
