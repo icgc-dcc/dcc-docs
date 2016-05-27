@@ -20,12 +20,11 @@ The following section explains error messages relating to submission problems wi
 ```
 "The following donors have data submitted to PCAWG, but have not been included in this DCC submission."
 ```
-
 * The PCAWG donor_id(s) is missing from the DCC submission. As a result, there is no DCC entry or clinical data for the missing PCAWG donor_id(s)
 > Solution:
   * Add the missing PCAWG donor_id and the required clinical to your DCC submission.
 
-````
+```
 "The following specimen have data submitted to PCAWG, but have not been included in this DCC submission."
 ```
 * The PCAWG specimen_id is either missing in your DCC submission, or it does not match the specimen_id in PCAWG.
