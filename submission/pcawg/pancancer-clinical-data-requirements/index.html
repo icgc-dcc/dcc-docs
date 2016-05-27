@@ -655,44 +655,58 @@
 </li>
 <li>Add the missing PCAWG donor_id and the required clinical to your DCC submission.</li>
 </ul>
-<p>````
-"The following specimen have data submitted to PCAWG, but have not been included in this DCC submission."</p>
-<pre><code>* The PCAWG specimen_id is either missing in your DCC submission, or it does not match the specimen_id in PCAWG.
-&gt; Solution:
-  * Ensure the DCC-submitted specimen_id matches the PCAWG-submitted specimen_id
-  * If it is missing, please add the PCAWG specimen_id and all required clinical data to your DCC submission
-
+<pre><code>&quot;The following specimen have data submitted to PCAWG, but have not been included in this DCC submission.&quot;
 </code></pre>
 
-<p>"Specimen type has an inconsistent value with respect to PCAWG."</p>
-<pre><code>* The DCC-submitted specimen_type is inconsistent with the PCAWG-submitted specimen_type
-&gt; Solution:
-  * Ensure the specimen_type information you submit to DCC for a given PCAWG specimen_id is consistent with the PCAWG-submitted specimen_type information
-
-</code></pre>
-
-<p>"The following samples have data submitted to PCAWG, but have not been included in this DCC submission."</p>
-<pre><code>* The DCC Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.
-&gt; Solution:
-  * Add missing sample(s) to DCC submission and ensure the &quot;study&quot; field in the DCC [sample][1] submission file is correctly completed for each PCAWG sample
-
-</code></pre>
-
-<p>"Sample data submitted to PCAWG, however it is not marked as in PCAWG study in this DCC submission."</p>
-<pre><code>* The &quot;study&quot; field is missing for a given PCAWG sample_id in your DCC submission
-&gt; Solution:
-  * Update the &quot;study&quot; field to &quot;1&quot; to indicate the sample_id is in PCAWG
-
-</code></pre>
-
-<p>"Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG."
-```
-* The "study" field in the DCC <a href="../../../dictionary/viewer/#?viewMode=table&amp;dataType=sample">sample</a> submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG</p>
-<blockquote>
-<p>Solutions:
-  * The "study" field in the DCC <a href="../../../dictionary/viewer/#?viewMode=table&amp;dataType=sample">sample</a> file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field
-  * Sample ID format is inconsistent between DCC and PCAWG. Make sure you are using the <strong>same sample ID</strong> name you submitted in PCAWG.</p>
+<ul>
+<li>The PCAWG specimen_id is either missing in your DCC submission, or it does not match the specimen_id in PCAWG.<blockquote>
+<p>Solution:</p>
 </blockquote>
+</li>
+<li>Ensure the DCC-submitted specimen_id matches the PCAWG-submitted specimen_id</li>
+<li>If it is missing, please add the PCAWG specimen_id and all required clinical data to your DCC submission</li>
+</ul>
+<pre><code>&quot;Specimen type has an inconsistent value with respect to PCAWG.&quot;
+</code></pre>
+
+<ul>
+<li>The DCC-submitted specimen_type is inconsistent with the PCAWG-submitted specimen_type<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Ensure the specimen_type information you submit to DCC for a given PCAWG specimen_id is consistent with the PCAWG-submitted specimen_type information</li>
+</ul>
+<pre><code>&quot;The following samples have data submitted to PCAWG, but have not been included in this DCC submission.&quot;
+</code></pre>
+
+<ul>
+<li>The DCC Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Add missing sample(s) to DCC submission and ensure the "study" field in the DCC <a href="../../../dictionary/viewer/#?viewMode=table&amp;dataType=sample">sample</a> submission file is correctly completed for each PCAWG sample</li>
+</ul>
+<pre><code>&quot;Sample data submitted to PCAWG, however it is not marked as in PCAWG study in this DCC submission.&quot;
+</code></pre>
+
+<ul>
+<li>The "study" field is missing for a given PCAWG sample_id in your DCC submission<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Update the "study" field to "1" to indicate the sample_id is in PCAWG</li>
+</ul>
+<pre><code>&quot;Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.&quot;
+</code></pre>
+
+<ul>
+<li>The "study" field in the DCC <a href="../../../dictionary/viewer/#?viewMode=table&amp;dataType=sample">sample</a> submission file is marked as being in PCAWG. However the sample does not actually exist in PCAWG<blockquote>
+<p>Solutions:</p>
+</blockquote>
+</li>
+<li>The "study" field in the DCC <a href="../../../dictionary/viewer/#?viewMode=table&amp;dataType=sample">sample</a> file incorrectly indicates sample is in PCAWG. If a sample is not in PCAWG, use "-888" (means "Not applicable") for this field</li>
+<li>Sample ID format is inconsistent between DCC and PCAWG. Make sure you are using the <strong>same sample ID</strong> name you submitted in PCAWG.</li>
+</ul>
                </div>
                </div>
             </div>
