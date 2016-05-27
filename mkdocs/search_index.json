@@ -626,6 +626,16 @@
             "title": "Dictionary Release Notes"
         }, 
         {
+            "location": "/dictionary/release-22/", 
+            "text": "Dictionary v0.14a\n\n\nMay 2016, Current for Release 22\n\n\nMay 27, 2016\n\n\nUpdated to dictionary version 0.14a. Change between 0.14a and 0.13b:\n\n\n\n\nRemoved bzip2 file support for file submissions.", 
+            "title": "Release 22"
+        }, 
+        {
+            "location": "/dictionary/release-22/#dictionary-v014a", 
+            "text": "May 2016, Current for Release 22  May 27, 2016  Updated to dictionary version 0.14a. Change between 0.14a and 0.13b:   Removed bzip2 file support for file submissions.", 
+            "title": "Dictionary v0.14a"
+        }, 
+        {
             "location": "/dictionary/release-21/", 
             "text": "Dictionary v0.13b\n\n\nMarch 2016, Current for Release 21\n\n\nMarch 15, 2016\n\n\nUpdated to dictionary version 0.13b. Change between 0.13b and 0.13a:\n\n\n\n\nAdded checks for codelist terms in MVEL script restrictions.\n\n\nChanged valueType for fields using codelists from \"INTEGER\" to \"TEXT\" to take codelist terms into account.\n\n\nAdded additional description for \"tumour_stage\" and \"donor_tumour_stage_at_diagnosis\" fields.\n\n\n\n\nJanuary 19, 2016\n\n\nUpdated to dictionary version 0.13a. Change between 0.12e and 0.13a:\n\n\n\n\nAdded two new specimen types terms to specimen.0.specimen_type.v3 codelist: \"Metastatic tumour - other\" and \"Cell line - derived from xenograft tumour\"\n\n\nAdded new term to GLOBAL.0.platform.v1 codelist: \"Affymetrix OncoScan FFPE Express 3.0\"", 
             "title": "Release 21"
