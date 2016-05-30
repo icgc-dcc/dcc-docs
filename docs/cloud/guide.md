@@ -312,7 +312,7 @@ bin/icgc-storage-client manifest --manifest http://hastebin.com/raw/ujajodilih
 
 ### View Command
 
-The `view` command is a minimal version of [samtools view](http://www.htslib.org/doc/samtools.html). It allows to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.
+The `view` command is a minimal version of [samtools view](http://www.htslib.org/doc/samtools.html). It allows one to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.
 
 The following example will download reads overlapping the region 1 - 100000 in chromosome 1:
 
@@ -322,7 +322,11 @@ bin/icgc-storage-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --
 
 The BAI is automatically discovered and streamed as part of the operation.
 
-For quickly accessing the only the BAM header one can issue:
+The output of this feature is illustrated here:
+
+<a href="../images/batch-slice-one-to-one.png"><img width=550 src="../images/batch-slice-one-to-one.png"></a>
+
+For quickly accessing only the BAM header one can issue:
 
 ```
 bin/icgc-storage-client view --header-only --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
@@ -331,8 +335,24 @@ bin/icgc-storage-client view --header-only --object-id ddcdd044-adda-5f09-8849-2
 It is also possible to pipe the output of the above to `samtools`, etc. for pipelining a workflow:
 
 ```
-bin/icgc-storage-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
+bin/icgc-storage-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
 ```
+
+The client can also do slicing across "batches" of specimens specified in a manifest file. Multiple query regions can be specified at the command line, 
+
+```
+bin/icgc-storage-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
+```
+
+or within a [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
+
+```
+bin/icgc-storage-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
+```
+
+There is also a switch to have indexes generated for the output
+
+<pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt <b>--output-index</b> --bed-query /data/query/profile12.bed --output-dir /data/query-results</code></pre>
 
 ### Mount Command
 
