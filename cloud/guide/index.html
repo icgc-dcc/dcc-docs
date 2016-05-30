@@ -947,13 +947,14 @@ wget https://s3-external-1.amazonaws.com/snip&gt;
 <pre><code>bin/icgc-storage-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
 </code></pre>
 
-<p>The client can also do slicing across "batches" of specimens specified in a manifest file (tab-delimited files produced by the Data Portal as opposed to XML-format manifests from GNOS). The output of this feature is illustrated here:</p>
+<h4 id="batchmanifest-slicing">Batch/Manifest Slicing</h4>
+<p>As of version 1.0.14, the client supports slicing across "batches" of specimens listed in a manifest file (tab-delimited files produced by the Data Portal as opposed to XML-format manifests from GNOS). The output of this feature is illustrated here:</p>
 <p><a href="../images/batch-slice-one-to-one.png"><img width=550 src="../images/batch-slice-one-to-one.png"></a></p>
 <p>Multiple query regions can be specified at the command line, </p>
 <pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
 </code></pre>
 
-<p>or within a <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED file</a></p>
+<p>or in a <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED file</a></p>
 <pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
 </code></pre>
 
