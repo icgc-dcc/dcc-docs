@@ -334,7 +334,9 @@ It is also possible to pipe the output of the above to `samtools`, etc. for pipe
 bin/icgc-storage-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
 ```
 
-The client can also do slicing across "batches" of specimens specified in a manifest file (tab-delimited files produced by the Data Portal as opposed to XML-format manifests from GNOS). The output of this feature is illustrated here:
+#### Batch/Manifest Slicing
+
+As of version 1.0.14, the client supports slicing across "batches" of specimens listed in a manifest file (tab-delimited files produced by the Data Portal as opposed to XML-format manifests from GNOS). The output of this feature is illustrated here:
 
 <a href="../images/batch-slice-one-to-one.png"><img width=550 src="../images/batch-slice-one-to-one.png"></a>
 
@@ -344,7 +346,7 @@ Multiple query regions can be specified at the command line,
 bin/icgc-storage-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
 ```
 
-or within a [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
+or in a [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
 
 ```
 bin/icgc-storage-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
