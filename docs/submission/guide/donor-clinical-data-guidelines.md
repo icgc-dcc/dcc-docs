@@ -54,7 +54,7 @@ This table summarizes the required fields (for data completeness), and describes
 </td>
 <td colspan="1" class="confluenceTd"><strong>alive</strong></td>
 <td colspan="1" class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-_placeholder-0.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 <p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 <p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 
