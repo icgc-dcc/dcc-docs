@@ -2,9 +2,10 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
-#### Changes in Data Portal Software Release 4.0.23 - June 7th, 2016
+#### Changes in Data Portal Software Release 4.0.24 - June 7th, 2016
 * Can search for files based on Bundle ID, and the Bundle ID will be shown for file results in keyword search. 
 * The Gene entity page will now show all available drugs instead of limiting to a list of 10 results. 
+* Clicking on clinical trials from the gene page will now scroll to the trials section of compound page. 
 * Various bug fixes
 
 #### Changes in Data Portal Software Release 4.0.14 - May 4th, 2016
