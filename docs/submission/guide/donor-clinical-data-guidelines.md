@@ -136,7 +136,6 @@ _Description:_
 When donor is deceased:
 
 * The field "donor_survival_time" is required.
-* When "donor_interval_of_last_followup" has a value, it must be greater than or equal to "donor_survival time".
 
 When donor is alive:
 
