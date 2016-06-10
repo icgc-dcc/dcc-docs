@@ -2,6 +2,15 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### Changes in Data Portal Software Release 4.0.25 - June 8th, 2016
+* Initial set of projects for PCAWG EGA files published in the [Repository Browser](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D).
+
+#### Changes in Data Portal Software Release 4.0.24 - June 7th, 2016
+* Can search for files based on Bundle ID, and the Bundle ID will be shown for file results in keyword search. 
+* The Gene entity page will now show all available drugs instead of limiting to a list of 10 results. 
+* Clicking on clinical trials from the gene page will now scroll to the trials section of compound page. 
+* Various bug fixes
+
 #### Changes in Data Portal Software Release 4.0.14 - May 4th, 2016
 * Iobio integration added to VCF files stored in AWS/Collaboratory.  e.g. Go to VCF Stats section in [https://dcc.icgc.org/repositories/files/FI378419](https://dcc.icgc.org/repositories/files/FI378419)
 * Fixed truncated or failing downloads that were occuring for some users.
