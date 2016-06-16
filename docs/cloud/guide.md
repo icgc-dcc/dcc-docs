@@ -127,7 +127,7 @@ This section describes how to install the Storage Client. The are two options: (
 
 ### Install from Tarball
 
-To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software#!storage-client).
+To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from [here](https://dcc.icgc.org/software#storage-client).
 
 ```
 wget -O icgc-storage-client.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest
