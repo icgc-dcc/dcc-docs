@@ -1,15 +1,9 @@
 # Donor Clinical Data Guidelines
 
-### Changes to Data Dictionary for Release 20 include:
+### Overview ###
 
-* Implementation of new rules requiring values for certain donor clinical fields
-* Validation checks to ensure that the clinical data provided is correct
+This guide provides information on how to submit donor clinical data and how to interpret the validation rules/checks.
 
-### Why?
-
-* We have received many requests from users of the DCC Data Portal about the lack of clinical data for some ICGC projects, making it difficult to carry out a complete analysis of different cancer types (i.e., survival analysis). A review of Release 19 data also found discrepancies in the clinical data for some projects. In an effort to correct this, we implemented validation rules to identify and flag these discrepancies and any empty required data fields.
-
-The validation rules concern mainly the disease status at last followup (in particular, if the patient progressed or relapsed), and the patient's vital status. With the exception of "donor_primary_treatment_interval", there have been no new fields added to the Data Dictionary since Release 19.
 
 | Field |  Definition |  Terms |
 | --- | --- | --- |
@@ -17,8 +11,8 @@ The validation rules concern mainly the disease status at last followup (in part
 | disease_status_last_followup |  Donor's last known disease status. | <ol><li>complete remission</li><li>partial remission</li><li>progression</li><li>relapse</li><li>stable</li><li>no evidence of disease |
 | donor_relapse_interval |  If the donor was clinically disease free following primary treatment, and then relapse or progression (for liquid tumours) occurred afterwards, then "donor_relapse_interval" is the length of the disease free interval (in days). |   |
 | donor_survival_time |  How long has the donor survived since primary diagnosis, in days. If source data was collected in months, use a multiplier value of '30.44' to convert values to days when preparing your submission. |   |
-| donor_interval_of_last_followup |  Interval from the primary diagnosis date to the last followup date. ICGC requests that patients be followed up every 6 months while alive. |   |
-| **donor_primary_treatment_interval ** (New Field) |  Interval between primary diagnosis and primary treatment, in days. |   |
+| donor_interval_of_last_followup |  Interval from the primary diagnosis date to the last followup date, in days. ICGC requests that patients be followed up every 6 months while alive. If source data was collected in months, use a multiplier value of '30.44' to convert values to days when preparing your submission. |   |
+| donor_primary_treatment_interval |  Interval between primary diagnosis and primary treatment, in days. |   |
 
 ### Summary of Donor Clinical Field requirements:
 
@@ -111,9 +105,8 @@ However, if the the patient is deceased, the "donor_survival_time" (163 days) sh
 
 ![][3]
 
-### Description of Script Restrictions added to Donor File for Release 20:
+### Description of Script Restrictions for Donor Clinical Fields:
 
-Five script restrictions have been added:
 
 **1\. **
 

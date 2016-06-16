@@ -2,13 +2,22 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### Changes in Data Portal Software Release 4.2.2 - June 15th, 2016
+* GDC files published in the [Repository Browser](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D).
+* Support for saving, sharing and searching by File Sets in [Repository Browser](https://dcc.icgc.org/repositories)
+* Added support for searching by Manifest ID in the [Repository Browser](https://dcc.icgc.org/repositories)
+* Added support for searching by Submitter Bundle ID in the [Repository Browser](https://dcc.icgc.org/repositories)
+* Changed software hosting to https://artifacts.oicr.on.ca
+* Improved loading icon placement
+* Various bug fixes
+
 #### Changes in Data Portal Software Release 4.0.25 - June 8th, 2016
 * Initial set of projects for PCAWG EGA files published in the [Repository Browser](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D).
 
 #### Changes in Data Portal Software Release 4.0.24 - June 7th, 2016
-* Can search for files based on Bundle ID, and the Bundle ID will be shown for file results in keyword search. 
-* The Gene entity page will now show all available drugs instead of limiting to a list of 10 results. 
-* Clicking on clinical trials from the gene page will now scroll to the trials section of compound page. 
+* Can search for files based on Bundle ID, and the Bundle ID will be shown for file results in keyword search.
+* The Gene entity page will now show all available drugs instead of limiting to a list of 10 results.
+* Clicking on clinical trials from the gene page will now scroll to the trials section of compound page.
 * Various bug fixes
 
 #### Changes in Data Portal Software Release 4.0.14 - May 4th, 2016
