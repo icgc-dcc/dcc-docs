@@ -50,6 +50,7 @@ $(function () {
     window.swaggerUi = new SwaggerUi({
       // Modified
       url: _getEndpointURL(),
+      validatorUrl: null,
       apiKey: "",
       dom_id: "swagger-ui-container",
       supportedSubmitMethods: ['get', 'post', 'put'],
