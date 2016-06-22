@@ -48,7 +48,7 @@
 | Position |  123 |  124 |  125 |  126 |  127 |
 | ---- |  ---- |  ---- |  ---- |  ---- | ---- |
 | Reference Genome |  C |  T |  C |  T |  T |
-| Tumour Genome |  C |  T |  C |  T  |  T |
+| Tumour Genome |  C |  **T** |  **C** |  **T**  |  **T** |
 
 | mutation type |  chromosome start |  chromosome end |  reference genome allele |  control genotype |  tumour genotype |  mutated from allele | mutated to allele |
 | ---- |  ---- |  ---- |  ---- |  ---- |  ---- |  ---- | ---- |
@@ -60,9 +60,9 @@
 * Example: A mutation occurs at position 51 where G is substituted with C. The chromosome start position will be 51.
 
 | Position |  50 |  51 |  52 |  53 |
-| ---- |  ---- |  ---- |  ---- |  ---- | ---- |
-| Reference Genome |  T |  G |  T |  A |
-| Tumour Genome |  T |  C |  T |  A |
+| ---- |  ---- |  ---- |  ---- |  ---- |
+| Reference Genome |  T |  **G** |  T |  A |
+| Tumour Genome |  T |  **C** |  T |  A |
 
 | mutation type |  chromosome start |  chromosome end |  reference genome allele |  control genotype |  tumour genotype |  mutated from allele | mutated to allele |
 | ---- |  ---- |  ---- |  ---- |  ---- |  ---- |  ---- | ---- |
@@ -76,7 +76,7 @@
 | Position |  50 |  51 |  52 |  53 |  54 |  55 |  56 |  57 |  58 |
 | ---- |  ---- |  ---- |  ---- |  ---- | ---- | ---- | ---- | ---- | ---- |
 | Reference Genome |  A |  C |  T |  C |  A |  G |  A |  C |  C |
-| Tumour Genome |  T |  T |  G |  T |    |    |    |    |    |  
+| Tumour Genome |  **T** |  **T** |  **G** |  **T** |    |    |    |    |    |  
 
 | mutation type |  chromosome start |  chromosome end |  reference genome allele |  control genotype |  tumour genotype |  mutated from allele | mutated to allele |
 | ---- |  ---- |  ---- |  ---- |  ---- |  ---- |  ---- | ---- |
