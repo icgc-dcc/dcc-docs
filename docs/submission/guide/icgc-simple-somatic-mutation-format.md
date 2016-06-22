@@ -61,7 +61,7 @@
 
 | Position |  50 |  51 |  52 |  53 |
 | ---- |  ---- |  ---- |  ---- |  ---- |
-| Reference Genome |  T |  **G** |  T |  A |
+| Reference Genome |  T |  G |  T |  A |
 | Tumour Genome |  T |  **C** |  T |  A |
 
 | mutation type |  chromosome start |  chromosome end |  reference genome allele |  control genotype |  tumour genotype |  mutated from allele | mutated to allele |
