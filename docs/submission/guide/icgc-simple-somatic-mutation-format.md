@@ -34,7 +34,7 @@
 | Position |  55 |  56 |  57 |  58 |
 | ---- | ---- | ---- | ---- | ---- |
 | Reference Genome |  A |  G |  C |  A |
-| Tumour Genome |  A |  T |  G |  C |
+| Tumour Genome |  A |  **T** |  G |  C |
 
 | mutation type |  chromosome start |  chromosome end |  reference genome allele |  control genotype |  tumour genotype |  mutated from allele | mutated to allele |
 | ---- |  ---- |  ---- |  ---- |  ---- |  ---- |  ---- | ---- |
