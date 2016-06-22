@@ -93,7 +93,7 @@ The table below highlights the differences between VCF-like mutation format and 
 | VCF-like |  deletion |  49510010 |  49510012 |  TGA |  TGA/TGA |  TGA/T |    |    |
 | ICGC Format |  deletion |  49510011 |  49510012 |  GA |  GA/GA |  GA/- |  GA |  - |
 | VCF-like |  insertion |  115303927 |  115303927 |  A |  A/A |  A/AT |    |    |
-| ICGC Format |  insertion |  115303927 |  115303927 |  - |  -/- |  -/T |  - |  T |
+| ICGC Format |  insertion |  115303928 |  115303928 |  - |  -/- |  -/T |  - |  T |
 | VCF-like |  multiple-base substitution |  39884779 |  39884787 |  ACTCAGACC |  ACTCAGACC/ACTCAGACC |  ACTCAGACC/TTGT |    |    |
 | ICGC-like |  multiple-base substitution |  39884779 |  39884787 |  ACTCAGACC |  ACTCAGACC/ACTCAGACC |  ACTCAGACC/TTGT |  ACTCAGACC |  TTGT |  
 
