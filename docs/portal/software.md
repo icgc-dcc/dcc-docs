@@ -2,6 +2,15 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### Changes in Data Portal Software Release 4.2.3 - June 23rd, 2016
+* Added support for "Not filtering" in [Advanced Search](https://icgc.org/ZNu)
+* Added facet charts in the [Repository Browser](https://dcc.icgc.org/repositories)
+* Removed TCGA repository in the Repository Browser as this is replaced with GDC
+* Added [GDC clinical and biospecimen](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D,%22dataType%22:%7B%22is%22:%5B%22Clinical%20Data%22,%22Biospecimen%20Data%22%5D%7D%7D%7D) files in the Repository Browser
+* Unified behaviours for "copy to clipboard" widgets
+* Charting library upgrades
+* Various bug fixes
+
 #### Changes in Data Portal Software Release 4.2.2 - June 15th, 2016
 * GDC files published in the [Repository Browser](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D).
 * Support for saving, sharing and searching by File Sets in [Repository Browser](https://dcc.icgc.org/repositories)
