@@ -2,6 +2,10 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### Changes in Data Portal Software Release 4.2.6 - July 5th, 2016
+* Added support for new [Download Service](https://download.icgc.org/)
+* Added ability to stream directly from [Advanced Search](https://dcc.icgc.org/search) after clicking on "Download Donor Data"
+
 #### Changes in Data Portal Software Release 4.2.3 - June 23rd, 2016
 * Added support for "Not filtering" in [Advanced Search](https://icgc.org/ZNu)
 * Added facet charts in the [Repository Browser](https://dcc.icgc.org/repositories)
