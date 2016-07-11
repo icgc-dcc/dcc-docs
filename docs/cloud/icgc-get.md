@@ -2,7 +2,7 @@
 
 ICGC get is a universal download client for accessing ICGC data residing in various data repositories. 
 
-The data for ICGC resides in many data repositories around the world. These repositories 
+The data possessed by the ICGC resides in many data repositories around the world. These repositories 
 each have their own environment (public cloud, private cloud, on-premise file systems, etc.), 
 access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms. 
 Thus, there is much for a user to learn and perform before actually acquiring the data. 
@@ -12,11 +12,13 @@ streamline this process is highly desirable. This is the problem the ICGC-get he
 
 
 ## Configuration
-ICGC get is packaged with a default configuration file `config.yaml`, that contains a list of all
-configurable options and the defaults for using these options in a Docker container.
-In addition to editing the config file most configuration options can either be overwritten 
-through the command line or environmental variables. Environmental variables are in all caps, 
-have underscores as separators, and are prefixed by ICGCGET_. Command line options have dashes 
+After installing ICGC get, you will need to do configure some of the essential usage parameters,
+such as your access credentials.  The simplest way to do this is to invoke the `icgc-get configure` command
+and follow the instructions of the prompts.
+
+In addition to using the `configure` command, most configuration options can either be overwritten 
+through the command line, by assigning environmental variables, or by directly editing the `config.yaml` file. 
+Environmental variables are in all caps, have underscores as separators, and are prefixed by ICGCGET_. Command line options have dashes 
 as separators and are prefixed by two dashes.  Config file options a colon, followed by a newline and two spaces as separators.  The 
 only exception to this rule is the ICGC api path: it cannot be set via the command line.
 
@@ -112,7 +114,7 @@ icgc-get --config [CONFIG] --docker [true|false] download [REPO] [FILEIDS] [OPTI
 
 The first required argument is the ICGC File ids or manifest id corresponding to the file or files you wish to download. 
 There is no special syntax for this argument. If this is for a manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the 
-ICGC data portal: https://dcc.icgc.org.
+[ICGC data portal.:] (https://dcc.icgc.org)
 
 Using this command also requires you toe specify the repository or repositories that are being targeted for download, provided they have not been
 specified in the config file, and the output directory.
@@ -136,9 +138,9 @@ but instead of downloading the specified files, it will provide a list of all fi
 about to be downloaded, including their size, data type, name and the repository they are hosted on. 
 By default the command outputs a table, but the output can be altered to json via `-f json` or tsv
 via `-f tsv`.  Should you find file by file output too granular for a particularly large download, 
-the tag `-t summary` can be used to switch to a summarized version of the table.  If an output directory
+the option `-t summary` can be used to switch to a summarized version of the table.  If an output directory
 is specified, then the command will search that directory to determine of any of the files are already present,
-and not them.
+and add a `downloaded` column that marks these files. 
 
 ```shell
 icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r cghub
@@ -189,7 +191,7 @@ Sample output:
 
 This command will start a series of prompts for you to enter application paths, access credentials, output directories and logfile locations.
 Any of these prompts can be  bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use 
-of ICGC-get.  By default, `configure` will write to the default config file, but the destination can be overwritten with 
+of ICGC Get.  By default, `configure` will write to the default config file, but the destination can be overwritten with 
 the `-c` tag.  Should there be an existing configuration file at the target destination, existing configuration values can be kept
 by pressing enter in response to the prompt.  Please note that access tokens, passwords, and secret keys will not be shown on the 
 command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.  
@@ -198,13 +200,13 @@ command prompt for security reasons, but can still be entered and can still be k
 
 The `check` command will test the provided credentials for each repository specified.
 Due to the security protocols of each client, there are two ways in which this access check can occur.
-For PDC, GDC, and CGHub, ICGC get is only capable of determining if you have access to the specific 
+For PDC, GDC, and CGHub, ICGC Get is only capable of determining if you have access to the specific 
 files targeted for download, not the state of your permissions for the repository as a whole.  
 When performing an access check for these repositories, you must provide a manifest id or 
-list of files using the same formatting as the download command.  Inquests about permissions on these 
-repositories should be directed to their respective support department.
+list of files using the same formatting as the `download` command.  For more detailed information about 
+your permissions on these repositories contact their respective support departments.
 
-For the AWS, collaboratory, and ega repositories, the access check will determine if you have access
+For the AWS, collaboratory, and EGA repositories, the access check will determine if you have access
 to the entire repository or not.  These checks will occur even if file prioritization leads to no files
 being downloaded from any of these repositories.    
 
@@ -218,7 +220,7 @@ Sample output:
 
 ```
 Valid access to the Collaboratory.
-Valid access to the cghub files.
+Valid access to the CGHub file
 ```
 
 ### Version Command
@@ -233,7 +235,7 @@ icgc-get version
 Sample output:
 
 ```
-ICGC-Get Version: 0.2.2
+ICGC-Get Version: 0.2.6
 Clients:
  AWS CLI Version:             1.10.34
  EGA Client Version:          2.2.2
