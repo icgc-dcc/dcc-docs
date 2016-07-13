@@ -197,14 +197,6 @@
 </li>
 
                     
-                        
-<li >
-    
-    <a href="../icgc-get/">ICGC get</a>
-    
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -442,78 +434,124 @@
 
                     
                         
+<li >
+    
+    <a href="../../dictionary/releases/">Release Notes</a>
+    
+</li>
+
+                    
+                        
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release Notes</a>
+    <a tabindex="-1" href="">Release 21</a>
     <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/releases/">Overview</a>
+    <a href="../../dictionary/release-21/">Dictionary - Release 21</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-22/">Release 22</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 20</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-21/">Release 21</a>
+    <a href="../../dictionary/release-20/">Dictionary - Release 20</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-20/">Release 20</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 19</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-19/">Release 19</a>
+    <a href="../../dictionary/release-19/">Dictionary - Release 19</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-18/">Release 18</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 18</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-17/">Release 17</a>
+    <a href="../../dictionary/release-18/">Dictionary - Release 18</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-16/">Release 16</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 17</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-15/">Release 15</a>
+    <a href="../../dictionary/release-17/">Dictionary - Release 17</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 16</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-16/">Dictionary - Release 16</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 15</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-15/">Dictionary - Release 15</a>
     
 </li>
 
@@ -535,14 +573,6 @@
 <li >
     
     <a href="../../software/about/">About</a>
-    
-</li>
-
-                    
-                        
-<li >
-    
-    <a href="../../software/releases/">Releases</a>
     
 </li>
 
@@ -728,8 +758,6 @@
                         
                         <li class=""><a href="#i-cant-use-the-result-of-a-url-command-with-samtools">I can’t use the result of a url command with samtools:</a></li>
                         
-                        <li class=""><a href="#why-is-my-total-bytes-read-count-different-from-my-total-bytes-written">Why is my 'Total bytes read' count different from my 'Total bytes written'?</a></li>
-                        
                         <li class=""><a href="#how-do-i-report-a-bug-in-the-software">How do I report a bug in the software?</a></li>
                         
                     </ul>
@@ -821,7 +849,7 @@
 <h2 id="installation">Installation</h2>
 <p>This section describes how to install the Storage Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.</p>
 <h3 id="install-from-tarball">Install from Tarball</h3>
-<p>To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from <a href="https://dcc.icgc.org/software#storage-client">here</a>.</p>
+<p>To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from <a href="../../software#!storage-client">here</a>.</p>
 <pre><code>wget -O icgc-storage-client.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest
 tar -xvzf icgc-storage-client.tar.gz
 </code></pre>
@@ -901,13 +929,9 @@ wget https://s3-external-1.amazonaws.com/snip&gt;
 <h3 id="download-command">Download Command</h3>
 <p>The <code>download</code> command allows fast parallel download of remote objects. It can be run in one of two modes: (a) single object mode and (b) Manifest driven mode</p>
 <p>Note that the Storage Client is able to resume an interrupted download session. Simply rerun the same command again and it will continue.</p>
-<h4 id="object-id">Object ID</h4>
-<p>This mode is useful when downloading an ad-hoc list of one or more objects with known Object ID's, perhaps acquired from the Data Portal:</p>
+<h4 id="single-object">Single Object</h4>
+<p>This mode is most useful when downloading a single object given a known Object ID, perhaps acquired from the Data Portal:</p>
 <pre><code>bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --output-dir data
-</code></pre>
-
-<p>You can also specify multiple object id's separated by spaces</p>
-<pre><code>bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 008da0c1-70cc-61ae-3bab-09aa17fad451 --output-dir data
 </code></pre>
 
 <p>Downloads will be stored in the <code>--output-dir</code>.</p>
@@ -941,33 +965,19 @@ wget https://s3-external-1.amazonaws.com/snip&gt;
 </code></pre>
 
 <h3 id="view-command">View Command</h3>
-<p>The <code>view</code> command is a minimal version of <a href="http://www.htslib.org/doc/samtools.html">samtools view</a>. It allows one to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.</p>
+<p>The <code>view</code> command is a minimal version of <a href="http://www.htslib.org/doc/samtools.html">samtools view</a>. It allows to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.</p>
 <p>The following example will download reads overlapping the region 1 - 100000 in chromosome 1:</p>
 <pre><code>bin/icgc-storage-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --query 1:1-100000
 </code></pre>
 
 <p>The BAI is automatically discovered and streamed as part of the operation.</p>
-<p>For quickly accessing only the BAM header one can issue:</p>
+<p>For quickly accessing the only the BAM header one can issue:</p>
 <pre><code>bin/icgc-storage-client view --header-only --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
 </code></pre>
 
 <p>It is also possible to pipe the output of the above to <code>samtools</code>, etc. for pipelining a workflow:</p>
-<pre><code>bin/icgc-storage-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
+<pre><code>bin/icgc-storage-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
 </code></pre>
-
-<h4 id="batchmanifest-slicing">Batch/Manifest Slicing</h4>
-<p>As of version 1.0.14, the client supports slicing across "batches" of specimens listed in a manifest file (tab-delimited files produced by the Data Portal as opposed to XML-format manifests from GNOS). The output of this feature is illustrated here:</p>
-<p><a href="../images/batch-slice-one-to-one.png"><img width=550 src="../images/batch-slice-one-to-one.png"></a></p>
-<p>Multiple query regions can be specified at the command line, </p>
-<pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
-</code></pre>
-
-<p>or in a <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED file</a></p>
-<pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
-</code></pre>
-
-<p>There is also a switch to have indexes generated for the output</p>
-<pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt <b>--output-index</b> --bed-query /data/query/profile12.bed --output-dir /data/query-results</code></pre>
 
 <h3 id="mount-command">Mount Command</h3>
 <p>The <code>mount</code> command can be used to mount the remote S3 bucket as a read-only <a href="http://fuse.sourceforge.net/">FUSE</a> file system. This is very useful to browse and explore the available files, as well as quickly see their size and date of modification using common commands such as <code>ls</code>, <code>find</code>, <code>du</code> and <code>tree</code>. It also works very well with standard analysis tools such as <code>samtools</code>.</p>
@@ -1052,25 +1062,12 @@ samtools view /mnt/fff75930-0f8c-4c99-9b48-732e7ed4c625/443a7a6ab964e41c011cc9a3
 <h5 id="how-long-will-pre-signed-urls-remain-valid">How long will pre-signed URLs remain valid?</h5>
 <p>Pre-signed URLs are valid for 1 day from the time they are issued. For security purposes, a URL issued to one user must not be used by another and must be kept private.</p>
 <h5 id="does-the-client-maintain-state">Does the client maintain state?</h5>
-<p>Yes, the client maintains state, for <em>downloads</em>, in the working directory in a hidden file <code>.&lt;Object ID&gt;/meta</code>. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the <code>mount</code> command with the <code>--cache-metadata</code> option, <code>.entities.cache</code> and <code>.objects.cache</code> are stored in the current working directory.</p>
+<p>Yes, the client maintains state in the working directory in a hidden file <code>.&lt;Object ID&gt;/meta</code>. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the <code>mount</code> command with the <code>--cache-metadata</code> option, <code>.entities.cache</code> and <code>.objects.cache</code> are stored in the current working directory.</p>
 <h5 id="why-do-i-get-a-security-exception-when-i-try-to-download-an-object">Why do I get a security exception when I try to download an object?</h5>
 <p>If you are targeting the AWS cloud, ensure that you are running within the <code>us-east-1</code> <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones">region</a>. If you are targeting Collaboratory, make sure you are inside the OpenStack environment.</p>
 <h5 id="i-cant-use-the-result-of-a-url-command-with-samtools">I can’t use the result of a <code>url</code> command with <code>samtools</code>:</h5>
 <p><code>samtools</code> doesn’t support the HTTPS protocol<span style="color: rgb(160, 58, 58);">*</span>, which is required by ICGC to access S3-stored data files. Use the client <code>view</code> command to pipe data to samtools, download the desired files locally, or use the mount command to create a FUSE mount of the ICGC data files.</p>
 <p><span style="color: rgb(160, 58, 58);">*</span> <strong>Update</strong>: As of commit <a href="https://github.com/samtools/htslib/commit/fe1f08a3a80b8a5a17fa56b3fc1808ab2ac25d63">fe1f08a</a> <code>samtools</code> now supports file access over HTTPS and Amazon S3.</p>
-<h5 id="why-is-my-total-bytes-read-count-different-from-my-total-bytes-written">Why is my 'Total bytes read' count different from my 'Total bytes written'?</h5>
-<pre><code>./icgc/bin/icgc-storage-client --profile collab download --object-id 6d89e978-34f6-5074-b30e-01b7203fcbb3 --output-dir /tmp
-Downloading...
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-100% [##################################################]  Parts: 208/208, Checksum: 100%, Write/sec: 47.7M/s, Read/sec: 48.1M/s
-Finalizing...
-Total execution time:         1.301 h
-
-Total bytes read    : 225,224,593,891
-Total bytes written : 223,331,450,672
-</code></pre>
-
-<p>Because of the size of BAM files, ICGC upload/downloads tend to be long-running, making them susceptible to any of the myriad ways a network can fail. ICGC attempts to recover from these usually-brief outages automatically and this often necessitates repeat downloads of sub-parts of the file. This will result in a "Total bytes read" amount larger than the "Total bytes written". The total byte counts are informational only and not used to determine "correctness" or "completeness" of any given download.</p>
 <h5 id="how-do-i-report-a-bug-in-the-software">How do I report a bug in the software?</h5>
 <p>Please contact <a href="mailto:dcc-support@icgc.org">dcc-support@icgc.org</a> and include the version of the software in the body of the message (<code>bin/icgc-storage-client --version</code>).</p>
 <h2 id="terms">Terms</h2>
@@ -1180,7 +1177,7 @@ Total bytes written : 223,331,450,672
             <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="/js/jquery.scrollUp.min.js"></script>
+            <script src="/js/base.js"></script>
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '../..';</script>
         </div>
