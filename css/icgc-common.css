@@ -781,15 +781,6 @@ footer .logo img:hover {
   border-left: solid 5px #166aa2;
 }
 
-#scroll-up-indicator {
-  bottom:20px;
-  right:20px;
-  width:38px;
-  height:38px;
-  opacity: 0.5;
-  background:url(/img/scroll-top-indicator.png) no-repeat;
-}
-
 /* 404 Page */
 #page-not-found-container,
 #redirect-page-found-container {

@@ -197,14 +197,6 @@
 </li>
 
                     
-                        
-<li >
-    
-    <a href="../../cloud/icgc-get/">ICGC get</a>
-    
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -442,78 +434,124 @@
 
                     
                         
+<li >
+    
+    <a href="../../dictionary/releases/">Release Notes</a>
+    
+</li>
+
+                    
+                        
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release Notes</a>
+    <a tabindex="-1" href="">Release 21</a>
     <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/releases/">Overview</a>
+    <a href="../../dictionary/release-21/">Dictionary - Release 21</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-22/">Release 22</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 20</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-21/">Release 21</a>
+    <a href="../../dictionary/release-20/">Dictionary - Release 20</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-20/">Release 20</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 19</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-19/">Release 19</a>
+    <a href="../../dictionary/release-19/">Dictionary - Release 19</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-18/">Release 18</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 18</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-17/">Release 17</a>
+    <a href="../../dictionary/release-18/">Dictionary - Release 18</a>
     
 </li>
 
         
-            
-<li >
-    
-    <a href="../../dictionary/release-16/">Release 16</a>
-    
-</li>
+    </ul>
+  </li>
 
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 17</a>
+    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-15/">Release 15</a>
+    <a href="../../dictionary/release-17/">Dictionary - Release 17</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 16</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-16/">Dictionary - Release 16</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release 15</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-15/">Dictionary - Release 15</a>
     
 </li>
 
@@ -535,14 +573,6 @@
 <li >
     
     <a href="../../software/about/">About</a>
-    
-</li>
-
-                    
-                        
-<li >
-    
-    <a href="../../software/releases/">Releases</a>
     
 </li>
 
@@ -682,14 +712,13 @@
 <p>The ICGC Portal API can be accessed from the command line using <a href="http://curl.haxx.se/docs/manpage.html">cURL</a> but we suggest using <a href="https://github.com/jakubroztocil/httpie">httpie</a>, a cURL replacement that is particularly well-suited to JSON-based REST APIs. The following examples will contain instuctions for using both cURL and httpie.</p>
 <p>ICGC API is a set of RESTful endpoints -- programmable interfaces over the Web -- that allows third-party developers to build automation scripts and apps.</p>
 <p>Please see the <a href="../../portal/api-endpoints/">API Endpoint Documentation</a> for detailed information on the API endpoints, representations and how the API responds to different requests.</p>
-<p>The following examples are known to work with <a href="https://curl.haxx.se/">curl</a> v7.43.0 and <a href="https://github.com/jkbrzt/httpie#http-method">httpie</a> v0.9.3.</p>
 <h2 id="controlled-access">Controlled Access</h2>
 <h3 id="logging-in-from-the-command-line">Logging in from the Command Line</h3>
 <p>Logging in to the <strong>ICGC Portal API</strong> from the command line requires an ICGC.org account.</p>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d '{&quot;username&quot;:&quot;...&quot;,&quot;password&quot;:&quot;...&quot;}'
+<pre><code>$ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d {&quot;username&quot;:&quot;...&quot;,&quot;password&quot;:&quot;...&quot;}
 
-$ http 'https://dcc.icgc.org/api/v1/auth/login' username='...' password='...'
+$ http POST username=&quot;...&quot; password=&quot;...&quot; 'https://dcc.icgc.org/api/v1/auth/login'
 </code></pre>
 
 <p><strong>Response</strong></p>
@@ -725,7 +754,7 @@ $ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.or
 <h2 id="dynamic-filtered-download">Dynamic Filtered Download</h2>
 <h3 id="start-a-job">Start a job</h3>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM'
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM'
 
 $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM'
 </code></pre>
@@ -776,7 +805,7 @@ $ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
 <h3 id="controlled-access_2">Controlled Access</h3>
 <p>If the Dynamic Download Job contains controlled access data you must include your <code>dcc_portal_token</code> with every request.</p>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 
 $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 </code></pre>
@@ -790,7 +819,7 @@ $ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' 'Cookie:dc
 <p><strong>Request</strong></p>
 <pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
 
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
+$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 </code></pre>
 
 <h2 id="common-errors">Common Errors</h2>
@@ -836,7 +865,7 @@ $ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_porta
             <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="/js/jquery.scrollUp.min.js"></script>
+            <script src="/js/base.js"></script>
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '../..';</script>
         </div>
