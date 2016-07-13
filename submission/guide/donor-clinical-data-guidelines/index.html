@@ -197,6 +197,14 @@
 </li>
 
                     
+                        
+<li >
+    
+    <a href="../../../cloud/icgc-get/">ICGC get</a>
+    
+</li>
+
+                    
                     </ul>
                 </li>
             
@@ -434,124 +442,78 @@
 
                     
                         
-<li >
-    
-    <a href="../../../dictionary/releases/">Release Notes</a>
-    
-</li>
-
-                    
-                        
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 21</a>
+    <a tabindex="-1" href="">Release Notes</a>
     <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../../dictionary/release-21/">Dictionary - Release 21</a>
+    <a href="../../../dictionary/releases/">Overview</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 20</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-20/">Dictionary - Release 20</a>
+    <a href="../../../dictionary/release-22/">Release 22</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 19</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-19/">Dictionary - Release 19</a>
+    <a href="../../../dictionary/release-21/">Release 21</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 18</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-18/">Dictionary - Release 18</a>
+    <a href="../../../dictionary/release-20/">Release 20</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 17</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-17/">Dictionary - Release 17</a>
+    <a href="../../../dictionary/release-19/">Release 19</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 16</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-16/">Dictionary - Release 16</a>
+    <a href="../../../dictionary/release-18/">Release 18</a>
     
 </li>
 
         
-    </ul>
-  </li>
+            
+<li >
+    
+    <a href="../../../dictionary/release-17/">Release 17</a>
+    
+</li>
 
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 15</a>
-    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../../dictionary/release-15/">Dictionary - Release 15</a>
+    <a href="../../../dictionary/release-16/">Release 16</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../../dictionary/release-15/">Release 15</a>
     
 </li>
 
@@ -573,6 +535,14 @@
 <li >
     
     <a href="../../../software/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../../software/releases/">Releases</a>
     
 </li>
 
@@ -652,11 +622,7 @@
         <li class="main active"><a href="#donor-clinical-data-guidelines">Donor Clinical Data Guidelines</a>
            <ul class="nav">
            
-               <li class=""><a href="#changes-to-data-dictionary-for-release-20-include">Changes to Data Dictionary for Release 20 include:</a>
-               
-               </li>
-           
-               <li class=""><a href="#why">Why?</a>
+               <li class=""><a href="#overview">Overview</a>
                
                </li>
            
@@ -668,7 +634,7 @@
                
                </li>
            
-               <li class=""><a href="#description-of-script-restrictions-added-to-donor-file-for-release-20">Description of Script Restrictions added to Donor File for Release 20:</a>
+               <li class=""><a href="#description-of-script-restrictions-for-donor-clinical-fields">Description of Script Restrictions for Donor Clinical Fields:</a>
                
                </li>
            
@@ -683,16 +649,8 @@
                    
 
 <h1 id="donor-clinical-data-guidelines">Donor Clinical Data Guidelines</h1>
-<h3 id="changes-to-data-dictionary-for-release-20-include">Changes to Data Dictionary for Release 20 include:</h3>
-<ul>
-<li>Implementation of new rules requiring values for certain donor clinical fields</li>
-<li>Validation checks to ensure that the clinical data provided is correct</li>
-</ul>
-<h3 id="why">Why?</h3>
-<ul>
-<li>We have received many requests from users of the DCC Data Portal about the lack of clinical data for some ICGC projects, making it difficult to carry out a complete analysis of different cancer types (i.e., survival analysis). A review of Release 19 data also found discrepancies in the clinical data for some projects. In an effort to correct this, we implemented validation rules to identify and flag these discrepancies and any empty required data fields.</li>
-</ul>
-<p>The validation rules concern mainly the disease status at last followup (in particular, if the patient progressed or relapsed), and the patient's vital status. With the exception of "donor_primary_treatment_interval", there have been no new fields added to the Data Dictionary since Release 19.</p>
+<h3 id="overview">Overview</h3>
+<p>This guide provides information on how to submit donor clinical data and how to interpret the validation rules/checks.</p>
 <table>
 <thead>
 <tr>
@@ -724,11 +682,11 @@
 </tr>
 <tr>
 <td>donor_interval_of_last_followup</td>
-<td>Interval from the primary diagnosis date to the last followup date. ICGC requests that patients be followed up every 6 months while alive.</td>
+<td>Interval from the primary diagnosis date to the last followup date, in days. ICGC requests that patients be followed up every 6 months while alive. If source data was collected in months, use a multiplier value of '30.44' to convert values to days when preparing your submission.</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>donor_primary_treatment_interval </strong> (New Field)</td>
+<td>donor_primary_treatment_interval</td>
 <td>Interval between primary diagnosis and primary treatment, in days.</td>
 <td></td>
 </tr>
@@ -766,7 +724,7 @@
 </td>
 <td colspan="1" class="confluenceTd"><strong>alive</strong></td>
 <td colspan="1" class="confluenceTd">
-<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-_placeholder-0.png"></span></p>
+<p>donor_relapse_interval = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 <p>donor_survival_time = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 <p>donor_interval_of_last_followup = <span class="status-macro aui-lozenge aui-lozenge-current"><img src="/submission/images/na-placeholder-0.png"></span></p>
 
@@ -818,8 +776,7 @@
 <p>If the patient is alive, the "donor_survival_time" should be equal to the "donor_interval_of_last_followup" (124 days)</p>
 <p>However, if the the patient is deceased, the "donor_survival_time" (163 days) should be less than (or equal) to the "donor_interval_of_last_followup" (175 days)</p>
 <p><img alt="" src="../../../submission/images/clinical-event-times.png" /></p>
-<h3 id="description-of-script-restrictions-added-to-donor-file-for-release-20">Description of Script Restrictions added to Donor File for Release 20:</h3>
-<p>Five script restrictions have been added:</p>
+<h3 id="description-of-script-restrictions-for-donor-clinical-fields">Description of Script Restrictions for Donor Clinical Fields:</h3>
 <p><strong>1. </strong></p>
 <p><em>Field:</em><strong> "donor_interval_of_last_followup"</strong></p>
 <p><em>Description:</em></p>
@@ -838,7 +795,6 @@
 <p>When donor is deceased:</p>
 <ul>
 <li>The field "donor_survival_time" is required.</li>
-<li>When "donor_interval_of_last_followup" has a value, it must be greater than or equal to "donor_survival time".</li>
 </ul>
 <p>When donor is alive:</p>
 <ul>
@@ -926,7 +882,7 @@
             <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="/js/base.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '../../..';</script>
         </div>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         
+        
+        <link rel="canonical" href="http://docs.icgc.org/cloud/icgc-get/">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+
+   <title>ICGC get - ICGC DCC Docs</title>
+
+        
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
+        <link href="/css/bootstrap-custom.css" rel="stylesheet">
+        <link href="/css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
+        <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
+        <link href="/css/base.css" rel="stylesheet">
+        <link href="/css/icgc-common.css" rel="stylesheet">
+
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script src="/js/jquery-1.10.2.min.js"></script>
+    </head>
+
+    <body>
+        <div class="parent-container">
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="background-container"></div>
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+            <a class="navbar-brand" href="../..">
+            
+                <span class="project-org">ICGC</span> DCC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="/../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../portal/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/access/">Access</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/analysis/">Analysis</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/api/">API</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/api-endpoints/">API Endpoints</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/methods/">Methods</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/projects/">Projects</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/publication/">Publication</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/releases/">Releases</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/repositories/">Repositories</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/search/">Search</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/software/">Software</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../guide/">Guide</a>
+    
+</li>
+
+                    
+                        
+<li class="active">
+    
+    <a href="./">ICGC get</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../submission/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/api/">API</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/projects/">Projects</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/institutions/">Institutions</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/faq/">FAQ</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../submission/guide/intro/">Introduction</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submission-file-format/">Submission File Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/file-submission/">File Submission</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submission-validation/">Submission Validation</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/dcc-data-element-specifications/">DCC Data Element Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/sample-type-specification/">Sample Type Specification</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/incremental-submission-feature/">Incremental Submission Feature</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/selective-validation-feature/">Selective Validation Feature</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">PCAWG</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../submission/pcawg/pancancer-clinical-data-requirements/">PanCancer Clinical Data Requirements</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/pcawg/pcawg-faq/">FAQ</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/software/">Software</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dictionary <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/viewer/">Viewer</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release Notes</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/releases/">Overview</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-22/">Release 22</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-21/">Release 21</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-20/">Release 20</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-19/">Release 19</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-18/">Release 18</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-17/">Release 17</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-16/">Release 16</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-15/">Release 15</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../software/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/releases/">Releases</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/binaries/">Binaries</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/code/">Source Code</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/development/">Development</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+                <li class="menu-bar"></li>
+            </ul>
+
+            <!-- Search -->
+            <div class="searchbox-container col-sm-3 col-md-3 pull-right">
+               <form class="searchbox navbar-form" role="search">
+                  <input id="mkdocs-search-query" type="search" placeholder="Search..." autocomplete="off" name="search" class="searchbox-input">
+                  <span class="searchbox-icon">
+                      <i class="icon-search search-bttn"></i>
+                      <i class="icon-cancel search-cancel-bttn"></i>
+                  </span>
+               </form>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+            <div id="docs-container" class="container">
+                
+
+<div id="mkdocs-search-results-container" class="row">
+    <div class="col-md-12">
+        <h1 id="dictionary-viewer" class="no-auto-render">
+            <span class="header-badge" style="padding: 0.90rem 1.0rem 1.2rem 1.6rem;">
+                <i class="icon-search"></i>
+            </span> Search Results
+        </h1>
+        <div id="search-body">
+
+        </div>
+        <div id="mkdocs-search-results">
+
+        </div>
+    </div>
+</div>
+                
+                <div id="body" class="fadeInBlurIntro loading-content">
+                
+                
+                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#icgc-get">ICGC Get</a>
+           <ul class="nav">
+           
+               <li class=""><a href="#configuration">Configuration</a>
+               
+               </li>
+           
+               <li class=""><a href="#access">Access</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#collaboratory-and-aws">Collaboratory and AWS</a></li>
+                        
+                        <li class=""><a href="#ega">EGA</a></li>
+                        
+                        <li class=""><a href="#gdc">GDC</a></li>
+                        
+                        <li class=""><a href="#cghub">CGHub</a></li>
+                        
+                        <li class=""><a href="#pdc">PDC</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#commands">Commands</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#download-command">Download command</a></li>
+                        
+                        <li class=""><a href="#report-command">Report command</a></li>
+                        
+                        <li class=""><a href="#configure-command">Configure command</a></li>
+                        
+                        <li class=""><a href="#check-command">Check command</a></li>
+                        
+                        <li class=""><a href="#version-command">Version Command</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+           </ul>
+       </li>
+        </li>
+    
+    </ul>
+</div></div>
+                
+                <div class="col-md-9 main-container" role="main">
+                   
+
+<h1 id="icgc-get">ICGC Get</h1>
+<p>ICGC get is a universal download client for accessing ICGC data residing in various data repositories. </p>
+<p>The data possessed by the ICGC resides in many data repositories around the world. These repositories 
+each have their own environment (public cloud, private cloud, on-premise file systems, etc.), 
+access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms. 
+Thus, there is much for a user to learn and perform before actually acquiring the data. 
+This is compounded by the fact that the number of environments are increasing over time 
+and their characteristics are frequently changing.  A coordinated mechanism to bootstrap and 
+streamline this process is highly desirable. This is the problem the ICGC-get helps to solve.</p>
+<h2 id="configuration">Configuration</h2>
+<p>After installing ICGC get, you will need to do configure some of the essential usage parameters,
+such as your access credentials.  The simplest way to do this is to invoke the <code>icgc-get configure</code> command
+and follow the instructions of the prompts.</p>
+<p>In addition to using the <code>configure</code> command, most configuration options can either be overwritten 
+through the command line, by assigning environmental variables, or by directly editing the <code>config.yaml</code> file. 
+Environmental variables are in all caps, have underscores as separators, and are prefixed by ICGCGET_. Command line options have dashes 
+as separators and are prefixed by two dashes.  Config file options a colon, followed by a newline and two spaces as separators.  The 
+only exception to this rule is the ICGC api path: it cannot be set via the command line.</p>
+<p>To specify which config file to use either pass an absolute path to the config file to the 
+command line with <code>--config</code>, or declare an environmental variable <code>ICGCGET_CONFIG</code> that contains 
+the absolute path.  If neither of these options are chosen, the tool will look for  <code>.icgc-get/config.yaml</code>
+in your home directory.</p>
+<p>ICGC get creates logfiles of it's operations, and collects the logfiles generated by some clients.<br />
+The location and name of this logfile can be set with the <code>--logfile</code> option, the <code>logfile:</code> configuration 
+parameters or the <code>ICGCGET_LOGFILE</code>.  Keep in mind that when downloading files from Collaboratory,
+ICGC Storage Server, CGHub, or the GDC additional client logfiles will be saved in the same directory as the specified logfile.</p>
+<p>If you wish to use a different version of the docker container, this can be controlled via the <code>ICGCGET_CONTAINER_TAG</code>
+environmental variable or the <code>container:   tag:</code> configuration option.  This is not recommended, and there is the possiblilty
+that non-default container versions may not be compatible with your installation of ICGC get.</p>
+<p>It is necessary to specify the directory for downloaded files to be saved to under <code>--output</code> if you are running 
+ICGC get locally.  Please make sure that this directory offers read-write-execute permissions to all users.</p>
+<p>It is also recommended to specify a common list of repositories in your preferred order of precedence.  When downloading
+a file, the tool will first try to find the file on the first specified repository, then the second, ect cetra.
+Please use the following format to define your repositories in the configuration file.</p>
+<pre><code class="yaml">repos:
+ - collaboratory
+ - cghub
+ - pdc
+</code></pre>
+
+<p>Valid repositories are:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aws-virginia</code></td>
+<td>Amazon Web Services</td>
+</tr>
+<tr>
+<td><code>collaboratory</code></td>
+<td>Collaboratory</td>
+</tr>
+<tr>
+<td><code>ega</code></td>
+<td>European Genome Association</td>
+</tr>
+<tr>
+<td><code>gdc</code></td>
+<td>Genomic Data Commons</td>
+</tr>
+<tr>
+<td><code>cghub</code></td>
+<td>Cancer Genomic Hub</td>
+</tr>
+<tr>
+<td><code>pdc</code></td>
+<td>Bionimbus Protected Data Cloud</td>
+</tr>
+</tbody>
+</table>
+<p>All clients require an absolute path to your local client installation under <code>repo:   path</code> in the config file or 
+<code>ICGCGET_REPO_PATH</code> as an environmental variable.  All clients support the ability to configure the number of 
+data streams to use when downloading under <code>repo:   transport:   parallel</code> or <code>REPO_TRANSPORT_PARALLEL</code>
+Most clients can be made to download using the UDT protocol by using the <code>repo:   udt</code> config option.</p>
+<p>To more easily create a properly formatted configuration file, you can use the <code>configure</code> command, as described below.  </p>
+<h2 id="access">Access</h2>
+<h3 id="collaboratory-and-aws">Collaboratory and AWS</h3>
+<p>These repositories are both accessed through the <a href="https://hub.docker.com/r/icgc/icgc-storage-client/"><code>icgc-storage-client</code></a>, and share their 
+configuration parameters under the <code>icgc</code> namespace.  For both of these repositories 
+provide an UUID for your ICGC access token to the <code>icgc:  access</code> parameter. 
+You may also specify the transport file from protocol, under <code>icgc:  transport:  file.from</code>. 
+Further documentation can be found at http://docs.icgc.org/cloud/guide/.
+To apply for access to Collaboratory and AWS see https://icgc.org/daco.</p>
+<h3 id="ega">EGA</h3>
+<p><a href="https://ega-archive.org/">EGA</a> access should be provided as your EGA username to <code>ega:  username</code> and your EGA password to <code>ega:  password</code>.
+It should be noted that there have been reliability issues experienced should the transport parallel of the EGA client increase beyond 1.
+Further information can be found at https://www.ebi.ac.uk/ega/about/access</p>
+<h3 id="gdc">GDC</h3>
+<p><a href="https://gdc.nci.nih.gov">GDC</a> access should be provided as the full GDC access token to <code>gdc:  token</code>.  Further information
+about access can be found at https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/</p>
+<h3 id="cghub">CGHub</h3>
+<p><a href="https://cghub.ucsc.edu/">CGHub</a> access should be provided as the contents of a cghub.key file in plain text to <code>cghub:  key</code>.
+Information about how to acquire a cghub.key file can be found 
+https://cghub.ucsc.edu/keyfile/keyfile.html.</p>
+<h3 id="pdc">PDC</h3>
+<p><a href="https://bionimbus-pdc.opensciencedatacloud.org">PDC</a> access should be provided as a key to <code>pdc:  key</code> and a secret key
+to <code>pdc:  secret</code>.
+Support for the PDC can be reached at https://bionimbus-pdc.opensciencedatacloud.org.</p>
+<h2 id="commands">Commands</h2>
+<p>All commands save <code>configure</code> share the <code>--config</code>, <code>--logfile</code> <code>--verbose</code> and the <code>--docker</code> options. </p>
+<h3 id="download-command">Download command</h3>
+<p>The syntax for performing a download using ICGC get is</p>
+<pre><code class="shell">./icgc-get --config [CONFIG] --docker [true|false] download [REPO] [FILEIDS] [OPTIONS]
+</code></pre>
+
+<p>The first required argument is the ICGC File ids or manifest id corresponding to the file or files you wish to download. 
+There is no special syntax for this argument. If this is for a manifest id append the tag <code>-m</code> or <code>--manifest</code>. These ids may be retrieved from the 
+[ICGC data portal.:] (https://dcc.icgc.org)</p>
+<p>Using this command also requires you toe specify the repository or repositories that are being targeted for download, provided they have not been
+specified in the config file, and the output directory.
+Prepend each repository with the <code>-r</code>, for example <code>-r aws-virginia -r ega</code>.  The order that the repositories
+are listed is important: files will be downloaded from the first specified repository if possible, and subsequent repositories
+only if the file was not found on any previous repository. </p>
+<p>The download command comes with an automatic prompt that warns the user if the projected download size approaches the 
+total available space in the download directory.  It is possible to suppress this warning using the <code>-o</code> flag.</p>
+<p>Eample invocation of the <code>download</code> command.</p>
+<pre><code class="shell">./icgc-get download FI378424 -r  collaboratory
+</code></pre>
+
+<h3 id="report-command">Report command</h3>
+<p>Another useful subcommand is <code>report</code>.  This takes the same primary inputs as <code>download</code>,
+but instead of downloading the specified files, it will provide a list of all files that are
+about to be downloaded, including their size, data type, name and the repository they are hosted on. 
+By default the command outputs a table, but the output can be altered to json via <code>-f json</code> or tsv
+via <code>-f tsv</code>.  Should you find file by file output too granular for a particularly large download, 
+the option <code>-t summary</code> can be used to switch to a summarized version of the table.  If an output directory
+is specified, then the command will search that directory to determine of any of the files are already present,
+and add a <code>downloaded</code> column that marks these files. </p>
+<p>Example invocations of the <code>report</code> commands:</p>
+<pre><code class="shell">./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r cghub
+</code></pre>
+
+<p>Sample output:</p>
+<pre><code>╒══════════╤════════╤════════╤═══════════════╤═══════════════╤═══════════════╕
+│          │   Size │ Unit   │ File Format   │ Data Type     │ Repo          │
+╞══════════╪════════╪════════╪═══════════════╪═══════════════╪═══════════════╡
+│ FI99996  │   3.52 │ GB     │ BAM           │ Aligned Reads │ cghub         │
+├──────────┼────────┼────────┼───────────────┼───────────────┼───────────────┤
+│ FI99990  │  435.7 │ MB     │ BAM           │ Aligned Reads │ cghub         │
+├──────────┼────────┼────────┼───────────────┼───────────────┼───────────────┤
+│ FI250134 │ 197.44 │ KB     │ VCF           │ StGV          │ collaboratory │
+╘══════════╧════════╧════════╧═══════════════╧═══════════════╧═══════════════╛
+</code></pre>
+
+<pre><code class="shell">./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r cghub -t summary
+</code></pre>
+
+<p>Sample output:</p>
+<pre><code>╒══════════════════════╤════════╤════════╤══════════════╤═══════════════╕
+│                      │   Size │ Unit   │   File Count │   Donor_Count │
+╞══════════════════════╪════════╪════════╪══════════════╪═══════════════╡
+│ collaboratory        │ 197.44 │ KB     │            1 │             1 │
+├──────────────────────┼────────┼────────┼──────────────┼───────────────┤
+│ collaboratory: StGV  │ 197.44 │ KB     │            1 │             1 │
+├──────────────────────┼────────┼────────┼──────────────┼───────────────┤
+│ cghub                │   3.94 │ GB     │            2 │             2 │
+├──────────────────────┼────────┼────────┼──────────────┼───────────────┤
+│ cghub: Aligned Reads │   3.94 │ GB     │            2 │             2 │
+├──────────────────────┼────────┼────────┼──────────────┼───────────────┤
+│ Total                │   3.94 │ GB     │            3 │             3 │
+├──────────────────────┼────────┼────────┼──────────────┼───────────────┤
+│ Total: Aligned Reads │   3.94 │ GB     │            2 │             2 │
+├──────────────────────┼────────┼────────┼──────────────┼───────────────┤
+│ Total: StGV          │ 197.44 │ KB     │            1 │             1 │
+╘══════════════════════╧════════╧════════╧══════════════╧═══════════════╛
+</code></pre>
+
+<h3 id="configure-command">Configure command</h3>
+<p>This command will start a series of prompts for you to enter application paths, access credentials, output directories and logfile locations.
+Any of these prompts can be  bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use 
+of ICGC Get.  By default, <code>configure</code> will write to the default config file, but the destination can be overwritten with 
+the <code>-c</code> tag.  Should there be an existing configuration file at the target destination, existing configuration values can be kept
+by pressing enter in response to the prompt.  Please note that access tokens, passwords, and secret keys will not be shown on the 
+command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.  </p>
+<h3 id="check-command">Check command</h3>
+<p>The <code>check</code> command will test the provided credentials for each repository specified.
+Due to the security protocols of each client, there are two ways in which this access check can occur.
+For PDC, GDC, and CGHub, ICGC Get is only capable of determining if you have access to the specific 
+files targeted for download, not the state of your permissions for the repository as a whole.<br />
+When performing an access check for these repositories, you must provide a manifest id or 
+list of files using the same formatting as the <code>download</code> command.  For more detailed information about 
+your permissions on these repositories contact their respective support departments.</p>
+<p>For the AWS, Collaboratory, and EGA repositories, the access check will determine if you have access
+to the entire repository or not.  These checks will occur even if file prioritization leads to no files
+being downloaded from any of these repositories.    </p>
+<p>To do a status check on the same files used in the examples above:</p>
+<pre><code class="shell">./icgc-get check FI99996 FI99990 FI250134 -r collaboratory -r cghub
+</code></pre>
+
+<p>Sample output:</p>
+<pre><code>Valid access to the Collaboratory.
+Valid access to the CGHub file
+</code></pre>
+
+<h3 id="version-command">Version Command</h3>
+<p>The only other subcommand is to display the version of all clients used by ICGC Get. This command 
+will check the version of clients that have their tool paths are specified in the config file provided.</p>
+<pre><code class="shell">./icgc-get version
+</code></pre>
+
+<p>Sample output:</p>
+<pre><code>ICGC-Get Version: 0.2.6
+Clients:
+ AWS CLI Version:             1.10.34
+ EGA Client Version:          2.2.2
+ GDC Client Version:          0.7
+ Gtdownload Version:          3.8.7
+ ICGC Storage Client Version: 1.0.13
+</code></pre>
+               </div>
+               </div>
+            </div>
+
+            <footer id="docs-footer">
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            &copy; 2015-2016 <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        
+                        <small class="version-caption">
+                            ICGC DCC Docs Version 1.0
+                        </small>
+                        
+                    </div>
+                </div>
+                
+            </footer>
+
+            <script src="/js/jQuery-FontSpy.js"></script>
+            <script src="/js/bootstrap-3.0.3.min.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/jquery.highlight-4.closure.js"></script>
+            <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
+            <script src="/js/icgc-common.js"></script>
+            <script>var base_url = '../..';</script>
+        </div>
+    </body>
+</html>
