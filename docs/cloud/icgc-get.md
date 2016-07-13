@@ -10,17 +10,23 @@ This is compounded by the fact that the number of environments are increasing ov
 and their characteristics are frequently changing.  A coordinated mechanism to bootstrap and 
 streamline this process is highly desirable. This is the problem the ICGC-get helps to solve.
 
+ICGC get environment diagram
+
+[![](images/ICGC_get_standard.png)](images/ICGC_get_standard.png "Click on the image to see it in full")
+
+ICGC get environment diagram when using docker
+
+[![](images/ICGC_get_docker.png)](images/ICGC_get_docker.png "Click on the image to see it in full")
 
 ## Configuration
 After installing ICGC get, you will need to do configure some of the essential usage parameters,
 such as your access credentials.  The simplest way to do this is to invoke the `icgc-get configure` command
 and follow the instructions of the prompts.
 
-In addition to using the `configure` command, most configuration options can either be overwritten 
+In addition to using the `configure` command, most configuration options can be overwritten either
 through the command line, by assigning environmental variables, or by directly editing the `config.yaml` file. 
-Environmental variables are in all caps, have underscores as separators, and are prefixed by ICGCGET_. Command line options have dashes 
-as separators and are prefixed by two dashes.  Config file options a colon, followed by a newline and two spaces as separators.  The 
-only exception to this rule is the ICGC api path: it cannot be set via the command line.
+Environmental variables are in all caps, have underscores as separators, and are prefixed by `ICGCGET_`. Command line options have dashes 
+as separators and are prefixed by two dashes.  Config file options use a colon, followed by a newline and two spaces as separators. 
 
 To specify which config file to use either pass an absolute path to the config file to the 
 command line with `--config`, or declare an environmental variable `ICGCGET_CONFIG` that contains 
@@ -61,8 +67,8 @@ Valid repositories are:
 | `cghub`          | Cancer Genomic Hub             |
 | `pdc`            | Bionimbus Protected Data Cloud |
 
-All clients require an absolute path to your local client installation under `repo:   path` in the config file or 
-`ICGCGET_REPO_PATH` as an environmental variable.  All clients support the ability to configure the number of 
+All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental 
+variable or under `repo:   path` in the config file.  All clients support the ability to configure the number of 
 data streams to use when downloading under `repo:   transport:   parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `repo:   udt` config option.
 
@@ -74,36 +80,39 @@ To more easily create a properly formatted configuration file, you can use the `
 
 ### Collaboratory and AWS
 
-These repositories are both accessed through the [`icgc-storage-client`](https://hub.docker.com/r/icgc/icgc-storage-client/), and share their 
+These repositories are both accessed through the [ICGC storage client](https://hub.docker.com/r/icgc/icgc-storage-client/), and share their 
 configuration parameters under the `icgc` namespace.  For both of these repositories 
-provide an UUID for your ICGC access token to the `icgc:  access` parameter. 
-You may also specify the transport file from protocol, under `icgc:  transport:  file.from`. 
-Further documentation can be found at http://docs.icgc.org/cloud/guide/.
-To apply for access to Collaboratory and AWS see https://icgc.org/daco.
+provide an UUID for your ICGC access token to the 
+`icgc:  access` parameter. 
+
+You may also specify the transport file from protocol, under `icgc:  transport:  file.from`.  
+Further documentation can be found at [http://docs.icgc.org/cloud/guide/.](http://docs.icgc.org/cloud/guide/)
+To apply for access to Collaboratory and AWS see [https://icgc.org/daco.](https://icgc.org/daco)
 
 ### EGA
-[EGA](https://ega-archive.org/) access should be provided as your EGA username to `ega:  username` and your EGA password to `ega:  password`.
-It should be noted that there have been reliability issues experienced should the transport parallel of the EGA client increase beyond 1.
-Further information can be found at https://www.ebi.ac.uk/ega/about/access
+[EGA](https://ega-archive.org/) access should be provided as your EGA username to `ega:  username` and your EGA password to
+`ega:  password`.  It should be noted that there have been reliability issues experienced should the transport
+parallel of the EGA client increase beyond 1.  Further information can be found at 
+[https://www.ebi.ac.uk/ega/about/access](https://www.ebi.ac.uk/ega/about/access)
 
 ### GDC
 [GDC](https://gdc.nci.nih.gov) access should be provided as the full GDC access token to `gdc:  token`.  Further information
-about access can be found at https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/
+about access can be found at [https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/](https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
 
 ### CGHub
-[CGHub](https://cghub.ucsc.edu/) access should be provided as the contents of a cghub.key file in plain text to `cghub:  key`.
+[CGHub](https://cghub.ucsc.edu/) access should be provided as the contents of a cghub.key file in plain text to `cghub:  key`. 
 Information about how to acquire a cghub.key file can be found 
-https://cghub.ucsc.edu/keyfile/keyfile.html.
+[https://cghub.ucsc.edu/keyfile/keyfile.html.](https://cghub.ucsc.edu/keyfile/keyfile.html)
 
 ### PDC
 
 [PDC](https://bionimbus-pdc.opensciencedatacloud.org) access should be provided as a key to `pdc:  key` and a secret key
 to `pdc:  secret`.
-Support for the PDC can be reached at https://bionimbus-pdc.opensciencedatacloud.org.
+Support for the PDC can be reached at [https://bionimbus-pdc.opensciencedatacloud.org.](https://bionimbus-pdc.opensciencedatacloud.org)
 
 ## Commands
 
-All commands save `configure` share the `--config`, `--logfile` `--verbose` and the `--docker` options. 
+All commands save `configure` share the `--config`, `--logfile` `--verbose` and `--docker` options. 
 
 ### Download command
 
@@ -112,20 +121,21 @@ The syntax for performing a download using ICGC get is
 ./icgc-get --config [CONFIG] --docker [true|false] download [REPO] [FILEIDS] [OPTIONS]
 ```
 
-The first required argument is the ICGC File ids or manifest id corresponding to the file or files you wish to download. 
+The first required argument is the set of ICGC File ids or manifest id corresponding to the file or files you wish to download. 
 There is no special syntax for this argument. If this is for a manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the 
 [ICGC data portal.:] (https://dcc.icgc.org)
 
-Using this command also requires you toe specify the repository or repositories that are being targeted for download, provided they have not been
-specified in the config file, and the output directory.
-Prepend each repository with the `-r`, for example `-r aws-virginia -r ega`.  The order that the repositories
+Using this command also requires you toe specify the repository or repositories that are being targeted for download and the output directory,
+provided they have not been added to the config file.
+
+Prepend each repository with the `-r`, for example `-r aws-virginia -r ega`. The order that the repositories
 are listed is important: files will be downloaded from the first specified repository if possible, and subsequent repositories
 only if the file was not found on any previous repository. 
 
 The download command comes with an automatic prompt that warns the user if the projected download size approaches the 
-total available space in the download directory.  It is possible to suppress this warning using the `-o` flag.
+total available space in the download directory. It is possible to suppress this warning using the `-o` flag.
 
-Eample invocation of the `download` command.
+Eample invocation of the `download` command:
 
 ```shell
 ./icgc-get download FI378424 -r  collaboratory
@@ -133,9 +143,10 @@ Eample invocation of the `download` command.
 
 ### Report command
 
-Another useful subcommand is `report`.  This takes the same primary inputs as `download`,
+Another useful subcommand is `report`. This takes the same primary inputs as `download`,
 but instead of downloading the specified files, it will provide a list of all files that are
 about to be downloaded, including their size, data type, name and the repository they are hosted on. 
+
 By default the command outputs a table, but the output can be altered to json via `-f json` or tsv
 via `-f tsv`.  Should you find file by file output too granular for a particularly large download, 
 the option `-t summary` can be used to switch to a summarized version of the table.  If an output directory
@@ -145,6 +156,10 @@ and add a `downloaded` column that marks these files.
 Example invocations of the `report` commands:
 ```shell
 ./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r cghub
+```
+
+```shell
+./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r cghub -t summary
 ```
 
 Sample output:
@@ -160,13 +175,6 @@ Sample output:
 │ FI250134 │ 197.44 │ KB     │ VCF           │ StGV          │ collaboratory │
 ╘══════════╧════════╧════════╧═══════════════╧═══════════════╧═══════════════╛
 ```
-
-
-```shell
-./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r cghub -t summary
-```
-
-Sample output:
 
 ```
 ╒══════════════════════╤════════╤════════╤══════════════╤═══════════════╕
@@ -194,7 +202,7 @@ This command will start a series of prompts for you to enter application paths, 
 Any of these prompts can be  bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use 
 of ICGC Get.  By default, `configure` will write to the default config file, but the destination can be overwritten with 
 the `-c` tag.  Should there be an existing configuration file at the target destination, existing configuration values can be kept
-by pressing enter in response to the prompt.  Please note that access tokens, passwords, and secret keys will not be shown on the 
+by pressing enter in response to the prompt.  Please note that some access tokens, passwords, and secret keys will not be shown on the 
 command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.  
 
 ### Check command
@@ -202,7 +210,7 @@ command prompt for security reasons, but can still be entered and can still be k
 The `check` command will test the provided credentials for each repository specified.
 Due to the security protocols of each client, there are two ways in which this access check can occur.
 For PDC, GDC, and CGHub, ICGC Get is only capable of determining if you have access to the specific 
-files targeted for download, not the state of your permissions for the repository as a whole.  
+files targeted for download, not the state of your permissions for the repository as a whole. 
 When performing an access check for these repositories, you must provide a manifest id or 
 list of files using the same formatting as the `download` command.  For more detailed information about 
 your permissions on these repositories contact their respective support departments.
