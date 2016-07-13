@@ -56,7 +56,7 @@ $(function () {
       supportedSubmitMethods: ['get', 'post', 'put'],
       onComplete: function(){
 
-        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+        // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
 
         // Fix static urls for images
         $('[src="images/throbber.gif"]').attr('src', '/vendor/swagger-ui/images/throbber.gif');
