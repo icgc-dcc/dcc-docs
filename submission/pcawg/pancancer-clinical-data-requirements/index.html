@@ -197,6 +197,14 @@
 </li>
 
                     
+                        
+<li >
+    
+    <a href="../../../cloud/icgc-get/">ICGC get</a>
+    
+</li>
+
+                    
                     </ul>
                 </li>
             
@@ -434,124 +442,78 @@
 
                     
                         
-<li >
-    
-    <a href="../../../dictionary/releases/">Release Notes</a>
-    
-</li>
-
-                    
-                        
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 21</a>
+    <a tabindex="-1" href="">Release Notes</a>
     <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../../dictionary/release-21/">Dictionary - Release 21</a>
+    <a href="../../../dictionary/releases/">Overview</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 20</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-20/">Dictionary - Release 20</a>
+    <a href="../../../dictionary/release-22/">Release 22</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 19</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-19/">Dictionary - Release 19</a>
+    <a href="../../../dictionary/release-21/">Release 21</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 18</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-18/">Dictionary - Release 18</a>
+    <a href="../../../dictionary/release-20/">Release 20</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 17</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-17/">Dictionary - Release 17</a>
+    <a href="../../../dictionary/release-19/">Release 19</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 16</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../../dictionary/release-16/">Dictionary - Release 16</a>
+    <a href="../../../dictionary/release-18/">Release 18</a>
     
 </li>
 
         
-    </ul>
-  </li>
+            
+<li >
+    
+    <a href="../../../dictionary/release-17/">Release 17</a>
+    
+</li>
 
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 15</a>
-    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../../dictionary/release-15/">Dictionary - Release 15</a>
+    <a href="../../../dictionary/release-16/">Release 16</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../../dictionary/release-15/">Release 15</a>
     
 </li>
 
@@ -573,6 +535,14 @@
 <li >
     
     <a href="../../../software/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../../software/releases/">Releases</a>
     
 </li>
 
@@ -672,23 +642,67 @@
 
 <h1 id="pcawg-clinical-data-requirements">PCAWG Clinical Data Requirements</h1>
 <h3 id="overview">Overview:</h3>
-<p>The Pan-Cancer Analysis of Whole Genomes (PCAWG) is an international ICGC initiative to analyze approximately 2500 whole tumor/normal pairs of genome with their clinical outcome. The Data Coordinating Centre has always requested that PCAWG projects provide clinical data for all of their PCAWG submissions. However, a review of ICGC Release 20 has shown that clinical data is still missing from many projects, with some projects systematically missing certain essential fields. This incompleteness of clinical data is making it difficult to make any meaningful clinical correlations when carrying out PCAWG data analysis. In an effort to ensure clinical data completeness, DCC has been contacting PCAWG projects with regards to missing or incorrect clinical data. All clinical discrepancies and/or missing PCAWG data in DCC should be expected to be fixed by Feburary 5th 2016. This date was set by the PCAWG Steering Committee (Stein, Campbell, Getz &amp; Korbel) to ensure working groups are able to access the necessary information in a timely manner, to allow all other dependent workflows.</p>
+<p>The Pan-Cancer Analysis of Whole Genomes (PCAWG) is an international ICGC initiative to analyze approximately 2800 whole tumour/normal pairs of genome with their clinical outcome.  The Data Coordinating Centre has been responsible for collecting required clinical data for all PCAWG projects in order to facilitate working groups with access to necessary clinical data for PCAWG analysis. The DCC also ensures that clinical data is accurate and consistent, which is critical in order to make meaningful clinical correlations when carrying out PCAWG analysis. To do this, the DCC submission system employs several validation checks to ensure clinical information for PCAWG data is consistent between PCAWG and DCC. The following documentation details how to interpret error messages related to PCAWG data and solutions to fix data discrepancies.</p>
 <h3 id="interpreting-error-messages-related-to-pcawg-data">Interpreting Error Messages related to PCAWG Data</h3>
 <p>The DCC Submission system will report the following issues with PCAWG data during validation:</p>
 <ul>
-<li>Missing PCAWG donors and/or samples in DCC </li>
-<li>Mislabeled PCAWG samples in DCC</li>
+<li>Missing PCAWG donor_ids in DCC</li>
+<li>Missing PCAWG specimen_id in DCC</li>
+<li>Inconsistent specimen_type value with respect to PCAWG</li>
+<li>Missing PCAWG sample_ids in DCC</li>
+<li>Missing or invalid PCAWG sample "study" field</li>
 </ul>
 <p>The following section explains error messages relating to submission problems with PCAWG data, and how to resolve the issue:</p>
+<pre><code>&quot;The following donors have data submitted to PCAWG, but have not been included in this DCC submission.&quot;
+</code></pre>
+
+<ul>
+<li>The PCAWG donor_id(s) is missing from the DCC submission. As a result, there is no DCC entry or clinical data for the missing PCAWG donor_id(s)<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Add the missing PCAWG donor_id and the required clinical to your DCC submission.</li>
+</ul>
+<pre><code>&quot;The following specimen have data submitted to PCAWG, but have not been included in this DCC submission.&quot;
+</code></pre>
+
+<ul>
+<li>The PCAWG specimen_id is either missing in your DCC submission, or it does not match the specimen_id in PCAWG.<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Ensure the DCC-submitted specimen_id matches the PCAWG-submitted specimen_id</li>
+<li>If it is missing, please add the PCAWG specimen_id and all required clinical data to your DCC submission</li>
+</ul>
+<pre><code>&quot;Specimen type has an inconsistent value with respect to PCAWG.&quot;
+</code></pre>
+
+<ul>
+<li>The DCC-submitted specimen_type is inconsistent with the PCAWG-submitted specimen_type<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Ensure the specimen_type information you submit to DCC for a given PCAWG specimen_id is consistent with the PCAWG-submitted specimen_type information</li>
+</ul>
 <pre><code>&quot;The following samples have data submitted to PCAWG, but have not been included in this DCC submission.&quot;
 </code></pre>
 
 <ul>
-<li>Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.<blockquote>
+<li>The DCC Submission system reports a list of offending samples that are found in PCAWG but have not been included in the DCC submission.<blockquote>
 <p>Solution:</p>
 </blockquote>
 </li>
 <li>Add missing sample(s) to DCC submission and ensure the "study" field in the DCC <a href="../../../dictionary/viewer/#?viewMode=table&amp;dataType=sample">sample</a> submission file is correctly completed for each PCAWG sample</li>
+</ul>
+<pre><code>&quot;Sample data submitted to PCAWG, however it is not marked as in PCAWG study in this DCC submission.&quot;
+</code></pre>
+
+<ul>
+<li>The "study" field is missing for a given PCAWG sample_id in your DCC submission<blockquote>
+<p>Solution:</p>
+</blockquote>
+</li>
+<li>Update the "study" field to "1" to indicate the sample_id is in PCAWG</li>
 </ul>
 <pre><code>&quot;Sample is marked as in PCAWG study in this submission, however it does not actually exist in PCAWG.&quot;
 </code></pre>
@@ -736,7 +750,7 @@
             <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="/js/base.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '../../..';</script>
         </div>

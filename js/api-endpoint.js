@@ -50,12 +50,13 @@ $(function () {
     window.swaggerUi = new SwaggerUi({
       // Modified
       url: _getEndpointURL(),
+      validatorUrl: null,
       apiKey: "",
       dom_id: "swagger-ui-container",
       supportedSubmitMethods: ['get', 'post', 'put'],
       onComplete: function(){
 
-        // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
 
         // Fix static urls for images
         $('[src="images/throbber.gif"]').attr('src', '/vendor/swagger-ui/images/throbber.gif');
@@ -76,7 +77,6 @@ $(function () {
 
       },
       onFailure: function() {
-        log("Unable to Load SwaggerUI");
         _errorAlert.fadeIn('fast');
       },
       docExpansion: "none"
@@ -114,7 +114,7 @@ $(function () {
   function updateAPIServer(url) {
     if (window.swaggerUi && typeof window.swaggerUi.updateSwaggerUi === 'function') {
       _hasReloadedRequest = false;
-      window.swaggerUi.updateSwaggerUi({url: url || _getEndpointURL() });
+      window.swaggerUi.updateSwaggerUi({url: (url || _getEndpointURL()) + '?t=' + new Date().getTime() });
     }
   }
 
@@ -183,7 +183,7 @@ $(function () {
   }
 
   var BASE_URL = 'https://dcc.icgc.org',
-    BASE_PATH = '/api/api-docs',
+    BASE_PATH = '/api/swagger.json',
     _currentBaseURL = null,
     _currentBasePath = null;
 

@@ -197,6 +197,14 @@
 </li>
 
                     
+                        
+<li >
+    
+    <a href="../../cloud/icgc-get/">ICGC get</a>
+    
+</li>
+
+                    
                     </ul>
                 </li>
             
@@ -434,124 +442,78 @@
 
                     
                         
-<li >
-    
-    <a href="../../dictionary/releases/">Release Notes</a>
-    
-</li>
-
-                    
-                        
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 21</a>
+    <a tabindex="-1" href="">Release Notes</a>
     <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-21/">Dictionary - Release 21</a>
+    <a href="../../dictionary/releases/">Overview</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 20</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../dictionary/release-20/">Dictionary - Release 20</a>
+    <a href="../../dictionary/release-22/">Release 22</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 19</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../dictionary/release-19/">Dictionary - Release 19</a>
+    <a href="../../dictionary/release-21/">Release 21</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 18</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../dictionary/release-18/">Dictionary - Release 18</a>
+    <a href="../../dictionary/release-20/">Release 20</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 17</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../dictionary/release-17/">Dictionary - Release 17</a>
+    <a href="../../dictionary/release-19/">Release 19</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 16</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../../dictionary/release-16/">Dictionary - Release 16</a>
+    <a href="../../dictionary/release-18/">Release 18</a>
     
 </li>
 
         
-    </ul>
-  </li>
+            
+<li >
+    
+    <a href="../../dictionary/release-17/">Release 17</a>
+    
+</li>
 
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 15</a>
-    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../../dictionary/release-15/">Dictionary - Release 15</a>
+    <a href="../../dictionary/release-16/">Release 16</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-15/">Release 15</a>
     
 </li>
 
@@ -573,6 +535,14 @@
 <li >
     
     <a href="../../software/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/releases/">Releases</a>
     
 </li>
 
@@ -678,6 +648,10 @@
                         
                         <li class=""><a href="#get-dictionary-by-version">Get Dictionary by Version</a></li>
                         
+                        <li class=""><a href="#get-all-dictionary-versions">Get All Dictionary Versions</a></li>
+                        
+                        <li class=""><a href="#get-current-dictionary_1">Get Current Dictionary</a></li>
+                        
                     </ul>
                
                </li>
@@ -732,6 +706,16 @@
 <p>The following allows you to retrieve a particular version of the dictionary, where 'versionNum' is the dictionary version number you want to retrieve.</p>
 <pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versionNum -H &quot;Accept: application/json&quot;
 </code></pre>
+
+<h3 id="get-all-dictionary-versions">Get All Dictionary Versions</h3>
+<p>The following allows you to retrieve all available dictionary versions. Each version will also have a list of releases that it is associated with. </p>
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/versions -H &quot;Accept: application/json&quot;
+</code></pre>
+
+<h3 id="get-current-dictionary_1">Get Current Dictionary</h3>
+<p>The following allows you to retrieve the current dictionary. </p>
+<pre><code class="shell">curl -v -XGET https://submissions.dcc.icgc.org/ws/dictionaries/current -H &quot;Accept: application/json&quot;
+</code></pre>
                </div>
                </div>
             </div>
@@ -767,7 +751,7 @@
             <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="/js/base.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '../..';</script>
         </div>

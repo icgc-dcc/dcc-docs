@@ -99,6 +99,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://docs.icgc.org/cloud/icgc-get/</loc>
+     <lastmod>2016-07-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -168,48 +174,6 @@
     </url>
         
     <url>
-     <loc>http://docs.icgc.org/dictionary/releases/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.icgc.org</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.icgc.org</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.icgc.org</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.icgc.org</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.icgc.org</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://docs.icgc.org</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://docs.icgc.org</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
@@ -221,6 +185,12 @@
         
     <url>
      <loc>http://docs.icgc.org/software/about/</loc>
+     <lastmod>2016-07-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://docs.icgc.org/software/releases/</loc>
      <lastmod>2016-07-13</lastmod>
      <changefreq>daily</changefreq>
     </url>

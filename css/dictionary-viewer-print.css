@@ -1,0 +1,55 @@
+/* We use important here because we need to ensure that the browser takes the below rules seriously regardless of CSS cascade and inline styles :S */
+body {
+  padding-top: 0 !important;
+}
+
+.header-text-link:hover [class^="icon-"],
+.header-text-link [class^="icon-"],
+.header-text-link > *,
+.header-text-link:after {
+  display: none !important;
+}
+
+
+.dictionary-viewer-main .badge {
+  padding: 1px 3px !important;
+  background-color: transparent !important;
+  color: #000 !important;
+  font-size: 0.8rem !important;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+  display: none !important;
+}
+
+.parent-container {
+  background-color: #fff !important;
+}
+
+.vis-wrapper {
+  margin-left: 0  !important;
+  margin-right: 0  !important;
+}
+
+table.table {
+  max-width: 1024px;
+}
+
+table th,
+table td {
+  width: 2px !important;
+  padding: 0 1px !important;
+  font-size: 0.8rem !important;
+}
+
+table tr td:last-child {
+ word-break: normal;
+}
+
+table.table tr td p, pre {
+  padding: 2px 2px !important;
+}
+
+footer {
+  display: none !important;
+}

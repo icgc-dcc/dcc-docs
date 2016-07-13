@@ -16,7 +16,8 @@
         
         <link href="https://submissions.dcc.icgc.org/dictionary/styles/dictionary.css" rel="stylesheet">
 <link href="../../vendor/angular-loading-bar/loading-bar.min.css" rel="stylesheet">
-<link href="../../css/dictionary-viewer.css" rel="stylesheet">
+<link href="../../css/dictionary-viewer.css" rel="stylesheet" media="screen">
+<link href="../../css/dictionary-viewer-print.css" rel="stylesheet" media="print">
 
 <script type="application/javascript">
     (function() {
@@ -215,6 +216,14 @@
 <li >
     
     <a href="../../cloud/guide/">Guide</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../cloud/icgc-get/">ICGC get</a>
     
 </li>
 
@@ -456,124 +465,78 @@
 
                     
                         
-<li >
-    
-    <a href="../releases/">Release Notes</a>
-    
-</li>
-
-                    
-                        
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 21</a>
+    <a tabindex="-1" href="">Release Notes</a>
     <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../release-21/">Dictionary - Release 21</a>
+    <a href="../releases/">Overview</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 20</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../release-20/">Dictionary - Release 20</a>
+    <a href="../release-22/">Release 22</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 19</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../release-19/">Dictionary - Release 19</a>
+    <a href="../release-21/">Release 21</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 18</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../release-18/">Dictionary - Release 18</a>
+    <a href="../release-20/">Release 20</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 17</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../release-17/">Dictionary - Release 17</a>
+    <a href="../release-19/">Release 19</a>
     
 </li>
 
         
-    </ul>
-  </li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 16</a>
-    <ul class="dropdown-menu">
-        
             
 <li >
     
-    <a href="../release-16/">Dictionary - Release 16</a>
+    <a href="../release-18/">Release 18</a>
     
 </li>
 
         
-    </ul>
-  </li>
+            
+<li >
+    
+    <a href="../release-17/">Release 17</a>
+    
+</li>
 
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Release 15</a>
-    <ul class="dropdown-menu">
         
             
 <li >
     
-    <a href="../release-15/">Dictionary - Release 15</a>
+    <a href="../release-16/">Release 16</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../release-15/">Release 15</a>
     
 </li>
 
@@ -595,6 +558,14 @@
 <li >
     
     <a href="../../software/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../software/releases/">Releases</a>
     
 </li>
 
@@ -671,57 +642,66 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="dictionary-viewer" class="no-auto-render">
-    <span class="header-badge" style="padding: 0.90rem 1.0rem 1.2rem 1.6rem;">
-        <i class="fa fa-sitemap"></i>
-    </span>
-    <a class="header-text-link" href="#dictionary-viewer" title="Click on this header and copy URL to link to this section.">
-        Dictionary Viewer&nbsp;<i class="icon-share-1"></i>
-    </a>
-</h1>
-
-<div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl" class="full-width-content dictionary-viewer-main">
-    <h2 class="loading-app" data-ng-if="!  DictionaryViewCtrl.versionRange.from"><i class="animate-spin icon-spinner"></i> Loading...</h2>
-    <div data-ng-show="DictionaryViewCtrl.versionRange.from" ng-cloak>
-        <div class="dictionary-viewer-controls row">
-            <div class="form-group col-md-2">
-              <input class="form-control" type="search" role="search" placeholder="Search Dictionary" data-ng-model="DictionaryViewCtrl.searchQuery">
-            </div>
-            <div class="form-group col-md-4 version-select-container">
+<div data-ng-app="DocsDictionaryViewerApp" data-ng-controller="DictionaryViewerCtrl as DictionaryViewCtrl">
+    <h1 id="dictionary-viewer" class="no-auto-render">
+        <span class="header-badge custom-badge">
+            <i class="fa fa-sitemap"></i>
+        </span>
+        <a class="header-text-link" href="#dictionary-viewer" title="Click on this header and copy URL to link to this section.">
+            Dictionary Viewer&nbsp; <span data-ng-if="DictionaryViewCtrl.latestDictionaryVersion" data-ng-bind-template="(Latest Version: {{DictionaryViewCtrl.latestDictionaryVersion}})"></span><i class="icon-share-1"></i>
+        </a>
+    </h1>
+    <div class="full-width-content dictionary-viewer-main">
+        <h2 class="loading-app" data-ng-if="!  DictionaryViewCtrl.latestDictionaryVersion"><i class="animate-spin icon-spinner"></i> Loading...</h2>
+        <div data-ng-show="DictionaryViewCtrl.latestDictionaryVersion" ng-cloak>
+            <div class="dictionary-viewer-controls" data-ng-style="{'margin-bottom':DictionaryViewCtrl.versionRange.from === DictionaryViewCtrl.versionRange.to ? '0rem' : 'inherit'}">
+                <div class="version-select-container col-md-8">
+                    <div class="version-label">
+                        <span data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">Compare</span> Version
+                    </div>
+                     <div class="version-selector-container">
                         <select class="form-control version-selector"
+                                id="version-from"
                                 data-ng-options="viewType for viewType in DictionaryViewCtrl.getDictionaryVersionList()"
                                 data-ng-model="DictionaryViewCtrl.versionRange.from"
                                 data-ng-change="DictionaryViewCtrl.setDictionaryVersionFilterRange(DictionaryViewCtrl.versionRange.from, DictionaryViewCtrl.versionRange.to)">
                         </select>
-                        TO
+                        <div style="display: inline-block" data-ng-if="! DictionaryViewCtrl.shouldCompareDictionaries">
+                            <a href="javascript:void(0)" title="Compare Dictionary Versions" class="btn bttn-hover-expand-caption btn-primary" data-ng-click="DictionaryViewCtrl.shouldCompareDictionaries = true"><i class="fa fa-random"></i><!--
+                                --><span>Compare Versions</span>
+                            </a>
+                        </div>
+                        <div style="display: inline-block" data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">
+                         with Version
                         <select class="form-control version-selector"
+                                id="version-to"
                                 data-ng-options="viewType for viewType in DictionaryViewCtrl.getDictionaryVersionList()"
                                 data-ng-model="DictionaryViewCtrl.versionRange.to"
                                 data-ng-change="DictionaryViewCtrl.setDictionaryVersionFilterRange(DictionaryViewCtrl.versionRange.from, DictionaryViewCtrl.versionRange.to)">
                         </select>
+                        </div>
                     </div>
-                    <div class="form-group col-md-3 view-select-container">
-                    View as:
-                                <select class="form-control view-selector"
-                                        data-ng-options="viewType for viewType in DictionaryViewCtrl.viewTypes"
-                                        data-ng-model="DictionaryViewCtrl.viewMode"
-                                        data-ng-change="DictionaryViewCtrl.setView(DictionaryViewCtrl.viewMode)">
-                                </select>
-                    </div>
-                    <div class="col-md-3 changes-container">
-                        <div class="pill addition"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</div>
-                        <div class="pill change"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</div>
-                    </div>
-        </div>
-        <div>
-        <dictionary-viewer
-                        class="dictionary-viewer-content"
-                        data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
-                        data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
-                        data-show-header-nav="false"
-                        data-hide-graph-legend="false"
-                        data-search-query="DictionaryViewCtrl.searchQuery"
-                       ></dictionary-viewer>
+                </div>
+                <div class="col-md-4">
+                    <input class="form-control" type="search" role="search" placeholder="Search Dictionary"  data-ng-model-options="{debounce: 350}" data-ng-model="DictionaryViewCtrl.searchQuery">
+                </div>
+            </div>
+            <div style="text-align:right;" data-ng-if="DictionaryViewCtrl.shouldCompareDictionaries">
+                <div class="changes-container">
+                    <a class="pill pill-tab-bttn addition" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.switchToReportView('additions')"><i class="fa fa-plus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsAddedCount"></span> additions</a>
+                    <a class="pill pill-tab-bttn change" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.switchToReportView('modifications')"><i class="fa fa-exchange"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsChangedCount"></span> changes</a>
+                    <a class="pill pill-tab-bttn remove" href="javascript:void(0)" data-ng-click="DictionaryViewCtrl.switchToReportView('deletions')"><i class="fa fa-minus"></i> <span data-ng-bind="DictionaryViewCtrl.fieldsRemovedCount"></span> deletions</a>
+                </div>
+            </div>
+                    <dictionary-viewer
+                                class="dictionary-viewer-content"
+                                data-base-dictionary-url="{{DictionaryViewCtrl.baseDictionaryURL}}"
+                                data-template-url="{{DictionaryViewCtrl.baseDictionaryURL}}/dictionary"
+                                data-show-header-nav="false"
+                                data-hide-graph-legend="false"
+                                data-search-query="DictionaryViewCtrl.searchQuery"
+                               >
+                    </dictionary-viewer>
         </div>
     </div>
 </div>
@@ -760,7 +740,7 @@
             <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
-            <script src="/js/base.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '../..';</script>
         </div>

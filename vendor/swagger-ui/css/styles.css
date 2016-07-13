@@ -1,12 +1,3 @@
-body, html {
-  font-size: 0.8rem;
-  line-height: 1.6rem;
-  background: #f2f2f2;
-  width: 100%;
-  height: 100%;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 .clearfix:after {
   content: "";
   display: table;
@@ -117,6 +108,7 @@ body, html {
 .swagger-ui-wrap ul#resources {
   line-height: 1rem;
   font-size: 0.9rem;
+  padding-left: 0;
 }
 
 .swagger-ui a:hover {
@@ -210,10 +202,8 @@ h3 {
   font-size: 2rem;
 }
 
-h2, h3, h4 {
-  line-height: 1.25em;
-  margin-top: 0.5em;
-  margin-bottom: 0.6em;
+.swagger-section h2, .swagger-section  h3, .swagger-section h4 {
+  margin: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -228,10 +218,6 @@ summary {
   font-weight: normal;
 }
 
-#resources_container {
-  font-size: 1rem;
-}
-
  #swagger-ui-container.swagger-ui-wrap {
   margin-left: 0;
   margin-right: 0;
@@ -239,4 +225,28 @@ summary {
 
 #message-bar {
   display: none;
+}
+
+.swagger-section .swagger-ui-wrap {
+   max-width: none;
+}
+
+.swagger-section .swagger-ui-wrap .info_title {
+  display: none;
+}
+
+.swagger-section p, .swagger-section pre {
+   margin: 0em;
+}
+
+.swagger-ui-container .container {
+   font-size: 2em !important;
+}
+
+.swagger-section {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.swagger-section ul {
+   padding: 0;
 }
