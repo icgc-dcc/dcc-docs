@@ -19,9 +19,11 @@ ICGC get environment diagram when using docker
 [![](images/ICGC_get_docker.png)](images/ICGC_get_docker.png "Click on the image to see it in full")
 
 ## Configuration
-After installing ICGC get, you will need to do configure some of the essential usage parameters,
+After installing ICGC get, you may need to do configure some of the essential usage parameters,
 such as your access credentials.  The simplest way to do this is to invoke the `icgc-get configure` command
 and follow the instructions of the prompts.
+
+Should you not wish to get started right away,  it is possible to run the tool without making a configuration file at all. Most of the parameters already have default options if no config file is loaded. The only exceptions are output, repos, access credentials and if you are not using Docker, tool paths.  These options can be passed via the appropriate command line options.
 
 In addition to using the `configure` command, most configuration options can be overwritten either
 through the command line, by assigning environmental variables, or by directly editing the `config.yaml` file. 
@@ -52,7 +54,7 @@ Please use the following format to define your repositories in the configuration
 ```yaml
 repos:
  - collaboratory
- - cghub
+ - gnos
  - pdc
 ```
 
@@ -64,7 +66,7 @@ Valid repositories are:
 | `collaboratory`  | Collaboratory                  |
 | `ega`            | European Genome Association    |
 | `gdc`            | Genomic Data Commons           |
-| `cghub`          | Cancer Genomic Hub             |
+| `gnos`           | Gnos                           |
 | `pdc`            | Bionimbus Protected Data Cloud |
 
 All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental 
@@ -96,13 +98,12 @@ parallel of the EGA client increase beyond 1.  Further information can be found 
 [https://www.ebi.ac.uk/ega/about/access](https://www.ebi.ac.uk/ega/about/access)
 
 ### GDC
-[GDC](https://gdc.nci.nih.gov) access should be provided as the full GDC access token to `gdc:  token`.  Further information
+[GDC](https://gdc.nci.nih.gov) access should be provided as the full GDC access token or an absolute path to a token file to `gdc:  token`.  Further information
 about access can be found at [https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/](https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
 
-### CGHub
-[CGHub](https://cghub.ucsc.edu/) access should be provided as the contents of a cghub.key file in plain text to `cghub:  key`. 
-Information about how to acquire a cghub.key file can be found 
-[https://cghub.ucsc.edu/keyfile/keyfile.html.](https://cghub.ucsc.edu/keyfile/keyfile.html)
+### Gnos
+Gnos access should be provided as the contents of `.key` file in plain text or an absolute path to that file to `gnos:  key`. 
+Information about how to acquire a `.key` file depends on the repository you are attempting to access
 
 ### PDC
 
@@ -118,14 +119,13 @@ All commands save `configure` share the `--config`, `--logfile` `--verbose` and 
 
 The syntax for performing a download using ICGC get is
 ```shell
-./icgc-get --config [CONFIG] --docker [true|false] download [REPO] [FILEIDS] [OPTIONS]
+./icgc-get --config [CONFIG] --docker [true|false] download [REPO] [IDS] [-m/] [OPTIONS]
 ```
 
 The first required argument is the set of ICGC File ids or manifest id corresponding to the file or files you wish to download. 
-There is no special syntax for this argument. If this is for a manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the 
-[ICGC data portal.:] (https://dcc.icgc.org)
+This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid.  If this is for a manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal.] (https://dcc.icgc.org)
 
-Using this command also requires you toe specify the repository or repositories that are being targeted for download and the output directory,
+Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
 provided they have not been added to the config file.
 
 Prepend each repository with the `-r`, for example `-r aws-virginia -r ega`. The order that the repositories
@@ -135,7 +135,7 @@ only if the file was not found on any previous repository.
 The download command comes with an automatic prompt that warns the user if the projected download size approaches the 
 total available space in the download directory. It is possible to suppress this warning using the `-o` flag.
 
-Eample invocation of the `download` command:
+Sample invocation of the `download` command:
 
 ```shell
 ./icgc-get download FI378424 -r  collaboratory
