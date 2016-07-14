@@ -61,6 +61,7 @@
   <script src='/vendor/swagger-ui/lib/marked.js' type='text/javascript'></script>
   <script src='/vendor/swagger-ui/lib/swagger-oauth.js' type='text/javascript'></script>
   <script src="/js/api-endpoint.js"></script>
+  <script src="/js/swagger-ui-overrides.js"></script>
 
   <link href='/vendor/swagger-ui/css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='/vendor/swagger-ui/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
