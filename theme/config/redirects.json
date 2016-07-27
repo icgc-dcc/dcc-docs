@@ -42,6 +42,10 @@
     {
       "from": "/icgc-dcc-project-codes",
       "to": "/submission/projects/#project-codes"
+    },
+    {
+      "from": "/donor-clinical-data-guidelines",
+      "to": "/submission/guide/donor-clinical-data-guidelines/"
     }
 
   ]
