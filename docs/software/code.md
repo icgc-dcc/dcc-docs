@@ -29,11 +29,10 @@ Software for uploading and downloading ICGC files in cloud environments. This sy
 
 Software for accepting and validating ICGC clinical and experimental data files. This system powers [https://submissions.dcc.icgc.org/](https://submissions.dcc.icgc.org/) and provides the main input to the ETL system.
 
-### Data Downloader (`dcc-downloader`)
-[Data Downloader GitHub repository](https://github.com/icgc-dcc/dcc-downloader)
+### Data Download (`dcc-download`)
+[Data Download GitHub repository](https://github.com/icgc-dcc/dcc-download)
 
-Software component for Archiving and Downloading data used by the Data Portal. Contains the client code as well the oozie
-workflows for execution on Hadoop.
+Software component for Downloading data used by the Data Portal. Contains the client code as well the server which allows to download data over HTTPS.
 
 ### Data Portal (`dcc-portal`)
 [Portal GitHub repository](https://github.com/icgc-dcc/dcc-portal)
@@ -47,10 +46,10 @@ The repository contains the source code which powers the Data Portal's API, UI, 
 
 Source code for this site. Powered by mkdocs and GitHub Pages.
 
-### ETL (`dcc-etl`)
-[ETL GitHub repository](https://github.com/icgc-dcc/dcc-etl)
+### Release (`dcc-release`)
+[Release GitHub repository](https://github.com/icgc-dcc/dcc-release)
 
-Parent project for all the modules that make up the ETL pipeline for transforming project submissions into Data Portal products.
+Parent project for all the modules that make up the Release(ETL) pipeline for transforming project submissions into Data Portal products.
 
 ### ID (`dcc-id`)
 [ID GitHub repository](https://github.com/icgc-dcc/dcc-id)
