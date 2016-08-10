@@ -1,3 +1,11 @@
+function isInViewport (el) {
+  var rect = el.getBoundingClientRect();
+  return rect.bottom > 0 &&
+    rect.right > 0 &&
+    rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+    rect.top < (window.innerHeight || document.documentElement.clientHeight);
+}
+
 $(function() {
 
   function init() {
@@ -442,6 +450,19 @@ $(function() {
       $('#scroll-up-indicator').html('<span style="display: none">Scroll to the top of this page.</span>');
     }
 
+    // function _initDisableOverflowWhenFooterInView() {
+    //   var footer = document.querySelector('#docs-footer');
+    //   var $body = $('#body');
+    //   function _onScroll() {
+    //     // if (isInViewport(footer)) {
+    //     // }
+    //     $body.toggleClass('disableScroll', isInViewport(footer));
+    //   }
+    //   var $window = $(window);
+    //   $window.scroll(_onScroll);
+    // }
+
+
     var BODY_ID = '#body';
     var _hideMenuOffset = 64;
 
@@ -453,6 +474,7 @@ $(function() {
     _calcMainContentWidth();
     _initAlerts();
     _initScrollUpIndicator();
+    _initDisableOverflowWhenFooterInView();
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
