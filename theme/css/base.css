@@ -38,6 +38,9 @@ div.col-md-9 img {
 
 .searchbox-container {
    width: 300px;
+   position: absolute;
+   right: 0;
+   top: 100%;
 }
 
 .searchbox {

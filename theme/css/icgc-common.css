@@ -159,6 +159,7 @@ code {
   position: relative;
   margin: 0 auto;
   background-color: #fafafa;
+  height: 100%;
 }
 
 /* Nav Styling */
@@ -287,6 +288,14 @@ code {
   color: #e9931c;
 }
 
+#body {
+  overflow: auto;
+  height: 100%;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
 /* Main Body Container */
 .container {
   background-color: #fff;
@@ -302,10 +311,14 @@ code {
 .main-container {
   border-left: 1px solid #ccc;
   padding: 2rem;
+  height: 100%;
+  overflow: auto;
 }
 
 .toc-container {
   position:relative;
+  height: 100%;
+  overflow: auto;
 }
 
 .bs-sidebar.well {

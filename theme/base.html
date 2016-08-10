@@ -54,13 +54,13 @@
     </head>
 
     <body>
+        {% include "nav.html" %}
         <div class="parent-container">
-            {% include "nav.html" %}
 
             <div id="docs-container" class="container">
                 {% include "search.html" %}
                 {% if current_page.title != config.extra.api_endpoint_page_id %}
-                <div id="body" class="fadeInBlurIntro loading-content">
+                <div id="body">
                 {% else %}
                     <div id="body">
                 {% endif %}
