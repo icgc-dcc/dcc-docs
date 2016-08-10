@@ -21,6 +21,18 @@ $(function() {
         offset: 64
       });
 
+      $(scrollSpyTarget).on('activate.bs.scrollspy', function (e) {
+        if ($(e.target).hasClass('main')) {
+          return;
+        }
+        $('.toc-container')
+          .stop()
+          .animate({
+            scrollTop: e.target.offsetTop - 50 
+          });
+        return false;
+      });
+
       $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
 
         // prevent default anchor click behavior
@@ -444,23 +456,6 @@ $(function() {
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
-
-    var _handleFontTransition = function () {
-      var bodyEl =  $(BODY_ID);
-      if (bodyEl.hasClass('loading-content')) {
-        bodyEl.removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
-      }
-    };
-
-    setTimeout(function() {
-      fontSpy('icgc-icons', {
-        glyphs: '\ue800\ue8019\ue81c\ue843',
-        success: _handleFontTransition,
-        failure: _handleFontTransition
-      });
-
-    }, 0);
-
 
   }
 
