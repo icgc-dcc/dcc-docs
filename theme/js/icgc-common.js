@@ -1,3 +1,22 @@
+function isInViewport (el) {
+  var rect = el.getBoundingClientRect();
+  return rect.bottom > 0 &&
+    rect.right > 0 &&
+    rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+    rect.top < (window.innerHeight || document.documentElement.clientHeight);
+}
+
+function _initDisableScrollWhenFooterInView() {
+  var footer = document.querySelector('#docs-footer');
+  var $scrollable = $('#body, .main-container, .toc-container');
+  function conditionallyDisableScroll() {
+    $scrollable.toggleClass('disable-scroll', isInViewport(footer));
+  }
+  var $window = $(window);
+  $window.scroll(conditionallyDisableScroll);
+  conditionallyDisableScroll();
+}
+
 $(function() {
 
   function init() {
@@ -453,6 +472,12 @@ $(function() {
     _calcMainContentWidth();
     _initAlerts();
     _initScrollUpIndicator();
+    _initDisableScrollWhenFooterInView();
+    
+    // scroll to deep-linked element
+    if (window.location.hash) {
+      document.querySelector('.main-container').scrollTop = document.querySelector(window.location.hash).offsetTop;
+    }
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
