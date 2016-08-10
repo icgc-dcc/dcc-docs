@@ -936,8 +936,9 @@ footer .logo img:hover {
   animation-name: fadeIn;
 }
 
+.disable-scroll {
+  overflow: hidden !important;
 }
-
 
 @-webkit-keyframes focusText {
   0% {
