@@ -457,21 +457,7 @@ $(function() {
     // Hightlight code
     hljs.initHighlightingOnLoad();
 
-    var _handleFontTransition = function () {
-      var bodyEl =  $(BODY_ID);
-      if (bodyEl.hasClass('loading-content')) {
-        bodyEl.removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
-      }
-    };
-
-    setTimeout(function() {
-      fontSpy('icgc-icons', {
-        glyphs: '\ue800\ue8019\ue81c\ue843',
-        success: _handleFontTransition,
-        failure: _handleFontTransition
-      });
-
-    }, 0);
+    _handleFontTransition();
 
 
   }

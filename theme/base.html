@@ -59,11 +59,7 @@
 
             <div id="docs-container" class="container">
                 {% include "search.html" %}
-                {% if current_page.title != config.extra.api_endpoint_page_id %}
                 <div id="body">
-                {% else %}
-                    <div id="body">
-                {% endif %}
                 {% if toc and ((toc | first) is defined) %}
                 <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
                 {% endif %}
