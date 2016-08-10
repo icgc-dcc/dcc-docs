@@ -6,6 +6,17 @@ function isInViewport (el) {
     rect.top < (window.innerHeight || document.documentElement.clientHeight);
 }
 
+function _initDisableScrollWhenFooterInView() {
+  var footer = document.querySelector('#docs-footer');
+  var $scrollable = $('#body, .main-container, .toc-container');
+  function conditionallyDisableScroll() {
+    $scrollable.toggleClass('disable-scroll', isInViewport(footer));
+  }
+  var $window = $(window);
+  $window.scroll(conditionallyDisableScroll);
+  conditionallyDisableScroll();
+}
+
 $(function() {
 
   function init() {
@@ -450,17 +461,6 @@ $(function() {
       $('#scroll-up-indicator').html('<span style="display: none">Scroll to the top of this page.</span>');
     }
 
-    function _initDisableOverflowWhenFooterInView() {
-      var footer = document.querySelector('#docs-footer');
-      var $scrollable = $('#body, .main-container, .toc-container');
-      function _onScroll() {
-        $scrollable.toggleClass('disable-scroll', isInViewport(footer));
-      }
-      var $window = $(window);
-      $window.scroll(_onScroll);
-    }
-
-
     var BODY_ID = '#body';
     var _hideMenuOffset = 64;
 
@@ -472,7 +472,7 @@ $(function() {
     _calcMainContentWidth();
     _initAlerts();
     _initScrollUpIndicator();
-    _initDisableOverflowWhenFooterInView();
+    _initDisableScrollWhenFooterInView();
     
     // scroll to deep-linked element
     if (window.location.hash) {
