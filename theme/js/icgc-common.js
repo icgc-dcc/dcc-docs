@@ -21,6 +21,18 @@ $(function() {
         offset: 64
       });
 
+      $(scrollSpyTarget).on('activate.bs.scrollspy', function (e) {
+        if ($(e.target).hasClass('main')) {
+          return;
+        }
+        $('.toc-container')
+          .stop()
+          .animate({
+            scrollTop: e.target.offsetTop - 50 
+          });
+        return false;
+      });
+
       $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
 
         // prevent default anchor click behavior
