@@ -457,9 +457,6 @@ $(function() {
     // Hightlight code
     hljs.initHighlightingOnLoad();
 
-    _handleFontTransition();
-
-
   }
 
   setTimeout(init);
