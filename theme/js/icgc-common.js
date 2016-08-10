@@ -473,6 +473,11 @@ $(function() {
     _initAlerts();
     _initScrollUpIndicator();
     _initDisableOverflowWhenFooterInView();
+    
+    // scroll to deep-linked element
+    if (window.location.hash) {
+      document.querySelector('.main-container').scrollTop = document.querySelector(window.location.hash).offsetTop;
+    }
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
