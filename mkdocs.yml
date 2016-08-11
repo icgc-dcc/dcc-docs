@@ -25,7 +25,7 @@ pages:
 - Cloud:
   - About: 'cloud/about.md'
   - Guide: 'cloud/guide.md'
-  - ICGC get: 'cloud/icgc-get.md'
+  - icgc-get: 'cloud/icgc-get.md'
 - Submission:
   - About: 'submission/about.md'
   - API: 'submission/api.md'
