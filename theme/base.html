@@ -14,10 +14,6 @@
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
-        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
-        {% include "dictionary-viewer.html" %}
-        {% endif %}
-
         <link rel="prefetch" href="/fonts/fontello/font/icgc-icons.woff?93317606" />
         <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
@@ -28,6 +24,9 @@
         <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/icgc-common.css" rel="stylesheet">
+        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
+            {% include "dictionary-viewer.html" %}
+        {% endif %}
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
