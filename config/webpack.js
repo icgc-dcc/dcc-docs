@@ -14,7 +14,7 @@ var plugins = [
 
 module.exports = {
   entry: {
-    'dictionary-viewer': './js/dictionary-viewer',
+    'dictionary-viewer': './src/js/dictionary-viewer',
     // 'api-endpoints': './js/api-endpoints',
     // 'icgc-common': './js/icgc-common',
   },
