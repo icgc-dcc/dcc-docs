@@ -7,15 +7,19 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "npm run build:webpack && npm run build:mkdocs",
-      "build:webpack": "webpack --config config/webpack.js --progress --profile --colors --display-error-details --display-cached",
-      "build:webpack:prod": "NODE_ENV=production npm run build:webpack",
-      "build:mkdocs": "mkdocs build",
+    "build": "npm run build:scripts && npm run build:styles && npm run build:mkdocs",
+    "build:prod": "npm run build:scripts:prod && npm run build:styles:prod",
+    "build:scripts": "webpack --config config/webpack.js --progress --profile --colors --display-error-details --display-cached",
+    "build:scripts:prod": "NODE_ENV=production npm run build:scripts",
+    "build:mkdocs": "mkdocs build",
+    "build:styles": "mkdir -p theme/css-out && stylus src/styles --include node_modules --include-css --out theme/css-out",
+    "build:styles:prod": "npm run build:styles -- --compress",
     "start": "npm run dev",
-    "dev": "npm run dev:webpack & npm run dev:mkdocs",
-      "dev:webpack": "webpack --config config/webpack.js --watch --progress --profile --colors --display-error-details --display-cached",
-      "dev:mkdocs": "mkdocs serve",
-    "publish": "npm run build:webpack:prod && mkdocs gh-deploy --clean"
+    "dev": "npm run dev:scripts & npm run dev:stylus & npm run dev:mkdocs",
+    "dev:scripts": "webpack --config config/webpack.js --watch --progress --profile --colors --display-error-details --display-cached",
+    "dev:mkdocs": "mkdocs serve",
+    "dev:stylus": "npm run build:styles -- --watch",
+    "publish": "npm run build:prod && mkdocs gh-deploy --clean"
   },
   "repository": {
     "type": "git",
@@ -31,6 +35,7 @@
     "@icgc/dictionary-viewer": "1.0.3",
     "imports-loader": "0.6.5",
     "json-loader": "0.5.4",
+    "stylus": "0.54.5",
     "webpack": "1.13.1"
   },
   "dependencies": {
