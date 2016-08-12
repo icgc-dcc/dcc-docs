@@ -4,12 +4,14 @@ var PROD = process.env.NODE_ENV === 'production';
 
 var plugins = [
   new webpack.optimize.CommonsChunkPlugin("commons-chunk.js"),
-  PROD && new webpack.optimize.UglifyJsPlugin({
-    beautify: false,
-    mangle: { screw_ie8 : true },
-    compress: { screw_ie8: true },
-    comments: false
-  }),
+
+  // Can't uglify yet, dictionary viewer needs to use ngannotate
+  // PROD && new webpack.optimize.UglifyJsPlugin({
+  //   beautify: false,
+  //   mangle: { screw_ie8 : false },
+  //   compress: { screw_ie8: true },
+  //   comments: false
+  // }),
 ].filter(Boolean);
 
 module.exports = {
