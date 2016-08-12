@@ -1,5 +1,17 @@
 var webpack = require('webpack');
 
+var PROD = process.env.NODE_ENV === 'production';
+
+var plugins = [
+  new webpack.optimize.CommonsChunkPlugin("commons-chunk.js"),
+  PROD && new webpack.optimize.UglifyJsPlugin({
+    beautify: false,
+    mangle: { screw_ie8 : true },
+    compress: { screw_ie8: true },
+    comments: false
+  }),
+].filter(Boolean);
+
 module.exports = {
   entry: {
     'dictionary-viewer': './js/dictionary-viewer',
@@ -16,7 +28,7 @@ module.exports = {
         { test: /d3-tip\/index\.js/, loader: 'imports?define=>false'},
     ],
   },
-  plugins: [new webpack.optimize.CommonsChunkPlugin("commons-chunk.js")],
+  plugins: plugins,
   node: {
     global: 'window',
     crypto: 'empty',

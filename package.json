@@ -9,12 +9,13 @@
   "scripts": {
     "build": "npm run build:webpack && npm run build:mkdocs",
       "build:webpack": "webpack --config config/webpack.js --progress --profile --colors --display-error-details --display-cached",
+      "build:webpack:prod": "NODE_ENV=production npm run build:webpack",
       "build:mkdocs": "mkdocs build",
     "start": "npm run dev",
     "dev": "npm run dev:webpack & npm run dev:mkdocs",
       "dev:webpack": "webpack --config config/webpack.js --watch --progress --profile --colors --display-error-details --display-cached",
       "dev:mkdocs": "mkdocs serve",
-    "publish": "npm run build:webpack && mkdocs gh-deploy --clean"
+    "publish": "npm run build:webpack:prod && mkdocs gh-deploy --clean"
   },
   "repository": {
     "type": "git",
