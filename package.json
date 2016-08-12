@@ -1,0 +1,44 @@
+{
+  "name": "dcc-docs",
+  "version": "1.0.0",
+  "description": "Documentation for ICGC DCC using [mkdocs](http://www.mkdocs.org/) and GitHub Pages hosted at [http://icgc-dcc.github.io/dcc-docs](http://icgc-dcc.github.io/dcc-docs)",
+  "main": "none",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "npm run build:webpack && npm run build:mkdocs",
+    "build:webpack": "webpack --config config/webpack.js --progress --profile --colors --display-error-details --display-cached",
+    "build:mkdocs": "mkdocs build",
+    "start": "npm run dev",
+    "dev": "npm run dev:webpack & npm run dev:mkdocs",
+    "dev:webpack": "webpack --config config/webpack.js --watch --progress --profile --colors --display-error-details --display-cached",
+    "dev:mkdocs": "mkdocs serve",
+    "publish": "npm run build:webpack && mkdocs gh-deploy --clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icgc-dcc/dcc-docs.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/icgc-dcc/dcc-docs/issues"
+  },
+  "homepage": "https://github.com/icgc-dcc/dcc-docs#readme",
+  "devDependencies": {
+    "@icgc/dictionary-viewer": "1.0.3",
+    "imports-loader": "0.6.5",
+    "json-loader": "0.5.4",
+    "webpack": "1.13.1"
+  },
+  "dependencies": {
+    "@icgc/dictionary-viewer": "1.0.2",
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-loading-bar": "0.9.0",
+    "bootstrap": "3.3.7",
+    "imports-loader": "0.6.5",
+    "jquery": "3.1.0"
+  }
+}
