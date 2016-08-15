@@ -11,6 +11,7 @@ and their characteristics are frequently changing. A coordinated mechanism to bo
 streamline this process is highly desirable. This is the problem the `icgc-get` tool helps to solve.
 
 ## Configuration
+
 After installing `icgc-get`, you may want to do configure some of the essential usage parameters,
 such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the `icgc-get configure` command
 and follow the instructions of the prompts.  This will keep the operation of tool simpler in the future
@@ -23,6 +24,7 @@ In addition to using the `configure` command, most configuration options can be 
 through the command line, by assigning environmental variables, or by directly editing the `config.yaml` file. 
 Environmental variables are in all caps, have underscores as separators, and are prefixed by `ICGCGET_`. Command line options have dashes 
 as separators and are prefixed by two dashes. Config file options use a colon, followed by a newline and two spaces as separators. 
+
 
 To specify which config file to use either pass an absolute path to the config file to the 
 command line with `--config`, or declare an environmental variable `ICGCGET_CONFIG` that contains 
@@ -38,8 +40,8 @@ If you wish to use a different version of the docker container, this can be cont
 environmental variable or the `container:   tag:` configuration option. **This is not recommended, and there is the possiblilty
 that non-default container versions may not be compatible with your installation of `icgc-get`.**
 
-It is necessary to specify the directory for downloaded files to be saved to under `--output` if you are running 
-`icgc-get` locally. 
+It is necessary to specify the directory for downloaded files to be saved to under `--output` if you are running `icgc-get` locally. 
+
 
 It is also recommended to specify a common list of repositories in your preferred order of precedence. When downloading
 a file, the tool will first try to find the file on the first specified repository, then the second, ect cetra.
@@ -53,6 +55,7 @@ repos:
 ```
 
 Valid repositories are:
+
 
 | Code                | Repository                     |
 | --------            | -------------------------------          |
@@ -70,8 +73,7 @@ Valid repositories are:
 | `pdc`               | Bionimbus Protected Data Cloud           |
 
 All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental 
-variable or under `repo:   path` in the config file unless they are being run through docker. All clients support the ability to configure the number of 
-data streams to use when downloading under `repo:   transport:   parallel` or `REPO_TRANSPORT_PARALLEL`
+variable or under `repo:   path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `repo:   transport:   parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `repo:   udt` config option.  
 
 ## Command References
@@ -191,6 +193,7 @@ but instead of downloading the specified files, it will provide a list of all fi
 about to be downloaded, including their size, data type, name and the repository they are hosted on. 
 
 By default the command outputs a table, but the output can be altered to json via `-f json` or tsv
+
 via `-f tsv`. _Should you find file by file output too granular for a particularly large download, 
 the option `-t summary` can be used to switch to a summarized version of the table._  If an output directory
 is specified, then the command will search that directory to determine of any of the files are already present,
@@ -202,7 +205,9 @@ Example invocations of the `report` commands:
 ./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r gdc
 ```
 
+Example invocations of the `report` commands:
 ```shell
+
 ./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r gdc -t summary
 ```
 
@@ -246,8 +251,7 @@ This command will start a series of prompts for you to enter application paths, 
 _Any of these prompts can be bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use 
 of `icgc-get`._  By default, `configure` will write to the default config file, but the destination can be overwritten with 
 the `-c` tag. Should there be an existing configuration file at the target destination, existing configuration values can be kept
-by pressing enter in response to the prompt. Please note that some passwords, and secret keys will not be shown on the 
-command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.  
+by pressing enter in response to the prompt. Please note that some passwords, and secret keys will not be shown on the command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.  
 
 ### Check command
 
@@ -274,7 +278,7 @@ Sample output:
 
 ```
 Valid access to the Collaboratory.
-Valid access to the GDC files
+Valid access to the GDC files.
 ```
 
 ### Version command
@@ -289,7 +293,7 @@ will check the version of clients that have their tool paths are specified in th
 Sample output:
 
 ```
-ICGC-Get Version: 0.2.6
+ICGC-Get Version: 0.2.8
 Clients:
  AWS CLI Version:             1.10.34
  EGA Client Version:          2.2.2

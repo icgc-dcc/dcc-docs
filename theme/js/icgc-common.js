@@ -1,3 +1,22 @@
+function isInViewport (el) {
+  var rect = el.getBoundingClientRect();
+  return rect.bottom > 0 &&
+    rect.right > 0 &&
+    rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+    rect.top < (window.innerHeight || document.documentElement.clientHeight);
+}
+
+function _initDisableScrollWhenFooterInView() {
+  var footer = document.querySelector('#docs-footer');
+  var $scrollable = $('#body, .main-container, .toc-container');
+  function conditionallyDisableScroll() {
+    $scrollable.toggleClass('disable-scroll', isInViewport(footer));
+  }
+  var $window = $(window);
+  $window.scroll(conditionallyDisableScroll);
+  conditionallyDisableScroll();
+}
+
 $(function() {
 
   function init() {
@@ -9,16 +28,28 @@ $(function() {
 
     function _initScrollSpy() {
       var scrollSpyTarget = '.bs-sidebar',
-        scrollBody = $('html, body');
+        scrollBody = $('.main-container');
 
 
       // Stripe tables
       $('table').addClass('table table-striped table-hover');
 
       // Enable side ToC
-      $('body').scrollspy({
+      $(scrollBody).scrollspy({
         target: scrollSpyTarget,
-        offset: 0
+        offset: 64
+      });
+
+      $(scrollSpyTarget).on('activate.bs.scrollspy', function (e) {
+        if ($(e.target).hasClass('main')) {
+          return;
+        }
+        $('.toc-container')
+          .stop()
+          .animate({
+            scrollTop: e.target.offsetTop - 50 
+          });
+        return false;
       });
 
       $(scrollSpyTarget + ' a[href^=\'#\']').on('click', function(e) {
@@ -358,131 +389,6 @@ $(function() {
       $('.navbar.navbar-default').autoHidingNavbar({hideOffset: _hideMenuOffset});
     }
 
-    function _ensureMaxHeight(resizingEl) {
-      var windowEl = $(window),
-          footer = $('#docs-footer'),
-          footerHeight = footer.outerHeight(),
-          footerOffsetTop = footer.offset().top,
-          OFFSET = -(100 + footerHeight),
-          resizeElHeight = 0;//,
-          /* sideNav = $('.bs-sidenav'),
-          pageContainer = $('.parent-container'),
-          /*initPageProgressPercentage = parseFloat(
-            Math.min(1, (windowEl.scrollTop() + windowEl.height())/pageContainer.outerHeight())
-          ).toFixed(3); */
-
-
-      function _recalcMax() {
-        var resizeHeight = resizingEl.outerHeight(),
-            distance = Math.round(footerOffsetTop - resizeHeight - windowEl.scrollTop() - footerHeight /* <-- offset */),
-            windowHeight =  windowEl.height();//,
-            /*sideNavHeight =  sideNav.outerHeight(),
-            pageProgressPercentage = parseFloat(
-              Math.min(1, (windowEl.scrollTop() + windowHeight)/pageContainer.outerHeight())
-            ).toFixed(3),
-            offset = Math.round(sideNavHeight * (pageProgressPercentage - initPageProgressPercentage)),
-            evalPercent = pageProgressPercentage * 100;
-
-        ///console.log(pageProgressPercentage - initPageProgressPercentage, offset);
-        /*if (evalPercent > 2 && evalPercent < 98) {
-          resizingEl.scrollTop(offset - 40);
-        }
-        else if  (evalPercent < 2) {
-          resizingEl.scrollTop(0);
-        }
-        else {
-          resizingEl.scrollTop(pageContainer.outerHeight());
-        }*/
-
-        if (distance > 0) {
-          resizingEl.css({overflow: 'auto', maxHeight: (windowHeight - Math.round(1.5 * _hideMenuOffset)) + 'px'}, 'fast');
-        }
-        else {
-          resizeElHeight = windowHeight + OFFSET;
-          resizingEl.css({overflow: 'auto', maxHeight: resizeElHeight + 'px'});
-        }
-
-      }
-
-      var _prevScrollOffset = 0,
-          _document = $(document),
-          _anchorOffsetMap = [];
-
-
-      function _onScroll() {
-        var currentScrollOffset = windowEl.scrollTop(),
-            delta = currentScrollOffset - _prevScrollOffset,
-            absDelta = Math.abs(delta),
-            scrollPosition = windowEl.height() + currentScrollOffset,
-            scrollHeight = _document.height(),
-            shouldResetNav = (scrollPosition + _hideMenuOffset) >=  scrollHeight;
-
-        if (delta > 0 && absDelta >= _hideMenuOffset && ! shouldResetNav) {
-          resizingEl.css({top: 10});
-          _prevScrollOffset = currentScrollOffset;
-        }
-        else if (delta < 0 && absDelta >= _hideMenuOffset || shouldResetNav) {
-          resizingEl.css({top: ''});
-          _prevScrollOffset = currentScrollOffset;
-        }
-
-        var mainContainer = $('.main-container'),
-          selectedNavRegion = _bsSidebar.find('.main');
-
-        // TODO: Could improve the search complexity O(n) given that the list is sorted by offset
-        var findAnchorForOffset = function(offset) {
-
-          if (! _anchorOffsetMap.length) {
-            return 0;
-          }
-          else if (_anchorOffsetMap.length === 1) {
-            return _anchorOffsetMap[0];
-          }
-
-          var i = 0;
-
-          for (; i < _anchorOffsetMap.length; i++) {
-            if (_anchorOffsetMap[i].offset > offset) {
-              break;
-            }
-          }
-
-          return _anchorOffsetMap[i - 1];
-        };
-
-        var scollableDistance = Math.max(0, mainContainer.outerHeight() + mainContainer.offset().top + $('#docs-footer').outerHeight() - $(window).outerHeight());
-        var percentPageScrolled = Math.min(1.0, $(window).scrollTop() / scollableDistance);
-
-        var proposedOffset  = selectedNavRegion.outerHeight() * percentPageScrolled,
-            anchorOffset = findAnchorForOffset(proposedOffset);
-
-        _bsSidebar.stop().animate({
-          scrollTop: Math.min(anchorOffset.offset - anchorOffset.height * 2, proposedOffset)
-        }, 200);
-
-        _recalcMax();
-      }
-
-
-      var totalAnchorHeight = 0;
-
-      _bsSidebar.find('a').each(function() {
-        var anchor = $(this),
-            anchorHeight = anchor.outerHeight();
-
-        _anchorOffsetMap.push({offset: totalAnchorHeight, height: anchorHeight});
-
-        totalAnchorHeight += anchorHeight;
-      });
-
-
-      _bsSidebar.scroll(function(e) { e.stopPropagation(); });
-      windowEl.scroll(_onScroll);
-      windowEl.resize(_recalcMax)
-    }
-
-
-
     function _calcMainContentWidth() {
       if ($('.full-width-content').length) {
         $('.main-container').addClass('col-md-12').removeClass('col-md-9').css({borderLeft: 'none'});
@@ -555,12 +461,6 @@ $(function() {
       $('#scroll-up-indicator').html('<span style="display: none">Scroll to the top of this page.</span>');
     }
 
-    var _bsSidebar = $('.bs-sidebar');
-
-    if (_bsSidebar.length) {
-      _ensureMaxHeight(_bsSidebar);
-    }
-
     var BODY_ID = '#body';
     var _hideMenuOffset = 64;
 
@@ -572,31 +472,19 @@ $(function() {
     _calcMainContentWidth();
     _initAlerts();
     _initScrollUpIndicator();
+    _initDisableScrollWhenFooterInView();
+    
+    // scroll to deep-linked element
+    if (window.location.hash) {
+      document.querySelector('.main-container').scrollTop = document.querySelector(window.location.hash).offsetTop;
+    }
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
 
-    var _handleFontTransition = function () {
-      var bodyEl =  $(BODY_ID);
-      if (bodyEl.hasClass('loading-content')) {
-        bodyEl.removeClass('fadeInBlurIntro loading-content').addClass('fadeInBlur');
-      }
-    };
-
-    setTimeout(function() {
-      fontSpy('icgc-icons', {
-        glyphs: '\ue800\ue8019\ue81c\ue843',
-        success: _handleFontTransition,
-        failure: _handleFontTransition
-      });
-
-    }, 0);
-
-
   }
 
-  /////////////////////////////////////////
-  init();
+  setTimeout(init);
 
 
 });

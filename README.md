@@ -18,6 +18,10 @@ To install:
 pip install https://github.com/mkdocs/mkdocs/archive/master.zip
 ```
 
+Node and NPM are required as well.
+For developers, [nvm](https://github.com/creationix/nvm) is recommended.
+Otherwise, downloading the latest from [nodejs.org](https://nodejs.org/en/download/) will work.
+
 ## Content
 
 The content of the docs are Markdown documents that may be found at [docs/](docs/)
@@ -29,11 +33,17 @@ Edit `mkdocs.yml`
 ## Develop
 
 ```shell
-mkdocs serve
+npm start
+```
+
+## Build
+
+```shell
+npm run build
 ```
 
 ## Deploy
 
 ```shell
-mkdocs gh-deploy --clean
+npm run publish
 ```

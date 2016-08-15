@@ -13,5 +13,6 @@
 1.0.16 | May 30, 2016 | Perform additional MD5 checking to ensure validity of download 
 1.0.17 | Jun 10, 2016 | Change Upload process to prevent duplicate uploads from being initiated
 1.0.18 | Jun 13, 2016 | Internal, housekeeping updates
+1.0.19 | Jul 15, 2016 | Stability improvements: validate pre-signed url's, verify repository connection permissions, check for concurrent uploads
 
 

@@ -14,16 +14,16 @@
 
    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
 
-        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
-        {% include "dictionary-viewer.html" %}
-        {% endif %}
-
+        <link rel="prefetch" href="/fonts/fontello/font/icgc-icons.woff?93317606" />
+        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
               type='text/css'>
+        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
+            {% include "dictionary-viewer.html" %}
+        {% endif %}
         <link href="/css/bootstrap-custom.css" rel="stylesheet">
         <link href="/css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/highlight.css">
-        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
         <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/icgc-common.css" rel="stylesheet">
@@ -54,16 +54,12 @@
     </head>
 
     <body>
+        {% include "nav.html" %}
         <div class="parent-container">
-            {% include "nav.html" %}
 
             <div id="docs-container" class="container">
                 {% include "search.html" %}
-                {% if current_page.title != config.extra.api_endpoint_page_id %}
-                <div id="body" class="fadeInBlurIntro loading-content">
-                {% else %}
-                    <div id="body">
-                {% endif %}
+                <div id="body">
                 {% if toc and ((toc | first) is defined) %}
                 <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
                 {% endif %}
@@ -101,7 +97,7 @@
             <script src="/js/jQuery-FontSpy.js"></script>
             <script src="/js/bootstrap-3.0.3.min.js"></script>
             <script src="/js/highlight.pack.js"></script>
-            <script src="/mkdocs/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/lunr-0.5.7.min.js"></script>
             <script src="/js/jquery.highlight-4.closure.js"></script>
             <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
             <script src="/js/jquery.scrollUp.min.js"></script>
@@ -111,5 +107,10 @@
             <script src="{{ path }}"></script>
             {%- endfor %}
         </div>
+        <script src="/js-out/commons-chunk.js"></script>
+
+        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
+            <script src="/js-out/dictionary-viewer.js"></script>
+        {% endif %}
     </body>
 </html>
