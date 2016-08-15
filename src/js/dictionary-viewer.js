@@ -1,3 +1,5 @@
+require('@icgc/dictionary-viewer/dist/dictionary.js');
+
 angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', 'chieffancypants.loadingBar'])
   .controller('DictionaryViewerCtrl', function ($scope, $timeout, $location, $anchorScroll, DictionaryService, DictionaryViewerConstants) {
     var _controller = this,
