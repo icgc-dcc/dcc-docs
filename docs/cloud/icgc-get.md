@@ -60,13 +60,13 @@ Valid repositories are:
 | `collaboratory`     | Collaboratory                            |
 | `ega`               | European Genome Association              |
 | `gdc`               | Genomic Data Commons                     |
-| `pcawg-chicago-icgc | Pan-Cancer Chicago repository            |
-| `pcawg-chicago-tcga | Pan-Cancer Chicago repository tcga data  |
-| `pcawg-heidelberg   | Pan-Cancer Heidelberg repository         |
-| `pcawg-london       | Pan-Cancer London repository             |
-| `pcawg-tokyo        | Pan-Cancer Tokyo repository              |
-| `pcawg-seoul        | Pan-Cancer Seoul repository              |
-| `pcawg-barcelona    | Pan-Cancer Barcelona repository          |
+| `pcawg-chicago-icgc`| Pan-Cancer Chicago repository            |
+| `pcawg-chicago-tcga`| Pan-Cancer Chicago repository tcga data  |
+| `pcawg-heidelberg`  | Pan-Cancer Heidelberg repository         |
+| `pcawg-london`      | Pan-Cancer London repository             |
+| `pcawg-tokyo`       | Pan-Cancer Tokyo repository              |
+| `pcawg-seoul`       | Pan-Cancer Seoul repository              |
+| `pcawg-barcelona`   | Pan-Cancer Barcelona repository          |
 | `pdc`               | Bionimbus Protected Data Cloud           |
 
 All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental 
@@ -102,7 +102,7 @@ Most clients can be made to download using the UDT protocol by using the `repo: 
 | `-o`           | Flag used to override warning messages                          |
 | `no-ssl-verify`| Flag used to disable ssl verification.  Not recommended         |
 
-###Check command
+###Check Command
 
 | Options        | Description                                                        |
 |------------    |--------------------------------------------------------            |
@@ -111,7 +111,7 @@ Most clients can be made to download using the UDT protocol by using the `repo: 
 | `-o`           | Flag used to override warning messages                             |
 | `no-ssl-verify`| Flag used to disable ssl verification.  Not recommended            |
 
-### Configure command
+### Configure Command
 
 | Options        | Description                                   |
 |------------    |------------------------------------           |
@@ -142,7 +142,8 @@ about access can be found at [the GDC documentation.](https://gdc-docs.nci.nih.g
 
 ### PCAWG
 
-[PCAWG](https://pancancer-token.annailabs.com/) access should be provided as a key to `gnos:   key:   repo:`  where repo is the repository code for the GNOS repository you need to access.  Support for GNOS repositories can be reached at https://pancancer-token.annailabs.com/
+[PCAWG](https://pancancer-token.annailabs.com/) access should be provided as a key to `gnos:   key:   repo:`  where repo is the repository code for the GNOS
+repository you need to access.  Support for GNOS repositories can be reached at help@annaisystems.com
 
 ### PDC
 
@@ -164,8 +165,8 @@ The syntax for performing a download using `icgc-get` is:
 
 The first required argument is the set of ICGC File ids or manifest id corresponding to the file or files you wish to download. 
 This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a 
-manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal.](https://dcc.icgc.org)  `icgc-get`
-is not capable of parsing a manifest file on the local machine.
+manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal](https://dcc.icgc.org/repositories) through the 
+`icgc-get` button on the Data Repositories page  `icgc-get` is not capable of parsing client manifest files on the local machine.
 
 Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
 provided they have not been added to the config file.
@@ -245,7 +246,7 @@ This command will start a series of prompts for you to enter application paths, 
 _Any of these prompts can be bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use 
 of `icgc-get`._  By default, `configure` will write to the default config file, but the destination can be overwritten with 
 the `-c` tag. Should there be an existing configuration file at the target destination, existing configuration values can be kept
-by pressing enter in response to the prompt. Please note that some access tokens, passwords, and secret keys will not be shown on the 
+by pressing enter in response to the prompt. Please note that some passwords, and secret keys will not be shown on the 
 command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.  
 
 ### Check command
@@ -297,12 +298,12 @@ Clients:
 ```
 
 ##Diagrams
-Below are a pair of diagrams demonstrating the processes that icgc-get undergoes during it's operation.
+Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
-###`icgc-get` environment diagram
+###`icgc-get` Environment Diagram
 
 [![](images/ICGC_get_standard.png)](images/ICGC_get_standard.png "Click on the image to see it in full")
 
-###`icgc-get` environment diagram when using docker
+###`icgc-get` Environment Eiagram using Docker
 
 [![](images/ICGC_get_docker.png)](images/ICGC_get_docker.png "Click on the image to see it in full")
