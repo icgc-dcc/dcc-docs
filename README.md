@@ -9,13 +9,12 @@ A custom domain is setup on the `gh-pages` branch in the `CNAME` file:
 [http://docs.icgc.org](http://docs.icgc.org)
 
 ## Setup
+This project requires `mkdocs` version 0.15.3 or higher.
 
-We are using an unreleased version of mkdocs in order to get [unlimited nav nesting](https://github.com/mkdocs/mkdocs/issues/6#issuecomment-163625780) support.
-
-To install:
+To install on Mac:
 
 ```bash
-pip install https://github.com/mkdocs/mkdocs/archive/master.zip
+brew install mkdocs
 ```
 
 Node and NPM are required as well.
@@ -48,6 +47,8 @@ npm run build
 ```
 
 ## Deploy
+
+To publish to GitHub (performs build as above)
 
 ```shell
 npm run publish
