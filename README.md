@@ -30,6 +30,8 @@ npm install
 
 The content of the docs are Markdown documents that may be found at [docs/](docs/)
 
+:warning: Note that you must commit your changes to GitHub in order for them not to be clobbered by another user in a fure deployment.
+
 ## Configure
 
 Edit `mkdocs.yml`
