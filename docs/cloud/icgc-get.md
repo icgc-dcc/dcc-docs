@@ -1,6 +1,6 @@
 #icgc-get
 
-`icgc-get` is a universal download client for accessing ICGC data residing in various data repositories. 
+`icgc-get` is a universal download client for accessing ICGC data residing in various data repositories.  It may be downloded on the [ICGC data portal's software page](https://dcc.icgc.org/software?enable=ICGC_GET) 
 
 The data possessed by the ICGC resides in many data repositories around the world. These repositories 
 each have their own environment (public cloud, private cloud, on-premise file systems, etc.), 
