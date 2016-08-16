@@ -9,20 +9,17 @@ A custom domain is setup on the `gh-pages` branch in the `CNAME` file:
 [http://docs.icgc.org](http://docs.icgc.org)
 
 ## Setup
+This project requires `mkdocs` version 0.15.3 or higher.
 
-We are using an unreleased version of mkdocs in order to get [unlimited nav nesting](https://github.com/mkdocs/mkdocs/issues/6#issuecomment-163625780) support.
-
-To install:
+To install on Mac:
 
 ```bash
-pip install https://github.com/mkdocs/mkdocs/archive/master.zip
+brew install mkdocs
 ```
 
-Node and NPM are required as well.
-For developers, [nvm](https://github.com/creationix/nvm) is recommended.
-Otherwise, downloading the latest from [nodejs.org](https://nodejs.org/en/download/) will work.
+Node is also required. Download the latest version from [nodejs.org](https://nodejs.org/en/download/).  
 
-After installing node, go into the directory containing the project and run
+After installing node, `cd` into the directory containing the project and run
 ```
 npm install
 ```
@@ -30,6 +27,8 @@ npm install
 ## Content
 
 The content of the docs are Markdown documents that may be found at [docs/](docs/)
+
+:warning: Note that you must commit your changes to GitHub in order for them not to be clobbered by another user in a future deployment.
 
 ## Configure
 
@@ -49,6 +48,10 @@ npm run build
 
 ## Deploy
 
+To publish changes, run
+
 ```shell
 npm run publish
 ```
+
+It is unnecessary to run the build task before publishing
