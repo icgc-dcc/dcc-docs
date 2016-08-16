@@ -22,6 +22,11 @@ Node and NPM are required as well.
 For developers, [nvm](https://github.com/creationix/nvm) is recommended.
 Otherwise, downloading the latest from [nodejs.org](https://nodejs.org/en/download/) will work.
 
+After installing node, go into the directory containing the project and run
+```
+npm install
+```
+
 ## Content
 
 The content of the docs are Markdown documents that may be found at [docs/](docs/)
