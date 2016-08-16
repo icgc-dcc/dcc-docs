@@ -1,12 +1,17 @@
-##Overview
+# Repositories
 
-The data for the ICGC resides in many data repositories around the world.  These repositories have their own architcture, governing bodies, access controls, data portals and download clients.  On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories important pages and resources.
+The data for the ICGC resides in many data repositories around the world. These repositories have their own architcture, governing bodies, data access controls, data portals and download clients. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories important pages and resources. 
 
-## Common access control institutions
-### DACO
-Follow the proceedure outlined at the DACO page <https://icgc.org/daco>.
+All of the ICGC data be searched for using the ICGC data portal, and downloaded using the icgc-get tool. Generally the data is divided into projects.
 
-Once your DACO access application is completed, your email will become associated with an OpenID, and you will be given a username and password for the EGA and ICGC.
+## Common data access control bodies
+ 
+ICGC projects have two separate access control bodies. Which body controlls the data depends on where the project was run. US based projects are controlled by the eRA Commons and dbGap, while non-US projects. 
+
+### ICGC DACO
+Follow the proceedure outlined at [the DACO page.](https:/icgc.org/daco)
+
+Once your DACO access application is completed, your email will become associated with an OpenID, and you will be given a username and password for the EGA and ICGC repositories.
 
 ### eRA Commons
 Many of the repositories that participate in the ICGC program require an account with the [electronic Resarch Adminstration](https://public.era.nih.gov/commons/commonsInit.do) as a fist step in access authentication process. If your organization has not used the eRA commons befor you will need to [register your organization.](https://era.nih.gov/commons/faq_commons.cfm#II1) This process will need your organzations signing offical to participate.
@@ -18,7 +23,7 @@ One of the widely used access control system is [databse of genotypes and phenot
 
 If you encounter difficulties, [the dbGaP help desk](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=email&filter=from&from=login) is available.
 
-## ICGC Storage
+## ICGC Storage Repositories
 
 | Name                 | Cancer Genome Collaboratory |
 |:---------------------| ----------------
@@ -31,25 +36,24 @@ If you encounter difficulties, [the dbGaP help desk](https://dbgap.ncbi.nlm.nih.
 ### List of Repositories
 #### [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
 
-Academic research cloud built to house ICGC data.  Currently in Beta test.
+Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.
 
 #### [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws)
 
 Amazon cloud service containing ICGC data.
 
 ### Obtaining Data Access
-To obtain access to these repositories follow the proceedure outlined at the DACO page
-<https://icgc.org/daco>.
+A login to the ICGC data portal will be provided upon the completion of a DACO application.  
 
 ### Download Client Operation
-The ICGC download clients need access tokens to authenticate your download permissions.  These tokens can be obtained from the token manager tab of the icgc data portal once you have logged into the portal.  Keep in mind that you must define the scope of your token based on which datasets you need access for.
+The ICGC download clients need access tokens to authenticate your download permissions. These tokens can be obtained from the token manager tab of the ICGC data portal once you have logged into the portal. Keep in mind that you must define the scope of your token based on which datasets you need access for.
 
 For general operation of the client, follow the instructions here:
 <http://docs.icgc.org/cloud/guide/>
 
 ## [EGA](https://www.ebi.ac.uk/ega/about)
 
-The European Genome Association.  Data can only be downloaded through their EGA download client, but metatdata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
+The European Genome Archive.  Data can only be downloaded through their EGA download client, but metatdata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
 
 | Name                 | European Genome Archive |
 |:---------------------| ----------------
@@ -69,7 +73,7 @@ To operate the EGA downlod client, follow the instructions here:
 
 ## [GDC](https://gdc.nci.nih.gov)
 
-US government run data repository for cancer genomic information.  Carries data from The Cancer Genome Atlas and the Therapeutically Applicable Resarch to Generate Effective Treatments.  Currently the largest dataset of ICGC data.  Focused on studies in the United States.
+The Genomic Data Commons is a US government run data repository for cancer genomic information. It carries data from The Cancer Genome Atlas(TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET).  Currently the largest repository of ICGC data. Focused on studies in the United States.
 
 | Name                 | Genomic Data Commons|
 |:---------------------| ----------------
@@ -90,9 +94,10 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ## GNOS
 
-GNOS is a commonly used proprietory genomic data database. The Pancancer Anayisis of Whole Genomes study is an international resarch project which uses the GNOS software to host there data.  Data from this project is stored on multiple smaller repositories around the world. Each of these respositories uses the same architecture and download client, but have their own data access controller and are not synchronized. 
+GNOS is a commonly used commerically available genomic data database. The Pancancer Anayisis of Whole Genomes study is an international resarch project which uses the GNOS software to host there data.  Data from this project is stored on multiple smaller repositories around the world. Each of these respositories uses the same architecture and download client, but have their own data access controller and are not synchronized. 
 
-General Information
+GNOS is currenlty being phased out by the ICGC in favour of newer systems.
+
 
 | Name                 | Pancancer Analysis of Whole Genomes |
 |:---------------------| ----------------
@@ -115,19 +120,18 @@ Below is the list of supported GNOS repositories.  Use the code value when searc
  Barcelona | pcawg-barcelona | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D) | https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/
  Santa-Cruz| pcawg-cghub | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Santa%20Cruz%22%5D%7D%7D%7D)| https://cghub.ucsc.edu/cghub/data/analysis/download/
 
-\* Two seperate repoisitories are hosted in Chicago, each for a different research project.
+\* Two seperate PCAWG repoisitories are hosted in Chicago, each for a different research project.
 
 ### Obtaining Data Access
 
-Provided you have the proper permissions from DACO, you can download access keys for GNOS repositories from 
-<https://pancancer-token.annailabs.com/> using the "Sign in with Google" or "Sign in with OpenID" options depending on what email address is associate with your DACO account.  If you have forgotten which email the account is tied to, contact the help desk at <help@annaisystems.com>.
+Provided you have the proper permissions from DACO, you can download access keys for GNOS repositories from [the Annai Systems site](https://pancancer-token.annailabs.com/) using the "Sign in with Google" or "Sign in with OpenID" options depending on what email address is associate with your DACO account.  If you have forgotten which email the account is tied to, contact the help desk at <help@annaisystems.com>.
 
 ### Download Client Operation
 
 The manual for the operation of the Genetorrent client can be found at <https://annai.egnyte.com/dl/H87r6b0MCS>.  Remember to prepend all download requests with the client specific data path provided in the table above.  
 
 ## PDC
-Secure data cloud that stores PCAWG data.  
+Secure data cloud that stores US PCAWG data.  
 
 | Name                 | Bionimbus Protected Data Cloud |
 |:---------------------| ----------------
@@ -140,7 +144,7 @@ Secure data cloud that stores PCAWG data.
 | Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html) |
 
 ### Obtaining Data Access
-You can apply for access to the PDC by following the link below.  You will need both an eRA Commons account, and either dbGAP access or a contract.   Once this is done, you will be contacted by a representitive of the PDC who will provide you with legal documents and required training courses.
+You can apply for access to the PDC by following [this link.](https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/) You will need both an eRA Commons account and dbGAP access to the ICGC PCAWG. Once your application is submitted, you will be contacted by a representitive of the PDC who will provide you with legal documents and required training courses.
   
 <https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/>
 
@@ -148,7 +152,7 @@ You can apply for access to the PDC by following the link below.  You will need 
 
 The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with `aws configure` and follow the prompts.  This key can be download from the projects tab of the [offical PDC website.](https://bionimbus-pdc.opensciencedatacloud.org)  Once your credentials have been entered the general structure for download commands is 
 ```
-aws s3 --endpoint-url=https://bionimbus-objstore.opensciencedatacloud.org/ cp $DATA_PATH $OUTPUT_DIR
+aws s3 --endpoint-url=https://bionimbus-objstore-cs.opensciencedatacloud.org/ cp $DATA_PATH $OUTPUT_DIR
 ```
 
 Where the data path can be retrieved from the ICGC data portal by selecting the download manifest action on the pdc file copy, and the output directory is where you want to save the file on your local computer.
