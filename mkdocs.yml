@@ -26,7 +26,7 @@ pages:
   - About: 'cloud/about.md'
   - Guide: 'cloud/guide.md'
   - icgc-get: 'cloud/icgc-get.md'
-  - Repositories: 'cloud/repositories.md'
+  - repositories: 'cloud/repositories.md'
 - Submission:
   - About: 'submission/about.md'
   - API: 'submission/api.md'
