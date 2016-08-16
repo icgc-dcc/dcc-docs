@@ -995,12 +995,12 @@ and add a <code>downloaded</code> column that marks these files. </p>
 </code></pre>
 
 <p>Example invocations of the <code>report</code> commands:</p>
-<pre><code class="shell">./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r gdc -t summary
+<pre><code class="shell">
+./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r gdc -t summary
 </code></pre>
 
 <p>Sample output:</p>
-<pre><code>
-╒══════════╤════════╤════════╤═══════════════╤═══════════════╤═══════════════╕
+<pre><code>╒══════════╤════════╤════════╤═══════════════╤═══════════════╤═══════════════╕
 │          │   Size │ Unit   │ File Format   │ Data Type     │ Repo          │
 ╞══════════╪════════╪════════╪═══════════════╪═══════════════╪═══════════════╡
 │ FI99996  │   3.52 │ GB     │ BAM           │ Aligned Reads │ gdc           │
@@ -1011,8 +1011,7 @@ and add a <code>downloaded</code> column that marks these files. </p>
 ╘══════════╧════════╧════════╧═══════════════╧═══════════════╧═══════════════╛
 </code></pre>
 
-<pre><code>
-╒══════════════════════╤════════╤════════╤══════════════╤═══════════════╕
+<pre><code>╒══════════════════════╤════════╤════════╤══════════════╤═══════════════╕
 │                      │   Size │ Unit   │   File Count │   Donor_Count │
 ╞══════════════════════╪════════╪════════╪══════════════╪═══════════════╡
 │ collaboratory        │ 197.44 │ KB     │            1 │             1 │
