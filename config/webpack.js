@@ -1,10 +1,10 @@
 var webpack = require('webpack');
 
 var PROD = process.env.NODE_ENV === 'production';
-
+var WebpackNotifierPlugin = require('webpack-notifier');
 var plugins = [
   new webpack.optimize.CommonsChunkPlugin("commons-chunk.js"),
-
+  new WebpackNotifierPlugin({title: 'Binaries'}),
   // Can't uglify yet, dictionary viewer needs to use ngannotate
   // PROD && new webpack.optimize.UglifyJsPlugin({
   //   beautify: false,

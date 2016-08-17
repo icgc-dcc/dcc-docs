@@ -10,41 +10,76 @@ $(() => {
 const storageVersions = {
   template: `
     <table>
-      <tr ng-repeat="v in $ctrl.storageClientVersions">
-        <td>{{ v.version }}</td>
-                     <td><a target="_blank" href="api/v1/ui/software/icgc-storage-client/{{ v.version }}">icgc-storage-client-{{ v.version }}-dist.tar.gz</a></td>
-                     <td><a target="_blank" href="api/v1/ui/software/icgc-storage-client/{{ v.version }}/md5">icgc-storage-client-{{ v.version }}-dist.tar.gz.md5</a></td>
-                     <td><a target="_blank" href="api/v1/ui/software/icgc-storage-client/{{ v.version }}/asc">icgc-storage-client-{{ v.version }}-dist.tar.gz.asc</a></td>
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th>Dist</th>
+        <th>MD5</th>
+        <th>Signature</th>
       </tr>
+    </thead>
+      <tr ng-repeat="v in $ctrl.storageClientVersions | limitTo: $ctrl.displayLimit">
+        <td>{{ v.version }}</td>
+        <td><a target="_blank" href="https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/{{ v.version }}">icgc-storage-client-{{ v.version }}-dist.tar.gz</a></td>
+        <td><a target="_blank" href="https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/{{ v.version }}/md5">icgc-storage-client-{{ v.version }}-dist.tar.gz.md5</a></td>
+        <td><a target="_blank" href="https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/{{ v.version }}/asc">icgc-storage-client-{{ v.version }}-dist.tar.gz.asc</a></td>
+      </tr>
+     
     </table>
+    <p><a data-ng-click="$ctrl.toggle()">
+      {{$ctrl.storageClientVersions.length - $ctrl.displayLimit}} more</td></p>
   `,
   controller: function($scope) {
     this.user = {name: 'world'};
-    this.storageVersions = [];
+    this.storageClientVersions = [];
+    this.displayLimit = 5;
     $.get('https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/versions').then(response => {
       $scope.$apply(() => this.storageClientVersions = response);
     });
-    
+    this.toggle = function() {
+      if (this.displayLimit == 5) {
+        this.displayLimit = this.storageClientVersions.length;
+      }
+      else{
+        this.displayLimit = 5;
+      }
+    }
   }
 };
 
 const icgcGetVersions = {
   template: `
     <table>
-      <tr ng-repeat="v in $ctrl.icgcGetVersions">
-        <td>{{ v.uri }}</td>
-                     <td><a target="_blank" href="api/v1/ui/software/icgc-get/{{ v.version}}/osx</a>icgc-get-{{ v.version }}-osx-dist.zip</td>
-                     <td><a target="_blank" href="api/v1/ui/software/icgc-get/{{ v.version}}/linux</a>icgc-get-{{ v.version }}-linux-dist.zip</td>
-                    
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Mac</th>
+            <th>Linux</th>
+          </tr>
+        </thead>
+      <tr ng-repeat="v in $ctrl.icgcGetVersions | limitTo: $ctrl.displayLimit">
+        <td>{{ v.version }}</td>
+        <td><a target="_blank" href="https://dcc.icgc.org/api/v1/ui/software/icgc-get/{{ v.version}}/osx"</a>icgc-get-{{ v.version }}-osx-dist.zip</td>
+        <td><a target="_blank" href="https://dcc.icgc.org/api/v1/ui/software/icgc-get/{{ v.version}}/linux"</a>icgc-get-{{ v.version }}-linux-dist.zip</td>
       </tr>
     </table>
+    <p><a data-ng-click="$ctrl.toggle()">{{ $ctrl.icgcGetVersions.length - $ctrl.displayLimit }} more</a></p>
   `,
   controller: function($scope) {
     this.user = {name: 'world'};
     this.icgcGetVersions = [];
+    this.displayLimit = 5;
     $.get('https://dcc.icgc.org/api/v1/ui/software/icgc-get/versions').then(response => {
       $scope.$apply(() => this.icgcGetVersions = response);
     });
+    this.toggle = function() {
+      if (this.displayLimit == 5) {
+        this.displayLimit = this.icgcGetVersions.length;
+      }
+      else{
+        this.displayLimit = 5;
+      }
+    }
     
   }
 };
