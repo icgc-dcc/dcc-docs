@@ -108,9 +108,11 @@
             {%- endfor %}
         </div>
         <script src="/js-out/commons-chunk.js"></script>
-
-        {% if current_page.title == config.extra.dictionary_viewer_page_id %}
-            <script src="/js-out/dictionary-viewer.js"></script>
+        {{config.extra.resources[current_page.title]}}
+        {% if config.extra.resources[current_page.title] %}
+            {%- for path in config.extra.resources[current_page.title].scripts %}
+                <script src="{{ path }}"></script>
+            {%- endfor %}
         {% endif %}
     </body>
 </html>

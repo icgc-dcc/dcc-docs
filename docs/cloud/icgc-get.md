@@ -207,13 +207,13 @@ Example invocations of the `report` commands:
 
 Example invocations of the `report` commands:
 ```shell
-
 ./icgc-get report FI99996 FI99990 FI250134 -r collaboratory -r gdc -t summary
 ```
 
 Sample output:
 
 ```
+
 ╒══════════╤════════╤════════╤═══════════════╤═══════════════╤═══════════════╕
 │          │   Size │ Unit   │ File Format   │ Data Type     │ Repo          │
 ╞══════════╪════════╪════════╪═══════════════╪═══════════════╪═══════════════╡
@@ -226,6 +226,7 @@ Sample output:
 ```
 
 ```
+
 ╒══════════════════════╤════════╤════════╤══════════════╤═══════════════╕
 │                      │   Size │ Unit   │   File Count │   Donor_Count │
 ╞══════════════════════╪════════╪════════╪══════════════╪═══════════════╡

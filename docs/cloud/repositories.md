@@ -25,22 +25,30 @@ If you encounter difficulties, [the dbGaP help desk](https://dbgap.ncbi.nlm.nih.
 
 ## ICGC Storage Repositories
 
-| Name                 | Cancer Genome Collaboratory |
+| Name                 | ICGC Storage Repostories  |
 |:---------------------| ----------------
 | Governing Body       | International Cancer Genome Consortium |                                                             
 | Contact              | <dcc-support@icgc.org> |
 | Offical Website      | <https://dcc.icgc.org> |
-| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D)|
 | Download Client    | [Tarball](https://dcc.icgc.org/software) [Docker](https://hub.docker.com/r/icgc/icgc-storage-client/)|
 
-### List of Repositories
 #### [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
 
 Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.
 
+| Name                 | Cancer Genome Collaboratory |
+|:---------------------| ----------------
+| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D)|
+|Repo Code           | collaboratory
+
 #### [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws)
 
 Amazon cloud service containing ICGC data.
+
+| Name                 | ICGC Storage Server |
+|:---------------------| ----------------
+| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D)|
+|Repo Code           | aws-virginia |
 
 ### Obtaining Data Access
 A login to the ICGC data portal will be provided upon the completion of a DACO application.  
@@ -62,6 +70,7 @@ The European Genome Archive.  Data can only be downloaded through their EGA down
 | Offical Website      | <https://ega-archive.org/> |
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D) |
 | Download Client        | [Zipfile](https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client#download) |
+| Repo Code | ega
 
 
 ### Obtaining Data Access
@@ -82,6 +91,7 @@ The Genomic Data Commons is a US government run data repository for cancer genom
 | Offical Data Portal  | <https://gdc.nci.nih.gov>|
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D) |
 | Download Client       | [Binaries](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool) |
+| Repo Code | gdc |
 
 ### Obtaining Data Access
 To obtain access you must have an eRA commons account, and you must have dbGap access to the data on the GDC you are interested in.  Talk to your team leader if you do not have this access.  Once this account is set up, you can log in to the GDC using the your dbGaP credentials.
@@ -89,8 +99,8 @@ To obtain access you must have an eRA commons account, and you must have dbGap a
 <https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data>
 
 ### Download Client Operation
-Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available here:
-<https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/>.
+Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.]
+(https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
 
 ## GNOS
 
@@ -109,16 +119,67 @@ GNOS is currenlty being phased out by the ICGC in favour of newer systems.
 ### List of Repositories
 Below is the list of supported GNOS repositories.  Use the code value when searching for a repository using icgc-get.
 
-| Location  | Code  |  ICGC Portal Page |  Path |
-| ----------| ------| -----------------|------- 
-| Chicago (ICGC)<sup>\*</sup>| pcawg-chicago-icgc | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(ICGC)%22%5D%7D%7D%7D) | https://gtrepo-osdc-icgc.annailabs.com/cghub/data/analysis/download/
- Chicago (TCGA)<sup>\*</sup> | pcawg-chicago-tcga | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(TCGA)%22%5D%7D%7D%7D) | https://gtrepo-osdc-tcga.annailabs.com/cghub/data/analysis/download/
- Heidelberg  | pcawg-heidelberg |[Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Heidelberg%22%5D%7D%7D%7D) | https://gtrepo-dkfz.annailabs.com/cghub/data/analysis/download/
- London      | pcawg-london | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20London%22%5D%7D%7D%7D) | https://gtrepo-ebi.annailabs.com/cghub/data/analysis/download/
- Tokyo       | pcawg-tokyo | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Tokyo%22%5D%7D%7D%7D) | https://gtrepo-riken.annailabs.com/cghub/data/analysis/download/
- Seoul  | pcawg-seoul | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Seoul%22%5D%7D%7D%7D) | https://gtrepo-etri.annailabs.com/cghub/data/analysis/download/
- Barcelona | pcawg-barcelona | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D) | https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/
- Santa-Cruz| pcawg-cghub | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Santa%20Cruz%22%5D%7D%7D%7D)| https://cghub.ucsc.edu/cghub/data/analysis/download/
+
+#### PCAWG Chicago (ICGC)<sup>\*</sup>
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|Repo Code | pcawg-chicago-icgc 
+|ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(ICGC)%22%5D%7D%7D%7D)
+Data Path | https://gtrepo-osdc-icgc.annailabs.com/cghub/data/analysis/download/
+#### PCAWG Chicago (TCGA)<sup>\*</sup>
+ 
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|            Repo Code | pcawg-chicago-tcga |
+ICGC Portal Page| [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(TCGA)%22%5D%7D%7D%7D) 
+Data Path | https://gtrepo-osdc-tcga.annailabs.com/cghub/data/analysis/download/
+#### PCAWG Heidelberg  
+
+| Name                 | Pancancer Analysis of Whole Genomes Heidelberg |
+|:---------------------| ----------------
+|Repo Code | pcawg-heidelberg 
+ICGC Portal Page |[Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Heidelberg%22%5D%7D%7D%7D) 
+Data Path | https://gtrepo-dkfz.annailabs.com/cghub/data/analysis/download/
+
+#### PCAWG London 
+
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|Repo Code | pcawg-london
+ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20London%22%5D%7D%7D%7D) 
+Data Path | https://gtrepo-ebi.annailabs.com/cghub/data/analysis/download/
+
+#### PCAWG Tokyo 
+
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|Repo Code | pcawg-tokyo 
+ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Tokyo%22%5D%7D%7D%7D) 
+Data Path | https://gtrepo-riken.annailabs.com/cghub/data/analysis/download/
+
+#### PCAWG Seoul 
+
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|Repo Code | pcawg-seoul 
+ICGC Data Portal| [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Seoul%22%5D%7D%7D%7D) 
+Data Path | https://gtrepo-etri.annailabs.com/cghub/data/analysis/download/
+
+#### PCAWG Barcelona 
+
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|Repo Code | pcawg-barcelona 
+ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D) 
+Data Path | https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/
+
+#### PCAWG Santa-Cruz
+
+| Name                 | Pancancer Analysis of Whole Genomes Chicago |
+|:---------------------| ----------------
+|Repo Code | pcawg-cghub 
+ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Santa%20Cruz%22%5D%7D%7D%7D)
+Data Path | https://cghub.ucsc.edu/cghub/data/analysis/download/
 
 \* Two seperate PCAWG repoisitories are hosted in Chicago, each for a different research project.
 
@@ -142,6 +203,7 @@ Secure data cloud that stores US PCAWG data.
 | ICGC Portal Page     | Not yet available |
 | Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)|
 | Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html) |
+| Repo Code | pdc|
 
 ### Obtaining Data Access
 You can apply for access to the PDC by following [this link.](https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/) You will need both an eRA Commons account and dbGAP access to the ICGC PCAWG. Once your application is submitted, you will be contacted by a representitive of the PDC who will provide you with legal documents and required training courses.

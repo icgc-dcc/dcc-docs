@@ -17,6 +17,7 @@ var plugins = [
 module.exports = {
   entry: {
     'dictionary-viewer': './src/js/dictionary-viewer',
+    'software-page': './src/js/software-page',
     // 'api-endpoints': './js/api-endpoints',
     // 'icgc-common': './js/icgc-common',
   },
@@ -29,6 +30,16 @@ module.exports = {
         { test: /\.json$/, loader: 'json'},
         { test: /d3-tip\/index\.js/, loader: 'imports?define=>false'},
     ],
+    loaders: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel', // 'babel-loader' is also a legal name to reference
+          query: {
+            presets: ['es2015']
+          }
+        }
+      ]
   },
   plugins: plugins,
   node: {
