@@ -307,6 +307,8 @@ extra:
     Binaries:
       scripts:
         - /js-out/software-page.js
+      styles:
+        - /css-out/software-page.css
     Viewer:
       scripts:
         - /js-out/dictionary-viewer.js

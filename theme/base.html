@@ -30,6 +30,11 @@
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
+        {% if config.extra.resources[current_page.title] %}
+            {%- for path in config.extra.resources[current_page.title].styles %}
+                <link href="{{ path }}" rel="stylesheet">
+            {%- endfor %}
+        {% endif %}
 
 
 
@@ -108,7 +113,7 @@
             {%- endfor %}
         </div>
         <script src="/js-out/commons-chunk.js"></script>
-        {{config.extra.resources[current_page.title]}}
+
         {% if config.extra.resources[current_page.title] %}
             {%- for path in config.extra.resources[current_page.title].scripts %}
                 <script src="{{ path }}"></script>

@@ -8,7 +8,7 @@ This is the official DCC software page which publishes various tools for working
 
 ## Storage Client 
 
-To interact with cloud repositories such as[AWS](/icgc-in-the-cloud/aws/) and [Collaboratory]("/icgc-in-the-cloud/collaboratory/"), you will require the Storage Client sofware. For system requirements and usage information, please see the [User Guide](href="http://docs.icgc.org/cloud/guide/)
+To interact with cloud repositories such as [AWS](/icgc-in-the-cloud/aws/) and [Collaboratory]("/icgc-in-the-cloud/collaboratory/"), you will require the Storage Client software. For system requirements and usage information, please see the [User Guide](href="http://docs.icgc.org/cloud/guide/)
 
 ### Latest Release Tarball
 
@@ -21,11 +21,12 @@ Users are encouraged to use the latest version of our software to keep current w
 It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.
 However, if you wish to use an old version you may choose from the following:
 
-<storage-versions></storage-versions>
+<!-- <storage-versions></storage-versions> -->
+<versions-table client-type="0"></versions-table>
 
 ### Docker images 
 
-For Docker images, please visit our[Docker Hub repository](https://hub.docker.com/r/icgc/icgc-storage-client/).
+For Docker images, please visit our [Docker Hub repository](https://hub.docker.com/r/icgc/icgc-storage-client/).
 
 ## icgc-get
 
@@ -34,15 +35,15 @@ To interact with all ICGC data repositories, you can use the icgc-get software. 
 ### Latest Release Zipfile
 Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client version:
 
-[Mac](https://dcc.icgc.org/api/v1/ui/software/icgc-get/osx/latest)
-
-[Linux](https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest)
+[Download for Mac](https://dcc.icgc.org/api/v1/ui/software/icgc-get/osx/latest) [Download for Linux](https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest)
 
 ### Previous Release Zipfile
 
 It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.  However, if you wish to use an old version you may choose from the following:
 
-<icgc-get-versions></icgc-get-versions>
+<!-- <icgc-get-versions></icgc-get-versions> -->
+
+<versions-table client-type="1"></versions-table>
 
 ### Docker Images
 
@@ -55,6 +56,8 @@ In order to ensure safe downloads and binary integrity, all software releases ar
 ### Public Key
 
 To verify the signatures you will need our public key used for software releases:
+
+[Public Key](https://dcc.icgc.org/api/v1/ui/software/key)
 
 ### GPG Verification
 

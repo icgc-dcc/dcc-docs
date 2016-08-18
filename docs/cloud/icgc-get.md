@@ -1,6 +1,6 @@
-#icgc-get
+# icgc-get
 
-`icgc-get` is a universal download client for accessing ICGC data residing in various data repositories. It may be downloded on the [ICGC data portal's software page](https://dcc.icgc.org/software?enable=ICGC_GET)
+`icgc-get` is a universal download client for accessing ICGC data residing in various data repositories. It may be downloaded on the [ICGC data portal's software page.](/software/binaries/)  icgc-get works by interfacing with any supported repository download client and the ICGC api.  If any or all of the download clients are not available, icgc-get can also interface with a docker container that has all the download clients pre-installed.  
 
 The data possessed by the ICGC resides in many data repositories around the world. These repositories 
 each have their own environment (public cloud, private cloud, on-premise file systems, etc.), 
@@ -37,14 +37,14 @@ parameters or the `ICGCGET_LOGFILE`. _When downloading files from Collaboratory,
 the ICGC Storage Server, GNOS repositories or the GDC additional client logfiles will be saved in the same directory as the specified logfile._
 
 If you wish to use a different version of the docker container, this can be controlled via the `ICGCGET_CONTAINER_TAG`
-environmental variable or the `container:   tag:` configuration option. **This is not recommended, and there is the possiblilty
+environmental variable or the `container:   tag:` configuration option. **This is not recommended, and there is the possibility
 that non-default container versions may not be compatible with your installation of `icgc-get`.**
 
 It is necessary to specify the directory for downloaded files to be saved to under `--output` if you are running `icgc-get` locally. 
 
 
 It is also recommended to specify a common list of repositories in your preferred order of precedence. When downloading
-a file, the tool will first try to find the file on the first specified repository, then the second, ect cetra.
+a file, the tool will first try to find the file on the first specified repository, then the second, etc cetera.
 Please use the following format to define your repositories in the configuration file.
 
 ```yaml
@@ -56,24 +56,24 @@ repos:
 
 Valid repositories are:
 
-
 | Code                | Repository                     |
 | --------            | -------------------------------          |
-| `aws-virginia`      | Amazon Web Services                      |
-| `collaboratory`     | Collaboratory                            |
-| `ega`               | European Genome Association              |
-| `gdc`               | Genomic Data Commons                     |
-| `pcawg-chicago-icgc`| Pan-Cancer Chicago repository            |
-| `pcawg-chicago-tcga`| Pan-Cancer Chicago repository tcga data  |
-| `pcawg-heidelberg`  | Pan-Cancer Heidelberg repository         |
-| `pcawg-london`      | Pan-Cancer London repository             |
-| `pcawg-tokyo`       | Pan-Cancer Tokyo repository              |
-| `pcawg-seoul`       | Pan-Cancer Seoul repository              |
-| `pcawg-barcelona`   | Pan-Cancer Barcelona repository          |
-| `pdc`               | Bionimbus Protected Data Cloud           |
+| `aws-virginia`      | [Amazon Web Services](/cloud/repositories/binaries/#aws)                      |
+| `collaboratory`     | [Collaboratory](/cloud/repositories/binaries/#collaboratory)                            |
+| `ega`               | [European Genome Association](/cloud/repositories/binaries/#ega)              |
+| `gdc`               | [Genomic Data Commons](/cloud/repositories/binaries/#gdc)                     |
+| `pcawg-chicago-icgc`| [Pan-Cancer Chicago repository](/cloud/repositories/binaries/#pcawg-chicago-icgc)            |
+| `pcawg-chicago-tcga`| [Pan-Cancer Chicago repository tcga data](/cloud/repositories/binaries/#pcawg-chicago-tcga)  |
+| `pcawg-cghub`       | [Pan-Cancer Santa-Cruz](/cloud/repositories/#pcawg-santa-cruz)
+| `pcawg-heidelberg`  | [Pan-Cancer Heidelberg repository](/cloud/repositories/binaries/#pcawg-chicago)         |
+| `pcawg-london`      | [Pan-Cancer London repository](/cloud/repositories/binaries/#pcawg-london)             |
+| `pcawg-tokyo`       | [Pan-Cancer Tokyo repository](/cloud/repositories/binaries/#pcawg-tokyo)              |
+| `pcawg-seoul`       | [Pan-Cancer Seoul repository](/cloud/repositories/binaries/#pcawg-seoul)              |
+| `pcawg-barcelona`   | [Pan-Cancer Barcelona repository](/cloud/repositories/binaries/#pcawg-barcelona)          |
+| `pdc`               | [Bionimbus Protected Data Cloud](/cloud/repositories/binaries/#pdc)           |
 
 All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental 
-variable or under `repo:   path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `repo:   transport:   parallel` or `REPO_TRANSPORT_PARALLEL`
+variable or under `repo.path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `repo.transport.parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `repo:   udt` config option.  
 
 ## Command References
@@ -119,39 +119,33 @@ Most clients can be made to download using the UDT protocol by using the `repo: 
 |------------    |------------------------------------           |
 | `--config` `-c`| Destination for new or exisiting config file  |
 
-## Access
+## Repository Information
 
 ### Collaboratory and AWS
 
-These repositories are both accessed through the [ICGC storage client](https://hub.docker.com/r/icgc/icgc-storage-client/), and share their
+These repositories are both accessed through the [ICGC storage client](/cloud/repositories/#icgc-storage-repositories), and share their
 configuration parameters under the `icgc` namespace. For both of these repositories
-provide an UUID for your ICGC access token to the `icgc:  access` parameter. 
-You may also specify the transport file from protocol, under `icgc:  transport:  file.from`.
-Further documentation can be found at [here.](http://docs.icgc.org/cloud/guide/)
-To apply for access to Collaboratory and AWS see [DACO.](https://icgc.org/daco)
+provide an UUID for your ICGC access token to the `icgc.access` parameter. 
+You may also specify the transport file from protocol, under `icgc.transport.file.from`.
 
 ### EGA
 
-[EGA](https://ega-archive.org/) access should be provided as your EGA username to `ega:  username` and your EGA password to `ega:  password`. 
+[EGA](/cloud/repositories/#ega) access should be provided as your EGA username to `ega.username` and your EGA password to `ega.password`. 
 It should be noted that there have been reliability issues experienced should the transport parallel of the EGA client increase beyond 1. 
-Further information can be found at [the EGA website](https://www.ebi.ac.uk/ega/about/access)
 
 ### GDC
 
-[GDC](https://gdc.nci.nih.gov) access should be provided as the full GDC access token to `gdc:  token`. **Though there are unsecured files
-present on the GDC data repository, for simplicity purposes a GDC access token is required for all downloads from the GDC.** Further information
-about access can be found at [the GDC documentation.](https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
+[GDC](/cloud/repositories/#gdc) access should be provided as the full GDC access token or a path to the token file to `gdc.token`. **Though there are unsecured files
+present on the GDC data repository, for simplicity purposes a GDC access token is required for all downloads from the GDC.** 
 
-### PCAWG
+### GNOS
 
-[PCAWG](https://pancancer-token.annailabs.com/) access should be provided as a key to `gnos:   key:   repo:`  where repo is the repository code for the GNOS
-repository you need to access.  Support for GNOS repositories can be reached at help@annaisystems.com
+[GNOS](/cloud/repositories/#gnos) access should be provided as a key to `gnos.key.repo:`  where repo is the repository code for the GNOS
+repository you need to access. 
 
 ### PDC
 
-[PDC](https://bionimbus-pdc.opensciencedatacloud.org) access should be provided as a key to `pdc:  key` and a secret key
-to `pdc:  secret`. 
-Support for the PDC can be reached [here.](https://bionimbus-pdc.opensciencedatacloud.org)
+[PDC](/cloud/repositories/#pdc) access should be provided as a key to `pdc.key` and a secret key to `pdc.secret`. 
 
 ## Commands
 
@@ -213,7 +207,6 @@ Example invocations of the `report` commands:
 Sample output:
 
 ```
-
 ╒══════════╤════════╤════════╤═══════════════╤═══════════════╤═══════════════╕
 │          │   Size │ Unit   │ File Format   │ Data Type     │ Repo          │
 ╞══════════╪════════╪════════╪═══════════════╪═══════════════╪═══════════════╡
@@ -226,7 +219,6 @@ Sample output:
 ```
 
 ```
-
 ╒══════════════════════╤════════╤════════╤══════════════╤═══════════════╕
 │                      │   Size │ Unit   │   File Count │   Donor_Count │
 ╞══════════════════════╪════════╪════════╪══════════════╪═══════════════╡
@@ -256,7 +248,7 @@ by pressing enter in response to the prompt. Please note that some passwords, an
 
 ### Check command
 
-The `check` command will test the provided credentials for each repository specified.
+This command will test the provided credentials for each repository specified.
 
 Due to the security protocols of each client, there are two ways in which this access check can occur. 
 _For PDC, GNOS and GDC icgc-get is only capable of determining if you have access to the specific 
@@ -302,13 +294,13 @@ Clients:
  ICGC Storage Client Version: 1.0.13
 ```
 
-##Diagrams
+## Inernal Structure
 Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
 ###`icgc-get` Environment Diagram
 
 [![](images/ICGC_get_standard.png)](images/ICGC_get_standard.png "Click on the image to see it in full")
 
-###`icgc-get` Environment Eiagram using Docker
+###`icgc-get` Environment Diagram using Docker
 
 [![](images/ICGC_get_docker.png)](images/ICGC_get_docker.png "Click on the image to see it in full")
