@@ -21,7 +21,6 @@ Users are encouraged to use the latest version of our software to keep current w
 It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.
 However, if you wish to use an old version you may choose from the following:
 
-<!-- <storage-versions></storage-versions> -->
 <versions-table client-type="0"></versions-table>
 
 ### Docker images 
@@ -40,8 +39,6 @@ Users are encouraged to use the latest version of our software to keep current w
 ### Previous Release Zipfile
 
 It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.  However, if you wish to use an old version you may choose from the following:
-
-<!-- <icgc-get-versions></icgc-get-versions> -->
 
 <versions-table client-type="1"></versions-table>
 
