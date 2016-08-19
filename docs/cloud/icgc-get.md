@@ -294,13 +294,21 @@ Clients:
  ICGC Storage Client Version: 1.0.13
 ```
 
-## Inernal Structure
+
+
+## Internal Structure
 Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
 ###`icgc-get` Environment Diagram
 
-[![](images/ICGC_get_standard.png)](images/ICGC_get_standard.png "Click on the image to see it in full")
+[![](images/icgc_get_standard.png)](images/icgc_get_standard.png "Click on the image to see it in full")
+
+In the default orientation, all of the download clients are found in the user's file system.  This enables icgc-get to directly commnicate with the donwload clients, and for the clients to directly place their output into the local filesytem.
+
+  
 
 ###`icgc-get` Environment Diagram using Docker
 
-[![](images/ICGC_get_docker.png)](images/ICGC_get_docker.png "Click on the image to see it in full")
+[![](images/icgc_get_docker.png)](images/icgc_get_docker.png "Click on the image to see it in full")
+
+However, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate linux container.  To communicate with them, icgc-get needs to use the Docker daemon as an intermediary.  Then, when the the download clients recieve the files they are unable to directly place them into the local filesystem.  They isntead place them in a special mounted directory, which is shared between the Linux container and the local filesystem.  icgc-get, is monitoring the docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.   
