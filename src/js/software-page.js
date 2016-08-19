@@ -81,7 +81,7 @@ const versionsTable = {
         {{
           ($ctrl.shouldLimit)
           ? '' + ($ctrl.versions.length - $ctrl.displayLimit) + ' more'
-          : 'show less'
+          : 'less'
         }}
       </a>
     </p>
