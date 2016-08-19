@@ -30,7 +30,7 @@ For Docker images, please visit our [Docker Hub repository](https://hub.docker.c
 
 ## icgc-get
 
-To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the [User Guide](http://docs.icgc.org/cloud/icgc-get/)
+To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the [User Guide](/cloud/icgc-get/)
 
 ### Latest Release Zipfile
 Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client version:

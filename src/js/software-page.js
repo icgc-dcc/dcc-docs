@@ -43,11 +43,11 @@ var clientTypeMap = {
         },
         {
           url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/' + version + '/osx',
-          name: 'icgc-storage-client-' + version + '-dist.tar.gz'
+          name: 'icgc-get-' + version + '-dist.tar.gz'
         },
         {
           url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/' + version + '/linux',
-          name: 'icgc-storage-client-' + version + '-dist.tar.gz'
+          name: 'icgc-get-' + version + '-dist.tar.gz'
         }
       ];
     }
