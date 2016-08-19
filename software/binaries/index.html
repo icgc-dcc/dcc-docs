@@ -24,6 +24,9 @@
         <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/icgc-common.css" rel="stylesheet">
+        
+                <link href="/css-out/software-page.css" rel="stylesheet">
+        
 
 
 
@@ -628,6 +631,46 @@
         <li class="main active"><a href="#binaries">Binaries</a>
            <ul class="nav">
            
+               <li class=""><a href="#storage-client">Storage Client</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#latest-release-tarball">Latest Release Tarball</a></li>
+                        
+                        <li class=""><a href="#previous-release-tarballs">Previous Release Tarballs</a></li>
+                        
+                        <li class=""><a href="#docker-images">Docker images</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#icgc-get">icgc-get</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#latest-release-zipfile">Latest Release Zipfile</a></li>
+                        
+                        <li class=""><a href="#previous-release-zipfile">Previous Release Zipfile</a></li>
+                        
+                        <li class=""><a href="#docker-images_1">Docker Images</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#verifying-downloads">Verifying Downloads</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#public-key">Public Key</a></li>
+                        
+                        <li class=""><a href="#gpg-verification">GPG Verification</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
            </ul>
        </li>
         </li>
@@ -640,7 +683,52 @@
 
 <h1 id="binaries">Binaries</h1>
 <p>All binaries are hosted on <a href="https://artifacts.oicr.on.ca/artifactory">OICR's Artifactory repository</a>. You can find them in the <a href="https://artifacts.oicr.on.ca/artifactory/simple/dcc-release/org/icgc/dcc/"><code>dcc-release</code> repository</a>.</p>
-<p>For convenience, tarballs of client facing binaries may be found on the <a href="https://dcc.icgc.org/software">Portal's Software page</a>.</p>
+<p>This is the official DCC software page which publishes various tools for working with ICGC data. Software is provided in both tarball and Docker image format.</p>
+<h2 id="storage-client">Storage Client</h2>
+<p>To interact with cloud repositories such as <a href="../../icgc-in-the-cloud/aws/">AWS</a> and <a href="" title="/icgc-in-the-cloud/collaboratory/">Collaboratory</a>, you will require the Storage Client software. For system requirements and usage information, please see the <a href="../href=&quot;http://docs.icgc.org/cloud/guide/">User Guide</a></p>
+<h3 id="latest-release-tarball">Latest Release Tarball</h3>
+<p>Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client package:</p>
+<p><a href="https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest">Download</a></p>
+<h3 id="previous-release-tarballs">Previous Release Tarballs</h3>
+<p>It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.
+However, if you wish to use an old version you may choose from the following:</p>
+<p><versions-table client-type="0"></versions-table></p>
+<h3 id="docker-images">Docker images</h3>
+<p>For Docker images, please visit our <a href="https://hub.docker.com/r/icgc/icgc-storage-client/">Docker Hub repository</a>.</p>
+<h2 id="icgc-get">icgc-get</h2>
+<p>To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the <a href="../../cloud/icgc-get/">User Guide</a></p>
+<h3 id="latest-release-zipfile">Latest Release Zipfile</h3>
+<p>Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client version:</p>
+<p><a href="https://dcc.icgc.org/api/v1/ui/software/icgc-get/osx/latest">Download for Mac</a> <a href="https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest">Download for Linux</a></p>
+<h3 id="previous-release-zipfile">Previous Release Zipfile</h3>
+<p>It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.  However, if you wish to use an old version you may choose from the following:</p>
+<p><versions-table client-type="1"></versions-table></p>
+<h3 id="docker-images_1">Docker Images</h3>
+<p>For Docker images, please visit our <a href="https://hub.docker.com/r/icgc/icgc-get/">Docker Hub repository.</a>  This provides the necessary operating environment for ICGC get, and will be automatically downloaded by the tool if the docker daemon is running on your computer.</p>
+<h2 id="verifying-downloads">Verifying Downloads</h2>
+<p>In order to ensure safe downloads and binary integrity, all software releases are signed using GPG. The following sections detail how to verify our published software.</p>
+<h3 id="public-key">Public Key</h3>
+<p>To verify the signatures you will need our public key used for software releases:</p>
+<p><a href="https://dcc.icgc.org/api/v1/ui/software/key">Public Key</a></p>
+<h3 id="gpg-verification">GPG Verification</h3>
+<p>To verify the signed software you will need to ensure you have downloaded our public key and imported it:</p>
+<p>From a key server: </p>
+<pre><code>$ gpg --keyserver pgp.mit.edu --recv-key 0xAFE5D0B6
+</code></pre>
+
+<p>From a file:</p>
+<pre><code>$ gpg --import icgc-software.pub
+</code></pre>
+
+<p>Once the public key has been imported you can verify the signature:</p>
+<pre><code>$ gpg icgc-storage-client-0.0.27-dist.tar.gz.asc
+</code></pre>
+
+<p>If successful, the output should contain the following:</p>
+<pre><code>gpg: assuming signed data in 'icgc-storage-client-0.0.27-dist.tar.gz'
+gpg: Signature made Mon  5 Oct 12:38:09 2015 EDT using RSA key ID AFE5D0B6
+gpg: Good signature from &quot;ICGC DCC (Sign public software releases) &lt;dcc-support@icgc.org&gt;&quot;
+</code></pre>
                </div>
                </div>
             </div>
@@ -682,6 +770,8 @@
         </div>
         <script src="/js-out/commons-chunk.js"></script>
 
+        
+                <script src="/js-out/software-page.js"></script>
         
     </body>
 </html>
