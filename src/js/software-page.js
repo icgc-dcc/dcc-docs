@@ -62,7 +62,7 @@ const versionsTable = {
         <th ng-repeat="header in $ctrl.headers">{{header}}</th>
       </tr>
     </thead>
-    <tr ng-repeat="row in $ctrl.rows">
+    <tr ng-repeat="row in $ctrl.rows | limitTo: ($ctrl.shouldLimit? $ctrl.displayLimit : $ctrl.versions.length)">
       <td ng-repeat="column in row"><a href="{{column.url}}">{{column.name}}</a></td>
     </tr>
     </table>
@@ -74,7 +74,7 @@ const versionsTable = {
         }"></i>
         {{
           ($ctrl.shouldLimit)
-          ? '' + ($ctrl.icgcGetVersions.length - $ctrl.displayLimit) + ' more'
+          ? '' + ($ctrl.versions.length - $ctrl.displayLimit) + ' more'
           : 'show less'
         }}
       </a>
@@ -93,6 +93,7 @@ const versionsTable = {
     $.get(clientTypeMap[this.clientType].url).then(response => {
       $scope.$apply(() => {
         console.log(response);
+        this.versions = response;
         this.rows = response.map(x => clientTypeMap[this.clientType].getColumns(x.version))
         console.log(this.rows);
       });
