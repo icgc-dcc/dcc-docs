@@ -58,7 +58,7 @@ The manual for the operation of the Genetorrent client can be found at <https://
 | Governing Body       | International Cancer Genome Consortium |                                                             
 | Contact              | <dcc-support@icgc.org> |
 | Official Website      | <https://dcc.icgc.org> |
-| Download Client    | [Tarball](https://dcc.icgc.org/software) [Docker](https://hub.docker.com/r/icgc/icgc-storage-client/)|
+| Download Client    | [Tarball](/software/binaries/#storage-client) [Docker](https://hub.docker.com/r/icgc/icgc-storage-client/)|
 
 #### Obtaining Data Access
 A login to the ICGC data portal will be provided upon the completion of a DACO application.  
@@ -121,7 +121,7 @@ The Genomic Data Commons is a US government run data repository for cancer genom
 | Name                 | Genomic Data Commons|
 | Governing Body       | National Cancer Institute |
 | Contact              | <support@nci-gdc.datacommons.io>|
-| Official Data Portal  | <https://gdc.nci.nih.gov>|
+| Official Data Portal  | <https://gdc-portal.nci.nih.gov/>|
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D) |
 | Download Client       | [Binaries](https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool) |
 | Repo Code | `gdc` |
@@ -134,6 +134,16 @@ To obtain access you must have an eRA commons account, and you must have dbGap a
 #### Download Client Operation
 Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.]
 (https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
+
+### PCAWG Barcelona 
+
+| | Properties|
+|:---------------------| ----------------
+| Name                 | Pancancer Analysis of Whole Genomes Barcelona |
+| Type                 | [GNOS](#gnos) |
+| Repo Code | `pcawg-barcelona` 
+| ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D) 
+| Data Path | https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/
 
 
 ### PCAWG Chicago (ICGC)
@@ -196,16 +206,6 @@ Once you or your project leader have attained access to the reseach project,you 
 | ICGC Data Portal| [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Seoul%22%5D%7D%7D%7D) 
 | Data Path | https://gtrepo-etri.annailabs.com/cghub/data/analysis/download/
 
-### PCAWG Barcelona 
-
-| | Properties|
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Barcelona |
-| Type                 | [GNOS](#gnos) |
-| Repo Code | `pcawg-barcelona` 
-| ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D) 
-| Data Path | https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/
-
 ### PCAWG Santa-Cruz
 
 | | Properties|
@@ -225,7 +225,6 @@ Secure data cloud that stores US PCAWG data.
 |:---------------------| ----------------
 | Name                 | Bionimbus Protected Data Cloud |
 | Governing Body       | University of Chicago/Open Commons Consortium|
-| Access Control       | [eRA](https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/)|
 | Contact              | <support@opensciencedatacloud.org>|
 | Official Website      | <https://bionimbus-pdc.opensciencedatacloud.org>|
 | ICGC Portal Page     | Not yet available |
@@ -236,8 +235,6 @@ Secure data cloud that stores US PCAWG data.
 #### Obtaining Data Access
 You can apply for access to the PDC by following [this link.](https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/) You will need both an eRA Commons account and dbGAP access to the ICGC PCAWG. Once your application is submitted, you will be contacted by a representative of the PDC who will provide you with legal documents and required training courses.
   
-<https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/>
-
 #### Download Client Operation
 
 The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with `aws configure` and follow the prompts.  This key can be download from the projects tab of the [official PDC website.](https://bionimbus-pdc.opensciencedatacloud.org)  Once your credentials have been entered the general structure for download commands is 

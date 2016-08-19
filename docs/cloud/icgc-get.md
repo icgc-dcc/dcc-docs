@@ -58,19 +58,19 @@ Valid repositories are:
 
 | Code                | Repository                     |
 | --------            | -------------------------------          |
-| `aws-virginia`      | [Amazon Web Services](/cloud/repositories/binaries/#aws)                      |
-| `collaboratory`     | [Collaboratory](/cloud/repositories/binaries/#collaboratory)                            |
-| `ega`               | [European Genome Association](/cloud/repositories/binaries/#ega)              |
-| `gdc`               | [Genomic Data Commons](/cloud/repositories/binaries/#gdc)                     |
-| `pcawg-chicago-icgc`| [Pan-Cancer Chicago repository](/cloud/repositories/binaries/#pcawg-chicago-icgc)            |
-| `pcawg-chicago-tcga`| [Pan-Cancer Chicago repository tcga data](/cloud/repositories/binaries/#pcawg-chicago-tcga)  |
-| `pcawg-cghub`       | [Pan-Cancer Santa-Cruz](/cloud/repositories/#pcawg-santa-cruz)
-| `pcawg-heidelberg`  | [Pan-Cancer Heidelberg repository](/cloud/repositories/binaries/#pcawg-chicago)         |
-| `pcawg-london`      | [Pan-Cancer London repository](/cloud/repositories/binaries/#pcawg-london)             |
-| `pcawg-tokyo`       | [Pan-Cancer Tokyo repository](/cloud/repositories/binaries/#pcawg-tokyo)              |
-| `pcawg-seoul`       | [Pan-Cancer Seoul repository](/cloud/repositories/binaries/#pcawg-seoul)              |
-| `pcawg-barcelona`   | [Pan-Cancer Barcelona repository](/cloud/repositories/binaries/#pcawg-barcelona)          |
-| `pdc`               | [Bionimbus Protected Data Cloud](/cloud/repositories/binaries/#pdc)           |
+| `aws-virginia`      | [Amazon Web Services](/cloud/repositories/#aws)                      |
+| `collaboratory`     | [Collaboratory](/cloud/repositories/#collaboratory)                            |
+| `ega`               | [European Genome Association](/cloud/repositories/#ega)              |
+| `gdc`               | [Genomic Data Commons](/cloud/repositories/#gdc)                     |
+| `pcawg-chicago-icgc`| [Pan-Cancer Chicago repository](/cloud/repositories/#pcawg-chicago-icgc)            |
+| `pcawg-chicago-tcga`| [Pan-Cancer Chicago repository TCGA data](/cloud/repositories/#pcawg-chicago-tcga)  |
+| `pcawg-cghub`       | [Pan-Cancer Santa-Cruz repository](/cloud/repositories/#pcawg-santa-cruz)
+| `pcawg-heidelberg`  | [Pan-Cancer Heidelberg repository](/cloud/repositories/#pcawg-heidelberg)         |
+| `pcawg-london`      | [Pan-Cancer London repository](/cloud/repositories/#pcawg-london)             |
+| `pcawg-tokyo`       | [Pan-Cancer Tokyo repository](/cloud/repositories/#pcawg-tokyo)              |
+| `pcawg-seoul`       | [Pan-Cancer Seoul repository](/cloud/repositories/#pcawg-seoul)              |
+| `pcawg-barcelona`   | [Pan-Cancer Barcelona repository](/cloud/repositories/#pcawg-barcelona)          |
+| `pdc`               | [Bionimbus Protected Data Cloud](/cloud/repositories/#pdc)           |
 
 All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental 
 variable or under `repo.path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `repo.transport.parallel` or `REPO_TRANSPORT_PARALLEL`
