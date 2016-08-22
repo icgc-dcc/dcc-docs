@@ -2252,7 +2252,7 @@
         },
         {
             "location": "/software/icgc-get/",
-            "text": "icgc-get Release Notes\n\n\nChanges in icgc-get software release 0.4.1 - Aug 15, 2016\n\n\n\n\ninitial reportselease",
+            "text": "icgc-get Release Notes\n\n\nChanges in icgc-get software release 0.4.1 - Aug 15, 2016\n\n\n\n\ninitial release",
             "title": "icgc-get"
         },
         {
@@ -2262,7 +2262,7 @@
         },
         {
             "location": "/software/icgc-get/#changes-in-icgc-get-software-release-041-aug-15-2016",
-            "text": "initial reportselease",
+            "text": "initial release",
             "title": "Changes in icgc-get software release 0.4.1 - Aug 15, 2016"
         },
         {
