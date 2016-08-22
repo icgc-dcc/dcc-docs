@@ -782,7 +782,7 @@
 <p><a href="../images/process-diagram.png" title="Click Cloud Process Diagram to see the full image."><img alt="Cloud Process Diagram" src="../images/process-diagram.png" /></a></p>
 <p>The subsequent sections will provide additional details on each of these topics.</p>
 <h3 id="security">Security</h3>
-<p>The usage of the distributed <a href="https://dcc.icgc.org/software">Storage Client</a> is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.</p>
+<p>The usage of the distributed <a href="../../software/binaries">Storage Client</a> is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.</p>
 <h4 id="aws">AWS</h4>
 <p>Security is enforced by a coordinating ICGC storage server. The client communicates with the server which brokers downloads and converts ICGC Access Tokens into Amazon <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html">pre-signed urls</a>. Once a successful authorization handshake between the client and the server is established, downloads will be transferred directly from <em>S3</em> to the client, maintaining fast access to the data.</p>
 <p>It is important to note that the provided software only functions within the <code>us-east-1</code> EC2 region of AWS located in Northern Virginia, U.S. where the data is physically stored. Attempting to use the software outside of this region will be denied data access.</p>
@@ -828,12 +828,12 @@
 <h2 id="installation">Installation</h2>
 <p>This section describes how to install the Storage Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.</p>
 <h3 id="install-from-tarball">Install from Tarball</h3>
-<p>To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from <a href="https://dcc.icgc.org/software#storage-client">here</a>.</p>
+<p>To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from <a href="../../software/binaries#storage-client">here</a>.</p>
 <pre><code>wget -O icgc-storage-client.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest
 tar -xvzf icgc-storage-client.tar.gz
 </code></pre>
 
-<p>After untaring the archive, the Storage Client will be available at <code>bin/icgc-storage-client</code>. Steps to verify the authenticity and integrity of the download can be found on our <a href="https://dcc.icgc.org/software">software</a> page.</p>
+<p>After untaring the archive, the Storage Client will be available at <code>bin/icgc-storage-client</code>. Steps to verify the authenticity and integrity of the download can be found on our <a href="../../software/binaries">software</a> page.</p>
 <h3 id="install-from-docker-image">Install from Docker Image</h3>
 <p>We also support a Docker image of the Storage Client that is bundled with Java 8 for easy deployment.</p>
 <p>The image is hosted at <a href="https://hub.docker.com/r/icgc/icgc-storage-client/">https://hub.docker.com/r/icgc/icgc-storage-client/</a> and downloaded by issuing the following command:</p>
