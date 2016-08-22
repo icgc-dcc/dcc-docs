@@ -33,14 +33,13 @@ GNOS is a commonly used commercially available genomic data database. The Pancan
 
 GNOS is currently being phased out by the ICGC in favour of newer systems.
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes |
 | Contact              | <help@annaisystems.com> |
 | Official Website      | <https://pancancer-token.annailabs.com/>|
 | Download Client      | [GeneTorrent](https://annaisystems.zendesk.com/hc/en-us/articles/205449647-GeneTorrent-Downloads)|
 | Client Documentation | [Manual](https://annai.egnyte.com/dl/H87r6b0MCS)|
-
 
 #### Obtaining Data Access
 
@@ -52,7 +51,7 @@ The manual for the operation of the Genetorrent client can be found at <https://
 
 ### ICGC Storage Repositories
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | ICGC Storage Repostories  |
 | Governing Body       | International Cancer Genome Consortium |                                                             
@@ -72,7 +71,7 @@ For general operation of the client, follow the [instructions](/cloud/guide/)
 
 Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Cancer Genome Collaboratory |
 | Type                 | [ICGC Storage](#icgc-storage-repositories) |
@@ -83,7 +82,7 @@ Academic research cloud built to house ICGC data.  Currently in Beta test and on
 
 Amazon cloud service containing ICGC data.
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | ICGC Storage Server |
 | Type                 | [ICGC Storage](#icgc-storage-repositories) |
@@ -94,8 +93,8 @@ Amazon cloud service containing ICGC data.
 
 The EBI's European Genome-Phenome Archive.  Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
 
-| | Properties |
-|:-------------------- | ----------------
+| Property | Value |
+|:---------------------| ----------------
 | Name                 | European Genome Archive |
 | Governing Body       | European Bioinformatics Institute |                                                                                                           
 | Contact              | <ega-helpdesk@ebi.ac.uk> |
@@ -116,7 +115,7 @@ To operate the EGA download client, follow the instructions here:
 
 The Genomic Data Commons is a US government run data repository for cancer genomic information. It carries data from The Cancer Genome Atlas(TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET).  Currently the largest repository of ICGC data. Focused on studies in the United States.
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Genomic Data Commons|
 | Governing Body       | National Cancer Institute |
@@ -137,7 +136,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Barcelona 
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Barcelona |
 | Type                 | [GNOS](#gnos) |
@@ -148,7 +147,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Chicago (ICGC)
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Chicago<sup>[\*](#chicago_note)</sup> |
 | Type                 | [GNOS](#gnos) |
@@ -158,7 +157,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Chicago (TCGA)
  
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Chicago<sup>[\*](#chicago_note)</sup> |
 | Type                 | [GNOS](#gnos) |
@@ -168,7 +167,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Heidelberg  
 
-| | Properties
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Heidelberg |
 | Type                 | [GNOS](#gnos) |
@@ -178,7 +177,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG London 
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes London |
 | Type                 | [GNOS](#gnos) |
@@ -188,7 +187,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Tokyo 
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Tokyo |
 | Type                 | [GNOS](#gnos) |
@@ -198,7 +197,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Seoul 
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Seoul |
 | Type                 | [GNOS](#gnos) |
@@ -208,7 +207,7 @@ Once you or your project leader have attained access to the reseach project,you 
 
 ### PCAWG Santa-Cruz
 
-| | Properties|
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Santa-Cruz |
 | Type                 | [GNOS](#gnos) |
@@ -221,7 +220,8 @@ Once you or your project leader have attained access to the reseach project,you 
 ### PDC
 Secure data cloud that stores US PCAWG data.  
 
-| | Properties|
+
+| Property | Value |
 |:---------------------| ----------------
 | Name                 | Bionimbus Protected Data Cloud |
 | Governing Body       | University of Chicago/Open Commons Consortium|
