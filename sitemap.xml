@@ -77,12 +77,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>http://docs.icgc.org/portal/software/</loc>
-     <lastmod>2016-08-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -157,12 +151,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>http://docs.icgc.org/submission/software/</loc>
-     <lastmod>2016-08-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -196,8 +184,8 @@
     </url>
         
     <url>
-     <loc>http://docs.icgc.org/software/releases/</loc>
-     <lastmod>2016-08-22</lastmod>
+     <loc>http://docs.icgc.org</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
