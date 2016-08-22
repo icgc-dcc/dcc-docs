@@ -22,12 +22,12 @@ var clientTypeMap = {
           name: 'icgc-storage-client-' + version + '-dist.tar.gz'
         },
         {
-          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/' + version,
-          name: 'icgc-storage-client-' + version + '-dist.tar.gz'
+          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/' + version + '/md5', 
+          name: 'icgc-storage-client-' + version + '-dist.tar.gz.md5'
         },
         {
-          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/' + version,
-          name: 'icgc-storage-client-' + version + '-dist.tar.gz'
+          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/' + version + '/asc',
+          name: 'icgc-storage-client-' + version + '-dist.tar.gz.asc'
         }
       ];
     }
@@ -42,12 +42,12 @@ var clientTypeMap = {
           name: version
         },
         {
-          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/' + version,
-          name: 'icgc-storage-client-' + version + '-dist.tar.gz'
+          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/' + version + '/osx',
+          name: 'icgc-get-' + version + '-dist.zip'
         },
         {
-          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/' + version,
-          name: 'icgc-storage-client-' + version + '-dist.tar.gz'
+          url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/' + version + '/linux',
+          name: 'icgc-get-' + version + '-dist.zip'
         }
       ];
     }
@@ -56,17 +56,23 @@ var clientTypeMap = {
 
 const versionsTable = {
   template: `
-    <table>
+    <table class="download-table">
     <thead>
       <tr>
         <th ng-repeat="header in $ctrl.headers">{{header}}</th>
       </tr>
     </thead>
     <tr ng-repeat="row in $ctrl.rows | limitTo: ($ctrl.shouldLimit? $ctrl.displayLimit : $ctrl.versions.length)">
-      <td ng-repeat="column in row"><a href="{{column.url}}">{{column.name}}</a></td>
+      <td ng-repeat="column in row">
+        <a ng-if="column.url" href="{{column.url}}" target="_blank">
+        &nbsp;<i class="fa-noop icon-external-link"></i>&nbsp;
+          {{column.name}}
+        </a>
+        <span ng-if="!column.url">{{column.name}}</span>
+      </td>
     </tr>
     </table>
-    <p align="right">
+    <p class="toggle-paragraph">
       <a class="table-toggle" data-ng-click="$ctrl.shouldLimit = !$ctrl.shouldLimit;">
         <i class="fa" ng-class="{
           'fa-caret-down': $ctrl.shouldLimit,
@@ -75,7 +81,7 @@ const versionsTable = {
         {{
           ($ctrl.shouldLimit)
           ? '' + ($ctrl.versions.length - $ctrl.displayLimit) + ' more'
-          : 'show less'
+          : 'less'
         }}
       </a>
     </p>
@@ -84,7 +90,6 @@ const versionsTable = {
     clientType: '='
   },
   controller: function($scope) {
-
     this.icgcGetVersions = [];
     this.displayLimit = 5;
     this.shouldLimit = true;

@@ -1,5 +1,7 @@
 # Storage Client - Release Log
 
+\* indicates this release contains breaking changes and older versions will no longer work
+
  Version | Release Date | Description
  --- | --- | ---
 1.0.5 | Dec 5, 2015 | GA Client release - cleaned up command line arguments; removed obsolete, unused options
@@ -10,9 +12,9 @@
 1.0.13 | Mar 22, 2016 | Fixed infinite loop in download when part size mismatches stream length
 1.0.14 | May 2, 2016 | Batch/Manifest Slicing. Validate java version, validate repository code in download manifest files against client profile
 1.0.15 | May 19, 2016 | Accept multiple object id's with --object-id parameter
-1.0.16 | May 30, 2016 | Perform additional MD5 checking to ensure validity of download 
-1.0.17 | Jun 10, 2016 | Change Upload process to prevent duplicate uploads from being initiated
+1.0.16\* | May 30, 2016 | Perform additional MD5 checking to ensure validity of download 
+1.0.17\* | Jun 10, 2016 | Change Upload process to prevent duplicate uploads from being initiated
 1.0.18 | Jun 13, 2016 | Internal, housekeeping updates
-1.0.19 | Jul 15, 2016 | Stability improvements: validate pre-signed url's, verify repository connection permissions, check for concurrent uploads
+1.0.19\* | Jul 15, 2016 | Stability improvements: validate pre-signed url's, verify repository connection permissions, check for concurrent uploads
 
 

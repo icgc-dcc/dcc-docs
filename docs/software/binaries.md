@@ -21,7 +21,6 @@ Users are encouraged to use the latest version of our software to keep current w
 It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.
 However, if you wish to use an old version you may choose from the following:
 
-<!-- <storage-versions></storage-versions> -->
 <versions-table client-type="0"></versions-table>
 
 ### Docker images 
@@ -30,7 +29,7 @@ For Docker images, please visit our [Docker Hub repository](https://hub.docker.c
 
 ## icgc-get
 
-To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the [User Guide](http://docs.icgc.org/cloud/icgc-get/)
+To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the [User Guide](/cloud/icgc-get/)
 
 ### Latest Release Zipfile
 Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client version:
@@ -40,8 +39,6 @@ Users are encouraged to use the latest version of our software to keep current w
 ### Previous Release Zipfile
 
 It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.  However, if you wish to use an old version you may choose from the following:
-
-<!-- <icgc-get-versions></icgc-get-versions> -->
 
 <versions-table client-type="1"></versions-table>
 
