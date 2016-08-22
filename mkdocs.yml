@@ -18,10 +18,9 @@ pages:
   - Methods: 'portal/methods.md'
   - Projects: 'portal/projects.md'
   - Publication: 'portal/publication.md'
-  - Releases: 'portal/releases.md'
+  - Releases: 'portal/releases.md' 
   - Repositories: 'portal/repositories.md'
   - Search: 'portal/search.md'
-  - Software: 'portal/software.md'
 - Cloud:
   - About: 'cloud/about.md'
   - Guide: 'cloud/guide.md'
@@ -53,12 +52,11 @@ pages:
   - PCAWG:
     - PanCancer Clinical Data Requirements: 'submission/pcawg/pancancer-clinical-data-requirements.md'
     - FAQ: 'submission/pcawg/pcawg-faq.md'
-  - Software: 'submission/software.md'
 - Dictionary:
   - About: 'dictionary/about.md'
   - Viewer: 'dictionary/viewer.md'
   - Release Notes:
-    - Overview: 'dictionary/releases.md'
+    - Releases: 'dictionary/releases.md'
     - Release 22: 'dictionary/release-22.md'
     - Release 21: 'dictionary/release-21.md'
     - Release 20: 'dictionary/release-20.md'
@@ -289,7 +287,11 @@ pages:
   #      - miRNA Expression (mirna) - Secondary Analysis File (s): 'dictionary/release-15/structural-somatic-mutations-stsm-primary-analysis-file-p-v0.7e.md'
 - Software:
   - About: 'software/about.md'
-  - Releases: 'software/releases.md'
+  - Releases:
+    - Storage Client: 'software/storage-client.md'
+    - Portal: 'software/portal.md'
+    - Submission: 'software/submission.md'
+    - icgc-get: 'software/icgc-get.md'
   - Binaries: 'software/binaries.md'
   - Source Code: 'software/code.md'
   - Development: 'software/development.md'

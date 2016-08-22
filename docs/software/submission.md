@@ -1,10 +1,4 @@
-# Software
-
-## Overview
-
-This is the Software documentation page
-
-## Release Notes
+# Submission System Release Notes
 
 #### Changes in Submission System Software Release 3.6.1.1 - October 10, 2014
 * Added "header-only file validation" to inform the user of an unintended empty submission file
