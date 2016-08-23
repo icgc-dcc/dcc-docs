@@ -47,7 +47,7 @@ Provided you have the proper permissions from DACO, you can download access keys
 
 #### Download Client Operation
 
-The manual for the operation of the Genetorrent client can be found at <https://annai.egnyte.com/dl/H87r6b0MCS>.  Remember to prepend all download requests with the client specific data path provided in the table above.  
+The manual for the operation of the Genetorrent client can be found [here](https://annai.egnyte.com/dl/H87r6b0MCS).  Remember to prepend all download requests with the client specific data path provided in the table above.  
 
 ### ICGC Storage Repositories
 
@@ -108,8 +108,7 @@ The EBI's European Genome-Phenome Archive.  Data can only be downloaded through 
 To access controlled-access data at the EGA you need to be granted access after completing a DACO application. Once approval is obtained from DACO, your user account will be activated and you will have access to controlled access datasets in the ICGC Data Portal and EBI’S EGA repository.  Your account will use the same credentials as your OpenID account.
 
 #### Download Client Operation
-To operate the EGA download client, follow the instructions here:
-<https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client>.
+To operate the EGA download client, follow the instructions [here](https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client).
 
 ### [GDC](https://gdc.nci.nih.gov)
 

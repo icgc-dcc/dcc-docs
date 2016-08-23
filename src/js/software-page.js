@@ -33,7 +33,7 @@ var clientTypeMap = {
     }
   },
   1: {
-    url: 'https://dcc.icgc.org/api/v1/ui/software/icgc-get/versions',
+    url: 'http://dcc.icgc.org/api/v1/ui/software/icgc-get/versions',
     headers: ['Version', 'Mac', 'Linux'],
     getColumns (version) {
       return [
