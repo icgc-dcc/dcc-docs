@@ -210,7 +210,7 @@ Once you or your project leader have attained access to the reseach project,you 
 |:---------------------| ----------------
 | Name                 | Pancancer Analysis of Whole Genomes Santa-Cruz |
 | Type                 | [GNOS](#gnos) |
-|Repo Code | `pcawg-cghub`
+|Repo Code | `pcawg-cghub`   |
 | ICGC Data Portal | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Santa%20Cruz%22%5D%7D%7D%7D)
 | Data Path | https://cghub.ucsc.edu/cghub/data/analysis/download/
 
