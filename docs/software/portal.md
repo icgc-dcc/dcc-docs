@@ -64,7 +64,7 @@ Note that code level release notes may found on [GitHub](https://github.com/icgc
 * Bug fixes for Project Sample Sheet, Pie Chart colouring
 
 #### Changes in Data Portal Software Release 3.8.14.4 - Sept 22, 2015
-* Added functionality to view files in external repositories based on filters from advanced search (Go to [https://dcc.icgc.org/search][6], select your filters then in Donor tab click on "View in External Repositories" ). Documentation is available [here](repositories.md)
+* Added functionality to view files in external repositories based on filters from advanced search (Go to [https://dcc.icgc.org/search][6], select your filters then in Donor tab click on "View in External Repositories" ). Documentation is available [here](/portal/repositories.md)
 * Added functionality to download donor data and view donor sets in external repositories browser from Data Analysis (icons are available for saved donor sets here: [https://dcc.icgc.org/analysis/sets][7])
 * Added functionality to upload a donor set in Donor facet in Advanced Search ([https://dcc.icgc.org/search][6] and External Repositories browser ([https://dcc.icgc.org/repositories][1])
 * Added full screen support for Genome Viewer
@@ -86,7 +86,7 @@ Note that code level release notes may found on [GitHub](https://github.com/icgc
 * Bug fixes and core javascript libraries upgrades
 
 #### Changes in Data Portal Software Release 3.8.2.3 - April 7, 2015
-* Redesigned Data Analysis feature to improve user experience ([https://dcc.icgc.org/analysis/sets][7]). Documentation available [here](methods.md)
+* Redesigned Data Analysis feature to improve user experience ([https://dcc.icgc.org/analysis/sets][7]). Documentation available [here](/portal/methods.md)
 * Added demo analyses: User can launch them from [https://dcc.icgc.org/analysis][5]
 * Added Phenotype Comparison analysis to Data Analysis feature ([https://dcc.icgc.org/analysis][5])
 * Added functionality to upload a custom gene set and save it in Data Analysis ([https://dcc.icgc.org/analysis/sets][7]). User can then perform analysis on saved gene set

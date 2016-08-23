@@ -14,8 +14,6 @@ For release notes for ICGC software, see below:
 
 [Submission System](/software/submission.md)
 
-[Dictionary Viewer](/software/dictionary.md)
-
 [icgc-get](/software/icgc-get.md)
 
 For information about source code, project and repositories please see [here](code.md)
