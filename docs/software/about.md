@@ -2,22 +2,22 @@
 
 ## Overview
 
-This is the Portal documentation section which describes the DCC binaries and source code
+This is the Portal documentation section which describes the DCC binaries and source code.
 
-For information about binaries and downloads, please see [here](binaries.md)
+For information about binaries and downloads, please see [here.](binaries.md)
 
 For release notes for ICGC software, see below:
 
-[Storage Client](/software/storage-client.md)
+* [Storage Client](/software/storage-client.md)
 
-[Portal](/software/portal.md)
+* [Portal](/software/portal.md)
 
-[Submission System](/software/submission.md)
+* [Submission System](/software/submission.md)
 
-[icgc-get](/software/icgc-get.md)
+* [icgc-get](/software/icgc-get.md)
 
-For information about source code, project and repositories please see [here](code.md)
+For information about source code, project and repositories please see [here.](code.md)
 
-For information about development, please see [here](development.md)
+For information about development, please see [here.](development.md)
 
 

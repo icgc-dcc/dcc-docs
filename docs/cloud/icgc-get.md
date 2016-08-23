@@ -22,8 +22,8 @@ the absolute path. If neither of these options are chosen, the tool will look fo
 in your home directory.
 
 Should you wish to get started right away, it is possible to run the tool without making a configuration file at all. 
-Most of the parameters have default options if no config file is loaded. The only exceptions are _output_, _repos_, 
-access credentials and if you are not using Docker, _tool paths_. These options can be passed via the appropriate command line options.
+Most of the parameters have default options if no config file is loaded. The only exceptions are `--output`, `--repos`, 
+access credentials and, if you are not using Docker, tool paths. These options can be passed via the appropriate command line options.
 
 In addition to using the `configure` command, most configuration options can be overwritten either
 through the command line, by assigning environmental variables, or by directly editing the `config.yaml` file. Configuration options have the same name regardless of how they are inputed, but the different input methods have their own syntax.
