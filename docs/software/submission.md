@@ -18,5 +18,5 @@ Sincerely,
 The DCC team.
 
 [1]: /submission/guide/incremental-submission-feature.md
-[2]: about.md
+[2]: /submission/about.md
 [3]: mailto:dcc-support@icgc.org
