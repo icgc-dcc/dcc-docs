@@ -101,19 +101,28 @@
 
                     
                         
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">API</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     
-    <a href="../../portal/api/">API</a>
+    <a href="../../portal/api/">Guide</a>
     
 </li>
 
-                    
-                        
+        
+            
 <li >
     
-    <a href="../../portal/api-endpoints/">API Endpoints</a>
+    <a href="../../portal/api-endpoints/">Endpoints</a>
     
 </li>
+
+        
+    </ul>
+  </li>
 
                     
                         
@@ -725,7 +734,7 @@
                    
 
 <h1 id="icgc-get">icgc-get</h1>
-<p><code>icgc-get</code> is a universal download client for accessing ICGC data residing in various data repositories. It may be downloaded on the <a href="../../software/binaries/">ICGC data portal's software page.</a>  icgc-get works by interfacing with any supported repository download client and the ICGC api.  If any or all of the download clients are not available, icgc-get can also interface with a docker container that has all the download clients pre-installed.  </p>
+<p><code>icgc-get</code> is a universal download client for accessing ICGC data residing in various data repositories. It may be downloaded from the <a href="../../software/binaries/">binaries page.</a>  icgc-get works by interfacing with any supported repository download client and the ICGC api.  If any or all of the download clients are not available, icgc-get can also interface with a docker container that has all the download clients pre-installed.  </p>
 <p>The data possessed by the ICGC resides in many data repositories around the world. These repositories 
 each have their own environment (public cloud, private cloud, on-premise file systems, etc.), 
 access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms. 
@@ -736,26 +745,26 @@ streamline this process is highly desirable. This is the problem the <code>icgc-
 <h2 id="configuration">Configuration</h2>
 <p>After installing <code>icgc-get</code>, you may want to do configure some of the essential usage parameters,
 such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the <code>icgc-get configure</code> command
-and follow the instructions of the prompts.  This will keep the operation of tool simpler in the future</p>
-<p>Should you wish to get started right away, it is possible to run the tool without making a configuration file at all. 
-Most of the parameters have default options if no config file is loaded. The only exceptions are <em>output</em>, <em>repos</em>, 
-access credentials and if you are not using Docker, <em>tool paths</em>. These options can be passed via the appropriate command line options.</p>
-<p>In addition to using the <code>configure</code> command, most configuration options can be overwritten either
-through the command line, by assigning environmental variables, or by directly editing the <code>config.yaml</code> file. 
-Environmental variables are in all caps, have underscores as separators, and are prefixed by <code>ICGCGET_</code>. Command line options have dashes 
-as separators and are prefixed by two dashes. Config file options use a colon, followed by a newline and two spaces as separators. </p>
+and follow the instructions of the prompts.  This will keep the operation of tool simpler in the future.</p>
 <p>To specify which config file to use either pass an absolute path to the config file to the 
 command line with <code>--config</code>, or declare an environmental variable <code>ICGCGET_CONFIG</code> that contains 
 the absolute path. If neither of these options are chosen, the tool will look for <code>.icgc-get/config.yaml</code>
 in your home directory.</p>
+<p>Should you wish to get started right away, it is possible to run the tool without making a configuration file at all. 
+Most of the parameters have default options if no config file is loaded. The only exceptions are <em>output</em>, <em>repos</em>, 
+access credentials and if you are not using Docker, <em>tool paths</em>. These options can be passed via the appropriate command line options.</p>
+<p>In addition to using the <code>configure</code> command, most configuration options can be overwritten either
+through the command line, by assigning environmental variables, or by directly editing the <code>config.yaml</code> file. Configuration options have the same name regardless of how they are inputed, but the different input methods have their own syntax.
+Environmental variables are in all caps, have underscores as separators, and are prefixed by <code>ICGCGET_</code>. Command line options have dashes 
+as separators and are prefixed by two dashes. Config file options use a colon, followed by a newline and two spaces as separators. </p>
 <p><code>icgc-get</code> creates logfiles of it's operations, and collects the logfiles generated by some clients.<br />
 The location and name of this logfile can be set with the <code>--logfile</code> option, the <code>logfile:</code> configuration 
-parameters or the <code>ICGCGET_LOGFILE</code>. <em>When downloading files from Collaboratory,
+parameter or the <code>ICGCGET_LOGFILE</code> environmental variable. <em>When downloading files from Collaboratory,
 the ICGC Storage Server, GNOS repositories or the GDC additional client logfiles will be saved in the same directory as the specified logfile.</em></p>
 <p>If you wish to use a different version of the docker container, this can be controlled via the <code>ICGCGET_CONTAINER_TAG</code>
-environmental variable or the <code>container:   tag:</code> configuration option. <strong>This is not recommended, and there is the possibility
+environmental variable or the corresponding configuration option. <strong>This is not recommended, and there is the possibility
 that non-default container versions may not be compatible with your installation of <code>icgc-get</code>.</strong></p>
-<p>It is necessary to specify the directory for downloaded files to be saved to under <code>--output</code> if you are running <code>icgc-get</code> locally. </p>
+<p>It is necessary to specify the directory for downloaded files to be saved to under the <code>--output</code> argument if you are running <code>icgc-get</code> locally. </p>
 <p>It is also recommended to specify a common list of repositories in your preferred order of precedence. When downloading
 a file, the tool will first try to find the file on the first specified repository, then the second, etc cetera.
 Please use the following format to define your repositories in the configuration file.</p>
@@ -829,8 +838,8 @@ Please use the following format to define your repositories in the configuration
 </tbody>
 </table>
 <p>All clients require an absolute path to your local client installation set as <code>ICGCGET_REPO_PATH</code> as an environmental 
-variable or under <code>repo.path</code> in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under <code>repo.transport.parallel</code> or <code>REPO_TRANSPORT_PARALLEL</code>
-Most clients can be made to download using the UDT protocol by using the <code>repo:   udt</code> config option.  </p>
+variable or under <code>--repo-path</code> in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under <code>--repo-transport-parallel</code> or <code>REPO_TRANSPORT_PARALLEL</code>
+Most clients can be made to download using the UDT protocol by using the <code>--repo-udt</code> config option.  </p>
 <h2 id="command-references">Command References</h2>
 <table>
 <thead>
@@ -962,19 +971,19 @@ Most clients can be made to download using the UDT protocol by using the <code>r
 <h3 id="collaboratory-and-aws">Collaboratory and AWS</h3>
 <p>These repositories are both accessed through the <a href="../../cloud/repositories/#icgc-storage-repositories">ICGC storage client</a>, and share their
 configuration parameters under the <code>icgc</code> namespace. For both of these repositories
-provide an UUID for your ICGC access token to the <code>icgc.access</code> parameter. 
-You may also specify the transport file from protocol, under <code>icgc.transport.file.from</code>.</p>
+provide an UUID for your ICGC access token to the <code>--icgc-access</code> parameter. 
+You may also specify the transport file from protocol, under <code>--icgc-transport-file.from</code>.</p>
 <h3 id="ega">EGA</h3>
-<p><a href="../../cloud/repositories/#ega">EGA</a> access should be provided as your EGA username to <code>ega.username</code> and your EGA password to <code>ega.password</code>. 
+<p><a href="../../cloud/repositories/#ega">EGA</a> access should be provided as your EGA username to <code>--ega-username</code> and your EGA password to <code>--ega-password</code>. 
 It should be noted that there have been reliability issues experienced should the transport parallel of the EGA client increase beyond 1. </p>
 <h3 id="gdc">GDC</h3>
-<p><a href="../../cloud/repositories/#gdc">GDC</a> access should be provided as the full GDC access token or a path to the token file to <code>gdc.token</code>. <strong>Though there are unsecured files
+<p><a href="../../cloud/repositories/#gdc">GDC</a> access should be provided as the full GDC access token or a path to the token file to <code>--gdc-token</code>. <strong>Though there are unsecured files
 present on the GDC data repository, for simplicity purposes a GDC access token is required for all downloads from the GDC.</strong> </p>
 <h3 id="gnos">GNOS</h3>
 <p><a href="../../cloud/repositories/#gnos">GNOS</a> access should be provided as a key to <code>gnos.key.repo:</code>  where repo is the repository code for the GNOS
 repository you need to access. </p>
 <h3 id="pdc">PDC</h3>
-<p><a href="../../cloud/repositories/#pdc">PDC</a> access should be provided as a key to <code>pdc.key</code> and a secret key to <code>pdc.secret</code>. </p>
+<p><a href="../../cloud/repositories/#pdc">PDC</a> access should be provided as a key to <code>--pdc-key</code> and a secret key to <code>--pdc-secret</code>. </p>
 <h2 id="commands">Commands</h2>
 <p>All commands save <code>configure</code> share the <code>--config</code>, <code>--logfile</code> <code>--verbose/-v</code> and the <code>--docker</code> options.  </p>
 <h3 id="download-command">Download command</h3>
