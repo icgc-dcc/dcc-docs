@@ -46,6 +46,18 @@
     {
       "from": "/donor-clinical-data-guidelines",
       "to": "/submission/guide/donor-clinical-data-guidelines/"
+    },
+	{
+      "from": "/software/releases",
+      "to": "/software/storage-client"
+    },
+    {
+      "from": "/portal/software",
+      "to": "/software/portal"
+    },
+    {
+      "from": "/submission/software",
+      "to": "/software/submission"
     }
 
   ]
