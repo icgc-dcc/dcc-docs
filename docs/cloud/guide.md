@@ -32,7 +32,7 @@ The subsequent sections will provide additional details on each of these topics.
 
 ### Security
 
-The usage of the distributed [Storage Client](https://dcc.icgc.org/software) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
+The usage of the distributed [Storage Client](/software/binaries) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
 
 #### AWS
 
@@ -127,14 +127,14 @@ This section describes how to install the Storage Client. The are two options: (
 
 ### Install from Tarball
 
-To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from [here](https://dcc.icgc.org/software#storage-client).
+To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software/binaries#storage-client).
 
 ```
 wget -O icgc-storage-client.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest
 tar -xvzf icgc-storage-client.tar.gz
 ```
 
-After untaring the archive, the Storage Client will be available at `bin/icgc-storage-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](https://dcc.icgc.org/software) page.
+After untaring the archive, the Storage Client will be available at `bin/icgc-storage-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](/software/binaries) page.
 
 ### Install from Docker Image
 
