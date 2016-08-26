@@ -1,6 +1,6 @@
 # icgc-get
 
-`icgc-get` is a universal download client for accessing ICGC data residing in various data repositories. It may be downloaded from the [binaries page.](/software/binaries/)  icgc-get works by interfacing with any supported repository download client and the ICGC api.  If any or all of the download clients are not available, icgc-get can also interface with a docker container that has all the download clients pre-installed.  
+icgc-get is a universal download client for accessing ICGC data residing in various data repositories. It may be downloaded from the [binaries page.](/software/binaries/) icgc-get works by interfacing with any supported repository download client and the ICGC api.  If any or all of the download clients are not available, icgc-get can also interface with a docker container that has all the download clients pre-installed.  
 
 The data possessed by the ICGC resides in many data repositories around the world. These repositories 
 each have their own environment (public cloud, private cloud, on-premise file systems, etc.), 
@@ -138,7 +138,7 @@ present on the GDC data repository, for simplicity purposes a GDC access token i
 
 ### GNOS
 
-[GNOS](/cloud/repositories/#gnos) access should be provided as a key to `gnos.key.repo:`  where repo is the repository code for the GNOS
+[GNOS](/cloud/repositories/#gnos) access should be provided as a key to `--gnos-key-repo`  where repo is the repository code for the GNOS
 repository you need to access. 
 
 ### PDC
@@ -157,10 +157,10 @@ The syntax for performing a download using `icgc-get` is:
 ./icgc-get --config [CONFIG] --docker [true|false] download [IDS] [-m/] [REPO] [OPTIONS]
 ```
 
-The first required argument is the set of ICGC File ids or manifest id corresponding to the file or files you wish to download. 
+The first required argument is the set of ICGC file ids or ICGC manifest id corresponding to the file or files you wish to download. 
 This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a 
 manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal](https://dcc.icgc.org/repositories) through the 
-`icgc-get` button on the Data Repositories page  `icgc-get` is not capable of parsing client manifest files on the local machine.
+icgc-get button on the Data Repositories page. `icgc-get` is not capable of parsing client manifest files on the local machine.
 
 Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
 provided they have not been added to the config file.
@@ -249,7 +249,7 @@ by pressing enter in response to the prompt. Please note that some passwords, an
 This command will test the provided credentials for each repository specified.
 
 Due to the security protocols of each client, there are two ways in which this access check can occur. 
-_For PDC, GNOS and GDC icgc-get is only capable of determining if you have access to the specific 
+_For PDC, GNOS and GDC `icgc-get` is only capable of determining if you have access to the specific 
 files targeted for download, not the state of your permissions for the repository as a whole._ 
 When performing an access check for these repositories, you must provide a manifest id or 
 list of files using the same formatting as the `download` command. For more detailed information about 
@@ -293,7 +293,6 @@ Clients:
 ```
 
 
-
 ## Internal Structure
 Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
@@ -301,9 +300,9 @@ Below are a pair of diagrams demonstrating the processes that `icgc-get` undergo
 
 [![](images/icgc_get_standard.png)](images/icgc_get_standard.png "Click on the image to see it in full")
 
-In both modes of operation, icgc-get must be passed a manifest or file id that has been recived from the ICGC data portal.  This identifier is used by icgc-get to query more in-depth file metadata from the ICGC api.  This takes two calls to the api, and the gathered data is used to identify the client to call and how to execute the call. 
+In both modes of operation, icgc-get must be passed a manifest or file id that has been recived from the ICGC data portal.  This identifier is used by icgc-get to query more in-depth file metadata from the ICGC api. This takes two calls to the api, and the gathered data is used to identify the client to call and how to execute the call. 
 
-In the default orientation, all of the download clients are found in the user's file system.  This enables icgc-get to directly communicate with the download clients, and for the clients to directly place their output into the local filesystem.  
+In the default orientation, all of the download clients are found in the user's file system. This enables icgc-get to directly communicate with the download clients, and for the clients to directly place their output into the local filesystem.  
 
   
 
@@ -311,4 +310,4 @@ In the default orientation, all of the download clients are found in the user's 
 
 [![](images/icgc_get_docker.png)](images/icgc_get_docker.png "Click on the image to see it in full")
 
-However, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate Linux container.  To communicate with the download clients, icgc-get needs to use the Docker daemon as an intermediary.  Then, when the the clients finish downloading the files they are unable to directly place them into the local filesystem beacuse of the isolated nature of the Linux container.  They instead place them in a special mounted directory, which is shared between the Linux container and the local filesystem.  icgc-get is monitoring the Docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.   
+However, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate Linux container. To communicate with the download clients, icgc-get needs to use the Docker daemon as an intermediary. Similarly, when the the clients finish downloading the files they are unable to directly place them into the local filesystem beacuse of the isolated nature of the Linux container. They instead place them in a special mounted directory, which is shared between the Linux container and the local filesystem. icgc-get is monitoring the Docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.   
