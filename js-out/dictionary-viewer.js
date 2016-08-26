@@ -75,7 +75,7 @@ webpackJsonp([0,2],[
 
 	global.jsondiffpatch = __webpack_require__(33);
 	global.jsondiffpatch.formatters = {
-	  html: __webpack_require__(63)
+	  html: __webpack_require__(62)
 	};
 
 
@@ -96632,17 +96632,17 @@ webpackJsonp([0,2],[
 		"./formatters/base.js": 53,
 		"./formatters/console": 54,
 		"./formatters/console.js": 54,
-		"./formatters/html": 63,
-		"./formatters/html.js": 63,
-		"./formatters/index": 64,
-		"./formatters/index.js": 64,
-		"./formatters/jsonpatch": 65,
-		"./formatters/jsonpatch.js": 65,
+		"./formatters/html": 62,
+		"./formatters/html.js": 62,
+		"./formatters/index": 63,
+		"./formatters/index.js": 63,
+		"./formatters/jsonpatch": 64,
+		"./formatters/jsonpatch.js": 64,
 		"./main": 33,
-		"./main-formatters": 67,
-		"./main-formatters.js": 67,
-		"./main-full": 68,
-		"./main-full.js": 68,
+		"./main-formatters": 66,
+		"./main-formatters.js": 66,
+		"./main-full": 67,
+		"./main-full.js": 67,
 		"./main.js": 33,
 		"./pipe": 37,
 		"./pipe.js": 37,
@@ -97302,7 +97302,7 @@ webpackJsonp([0,2],[
 	var ansiStyles = __webpack_require__(57);
 	var stripAnsi = __webpack_require__(58);
 	var hasAnsi = __webpack_require__(60);
-	var supportsColor = __webpack_require__(62);
+	var supportsColor = __webpack_require__(61);
 	var defineProps = Object.defineProperties;
 	var chalk = module.exports;
 
@@ -97484,23 +97484,13 @@ webpackJsonp([0,2],[
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ansiRegex = __webpack_require__(61);
+	var ansiRegex = __webpack_require__(59);
 	var re = new RegExp(ansiRegex().source); // remove the `g` flag
 	module.exports = re.test.bind(re);
 
 
 /***/ },
 /* 61 */
-/***/ function(module, exports) {
-
-	'use strict';
-	module.exports = function () {
-		return /\u001b\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]/g;
-	};
-
-
-/***/ },
-/* 62 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -97538,7 +97528,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 63 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var base = __webpack_require__(53);
@@ -97825,24 +97815,24 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 64 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var environment = __webpack_require__(34);
 
 	exports.base = __webpack_require__(53);
-	exports.html = __webpack_require__(63);
+	exports.html = __webpack_require__(62);
 	exports.annotated = __webpack_require__(52);
-	exports.jsonpatch = __webpack_require__(65);
+	exports.jsonpatch = __webpack_require__(64);
 
 	if (!environment.isBrowser) {
 	  var consoleModuleName = './console';
-	  exports.console = __webpack_require__(66)(consoleModuleName);
+	  exports.console = __webpack_require__(65)(consoleModuleName);
 	}
 
 
 /***/ },
-/* 65 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function () {
@@ -98026,7 +98016,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 66 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
@@ -98036,12 +98026,12 @@ webpackJsonp([0,2],[
 		"./base.js": 53,
 		"./console": 54,
 		"./console.js": 54,
-		"./html": 63,
-		"./html.js": 63,
-		"./index": 64,
-		"./index.js": 64,
-		"./jsonpatch": 65,
-		"./jsonpatch.js": 65
+		"./html": 62,
+		"./html.js": 62,
+		"./index": 63,
+		"./index.js": 63,
+		"./jsonpatch": 64,
+		"./jsonpatch.js": 64
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -98054,19 +98044,19 @@ webpackJsonp([0,2],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 66;
+	webpackContext.id = 65;
+
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	module.exports = __webpack_require__(63);
 
 
 /***/ },
 /* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	module.exports = __webpack_require__(64);
-
-
-/***/ },
-/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var environment = __webpack_require__(34);

@@ -751,8 +751,8 @@ command line with <code>--config</code>, or declare an environmental variable <c
 the absolute path. If neither of these options are chosen, the tool will look for <code>.icgc-get/config.yaml</code>
 in your home directory.</p>
 <p>Should you wish to get started right away, it is possible to run the tool without making a configuration file at all. 
-Most of the parameters have default options if no config file is loaded. The only exceptions are <em>output</em>, <em>repos</em>, 
-access credentials and if you are not using Docker, <em>tool paths</em>. These options can be passed via the appropriate command line options.</p>
+Most of the parameters have default options if no config file is loaded. The only exceptions are <code>--output</code>, <code>--repos</code>, 
+access credentials and, if you are not using Docker, tool paths. These options can be passed via the appropriate command line options.</p>
 <p>In addition to using the <code>configure</code> command, most configuration options can be overwritten either
 through the command line, by assigning environmental variables, or by directly editing the <code>config.yaml</code> file. Configuration options have the same name regardless of how they are inputed, but the different input methods have their own syntax.
 Environmental variables are in all caps, have underscores as separators, and are prefixed by <code>ICGCGET_</code>. Command line options have dashes 
