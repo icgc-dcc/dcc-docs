@@ -1,4 +1,4 @@
-# Portal API
+# Portal API Guide
 
 The ICGC Portal API can be accessed from the command line using [cURL][1] but we suggest using [httpie][2], a cURL replacement that is particularly well-suited to JSON-based REST APIs. The following examples will contain instuctions for using both cURL and httpie.
 

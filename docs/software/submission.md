@@ -1,10 +1,4 @@
-# Software
-
-## Overview
-
-This is the Software documentation page
-
-## Release Notes
+# Submission System Release Notes
 
 #### Changes in Submission System Software Release 3.6.1.1 - October 10, 2014
 * Added "header-only file validation" to inform the user of an unintended empty submission file
@@ -23,6 +17,6 @@ For more information, please see the Submission System Guide available [ here ][
 Sincerely,
 The DCC team.
 
-[1]: guide/incremental-submission-feature.md
-[2]: about.md
+[1]: /submission/guide/incremental-submission-feature.md
+[2]: /submission/about.md
 [3]: mailto:dcc-support@icgc.org
