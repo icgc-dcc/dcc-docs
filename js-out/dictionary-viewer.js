@@ -75,7 +75,7 @@ webpackJsonp([0,2],[
 
 	global.jsondiffpatch = __webpack_require__(33);
 	global.jsondiffpatch.formatters = {
-	  html: __webpack_require__(62)
+	  html: __webpack_require__(63)
 	};
 
 
@@ -53706,7 +53706,7 @@ webpackJsonp([0,2],[
 	      var content = html.apply(this, args),
 	          poffset = offset.apply(this, args),
 	          dir     = direction.apply(this, args),
-	          nodel   = d3.select(node),
+	          nodel   = getNodeEl(),
 	          i       = directions.length,
 	          coords,
 	          scrollTop  = document.documentElement.scrollTop || document.body.scrollTop,
@@ -53729,7 +53729,7 @@ webpackJsonp([0,2],[
 	    //
 	    // Returns a tip
 	    tip.hide = function() {
-	      var nodel = d3.select(node)
+	      var nodel = getNodeEl()
 	      nodel.style({ opacity: 0, 'pointer-events': 'none' })
 	      return tip
 	    }
@@ -53742,10 +53742,10 @@ webpackJsonp([0,2],[
 	    // Returns tip or attribute value
 	    tip.attr = function(n, v) {
 	      if (arguments.length < 2 && typeof n === 'string') {
-	        return d3.select(node).attr(n)
+	        return getNodeEl().attr(n)
 	      } else {
 	        var args =  Array.prototype.slice.call(arguments)
-	        d3.selection.prototype.attr.apply(d3.select(node), args)
+	        d3.selection.prototype.attr.apply(getNodeEl(), args)
 	      }
 
 	      return tip
@@ -53759,10 +53759,10 @@ webpackJsonp([0,2],[
 	    // Returns tip or style property value
 	    tip.style = function(n, v) {
 	      if (arguments.length < 2 && typeof n === 'string') {
-	        return d3.select(node).style(n)
+	        return getNodeEl().style(n)
 	      } else {
 	        var args =  Array.prototype.slice.call(arguments)
-	        d3.selection.prototype.style.apply(d3.select(node), args)
+	        d3.selection.prototype.style.apply(getNodeEl(), args)
 	      }
 
 	      return tip
@@ -53803,6 +53803,17 @@ webpackJsonp([0,2],[
 	      html = v == null ? v : d3.functor(v)
 
 	      return tip
+	    }
+
+	    // Public: destroys the tooltip and removes it from the DOM
+	    //
+	    // Returns a tip
+	    tip.destroy = function() {
+	      if(node) {
+	        getNodeEl().remove();
+	        node = null;
+	      }
+	      return tip;
 	    }
 
 	    function d3_tip_direction() { return 'n' }
@@ -53905,6 +53916,15 @@ webpackJsonp([0,2],[
 	        return el
 
 	      return el.ownerSVGElement
+	    }
+
+	    function getNodeEl() {
+	      if(node === null) {
+	        node = initNode();
+	        // re-add node to DOM
+	        document.body.appendChild(node);
+	      };
+	      return d3.select(node);
 	    }
 
 	    // Private - gets the screen coordinates of a shape
@@ -96632,17 +96652,17 @@ webpackJsonp([0,2],[
 		"./formatters/base.js": 53,
 		"./formatters/console": 54,
 		"./formatters/console.js": 54,
-		"./formatters/html": 62,
-		"./formatters/html.js": 62,
-		"./formatters/index": 63,
-		"./formatters/index.js": 63,
-		"./formatters/jsonpatch": 64,
-		"./formatters/jsonpatch.js": 64,
+		"./formatters/html": 63,
+		"./formatters/html.js": 63,
+		"./formatters/index": 64,
+		"./formatters/index.js": 64,
+		"./formatters/jsonpatch": 65,
+		"./formatters/jsonpatch.js": 65,
 		"./main": 33,
-		"./main-formatters": 66,
-		"./main-formatters.js": 66,
-		"./main-full": 67,
-		"./main-full.js": 67,
+		"./main-formatters": 67,
+		"./main-formatters.js": 67,
+		"./main-full": 68,
+		"./main-full.js": 68,
 		"./main.js": 33,
 		"./pipe": 37,
 		"./pipe.js": 37,
@@ -97302,7 +97322,7 @@ webpackJsonp([0,2],[
 	var ansiStyles = __webpack_require__(57);
 	var stripAnsi = __webpack_require__(58);
 	var hasAnsi = __webpack_require__(60);
-	var supportsColor = __webpack_require__(61);
+	var supportsColor = __webpack_require__(62);
 	var defineProps = Object.defineProperties;
 	var chalk = module.exports;
 
@@ -97484,13 +97504,23 @@ webpackJsonp([0,2],[
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ansiRegex = __webpack_require__(59);
+	var ansiRegex = __webpack_require__(61);
 	var re = new RegExp(ansiRegex().source); // remove the `g` flag
 	module.exports = re.test.bind(re);
 
 
 /***/ },
 /* 61 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = function () {
+		return /\u001b\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]/g;
+	};
+
+
+/***/ },
+/* 62 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -97528,7 +97558,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var base = __webpack_require__(53);
@@ -97815,24 +97845,24 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var environment = __webpack_require__(34);
 
 	exports.base = __webpack_require__(53);
-	exports.html = __webpack_require__(62);
+	exports.html = __webpack_require__(63);
 	exports.annotated = __webpack_require__(52);
-	exports.jsonpatch = __webpack_require__(64);
+	exports.jsonpatch = __webpack_require__(65);
 
 	if (!environment.isBrowser) {
 	  var consoleModuleName = './console';
-	  exports.console = __webpack_require__(65)(consoleModuleName);
+	  exports.console = __webpack_require__(66)(consoleModuleName);
 	}
 
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function () {
@@ -98016,7 +98046,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
@@ -98026,12 +98056,12 @@ webpackJsonp([0,2],[
 		"./base.js": 53,
 		"./console": 54,
 		"./console.js": 54,
-		"./html": 62,
-		"./html.js": 62,
-		"./index": 63,
-		"./index.js": 63,
-		"./jsonpatch": 64,
-		"./jsonpatch.js": 64
+		"./html": 63,
+		"./html.js": 63,
+		"./index": 64,
+		"./index.js": 64,
+		"./jsonpatch": 65,
+		"./jsonpatch.js": 65
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -98044,19 +98074,19 @@ webpackJsonp([0,2],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 65;
-
-
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	module.exports = __webpack_require__(63);
+	webpackContext.id = 66;
 
 
 /***/ },
 /* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	module.exports = __webpack_require__(64);
+
+
+/***/ },
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var environment = __webpack_require__(34);
