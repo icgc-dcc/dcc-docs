@@ -45,6 +45,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [GACA-CN][6] |  China |  Gastric Cancer - CN |  No Embargo. Data available without limitations |
 | [RECA-CN][24] |  China |  Renal clear cell carcinoma - CN |  No Embargo. Data available without limitations |
 | [RECA-EU][28] |  European Union/France |  Renal Cell Cancer - EU/FR |  No Embargo. Data available without limitations |
+| [BOCA-FR][30] |  France |  Bone Cancer - Ewing Sarcoma - FR |  No Embargo. Data available without limitations |
 | [LICA-FR][7] |  France |  Liver Cancer - FR |  No Embargo. Data available without limitations |
 | [EOPC-DE][8] |  Germany |  Early Onset Prostate Cancer - DE |  No Embargo. Data available without limitations |
 | [MALY-DE][9] |  Germany |  Malignant Lymphoma - DE |  No Embargo. Data available without limitations |
@@ -65,7 +66,6 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR |  Publication limitations in place until 2017-06-15 |
 | [COCA-CN][26] |  China |  Colorectal Cancer - CN |  Publication limitations in place until 2017-01-14 |
 | [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  Publication limitations in place until 2017-01-14 |
-| [BOCA-FR][30] |  France |  Bone Cancer - Ewing Sarcoma - FR |  Publication limitations in place until 2017-01-14 |
 | [BRCA-FR][41] |  France |  Breast Cancer - FR |  Publication limitations in place until 2018-08-23 |
 | [LIAD-FR][29] |  France |  Benign Liver Tumour - FR |  Publication limitations in place until 2016-09-11 |
 | [LIHM-FR][31] |  France |  Liver Hepatocellular Macronodules - FR |  Publication limitations in place until 2017-01-14 |
