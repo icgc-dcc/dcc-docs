@@ -34,12 +34,14 @@ The quantity of data on which the initial global analysis will be carried out wi
 
 | Project Key  |  Country |  Project Name |  EMBARGO STATUS |
 | ---- | ---- | ---- | ---- |
-| [PACA-AU][2] |  Australia |  Pancreatic Cancer - AU |  No Embargo. Data available without limitations |
+| [MELA-AU][42] |  Australia |  Skin Cancer - AU |  No Embargo. Data available without limitations |
 | [OV-AU][21] |  Australia |  Ovarian Cancer - AU |  No Embargo. Data available without limitations |
+| [PACA-AU][2] |  Australia |  Pancreatic Cancer - AU |  No Embargo. Data available without limitations |
 | [PAEN-AU][22] |  Australia |  Pancreatic Cancer Endocrine neoplasms - AU |  No Embargo. Data available without limitations |
 | [PACA-CA][3] |  Canada |  Pancreatic Cancer - CA |  No Embargo. Data available without limitations |
 | [PRAD-CA][4] |  Canada |  Prostate Adenocarcinoma - CA |  No Embargo. Data available without limitations |
 | [BLCA-CN][5] |  China |  Bladder Urothelial carcinoma - CN |  No Embargo. Data available without limitations |
+| [ESCA-CN][25] |  China |  Esophageal Cancer - CN |  No Embargo. Data available without limitations |
 | [GACA-CN][6] |  China |  Gastric Cancer - CN |  No Embargo. Data available without limitations |
 | [RECA-CN][24] |  China |  Renal clear cell carcinoma - CN |  No Embargo. Data available without limitations |
 | [RECA-EU][28] |  European Union/France |  Renal Cell Cancer - EU/FR |  No Embargo. Data available without limitations |
@@ -54,22 +56,24 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [LAML-KR][19] |  South Korea |  Acute Myeloid Leukemia - KR |  No Embargo. Data available without limitations |
 | [LUSC-KR][13] |  South Korea |  Lung Cancer - Squamous cell carcinoma - KR |  No Embargo. Data available without limitations |
 | [CLLE-ES][14] |  Spain |  Chronic Lymphocytic Leukemia - ES |  No Embargo. Data available without limitations |
+| [BOCA-UK][20] |  United Kingdom |  Bone Cancer - UK |  No Embargo. Data available without limitations |
 | [BRCA-UK][15] |  United Kingdom |  Breast Triple Negative/Lobular Cancer - UK |  No Embargo. Data available without limitations |
 | [CMDI-UK][16] |  United Kingdom |  Chronic Myeloid Disorders - UK |  No Embargo. Data available without limitations |
+| [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
-| [BOCA-UK][20] |  United Kingdom |  Bone Cancer - UK |  No Embargo. Data available without limitations |
+| [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | Publication limitations in place until 2018-05-16 |
 | [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR |  Publication limitations in place until 2017-06-15 |
-| [ESCA-CN][25] |  China |  Esophageal Cancer - CN |  No Embargo. Data available without limitations |
 | [COCA-CN][26] |  China |  Colorectal Cancer - CN |  Publication limitations in place until 2017-01-14 |
 | [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  Publication limitations in place until 2017-01-14 |
-| [LIAD-FR][29] |  France |  Benign Liver Tumour - FR |  Publication limitations in place until 2016-09-11 |
 | [BOCA-FR][30] |  France |  Bone Cancer - Ewing Sarcoma - FR |  Publication limitations in place until 2017-01-14 |
+| [BRCA-FR][41] |  France |  Breast Cancer - FR |  Publication limitations in place until 2018-08-23 |
+| [LIAD-FR][29] |  France |  Benign Liver Tumour - FR |  Publication limitations in place until 2016-09-11 |
 | [LIHM-FR][31] |  France |  Liver Hepatocellular Macronodules - FR |  Publication limitations in place until 2017-01-14 |
-| [PACA-IT][32] |  Italy |  Pancreatic Cancer - IT |  Publication limitations in place until 2017-01-14 |
-| [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  No Embargo. Data available without limitations |
+| [PAEN-IT][32] |  Italy |  Pancreatic Endocrine neoplasms - IT |  Publication limitations in place until 2017-01-14 |
 | [BTCA-JP][37] |  Japan |  Biliary Tract Cancer - JP |  Publication limitations in place until 2016-11-27 |
-| [LICA-CN][38] |  China |  Liver Cancer - CN |  Publication limitations in place until 2017-05-16 |
 | [LAML-CN][39] |  China |  Leukemia - CN |  Publication limitations in place until 2018-05-16 |
+| [LICA-CN][38] |  China |  Liver Cancer - CN |  Publication limitations in place until 2017-05-16 |
+| [BRCA-KR][40] |  South Korea |  Breast Cancer - SK |  Publication limitations in place until 2018-08-23 |
 
 
 
@@ -118,3 +122,6 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [37]: https://dcc.icgc.org/projects/BTCA-JP
 [38]: https://dcc.icgc.org/projects/LICA-CN
 [39]: https://dcc.icgc.org/projects/LAML-CN
+[40]: https://dcc.icgc.org/projects/BRCA-KR
+[41]: https://dcc.icgc.org/projects/BRCA-FR
+[42]: https://dcc.icgc.org/projects/MELA-AU
