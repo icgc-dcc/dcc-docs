@@ -224,6 +224,10 @@ a {
   position: relative;
 }
 
+.code-container .fa {
+  pointer-events: none;
+}
+
 .code-zoom-indicator {
   position: absolute;
   bottom: 5px;
@@ -415,13 +419,211 @@ h3.change-addition-header {
 }
 
 .jsondiffpatch-delta {
-  width: 100%;
-  overflow: scroll;
+  width: 100% !important;
+  overflow: scroll !important;
 }
 
 .well{
-  border-radius: 0px;
-  margin-bottom: 0px;
-  background-color: #FFF;
+  border-radius: 0px !important;
+  margin-bottom: 0px !important;
+  background-color: #FFF !important;
 }
+
+.jsondiffpatch-annotated-delta {
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Courier, monospace;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 0 0 12px;
+  display: inline-block;
+}
+.jsondiffpatch-annotated-delta pre {
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Courier, monospace;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.jsondiffpatch-annotated-delta td {
+  margin: 0;
+  padding: 0;
+}
+.jsondiffpatch-annotated-delta td pre:hover {
+  font-weight: bold;
+}
+td.jsondiffpatch-delta-note {
+  font-style: italic;
+  padding-left: 10px;
+}
+.jsondiffpatch-delta-note > div {
+  margin: 0;
+  padding: 0;
+}
+.jsondiffpatch-delta-note pre {
+  font-style: normal;
+}
+.jsondiffpatch-annotated-delta .jsondiffpatch-delta-note {
+  color: #777;
+}
+.jsondiffpatch-annotated-delta tr:hover {
+  background: #ffc;
+}
+.jsondiffpatch-annotated-delta tr:hover > td.jsondiffpatch-delta-note {
+  color: black;
+}
+.jsondiffpatch-error {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
+.jsondiffpatch-delta {
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Courier, monospace;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 0 0 12px;
+  display: inline-block;
+}
+.jsondiffpatch-delta pre {
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Courier, monospace;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+ul.jsondiffpatch-delta {
+  list-style-type: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+.jsondiffpatch-delta ul {
+  list-style-type: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+.jsondiffpatch-added .jsondiffpatch-property-name,
+.jsondiffpatch-added .jsondiffpatch-value pre,
+.jsondiffpatch-modified .jsondiffpatch-right-value pre,
+.jsondiffpatch-textdiff-added {
+  background: #bbffbb;
+}
+.jsondiffpatch-deleted .jsondiffpatch-property-name,
+.jsondiffpatch-deleted pre,
+.jsondiffpatch-modified .jsondiffpatch-left-value pre,
+.jsondiffpatch-textdiff-deleted {
+  background: #ffbbbb;
+  text-decoration: line-through;
+}
+.jsondiffpatch-unchanged,
+.jsondiffpatch-movedestination {
+  color: gray;
+}
+.jsondiffpatch-unchanged,
+.jsondiffpatch-movedestination > .jsondiffpatch-value {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  overflow-y: hidden;
+}
+.jsondiffpatch-unchanged-showing .jsondiffpatch-unchanged,
+.jsondiffpatch-unchanged-showing .jsondiffpatch-movedestination > .jsondiffpatch-value {
+  max-height: 100px;
+}
+.jsondiffpatch-unchanged-hidden .jsondiffpatch-unchanged,
+.jsondiffpatch-unchanged-hidden .jsondiffpatch-movedestination > .jsondiffpatch-value {
+  max-height: 0;
+}
+.jsondiffpatch-unchanged-hiding .jsondiffpatch-movedestination > .jsondiffpatch-value,
+.jsondiffpatch-unchanged-hidden .jsondiffpatch-movedestination > .jsondiffpatch-value {
+  display: block;
+}
+.jsondiffpatch-unchanged-visible .jsondiffpatch-unchanged,
+.jsondiffpatch-unchanged-visible .jsondiffpatch-movedestination > .jsondiffpatch-value {
+  max-height: 100px;
+}
+.jsondiffpatch-unchanged-hiding .jsondiffpatch-unchanged,
+.jsondiffpatch-unchanged-hiding .jsondiffpatch-movedestination > .jsondiffpatch-value {
+  max-height: 0;
+}
+.jsondiffpatch-unchanged-showing .jsondiffpatch-arrow,
+.jsondiffpatch-unchanged-hiding .jsondiffpatch-arrow {
+  display: none;
+}
+.jsondiffpatch-value {
+  display: inline-block;
+}
+.jsondiffpatch-property-name {
+  display: inline-block;
+  padding-right: 5px;
+  vertical-align: top;
+}
+.jsondiffpatch-property-name:after {
+  content: ': ';
+}
+.jsondiffpatch-child-node-type-array > .jsondiffpatch-property-name:after {
+  content: ': [';
+}
+.jsondiffpatch-child-node-type-array:after {
+  content: '],';
+}
+div.jsondiffpatch-child-node-type-array:before {
+  content: '[';
+}
+div.jsondiffpatch-child-node-type-array:after {
+  content: ']';
+}
+.jsondiffpatch-child-node-type-object > .jsondiffpatch-property-name:after {
+  content: ': {';
+}
+.jsondiffpatch-child-node-type-object:after {
+  content: '},';
+}
+div.jsondiffpatch-child-node-type-object:before {
+  content: '{';
+}
+div.jsondiffpatch-child-node-type-object:after {
+  content: '}';
+}
+.jsondiffpatch-value pre:after {
+  content: ',';
+}
+li:last-child > .jsondiffpatch-value pre:after,
+.jsondiffpatch-modified > .jsondiffpatch-left-value pre:after {
+  content: '';
+}
+.jsondiffpatch-modified .jsondiffpatch-value {
+  display: inline-block;
+}
+.jsondiffpatch-modified .jsondiffpatch-right-value {
+  margin-left: 5px;
+}
+.jsondiffpatch-moved .jsondiffpatch-value {
+  display: none;
+}
+.jsondiffpatch-moved .jsondiffpatch-moved-destination {
+  display: inline-block;
+  background: #ffffbb;
+  color: #888;
+}
+.jsondiffpatch-moved .jsondiffpatch-moved-destination:before {
+  content: ' => ';
+}
+ul.jsondiffpatch-textdiff {
+  padding: 0;
+}
+.jsondiffpatch-textdiff-location {
+  color: #bbb;
+  display: inline-block;
+  min-width: 60px;
+}
+.jsondiffpatch-textdiff-line {
+  display: inline-block;
+}
+.jsondiffpatch-textdiff-line-number:after {
+  content: ',';
+}
+.jsondiffpatch-error {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
 .graph{float:none;width:100%}body{padding-right:0 !important}pre.code-shard{background-color:#f5f2f0;font-family:Monaco,Menlo,Consolas,"Courier New",monospace;white-space:pre-wrap;position:relative}.code-zoom-indicator{position:absolute;top:10%;left:30%;font-size:4rem;opacity:.1;height:4rem;width:4rem;transition:opacity .5s ease-in-out}td:hover .code-zoom-indicator{opacity:1}.code-constrained-width{max-width:172px}.selection_wrapper{margin-bottom:6rem}.navbar.navbar-default{padding-right:0 !important}.vis-wrapper{margin-left:0;margin-right:0}.table.table-file-metadata{width:60%}.table.table-file-metadata th{font-size:1.1rem}.table.table-file-metadata th,.table.table-file-metadata td{font-weight:300}.table.table-file-metadata td{font-size:1rem}.table.table-file-metadata td.regex{font-weight:400;font-size:1.2rem}.dictionary-viewer-main .pill{padding:6px 6px;background:#000;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;color:#fff;display:inline-block;text-align:right;width:120px;text-align:center}.dictionary-viewer-main .badge{padding:3px 7px}.pill.pill-tab-bttn{transition:background-color .25s ease-in;width:auto}.pill-tab-bttn.addition{background-color:#499246}.pill-tab-bttn.addition:hover{background-color:#73be48}.pill-tab-bttn.remove{background-color:#a71617}.pill-tab-bttn.remove:hover{background-color:#d71617}.pill-tab-bttn.change{background-color:#9e7b05}.pill-tab-bttn.change:hover{background-color:#d2af05}.minimap-container{margin:1rem 0 1rem 0}.dictionary-viewer-main .tree table{border:none}.dictionary-viewer-main .form-control{font-size:14px;border-color:#e6e6e6;outline:#73b3e5}.dictionary-viewer-main .form-control:focus{outline:5px auto #73b3e5;outline-offset:-2px;border:solid 1px #73b3e5}.dictionary-viewer-main{display:block;width:100%;padding:.5rem 1rem}.bttn-hover-expand-caption{height:45px}.bttn-hover-expand-caption span{transition:width .4s ease-in-out,border-radius .4s ease-in-out;overflow:hidden;display:inline-block;padding:0;margin:0;width:0;vertical-align:top}.bttn-hover-expand-caption:hover{border-radius:0}.bttn-hover-expand-caption:hover span{width:150px}.dictionary-viewer-main .dictionary-viewer-content{width:100%}.dictionary-header{text-align:right}.dictionary-header > .current-version-label{padding:.5rem 0}.dictionary-viewer-controls{height:8rem;margin-bottom:3rem}.dictionary-viewer-controls label{margin:0 1rem}.version-select-container .version-label{display:inline-block;line-height:24px}.version-selector-container{display:inline-block}.dictionary-viewer-controls > div{margin-top:1rem}.dictionary-viewer-controls .view-select-container{text-align:right}.dictionary-viewer-controls .version-select-container{text-align:left;padding-left:0}.changes-container{text-align:right;margin-bottom:2rem}.dictionary-viewer-controls .view-selector{display:inline-block;width:9rem}.dictionary-viewer-controls .version-selector{display:inline-block;width:12rem}.dictionary-viewer-main .nav-tabs{border-bottom-color:#ccc}.dictionary-viewer-main .nav-tabs>li{margin-right:-.25rem}.dictionary-viewer-main .nav-tabs>li.active>a:focus,.dictionary-viewer-main .nav-tabs>li.active>a{border-top-width:1px;border-left:solid 1px #ccc;border-right:solid 1px #ccc}.dictionary-viewer-main .nav-tabs>li>a{background-color:#f2f2f2;border-radius:0;color:#000;border-color:#ccc;border-top-width:1px;border-bottom:none}.dictionary-viewer-main .nav-tabs>li>a.graph-tab:hover,.dictionary-viewer-main .nav-tabs>li.active>a.graph-tab{border-top-color:#6d72c5}.dictionary-viewer-main .nav-tabs>li>a.table-tab:hover,.dictionary-viewer-main .nav-tabs>li.active>a.table-tab{border-top-color:#d33682}.dictionary-viewer-main .nav-tabs>li>a.codelist-tab:hover,.dictionary-viewer-main .nav-tabs>li.active>a.codelist-tab{border-top-color:#1a9900}.dictionary-viewer-main .nav-tabs>li>a.report-tab:hover,.dictionary-viewer-main .nav-tabs>li.active>a.report-tab{border-top-color:#1693c0}.dictionary-viewer-main .nav-tabs>li>a:hover,.dictionary-viewer-main .nav-tabs>li>a:focus{background-color:#fafafa;border-color:#ccc;border-top-width:1px}.dictionary-viewer-main .nav-tabs>li.active>a,.dictionary-viewer-main .nav-tabs>li.active>a:focus,.dictionary-viewer-main .nav-tabs>li.active>a:hover{background:#fff;color:#333;cursor:default;border-top-width:1px;border-bottom-color:transparent}.tab-container{margin:0;border-top:none}.dictionary_table .data-type-list{color:#000}.dictionary-viewer-main #jsonviewer{margin:0 1rem}.jsoneditor-tree,.jsoneditor-values{border:none}.jsoneditor-search,.jsoneditor-search table{border:none;margin-top:2px}table.jsoneditor-search div.jsoneditor-frame{margin-top:2px}table.jsoneditor-search div.jsoneditor-results{margin-top:.4rem}table.jsoneditor-search input{margin-top:0}.jsoneditor .search input{width:120px;border:none;outline:0;margin:1px}.jsoneditor table.search td,.jsoneditor table.search tr{border:none;background-color:transparent}.jsoneditor .search .frame{border:solid 1px #ccc}.icon-share-1.header-hover-aid{margin-left:.5rem}
