@@ -1,21 +1,28 @@
-# `icgc-get`
+# icgc-get
 
-`icgc-get` is a universal download client for accessing ICGC data residing in various data repositories. It may be downloaded from the [binaries page.](/software/binaries/) icgc-get works by interfacing with any supported repository download client and the ICGC API.  If any or all of the download clients are not available, `icgc-get` can also interface with a
-Docker container that has all the download clients pre-installed.
+## Overview
+`icgc-get` is a universal download client for accessing ICGC data residing in various [data repositories](/cloud/repositories/). `icgc-get` works by interfacing with any supported repository download client and the ICGC API.
 
-The data managed by the ICGC resides in many data repositories around the world. These repositories
-each have their own environment (public cloud, private cloud, on-premise file systems, etc.),
-access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms.
-Thus, there is much for a user to learn and perform before actually acquiring the data.
-This is compounded by the fact that the number of environments are increasing over time
-and their characteristics are frequently changing. A coordinated mechanism to bootstrap and
-streamline this process is highly desirable. This is the problem the `icgc-get` tool helps to solve.
+The data managed by the ICGC resides in many data repositories around the world. These repositories each have their own environment (public cloud, private cloud, on-premise file systems, etc.), access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms. Thus, there is much for a user to learn and perform before actually acquiring the data. This is compounded by the fact that the number of environments are increasing over time and their characteristics are frequently changing. A coordinated mechanism to bootstrap and streamline this process is highly desirable. This is the problem the `icgc-get` tool helps to solve.
+
+## Quickstart
+
+To quickly get started with `icgc-get`:
+
+1. Download and [install](#installation) the client
+1. Run the [`icgc-get configure`](#configure-command) command to setup your environment
+1. Run the [`icgc-get check`](#check-command) command to ensure your credentials are correct
+1. Generate a Manifest ID via the [`Repository Browser`](https://dcc.icgc.org/repositories)
+1. Run [`icgc-get download -m <manifest-id>`](#download-command) to download files in your manifest
+
+## Installation
+
+The distribution may be downloaded from the [binaries page.](/software/binaries/).  If any or all of the download clients are not available, `icgc-get` can also interface with a Docker container that has all the download clients pre-installed. Although convenient, Docker is completely optional.
 
 ## Configuration
 
 After installing `icgc-get`, you may want to do configure some of the essential usage parameters,
-such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the `icgc-get configure` command
-and follow the instructions of the prompts.  This will keep the operation of tool simpler in the future.
+such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the `icgc-get configure` command and follow the instructions of the prompts.  This will keep the operation of tool simpler in the future.
 
 To specify which config file to use either pass an absolute path to the config file to the
 command line with `--config`, or declare an environmental variable `ICGCGET_CONFIG` that contains
@@ -25,6 +32,8 @@ in your home directory.
 Should you wish to get started right away, it is possible to run the tool without making a configuration file at all.
 Most of the parameters have default options if no config file is loaded. The only exceptions are `--output`, `--repos`,
 access credentials and, if you are not using Docker, tool paths. These options can be passed via the appropriate command line options.
+
+### Configuration Overrides
 
 In addition to using the `configure` command, most configuration options can be overwritten either
 through the command line, by assigning environmental variables, or by directly editing the `config.yaml` file. Configuration options have the same name regardless of how they are inputed, but the different input methods have their own syntax.
@@ -42,8 +51,10 @@ that non-default container versions may not be compatible with your installation
 
 It is necessary to specify the directory for downloaded files to be saved to under the `--output` argument if you are running `icgc-get` locally.
 
-It is also recommended to specify a common list of repositories in your preferred order of precedence. When downloading
-a file, the tool will first try to find the file on the first specified repository, then the second, etc cetera.
+### Repository Precedence
+
+It is also recommended to specify a common list of repositories in your preferred order of precedence. When downloading a file, the tool will first try to find the file on the first specified repository, then the second, etc. 
+
 Please use the following format to define your repositories in the configuration file.
 
 ```yaml
@@ -74,49 +85,6 @@ Valid repositories are:
 All clients require an absolute path to your local client installation set as `ICGCGET_REPO_PATH` as an environmental
 variable or under `--repo-path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `--repo-transport-parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `--repo-udt` config option.
-
-## Command References
-
-| Universal Options | Description                                                   |
-| ----------------- | ---------                                                     |
-| `--config`        | Path to configuration file                                    |
-| `--logfile`       | Path to log file                                              |
-| `--verbose` `-v`  | Flag that increases tool verbosity                            |
-| `--docker`        | Option controlling the hosting of clients in docker container |
-
-###Download
-
-| Options        | Description                                                     |
-|-----------     |--------------------------------------------------------         |
-| `-m`           | Flag used to specify that a manifest id has been passed         |
-| `-r`           | Repeatable option used to specify repositories to download from |
-| `-o`           | Flag used to override warning messages                          |
-| `no-ssl-verify`| Flag used to disable ssl verification.  Not recommended         |
-
-###Report Command
-
-| Options        | Description                                                     |
-|------------    |--------------------------------------------------------         |
-| `-f`           | Controls output format.  Valid options are `json` and `tsv`     |
-| `-t`           | Controls output type.  Valid argument is `summary`              |
-| `-r`           | Repeatable option used to specify repositories to download from |
-| `-o`           | Flag used to override warning messages                          |
-| `no-ssl-verify`| Flag used to disable ssl verification.  Not recommended         |
-
-###Check Command
-
-| Options        | Description                                                        |
-|------------    |--------------------------------------------------------            |
-| IDS            | Specify FI ids to check access to.  Only requiered for PDC and GDC |
-| `-r`           | Repeatable option used to specify repositories to download from    |
-| `-o`           | Flag used to override warning messages                             |
-| `no-ssl-verify`| Flag used to disable ssl verification.  Not recommended            |
-
-### Configure Command
-
-| Options        | Description                                   |
-|------------    |------------------------------------           |
-| `--config` `-c`| Destination for new or exisiting config file  |
 
 ## Repository Information
 
@@ -150,13 +118,75 @@ repository you need to access.
 
 All commands save `configure` share the `--config`, `--logfile` `--verbose/-v` and the `--docker` options.
 
-### Download command
+| Universal Option  | Description                                          |
+| ----------------- | ---------                                            |
+| `--config`        | Path to configuration file                           |
+| `--logfile`       | Path to log file                                     |
+| `--verbose` `-v`  | Flag that increases tool verbosity                   |
+| `-d`, `--docker`  | Option controlling the hosting of clients in docker  |
+
+### Configure Command
+
+This command will start a series of prompts for you to enter application paths, access credentials, output directories and logfile locations.
+_Any of these prompts can be bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use
+of `icgc-get`._  By default, `configure` will write to the default config file, but the destination can be overwritten with
+the `-c` tag. Should there be an existing configuration file at the target destination, existing configuration values can be kept
+by pressing enter in response to the prompt. Please note that some passwords, and secret keys will not be shown on the command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.
+
+| Option           | Description                                   |
+|------------      |------------------------------------           |
+| `-c`, `--config` | Destination for new or exisiting config file  |
+
+### Check Command
+
+This command will test the provided credentials for each repository specified.
+
+Due to the security protocols of each client, there are two ways in which this access check can occur.
+_For PDC, GNOS and GDC `icgc-get` is only capable of determining if you have access to the specific
+files targeted for download, not the state of your permissions for the repository as a whole._
+When performing an access check for these repositories, you must provide a manifest id or
+list of files using the same formatting as the `download` command. For more detailed information about
+your permissions on these repositories contact their respective support departments.
+
+For the AWS, Collaboratory, and EGA repositories, the access check will determine if you have access
+to the entire repository or not. These checks will occur even if file prioritization leads to no files
+being downloaded from any of these repositories.
+
+| Option            | Description                                                        |
+|-------------------|--------------------------------------------------------------------|
+| IDS               | Specify FI ids to check access to.  Only requiered for PDC and GDC |
+| `-r`, `--repos`   | Repeatable option used to specify repositories to download from    |
+| `-o`, `--override`| Flag used to override warning messages                             |
+| `--no-ssl-verify` | Flag used to disable ssl verification.  Not recommended            |
+
+To do a status check on the same files used in the examples above:
+
+```shell
+./icgc-get check FI99996 FI99990 FI250134 -r collaboratory -r gdc
+```
+
+Sample output:
+
+```
+Valid access to the Collaboratory.
+Valid access to the GDC files.
+```
+
+
+### Download Command
 
 The syntax for performing a download using `icgc-get` is:
 
 ```shell
 ./icgc-get --config [CONFIG] --docker [true|false] download [IDS] [-m/] [REPO] [OPTIONS]
 ```
+
+| Option            | Description                                                     |
+|-------------------|-----------------------------------------------------------------|
+| `-m`, `--manifest`| Flag used to specify that a manifest id has been passed         |
+| `-r`, `--repos`   | Repeatable option used to specify repositories to download from |
+| `-o`, `--override`| Flag used to override warning messages                          |
+| `--no-ssl-verify` | Flag used to disable ssl verification.  Not recommended         |
 
 The first required argument is the set of ICGC file ids or ICGC manifest id corresponding to the file or files you wish to download.
 This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a
@@ -179,11 +209,19 @@ Sample invocation of the `download` command:
 ./icgc-get download FI378424 -r  collaboratory
 ```
 
-### Report command
+### Report Command
 
 Another useful subcommand is `report`. This takes the same primary inputs as `download`,
 but instead of downloading the specified files, it will provide a list of all files that are
 about to be downloaded, including their size, data type, name and the repository they are hosted on.
+
+| Option                | Description                                                     |
+|-----------------------|-----------------------------------------------------------------|
+| `-f`, `--table-format`| Controls output format.  Valid options are `json` and `tsv`     |
+| `-t`, `--data-type`   | Controls output type.  Valid argument is `summary`              |
+| `-r`, `--repos`       | Repeatable option used to specify repositories to download from |
+| `-o`, `--override`    | Flag used to override warning messages                          |
+| `--no-ssl-verify`     | Flag used to disable ssl verification.  Not recommended         |
 
 By default the command outputs a table, but the output can be altered to json via `-f json` or tsv
 
@@ -237,46 +275,9 @@ Sample output:
 ╘══════════════════════╧════════╧════════╧══════════════╧═══════════════╛
 ```
 
-### Configure command
+### Version Command
 
-This command will start a series of prompts for you to enter application paths, access credentials, output directories and logfile locations.
-_Any of these prompts can be bypassed by immediately pressing the enter key if the parameter is not relevant for your planned use
-of `icgc-get`._  By default, `configure` will write to the default config file, but the destination can be overwritten with
-the `-c` tag. Should there be an existing configuration file at the target destination, existing configuration values can be kept
-by pressing enter in response to the prompt. Please note that some passwords, and secret keys will not be shown on the command prompt for security reasons, but can still be entered and can still be kept as the current value by pressing enter.
-
-### Check command
-
-This command will test the provided credentials for each repository specified.
-
-Due to the security protocols of each client, there are two ways in which this access check can occur.
-_For PDC, GNOS and GDC `icgc-get` is only capable of determining if you have access to the specific
-files targeted for download, not the state of your permissions for the repository as a whole._
-When performing an access check for these repositories, you must provide a manifest id or
-list of files using the same formatting as the `download` command. For more detailed information about
-your permissions on these repositories contact their respective support departments.
-
-For the AWS, Collaboratory, and EGA repositories, the access check will determine if you have access
-to the entire repository or not. These checks will occur even if file prioritization leads to no files
-being downloaded from any of these repositories.
-
-To do a status check on the same files used in the examples above:
-
-```shell
-./icgc-get check FI99996 FI99990 FI250134 -r collaboratory -r gdc
-```
-
-Sample output:
-
-```
-Valid access to the Collaboratory.
-Valid access to the GDC files.
-```
-
-### Version command
-
-The only other subcommand is to display the version of all clients used by `icgc-get`. This command
-will check the version of clients that have their tool paths are specified in the config file provided.
+This is an informative command that displays the version of all clients used by `icgc-get`. This command will check the version of clients that have their tool paths are specified in the config file provided.
 
 ```shell
 ./icgc-get version
@@ -294,21 +295,19 @@ Clients:
 ```
 
 
-## Internal Structure
+## Internals
 Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
-###`icgc-get` Environment Diagram
+### General Operation
 
 [![](images/ICGC_get_standard.png)](images/icgc_get_standard.png "Click on the image to see it in full")
 
-In both modes of operation, `icgc-get` must be passed a manifest or file id that has been recived from the ICGC data portal.  This identifier is used by icgc-get to query more in-depth file metadata from the ICGC api. This takes two calls to the api, and the gathered data is used to identify the client to call and how to execute the call.
+In both modes of operation, `icgc-get` must be passed a manifest or file id that has been recived from the ICGC data portal.  This identifier is used by icgc-get to query more in-depth file metadata from the ICGC api. This takes two calls to the API, and the gathered data is used to identify the client to call and how to execute the call.
 
 In the default orientation, all of the download clients are found in the user's file system. This enables icgc-get to directly communicate with the download clients, and for the clients to directly place their output into the local filesystem.
 
-
-
-###`icgc-get` Environment Diagram using Docker
+### Operation using Docker
 
 [![](images/ICGC_get_docker.png)](images/icgc_get_docker.png "Click on the image to see it in full")
 
-However, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate Linux container. To communicate with the download clients, icgc-get needs to use the Docker daemon as an intermediary. Similarly, when the the clients finish downloading the files they are unable to directly place them into the local filesystem beacuse of the isolated nature of the Linux container. They instead place them in a special mounted directory, which is shared between the Linux container and the local filesystem. icgc-get is monitoring the Docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.
+Alternatively, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate [Linux container](https://hub.docker.com/r/icgc/icgc-get/). To communicate with the download clients, icgc-get needs to use the Docker daemon as an intermediary. Similarly, when the the clients finish downloading the files they are unable to directly place them into the local filesystem beacuse of the isolated nature of the Linux container. They instead place them in a special mounted directory, which is shared between the Linux container and the local filesystem. icgc-get is monitoring the Docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.
