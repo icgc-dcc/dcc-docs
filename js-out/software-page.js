@@ -5,7 +5,7 @@ webpackJsonp([1,2],{
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
-	var _angular = __webpack_require__(36);
+	var _angular = __webpack_require__(68);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
@@ -109,16 +109,16 @@ webpackJsonp([1,2],{
 
 /***/ },
 
-/***/ 36:
+/***/ 68:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(37);
+	__webpack_require__(69);
 	module.exports = angular;
 
 
 /***/ },
 
-/***/ 37:
+/***/ 69:
 /***/ function(module, exports) {
 
 	/**
