@@ -298,7 +298,7 @@ Below are a pair of diagrams demonstrating the processes that `icgc-get` undergo
 
 ###`icgc-get` Environment Diagram
 
-[![](images/icgc_get_standard.png)](images/icgc_get_standard.png "Click on the image to see it in full")
+[![](images/ICGC_get_standard.png)](images/icgc_get_standard.png "Click on the image to see it in full")
 
 In both modes of operation, icgc-get must be passed a manifest or file id that has been recived from the ICGC data portal.  This identifier is used by icgc-get to query more in-depth file metadata from the ICGC api. This takes two calls to the api, and the gathered data is used to identify the client to call and how to execute the call. 
 
@@ -308,6 +308,6 @@ In the default orientation, all of the download clients are found in the user's 
 
 ###`icgc-get` Environment Diagram using Docker
 
-[![](images/icgc_get_docker.png)](images/icgc_get_docker.png "Click on the image to see it in full")
+[![](images/ICGC_get_docker.png)](images/icgc_get_docker.png "Click on the image to see it in full")
 
 However, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate Linux container. To communicate with the download clients, icgc-get needs to use the Docker daemon as an intermediary. Similarly, when the the clients finish downloading the files they are unable to directly place them into the local filesystem beacuse of the isolated nature of the Linux container. They instead place them in a special mounted directory, which is shared between the Linux container and the local filesystem. icgc-get is monitoring the Docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.   
