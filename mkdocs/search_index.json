@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome\n\n\nThis is the official project documentation site of the \nICGC\n Data Coordination Center (DCC) and its \nData Portal\n.\n\n\nContents\n\n\nThe DCC documentation is divided into the following top-level sections:\n\n\n\n\nPortal\n\n\nCloud\n\n\nSubmission\n\n\nDictionary\n\n\nSoftware\n\n\n\n\nContributing\n\n\nTo help contribute to the documentation, open a pull request at \n https://github.com/icgc-dcc/dcc-docs\n.\n\n\nContact\n\n\nFor support, please contact us at \ndcc-support@icgc.org\n.", 
+            "text": "Welcome\n\n\nThis is the official project documentation site of the \nICGC\n Data Coordination Center (DCC) and its \nData Portal\n.\n\n\nContents\n\n\nThe DCC documentation is divided into the following top-level sections:\n\n\n\n\nPortal\n\n\nCloud\n\n\nSubmission\n\n\nDictionary\n\n\nSoftware\n\n\n\n\nContributing\n\n\nTo help contribute to the documentation, open a pull request at \n https://github.com/icgc-dcc/dcc-docs\n.\n\n\nContact\n\n\nFor user support, please contact us at \ndcc-support@icgc.org\n.\n\n\nFor developer support, please use our discussion board at \nhttps://discuss.icgc.org/\n.", 
             "title": "Home"
         }, 
         {
@@ -22,7 +22,7 @@
         }, 
         {
             "location": "/#contact", 
-            "text": "For support, please contact us at  dcc-support@icgc.org .", 
+            "text": "For user support, please contact us at  dcc-support@icgc.org .  For developer support, please use our discussion board at  https://discuss.icgc.org/ .", 
             "title": "Contact"
         }, 
         {
