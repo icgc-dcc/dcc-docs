@@ -577,13 +577,9 @@ table {
 
 /* Search */
 
-.navbar-default .navbar-form.searchbox-open {
-  border-bottom: solid 2px #166aa2;
-}
 
 .searchbox-open .searchbox-input {
   color: #000;
-
 }
 
 
