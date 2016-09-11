@@ -1,10 +1,10 @@
 # Submission System Release Notes
 
-#### Changes in Submission System Software Release 3.6.1.1 - October 10, 2014
+#### 3.6.1.1 - October 10, 2014
 * Added "header-only file validation" to inform the user of an unintended empty submission file
 * Added "sample type validation" to verify that samples referenced in meta file `analyzed_sample_id`, `matched_sample_id` and `reference_sample_type` fields are consistent with the `specimen_type` field found in the associated specimen files.
 
-#### Changes in Submission System Software Release 2.6 - March 17, 2014
+#### 2.6 - March 17, 2014
 * Incremental data submission. Users can now manage their data submission directory and upload only new data. Please see [here][1] for more information
 * Support multiple files. Data can be split in multiple files per data type
 * Selective data validation. Users can now validate data by data type and not anymore the whole submission each time.

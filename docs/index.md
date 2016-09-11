@@ -18,4 +18,6 @@ To help contribute to the documentation, open a pull request at <a href="https:/
 
 ## Contact
 
-For support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org).
+For user support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org).
+
+For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/).

@@ -12,12 +12,12 @@ To quickly get started with `icgc-get`:
 1. Download and [install](#installation) the client
 1. Run the [`icgc-get configure`](#configure-command) command to setup your environment
 1. Run the [`icgc-get check`](#check-command) command to ensure your credentials are correct
-1. Generate a Manifest ID via the [`Repository Browser`](https://dcc.icgc.org/repositories)
+1. Generate a Manifest ID via the [Repository Browser](https://dcc.icgc.org/repositories)
 1. Run [`icgc-get download -m <manifest-id>`](#download-command) to download files in your manifest
 
 ## Installation
 
-The distribution may be downloaded from the [binaries page.](/software/binaries/).  If any or all of the download clients are not available, `icgc-get` can also interface with a Docker container that has all the download clients pre-installed. Although convenient, Docker is completely optional.
+The distribution may be downloaded from the [binaries page](/software/binaries/).  If any or all of the download clients are not available, `icgc-get` can also interface with a Docker container that has all the download clients pre-installed. Although convenient, Docker is completely optional. See the [Internals](#internals) section for more information.
 
 ## Configuration
 
@@ -86,31 +86,31 @@ All clients require an absolute path to your local client installation set as `I
 variable or under `--repo-path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `--repo-transport-parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `--repo-udt` config option.
 
-## Repository Information
+### Repository Credentials
 
-### Collaboratory and AWS
+#### Collaboratory and AWS Credentials
 
-These repositories are both accessed through the [ICGC storage client](/cloud/repositories/#icgc-storage-repositories), and share their
+These repositories are both accessed through the [ICGC Storage Client](/cloud/repositories/#icgc-storage-repositories), and share their
 configuration parameters under the `icgc` namespace. For both of these repositories
 provide an UUID for your ICGC access token to the `--icgc-access` parameter.
 You may also specify the transport file from protocol, under `--icgc-transport-file.from`.
 
-### EGA
+#### EGA Credentials
 
 [EGA](/cloud/repositories/#ega) access should be provided as your EGA username to `--ega-username` and your EGA password to `--ega-password`.
 It should be noted that there have been reliability issues experienced should the transport parallel of the EGA client increase beyond 1.
 
-### GDC
+#### GDC Credentials
 
 [GDC](/cloud/repositories/#gdc) access should be provided as the full GDC access token or a path to the token file to `--gdc-token`. **Though there are unsecured files
 present on the GDC data repository, for simplicity purposes a GDC access token is required for all downloads from the GDC.**
 
-### GNOS
+#### GNOS Credentials
 
 [GNOS](/cloud/repositories/#gnos) access should be provided as a key to `--gnos-key-repo`  where repo is the repository code for the GNOS
 repository you need to access.
 
-### PDC
+#### PDC Credentials
 
 [PDC](/cloud/repositories/#pdc) access should be provided as a key to `--pdc-key` and a secret key to `--pdc-secret`.
 
@@ -294,7 +294,6 @@ Clients:
  ICGC Storage Client Version: 1.0.13
 ```
 
-
 ## Internals
 Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
@@ -302,9 +301,9 @@ Below are a pair of diagrams demonstrating the processes that `icgc-get` undergo
 
 [![](images/ICGC_get_standard.png)](images/icgc_get_standard.png "Click on the image to see it in full")
 
-In both modes of operation, `icgc-get` must be passed a manifest or file id that has been recived from the ICGC data portal.  This identifier is used by icgc-get to query more in-depth file metadata from the ICGC api. This takes two calls to the API, and the gathered data is used to identify the client to call and how to execute the call.
+In both modes of operation, `icgc-get` must be passed a manifest or file id that has been received from the ICGC Data Portal.  This identifier is used by `icgc-get` to query more in-depth file metadata from the ICGC API. This takes two calls to the API, and the gathered data is used to identify the client to call and how to execute the call.
 
-In the default orientation, all of the download clients are found in the user's file system. This enables icgc-get to directly communicate with the download clients, and for the clients to directly place their output into the local filesystem.
+In the default mode of operation, all of the download clients are installed in the user's file system. The user is required to tell `icgc-get` where to find the installed clients. This enables `icgc-get` to directly communicate with the download clients, and for the clients to directly place their output into the local filesystem.
 
 ### Operation using Docker
 

@@ -6,7 +6,7 @@ All binaries are hosted on [OICR's Artifactory repository](https://artifacts.oic
 This is the official DCC software page which publishes various tools for working with ICGC data. Software is provided in both tarball and Docker image format.
 
 
-## Storage Client 
+## Storage Client
 
 To interact with cloud repositories such as [AWS](/icgc-in-the-cloud/aws/) and [Collaboratory]("/icgc-in-the-cloud/collaboratory/"), you will require the Storage Client software. For system requirements and usage information, please see the [User Guide](href="http://docs.icgc.org/cloud/guide/)
 
@@ -23,7 +23,7 @@ However, if you wish to use an old version you may choose from the following:
 
 <versions-table client-type="0"></versions-table>
 
-### Docker images 
+### Docker Images
 
 For Docker images, please visit our [Docker Hub repository](https://hub.docker.com/r/icgc/icgc-storage-client/).
 
@@ -44,7 +44,7 @@ It is strongly recommended to use the latest release to take advantage of newest
 
 ### Docker Images
 
-For Docker images, please visit our [Docker Hub repository.](https://hub.docker.com/r/icgc/icgc-get/)  This provides the necessary operating environment for ICGC get, and will be automatically downloaded by the tool if the docker daemon is running on your computer.
+For a Docker image of client tools, please visit our [Docker Hub repository](https://hub.docker.com/r/icgc/icgc-get/) . This provides the necessary operating environment for ICGC get, and will be automatically downloaded by the tool if the docker daemon is running on your computer.
 
 ## Verifying Downloads
 
@@ -60,7 +60,7 @@ To verify the signatures you will need our public key used for software releases
 
 To verify the signed software you will need to ensure you have downloaded our public key and imported it:
 
-From a key server: 
+From a key server:
 
 ```
 $ gpg --keyserver pgp.mit.edu --recv-key 0xAFE5D0B6
@@ -76,10 +76,9 @@ Once the public key has been imported you can verify the signature:
 $ gpg icgc-storage-client-0.0.27-dist.tar.gz.asc
 ```
 If successful, the output should contain the following:
-            
+
 ```
 gpg: assuming signed data in 'icgc-storage-client-0.0.27-dist.tar.gz'
 gpg: Signature made Mon  5 Oct 12:38:09 2015 EDT using RSA key ID AFE5D0B6
 gpg: Good signature from "ICGC DCC (Sign public software releases) <dcc-support@icgc.org>"
 ```
-            
