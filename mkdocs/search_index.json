@@ -2047,7 +2047,7 @@
         }, 
         {
             "location": "/software/about/", 
-            "text": "About\n\n\nOverview\n\n\nThis is the Portal documentation section which describes the DCC binaries and source code.\n\n\nFor information about binaries and downloads, please see \nhere.\n\n\nFor release notes for ICGC software, see below:\n\n\n\n\n\n\nStorage Client\n\n\n\n\n\n\nPortal\n\n\n\n\n\n\nSubmission System\n\n\n\n\n\n\nicgc-get\n\n\n\n\n\n\nFor information about source code, project and repositories please see \nhere.\n\n\nFor information about development, please see \nhere.", 
+            "text": "About\n\n\nOverview\n\n\nThis is the Portal documentation section which describes the DCC binaries and source code.\n\n\nFor information about binaries and downloads, please see \nhere.\n\n\nFor release notes for ICGC software, see below:\n\n\n\n\nStorage Client\n\n\nPortal\n\n\nSubmission System\n\n\nicgc-get\n\n\n\n\nFor information about source code, project and repositories please see \nhere\n.\n\n\nFor information about development, please see \nhere\n.", 
             "title": "About"
         }, 
         {
@@ -2057,7 +2057,7 @@
         }, 
         {
             "location": "/software/about/#overview", 
-            "text": "This is the Portal documentation section which describes the DCC binaries and source code.  For information about binaries and downloads, please see  here.  For release notes for ICGC software, see below:    Storage Client    Portal    Submission System    icgc-get    For information about source code, project and repositories please see  here.  For information about development, please see  here.", 
+            "text": "This is the Portal documentation section which describes the DCC binaries and source code.  For information about binaries and downloads, please see  here.  For release notes for ICGC software, see below:   Storage Client  Portal  Submission System  icgc-get   For information about source code, project and repositories please see  here .  For information about development, please see  here .", 
             "title": "Overview"
         }, 
         {
