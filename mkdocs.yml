@@ -315,3 +315,7 @@ extra:
     Viewer:
       scripts:
         - /js-out/dictionary-viewer.js
+      styles:
+        - /vendor/angular-loading-bar/loading-bar.min.css
+        - https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.1.5/jsoneditor.css
+        - /css-out/dictionary-viewer.css
