@@ -75,6 +75,17 @@ $(function () {
           _toggleServerConfig(null, false);
         }
 
+        $(".model-signature span.propWrap > div:first-child").each(function () {
+          var $propWrapDiv = $(this);
+          var $propWrapSpan = $propWrapDiv.parent();
+
+          // Reverse the nesting of <span class="propWrap"><div> to be <div><span class="propWrap">
+          // and move any other content that was in the <span class="propWrap"> after the <div>.
+          $propWrapSpan.contents().insertAfter($propWrapSpan);
+          $propWrapDiv.contents().appendTo($propWrapSpan);
+          $propWrapSpan.appendTo($propWrapDiv);
+       });
+
       },
       onFailure: function() {
         _errorAlert.fadeIn('fast');
