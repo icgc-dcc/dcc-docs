@@ -475,12 +475,21 @@ $(function() {
     _initDisableScrollWhenFooterInView();
     
     // scroll to deep-linked element
-    if (window.location.hash) {
-      document.querySelector('.main-container').scrollTop = document.querySelector(window.location.hash).offsetTop;
+    try {
+      if (window.location.hash) {
+        document.querySelector('.main-container').scrollTop = document.querySelector(window.location.hash).offsetTop;
+      }
+    } catch(e) {
+      console.log(e);
     }
 
     // Hightlight code
     hljs.initHighlightingOnLoad();
+
+    // Preventing sub-menu parents from reloading the page
+    $('.dropdown-submenu > a').click(function(event){
+      event.preventDefault();
+    });
 
   }
 
