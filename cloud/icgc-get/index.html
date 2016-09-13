@@ -652,7 +652,7 @@
                 <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#icgc-get">icgc-get</a>
+        <li class="main active"><a href="#icgc-get-user-guide">icgc-get User Guide</a>
            <ul class="nav">
            
                <li class=""><a href="#overview">Overview</a>
@@ -733,13 +733,19 @@
                 <div class="col-md-9 main-container" role="main">
                    
 
-<h1 id="icgc-get">icgc-get</h1>
+<h1 id="icgc-get-user-guide">icgc-get User Guide</h1>
 <h2 id="overview">Overview</h2>
-<p><code>icgc-get</code> is a universal download client for accessing ICGC data residing in various <a href="../../cloud/repositories/">data repositories</a>. <code>icgc-get</code> works by interfacing with any supported repository download client and the ICGC API.</p>
-<p>The data managed by the ICGC resides in many data repositories around the world. These repositories each have their own environment (public cloud, private cloud, on-premise file systems, etc.), access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms. Thus, there is much for a user to learn and perform before actually acquiring the data. This is compounded by the fact that the number of environments are increasing over time and their characteristics are frequently changing. A coordinated mechanism to bootstrap and streamline this process is highly desirable. This is the problem the <code>icgc-get</code> tool helps to solve.</p>
+<p>ICGC data resides in many data repositories and compute clouds around the world. These  <a href="../../cloud/repositories/">data repositories</a> each have their own environment (public cloud, private cloud, on-premise file systems, etc.), access controls (DACO, OAuth, asymmetric keys, IP filtering), data download clients and configuration mechanisms. Thus, there is much for a user to learn and perform before actually acquiring the data. This is compounded by the fact that the number of environments are increasing over time and their characteristics are frequently changing. A coordinated mechanism to bootstrap and streamline the data access process is highly desirable. This is the problem the <code>icgc-get</code> tool helps to solve.</p>
+<p>As depicted in the figure below, downloading data with <code>icgc-get</code> is a three easy-step process: </p>
+<ul>
+<li>Select data of interest using the <a href="https://dcc.icgc.org/repositories">ICGC Data Repository browser</a> in the ICGC Data Portal. This files can belong to multiple repositories.</li>
+<li>Obtain a <code>icgc-get</code> manifest ID for this dataset by clicking on the <code>icgc-get</code> button above the file table.</li>
+<li>Execute on the computer you want to download data the <code>icgc-get</code>’s <code>download</code>command with your manifest ID as parameter.</li>
+</ul>
+<p><a href="../images/icgc-get-process.png" title="Click on the image to see it in full"><img alt="" src="../images/icgc-get-process.png" /></a></p>
+<p><code>icgc-get</code> will then download the requested data files from repositories you have access to in a configurable order of preferences. As simple as that!  More details and advanced features are described in sections below.</p>
 <h2 id="quickstart">Quickstart</h2>
 <p>To quickly get started with <code>icgc-get</code>:</p>
-<p><a href="../images/icgc-get-process.png" title="Click on the image to see it in full"><img alt="" src="../images/icgc-get-process.png" /></a></p>
 <ol>
 <li>Download and <a href="#installation">install</a> the client</li>
 <li>Run the <a href="#configure-command"><code>icgc-get configure</code></a> command to setup your environment</li>
