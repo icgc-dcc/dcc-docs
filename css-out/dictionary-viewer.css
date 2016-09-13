@@ -495,7 +495,7 @@ a {
 }
 
 .monospaced {
-  font-family: 'monospace';
+  font-family: monospace;
 }
 
 /* JSON Editor */
