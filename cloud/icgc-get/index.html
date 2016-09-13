@@ -754,13 +754,14 @@
 <h3 id="dependencies">Dependencies</h3>
 <p>Docker is required to use the pre-packaged download clients of the various respositories. To install Docker, please see the <a href="https://docs.docker.com/engine/installation/">installation guide</a>.</p>
 <p>If not using Docker, it is expected that the user will have installed each of the <a href="../../cloud/repositories/">clients</a> required to access repositories of interest.</p>
-<p>Please see the <a href="#internals">Internals</a> section for more information on how the dependencies are used.</p>
+<p>Please see the <a href="#architecture">Architecture</a> section for more information on how the dependencies are used.</p>
 <h2 id="installation">Installation</h2>
-<p>The distribution may be downloaded from the [binaries page](/software/binaries/#icgc-get.</p>
-<p>To install the latest version on Mac or Linux, issue the following:</p>
+<p>The distribution may be downloaded from the <a href="../../software/binaries/#icgc-get">binaries page</a></p>
+<p>To install the latest version on Mac or Linux, issue the following in a terminal:</p>
 <pre><code class="shell">curl -sL https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest | tar zxv
 </code></pre>
 
+<p>This will extract the <code>icgc-get</code> executable in the current directory.</p>
 <h2 id="configuration">Configuration</h2>
 <p>After installing <code>icgc-get</code>, you may want to do configure some of the essential usage parameters,
 such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the <code>icgc-get configure</code> command and follow the instructions of the prompts.  This will keep the operation of tool simpler in the future.</p>
