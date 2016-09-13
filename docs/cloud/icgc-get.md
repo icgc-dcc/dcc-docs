@@ -30,16 +30,18 @@ Docker is required to use the pre-packaged download clients of the various respo
 
 If not using Docker, it is expected that the user will have installed each of the [clients](/cloud/repositories/) required to access repositories of interest.
 
-Please see the [Internals](#internals) section for more information on how the dependencies are used.
+Please see the [Architecture](#architecture) section for more information on how the dependencies are used.
 
 ## Installation
 
-The distribution may be downloaded from the [binaries page](/software/binaries/#icgc-get.
+The distribution may be downloaded from the [binaries page](/software/binaries/#icgc-get)
 
-To install the latest version on Mac or Linux, issue the following:
+To install the latest version on Mac or Linux, issue the following in a terminal:
 ```shell
 curl -sL https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest | tar zxv
 ```
+
+This will extract the `icgc-get` executable in the current directory.
 
 ## Configuration
 
