@@ -178,7 +178,7 @@ Valid access to the GDC files.
 The syntax for performing a download using `icgc-get` is:
 
 ```shell
-./icgc-get --config [CONFIG] --docker [true|false] download [IDS] [-m/] [REPO] [OPTIONS]
+./icgc-get --config [CONFIG] --docker [true|false] download [IDS - space separated list] [-m/] [REPO] [OPTIONS]
 ```
 
 | Option            | Description                                                     |
