@@ -28,7 +28,7 @@ To quickly get started with `icgc-get`:
 
 Docker is required to use the pre-packaged download clients of the various respositories. To install Docker, please see the [installation guide](https://docs.docker.com/engine/installation/).
 
-If not using Docker, it is expected that the user will have installed each of the [clients](http://docs.icgc.org/cloud/repositories/) required to access repositories of interest.
+If not using Docker, it is expected that the user will have installed each of the [clients](/cloud/repositories/) required to access repositories of interest.
 
 Please see the [Internals](#internals) section for more information on how the dependencies are used.
 

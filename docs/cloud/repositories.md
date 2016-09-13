@@ -70,7 +70,7 @@ The ICGC download clients need access tokens to authenticate your download permi
 
 For general operation of the client, follow the [instructions.](/cloud/guide/)
 
-##ICGC Repositories
+## ICGC Repositories
 ### [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
 
 Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.
@@ -116,7 +116,7 @@ To operate the EGA download client, follow the instructions [here](https://www.e
 
 ## [GDC](https://gdc.nci.nih.gov)
 
-The Genomic Data Commons is a US government run data repository for cancer genomic information. It carries data from The Cancer Genome Atlas(TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET).  Currently the largest repository of ICGC data. Focused on studies in the United States.
+The Genomic Data Commons is a US government run data repository for cancer genomic information. It carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET).  Currently the largest repository of ICGC data. Focused on studies in the United States.
 
 | Property | Value |
 |:---------------------| ----------------
