@@ -19,7 +19,8 @@
     "dev:scripts": "webpack --config config/webpack.js --watch --progress --profile --colors --display-error-details --display-cached",
     "dev:mkdocs": "mkdocs serve",
     "dev:stylus": "npm run build:styles -- --watch",
-    "publish": "npm install && npm run build:prod && mkdocs gh-deploy --clean"
+    "prepublish": "npm install @icgc/dictionary-viewer@latest",
+    "publish": "npm run build:prod && mkdocs gh-deploy --clean"
   },
   "repository": {
     "type": "git",
