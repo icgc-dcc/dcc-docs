@@ -30,6 +30,7 @@ module.exports = {
         { test: /\.json$/, loader: 'json'},
         { test: /d3-tip\/index\.js/, loader: 'imports?define=>false'},
     ],
+    noParse: /node_modules\/jsondiffpatch\/public\/build\/jsondiffpatch\-full\.js/,
     loaders: [
         {
           test: /\.js$/,
