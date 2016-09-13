@@ -9,15 +9,37 @@ The data managed by the ICGC resides in many data repositories around the world.
 
 To quickly get started with `icgc-get`:
 
+[![](images/icgc-get-process.png)](images/icgc-get-process.png "Click on the image to see it in full")
+
 1. Download and [install](#installation) the client
 1. Run the [`icgc-get configure`](#configure-command) command to setup your environment
 1. Run the [`icgc-get check`](#check-command) command to ensure your credentials are correct
 1. Generate a Manifest ID via the [Repository Browser](https://dcc.icgc.org/repositories)
+1. Run the [`icgc-get report`](#report-command) command to inspect your request before downloading
 1. Run [`icgc-get download -m <manifest-id>`](#download-command) to download files in your manifest
+
+## Prerequisites
+
+### Operating System
+
+`icgc-get` is supported on MacOS and Linux environments. Windows is currently unsupported.
+
+### Dependencies
+
+Docker is required to use the pre-packaged download clients of the various respositories. To install Docker, please see the [installation guide](https://docs.docker.com/engine/installation/).
+
+If not using Docker, it is expected that the user will have installed each of the [clients](/cloud/repositories/) required to access repositories of interest.
+
+Please see the [Internals](#internals) section for more information on how the dependencies are used.
 
 ## Installation
 
-The distribution may be downloaded from the [binaries page](/software/binaries/).  If any or all of the download clients are not available, `icgc-get` can also interface with a Docker container that has all the download clients pre-installed. Although convenient, Docker is completely optional. See the [Internals](#internals) section for more information.
+The distribution may be downloaded from the [binaries page](/software/binaries/#icgc-get.
+
+To install the latest version on Mac or Linux, issue the following:
+```shell
+curl -sL https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest | tar zxv
+```
 
 ## Configuration
 
@@ -172,43 +194,6 @@ Valid access to the Collaboratory.
 Valid access to the GDC files.
 ```
 
-
-### Download Command
-
-The syntax for performing a download using `icgc-get` is:
-
-```shell
-./icgc-get --config [CONFIG] --docker [true|false] download [IDS - space separated list] [-m/] [REPO] [OPTIONS]
-```
-
-| Option            | Description                                                     |
-|-------------------|-----------------------------------------------------------------|
-| `-m`, `--manifest`| Flag used to specify that a manifest id has been passed         |
-| `-r`, `--repos`   | Repeatable option used to specify repositories to download from |
-| `-o`, `--override`| Flag used to override warning messages                          |
-| `--no-ssl-verify` | Flag used to disable ssl verification.  Not recommended         |
-
-The first required argument is the set of ICGC file ids or ICGC manifest id corresponding to the file or files you wish to download.
-This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a
-manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal](https://dcc.icgc.org/repositories) through the
-icgc-get button on the Data Repositories page. `icgc-get` is not capable of parsing client manifest files on the local machine.
-
-Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
-provided they have not been added to the config file.
-
-**Prepend each repository with `-r`**, for example `-r aws-virginia -r ega`. The order that the repositories
-are listed is important: files will be downloaded from the first specified repository if possible, and subsequent repositories
-only if the file was not found on any previous repository.
-
-The download command comes with an automatic prompt that warns the user if the projected download size approaches the
-total available space in the download directory. It is possible to suppress this warning using the `-o` flag.
-
-Sample invocation of the `download` command:
-
-```shell
-./icgc-get download FI378424 -r  collaboratory
-```
-
 ### Report Command
 
 Another useful subcommand is `report`. This takes the same primary inputs as `download`,
@@ -275,6 +260,42 @@ Sample output:
 ╘══════════════════════╧════════╧════════╧══════════════╧═══════════════╛
 ```
 
+### Download Command
+
+The syntax for performing a download using `icgc-get` is:
+
+```shell
+./icgc-get --config [CONFIG] --docker [true|false] download [IDS - space separated list] [-m/] [REPO] [OPTIONS]
+```
+
+| Option            | Description                                                     |
+|-------------------|-----------------------------------------------------------------|
+| `-m`, `--manifest`| Flag used to specify that a manifest id has been passed         |
+| `-r`, `--repos`   | Repeatable option used to specify repositories to download from |
+| `-o`, `--override`| Flag used to override warning messages                          |
+| `--no-ssl-verify` | Flag used to disable ssl verification.  Not recommended         |
+
+The first required argument is the set of ICGC file ids or ICGC manifest id corresponding to the file or files you wish to download.
+This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a
+manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal](https://dcc.icgc.org/repositories) through the
+icgc-get button on the Data Repositories page. `icgc-get` is not capable of parsing client manifest files on the local machine.
+
+Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
+provided they have not been added to the config file.
+
+**Prepend each repository with `-r`**, for example `-r aws-virginia -r ega`. The order that the repositories
+are listed is important: files will be downloaded from the first specified repository if possible, and subsequent repositories
+only if the file was not found on any previous repository.
+
+The download command comes with an automatic prompt that warns the user if the projected download size approaches the
+total available space in the download directory. It is possible to suppress this warning using the `-o` flag.
+
+Sample invocation of the `download` command:
+
+```shell
+./icgc-get download FI378424 -r  collaboratory
+```
+
 ### Version Command
 
 This is an informative command that displays the version of all clients used by `icgc-get`. This command will check the version of clients that have their tool paths are specified in the config file provided.
@@ -294,7 +315,7 @@ Clients:
  ICGC Storage Client Version: 1.0.13
 ```
 
-## Internals
+## Architecture
 Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
 
 ### General Operation
