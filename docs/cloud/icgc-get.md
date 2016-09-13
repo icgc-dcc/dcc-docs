@@ -1,15 +1,22 @@
-# icgc-get
+# icgc-get User Guide
 
 ## Overview
-`icgc-get` is a universal download client for accessing ICGC data residing in various [data repositories](/cloud/repositories/). `icgc-get` works by interfacing with any supported repository download client and the ICGC API.
 
-The data managed by the ICGC resides in many data repositories around the world. These repositories each have their own environment (public cloud, private cloud, on-premise file systems, etc.), access controls (DACO, OAuth, asymmetric keys, IP filtering), download clients and configuration mechanisms. Thus, there is much for a user to learn and perform before actually acquiring the data. This is compounded by the fact that the number of environments are increasing over time and their characteristics are frequently changing. A coordinated mechanism to bootstrap and streamline this process is highly desirable. This is the problem the `icgc-get` tool helps to solve.
+ICGC data resides in many data repositories and compute clouds around the world. These  [data repositories](/cloud/repositories/) each have their own environment (public cloud, private cloud, on-premise file systems, etc.), access controls (DACO, OAuth, asymmetric keys, IP filtering), data download clients and configuration mechanisms. Thus, there is much for a user to learn and perform before actually acquiring the data. This is compounded by the fact that the number of environments are increasing over time and their characteristics are frequently changing. A coordinated mechanism to bootstrap and streamline the data access process is highly desirable. This is the problem the `icgc-get` tool helps to solve.
+
+As depicted in the figure below, downloading data with `icgc-get` is a three easy-step process: 
+
+- Select data of interest using the [ICGC Data Repository browser](https://dcc.icgc.org/repositories) in the ICGC Data Portal. This files can belong to multiple repositories.
+- Obtain a `icgc-get` manifest ID for this dataset by clicking on the `icgc-get` button above the file table.
+- Execute on the computer you want to download data the `icgc-get`’s `download `command with your manifest ID as parameter.
+
+[![](images/icgc-get-process.png)](images/icgc-get-process.png "Click on the image to see it in full")
+
+`icgc-get` will then download the requested data files from repositories you have access to in a configurable order of preferences. As simple as that!  More details and advanced features are described in sections below.
 
 ## Quickstart
 
 To quickly get started with `icgc-get`:
-
-[![](images/icgc-get-process.png)](images/icgc-get-process.png "Click on the image to see it in full")
 
 1. Download and [install](#installation) the client
 1. Run the [`icgc-get configure`](#configure-command) command to setup your environment
