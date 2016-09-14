@@ -271,11 +271,14 @@ Sample output:
 
 ### Download Command
 
-The syntax for performing a download using `icgc-get` is:
+The two syntax for performing a download using `icgc-get` are:
 
 ```shell
-./icgc-get --config [CONFIG] --docker [true|false] download [IDS - space separated list] [-m/] [REPO] [OPTIONS]
+./icgc-get --config [CONFIG] --docker [true|false] download <file-ids> [REPO] [OPTIONS]
+./icgc-get --config [CONFIG] --docker [true|false] download -m <manifest-id> [REPO] [OPTIONS]
 ```
+
+Where `<file-ids>` is a space separated list of ICGC file IDs, identifiable by their `FI` prefix (e.g. `FI1234`).
 
 | Option            | Description                                                     |
 |-------------------|-----------------------------------------------------------------|
@@ -325,7 +328,8 @@ Clients:
 ```
 
 ## Architecture
-Below are a pair of diagrams demonstrating the processes that `icgc-get` undergoes during it's operation.
+
+This section describes the inner workings of `icgc-get`. Understanding this section is not required for operation of the tool. However, it may be useful for context and those curious about implementation details.
 
 ### General Operation
 
