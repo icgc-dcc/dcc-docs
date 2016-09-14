@@ -1056,10 +1056,12 @@ and add a <code>downloaded</code> column that marks these files.</p>
 </code></pre>
 
 <h3 id="download-command">Download Command</h3>
-<p>The syntax for performing a download using <code>icgc-get</code> is:</p>
-<pre><code class="shell">./icgc-get --config [CONFIG] --docker [true|false] download [IDS - space separated list] [-m/] [REPO] [OPTIONS]
+<p>The two syntax for performing a download using <code>icgc-get</code> are:</p>
+<pre><code class="shell">./icgc-get --config [CONFIG] --docker [true|false] download &lt;file-ids&gt; [REPO] [OPTIONS]
+./icgc-get --config [CONFIG] --docker [true|false] download -m &lt;manifest-id&gt; [REPO] [OPTIONS]
 </code></pre>
 
+<p>Where <code>&lt;file-ids&gt;</code> is a space separated list of ICGC file IDs, identifiable by their <code>FI</code> prefix (e.g. <code>FI1234</code>).</p>
 <table>
 <thead>
 <tr>
@@ -1116,7 +1118,7 @@ Clients:
 </code></pre>
 
 <h2 id="architecture">Architecture</h2>
-<p>Below are a pair of diagrams demonstrating the processes that <code>icgc-get</code> undergoes during it's operation.</p>
+<p>This section describes the inner workings of <code>icgc-get</code>. Understanding this section is not required for operation of the tool. However, it may be useful for context and those curious about implementation details.</p>
 <h3 id="general-operation">General Operation</h3>
 <p><a href="../images/icgc_get_standard.png" title="Click on the image to see it in full"><img alt="" src="../images/ICGC_get_standard.png" /></a></p>
 <p>In both modes of operation, <code>icgc-get</code> must be passed a manifest or file id that has been received from the ICGC Data Portal.  This identifier is used by <code>icgc-get</code> to query more in-depth file metadata from the ICGC API. This takes two calls to the API, and the gathered data is used to identify the client to call and how to execute the call.</p>
