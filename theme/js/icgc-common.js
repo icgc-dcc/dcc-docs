@@ -71,7 +71,7 @@ $(function() {
 
         // animate
         scrollBody.animate({
-          scrollTop: scrollTargetEl.offset().top + 7
+          scrollTop: scrollTargetEl.get(0).offsetTop + 7
         }, 300, function(){
 
           var targetEl = scrollTargetEl.find('a'),
