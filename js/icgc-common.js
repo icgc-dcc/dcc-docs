@@ -17,6 +17,14 @@ function _initDisableScrollWhenFooterInView() {
   conditionallyDisableScroll();
 }
 
+function _initScrollHijinks() {
+  if ($('.toc-container').length) {
+    _initDisableScrollWhenFooterInView();
+  } else if ($('#body').length) {
+    $('#body').css({height: '100%'});
+  }
+}
+
 $(function() {
 
   function init() {
@@ -63,7 +71,7 @@ $(function() {
 
         // animate
         scrollBody.animate({
-          scrollTop: scrollTargetEl.offset().top + 7
+          scrollTop: scrollTargetEl.get(0).offsetTop + 7
         }, 300, function(){
 
           var targetEl = scrollTargetEl.find('a'),
@@ -472,7 +480,7 @@ $(function() {
     _calcMainContentWidth();
     _initAlerts();
     _initScrollUpIndicator();
-    _initDisableScrollWhenFooterInView();
+    _initScrollHijinks();
     
     // scroll to deep-linked element
     try {
