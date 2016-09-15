@@ -6,7 +6,7 @@ ICGC data resides in many data repositories and compute clouds around the world.
 
 As depicted in the figure below, downloading data with `icgc-get` is a three easy-step process: 
 
-- Select data of interest using the [ICGC Data Repository browser](https://dcc.icgc.org/repositories) in the ICGC Data Portal. This files can belong to multiple repositories.
+- Select data of interest using the [ICGC Data Repository browser](https://dcc.icgc.org/repositories) in the ICGC Data Portal. These files can belong to multiple repositories.
 - Obtain a `icgc-get` manifest ID for this dataset by clicking on the `icgc-get` button above the file table.
 - Execute on the computer you want to download data the `icgc-get`’s `download `command with your manifest ID as parameter.
 
