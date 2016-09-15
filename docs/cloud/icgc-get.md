@@ -46,7 +46,7 @@ The distribution may be downloaded from the [binaries page](/software/binaries/#
 To install the latest version on Mac or Linux, issue the following in a terminal:
 
 ```shell
-wget https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest -O icgc-get.latest.zip
+curl https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest -o icgc-get.latest.zip -L
 unzip icgc-get.latest.zip
 ```
 
