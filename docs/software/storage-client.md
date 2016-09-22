@@ -2,6 +2,9 @@
 
 \* indicates this release contains breaking changes and older versions will no longer work
 
+#### 1.0.20\* - Sept 22, 2016
+* sync with Metadata service data changes. 
+
 #### 1.0.19\* - Jul 15, 2016
 * Stability improvements: validate pre-signed url's, verify repository connection permissions, check for concurrent uploads
 
