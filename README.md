@@ -54,4 +54,13 @@ To publish changes, run
 npm run publish
 ```
 
-It is unnecessary to run the build task before publishing
+It is not necessary to run the build task before publishing
+
+### NPM Notes
+
+If errors are encountered when running npm run build|publish, try re-running 
+```shell
+npm install
+```
+to update missing packages used by the doc deployment process.
+
