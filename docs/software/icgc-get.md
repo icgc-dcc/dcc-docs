@@ -1,5 +1,9 @@
 # icgc-get Release Notes
 
+#### 0.5.1 - Sept 22, 2016
+* Improvements in configuration prompts, especially in handling incorrect inputs. 
+* When specifying an output directory, icgc-get will attempt to create the directory if possible. 
+
 #### 0.5.0 - Sept 20, 2016
 * Generated `config.yaml` documents unset configuration should users like to be able to modify their configuration by hand.
 * Better error handling for unrecoverable and corrupted configuration. 
