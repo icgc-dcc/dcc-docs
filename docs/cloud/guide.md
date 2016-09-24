@@ -52,7 +52,9 @@ There are two prerequesites to using the Storage Client: DACO Cloud Access statu
 
 ### DACO Cloud Access
 
-DACO Cloud Access is prerequisite to using the Storage Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon ().
+DACO Cloud Access is prerequisite to using the Storage Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon: 
+
+![DACO Cloud Acces Link](images/daco-cloud-access.png)
 
 ### Access Tokens
 

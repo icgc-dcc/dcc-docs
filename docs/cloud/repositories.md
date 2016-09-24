@@ -1,19 +1,26 @@
 # Repositories
 
-The data for the ICGC resides in many data repositories around the world. These repositories have their own architecture, governing bodies, data access controls, data portals and download clients. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories important pages and resources. 
+A _Data Repository_ is a system that stores and publishes _Data Files_ for download. Such repositories have their own architecture, governing bodies, data access controls, data portals and download clients. Generally speaking, there are two types of repositories:
 
-All of the ICGC data be searched for using the ICGC data portal, and downloaded using the icgc-get tool. Generally the data is divided into projects.
+1. **Cloud** - offers facilities for compute and storage
+2. **Non-Cloud** - provides storage functionality only
 
-Every repository has a repository code that is used to identify it in the ICGC api and icgc-get.
+The data for the ICGC resides in several repositories around the world. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories' important pages and resources. 
 
-## Common data access control bodies
+All of the ICGC data be searched for using the [ICGC Data Portal](https://dcc.icgc.org/repositories), and downloaded using the [icgc-get](/cloud/icgc-get) tool. Generally the data is divided into projects.
+
+Every repository has a repository code / id that is used to identify it in the [ICGC API](/portal/api-endpoints/#!/repositories/get) and `icgc-get`.
+
+## Common Data Access Control Bodies
  
 ICGC projects have two separate access control bodies. US based projects are controlled by the eRA Commons and dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). 
 
 ### ICGC DACO
-Follow the proceedure outlined at [the DACO page.](https:/icgc.org/daco)
+Follow the proceedure outlined at the [DACO page](https:/icgc.org/daco).
 
-Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal. 
+Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal.
+
+Note that as of October 2015, users are required to sign an ICGC [Cloud Data Usage Agreement](https://icgc.org/daco/help-topics/j-cloud-storage-access-agreement) in order to access data residing in cloud based repositories. See the [Cloud Guide](/cloud/guide/#daco-cloud-access) for instructions on how to verify access.
 
 ### eRA Commons
 Many of the repositories that participate in the ICGC program require an account with the [electronic Research Administration](https://public.era.nih.gov/commons/commonsInit.do) as a fist step in access authentication process. The eRA functions only as the authentication layer, it does not control any data repositories directly. It is used by dbGaP as a credible way to authenticate a user or organiztion.
@@ -25,14 +32,14 @@ Support for the eRA may be reached at <http://grants.nih.gov/support>.
 ### dbGaP
 One of the widely used access control system is [database of Genotypes and Phenotypes Authorized Access program](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login). _dbGaP requires an eRA account to log in and register. If you need to register your organization you will need your organization's signing offical to participate in the registration process._
 
-If you encounter difficulties, [the dbGaP help desk](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=email&filter=from&from=login) is available.
+If you encounter difficulties, the [dbGaP help desk](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=email&filter=from&from=login) is available.
 
 
-## Architecture types used by multiple repositories
+## Repository Types
 
 ### GNOS
 
-GNOS is a commonly used commercially available genomic data database. The Pancancer Analysis of Whole Genomes study is an international research project which uses the GNOS software to host there data.  Data from this project is stored on multiple smaller repositories around the world. Each of these repositories uses the same architecture and download client, but have their own data access controller and are not synchronized. 
+[GNOS](https://annaisystems.zendesk.com/hc/en-us/sections/200575407-GNOS-and-GeneTorrent) is a commonly used commercially available genomic data database. [The Pancancer Analysis of Whole Genomes](https://dcc.icgc.org/pcawg) (PCAWG) study is an international research project which uses the GNOS software to host published data.  Due to the volume of data, files from this initiative are stored on multiple smaller repositories around the world. Each of these repositories uses the same architecture and download client, but have their own data access controls which are not synchronized. 
 
 _GNOS is currently being phased out by the ICGC in favour of newer systems._
 
@@ -54,9 +61,11 @@ The manual for the operation of the Genetorrent client can be found [here](https
 
 ### ICGC Storage Repositories
 
+These systems use the [ICGC Storage](https://github.com/icgc-dcc/dcc-storage) software to provide access to data sets.
+
 | Property | Value |
 |:---------------------| ----------------
-| Name                 | ICGC Storage Repostories  |
+| Name                 | ICGC Storage Repositories  |
 | Governing Body       | International Cancer Genome Consortium |                                                             
 | Contact              | <dcc-support@icgc.org> |
 | Official Website     | <https://dcc.icgc.org> |
@@ -70,7 +79,7 @@ The ICGC download clients need access tokens to authenticate your download permi
 
 For general operation of the client, follow the [instructions.](/cloud/guide/)
 
-## ICGC Repositories
+## [ICGC Clouds](https://dcc.icgc.org/icgc-in-the-cloud)
 ### [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
 
 Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.
@@ -95,7 +104,7 @@ Amazon cloud service containing ICGC data.
 
 ## [EGA](https://www.ebi.ac.uk/ega/about)
 
-The EBI's European Genome-Phenome Archive.  Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
+The [EBI](http://www.ebi.ac.uk/)'s European Genome-Phenome Archive ([EGA](https://www.ebi.ac.uk/ega/home)).  Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
 
 | Property | Value |
 |:---------------------| ----------------
@@ -116,7 +125,7 @@ To operate the EGA download client, follow the instructions [here](https://www.e
 
 ## [GDC](https://gdc.nci.nih.gov)
 
-The Genomic Data Commons is a US government run data repository for cancer genomic information. It carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET).  Currently the largest repository of ICGC data. Focused on studies in the United States.
+The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI](https://www.cancer.gov/)) run data repository for cancer genomic information. Notably, the it carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET). Currently the GDC is the largest single repository of ICGC data. It focuses on studies in the United States.
 
 | Property | Value |
 |:---------------------| ----------------
@@ -139,7 +148,9 @@ Once you or your project leader have attained access to the reseach project,you 
 
 
 ## PDC
-Secure data cloud that stores US PCAWG data.  
+The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion.
+
+It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) data.  
 
 
 | Property | Value |
