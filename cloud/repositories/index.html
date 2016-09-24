@@ -669,7 +669,7 @@
                
                </li>
            
-               <li class=""><a href="#architecture-types-used-by-multiple-repositories">Architecture types used by multiple repositories</a>
+               <li class=""><a href="#repository-types">Repository Types</a>
                
                     <ul class="nav">
                         
@@ -681,7 +681,7 @@
                
                </li>
            
-               <li class=""><a href="#icgc-repositories">ICGC Repositories</a>
+               <li class=""><a href="#icgc-clouds">ICGC Clouds</a>
                
                     <ul class="nav">
                         
@@ -764,15 +764,20 @@
                    
 
 <h1 id="repositories">Repositories</h1>
-<p>The data for the ICGC resides in many data repositories around the world. These repositories have their own architecture, governing bodies, data access controls, data portals and download clients. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories important pages and resources. </p>
-<p>All of the ICGC data be searched for using the ICGC data portal, and downloaded using the icgc-get tool. Generally the data is divided into projects.</p>
-<p>Every repository has a repository code / id that is used to identify it in the <a href="../../portal/api-endpoints/#!/repositories/get">ICGC API</a> and <a href="../../cloud/icgc-get/"><code>icgc-get</code></a>.</p>
+<p>A <em>Data Repository</em> is a system that stores and publishes data for download. These repositories have their own architecture, governing bodies, data access controls, data portals and download clients. Generally speaking there are two types of repositories:</p>
+<ol>
+<li>Cloud - facilities for compute and storage</li>
+<li>Non-cloud - only storage</li>
+</ol>
+<p>The data for the ICGC resides in many data repositories around the world. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories important pages and resources. </p>
+<p>All of the ICGC data be searched for using the <a href="https://dcc.icgc.org/repositories">ICGC Data Portal</a>, and downloaded using the <a href="../../cloud/icgc-get"><code>icgc-get</code></a> tool. Generally the data is divided into projects.</p>
+<p>Every repository has a repository code / id that is used to identify it in the <a href="../../portal/api-endpoints/#!/repositories/get">ICGC API</a> and <code>icgc-get</code>.</p>
 <h2 id="common-data-access-control-bodies">Common Data Access Control Bodies</h2>
 <p>ICGC projects have two separate access control bodies. US based projects are controlled by the eRA Commons and dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). </p>
 <h3 id="icgc-daco">ICGC DACO</h3>
 <p>Follow the proceedure outlined at the <a href="https:/icgc.org/daco">DACO page</a>.</p>
 <p>Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal.</p>
-<p>Note that as of October 2015, users are required to sign an ICGC <a href="https://icgc.org/daco/app/1032495/1/iii_c">Cloud Data Usage Agreement</a> in order to access data residing in cloud based repositories. See the <a href="../../cloud/guide/#daco-cloud-access">Cloud Guide</a> for instructions on how to verify access.</p>
+<p>Note that as of October 2015, users are required to sign an ICGC <a href="https://icgc.org/daco/help-topics/j-cloud-storage-access-agreement">Cloud Data Usage Agreement</a> in order to access data residing in cloud based repositories. See the <a href="../../cloud/guide/#daco-cloud-access">Cloud Guide</a> for instructions on how to verify access.</p>
 <h3 id="era-commons">eRA Commons</h3>
 <p>Many of the repositories that participate in the ICGC program require an account with the <a href="https://public.era.nih.gov/commons/commonsInit.do">electronic Research Administration</a> as a fist step in access authentication process. The eRA functions only as the authentication layer, it does not control any data repositories directly. It is used by dbGaP as a credible way to authenticate a user or organiztion.</p>
 <p>If your organization has not used the eRA commons before you will need to <a href="https://era.nih.gov/commons/faq_commons.cfm#II1">register your organization.</a> <em>This process will need your organization's signing offcial to participate.</em></p>
@@ -780,9 +785,9 @@
 <h3 id="dbgap">dbGaP</h3>
 <p>One of the widely used access control system is <a href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login">database of Genotypes and Phenotypes Authorized Access program</a>. <em>dbGaP requires an eRA account to log in and register. If you need to register your organization you will need your organization's signing offical to participate in the registration process.</em></p>
 <p>If you encounter difficulties, <a href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=email&amp;filter=from&amp;from=login">the dbGaP help desk</a> is available.</p>
-<h2 id="architecture-types-used-by-multiple-repositories">Architecture types used by multiple repositories</h2>
+<h2 id="repository-types">Repository Types</h2>
 <h3 id="gnos">GNOS</h3>
-<p>GNOS is a commonly used commercially available genomic data database. The Pancancer Analysis of Whole Genomes study is an international research project which uses the GNOS software to host there data.  Data from this project is stored on multiple smaller repositories around the world. Each of these repositories uses the same architecture and download client, but have their own data access controller and are not synchronized. </p>
+<p><a href="https://annaisystems.zendesk.com/hc/en-us/sections/200575407-GNOS-and-GeneTorrent">GNOS</a> is a commonly used commercially available genomic data database. The Pancancer Analysis of Whole Genomes study is an international research project which uses the GNOS software to host there data.  Data from this project is stored on multiple smaller repositories around the world. Each of these repositories uses the same architecture and download client, but have their own data access controller and are not synchronized. </p>
 <p><em>GNOS is currently being phased out by the ICGC in favour of newer systems.</em></p>
 <table>
 <thead>
@@ -854,7 +859,7 @@
 <h4 id="download-client-operation_1">Download Client Operation</h4>
 <p>The ICGC download clients need access tokens to authenticate your download permissions. These tokens can be obtained from the token manager tab of the ICGC data portal once you have logged into the portal. Keep in mind that you must define the scope of your token based on which datasets you need access for.</p>
 <p>For general operation of the client, follow the <a href="../../cloud/guide/">instructions.</a></p>
-<h2 id="icgc-repositories">ICGC Repositories</h2>
+<h2 id="icgc-clouds">ICGC Clouds</h2>
 <h3 id="collaboratory"><a href="https://dcc.icgc.org/icgc-in-the-cloud/collaboratory">Collaboratory</a></h3>
 <p>Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.</p>
 <table>
