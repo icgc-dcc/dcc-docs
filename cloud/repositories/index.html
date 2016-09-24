@@ -655,7 +655,7 @@
         <li class="main active"><a href="#repositories">Repositories</a>
            <ul class="nav">
            
-               <li class=""><a href="#common-data-access-control-bodies">Common data access control bodies</a>
+               <li class=""><a href="#common-data-access-control-bodies">Common Data Access Control Bodies</a>
                
                     <ul class="nav">
                         
@@ -766,12 +766,13 @@
 <h1 id="repositories">Repositories</h1>
 <p>The data for the ICGC resides in many data repositories around the world. These repositories have their own architecture, governing bodies, data access controls, data portals and download clients. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories important pages and resources. </p>
 <p>All of the ICGC data be searched for using the ICGC data portal, and downloaded using the icgc-get tool. Generally the data is divided into projects.</p>
-<p>Every repository has a repository code that is used to identify it in the ICGC api and icgc-get.</p>
-<h2 id="common-data-access-control-bodies">Common data access control bodies</h2>
+<p>Every repository has a repository code / id that is used to identify it in the <a href="../../portal/api-endpoints/#!/repositories/get">ICGC API</a> and <a href="../../cloud/icgc-get/"><code>icgc-get</code></a>.</p>
+<h2 id="common-data-access-control-bodies">Common Data Access Control Bodies</h2>
 <p>ICGC projects have two separate access control bodies. US based projects are controlled by the eRA Commons and dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). </p>
 <h3 id="icgc-daco">ICGC DACO</h3>
-<p>Follow the proceedure outlined at <a href="https:/icgc.org/daco">the DACO page.</a></p>
-<p>Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal. </p>
+<p>Follow the proceedure outlined at the <a href="https:/icgc.org/daco">DACO page</a>.</p>
+<p>Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal.</p>
+<p>Note that as of October 2015, users are required to sign an ICGC Cloud Data Usage Agreement in order to access data residing in cloud based repositories. See the <a href="../cloud/guide/#daco-cloud-access">Cloud Guide</a> for instructions on how to verify access.</p>
 <h3 id="era-commons">eRA Commons</h3>
 <p>Many of the repositories that participate in the ICGC program require an account with the <a href="https://public.era.nih.gov/commons/commonsInit.do">electronic Research Administration</a> as a fist step in access authentication process. The eRA functions only as the authentication layer, it does not control any data repositories directly. It is used by dbGaP as a credible way to authenticate a user or organiztion.</p>
 <p>If your organization has not used the eRA commons before you will need to <a href="https://era.nih.gov/commons/faq_commons.cfm#II1">register your organization.</a> <em>This process will need your organization's signing offcial to participate.</em></p>
