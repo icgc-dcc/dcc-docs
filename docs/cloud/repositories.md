@@ -181,6 +181,13 @@ aws s3 --endpoint-url=https://bionimbus-objstore-cs.opensciencedatacloud.org/ cp
 Where the data path can be retrieved from the ICGC data portal by selecting the download manifest action on the pdc file copy, and the output directory is where you want to save the file on your local computer.
 
 ## Pan-Cancer Repositories
+
+General resources:
+
+- Annai repository listing - [here](https://pcawg.annailabs.com)
+- Analysis user guide - [here](https://annaisystems.zendesk.com/hc/en-us/article_attachments/201188358/Pan-Cancer_Researcher_Guide.pdf)
+- Operational reports  - [here](http://pancancer.info/)
+
 ### PCAWG Barcelona 
 
 | Property | Value |
