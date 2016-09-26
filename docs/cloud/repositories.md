@@ -5,7 +5,7 @@ A _Data Repository_ is a system that stores and publishes _Data Files_ for downl
 1. **Cloud** - offers facilities for compute and storage
 2. **Non-Cloud** - provides storage functionality only
 
-The data for the ICGC resides in several repositories around the world. 
+The data for the ICGC resides in several repositories around the world:
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1unT7z8PymhYTGAm9xZFrgomkHOU" width="520" height="240" frameBorder="0"></iframe>
 
@@ -37,7 +37,6 @@ Support for the eRA may be reached at <http://grants.nih.gov/support>.
 One of the widely used access control system is [database of Genotypes and Phenotypes Authorized Access program](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login). _dbGaP requires an eRA account to log in and register. If you need to register your organization you will need your organization's signing offical to participate in the registration process._
 
 If you encounter difficulties, the [dbGaP help desk](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=email&filter=from&from=login) is available.
-
 
 ## Repository Types
 
@@ -84,6 +83,7 @@ The ICGC download clients need access tokens to authenticate your download permi
 For general operation of the client, follow the [instructions.](/cloud/guide/)
 
 ## [ICGC Clouds](https://dcc.icgc.org/icgc-in-the-cloud)
+
 ### [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
 
 Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.
@@ -182,11 +182,11 @@ Where the data path can be retrieved from the ICGC data portal by selecting the 
 
 ## Pan-Cancer Repositories
 
-General resources:
+The following are some general resources that may be useful to users interested in PCAWG repositories:
 
-- Annai repository listing - [here](https://pcawg.annailabs.com)
-- Analysis user guide - [here](https://annaisystems.zendesk.com/hc/en-us/article_attachments/201188358/Pan-Cancer_Researcher_Guide.pdf)
-- Operational reports  - [here](http://pancancer.info/)
+- [Annai repository listing](https://pcawg.annailabs.com)
+- [Analysis user guide](https://annaisystems.zendesk.com/hc/en-us/article_attachments/201188358/Pan-Cancer_Researcher_Guide.pdf)
+- [PCAWG operational reports](http://pancancer.info/)
 
 ### PCAWG Barcelona 
 
