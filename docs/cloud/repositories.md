@@ -5,7 +5,11 @@ A _Data Repository_ is a system that stores and publishes _Data Files_ for downl
 1. **Cloud** - offers facilities for compute and storage
 2. **Non-Cloud** - provides storage functionality only
 
-The data for the ICGC resides in several repositories around the world. On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories' important pages and resources. 
+The data for the ICGC resides in several repositories around the world. 
+
+<iframe src="https://www.google.com/maps/d/embed?mid=1unT7z8PymhYTGAm9xZFrgomkHOU" width="520" height="240" frameBorder="0"></iframe>
+
+On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories' important pages and resources. 
 
 All of the ICGC data be searched for using the [ICGC Data Portal](https://dcc.icgc.org/repositories), and downloaded using the [icgc-get](/cloud/icgc-get) tool. Generally the data is divided into projects.
 
