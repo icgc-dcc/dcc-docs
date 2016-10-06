@@ -39,17 +39,16 @@ pages:
     - Submission File Format: 'submission/guide/overview/submission-file-format.md'
     - File Submission: 'submission/guide/overview/file-submission.md'
     - Submission Validation: 'submission/guide/overview/submission-validation.md'
-    - DCC Data Element Specifications: 'submission/guide/dcc-data-element-specifications.md'
-    - Simple Somatic Mutation Format: 'submission/guide/icgc-simple-somatic-mutation-format.md'
-    - Clinical Data Submission File Specifications: 'submission/guide/clinical-data-submission-file-specifications.md'
-    - Simple Somatic Mutation Format: 'submission/guide/icgc-simple-somatic-mutation-format.md'
-    - Sample Type Specification: 'submission/guide/sample-type-specification.md'
-    - Experimental Data Submission File Specifications: 'submission/guide/experimental-data-submission-file-specifications.md'
-
-    - Donor Clinical Data Guidelines: 'submission/guide/donor-clinical-data-guidelines.md'
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
     - Incremental Submission Feature: 'submission/guide/incremental-submission-feature.md'
     - Selective Validation Feature: 'submission/guide/selective-validation-feature.md'
+    - DCC Data Element Specifications: 'submission/guide/dcc-data-element-specifications.md'
+    - Clinical Data Submission File Specifications: 'submission/guide/clinical-data-submission-file-specifications.md'
+    - Donor Clinical Data Guidelines: 'submission/guide/donor-clinical-data-guidelines.md'
+    - Sample Type Specification: 'submission/guide/sample-type-specification.md'
+    - Experimental Data Submission File Specifications: 'submission/guide/experimental-data-submission-file-specifications.md'
+    - Simple Somatic Mutation Format: 'submission/guide/icgc-simple-somatic-mutation-format.md'
+
   - PCAWG:
     - PanCancer Clinical Data Requirements: 'submission/pcawg/pancancer-clinical-data-requirements.md'
     - FAQ: 'submission/pcawg/pcawg-faq.md'
@@ -58,6 +57,7 @@ pages:
   - Viewer: 'dictionary/viewer.md'
   - Release Notes:
     - Releases: 'dictionary/releases.md'
+    - Release 23: 'dictionary/release-23.md'
     - Release 22: 'dictionary/release-22.md'
     - Release 21: 'dictionary/release-21.md'
     - Release 20: 'dictionary/release-20.md'
