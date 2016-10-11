@@ -512,7 +512,7 @@ Please contact [dcc-support@icgc.org](mailto:dcc-support@icgc.org) and include t
 
 ## Terms
 
-Related terms and their defintions are given below:
+Related terms and their definitions are given below:
 
 | Term | Meaning |
 | --- | --- |
