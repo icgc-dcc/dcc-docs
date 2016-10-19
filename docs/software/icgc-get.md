@@ -1,5 +1,8 @@
 # icgc-get Release Notes
 
+#### 0.5.3 - Oct 19, 2016
+* Fixes issue where downloading by manifest could cause a bad request in obtaining file metadata.
+
 #### 0.5.1 - Sept 22, 2016
 * Improvements in configuration prompts, especially in handling incorrect inputs. 
 * When specifying an output directory, icgc-get will attempt to create the directory if possible. 
