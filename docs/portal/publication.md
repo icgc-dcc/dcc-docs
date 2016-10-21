@@ -62,7 +62,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [CMDI-UK][16] |  United Kingdom |  Chronic Myeloid Disorders - UK |  No Embargo. Data available without limitations |
 | [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
-| [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | Publication limitations in place until 2018-05-16 |
+| [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | No Embargo. Data available without limitations |
 | [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR |  Publication limitations in place until 2017-06-15 |
 | [COCA-CN][26] |  China |  Colorectal Cancer - CN |  Publication limitations in place until 2017-01-14 |
 | [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  Publication limitations in place until 2017-01-14 |
