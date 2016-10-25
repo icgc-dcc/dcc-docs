@@ -901,7 +901,7 @@ tar -xvzf icgc-storage-client.tar.gz
 <li>Export a <em>Manifest</em> for future use with the Storage Client</li>
 </ul>
 <p>The Manifest is the main way to define what files should be downloaded by the Storage Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:</p>
-<p><a href="../images/download-manifest-dialog.png" title="Click the Download Manifest Dialog screenshot to see the full image."><img alt="Download Manifest Dialog" src="../images/download-manifest-dialog.png" /></a></p>
+<p><a href="../images/download-manifest-dialog-2.png" title="Click the Download Manifest Dialog screenshot to see the full image."><img alt="Download Manifest Dialog" src="../images/download-manifest-dialog-2.png" /></a></p>
 <p>Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the <a href="#storage-client-usage">Storage Client Usage</a> section for usage information.</p>
 <h2 id="storage-client-usage">Storage Client Usage</h2>
 <p>This section provides information on how to use the Storage Client once it has been properly downloaded and configured. It assumes the user possesses and has configured the requisite access token discussed previously.</p>
@@ -927,11 +927,12 @@ tar -xvzf icgc-storage-client.tar.gz
 <p>An example of using <code>wget</code>:</p>
 <pre><code class="bash">bin/icgc-storage-client url --object-id &lt;Object ID&gt;
 Resolving URL for object: ddcdd044-adda-5f09-8849-27d6038f8ccd (offset = 0, length = -1)
-https://s3-external-1.amazonaws.com/snip&gt;
+https://s3-external-1.amazonaws.com/...[snip]
 
-wget https://s3-external-1.amazonaws.com/snip&gt;
+wget &quot;https://s3-external-1.amazonaws.com/...[snip]&quot;
 </code></pre>
 
+<p>You should always double-quote the URL that you pass to wget.</p>
 <h3 id="download-command">Download Command</h3>
 <p>The <code>download</code> command allows fast parallel download of remote objects. It can be run in one of two modes: (a) single object mode and (b) Manifest driven mode</p>
 <p>Note that the Storage Client is able to resume an interrupted download session. Simply rerun the same command again and it will continue.</p>
@@ -1040,7 +1041,7 @@ samtools view /mnt/icgc/fff75930-0f8c-4c99-9b48-732e7ed4c625/443a7a6ab964e41c011
 mkdir /mnt/icgc
 
 # Mount
-bin/icgc-storage-client mount --mount-point /mnt/icgc --manfiest manifest&gt;
+bin/icgc-storage-client mount --mount-point /mnt/icgc --manifest manifest&gt;
 </code></pre>
 
 <p>See the <code>manifest</code> command for more details on how to specify a Manifest.</p>
