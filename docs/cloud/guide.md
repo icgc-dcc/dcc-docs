@@ -1,4 +1,4 @@
-# C"loud Guide
+# Cloud Guide
 
 ## Overview
 
