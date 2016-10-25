@@ -1,4 +1,4 @@
-# Cloud Guide
+# C"loud Guide
 
 ## Overview
 
@@ -198,7 +198,7 @@ Finding files of interest can be done via the Data Portal. Objects are identifie
 
 The Manifest is the main way to define what files should be downloaded by the Storage Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:
 
-[![Download Manifest Dialog](images/download-manifest-dialog-2.png)](images/download-manifest-dialog-2.png "Click the Download Manifest Dialog screenshot to see the full image.")
+[![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png "Click the Download Manifest Dialog screenshot to see the full image.")
 
 Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Storage Client Usage](#storage-client-usage) section for usage information.
 
