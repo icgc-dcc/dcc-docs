@@ -198,7 +198,7 @@ Finding files of interest can be done via the Data Portal. Objects are identifie
 
 The Manifest is the main way to define what files should be downloaded by the Storage Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:
 
-[![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png "Click the Download Manifest Dialog screenshot to see the full image.")
+[![Download Manifest Dialog](images/download-manifest-dialog-2.png)](images/download-manifest-dialog-2.png "Click the Download Manifest Dialog screenshot to see the full image.")
 
 Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Storage Client Usage](#storage-client-usage) section for usage information.
 
@@ -241,10 +241,12 @@ An example of using `wget`:
 ```bash
 bin/icgc-storage-client url --object-id <Object ID>
 Resolving URL for object: ddcdd044-adda-5f09-8849-27d6038f8ccd (offset = 0, length = -1)
-https://s3-external-1.amazonaws.com/snip>
+https://s3-external-1.amazonaws.com/...[snip]
 
-wget https://s3-external-1.amazonaws.com/snip>
+wget "https://s3-external-1.amazonaws.com/...[snip]"
 ```
+
+You should always double-quote the URL that you pass to wget.
 
 ### Download Command
 
@@ -410,7 +412,7 @@ To filter the mount to only include the files specified in a Manifest, issue the
 mkdir /mnt/icgc
 
 # Mount
-bin/icgc-storage-client mount --mount-point /mnt/icgc --manfiest manifest>
+bin/icgc-storage-client mount --mount-point /mnt/icgc --manifest manifest>
 ```
 
 See the `manifest` command for more details on how to specify a Manifest.

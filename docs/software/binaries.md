@@ -8,7 +8,7 @@ This is the official DCC software page which publishes various tools for working
 
 ## Storage Client
 
-To interact with cloud repositories such as [AWS](/icgc-in-the-cloud/aws/) and [Collaboratory]("/icgc-in-the-cloud/collaboratory/"), you will require the Storage Client software. For system requirements and usage information, please see the [User Guide](href="http://docs.icgc.org/cloud/guide/)
+To interact with cloud repositories such as [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws) and [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/), you will require the Storage Client software. For system requirements and usage information, please see the [User Guide](http://docs.icgc.org/cloud/guide/)
 
 ### Latest Release Tarball
 
