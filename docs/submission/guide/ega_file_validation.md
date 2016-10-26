@@ -1,8 +1,8 @@
-EGA Raw File Validation
+#EGA Raw File Validation
 
 ## Summary
 
-ICGC member projects are required by ICGC policies, to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for ICGC sequencing reads is the European Bioinformatics Institute's (EBI), European Genome-phenome Archive (EGA). When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply accession identifiers where the data has been archived. Projects are required to populate the 'raw_data_accession' field found in the experimental metadata files with these EGA accession identifiers. This enables data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. 
+ICGC member projects are required by [ICGC policy][1], to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for ICGC sequencing reads is the European Bioinformatics Institute's (EBI), European Genome-phenome Archive (EGA). When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply accession identifiers where the data has been archived. Projects are required to populate the 'raw_data_accession' field found in the experimental metadata files with these EGA accession identifiers. This enables data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. 
 
 
 ### EGA File Accession Validtion Check
@@ -37,4 +37,5 @@ The DCC Submission system will report the following error message if an EGA File
 
 Solution:
 * An EGA File accession (EGAF*) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".
- 
+
+[1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
