@@ -5,7 +5,7 @@
 ICGC member projects are required by [ICGC policy][1], to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for ICGC sequencing reads is the European Bioinformatics Institute's (EBI), European Genome-phenome Archive (EGA). When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply accession identifiers where the data has been archived. Projects are required to populate the 'raw_data_accession' field found in the experimental metadata files with these EGA accession identifiers. This enables data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. 
 
 
-### EGA File Accession Validtion Check
+### EGA File Accession Validation Check
 
 As of Release 23, a new validation rule will take effect requiring all new data submissions to submit an EGA File accession in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. This new validation check will validate the existence of the raw file at EGA, meaning all submissions with **unpublished** files at EGA will be **invalid**. 
 
