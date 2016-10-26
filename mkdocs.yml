@@ -39,6 +39,7 @@ pages:
     - Submission File Format: 'submission/guide/overview/submission-file-format.md'
     - File Submission: 'submission/guide/overview/file-submission.md'
     - Submission Validation: 'submission/guide/overview/submission-validation.md'
+    - EGA Raw File Validation: 'submission/guide/ega_file_validation.md'
     - MVEL Script Restriction Example Cases: 'submission/guide/mvel-script-restriction-example-cases.md'
     - Incremental Submission Feature: 'submission/guide/incremental-submission-feature.md'
     - Selective Validation Feature: 'submission/guide/selective-validation-feature.md'
