@@ -15,6 +15,7 @@ The following examples are known to work with [curl](https://curl.haxx.se/) v7.4
 Logging in to the **ICGC Portal API** from the command line requires an ICGC.org account.
 
 **Request**
+
 ```
 $ curl -XPOST -i -H 'Content-Type: application/json' 'https://dcc.icgc.org/api/v1/auth/login' -d '{"username":"...","password":"..."}'
 
@@ -29,12 +30,14 @@ $ http 'https://dcc.icgc.org/api/v1/auth/login' username='...' password='...'
 ## Downloading Static Files
 
 **Request**
-```
-$ curl -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
 
-$ http -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
+```
+$ curl -L -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
+
+$ http --follow -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
 ```
 **Response**
+
 ```
 % Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
                                Dload  Upload   Total   Spent    Left     Speed
@@ -44,12 +47,14 @@ $ http -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v
 ### Controlled Access
 
 **Request**
-```
-$ curl -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 
-$ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+```
+$ curl -L -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+
+$ http --follow -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 ```
 **Response**
+
 ```
 % Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
                                Dload  Upload   Total   Spent    Left     Speed
@@ -63,9 +68,9 @@ $ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.or
 **Request**
 
 ```
-$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]&email=YOUR@EMAIL.COM'
+$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]'
 
-$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"ssm","value":"TSV"}]' 'email==YOUR@EMAIL.COM'
+$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"ssm","value":"TSV"}]'
 ```
 
 **Response**
@@ -74,51 +79,20 @@ $ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primar
 {"downloadId":"YOUR_DOWNLOAD_ID"}
 ```
 
-**Optional**
-
-You can include your email address in the request to recieve email updates on the status of your download but it is not required. You can also view the status of your download by going to `https://dcc.icgc.orb/downloads/YOUR_DOWNLOAD_ID`
-
-### View status
-
-**Request**
-
-```
-$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
-```
-
-**Response**
-
-```
-[{
-    "downloadId": "YOUR_DOWNLOAD_ID",
-    "progress": [
-        {
-            "completed": "true",
-            "dataType": "ssm",
-            "denominator": "328238",
-            "numerator": "629347",
-            "percentage": "0.5"
-        }
-    ],
-    "status": "RUNNING"
-}]
-```
-
 ### Downloading
 
-When you see `"status": "SUCCEEDED"` you can download the file.
+The files can be downloaded using the aforementioned `YOUR_DOWNLOAD_ID`.
 
 **Request**
 
 ```
-$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
+$ curl -L 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.gz
 
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
+$ http --follow 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.gz
 ```
 
 **Response**
+
 ```
 % Total    % Received % Xferd  Average Speed   Time    Time     Time     Current
                                Dload  Upload   Total   Spent    Left     Speed
@@ -132,25 +106,17 @@ If the Dynamic Download Job contains controlled access data you must include you
 **Request**
 
 ```
-$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"sgv","value":"TSV"}]&email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={"donor":{"primarySite":{"is":["Brain"]}}}&info=[{"key":"ssm","value":"TSV"}]' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 
-$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"sgv","value":"TSV"}]' 'email==YOUR@EMAIL.COM' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={"donor":{"primarySite":{"is":["Brain"]}}}' 'info==[{"key":"ssm","value":"TSV"}]' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 ```
 
 **Request**
 
 ```
-$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ curl -L 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.gz
 
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-```
-
-**Request**
-
-```
-$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
+$ http --follow -o my_dl.gz 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 ```
 
 ## Common Errors
