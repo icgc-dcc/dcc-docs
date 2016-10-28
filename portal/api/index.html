@@ -689,8 +689,6 @@
                         
                         <li class=""><a href="#start-a-job">Start a job</a></li>
                         
-                        <li class=""><a href="#view-status">View status</a></li>
-                        
                         <li class=""><a href="#downloading">Downloading</a></li>
                         
                         <li class=""><a href="#controlled-access_2">Controlled Access</a></li>
@@ -739,9 +737,9 @@ $ http 'https://dcc.icgc.org/api/v1/auth/login' username='...' password='...'
 
 <h2 id="downloading-static-files">Downloading Static Files</h2>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
+<pre><code>$ curl -L -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
 
-$ http -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
+$ http --follow -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.open.COAD-US.tsv.gz
 </code></pre>
 
 <p><strong>Response</strong></p>
@@ -752,9 +750,9 @@ $ http -o simple_somatic_mutation.open.COAD-US.tsv.gz https://dcc.icgc.org/api/v
 
 <h3 id="controlled-access_1">Controlled Access</h3>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+<pre><code>$ curl -L -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 
-$ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ http --follow -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.org/api/v1/download?fn=/release_16/Projects/COAD-US/simple_somatic_mutation.controlled.COAD-US.tsv.gz' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 </code></pre>
 
 <p><strong>Response</strong></p>
@@ -766,46 +764,21 @@ $ http -o simple_somatic_mutation.controlled.COAD-US.tsv.gz 'https://dcc.icgc.or
 <h2 id="dynamic-filtered-download">Dynamic Filtered Download</h2>
 <h3 id="start-a-job">Start a job</h3>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM'
+<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]'
 
-$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM'
+$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]'
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>{&quot;downloadId&quot;:&quot;YOUR_DOWNLOAD_ID&quot;}
 </code></pre>
 
-<p><strong>Optional</strong></p>
-<p>You can include your email address in the request to recieve email updates on the status of your download but it is not required. You can also view the status of your download by going to <code>https://dcc.icgc.orb/downloads/YOUR_DOWNLOAD_ID</code></p>
-<h3 id="view-status">View status</h3>
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status'
-</code></pre>
-
-<p><strong>Response</strong></p>
-<pre><code>[{
-    &quot;downloadId&quot;: &quot;YOUR_DOWNLOAD_ID&quot;,
-    &quot;progress&quot;: [
-        {
-            &quot;completed&quot;: &quot;true&quot;,
-            &quot;dataType&quot;: &quot;ssm&quot;,
-            &quot;denominator&quot;: &quot;328238&quot;,
-            &quot;numerator&quot;: &quot;629347&quot;,
-            &quot;percentage&quot;: &quot;0.5&quot;
-        }
-    ],
-    &quot;status&quot;: &quot;RUNNING&quot;
-}]
-</code></pre>
-
 <h3 id="downloading">Downloading</h3>
-<p>When you see <code>"status": "SUCCEEDED"</code> you can download the file.</p>
+<p>The files can be downloaded using the aforementioned <code>YOUR_DOWNLOAD_ID</code>.</p>
 <p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
+<pre><code>$ curl -L 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.gz
 
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
+$ http --follow 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.gz
 </code></pre>
 
 <p><strong>Response</strong></p>
@@ -817,21 +790,15 @@ $ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' -o my_dl.tar
 <h3 id="controlled-access_2">Controlled Access</h3>
 <p>If the Dynamic Download Job contains controlled access data you must include your <code>dcc_portal_token</code> with every request.</p>
 <p><strong>Request</strong></p>
-<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]&amp;email=YOUR@EMAIL.COM' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+<pre><code>$ curl -g 'https://dcc.icgc.org/api/v1/download/submit?filters={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}&amp;info=[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 
-$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;sgv&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'email==YOUR@EMAIL.COM' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+$ http 'https://dcc.icgc.org/api/v1/download/submit' 'filters=={&quot;donor&quot;:{&quot;primarySite&quot;:{&quot;is&quot;:[&quot;Brain&quot;]}}}' 'info==[{&quot;key&quot;:&quot;ssm&quot;,&quot;value&quot;:&quot;TSV&quot;}]' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 </code></pre>
 
 <p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
+<pre><code>$ curl -L 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.gz
 
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID/status' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
-</code></pre>
-
-<p><strong>Request</strong></p>
-<pre><code>$ curl 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' --cookie 'dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
-
-$ http 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE' -o my_dl.tar
+$ http --follow -o my_dl.gz 'https://dcc.icgc.org/api/v1/download/YOUR_DOWNLOAD_ID' 'Cookie:dcc_portal_token=YOUR_DCC_PORTAL_TOKEN_HERE'
 </code></pre>
 
 <h2 id="common-errors">Common Errors</h2>
