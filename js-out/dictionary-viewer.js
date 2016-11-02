@@ -73,7 +73,7 @@ webpackJsonp([0,2],[
 
 	global.jsondiffpatch = __webpack_require__(19);
 	global.jsondiffpatch.formatters = {
-	  html: __webpack_require__(48)
+	  html: __webpack_require__(40)
 	};
 
 
@@ -89862,13 +89862,11 @@ webpackJsonp([0,2],[
 	  exports.homepage = '{{package-homepage}}';
 	  exports.version = '{{package-version}}';
 	} else {
-	  var packageInfoModuleName = '../package.json';
-	  var packageInfo = __webpack_require__(37)(packageInfoModuleName);
+	  var packageInfo = __webpack_require__(37);
 	  exports.homepage = packageInfo.homepage;
 	  exports.version = packageInfo.version;
 
-	  var formatterModuleName = './formatters';
-	  var formatters = __webpack_require__(37)(formatterModuleName);
+	  var formatters = __webpack_require__(38);
 	  exports.formatters = formatters;
 	  // shortcut for console
 	  exports.console = formatters.console;
@@ -93410,273 +93408,159 @@ webpackJsonp([0,2],[
 
 /***/ },
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var map = {
-		"./contexts/context": 25,
-		"./contexts/context.js": 25,
-		"./contexts/diff": 24,
-		"./contexts/diff.js": 24,
-		"./contexts/patch": 27,
-		"./contexts/patch.js": 27,
-		"./contexts/reverse": 28,
-		"./contexts/reverse.js": 28,
-		"./date-reviver": 26,
-		"./date-reviver.js": 26,
-		"./diffpatcher": 21,
-		"./diffpatcher.js": 21,
-		"./environment": 20,
-		"./environment.js": 20,
-		"./filters/arrays": 31,
-		"./filters/arrays.js": 31,
-		"./filters/dates": 33,
-		"./filters/dates.js": 33,
-		"./filters/lcs": 32,
-		"./filters/lcs.js": 32,
-		"./filters/nested": 30,
-		"./filters/nested.js": 30,
-		"./filters/texts": 34,
-		"./filters/texts.js": 34,
-		"./filters/trivial": 29,
-		"./filters/trivial.js": 29,
-		"./formatters/annotated": 38,
-		"./formatters/annotated.js": 38,
-		"./formatters/base": 39,
-		"./formatters/base.js": 39,
-		"./formatters/console": 40,
-		"./formatters/console.js": 40,
-		"./formatters/html": 48,
-		"./formatters/html.js": 48,
-		"./formatters/index": 49,
-		"./formatters/index.js": 49,
-		"./formatters/jsonpatch": 50,
-		"./formatters/jsonpatch.js": 50,
-		"./main": 19,
-		"./main-formatters": 52,
-		"./main-formatters.js": 52,
-		"./main-full": 53,
-		"./main-full.js": 53,
-		"./main.js": 19,
-		"./pipe": 23,
-		"./pipe.js": 23,
-		"./processor": 22,
-		"./processor.js": 22
+	module.exports = {
+		"_args": [
+			[
+				{
+					"raw": "jsondiffpatch@git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+					"scope": null,
+					"escapedName": "jsondiffpatch",
+					"name": "jsondiffpatch",
+					"rawSpec": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+					"spec": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+					"type": "hosted",
+					"hosted": {
+						"type": "github",
+						"ssh": "git@github.com:cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"sshUrl": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"httpsUrl": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"gitUrl": "git://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"shortcut": "github:cheapsteak/jsondiffpatch#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
+					}
+				},
+				"/Users/dandric/Documents/workspace/dcc-docs/node_modules/@icgc/dictionary-viewer"
+			]
+		],
+		"_from": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_id": "jsondiffpatch@0.1.43",
+		"_inCache": true,
+		"_installable": true,
+		"_location": "/jsondiffpatch",
+		"_phantomChildren": {},
+		"_requested": {
+			"raw": "jsondiffpatch@git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+			"scope": null,
+			"escapedName": "jsondiffpatch",
+			"name": "jsondiffpatch",
+			"rawSpec": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+			"spec": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+			"type": "hosted",
+			"hosted": {
+				"type": "github",
+				"ssh": "git@github.com:cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"sshUrl": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"httpsUrl": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"gitUrl": "git://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"shortcut": "github:cheapsteak/jsondiffpatch#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
+			}
+		},
+		"_requiredBy": [
+			"/@icgc/dictionary-viewer"
+		],
+		"_resolved": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_shasum": "d57038bd74a12442714aabde31e25fd3db250ae0",
+		"_shrinkwrap": null,
+		"_spec": "jsondiffpatch@git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_where": "/Users/dandric/Documents/workspace/dcc-docs/node_modules/@icgc/dictionary-viewer",
+		"author": {
+			"name": "Benjamin Eidelman",
+			"email": "beneidel@gmail.com"
+		},
+		"bin": {
+			"jsondiffpatch": "./bin/jsondiffpatch"
+		},
+		"bugs": {
+			"url": "https://github.com/benjamine/jsondiffpatch/issues"
+		},
+		"bundleDependencies": [],
+		"contributors": [
+			{
+				"name": "Benjamin Eidelman",
+				"email": "beneidel@gmail.com"
+			}
+		],
+		"dependencies": {
+			"chalk": "^0.5.1"
+		},
+		"description": "Diff & Patch for Javascript objects",
+		"devDependencies": {
+			"bulk-require": "^0.2.1",
+			"codeclimate-test-reporter": "0.0.3",
+			"expect.js": "~0.3.1",
+			"fiberglass": "0.0.22",
+			"gulp": "^3.8.8",
+			"istanbul": "^0.3.2",
+			"mocha": "^1.21.4"
+		},
+		"engine": {
+			"node": ">=0.10"
+		},
+		"engines": {
+			"node": "*"
+		},
+		"gitHead": "1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"homepage": "https://github.com/benjamine/jsondiffpatch",
+		"keywords": [
+			"json",
+			"diff",
+			"patch"
+		],
+		"license": "MIT",
+		"main": "./src/main",
+		"name": "jsondiffpatch",
+		"optionalDependencies": {},
+		"readme": "jsondiffpatch\n=============\n\n<!--- badges -->\n[![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n[![Code Climate](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/gpa.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![Test Coverage](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/coverage.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![NPM version](https://badge.fury.io/js/jsondiffpatch.svg)](http://badge.fury.io/js/jsondiffpatch)\n[![NPM dependencies](https://david-dm.org/benjamine/jsondiffpatch.svg)](https://david-dm.org/benjamine/jsondiffpatch)\n[![Bower version](https://badge.fury.io/bo/jsondiffpatch.svg)](http://badge.fury.io/bo/jsondiffpatch)\n\nDiff & patch JavaScript objects\n\n-----\n**[Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html)**\n-----\n\n- min+gzipped < 6KB\n- browser (```/public/build/jsondiffpatch.js```) and server (eg. node.js)\n- includes [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) for long text diffs (diff at character level)\n- smart array diffing using [LCS](http://en.wikipedia.org/wiki/Longest_common_subsequence_problem), ***IMPORTANT NOTE:*** to match objects inside an array you must provide an ```objectHash``` function (this is how objects are matched, otherwise a dumb match by position is used). For more details, check [Array diff documentation](docs/arrays.md)\n- reverse a delta\n- unpatch (eg. revert object to its original state using a delta)\n- simplistic, pure JSON, low footprint [delta format](docs/deltas.md)\n- multiple output formatters:\n    - html (check it at the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html))\n    - annotated json (html), makes the JSON delta format self-explained\n    - console (colored), try running ```./node_modules/.bin/jsondiffpatch left.json right.json```\n    - write your own! check [Formatters documentation](docs/formatters.md)\n\nSupported platforms\n----------------\n\n* Any modern browser and IE8+\n\n[![Testling Status](https://ci.testling.com/benjamine/jsondiffpatch.png)](https://ci.testling.com/benjamine/jsondiffpatch)\n\nAnd you can test your current browser visiting the [test page](http://benjamine.github.com/jsondiffpatch/test/index.html).\n\n* Node.js [![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n\nIf you want to run tests locally:\n``` sh\nnpm i\n# will test in node.js and phantomjs (headless browser)\nnpm test\n# or test on specific browsers (using karma.js)\nBROWSERS=chrome,phantomjs npm test\n```\nUsage\n-----\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        capital: \"Buenos Aires\",\n        independence: new Date(1816, 6, 9),\n        unasur: true\n    };\n\n    // clone country, using dateReviver for Date objects\n    var country2 = JSON.parse(JSON.stringify(country), jsondiffpatch.dateReviver);\n\n    // make some changes\n    country2.name = \"Republica Argentina\";\n    country2.population = 41324992;\n    delete country2.capital;\n\n    var delta = jsondiffpatch.diff(country, country2);\n\n    assertSame(delta, {\n        \"name\":[\"Argentina\",\"Republica Argentina\"], // old value, new value\n        \"population\":[\"41324992\"], // new value\n        \"capital\":[\"Buenos Aires\", 0, 0] // deleted\n    });\n\n    // patch original\n    jsondiffpatch.patch(country, delta);\n\n    // reverse diff\n    var reverseDelta = jsondiffpatch.reverse(delta);\n    // also country2 can be return to original value with: jsondiffpatch.unpatch(country2, delta);\n\n    var delta2 = jsondiffpatch.diff(country, country2);\n    assert(delta2 === undefined)\n    // undefined => no difference\n```\n\nArray diffing:\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        cities: [\n        {\n            name: 'Buenos Aires',\n            population: 13028000,\n        },\n        {\n            name: 'Cordoba',\n            population: 1430023,\n        },\n        {\n            name: 'Rosario',\n            population: 1136286,\n        },\n        {\n            name: 'Mendoza',\n            population: 901126,\n        },\n        {\n            name: 'San Miguel de Tucuman',\n            population: 800000,\n        }\n        ]\n    };\n\n    // clone country\n    var country2 = JSON.parse(JSON.stringify(country));\n\n    // delete Cordoba\n    country.cities.splice(1, 1);\n\n    // add La Plata\n    country.cities.splice(4, 0, {\n        name: 'La Plata'\n        });\n\n    // modify Rosario, and move it\n    var rosario = country.cities.splice(1, 1)[0];\n    rosario.population += 1234;\n    country.cities.push(rosario);\n\n    // create a configured instance, match objects by name\n    var diffpatcher = jsondiffpatch.create({\n        objectHash: function(obj) {\n            return obj.name;\n        }\n    });\n\n    var delta = diffpatcher.diff(country, country2);\n\n    assertSame(delta, {\n        \"cities\": {\n            \"_t\": \"a\", // indicates this node is an array (not an object)\n            \"1\": [\n                // inserted at index 1\n                {\n                    \"name\": \"Cordoba\",\n                    \"population\": 1430023\n                }]\n            ,\n            \"2\": {\n                // population modified at index 2 (Rosario)\n                \"population\": [\n                    1137520,\n                    1136286\n                ]\n            },\n            \"_3\": [\n                // removed from index 3\n                {\n                    \"name\": \"La Plata\"\n                }, 0, 0],\n            \"_4\": [\n                // move from index 4 to index 2\n                '', 2, 3]\n        }\n    });\n```\n\nFor more example cases (nested objects or arrays, long text diffs) check ```test/examples/```\n\nIf you want to understand deltas, see [delta format documentation](docs/deltas.md)\n\nInstalling\n---------------\n\n### npm (node.js)\n\n``` sh\nnpm install jsondiffpatch\n```\n\n``` js\nvar jsondiffpatch = require('jsondiffpatch').create(options);\n```\n\n### bower (browser)\n\n``` sh\nbower install jsondiffpatch\n```\n\nbrowser bundles are in the ```/public/build``` folder (you can re-generate these using ```make``` or ```gulp```, `npm test` will do that too):\n- ```jsondiffpatch.js``` main bundle\n- ```jsondiffpatch.full.js``` main bundle + [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) library for text diffs\n- ```jsondiffpatch-formatters.js``` builtin formatters (only those useful in a browser)\n\nAll these come in minified versions (```.min.js```), and separate sourcemap files.\n\nOptions\n-------\n\n``` javascript\nvar jsondiffpatch = require('jsondiffpatch').create({\n    // used to match objects when diffing arrays, by default only === operator is used\n    objectHash: function(obj) {\n        // this function is used only to when objects are not equal by ref\n        return obj._id || obj.id;\n    },\n    arrays: {\n        // default true, detect items moved inside the array (otherwise they will be registered as remove+add)\n        detectMove: true,\n        // default false, the value of items moved is not included in deltas\n        includeValueOnMove: false\n    },\n    textDiff: {\n        // default 60, minimum string length (left and right sides) to use text diff algorythm: google-diff-match-patch\n        minLength: 60\n    },\n    propertyFilter: function(name, context) {\n      /*\n       this optional function can be specified to ignore object properties (eg. volatile data)\n        name: property name, present in either context.left or context.right objects\n        context: the diff context (has context.left and context.right objects)\n      */\n      return name.slice(0, 1) !== '$';\n    },\n    cloneDiffValues: false /* default false. if true, values in the obtained delta will be cloned,\n      to ensure delta keeps no references to left or right objects. this becomes useful\n      if you're diffing and patching the same objects multiple times without serializing deltas.\n      instead of true, a function can be specified here to provide a custom clone(value)\n      */\n});\n```\n\nVisual Diff\n----------------\n\n``` html\n<!DOCTYPE html>\n<html>\n    <head>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch.min.js\"></script>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch-formatters.min.js\"></script>\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/html.css\" type=\"text/css\" />\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/annotated.css\" type=\"text/css\" />\n    </head>\n    <body>\n        <div id=\"visual\"></div>\n        <hr/>\n        <div id=\"annotated\"></div>\n        <script>\n            var left = { a: 3, b: 4 };\n            var right = { a: 5, c: 9 };\n            var delta = jsondiffpatch.diff(left, right);\n\n            // beautiful html diff\n            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, left);\n\n            // self-explained json\n            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, left);\n        </script>\n    </body>\n</html>\n```\n\nTo see formatters in action check the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html).\n\nFor more details check [Formatters documentation](docs/formatters.md)\n\nConsole\n--------\n\n``` sh\n# diff two json files, colored output (using chalk lib)\n./node_modules/.bin/jsondiffpatch ./left.json ./right.json\n\n# or install globally\nnpm install -g jsondiffpatch\n\njsondiffpatch ./demo/left.json ./demo/right.json\n```\n\n![console_demo!](public/demo/consoledemo.png)\n\nPlugins\n-------\n\n```diff()```, ```patch()``` and ```reverse()``` functions are implemented using Pipes & Filters pattern, making it extremely customizable by adding or replacing filters on a pipe.\n\nCheck [Plugins documentation](docs/plugins.md) for details.\n",
+		"readmeFilename": "README.md",
+		"repository": {
+			"type": "git",
+			"url": "git+https://github.com/benjamine/jsondiffpatch.git"
+		},
+		"scripts": {
+			"bump": "gulp bump",
+			"cover": "istanbul cover --root src gulp test",
+			"cover-publish": "istanbul cover _mocha --report lcovonly && codeclimate < coverage/lcov.info",
+			"cover-report": "open coverage/lcov-report/index.html",
+			"test": "gulp test && gulp test-browser"
+		},
+		"testling": {
+			"harness": "mocha",
+			"files": "test/index.js",
+			"scripts": [
+				"build/jsondiffpatch.js",
+				"external/diff_match_patch_uncompressed.js"
+			],
+			"browsers": [
+				"ie/8..latest",
+				"chrome/27..latest",
+				"firefox/22..latest",
+				"safari/5.1..latest",
+				"opera/12..latest",
+				"iphone/6..latest",
+				"ipad/6..latest",
+				"android-browser/4.2..latest"
+			]
+		},
+		"version": "0.1.43"
 	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 37;
-
 
 /***/ },
 /* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var base = __webpack_require__(39);
-	var BaseFormatter = base.BaseFormatter;
+	var environment = __webpack_require__(20);
 
-	var AnnotatedFormatter = function AnnotatedFormatter() {
-	  this.includeMoveDestinations = false;
-	};
+	exports.base = __webpack_require__(39);
+	exports.html = __webpack_require__(40);
+	exports.annotated = __webpack_require__(41);
+	exports.jsonpatch = __webpack_require__(42);
 
-	AnnotatedFormatter.prototype = new BaseFormatter();
-
-	AnnotatedFormatter.prototype.prepareContext = function(context) {
-	  BaseFormatter.prototype.prepareContext.call(this, context);
-	  context.indent = function(levels) {
-	    this.indentLevel = (this.indentLevel || 0) +
-	      (typeof levels === 'undefined' ? 1 : levels);
-	    this.indentPad = new Array(this.indentLevel + 1).join('&nbsp;&nbsp;');
-	  };
-	  context.row = function(json, htmlNote) {
-	    context.out('<tr><td style="white-space: nowrap;">' +
-	      '<pre class="jsondiffpatch-annotated-indent" style="display: inline-block">');
-	    context.out(context.indentPad);
-	    context.out('</pre><pre style="display: inline-block">');
-	    context.out(json);
-	    context.out('</pre></td><td class="jsondiffpatch-delta-note"><div>');
-	    context.out(htmlNote);
-	    context.out('</div></td></tr>');
-	  };
-	};
-
-	AnnotatedFormatter.prototype.typeFormattterErrorFormatter = function(context, err) {
-	  context.row('', '<pre class="jsondiffpatch-error">' + err + '</pre>');
-	};
-
-	AnnotatedFormatter.prototype.formatTextDiffString = function(context, value) {
-	  var lines = this.parseTextDiff(value);
-	  context.out('<ul class="jsondiffpatch-textdiff">');
-	  for (var i = 0, l = lines.length; i < l; i++) {
-	    var line = lines[i];
-	    context.out('<li>' +
-	      '<div class="jsondiffpatch-textdiff-location">' +
-	      '<span class="jsondiffpatch-textdiff-line-number">' +
-	      line.location.line +
-	      '</span>' +
-	      '<span class="jsondiffpatch-textdiff-char">' +
-	      line.location.chr +
-	      '</span>' +
-	      '</div>' +
-	      '<div class="jsondiffpatch-textdiff-line">');
-	    var pieces = line.pieces;
-	    for (var pieceIndex = 0, piecesLength = pieces.length; pieceIndex < piecesLength; pieceIndex++) {
-	      var piece = pieces[pieceIndex];
-	      context.out('<span class="jsondiffpatch-textdiff-' + piece.type + '">' +
-	        piece.text + '</span>');
-	    }
-	    context.out('</div></li>');
-	  }
-	  context.out('</ul>');
-	};
-
-	AnnotatedFormatter.prototype.rootBegin = function(context, type, nodeType) {
-	  context.out('<table class="jsondiffpatch-annotated-delta">');
-	  if (type === 'node') {
-	    context.row('{');
-	    context.indent();
-	  }
-	  if (nodeType === 'array') {
-	    context.row('"_t": "a",', 'Array delta (member names indicate array indices)');
-	  }
-	};
-
-	AnnotatedFormatter.prototype.rootEnd = function(context, type) {
-	  if (type === 'node') {
-	    context.indent(-1);
-	    context.row('}');
-	  }
-	  context.out('</table>');
-	};
-
-	AnnotatedFormatter.prototype.nodeBegin = function(context, key, leftKey, type, nodeType) {
-	  context.row('&quot;' + key + '&quot;: {');
-	  if (type === 'node') {
-	    context.indent();
-	  }
-	  if (nodeType === 'array') {
-	    context.row('"_t": "a",', 'Array delta (member names indicate array indices)');
-	  }
-	};
-
-	AnnotatedFormatter.prototype.nodeEnd = function(context, key, leftKey, type, nodeType, isLast) {
-	  if (type === 'node') {
-	    context.indent(-1);
-	  }
-	  context.row('}' + (isLast ? '' : ','));
-	};
-
-	/* jshint camelcase: false */
-
-	AnnotatedFormatter.prototype.format_unchanged = function() {
-	  return;
-	};
-
-	AnnotatedFormatter.prototype.format_movedestination = function() {
-	  return;
-	};
-
-
-	AnnotatedFormatter.prototype.format_node = function(context, delta, left) {
-	  // recurse
-	  this.formatDeltaChildren(context, delta, left);
-	};
-
-	var wrapPropertyName = function(name) {
-	  return '<pre style="display:inline-block">&quot;' + name + '&quot;</pre>';
-	};
-
-	var deltaAnnotations = {
-	  added: function(delta, left, key, leftKey) {
-	    var formatLegend = ' <pre>([newValue])</pre>';
-	    if (typeof leftKey === 'undefined') {
-	      return 'new value' + formatLegend;
-	    }
-	    if (typeof leftKey === 'number') {
-	      return 'insert at index ' + leftKey + formatLegend;
-	    }
-	    return 'add property ' + wrapPropertyName(leftKey) + formatLegend;
-	  },
-	  modified: function(delta, left, key, leftKey) {
-	    var formatLegend = ' <pre>([previousValue, newValue])</pre>';
-	    if (typeof leftKey === 'undefined') {
-	      return 'modify value' + formatLegend;
-	    }
-	    if (typeof leftKey === 'number') {
-	      return 'modify at index ' + leftKey + formatLegend;
-	    }
-	    return 'modify property ' + wrapPropertyName(leftKey) + formatLegend;
-	  },
-	  deleted: function(delta, left, key, leftKey) {
-	    var formatLegend = ' <pre>([previousValue, 0, 0])</pre>';
-	    if (typeof leftKey === 'undefined') {
-	      return 'delete value' + formatLegend;
-	    }
-	    if (typeof leftKey === 'number') {
-	      return 'remove index ' + leftKey + formatLegend;
-	    }
-	    return 'delete property ' + wrapPropertyName(leftKey) + formatLegend;
-	  },
-	  moved: function(delta, left, key, leftKey) {
-	    return 'move from <span title="(position to remove at original state)">index ' +
-	      leftKey + '</span> to ' +
-	      '<span title="(position to insert at final state)">index ' +
-	      delta[1] + '</span>';
-	  },
-	  textdiff: function(delta, left, key, leftKey) {
-	    var location = (typeof leftKey === 'undefined') ?
-	      '' : (
-	        (typeof leftKey === 'number') ?
-	        ' at index ' + leftKey :
-	        ' at property ' + wrapPropertyName(leftKey)
-	      );
-	    return 'text diff' + location + ', format is ' +
-	      '<a href="https://code.google.com/p/google-diff-match-patch/wiki/Unidiff">' +
-	      'a variation of Unidiff</a>';
-	  }
-	};
-
-	var formatAnyChange = function(context, delta) {
-	  var deltaType = this.getDeltaType(delta);
-	  var annotator = deltaAnnotations[deltaType];
-	  var htmlNote = annotator && annotator.apply(annotator,
-	    Array.prototype.slice.call(arguments, 1));
-	  var json = JSON.stringify(delta, null, 2);
-	  if (deltaType === 'textdiff') {
-	    // split text diffs lines
-	    json = json.split('\\n').join('\\n"+\n   "');
-	  }
-	  context.indent();
-	  context.row(json, htmlNote);
-	  context.indent(-1);
-	};
-
-	AnnotatedFormatter.prototype.format_added = formatAnyChange;
-	AnnotatedFormatter.prototype.format_modified = formatAnyChange;
-	AnnotatedFormatter.prototype.format_deleted = formatAnyChange;
-	AnnotatedFormatter.prototype.format_moved = formatAnyChange;
-	AnnotatedFormatter.prototype.format_textdiff = formatAnyChange;
-
-	/* jshint camelcase: true */
-
-	exports.AnnotatedFormatter = AnnotatedFormatter;
-
-	var defaultInstance;
-
-	exports.format = function(delta, left) {
-	  if (!defaultInstance) {
-	    defaultInstance = new AnnotatedFormatter();
-	  }
-	  return defaultInstance.format(delta, left);
-	};
+	if (!environment.isBrowser) {
+	  exports.console = __webpack_require__(43);
+	}
 
 
 /***/ },
@@ -93917,431 +93801,6 @@ webpackJsonp([0,2],[
 
 /***/ },
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var chalk = __webpack_require__(41);
-	var base = __webpack_require__(39);
-	var BaseFormatter = base.BaseFormatter;
-
-	var colors = {
-	  added: chalk.green,
-	  deleted: chalk.red,
-	  movedestination: chalk.gray,
-	  moved: chalk.yellow,
-	  unchanged: chalk.gray,
-	  error: chalk.white.bgRed,
-	  textDiffLine: chalk.gray
-	};
-
-	var ConsoleFormatter = function ConsoleFormatter() {
-	  this.includeMoveDestinations = false;
-	};
-
-	ConsoleFormatter.prototype = new BaseFormatter();
-
-	ConsoleFormatter.prototype.prepareContext = function(context) {
-	  BaseFormatter.prototype.prepareContext.call(this, context);
-	  context.indent = function(levels) {
-	    this.indentLevel = (this.indentLevel || 0) +
-	      (typeof levels === 'undefined' ? 1 : levels);
-	    this.indentPad = new Array(this.indentLevel + 1).join('  ');
-	    this.outLine();
-	  };
-	  context.outLine = function() {
-	    this.buffer.push('\n' + (this.indentPad || ''));
-	  };
-	  context.out = function() {
-	    for (var i = 0, l = arguments.length; i < l; i++) {
-	      var lines = arguments[i].split('\n');
-	      var text = lines.join('\n' + (this.indentPad || ''));
-	      if (this.color && this.color[0]) {
-	        text = this.color[0](text);
-	      }
-	      this.buffer.push(text);
-	    }
-	  };
-	  context.pushColor = function(color) {
-	    this.color = this.color || [];
-	    this.color.unshift(color);
-	  };
-	  context.popColor = function() {
-	    this.color = this.color || [];
-	    this.color.shift();
-	  };
-	};
-
-	ConsoleFormatter.prototype.typeFormattterErrorFormatter = function(context, err) {
-	  context.pushColor(colors.error);
-	  context.out('[ERROR]' + err);
-	  context.popColor();
-	};
-
-	ConsoleFormatter.prototype.formatValue = function(context, value) {
-	  context.out(JSON.stringify(value, null, 2));
-	};
-
-	ConsoleFormatter.prototype.formatTextDiffString = function(context, value) {
-	  var lines = this.parseTextDiff(value);
-	  context.indent();
-	  for (var i = 0, l = lines.length; i < l; i++) {
-	    var line = lines[i];
-	    context.pushColor(colors.textDiffLine);
-	    context.out(line.location.line + ',' + line.location.chr + ' ');
-	    context.popColor();
-	    var pieces = line.pieces;
-	    for (var pieceIndex = 0, piecesLength = pieces.length; pieceIndex < piecesLength; pieceIndex++) {
-	      var piece = pieces[pieceIndex];
-	      context.pushColor(colors[piece.type]);
-	      context.out(piece.text);
-	      context.popColor();
-	    }
-	    if (i < l - 1) {
-	      context.outLine();
-	    }
-	  }
-	  context.indent(-1);
-	};
-
-	ConsoleFormatter.prototype.rootBegin = function(context, type, nodeType) {
-	  context.pushColor(colors[type]);
-	  if (type === 'node') {
-	    context.out(nodeType === 'array' ? '[' : '{');
-	    context.indent();
-	  }
-	};
-
-	ConsoleFormatter.prototype.rootEnd = function(context, type, nodeType) {
-	  if (type === 'node') {
-	    context.indent(-1);
-	    context.out(nodeType === 'array' ? ']' : '}');
-	  }
-	  context.popColor();
-	};
-
-	ConsoleFormatter.prototype.nodeBegin = function(context, key, leftKey, type, nodeType) {
-	  context.pushColor(colors[type]);
-	  context.out(leftKey + ': ');
-	  if (type === 'node') {
-	    context.out(nodeType === 'array' ? '[' : '{');
-	    context.indent();
-	  }
-	};
-
-	ConsoleFormatter.prototype.nodeEnd = function(context, key, leftKey, type, nodeType, isLast) {
-	  if (type === 'node') {
-	    context.indent(-1);
-	    context.out(nodeType === 'array' ? ']' : '}' +
-	      (isLast ? '' : ','));
-	  }
-	  if (!isLast) {
-	    context.outLine();
-	  }
-	  context.popColor();
-	};
-
-	/* jshint camelcase: false */
-
-	ConsoleFormatter.prototype.format_unchanged = function(context, delta, left) {
-	  if (typeof left === 'undefined') {
-	    return;
-	  }
-	  this.formatValue(context, left);
-	};
-
-	ConsoleFormatter.prototype.format_movedestination = function(context, delta, left) {
-	  if (typeof left === 'undefined') {
-	    return;
-	  }
-	  this.formatValue(context, left);
-	};
-
-	ConsoleFormatter.prototype.format_node = function(context, delta, left) {
-	  // recurse
-	  this.formatDeltaChildren(context, delta, left);
-	};
-
-	ConsoleFormatter.prototype.format_added = function(context, delta) {
-	  this.formatValue(context, delta[0]);
-	};
-
-	ConsoleFormatter.prototype.format_modified = function(context, delta) {
-	  context.pushColor(colors.deleted);
-	  this.formatValue(context, delta[0]);
-	  context.popColor();
-	  context.out(' => ');
-	  context.pushColor(colors.added);
-	  this.formatValue(context, delta[1]);
-	  context.popColor();
-	};
-
-	ConsoleFormatter.prototype.format_deleted = function(context, delta) {
-	  this.formatValue(context, delta[0]);
-	};
-
-	ConsoleFormatter.prototype.format_moved = function(context, delta) {
-	  context.out('==> ' + delta[1]);
-	};
-
-	ConsoleFormatter.prototype.format_textdiff = function(context, delta) {
-	  this.formatTextDiffString(context, delta[0]);
-	};
-
-	/* jshint camelcase: true */
-
-	exports.ConsoleFormatter = ConsoleFormatter;
-
-	var defaultInstance;
-
-	var format = function(delta, left) {
-	  if (!defaultInstance) {
-	    defaultInstance = new ConsoleFormatter();
-	  }
-	  return defaultInstance.format(delta, left);
-	};
-
-	exports.log = function(delta, left) {
-	  console.log(format(delta, left));
-	};
-
-	exports.format = format;
-
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var escapeStringRegexp = __webpack_require__(42);
-	var ansiStyles = __webpack_require__(43);
-	var stripAnsi = __webpack_require__(44);
-	var hasAnsi = __webpack_require__(46);
-	var supportsColor = __webpack_require__(47);
-	var defineProps = Object.defineProperties;
-	var chalk = module.exports;
-
-	function build(_styles) {
-		var builder = function builder() {
-			return applyStyle.apply(builder, arguments);
-		};
-		builder._styles = _styles;
-		// __proto__ is used because we must return a function, but there is
-		// no way to create a function with a different prototype.
-		builder.__proto__ = proto;
-		return builder;
-	}
-
-	var styles = (function () {
-		var ret = {};
-
-		ansiStyles.grey = ansiStyles.gray;
-
-		Object.keys(ansiStyles).forEach(function (key) {
-			ansiStyles[key].closeRe = new RegExp(escapeStringRegexp(ansiStyles[key].close), 'g');
-
-			ret[key] = {
-				get: function () {
-					return build(this._styles.concat(key));
-				}
-			};
-		});
-
-		return ret;
-	})();
-
-	var proto = defineProps(function chalk() {}, styles);
-
-	function applyStyle() {
-		// support varags, but simply cast to string in case there's only one arg
-		var args = arguments;
-		var argsLen = args.length;
-		var str = argsLen !== 0 && String(arguments[0]);
-		if (argsLen > 1) {
-			// don't slice `arguments`, it prevents v8 optimizations
-			for (var a = 1; a < argsLen; a++) {
-				str += ' ' + args[a];
-			}
-		}
-
-		if (!chalk.enabled || !str) {
-			return str;
-		}
-
-		/*jshint validthis: true*/
-		var nestedStyles = this._styles;
-
-		for (var i = 0; i < nestedStyles.length; i++) {
-			var code = ansiStyles[nestedStyles[i]];
-			// Replace any instances already present with a re-opening code
-			// otherwise only the part of the string until said closing code
-			// will be colored, and the rest will simply be 'plain'.
-			str = code.open + str.replace(code.closeRe, code.open) + code.close;
-		}
-
-		return str;
-	}
-
-	function init() {
-		var ret = {};
-
-		Object.keys(styles).forEach(function (name) {
-			ret[name] = {
-				get: function () {
-					return build([name]);
-				}
-			};
-		});
-
-		return ret;
-	}
-
-	defineProps(chalk, init());
-
-	chalk.styles = ansiStyles;
-	chalk.hasColor = hasAnsi;
-	chalk.stripColor = stripAnsi;
-	chalk.supportsColor = supportsColor;
-
-	// detect mode if not set manually
-	if (chalk.enabled === undefined) {
-		chalk.enabled = chalk.supportsColor;
-	}
-
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
-
-	module.exports = function (str) {
-		if (typeof str !== 'string') {
-			throw new TypeError('Expected a string');
-		}
-
-		return str.replace(matchOperatorsRe, '\\$&');
-	};
-
-
-/***/ },
-/* 43 */
-/***/ function(module, exports) {
-
-	'use strict';
-	var styles = module.exports;
-
-	var codes = {
-		reset: [0, 0],
-
-		bold: [1, 22], // 21 isn't widely supported and 22 does the same thing
-		dim: [2, 22],
-		italic: [3, 23],
-		underline: [4, 24],
-		inverse: [7, 27],
-		hidden: [8, 28],
-		strikethrough: [9, 29],
-
-		black: [30, 39],
-		red: [31, 39],
-		green: [32, 39],
-		yellow: [33, 39],
-		blue: [34, 39],
-		magenta: [35, 39],
-		cyan: [36, 39],
-		white: [37, 39],
-		gray: [90, 39],
-
-		bgBlack: [40, 49],
-		bgRed: [41, 49],
-		bgGreen: [42, 49],
-		bgYellow: [43, 49],
-		bgBlue: [44, 49],
-		bgMagenta: [45, 49],
-		bgCyan: [46, 49],
-		bgWhite: [47, 49]
-	};
-
-	Object.keys(codes).forEach(function (key) {
-		var val = codes[key];
-		var style = styles[key] = {};
-		style.open = '\u001b[' + val[0] + 'm';
-		style.close = '\u001b[' + val[1] + 'm';
-	});
-
-
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var ansiRegex = __webpack_require__(45)();
-
-	module.exports = function (str) {
-		return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
-	};
-
-
-/***/ },
-/* 45 */
-/***/ function(module, exports) {
-
-	'use strict';
-	module.exports = function () {
-		return /\u001b\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]/g;
-	};
-
-
-/***/ },
-/* 46 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var ansiRegex = __webpack_require__(45);
-	var re = new RegExp(ansiRegex().source); // remove the `g` flag
-	module.exports = re.test.bind(re);
-
-
-/***/ },
-/* 47 */
-/***/ function(module, exports) {
-
-	'use strict';
-	module.exports = (function () {
-		if (process.argv.indexOf('--no-color') !== -1) {
-			return false;
-		}
-
-		if (process.argv.indexOf('--color') !== -1) {
-			return true;
-		}
-
-		if (process.stdout && !process.stdout.isTTY) {
-			return false;
-		}
-
-		if (process.platform === 'win32') {
-			return true;
-		}
-
-		if ('COLORTERM' in process.env) {
-			return true;
-		}
-
-		if (process.env.TERM === 'dumb') {
-			return false;
-		}
-
-		if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(process.env.TERM)) {
-			return true;
-		}
-
-		return false;
-	})();
-
-
-/***/ },
-/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var base = __webpack_require__(39);
@@ -94628,24 +94087,210 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 49 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var environment = __webpack_require__(20);
+	var base = __webpack_require__(39);
+	var BaseFormatter = base.BaseFormatter;
 
-	exports.base = __webpack_require__(39);
-	exports.html = __webpack_require__(48);
-	exports.annotated = __webpack_require__(38);
-	exports.jsonpatch = __webpack_require__(50);
+	var AnnotatedFormatter = function AnnotatedFormatter() {
+	  this.includeMoveDestinations = false;
+	};
 
-	if (!environment.isBrowser) {
-	  var consoleModuleName = './console';
-	  exports.console = __webpack_require__(51)(consoleModuleName);
-	}
+	AnnotatedFormatter.prototype = new BaseFormatter();
+
+	AnnotatedFormatter.prototype.prepareContext = function(context) {
+	  BaseFormatter.prototype.prepareContext.call(this, context);
+	  context.indent = function(levels) {
+	    this.indentLevel = (this.indentLevel || 0) +
+	      (typeof levels === 'undefined' ? 1 : levels);
+	    this.indentPad = new Array(this.indentLevel + 1).join('&nbsp;&nbsp;');
+	  };
+	  context.row = function(json, htmlNote) {
+	    context.out('<tr><td style="white-space: nowrap;">' +
+	      '<pre class="jsondiffpatch-annotated-indent" style="display: inline-block">');
+	    context.out(context.indentPad);
+	    context.out('</pre><pre style="display: inline-block">');
+	    context.out(json);
+	    context.out('</pre></td><td class="jsondiffpatch-delta-note"><div>');
+	    context.out(htmlNote);
+	    context.out('</div></td></tr>');
+	  };
+	};
+
+	AnnotatedFormatter.prototype.typeFormattterErrorFormatter = function(context, err) {
+	  context.row('', '<pre class="jsondiffpatch-error">' + err + '</pre>');
+	};
+
+	AnnotatedFormatter.prototype.formatTextDiffString = function(context, value) {
+	  var lines = this.parseTextDiff(value);
+	  context.out('<ul class="jsondiffpatch-textdiff">');
+	  for (var i = 0, l = lines.length; i < l; i++) {
+	    var line = lines[i];
+	    context.out('<li>' +
+	      '<div class="jsondiffpatch-textdiff-location">' +
+	      '<span class="jsondiffpatch-textdiff-line-number">' +
+	      line.location.line +
+	      '</span>' +
+	      '<span class="jsondiffpatch-textdiff-char">' +
+	      line.location.chr +
+	      '</span>' +
+	      '</div>' +
+	      '<div class="jsondiffpatch-textdiff-line">');
+	    var pieces = line.pieces;
+	    for (var pieceIndex = 0, piecesLength = pieces.length; pieceIndex < piecesLength; pieceIndex++) {
+	      var piece = pieces[pieceIndex];
+	      context.out('<span class="jsondiffpatch-textdiff-' + piece.type + '">' +
+	        piece.text + '</span>');
+	    }
+	    context.out('</div></li>');
+	  }
+	  context.out('</ul>');
+	};
+
+	AnnotatedFormatter.prototype.rootBegin = function(context, type, nodeType) {
+	  context.out('<table class="jsondiffpatch-annotated-delta">');
+	  if (type === 'node') {
+	    context.row('{');
+	    context.indent();
+	  }
+	  if (nodeType === 'array') {
+	    context.row('"_t": "a",', 'Array delta (member names indicate array indices)');
+	  }
+	};
+
+	AnnotatedFormatter.prototype.rootEnd = function(context, type) {
+	  if (type === 'node') {
+	    context.indent(-1);
+	    context.row('}');
+	  }
+	  context.out('</table>');
+	};
+
+	AnnotatedFormatter.prototype.nodeBegin = function(context, key, leftKey, type, nodeType) {
+	  context.row('&quot;' + key + '&quot;: {');
+	  if (type === 'node') {
+	    context.indent();
+	  }
+	  if (nodeType === 'array') {
+	    context.row('"_t": "a",', 'Array delta (member names indicate array indices)');
+	  }
+	};
+
+	AnnotatedFormatter.prototype.nodeEnd = function(context, key, leftKey, type, nodeType, isLast) {
+	  if (type === 'node') {
+	    context.indent(-1);
+	  }
+	  context.row('}' + (isLast ? '' : ','));
+	};
+
+	/* jshint camelcase: false */
+
+	AnnotatedFormatter.prototype.format_unchanged = function() {
+	  return;
+	};
+
+	AnnotatedFormatter.prototype.format_movedestination = function() {
+	  return;
+	};
+
+
+	AnnotatedFormatter.prototype.format_node = function(context, delta, left) {
+	  // recurse
+	  this.formatDeltaChildren(context, delta, left);
+	};
+
+	var wrapPropertyName = function(name) {
+	  return '<pre style="display:inline-block">&quot;' + name + '&quot;</pre>';
+	};
+
+	var deltaAnnotations = {
+	  added: function(delta, left, key, leftKey) {
+	    var formatLegend = ' <pre>([newValue])</pre>';
+	    if (typeof leftKey === 'undefined') {
+	      return 'new value' + formatLegend;
+	    }
+	    if (typeof leftKey === 'number') {
+	      return 'insert at index ' + leftKey + formatLegend;
+	    }
+	    return 'add property ' + wrapPropertyName(leftKey) + formatLegend;
+	  },
+	  modified: function(delta, left, key, leftKey) {
+	    var formatLegend = ' <pre>([previousValue, newValue])</pre>';
+	    if (typeof leftKey === 'undefined') {
+	      return 'modify value' + formatLegend;
+	    }
+	    if (typeof leftKey === 'number') {
+	      return 'modify at index ' + leftKey + formatLegend;
+	    }
+	    return 'modify property ' + wrapPropertyName(leftKey) + formatLegend;
+	  },
+	  deleted: function(delta, left, key, leftKey) {
+	    var formatLegend = ' <pre>([previousValue, 0, 0])</pre>';
+	    if (typeof leftKey === 'undefined') {
+	      return 'delete value' + formatLegend;
+	    }
+	    if (typeof leftKey === 'number') {
+	      return 'remove index ' + leftKey + formatLegend;
+	    }
+	    return 'delete property ' + wrapPropertyName(leftKey) + formatLegend;
+	  },
+	  moved: function(delta, left, key, leftKey) {
+	    return 'move from <span title="(position to remove at original state)">index ' +
+	      leftKey + '</span> to ' +
+	      '<span title="(position to insert at final state)">index ' +
+	      delta[1] + '</span>';
+	  },
+	  textdiff: function(delta, left, key, leftKey) {
+	    var location = (typeof leftKey === 'undefined') ?
+	      '' : (
+	        (typeof leftKey === 'number') ?
+	        ' at index ' + leftKey :
+	        ' at property ' + wrapPropertyName(leftKey)
+	      );
+	    return 'text diff' + location + ', format is ' +
+	      '<a href="https://code.google.com/p/google-diff-match-patch/wiki/Unidiff">' +
+	      'a variation of Unidiff</a>';
+	  }
+	};
+
+	var formatAnyChange = function(context, delta) {
+	  var deltaType = this.getDeltaType(delta);
+	  var annotator = deltaAnnotations[deltaType];
+	  var htmlNote = annotator && annotator.apply(annotator,
+	    Array.prototype.slice.call(arguments, 1));
+	  var json = JSON.stringify(delta, null, 2);
+	  if (deltaType === 'textdiff') {
+	    // split text diffs lines
+	    json = json.split('\\n').join('\\n"+\n   "');
+	  }
+	  context.indent();
+	  context.row(json, htmlNote);
+	  context.indent(-1);
+	};
+
+	AnnotatedFormatter.prototype.format_added = formatAnyChange;
+	AnnotatedFormatter.prototype.format_modified = formatAnyChange;
+	AnnotatedFormatter.prototype.format_deleted = formatAnyChange;
+	AnnotatedFormatter.prototype.format_moved = formatAnyChange;
+	AnnotatedFormatter.prototype.format_textdiff = formatAnyChange;
+
+	/* jshint camelcase: true */
+
+	exports.AnnotatedFormatter = AnnotatedFormatter;
+
+	var defaultInstance;
+
+	exports.format = function(delta, left) {
+	  if (!defaultInstance) {
+	    defaultInstance = new AnnotatedFormatter();
+	  }
+	  return defaultInstance.format(delta, left);
+	};
 
 
 /***/ },
-/* 50 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function () {
@@ -94829,59 +94474,428 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 51 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var map = {
-		"./annotated": 38,
-		"./annotated.js": 38,
-		"./base": 39,
-		"./base.js": 39,
-		"./console": 40,
-		"./console.js": 40,
-		"./html": 48,
-		"./html.js": 48,
-		"./index": 49,
-		"./index.js": 49,
-		"./jsonpatch": 50,
-		"./jsonpatch.js": 50
+	var chalk = __webpack_require__(44);
+	var base = __webpack_require__(39);
+	var BaseFormatter = base.BaseFormatter;
+
+	var colors = {
+	  added: chalk.green,
+	  deleted: chalk.red,
+	  movedestination: chalk.gray,
+	  moved: chalk.yellow,
+	  unchanged: chalk.gray,
+	  error: chalk.white.bgRed,
+	  textDiffLine: chalk.gray
 	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
+
+	var ConsoleFormatter = function ConsoleFormatter() {
+	  this.includeMoveDestinations = false;
 	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+
+	ConsoleFormatter.prototype = new BaseFormatter();
+
+	ConsoleFormatter.prototype.prepareContext = function(context) {
+	  BaseFormatter.prototype.prepareContext.call(this, context);
+	  context.indent = function(levels) {
+	    this.indentLevel = (this.indentLevel || 0) +
+	      (typeof levels === 'undefined' ? 1 : levels);
+	    this.indentPad = new Array(this.indentLevel + 1).join('  ');
+	    this.outLine();
+	  };
+	  context.outLine = function() {
+	    this.buffer.push('\n' + (this.indentPad || ''));
+	  };
+	  context.out = function() {
+	    for (var i = 0, l = arguments.length; i < l; i++) {
+	      var lines = arguments[i].split('\n');
+	      var text = lines.join('\n' + (this.indentPad || ''));
+	      if (this.color && this.color[0]) {
+	        text = this.color[0](text);
+	      }
+	      this.buffer.push(text);
+	    }
+	  };
+	  context.pushColor = function(color) {
+	    this.color = this.color || [];
+	    this.color.unshift(color);
+	  };
+	  context.popColor = function() {
+	    this.color = this.color || [];
+	    this.color.shift();
+	  };
 	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
+
+	ConsoleFormatter.prototype.typeFormattterErrorFormatter = function(context, err) {
+	  context.pushColor(colors.error);
+	  context.out('[ERROR]' + err);
+	  context.popColor();
 	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 51;
+
+	ConsoleFormatter.prototype.formatValue = function(context, value) {
+	  context.out(JSON.stringify(value, null, 2));
+	};
+
+	ConsoleFormatter.prototype.formatTextDiffString = function(context, value) {
+	  var lines = this.parseTextDiff(value);
+	  context.indent();
+	  for (var i = 0, l = lines.length; i < l; i++) {
+	    var line = lines[i];
+	    context.pushColor(colors.textDiffLine);
+	    context.out(line.location.line + ',' + line.location.chr + ' ');
+	    context.popColor();
+	    var pieces = line.pieces;
+	    for (var pieceIndex = 0, piecesLength = pieces.length; pieceIndex < piecesLength; pieceIndex++) {
+	      var piece = pieces[pieceIndex];
+	      context.pushColor(colors[piece.type]);
+	      context.out(piece.text);
+	      context.popColor();
+	    }
+	    if (i < l - 1) {
+	      context.outLine();
+	    }
+	  }
+	  context.indent(-1);
+	};
+
+	ConsoleFormatter.prototype.rootBegin = function(context, type, nodeType) {
+	  context.pushColor(colors[type]);
+	  if (type === 'node') {
+	    context.out(nodeType === 'array' ? '[' : '{');
+	    context.indent();
+	  }
+	};
+
+	ConsoleFormatter.prototype.rootEnd = function(context, type, nodeType) {
+	  if (type === 'node') {
+	    context.indent(-1);
+	    context.out(nodeType === 'array' ? ']' : '}');
+	  }
+	  context.popColor();
+	};
+
+	ConsoleFormatter.prototype.nodeBegin = function(context, key, leftKey, type, nodeType) {
+	  context.pushColor(colors[type]);
+	  context.out(leftKey + ': ');
+	  if (type === 'node') {
+	    context.out(nodeType === 'array' ? '[' : '{');
+	    context.indent();
+	  }
+	};
+
+	ConsoleFormatter.prototype.nodeEnd = function(context, key, leftKey, type, nodeType, isLast) {
+	  if (type === 'node') {
+	    context.indent(-1);
+	    context.out(nodeType === 'array' ? ']' : '}' +
+	      (isLast ? '' : ','));
+	  }
+	  if (!isLast) {
+	    context.outLine();
+	  }
+	  context.popColor();
+	};
+
+	/* jshint camelcase: false */
+
+	ConsoleFormatter.prototype.format_unchanged = function(context, delta, left) {
+	  if (typeof left === 'undefined') {
+	    return;
+	  }
+	  this.formatValue(context, left);
+	};
+
+	ConsoleFormatter.prototype.format_movedestination = function(context, delta, left) {
+	  if (typeof left === 'undefined') {
+	    return;
+	  }
+	  this.formatValue(context, left);
+	};
+
+	ConsoleFormatter.prototype.format_node = function(context, delta, left) {
+	  // recurse
+	  this.formatDeltaChildren(context, delta, left);
+	};
+
+	ConsoleFormatter.prototype.format_added = function(context, delta) {
+	  this.formatValue(context, delta[0]);
+	};
+
+	ConsoleFormatter.prototype.format_modified = function(context, delta) {
+	  context.pushColor(colors.deleted);
+	  this.formatValue(context, delta[0]);
+	  context.popColor();
+	  context.out(' => ');
+	  context.pushColor(colors.added);
+	  this.formatValue(context, delta[1]);
+	  context.popColor();
+	};
+
+	ConsoleFormatter.prototype.format_deleted = function(context, delta) {
+	  this.formatValue(context, delta[0]);
+	};
+
+	ConsoleFormatter.prototype.format_moved = function(context, delta) {
+	  context.out('==> ' + delta[1]);
+	};
+
+	ConsoleFormatter.prototype.format_textdiff = function(context, delta) {
+	  this.formatTextDiffString(context, delta[0]);
+	};
+
+	/* jshint camelcase: true */
+
+	exports.ConsoleFormatter = ConsoleFormatter;
+
+	var defaultInstance;
+
+	var format = function(delta, left) {
+	  if (!defaultInstance) {
+	    defaultInstance = new ConsoleFormatter();
+	  }
+	  return defaultInstance.format(delta, left);
+	};
+
+	exports.log = function(delta, left) {
+	  console.log(format(delta, left));
+	};
+
+	exports.format = format;
 
 
 /***/ },
-/* 52 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
-	module.exports = __webpack_require__(49);
+	'use strict';
+	var escapeStringRegexp = __webpack_require__(45);
+	var ansiStyles = __webpack_require__(46);
+	var stripAnsi = __webpack_require__(47);
+	var hasAnsi = __webpack_require__(49);
+	var supportsColor = __webpack_require__(50);
+	var defineProps = Object.defineProperties;
+	var chalk = module.exports;
 
-
-/***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var environment = __webpack_require__(20);
-
-	if (environment.isBrowser) {
-	  /* global window */
-	  /* jshint camelcase: false */
-	  window.diff_match_patch = __webpack_require__(36);
-	  /* jshint camelcase: true */
+	function build(_styles) {
+		var builder = function builder() {
+			return applyStyle.apply(builder, arguments);
+		};
+		builder._styles = _styles;
+		// __proto__ is used because we must return a function, but there is
+		// no way to create a function with a different prototype.
+		builder.__proto__ = proto;
+		return builder;
 	}
 
-	module.exports = __webpack_require__(19);
+	var styles = (function () {
+		var ret = {};
+
+		ansiStyles.grey = ansiStyles.gray;
+
+		Object.keys(ansiStyles).forEach(function (key) {
+			ansiStyles[key].closeRe = new RegExp(escapeStringRegexp(ansiStyles[key].close), 'g');
+
+			ret[key] = {
+				get: function () {
+					return build(this._styles.concat(key));
+				}
+			};
+		});
+
+		return ret;
+	})();
+
+	var proto = defineProps(function chalk() {}, styles);
+
+	function applyStyle() {
+		// support varags, but simply cast to string in case there's only one arg
+		var args = arguments;
+		var argsLen = args.length;
+		var str = argsLen !== 0 && String(arguments[0]);
+		if (argsLen > 1) {
+			// don't slice `arguments`, it prevents v8 optimizations
+			for (var a = 1; a < argsLen; a++) {
+				str += ' ' + args[a];
+			}
+		}
+
+		if (!chalk.enabled || !str) {
+			return str;
+		}
+
+		/*jshint validthis: true*/
+		var nestedStyles = this._styles;
+
+		for (var i = 0; i < nestedStyles.length; i++) {
+			var code = ansiStyles[nestedStyles[i]];
+			// Replace any instances already present with a re-opening code
+			// otherwise only the part of the string until said closing code
+			// will be colored, and the rest will simply be 'plain'.
+			str = code.open + str.replace(code.closeRe, code.open) + code.close;
+		}
+
+		return str;
+	}
+
+	function init() {
+		var ret = {};
+
+		Object.keys(styles).forEach(function (name) {
+			ret[name] = {
+				get: function () {
+					return build([name]);
+				}
+			};
+		});
+
+		return ret;
+	}
+
+	defineProps(chalk, init());
+
+	chalk.styles = ansiStyles;
+	chalk.hasColor = hasAnsi;
+	chalk.stripColor = stripAnsi;
+	chalk.supportsColor = supportsColor;
+
+	// detect mode if not set manually
+	if (chalk.enabled === undefined) {
+		chalk.enabled = chalk.supportsColor;
+	}
+
+
+/***/ },
+/* 45 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+
+	module.exports = function (str) {
+		if (typeof str !== 'string') {
+			throw new TypeError('Expected a string');
+		}
+
+		return str.replace(matchOperatorsRe, '\\$&');
+	};
+
+
+/***/ },
+/* 46 */
+/***/ function(module, exports) {
+
+	'use strict';
+	var styles = module.exports;
+
+	var codes = {
+		reset: [0, 0],
+
+		bold: [1, 22], // 21 isn't widely supported and 22 does the same thing
+		dim: [2, 22],
+		italic: [3, 23],
+		underline: [4, 24],
+		inverse: [7, 27],
+		hidden: [8, 28],
+		strikethrough: [9, 29],
+
+		black: [30, 39],
+		red: [31, 39],
+		green: [32, 39],
+		yellow: [33, 39],
+		blue: [34, 39],
+		magenta: [35, 39],
+		cyan: [36, 39],
+		white: [37, 39],
+		gray: [90, 39],
+
+		bgBlack: [40, 49],
+		bgRed: [41, 49],
+		bgGreen: [42, 49],
+		bgYellow: [43, 49],
+		bgBlue: [44, 49],
+		bgMagenta: [45, 49],
+		bgCyan: [46, 49],
+		bgWhite: [47, 49]
+	};
+
+	Object.keys(codes).forEach(function (key) {
+		var val = codes[key];
+		var style = styles[key] = {};
+		style.open = '\u001b[' + val[0] + 'm';
+		style.close = '\u001b[' + val[1] + 'm';
+	});
+
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var ansiRegex = __webpack_require__(48)();
+
+	module.exports = function (str) {
+		return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
+	};
+
+
+/***/ },
+/* 48 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = function () {
+		return /\u001b\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]/g;
+	};
+
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var ansiRegex = __webpack_require__(48);
+	var re = new RegExp(ansiRegex().source); // remove the `g` flag
+	module.exports = re.test.bind(re);
+
+
+/***/ },
+/* 50 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = (function () {
+		if (process.argv.indexOf('--no-color') !== -1) {
+			return false;
+		}
+
+		if (process.argv.indexOf('--color') !== -1) {
+			return true;
+		}
+
+		if (process.stdout && !process.stdout.isTTY) {
+			return false;
+		}
+
+		if (process.platform === 'win32') {
+			return true;
+		}
+
+		if ('COLORTERM' in process.env) {
+			return true;
+		}
+
+		if (process.env.TERM === 'dumb') {
+			return false;
+		}
+
+		if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(process.env.TERM)) {
+			return true;
+		}
+
+		return false;
+	})();
 
 
 /***/ }

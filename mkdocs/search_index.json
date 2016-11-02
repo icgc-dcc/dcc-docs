@@ -2262,13 +2262,18 @@
         }, 
         {
             "location": "/software/icgc-get/", 
-            "text": "icgc-get Release Notes\n\n\n0.5.3 - Oct 19, 2016\n\n\n\n\nFixes issue where downloading by manifest could cause a bad request in obtaining file metadata.\n\n\n\n\n0.5.1 - Sept 22, 2016\n\n\n\n\nImprovements in configuration prompts, especially in handling incorrect inputs. \n\n\nWhen specifying an output directory, icgc-get will attempt to create the directory if possible. \n\n\n\n\n0.5.0 - Sept 20, 2016\n\n\n\n\nGenerated \nconfig.yaml\n documents unset configuration should users like to be able to modify their configuration by hand.\n\n\nBetter error handling for unrecoverable and corrupted configuration. \n\n\n\n\n0.4.4 - Sept 13, 2016\n\n\n\n\nAdded headers to output indicating which File Ids are being downloaded and from which repository. \n\n\n\n\n0.4.1 - Aug 15, 2016\n\n\n\n\nInitial release.", 
+            "text": "icgc-get Release Notes\n\n\n0.5.4 - Nov 2, 2016\n\n\n\n\nFixes issue with PDC downloads not working\n\n\nFixes OSX binary from returning \nFailed to execute\n on successful operations. \n\n\n\n\n0.5.3 - Oct 19, 2016\n\n\n\n\nFixes issue where downloading by manifest could cause a bad request in obtaining file metadata.\n\n\n\n\n0.5.1 - Sept 22, 2016\n\n\n\n\nImprovements in configuration prompts, especially in handling incorrect inputs. \n\n\nWhen specifying an output directory, icgc-get will attempt to create the directory if possible. \n\n\n\n\n0.5.0 - Sept 20, 2016\n\n\n\n\nGenerated \nconfig.yaml\n documents unset configuration should users like to be able to modify their configuration by hand.\n\n\nBetter error handling for unrecoverable and corrupted configuration. \n\n\n\n\n0.4.4 - Sept 13, 2016\n\n\n\n\nAdded headers to output indicating which File Ids are being downloaded and from which repository. \n\n\n\n\n0.4.1 - Aug 15, 2016\n\n\n\n\nInitial release.", 
             "title": "icgc-get"
         }, 
         {
             "location": "/software/icgc-get/#icgc-get-release-notes", 
             "text": "", 
             "title": "icgc-get Release Notes"
+        }, 
+        {
+            "location": "/software/icgc-get/#054-nov-2-2016", 
+            "text": "Fixes issue with PDC downloads not working  Fixes OSX binary from returning  Failed to execute  on successful operations.", 
+            "title": "0.5.4 - Nov 2, 2016"
         }, 
         {
             "location": "/software/icgc-get/#053-oct-19-2016", 
