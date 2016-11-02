@@ -1,8 +1,9 @@
 # icgc-get Release Notes
 
-#### 0.5.4 - Nov 2, 2016
+#### 0.5.5 - Nov 2, 2016
 * Fixes issue with PDC downloads not working
 * Fixes OSX binary from returning `Failed to execute` on successful operations. 
+* Removed debug logging on awscli when downloading from PDC. 
 
 #### 0.5.3 - Oct 19, 2016
 * Fixes issue where downloading by manifest could cause a bad request in obtaining file metadata.
