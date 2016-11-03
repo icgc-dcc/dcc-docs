@@ -1,5 +1,9 @@
 # icgc-get Release Notes
 
+#### 0.5.6 - Nov 3, 2016
+* Fixed access checking for GDC repository. 
+* Misc bug fixes related to exception handling. 
+
 #### 0.5.5 - Nov 2, 2016
 * Fixes issue with PDC downloads not working
 * Fixes OSX binary from returning `Failed to execute` on successful operations. 
