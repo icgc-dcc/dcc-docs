@@ -1,5 +1,9 @@
 # icgc-get Release Notes
 
+#### 0.5.7 - Nov 9, 2016
+* Improved messages to user when files have already been downloaded. 
+* Fixed bug that prevented changing the number of threads the icgc-storage client would use. 
+
 #### 0.5.6 - Nov 3, 2016
 * Fixed access checking for GDC repository. 
 * Misc bug fixes related to exception handling. 
