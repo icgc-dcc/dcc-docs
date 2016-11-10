@@ -84,11 +84,15 @@ $(function () {
           $propWrapSpan.contents().insertAfter($propWrapSpan);
           $propWrapDiv.contents().appendTo($propWrapSpan);
           $propWrapSpan.appendTo($propWrapDiv);
-       });
+        });
+        $('.swagger-ui .loader').toggleClass('active');
+        $('.swagger-ui .content').toggleClass('active');
 
       },
       onFailure: function() {
         _errorAlert.fadeIn('fast');
+        $('.swagger-ui .loader').toggleClass('active');
+        $('.swagger-ui .content').toggleClass('active');
       },
       docExpansion: "none"
     });
@@ -208,9 +212,8 @@ $(function () {
       _isConfigControlOpen = false,
       _hasReloadedRequest = false;
 
-
+  
+  $('.swagger-ui .loader').toggleClass('active');
   _init();
-
-
 
 });

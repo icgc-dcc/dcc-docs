@@ -4,7 +4,7 @@
     
     <url>
      <loc>http://docs.icgc.org/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,19 @@
         
     <url>
      <loc>http://docs.icgc.org/portal/about/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/access/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/analysis/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -37,37 +37,37 @@
         
     <url>
      <loc>http://docs.icgc.org/portal/methods/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/projects/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/publication/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/releases/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/repositories/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/portal/search/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -77,25 +77,25 @@
         
     <url>
      <loc>http://docs.icgc.org/cloud/about/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/cloud/guide/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/cloud/icgc-get/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/cloud/repositories/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -105,31 +105,31 @@
         
     <url>
      <loc>http://docs.icgc.org/submission/about/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/submission/api/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/submission/projects/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/submission/institutions/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/submission/faq/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -151,13 +151,13 @@
         
     <url>
      <loc>http://docs.icgc.org/dictionary/about/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/dictionary/viewer/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -173,7 +173,7 @@
         
     <url>
      <loc>http://docs.icgc.org/software/about/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -185,19 +185,19 @@
         
     <url>
      <loc>http://docs.icgc.org/software/binaries/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/software/code/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://docs.icgc.org/software/development/</loc>
-     <lastmod>2016-11-09</lastmod>
+     <lastmod>2016-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
