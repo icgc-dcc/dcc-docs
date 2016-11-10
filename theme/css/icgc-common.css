@@ -362,6 +362,14 @@ code {
   opacity: 0.3;
 }
 
+.swagger-ui .loader, .swagger-ui .content{
+  display: none;
+}
+
+.swagger-ui .loader.active, .swagger-ui .content.active{
+  display: block;
+}
+
 @media (min-width: 992px) {
   .bs-sidebar.affix,
   .bs-sidebar.affix-bottom {
