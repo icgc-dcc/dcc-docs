@@ -14,6 +14,15 @@ As of Release 23, a new validation rule will take effect requiring all new data 
 | raw_data_repository | code '1' for EGA |
 | raw_data_accession | Currently accepts: EGA Study (EGAS), Dataset (EGAD), Experiment (EGAX), Sample (EGAN), Run (EGAR), and File (EGAF) accessions. 
 
+### Where to get the EGA File Accession:
+
+[EGA][3] provides a **Sample_File.map** mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: https://ega-archive.org/datasets/[EGA Dataset Accession ID], click on "Download Metadata" (Note: You must log into EGA to do this). This will download a file [EGA Dataset Accession ID].tar.gz. Once decompressed, the mapping file can be found at  [EGA Dataset Accession ID]/delimited_maps/Sample_File.map. Please submit the EGA File accession ID(s) for each sample ID in your DCC submission.
+
+If the metadata for a given EGA Dataset has not been released and is not available via the website (and therefore cannot be downloaded as a tarball file), please contact EGA HelpDesk at [ega-helpdesk@ebi.ac.uk][2] who will provide data submitters with the Sample ID to EGA File Accession ID mapping information. 
+
+*We strongly encourage ICGC member projects to start this process early as it may take time to gather and validate your data submission.*
+
+
 ### Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':
 
 | Description | raw_data_accession |
@@ -27,7 +36,6 @@ As of Release 23, a new validation rule will take effect requiring all new data 
 | EGA Study, EGA Dataset, EGA Sample, multiple EGA Experiment, multiple EGA Run, multiple EGA File accessions | EGAS00001000395:EGAD00001001956:EGAN00001223451:EGAX00001216629:EGAX00001213322:EGAX00001216631:EGAX00001216630:EGAX00001216695:EGAR00001229605:EGAR00001232235:EGAR00001229594:EGAR00001229593:EGAR00001229596:EGAF00000892107:EGAF00000892115 |
 
 
-
 ### Interpreting Error Message related to Missing EGA File accessions:
 
 The DCC Submission system will report the following error message if an EGA File Accession is not submitted for a given sample_id:
@@ -39,3 +47,5 @@ Solution:
 * An EGA File accession (EGAF*) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".
 
 [1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
+[2]: ega-helpdesk@ebi.ac.uk
+[3]: https://ega-archive.org
