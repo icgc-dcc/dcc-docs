@@ -33774,7 +33774,7 @@ webpackJsonp([0,2],[
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.4.12
+	 * @license AngularJS v1.4.14
 	 * (c) 2010-2015 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -93411,42 +93411,81 @@ webpackJsonp([0,2],[
 /***/ function(module, exports) {
 
 	module.exports = {
-		"name": "jsondiffpatch",
-		"version": "0.1.43",
+		"_args": [
+			[
+				{
+					"raw": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+					"scope": null,
+					"escapedName": "jsondiffpatch",
+					"name": "jsondiffpatch",
+					"rawSpec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+					"spec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+					"type": "hosted",
+					"hosted": {
+						"type": "github",
+						"ssh": "git@github.com:cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"sshUrl": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"httpsUrl": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"gitUrl": "git://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"shortcut": "github:cheapsteak/jsondiffpatch#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+						"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
+					}
+				},
+				"/Users/hnahal/dcc-docs/node_modules/@icgc/dictionary-viewer"
+			]
+		],
+		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_id": "jsondiffpatch@0.1.43",
+		"_inCache": true,
+		"_location": "/jsondiffpatch",
+		"_phantomChildren": {},
+		"_requested": {
+			"raw": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+			"scope": null,
+			"escapedName": "jsondiffpatch",
+			"name": "jsondiffpatch",
+			"rawSpec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+			"spec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+			"type": "hosted",
+			"hosted": {
+				"type": "github",
+				"ssh": "git@github.com:cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"sshUrl": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"httpsUrl": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"gitUrl": "git://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"shortcut": "github:cheapsteak/jsondiffpatch#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+				"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
+			}
+		},
+		"_requiredBy": [
+			"/@icgc/dictionary-viewer"
+		],
+		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_shasum": "a43f9bfda42600b63f4dc7a5b27f910eebdefbec",
+		"_shrinkwrap": null,
+		"_spec": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_where": "/Users/hnahal/dcc-docs/node_modules/@icgc/dictionary-viewer",
 		"author": {
 			"name": "Benjamin Eidelman",
 			"email": "beneidel@gmail.com"
 		},
-		"description": "Diff & Patch for Javascript objects",
+		"bin": {
+			"jsondiffpatch": "./bin/jsondiffpatch"
+		},
+		"bugs": {
+			"url": "https://github.com/benjamine/jsondiffpatch/issues"
+		},
+		"bundleDependencies": [],
 		"contributors": [
 			{
 				"name": "Benjamin Eidelman",
 				"email": "beneidel@gmail.com"
 			}
 		],
-		"bin": {
-			"jsondiffpatch": "./bin/jsondiffpatch"
-		},
-		"scripts": {
-			"test": "gulp test && gulp test-browser",
-			"bump": "gulp bump",
-			"cover": "istanbul cover --root src gulp test",
-			"cover-report": "open coverage/lcov-report/index.html",
-			"cover-publish": "istanbul cover _mocha --report lcovonly && codeclimate < coverage/lcov.info"
-		},
-		"main": "./src/main",
-		"repository": {
-			"type": "git",
-			"url": "git+https://github.com/benjamine/jsondiffpatch.git"
-		},
-		"keywords": [
-			"json",
-			"diff",
-			"patch"
-		],
 		"dependencies": {
 			"chalk": "^0.5.1"
 		},
+		"description": "Diff & Patch for Javascript objects",
 		"devDependencies": {
 			"bulk-require": "^0.2.1",
 			"codeclimate-test-reporter": "0.0.3",
@@ -93456,10 +93495,35 @@ webpackJsonp([0,2],[
 			"istanbul": "^0.3.2",
 			"mocha": "^1.21.4"
 		},
-		"bundleDependencies": [],
-		"license": "MIT",
 		"engine": {
 			"node": ">=0.10"
+		},
+		"engines": {
+			"node": "*"
+		},
+		"gitHead": "1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"homepage": "https://github.com/benjamine/jsondiffpatch",
+		"keywords": [
+			"json",
+			"diff",
+			"patch"
+		],
+		"license": "MIT",
+		"main": "./src/main",
+		"name": "jsondiffpatch",
+		"optionalDependencies": {},
+		"readme": "jsondiffpatch\n=============\n\n<!--- badges -->\n[![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n[![Code Climate](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/gpa.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![Test Coverage](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/coverage.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![NPM version](https://badge.fury.io/js/jsondiffpatch.svg)](http://badge.fury.io/js/jsondiffpatch)\n[![NPM dependencies](https://david-dm.org/benjamine/jsondiffpatch.svg)](https://david-dm.org/benjamine/jsondiffpatch)\n[![Bower version](https://badge.fury.io/bo/jsondiffpatch.svg)](http://badge.fury.io/bo/jsondiffpatch)\n\nDiff & patch JavaScript objects\n\n-----\n**[Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html)**\n-----\n\n- min+gzipped < 6KB\n- browser (```/public/build/jsondiffpatch.js```) and server (eg. node.js)\n- includes [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) for long text diffs (diff at character level)\n- smart array diffing using [LCS](http://en.wikipedia.org/wiki/Longest_common_subsequence_problem), ***IMPORTANT NOTE:*** to match objects inside an array you must provide an ```objectHash``` function (this is how objects are matched, otherwise a dumb match by position is used). For more details, check [Array diff documentation](docs/arrays.md)\n- reverse a delta\n- unpatch (eg. revert object to its original state using a delta)\n- simplistic, pure JSON, low footprint [delta format](docs/deltas.md)\n- multiple output formatters:\n    - html (check it at the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html))\n    - annotated json (html), makes the JSON delta format self-explained\n    - console (colored), try running ```./node_modules/.bin/jsondiffpatch left.json right.json```\n    - write your own! check [Formatters documentation](docs/formatters.md)\n\nSupported platforms\n----------------\n\n* Any modern browser and IE8+\n\n[![Testling Status](https://ci.testling.com/benjamine/jsondiffpatch.png)](https://ci.testling.com/benjamine/jsondiffpatch)\n\nAnd you can test your current browser visiting the [test page](http://benjamine.github.com/jsondiffpatch/test/index.html).\n\n* Node.js [![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n\nIf you want to run tests locally:\n``` sh\nnpm i\n# will test in node.js and phantomjs (headless browser)\nnpm test\n# or test on specific browsers (using karma.js)\nBROWSERS=chrome,phantomjs npm test\n```\nUsage\n-----\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        capital: \"Buenos Aires\",\n        independence: new Date(1816, 6, 9),\n        unasur: true\n    };\n\n    // clone country, using dateReviver for Date objects\n    var country2 = JSON.parse(JSON.stringify(country), jsondiffpatch.dateReviver);\n\n    // make some changes\n    country2.name = \"Republica Argentina\";\n    country2.population = 41324992;\n    delete country2.capital;\n\n    var delta = jsondiffpatch.diff(country, country2);\n\n    assertSame(delta, {\n        \"name\":[\"Argentina\",\"Republica Argentina\"], // old value, new value\n        \"population\":[\"41324992\"], // new value\n        \"capital\":[\"Buenos Aires\", 0, 0] // deleted\n    });\n\n    // patch original\n    jsondiffpatch.patch(country, delta);\n\n    // reverse diff\n    var reverseDelta = jsondiffpatch.reverse(delta);\n    // also country2 can be return to original value with: jsondiffpatch.unpatch(country2, delta);\n\n    var delta2 = jsondiffpatch.diff(country, country2);\n    assert(delta2 === undefined)\n    // undefined => no difference\n```\n\nArray diffing:\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        cities: [\n        {\n            name: 'Buenos Aires',\n            population: 13028000,\n        },\n        {\n            name: 'Cordoba',\n            population: 1430023,\n        },\n        {\n            name: 'Rosario',\n            population: 1136286,\n        },\n        {\n            name: 'Mendoza',\n            population: 901126,\n        },\n        {\n            name: 'San Miguel de Tucuman',\n            population: 800000,\n        }\n        ]\n    };\n\n    // clone country\n    var country2 = JSON.parse(JSON.stringify(country));\n\n    // delete Cordoba\n    country.cities.splice(1, 1);\n\n    // add La Plata\n    country.cities.splice(4, 0, {\n        name: 'La Plata'\n        });\n\n    // modify Rosario, and move it\n    var rosario = country.cities.splice(1, 1)[0];\n    rosario.population += 1234;\n    country.cities.push(rosario);\n\n    // create a configured instance, match objects by name\n    var diffpatcher = jsondiffpatch.create({\n        objectHash: function(obj) {\n            return obj.name;\n        }\n    });\n\n    var delta = diffpatcher.diff(country, country2);\n\n    assertSame(delta, {\n        \"cities\": {\n            \"_t\": \"a\", // indicates this node is an array (not an object)\n            \"1\": [\n                // inserted at index 1\n                {\n                    \"name\": \"Cordoba\",\n                    \"population\": 1430023\n                }]\n            ,\n            \"2\": {\n                // population modified at index 2 (Rosario)\n                \"population\": [\n                    1137520,\n                    1136286\n                ]\n            },\n            \"_3\": [\n                // removed from index 3\n                {\n                    \"name\": \"La Plata\"\n                }, 0, 0],\n            \"_4\": [\n                // move from index 4 to index 2\n                '', 2, 3]\n        }\n    });\n```\n\nFor more example cases (nested objects or arrays, long text diffs) check ```test/examples/```\n\nIf you want to understand deltas, see [delta format documentation](docs/deltas.md)\n\nInstalling\n---------------\n\n### npm (node.js)\n\n``` sh\nnpm install jsondiffpatch\n```\n\n``` js\nvar jsondiffpatch = require('jsondiffpatch').create(options);\n```\n\n### bower (browser)\n\n``` sh\nbower install jsondiffpatch\n```\n\nbrowser bundles are in the ```/public/build``` folder (you can re-generate these using ```make``` or ```gulp```, `npm test` will do that too):\n- ```jsondiffpatch.js``` main bundle\n- ```jsondiffpatch.full.js``` main bundle + [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) library for text diffs\n- ```jsondiffpatch-formatters.js``` builtin formatters (only those useful in a browser)\n\nAll these come in minified versions (```.min.js```), and separate sourcemap files.\n\nOptions\n-------\n\n``` javascript\nvar jsondiffpatch = require('jsondiffpatch').create({\n    // used to match objects when diffing arrays, by default only === operator is used\n    objectHash: function(obj) {\n        // this function is used only to when objects are not equal by ref\n        return obj._id || obj.id;\n    },\n    arrays: {\n        // default true, detect items moved inside the array (otherwise they will be registered as remove+add)\n        detectMove: true,\n        // default false, the value of items moved is not included in deltas\n        includeValueOnMove: false\n    },\n    textDiff: {\n        // default 60, minimum string length (left and right sides) to use text diff algorythm: google-diff-match-patch\n        minLength: 60\n    },\n    propertyFilter: function(name, context) {\n      /*\n       this optional function can be specified to ignore object properties (eg. volatile data)\n        name: property name, present in either context.left or context.right objects\n        context: the diff context (has context.left and context.right objects)\n      */\n      return name.slice(0, 1) !== '$';\n    },\n    cloneDiffValues: false /* default false. if true, values in the obtained delta will be cloned,\n      to ensure delta keeps no references to left or right objects. this becomes useful\n      if you're diffing and patching the same objects multiple times without serializing deltas.\n      instead of true, a function can be specified here to provide a custom clone(value)\n      */\n});\n```\n\nVisual Diff\n----------------\n\n``` html\n<!DOCTYPE html>\n<html>\n    <head>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch.min.js\"></script>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch-formatters.min.js\"></script>\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/html.css\" type=\"text/css\" />\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/annotated.css\" type=\"text/css\" />\n    </head>\n    <body>\n        <div id=\"visual\"></div>\n        <hr/>\n        <div id=\"annotated\"></div>\n        <script>\n            var left = { a: 3, b: 4 };\n            var right = { a: 5, c: 9 };\n            var delta = jsondiffpatch.diff(left, right);\n\n            // beautiful html diff\n            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, left);\n\n            // self-explained json\n            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, left);\n        </script>\n    </body>\n</html>\n```\n\nTo see formatters in action check the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html).\n\nFor more details check [Formatters documentation](docs/formatters.md)\n\nConsole\n--------\n\n``` sh\n# diff two json files, colored output (using chalk lib)\n./node_modules/.bin/jsondiffpatch ./left.json ./right.json\n\n# or install globally\nnpm install -g jsondiffpatch\n\njsondiffpatch ./demo/left.json ./demo/right.json\n```\n\n![console_demo!](public/demo/consoledemo.png)\n\nPlugins\n-------\n\n```diff()```, ```patch()``` and ```reverse()``` functions are implemented using Pipes & Filters pattern, making it extremely customizable by adding or replacing filters on a pipe.\n\nCheck [Plugins documentation](docs/plugins.md) for details.\n",
+		"readmeFilename": "README.md",
+		"repository": {
+			"type": "git",
+			"url": "git+https://github.com/benjamine/jsondiffpatch.git"
+		},
+		"scripts": {
+			"bump": "gulp bump",
+			"cover": "istanbul cover --root src gulp test",
+			"cover-publish": "istanbul cover _mocha --report lcovonly && codeclimate < coverage/lcov.info",
+			"cover-report": "open coverage/lcov-report/index.html",
+			"test": "gulp test && gulp test-browser"
 		},
 		"testling": {
 			"harness": "mocha",
@@ -93479,20 +93543,7 @@ webpackJsonp([0,2],[
 				"android-browser/4.2..latest"
 			]
 		},
-		"engines": {
-			"node": "*"
-		},
-		"homepage": "https://github.com/benjamine/jsondiffpatch",
-		"gitHead": "1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"readme": "jsondiffpatch\n=============\n\n<!--- badges -->\n[![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n[![Code Climate](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/gpa.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![Test Coverage](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/coverage.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![NPM version](https://badge.fury.io/js/jsondiffpatch.svg)](http://badge.fury.io/js/jsondiffpatch)\n[![NPM dependencies](https://david-dm.org/benjamine/jsondiffpatch.svg)](https://david-dm.org/benjamine/jsondiffpatch)\n[![Bower version](https://badge.fury.io/bo/jsondiffpatch.svg)](http://badge.fury.io/bo/jsondiffpatch)\n\nDiff & patch JavaScript objects\n\n-----\n**[Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html)**\n-----\n\n- min+gzipped < 6KB\n- browser (```/public/build/jsondiffpatch.js```) and server (eg. node.js)\n- includes [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) for long text diffs (diff at character level)\n- smart array diffing using [LCS](http://en.wikipedia.org/wiki/Longest_common_subsequence_problem), ***IMPORTANT NOTE:*** to match objects inside an array you must provide an ```objectHash``` function (this is how objects are matched, otherwise a dumb match by position is used). For more details, check [Array diff documentation](docs/arrays.md)\n- reverse a delta\n- unpatch (eg. revert object to its original state using a delta)\n- simplistic, pure JSON, low footprint [delta format](docs/deltas.md)\n- multiple output formatters:\n    - html (check it at the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html))\n    - annotated json (html), makes the JSON delta format self-explained\n    - console (colored), try running ```./node_modules/.bin/jsondiffpatch left.json right.json```\n    - write your own! check [Formatters documentation](docs/formatters.md)\n\nSupported platforms\n----------------\n\n* Any modern browser and IE8+\n\n[![Testling Status](https://ci.testling.com/benjamine/jsondiffpatch.png)](https://ci.testling.com/benjamine/jsondiffpatch)\n\nAnd you can test your current browser visiting the [test page](http://benjamine.github.com/jsondiffpatch/test/index.html).\n\n* Node.js [![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n\nIf you want to run tests locally:\n``` sh\nnpm i\n# will test in node.js and phantomjs (headless browser)\nnpm test\n# or test on specific browsers (using karma.js)\nBROWSERS=chrome,phantomjs npm test\n```\nUsage\n-----\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        capital: \"Buenos Aires\",\n        independence: new Date(1816, 6, 9),\n        unasur: true\n    };\n\n    // clone country, using dateReviver for Date objects\n    var country2 = JSON.parse(JSON.stringify(country), jsondiffpatch.dateReviver);\n\n    // make some changes\n    country2.name = \"Republica Argentina\";\n    country2.population = 41324992;\n    delete country2.capital;\n\n    var delta = jsondiffpatch.diff(country, country2);\n\n    assertSame(delta, {\n        \"name\":[\"Argentina\",\"Republica Argentina\"], // old value, new value\n        \"population\":[\"41324992\"], // new value\n        \"capital\":[\"Buenos Aires\", 0, 0] // deleted\n    });\n\n    // patch original\n    jsondiffpatch.patch(country, delta);\n\n    // reverse diff\n    var reverseDelta = jsondiffpatch.reverse(delta);\n    // also country2 can be return to original value with: jsondiffpatch.unpatch(country2, delta);\n\n    var delta2 = jsondiffpatch.diff(country, country2);\n    assert(delta2 === undefined)\n    // undefined => no difference\n```\n\nArray diffing:\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        cities: [\n        {\n            name: 'Buenos Aires',\n            population: 13028000,\n        },\n        {\n            name: 'Cordoba',\n            population: 1430023,\n        },\n        {\n            name: 'Rosario',\n            population: 1136286,\n        },\n        {\n            name: 'Mendoza',\n            population: 901126,\n        },\n        {\n            name: 'San Miguel de Tucuman',\n            population: 800000,\n        }\n        ]\n    };\n\n    // clone country\n    var country2 = JSON.parse(JSON.stringify(country));\n\n    // delete Cordoba\n    country.cities.splice(1, 1);\n\n    // add La Plata\n    country.cities.splice(4, 0, {\n        name: 'La Plata'\n        });\n\n    // modify Rosario, and move it\n    var rosario = country.cities.splice(1, 1)[0];\n    rosario.population += 1234;\n    country.cities.push(rosario);\n\n    // create a configured instance, match objects by name\n    var diffpatcher = jsondiffpatch.create({\n        objectHash: function(obj) {\n            return obj.name;\n        }\n    });\n\n    var delta = diffpatcher.diff(country, country2);\n\n    assertSame(delta, {\n        \"cities\": {\n            \"_t\": \"a\", // indicates this node is an array (not an object)\n            \"1\": [\n                // inserted at index 1\n                {\n                    \"name\": \"Cordoba\",\n                    \"population\": 1430023\n                }]\n            ,\n            \"2\": {\n                // population modified at index 2 (Rosario)\n                \"population\": [\n                    1137520,\n                    1136286\n                ]\n            },\n            \"_3\": [\n                // removed from index 3\n                {\n                    \"name\": \"La Plata\"\n                }, 0, 0],\n            \"_4\": [\n                // move from index 4 to index 2\n                '', 2, 3]\n        }\n    });\n```\n\nFor more example cases (nested objects or arrays, long text diffs) check ```test/examples/```\n\nIf you want to understand deltas, see [delta format documentation](docs/deltas.md)\n\nInstalling\n---------------\n\n### npm (node.js)\n\n``` sh\nnpm install jsondiffpatch\n```\n\n``` js\nvar jsondiffpatch = require('jsondiffpatch').create(options);\n```\n\n### bower (browser)\n\n``` sh\nbower install jsondiffpatch\n```\n\nbrowser bundles are in the ```/public/build``` folder (you can re-generate these using ```make``` or ```gulp```, `npm test` will do that too):\n- ```jsondiffpatch.js``` main bundle\n- ```jsondiffpatch.full.js``` main bundle + [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) library for text diffs\n- ```jsondiffpatch-formatters.js``` builtin formatters (only those useful in a browser)\n\nAll these come in minified versions (```.min.js```), and separate sourcemap files.\n\nOptions\n-------\n\n``` javascript\nvar jsondiffpatch = require('jsondiffpatch').create({\n    // used to match objects when diffing arrays, by default only === operator is used\n    objectHash: function(obj) {\n        // this function is used only to when objects are not equal by ref\n        return obj._id || obj.id;\n    },\n    arrays: {\n        // default true, detect items moved inside the array (otherwise they will be registered as remove+add)\n        detectMove: true,\n        // default false, the value of items moved is not included in deltas\n        includeValueOnMove: false\n    },\n    textDiff: {\n        // default 60, minimum string length (left and right sides) to use text diff algorythm: google-diff-match-patch\n        minLength: 60\n    },\n    propertyFilter: function(name, context) {\n      /*\n       this optional function can be specified to ignore object properties (eg. volatile data)\n        name: property name, present in either context.left or context.right objects\n        context: the diff context (has context.left and context.right objects)\n      */\n      return name.slice(0, 1) !== '$';\n    },\n    cloneDiffValues: false /* default false. if true, values in the obtained delta will be cloned,\n      to ensure delta keeps no references to left or right objects. this becomes useful\n      if you're diffing and patching the same objects multiple times without serializing deltas.\n      instead of true, a function can be specified here to provide a custom clone(value)\n      */\n});\n```\n\nVisual Diff\n----------------\n\n``` html\n<!DOCTYPE html>\n<html>\n    <head>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch.min.js\"></script>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch-formatters.min.js\"></script>\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/html.css\" type=\"text/css\" />\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/annotated.css\" type=\"text/css\" />\n    </head>\n    <body>\n        <div id=\"visual\"></div>\n        <hr/>\n        <div id=\"annotated\"></div>\n        <script>\n            var left = { a: 3, b: 4 };\n            var right = { a: 5, c: 9 };\n            var delta = jsondiffpatch.diff(left, right);\n\n            // beautiful html diff\n            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, left);\n\n            // self-explained json\n            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, left);\n        </script>\n    </body>\n</html>\n```\n\nTo see formatters in action check the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html).\n\nFor more details check [Formatters documentation](docs/formatters.md)\n\nConsole\n--------\n\n``` sh\n# diff two json files, colored output (using chalk lib)\n./node_modules/.bin/jsondiffpatch ./left.json ./right.json\n\n# or install globally\nnpm install -g jsondiffpatch\n\njsondiffpatch ./demo/left.json ./demo/right.json\n```\n\n![console_demo!](public/demo/consoledemo.png)\n\nPlugins\n-------\n\n```diff()```, ```patch()``` and ```reverse()``` functions are implemented using Pipes & Filters pattern, making it extremely customizable by adding or replacing filters on a pipe.\n\nCheck [Plugins documentation](docs/plugins.md) for details.\n",
-		"readmeFilename": "README.md",
-		"bugs": {
-			"url": "https://github.com/benjamine/jsondiffpatch/issues"
-		},
-		"_id": "jsondiffpatch@0.1.43",
-		"_shasum": "4836cf1402dc76c7ab7d1ccf9f41fa9e59485a7a",
-		"_from": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_resolved": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5"
+		"version": "0.1.43"
 	};
 
 /***/ },
