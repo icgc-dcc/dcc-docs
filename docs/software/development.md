@@ -222,6 +222,41 @@ Each script should begin with header such as the following:
 
 ##  Java Conventions
 
+###  Lombok
+
+Things to avoid to prevent `javac` [issues](https://github.com/rzwitserloot/lombok/issues):
+
+- Don't use `val` inside a lambda
+- Don't use `val` on the lefthand side of an array assignment
+- Don't use `val` on the lefthand side of a lambda assignment
+- Don't `@UlitityClass`
+
+
+###  Utility Classes
+
+Utility classes should be cohesive and focused, and not a dumping grounds for a bunch of unrelated methods.
+
+In terms of naming and structure, don't do:
+
+```java
+public class DonorUtils {
+  // ...
+}
+```
+
+Instead do:
+
+```java
+@NoArgsConstructor(access = PRIVATE)
+public final class Donors {
+  // ...
+}
+```
+
+This style is adopted from Guava and tends to promote cohesion because it relates more to the domain.
+
+Ideally Lombok's `@UtilityClass` would be used here, but currently this can lead to issues with `javac` and Eclipse. Please do not use.
+
 ###  Enums
 
 Use all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:
