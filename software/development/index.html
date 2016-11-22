@@ -35,7 +35,7 @@
         <![endif]-->
 
         
-        <script src="/js/jquery-1.10.2.min.js"></script>
+        <script src="/js/jquery-1.11.3.min.js"></script>
     </head>
 
     <body>
@@ -693,6 +693,10 @@
                
                     <ul class="nav">
                         
+                        <li class=""><a href="#lombok">Lombok</a></li>
+                        
+                        <li class=""><a href="#utility-classes">Utility Classes</a></li>
+                        
                         <li class=""><a href="#enums">Enums</a></li>
                         
                         <li class=""><a href="#comments_1">Comments</a></li>
@@ -947,6 +951,31 @@ performRelease
 </code></pre>
 
 <h2 id="java-conventions">Java Conventions</h2>
+<h3 id="lombok">Lombok</h3>
+<p>Things to avoid to prevent <code>javac</code> <a href="https://github.com/rzwitserloot/lombok/issues">issues</a>:</p>
+<ul>
+<li>Don't use <code>val</code> inside a lambda</li>
+<li>Don't use <code>val</code> on the lefthand side of an array assignment</li>
+<li>Don't use <code>val</code> on the lefthand side of a lambda assignment</li>
+<li>Don't <code>@UlitityClass</code></li>
+</ul>
+<h3 id="utility-classes">Utility Classes</h3>
+<p>Utility classes should be cohesive and focused, and not a dumping grounds for a bunch of unrelated methods.</p>
+<p>In terms of naming and structure, don't do:</p>
+<pre><code class="java">public class DonorUtils {
+  // ...
+}
+</code></pre>
+
+<p>Instead do:</p>
+<pre><code class="java">@NoArgsConstructor(access = PRIVATE)
+public final class Donors {
+  // ...
+}
+</code></pre>
+
+<p>This style is adopted from Guava and tends to promote cohesion because it relates more to the domain.</p>
+<p>Ideally Lombok's <code>@UtilityClass</code> would be used here, but currently this can lead to issues with <code>javac</code> and Eclipse. Please do not use.</p>
 <h3 id="enums">Enums</h3>
 <p>Use all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:</p>
 <pre><code class="java">// Like this

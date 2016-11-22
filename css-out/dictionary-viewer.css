@@ -253,7 +253,7 @@ ul.jsondiffpatch-textdiff {
 .minimap-container {
   display:inline-block;
   width: 100%;
-  padding: 1rem 0rem 3rem 0rem;
+  padding: 1rem 0rem 1rem 0rem;
   z-index: 1000;
   border-bottom: solid 1px #ccc;
 }
@@ -264,9 +264,10 @@ ul.jsondiffpatch-textdiff {
   overflow:scroll;
   position:absolute;
   background-color:#F5F5F5;
+  z-index: 9;
 }
 
-#detail-format-type {
+#detail-format-type, #fields-filter {
   display: inline-block;
   width: 60%;
   margin-left: 1rem;
@@ -281,9 +282,8 @@ ul.jsondiffpatch-textdiff {
   padding-left: 0rem;
 }
 
-.file-data-container{
-  padding: 5px 0px;
-  text-align: center;
+.file-data-container:last-child{
+  padding-left: 26px;
 }
 
 .data-type-list {
@@ -640,6 +640,20 @@ h3.change-addition-header {
   border-radius: 0px !important;
   margin-bottom: 0px !important;
   background-color: #FFF !important;
+}
+
+.multiselect-container li a label{
+  padding: 0px 10px;
+}
+
+button.multiselect{
+  background-color: #2c3e50;
+  border:2px solid #2c3e50;
+  font-weight: bold;
+}
+button.multiselect:hover, button.multiselect:active, button.multiselect:focus, button.multiselect:visited{
+  background-color: #1a242f;
+  border-color: #161f29;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

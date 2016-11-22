@@ -70,10 +70,10 @@ webpackJsonp([0,2],[
 	__webpack_require__(13)(d3);
 	var js_beautify = __webpack_require__(14).js_beautify;
 	var JSONEditor = __webpack_require__(18);
-
-	global.jsondiffpatch = __webpack_require__(19);
+	var multiselect = __webpack_require__(19);
+	global.jsondiffpatch = __webpack_require__(20);
 	global.jsondiffpatch.formatters = {
-	  html: __webpack_require__(40)
+	  html: __webpack_require__(41)
 	};
 
 
@@ -113,7 +113,8 @@ webpackJsonp([0,2],[
 	      DETAIL_FORMAT_TYPES: {
 	        table: 'Table',
 	        json: 'JSON'
-	      }
+	      },
+	      FIELD_ATTRIBUTES_TYPE: ['Open Access', 'Controlled', 'Required', 'N/A Valid', 'N/A Invalid', 'Unique']
 	    })
 	    .controller('DictionaryViewerController', function (DictionaryBaseURLConstants) {
 	      this.DictionaryBaseURLConstants = DictionaryBaseURLConstants;
@@ -166,7 +167,10 @@ webpackJsonp([0,2],[
 	        _controller.vTo = searchParams.vTo ||'';
 	        _controller.q = typeof $scope.searchQuery === 'string' ?  $scope.searchQuery : (searchParams.q || '');
 	        _controller.dataType = $scope.filterDataType || 'all';
+	        _controller.selectedAttributes = $scope.selectedAttributes || [];
 	        _controller.selectedDetailFormatType = DictionaryAppConstants.DETAIL_FORMAT_TYPES.table;
+
+	        _controller.attributes = DictionaryAppConstants.FIELD_ATTRIBUTES_TYPE;
 
 	        _controller.detailFormatTypes = DictionaryAppConstants.DETAIL_FORMAT_TYPES;
 
@@ -200,6 +204,15 @@ webpackJsonp([0,2],[
 	          //if (search.viewMode) _controller.viewMode = search.viewMode;
 	          _controller.dataType = search.dataType || 'all';
 	          _controller.q = search.q || '';
+	          // We do not want to do this every time therefore first run check
+	          if(_firstRun){
+	            _firstRun = false;
+	            _controller.selectedAttributes = search.selectedAttributes ? search.selectedAttributes.split(',') : [];
+	            // Give time to tableViewer to render first
+	            $timeout(function(){
+	              _controller.tableViewer.selectedAttributes(_controller.selectedAttributes);
+	            }, 300)
+	          }
 	          _controller.isReportOpen = search.isReportOpen === 'true' ? true : false;
 
 	          _controller.render(shouldForceUpdate || false);
@@ -236,6 +249,14 @@ webpackJsonp([0,2],[
 	              $location.search(search);
 	            });
 	          };
+
+	          // funtion to call when user selection changes
+	          _controller.updateAttributeFilter = function(){
+	            var search = $location.search();
+	            search.viewMode = 'details';
+	            search.selectedAttributes = [_controller.selectedAttributes];
+	            $location.search(search);
+	          }
 
 	          // Externalized function
 	          _controller.tableViewer.toggleNodeFunc = handleGraphToggle;
@@ -363,14 +384,14 @@ webpackJsonp([0,2],[
 
 	        _controller.doFilter = function () {
 	          $timeout.cancel(qPromise);
-	          _controller.tableViewer.filter(_controller.q);
+	          _controller.tableViewer.filter(_controller.q, _controller.selectedAttributes);
 
 	          qPromise = $timeout(function () {
 	            var search = $location.search();
 	            var txt = _controller.q;
 	            search.q = txt;
 
-	            _controller.tableViewer.filter(_controller.q);
+	            _controller.tableViewer.filter(_controller.q, _controller.selectedAttributes);
 	            $location.search(search);
 	          }, 300);
 	        };
@@ -382,6 +403,7 @@ webpackJsonp([0,2],[
 	          var viewMode = _controller.getCurrentView();
 	          var query = _controller.q;
 	          var dataType = _controller.dataType;
+	          var selectedAttributes = _controller.selectedAttributes;
 
 	          if (shouldForceRender !== true &&
 	              _previousVersion.from === versionFrom &&
@@ -401,8 +423,9 @@ webpackJsonp([0,2],[
 
 	          _controller.tableViewer.showDictionaryTable(versionFrom, versionTo);
 	          _controller.tableViewer.selectDataType(dataType);
+	          _controller.tableViewer.selectedAttributes(selectedAttributes);
 	          _controller.tableViewer.showDictionaryGraph(versionFrom, versionTo, function() {
-	            _controller.tableViewer.filter(query);
+	            _controller.tableViewer.filter(query, selectedAttributes);
 	          });
 
 
@@ -446,9 +469,54 @@ webpackJsonp([0,2],[
 	                }
 
 	                dictionaryJSON.files = dictionaryFiles;
+	              } else {
+	                angular.copy(dictionariesJSON, dictionaryJSON);
 	              }
-	              else {
-	                dictionaryJSON = dictionariesJSON;
+
+	              // Only go into the condition if any of the attribute filter is selected
+	              if(_.isArray(selectedAttributes) && !_.isEmpty(selectedAttributes) && !_.isEmpty(dictionaryJSON)){
+	                  var dictionaryFiles = _.map(dictionaryJSON.files, function(file){
+	                    var fields = [];
+
+	                    _.each(file.fields, function(field){
+	                      
+	                      var fieldAttributes = 0, 
+	                        // Check to see if there are any required fields
+	                        required = _.find(field.restrictions, function (restriction) {
+	                          return restriction.type === 'required';
+	                        });
+	                      // Going through all the selected attributes
+	                      _.each(selectedAttributes, function(attribute){
+	                        if(attribute === 'Open Access' && field.controlled === false){
+	                          fieldAttributes++;
+	                        }else if(attribute === 'Controlled'  && field.controlled === true){
+	                          fieldAttributes++;
+	                        }else if(attribute === 'Required' && required){
+	                          fieldAttributes++;
+	                        }else if(attribute === 'N/A Valid' && required){
+	                          if (required.config.acceptMissingCode === true) {
+	                            fieldAttributes++;
+	                          }
+	                        }else if(attribute === 'N/A Invalid' && required){
+	                          if(required.config.acceptMissingCode !== true) {
+	                            fieldAttributes++;
+	                          }
+	                        }else if(attribute === 'Unique'){
+	                          if(file.uniqueFields && file.uniqueFields.indexOf(field.name) >= 0){
+	                            fieldAttributes++;
+	                          }
+	                        }
+	                      });
+	                      // Add this field only if it has all the selected attributes
+	                      // therefore the vaue of fieldAttributes should be equal to the length of selectedAttributes array
+	                      if(fieldAttributes === selectedAttributes.length){
+	                        fields.push(field);
+	                      }
+	                    });
+	                    file.fields = fields
+	                    return file;
+	                  });
+	                dictionaryJSON.files = dictionaryFiles;
 	              }
 
 	              _controller.jsonEditor.set(dictionaryJSON);
@@ -539,9 +607,14 @@ webpackJsonp([0,2],[
 	            $anchorScroll();
 
 	          });
-
-
 	        }
+
+	        // Waiting for angular to do its binding and then initializing multiselect
+	        $timeout(function(){
+	          jQuery('#fields-filter').multiselect({
+	            numberDisplayed: 2
+	          });
+	        }, 300);
 	      },
 	      controllerAs: 'dictionaryViewerCtrl'
 	    };
@@ -650,7 +723,6 @@ webpackJsonp([0,2],[
 	     var _self = this;
 	     var url = _self.webserviceURL + '/dictionaries/' + version;
 	     var dict = _self.dictionaryMap[version];
-	     
 	     if (_.has(dict, 'files')) {
 	       return $.Deferred().promise(dict);
 	     } else if (_.has(dict, 'then')) {
@@ -1390,12 +1462,11 @@ webpackJsonp([0,2],[
 	      return null;
 	    });
 
-
 	    // Field
 	    elem.append('td').classed('monospaced', true).text(row.name);
 
 	    // Attribute
-	    var attrBox = elem.append('td');
+	    var attrBox = elem.append('td').classed('badges', true);
 
 	    function addBadge(txt, colour) {
 	      attrBox.append('div').classed('badge', true).style('background-color', colour).text(txt);
@@ -1558,6 +1629,25 @@ webpackJsonp([0,2],[
 	    }
 	  };
 
+	  ////////////////////////////////////////////////////////////////////////////////
+	  // Attributes filter, hide unmatched attribute rows
+	  ////////////////////////////////////////////////////////////////////////////////
+	  TableViewer.prototype.selectedAttributes = function (attributes) {
+	    if(_.isArray(attributes) && !_.isEmpty(attributes)){
+	      var selector = '.badges';
+	      // First hide all the rows
+	      d3.selectAll('.dictionary_table').selectAll('tbody tr').style('display', 'none');
+	      // Updating selector query for jQuery based on the selected attributes
+	      _.each(attributes, function(attribute){
+	        selector += ':contains('+ attribute +')';
+	      })
+	      $(selector).each(function(){
+	        // Then show the ones that has user selected attribute filter
+	        d3.select(this.parentNode).style('display', 'table-row');
+	      });
+	    }
+	  };
+
 	////////////////////////////////////////////////////////////////////////////////
 	// Builds a mini-map row (one row per table)
 	////////////////////////////////////////////////////////////////////////////////
@@ -1594,15 +1684,14 @@ webpackJsonp([0,2],[
 	////////////////////////////////////////////////////////////////////////////////
 	// Search and filter dictionary
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.filter = function (txt) {
+	  TableViewer.prototype.filter = function (txt, attributeFilter) {
 	    var _self = this;
 	    var re = new RegExp(txt, 'i');
 	    var datatypeMap = {};
 
 	    window.scrollTo(0, 0);
 
-	    d3.selectAll('.dictionary_table').selectAll('tr').style('display', 'table-row');
-	    if (!txt || txt === '') {
+	    if ((!txt || txt === '') && (!_.isArray(attributeFilter) || _.isEmpty(attributeFilter))) {
 	      d3.selectAll('.dictionary_table').selectAll('tr').style('display', 'table-row');
 	      d3.selectAll('.filter_wrapper').style('display', 'block');
 	    } else {
@@ -3883,7 +3972,7 @@ webpackJsonp([0,2],[
 
 
 	  $templateCache.put('scripts/views/dictionary-viewer-directive.html',
-	    "<div id=\"dictionaryModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\"><div class=\"modal-header\"><button type=\"button\" class=\"t_button pull-right\" data-dismiss=\"modal\" aria-label=\"Close\"><i aria-hidden=\"true\" class=\"icon-cancel\"></i></button><h3 class=\"modal-title\"></h3></div><div class=\"modal-body\"></div><div class=\"modal-footer\"><button type=\"button\" class=\"t_button\" data-dismiss=\"modal\">Close</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal --><div id=\"dictionary-view-container\"><div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\" data-ng-if=\"dictionaryViewerCtrl.shouldShowHeaderNav === true\"><div class=\"container-fluid\"><!-- Brand and toggle get grouped for better mobile display --><div class=\"navbar-header\"><span class=\"navbar-brand\"><img src=\"https://dcc.icgc.org/styles/images/icgc-logo.png\" width=\"20px\"> <span style=\"font-size:1.7rem; vertical-align:middle\"><span style=\"color:#777777\">ICGC</span> <span>Dictionary Viewer</span></span></span></div><!-- Collect the nav links, forms, and other content for toggling --><div class=\"collapse navbar-collapse\"><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><input data-ng-model=\"dictionaryViewerCtrl.q\" data-ng-model-options=\"{debounce: 350}\" data-ng-click=\"$event.stopPropagation()\" class=\"form-control\" id=\"filter\" type=\"text\" size=\"25\" placeholder=\"Search:\"></div></div><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vFrom\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div>TO<div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vTo\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div></div><div class=\"navbar-form navbar-right\"><div><span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourNew}\">{{dictionaryViewerCtrl.changeReport.fieldsAdded.length}} new</span> &nbsp;&nbsp; <span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourChanged}\">{{dictionaryViewerCtrl.changeReport.fieldsChanged.length}} changed</span></div></div></div></div></div><div class=\"tab-container\"><ul class=\"nav nav-tabs\" role=\"tablist\"><li data-ng-repeat=\"viewType in dictionaryViewerCtrl.viewTypes\" role=\"presentation\" data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === viewType}\"><a href=\"javascript:void(0)\" aria-controls=\"{{viewType}}\" role=\"tab\" data-toggle=\"tab\" class=\"{{viewType}}-tab\" data-ng-bind=\"viewType | prettyPrintView\" data-target=\"{{viewType}}\" data-ng-click=\"dictionaryViewerCtrl.setView(viewType)\"></a></li></ul><div class=\"tab-content\"><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'details'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"table\"><div class=\"vis-wrapper\"><!-- template for table viewer--><div class=\"clearfix\"><div id=\"datatypeSelector\" class=\"minimap-container col-md-12\"><div class=\"pull-left col-md-3 file-container\"><label for=\"detail-format-type\">Files:</label><button id=\"minimapLabel\" class=\"btn btn-primary\"><span>all</span><i class=\"glyphicon glyphicon-chevron-down\"></i></button><br><div id=\"minimapWrapper\"><svg id=\"minimap\" height=\"0px\" width=\"275px\" style=\"pointer-events:visibleFill; z-index:10\"></svg></div></div><div class=\"col-md-2 file-data-container\"><label>Version:</label><br><span>{{dictionaryViewerCtrl.vTo}}</span></div><div class=\"col-md-2 file-data-container\"><label>Last updated:</label><br><span>{{dictionaryViewerCtrl.lastUpdate | date:'shortDate'}}</span></div><div class=\"col-md-2 file-data-container\"><label>State:</label><br><span ng-style=\"{'color' : dictionaryViewerCtrl.state==='OPEN' ? '#499246' : '#a71617'}\">{{dictionaryViewerCtrl.state}}</span></div><div class=\"pull-right col-md-3 detail-format-container\" style=\"text-align: right\"><label for=\"detail-format-type\">Format:</label><select class=\"form-control\" id=\"detail-format-type\" data-ng-options=\"formatTypeName for (formatTypeKey, formatTypeName) in dictionaryViewerCtrl.detailFormatTypes\" data-ng-model=\"dictionaryViewerCtrl.selectedDetailFormatType\"></select></div></div></div><!-- template for json viewer --><div id=\"jsonviewer\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.json\" ng-cloak></div><div id=\"datatypeTable\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.table\" ng-cloak></div></div></div><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'graph'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"graph\"><div class=\"vis-wrapper\"><!-- template for graph viewer --><div id=\"datatypeGraph\"><div id=\"graph-diagram\" class=\"graph\"></div></div></div></div><!-- template for report --><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'report'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"report\"><div class=\"report-wrapper\"><div class=\"file-metadata-report\"><div id=\"file-metadata-modifications\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fileDataChanged.length\"><h3 class=\"change-modification-header\"><i class=\"fa fa-exchange\"></i> File Data Modifications</h3><div class=\"change-report-container change-modifications\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fileChanged{{changes.id}}\" aria-expanded=\"false\" data-ng-repeat=\"changes in dictionaryViewerCtrl.changeReport.fileDataChanged \n" +
+	    "<div id=\"dictionaryModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\"><div class=\"modal-header\"><button type=\"button\" class=\"t_button pull-right\" data-dismiss=\"modal\" aria-label=\"Close\"><i aria-hidden=\"true\" class=\"icon-cancel\"></i></button><h3 class=\"modal-title\"></h3></div><div class=\"modal-body\"></div><div class=\"modal-footer\"><button type=\"button\" class=\"t_button\" data-dismiss=\"modal\">Close</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal --><div id=\"dictionary-view-container\"><div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\" data-ng-if=\"dictionaryViewerCtrl.shouldShowHeaderNav === true\"><div class=\"container-fluid\"><!-- Brand and toggle get grouped for better mobile display --><div class=\"navbar-header\"><span class=\"navbar-brand\"><img src=\"https://dcc.icgc.org/styles/images/icgc-logo.png\" width=\"20px\"> <span style=\"font-size:1.7rem; vertical-align:middle\"><span style=\"color:#777777\">ICGC</span> <span>Dictionary Viewer</span></span></span></div><!-- Collect the nav links, forms, and other content for toggling --><div class=\"collapse navbar-collapse\"><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><input data-ng-model=\"dictionaryViewerCtrl.q\" data-ng-model-options=\"{debounce: 350}\" data-ng-click=\"$event.stopPropagation()\" class=\"form-control\" id=\"filter\" type=\"text\" size=\"25\" placeholder=\"Search:\"></div></div><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vFrom\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div>TO<div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vTo\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div></div><div class=\"navbar-form navbar-right\"><div><span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourNew}\">{{dictionaryViewerCtrl.changeReport.fieldsAdded.length}} new</span> &nbsp;&nbsp; <span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourChanged}\">{{dictionaryViewerCtrl.changeReport.fieldsChanged.length}} changed</span></div></div></div></div></div><div class=\"tab-container\"><ul class=\"nav nav-tabs\" role=\"tablist\"><li data-ng-repeat=\"viewType in dictionaryViewerCtrl.viewTypes\" role=\"presentation\" data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === viewType}\"><a href=\"javascript:void(0)\" aria-controls=\"{{viewType}}\" role=\"tab\" data-toggle=\"tab\" class=\"{{viewType}}-tab\" data-ng-bind=\"viewType | prettyPrintView\" data-target=\"{{viewType}}\" data-ng-click=\"dictionaryViewerCtrl.setView(viewType)\"></a></li></ul><div class=\"tab-content\"><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'details'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"table\"><div class=\"vis-wrapper\"><!-- template for table viewer--><div class=\"clearfix\"><div class=\"minimap-container col-md-12\"><div id=\"datatypeSelector\" class=\"col-md-12\"><div class=\"col-md-3 file-container\"><label for=\"detail-format-type\">Files:</label><button id=\"minimapLabel\" class=\"btn btn-primary\"><span>all</span><i class=\"glyphicon glyphicon-chevron-down\"></i></button><br><div id=\"minimapWrapper\"><svg id=\"minimap\" height=\"0px\" width=\"275px\" style=\"pointer-events:visibleFill; z-index:10\"></svg></div></div><div class=\"col-md-1\"></div><div class=\"col-md-4\"><label for=\"fields-filter\">Attributes: &nbsp;</label><select class=\"form-control\" id=\"fields-filter\" multiple data-ng-change=\"dictionaryViewerCtrl.updateAttributeFilter()\" data-ng-model=\"dictionaryViewerCtrl.selectedAttributes\"><option ng-repeat=\"attribute in dictionaryViewerCtrl.attributes\">{{attribute}}</option></select></div><div class=\"col-md-1\"></div><div class=\"col-md-3 detail-format-container\" style=\"text-align: right\"><label for=\"detail-format-type\">Format:</label><select class=\"form-control\" id=\"detail-format-type\" data-ng-options=\"formatTypeName for (formatTypeKey, formatTypeName) in dictionaryViewerCtrl.detailFormatTypes\" data-ng-model=\"dictionaryViewerCtrl.selectedDetailFormatType\"></select></div></div><div id=\"datatypeSelector\" class=\"col-md-12\"><div class=\"col-md-3 file-data-container\"><label>Version: &nbsp;</label><span>{{dictionaryViewerCtrl.vTo}}</span></div><div class=\"col-md-1\"></div><div class=\"col-md-4 file-data-container\"><label>Last updated: &nbsp;</label><span>{{dictionaryViewerCtrl.lastUpdate | date:'shortDate'}}</span></div><div class=\"col-md-1\"></div><div class=\"col-md-3 file-data-container\"><label>State: &nbsp;</label><span ng-style=\"{'color' : dictionaryViewerCtrl.state==='OPEN' ? '#499246' : '#a71617'}\">{{dictionaryViewerCtrl.state}}</span></div></div></div></div><!-- template for json viewer --><div id=\"jsonviewer\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.json\" ng-cloak></div><div id=\"datatypeTable\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.table\" ng-cloak></div></div></div><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'graph'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"graph\"><div class=\"vis-wrapper\"><!-- template for graph viewer --><div id=\"datatypeGraph\"><div id=\"graph-diagram\" class=\"graph\"></div></div></div></div><!-- template for report --><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'report'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"report\"><div class=\"report-wrapper\"><div class=\"file-metadata-report\"><div id=\"file-metadata-modifications\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fileDataChanged.length\"><h3 class=\"change-modification-header\"><i class=\"fa fa-exchange\"></i> File Data Modifications</h3><div class=\"change-report-container change-modifications\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fileChanged{{changes.id}}\" aria-expanded=\"false\" data-ng-repeat=\"changes in dictionaryViewerCtrl.changeReport.fileDataChanged \n" +
 	    "                                        | filter: dictionaryViewerCtrl.filterChangesReport \n" +
 	    "                                        | findDiffs track by changes.id\"><report-data-changes change=\"changes\" type=\"fileChanged\"></report-data-changes></li></ul></div></div></div><div class=\"field-report\"><div id=\"field-additions\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsAdded.length\"><h3 class=\"change-addition-header\"><i class=\"fa fa-plus\"></i> Field Name Additions</h3><div class=\"change-report-container change-additions\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldAdded{{additions.id}}\" aria-expanded=\"false\" data-ng-repeat=\"additions in dictionaryViewerCtrl.changeReport.fieldsAdded\n" +
 	    "                                      | filter: dictionaryViewerCtrl.filterChangesReport\n" +
@@ -33774,7 +33863,7 @@ webpackJsonp([0,2],[
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.4.14
+	 * @license AngularJS v1.4.12
 	 * (c) 2010-2015 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -89814,19 +89903,1441 @@ webpackJsonp([0,2],[
 
 /***/ },
 /* 19 */
+/***/ function(module, exports) {
+
+	/**
+	 * Bootstrap Multiselect (https://github.com/davidstutz/bootstrap-multiselect)
+	 * 
+	 * Apache License, Version 2.0:
+	 * Copyright (c) 2012 - 2015 David Stutz
+	 * 
+	 * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+	 * use this file except in compliance with the License. You may obtain a
+	 * copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+	 * 
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+	 * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+	 * License for the specific language governing permissions and limitations
+	 * under the License.
+	 * 
+	 * BSD 3-Clause License:
+	 * Copyright (c) 2012 - 2015 David Stutz
+	 * All rights reserved.
+	 * 
+	 * Redistribution and use in source and binary forms, with or without
+	 * modification, are permitted provided that the following conditions are met:
+	 *    - Redistributions of source code must retain the above copyright notice,
+	 *      this list of conditions and the following disclaimer.
+	 *    - Redistributions in binary form must reproduce the above copyright notice,
+	 *      this list of conditions and the following disclaimer in the documentation
+	 *      and/or other materials provided with the distribution.
+	 *    - Neither the name of David Stutz nor the names of its contributors may be
+	 *      used to endorse or promote products derived from this software without
+	 *      specific prior written permission.
+	 * 
+	 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+	 * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+	 * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+	 * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+	 * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+	 * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+	 * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+	 * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+	 * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+	 * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+	 * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	 */
+	!function ($) {
+	    "use strict";// jshint ;_;
+
+	    if (typeof ko !== 'undefined' && ko.bindingHandlers && !ko.bindingHandlers.multiselect) {
+	        ko.bindingHandlers.multiselect = {
+	            after: ['options', 'value', 'selectedOptions'],
+
+	            init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+	                var $element = $(element);
+	                var config = ko.toJS(valueAccessor());
+
+	                $element.multiselect(config);
+
+	                if (allBindings.has('options')) {
+	                    var options = allBindings.get('options');
+	                    if (ko.isObservable(options)) {
+	                        ko.computed({
+	                            read: function() {
+	                                options();
+	                                setTimeout(function() {
+	                                    var ms = $element.data('multiselect');
+	                                    if (ms)
+	                                        ms.updateOriginalOptions();//Not sure how beneficial this is.
+	                                    $element.multiselect('rebuild');
+	                                }, 1);
+	                            },
+	                            disposeWhenNodeIsRemoved: element
+	                        });
+	                    }
+	                }
+
+	                //value and selectedOptions are two-way, so these will be triggered even by our own actions.
+	                //It needs some way to tell if they are triggered because of us or because of outside change.
+	                //It doesn't loop but it's a waste of processing.
+	                if (allBindings.has('value')) {
+	                    var value = allBindings.get('value');
+	                    if (ko.isObservable(value)) {
+	                        ko.computed({
+	                            read: function() {
+	                                value();
+	                                setTimeout(function() {
+	                                    $element.multiselect('refresh');
+	                                }, 1);
+	                            },
+	                            disposeWhenNodeIsRemoved: element
+	                        }).extend({ rateLimit: 100, notifyWhenChangesStop: true });
+	                    }
+	                }
+
+	                //Switched from arrayChange subscription to general subscription using 'refresh'.
+	                //Not sure performance is any better using 'select' and 'deselect'.
+	                if (allBindings.has('selectedOptions')) {
+	                    var selectedOptions = allBindings.get('selectedOptions');
+	                    if (ko.isObservable(selectedOptions)) {
+	                        ko.computed({
+	                            read: function() {
+	                                selectedOptions();
+	                                setTimeout(function() {
+	                                    $element.multiselect('refresh');
+	                                }, 1);
+	                            },
+	                            disposeWhenNodeIsRemoved: element
+	                        }).extend({ rateLimit: 100, notifyWhenChangesStop: true });
+	                    }
+	                }
+
+	                ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+	                    $element.multiselect('destroy');
+	                });
+	            },
+
+	            update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+	                var $element = $(element);
+	                var config = ko.toJS(valueAccessor());
+
+	                $element.multiselect('setOptions', config);
+	                $element.multiselect('rebuild');
+	            }
+	        };
+	    }
+
+	    function forEach(array, callback) {
+	        for (var index = 0; index < array.length; ++index) {
+	            callback(array[index], index);
+	        }
+	    }
+
+	    /**
+	     * Constructor to create a new multiselect using the given select.
+	     *
+	     * @param {jQuery} select
+	     * @param {Object} options
+	     * @returns {Multiselect}
+	     */
+	    function Multiselect(select, options) {
+
+	        this.$select = $(select);
+	        
+	        // Placeholder via data attributes
+	        if (this.$select.attr("data-placeholder")) {
+	            options.nonSelectedText = this.$select.data("placeholder");
+	        }
+	        
+	        this.options = this.mergeOptions($.extend({}, options, this.$select.data()));
+
+	        // Initialization.
+	        // We have to clone to create a new reference.
+	        this.originalOptions = this.$select.clone()[0].options;
+	        this.query = '';
+	        this.searchTimeout = null;
+	        this.lastToggledInput = null
+
+	        this.options.multiple = this.$select.attr('multiple') === "multiple";
+	        this.options.onChange = $.proxy(this.options.onChange, this);
+	        this.options.onDropdownShow = $.proxy(this.options.onDropdownShow, this);
+	        this.options.onDropdownHide = $.proxy(this.options.onDropdownHide, this);
+	        this.options.onDropdownShown = $.proxy(this.options.onDropdownShown, this);
+	        this.options.onDropdownHidden = $.proxy(this.options.onDropdownHidden, this);
+	        
+	        // Build select all if enabled.
+	        this.buildContainer();
+	        this.buildButton();
+	        this.buildDropdown();
+	        this.buildSelectAll();
+	        this.buildDropdownOptions();
+	        this.buildFilter();
+
+	        this.updateButtonText();
+	        this.updateSelectAll();
+
+	        if (this.options.disableIfEmpty && $('option', this.$select).length <= 0) {
+	            this.disable();
+	        }
+	        
+	        this.$select.hide().after(this.$container);
+	    };
+
+	    Multiselect.prototype = {
+
+	        defaults: {
+	            /**
+	             * Default text function will either print 'None selected' in case no
+	             * option is selected or a list of the selected options up to a length
+	             * of 3 selected options.
+	             * 
+	             * @param {jQuery} options
+	             * @param {jQuery} select
+	             * @returns {String}
+	             */
+	            buttonText: function(options, select) {
+	                if (options.length === 0) {
+	                    return this.nonSelectedText;
+	                }
+	                else if (this.allSelectedText 
+	                            && options.length === $('option', $(select)).length 
+	                            && $('option', $(select)).length !== 1 
+	                            && this.multiple) {
+
+	                    if (this.selectAllNumber) {
+	                        return this.allSelectedText + ' (' + options.length + ')';
+	                    }
+	                    else {
+	                        return this.allSelectedText;
+	                    }
+	                }
+	                else if (options.length > this.numberDisplayed) {
+	                    return options.length + ' ' + this.nSelectedText;
+	                }
+	                else {
+	                    var selected = '';
+	                    var delimiter = this.delimiterText;
+	                    
+	                    options.each(function() {
+	                        var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
+	                        selected += label + delimiter;
+	                    });
+	                    
+	                    return selected.substr(0, selected.length - 2);
+	                }
+	            },
+	            /**
+	             * Updates the title of the button similar to the buttonText function.
+	             * 
+	             * @param {jQuery} options
+	             * @param {jQuery} select
+	             * @returns {@exp;selected@call;substr}
+	             */
+	            buttonTitle: function(options, select) {
+	                if (options.length === 0) {
+	                    return this.nonSelectedText;
+	                }
+	                else {
+	                    var selected = '';
+	                    var delimiter = this.delimiterText;
+	                    
+	                    options.each(function () {
+	                        var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
+	                        selected += label + delimiter;
+	                    });
+	                    return selected.substr(0, selected.length - 2);
+	                }
+	            },
+	            /**
+	             * Create a label.
+	             *
+	             * @param {jQuery} element
+	             * @returns {String}
+	             */
+	            optionLabel: function(element){
+	                return $(element).attr('label') || $(element).text();
+	            },
+	            /**
+	             * Triggered on change of the multiselect.
+	             * 
+	             * Not triggered when selecting/deselecting options manually.
+	             * 
+	             * @param {jQuery} option
+	             * @param {Boolean} checked
+	             */
+	            onChange : function(option, checked) {
+
+	            },
+	            /**
+	             * Triggered when the dropdown is shown.
+	             *
+	             * @param {jQuery} event
+	             */
+	            onDropdownShow: function(event) {
+
+	            },
+	            /**
+	             * Triggered when the dropdown is hidden.
+	             *
+	             * @param {jQuery} event
+	             */
+	            onDropdownHide: function(event) {
+
+	            },
+	            /**
+	             * Triggered after the dropdown is shown.
+	             * 
+	             * @param {jQuery} event
+	             */
+	            onDropdownShown: function(event) {
+	                
+	            },
+	            /**
+	             * Triggered after the dropdown is hidden.
+	             * 
+	             * @param {jQuery} event
+	             */
+	            onDropdownHidden: function(event) {
+	                
+	            },
+	            /**
+	             * Triggered on select all.
+	             */
+	            onSelectAll: function() {
+	                
+	            },
+	            enableHTML: false,
+	            buttonClass: 'btn btn-default',
+	            inheritClass: false,
+	            buttonWidth: 'auto',
+	            buttonContainer: '<div class="btn-group" />',
+	            dropRight: false,
+	            selectedClass: 'active',
+	            // Maximum height of the dropdown menu.
+	            // If maximum height is exceeded a scrollbar will be displayed.
+	            maxHeight: false,
+	            checkboxName: false,
+	            includeSelectAllOption: false,
+	            includeSelectAllIfMoreThan: 0,
+	            selectAllText: ' Select all',
+	            selectAllValue: 'multiselect-all',
+	            selectAllName: false,
+	            selectAllNumber: true,
+	            enableFiltering: false,
+	            enableCaseInsensitiveFiltering: false,
+	            enableClickableOptGroups: false,
+	            filterPlaceholder: 'Search',
+	            // possible options: 'text', 'value', 'both'
+	            filterBehavior: 'text',
+	            includeFilterClearBtn: true,
+	            preventInputChangeEvent: false,
+	            nonSelectedText: 'None selected',
+	            nSelectedText: 'selected',
+	            allSelectedText: 'All selected',
+	            numberDisplayed: 3,
+	            disableIfEmpty: false,
+	            delimiterText: ', ',
+	            templates: {
+	                button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> <b class="caret"></b></button>',
+	                ul: '<ul class="multiselect-container dropdown-menu"></ul>',
+	                filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
+	                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="glyphicon glyphicon-remove-circle"></i></button></span>',
+	                li: '<li><a tabindex="0"><label></label></a></li>',
+	                divider: '<li class="multiselect-item divider"></li>',
+	                liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
+	            }
+	        },
+
+	        constructor: Multiselect,
+
+	        /**
+	         * Builds the container of the multiselect.
+	         */
+	        buildContainer: function() {
+	            this.$container = $(this.options.buttonContainer);
+	            this.$container.on('show.bs.dropdown', this.options.onDropdownShow);
+	            this.$container.on('hide.bs.dropdown', this.options.onDropdownHide);
+	            this.$container.on('shown.bs.dropdown', this.options.onDropdownShown);
+	            this.$container.on('hidden.bs.dropdown', this.options.onDropdownHidden);
+	        },
+
+	        /**
+	         * Builds the button of the multiselect.
+	         */
+	        buildButton: function() {
+	            this.$button = $(this.options.templates.button).addClass(this.options.buttonClass);
+	            if (this.$select.attr('class') && this.options.inheritClass) {
+	                this.$button.addClass(this.$select.attr('class'));
+	            }
+	            // Adopt active state.
+	            if (this.$select.prop('disabled')) {
+	                this.disable();
+	            }
+	            else {
+	                this.enable();
+	            }
+
+	            // Manually add button width if set.
+	            if (this.options.buttonWidth && this.options.buttonWidth !== 'auto') {
+	                this.$button.css({
+	                    'width' : this.options.buttonWidth,
+	                    'overflow' : 'hidden',
+	                    'text-overflow' : 'ellipsis'
+	                });
+	                this.$container.css({
+	                    'width': this.options.buttonWidth
+	                });
+	            }
+
+	            // Keep the tab index from the select.
+	            var tabindex = this.$select.attr('tabindex');
+	            if (tabindex) {
+	                this.$button.attr('tabindex', tabindex);
+	            }
+
+	            this.$container.prepend(this.$button);
+	        },
+
+	        /**
+	         * Builds the ul representing the dropdown menu.
+	         */
+	        buildDropdown: function() {
+
+	            // Build ul.
+	            this.$ul = $(this.options.templates.ul);
+
+	            if (this.options.dropRight) {
+	                this.$ul.addClass('pull-right');
+	            }
+
+	            // Set max height of dropdown menu to activate auto scrollbar.
+	            if (this.options.maxHeight) {
+	                // TODO: Add a class for this option to move the css declarations.
+	                this.$ul.css({
+	                    'max-height': this.options.maxHeight + 'px',
+	                    'overflow-y': 'auto',
+	                    'overflow-x': 'hidden'
+	                });
+	            }
+
+	            this.$container.append(this.$ul);
+	        },
+
+	        /**
+	         * Build the dropdown options and binds all nessecary events.
+	         * 
+	         * Uses createDivider and createOptionValue to create the necessary options.
+	         */
+	        buildDropdownOptions: function() {
+
+	            this.$select.children().each($.proxy(function(index, element) {
+
+	                var $element = $(element);
+	                // Support optgroups and options without a group simultaneously.
+	                var tag = $element.prop('tagName')
+	                    .toLowerCase();
+	            
+	                if ($element.prop('value') === this.options.selectAllValue) {
+	                    return;
+	                }
+
+	                if (tag === 'optgroup') {
+	                    this.createOptgroup(element);
+	                }
+	                else if (tag === 'option') {
+
+	                    if ($element.data('role') === 'divider') {
+	                        this.createDivider();
+	                    }
+	                    else {
+	                        this.createOptionValue(element);
+	                    }
+
+	                }
+
+	                // Other illegal tags will be ignored.
+	            }, this));
+
+	            // Bind the change event on the dropdown elements.
+	            $('li input', this.$ul).on('change', $.proxy(function(event) {
+	                var $target = $(event.target);
+
+	                var checked = $target.prop('checked') || false;
+	                var isSelectAllOption = $target.val() === this.options.selectAllValue;
+
+	                // Apply or unapply the configured selected class.
+	                if (this.options.selectedClass) {
+	                    if (checked) {
+	                        $target.closest('li')
+	                            .addClass(this.options.selectedClass);
+	                    }
+	                    else {
+	                        $target.closest('li')
+	                            .removeClass(this.options.selectedClass);
+	                    }
+	                }
+
+	                // Get the corresponding option.
+	                var value = $target.val();
+	                var $option = this.getOptionByValue(value);
+
+	                var $optionsNotThis = $('option', this.$select).not($option);
+	                var $checkboxesNotThis = $('input', this.$container).not($target);
+
+	                if (isSelectAllOption) {
+	                    if (checked) {
+	                        this.selectAll();
+	                    }
+	                    else {
+	                        this.deselectAll();
+	                    }
+	                }
+
+	                if(!isSelectAllOption){
+	                    if (checked) {
+	                        $option.prop('selected', true);
+
+	                        if (this.options.multiple) {
+	                            // Simply select additional option.
+	                            $option.prop('selected', true);
+	                        }
+	                        else {
+	                            // Unselect all other options and corresponding checkboxes.
+	                            if (this.options.selectedClass) {
+	                                $($checkboxesNotThis).closest('li').removeClass(this.options.selectedClass);
+	                            }
+
+	                            $($checkboxesNotThis).prop('checked', false);
+	                            $optionsNotThis.prop('selected', false);
+
+	                            // It's a single selection, so close.
+	                            this.$button.click();
+	                        }
+
+	                        if (this.options.selectedClass === "active") {
+	                            $optionsNotThis.closest("a").css("outline", "");
+	                        }
+	                    }
+	                    else {
+	                        // Unselect option.
+	                        $option.prop('selected', false);
+	                    }
+	                }
+
+	                this.$select.change();
+
+	                this.updateButtonText();
+	                this.updateSelectAll();
+
+	                this.options.onChange($option, checked);
+
+	                if(this.options.preventInputChangeEvent) {
+	                    return false;
+	                }
+	            }, this));
+
+	            $('li a', this.$ul).on('mousedown', function(e) {
+	                if (e.shiftKey) {
+	                    // Prevent selecting text by Shift+click
+	                    return false;
+	                }
+	            });
+	        
+	            $('li a', this.$ul).on('touchstart click', $.proxy(function(event) {
+	                event.stopPropagation();
+
+	                var $target = $(event.target);
+	                
+	                if (event.shiftKey && this.options.multiple) {
+	                    if($target.is("label")){ // Handles checkbox selection manually (see https://github.com/davidstutz/bootstrap-multiselect/issues/431)
+	                        event.preventDefault();
+	                        $target = $target.find("input");
+	                        $target.prop("checked", !$target.prop("checked"));
+	                    }
+	                    var checked = $target.prop('checked') || false;
+
+	                    if (this.lastToggledInput !== null && this.lastToggledInput !== $target) { // Make sure we actually have a range
+	                        var from = $target.closest("li").index();
+	                        var to = this.lastToggledInput.closest("li").index();
+	                        
+	                        if (from > to) { // Swap the indices
+	                            var tmp = to;
+	                            to = from;
+	                            from = tmp;
+	                        }
+	                        
+	                        // Make sure we grab all elements since slice excludes the last index
+	                        ++to;
+	                        
+	                        // Change the checkboxes and underlying options
+	                        var range = this.$ul.find("li").slice(from, to).find("input");
+	                        
+	                        range.prop('checked', checked);
+	                        
+	                        if (this.options.selectedClass) {
+	                            range.closest('li')
+	                                .toggleClass(this.options.selectedClass, checked);
+	                        }
+	                        
+	                        for (var i = 0, j = range.length; i < j; i++) {
+	                            var $checkbox = $(range[i]);
+
+	                            var $option = this.getOptionByValue($checkbox.val());
+
+	                            $option.prop('selected', checked);
+	                        }                   
+	                    }
+	                    
+	                    // Trigger the select "change" event
+	                    $target.trigger("change");
+	                }
+	                
+	                // Remembers last clicked option
+	                if($target.is("input") && !$target.closest("li").is(".multiselect-item")){
+	                    this.lastToggledInput = $target;
+	                }
+
+	                $target.blur();
+	            }, this));
+
+	            // Keyboard support.
+	            this.$container.off('keydown.multiselect').on('keydown.multiselect', $.proxy(function(event) {
+	                if ($('input[type="text"]', this.$container).is(':focus')) {
+	                    return;
+	                }
+
+	                if (event.keyCode === 9 && this.$container.hasClass('open')) {
+	                    this.$button.click();
+	                }
+	                else {
+	                    var $items = $(this.$container).find("li:not(.divider):not(.disabled) a").filter(":visible");
+
+	                    if (!$items.length) {
+	                        return;
+	                    }
+
+	                    var index = $items.index($items.filter(':focus'));
+
+	                    // Navigation up.
+	                    if (event.keyCode === 38 && index > 0) {
+	                        index--;
+	                    }
+	                    // Navigate down.
+	                    else if (event.keyCode === 40 && index < $items.length - 1) {
+	                        index++;
+	                    }
+	                    else if (!~index) {
+	                        index = 0;
+	                    }
+
+	                    var $current = $items.eq(index);
+	                    $current.focus();
+
+	                    if (event.keyCode === 32 || event.keyCode === 13) {
+	                        var $checkbox = $current.find('input');
+
+	                        $checkbox.prop("checked", !$checkbox.prop("checked"));
+	                        $checkbox.change();
+	                    }
+
+	                    event.stopPropagation();
+	                    event.preventDefault();
+	                }
+	            }, this));
+
+	            if(this.options.enableClickableOptGroups && this.options.multiple) {
+	                $('li.multiselect-group', this.$ul).on('click', $.proxy(function(event) {
+	                    event.stopPropagation();
+
+	                    var group = $(event.target).parent();
+
+	                    // Search all option in optgroup
+	                    var $options = group.nextUntil('li.multiselect-group');
+	                    var $visibleOptions = $options.filter(":visible:not(.disabled)");
+
+	                    // check or uncheck items
+	                    var allChecked = true;
+	                    var optionInputs = $visibleOptions.find('input');
+	                    optionInputs.each(function() {
+	                        allChecked = allChecked && $(this).prop('checked');
+	                    });
+
+	                    optionInputs.prop('checked', !allChecked).trigger('change');
+	               }, this));
+	            }
+	        },
+
+	        /**
+	         * Create an option using the given select option.
+	         *
+	         * @param {jQuery} element
+	         */
+	        createOptionValue: function(element) {
+	            var $element = $(element);
+	            if ($element.is(':selected')) {
+	                $element.prop('selected', true);
+	            }
+
+	            // Support the label attribute on options.
+	            var label = this.options.optionLabel(element);
+	            var value = $element.val();
+	            var inputType = this.options.multiple ? "checkbox" : "radio";
+
+	            var $li = $(this.options.templates.li);
+	            var $label = $('label', $li);
+	            $label.addClass(inputType);
+
+	            if (this.options.enableHTML) {
+	                $label.html(" " + label);
+	            }
+	            else {
+	                $label.text(" " + label);
+	            }
+	        
+	            var $checkbox = $('<input/>').attr('type', inputType);
+
+	            if (this.options.checkboxName) {
+	                $checkbox.attr('name', this.options.checkboxName);
+	            }
+	            $label.prepend($checkbox);
+
+	            var selected = $element.prop('selected') || false;
+	            $checkbox.val(value);
+
+	            if (value === this.options.selectAllValue) {
+	                $li.addClass("multiselect-item multiselect-all");
+	                $checkbox.parent().parent()
+	                    .addClass('multiselect-all');
+	            }
+
+	            $label.attr('title', $element.attr('title'));
+
+	            this.$ul.append($li);
+
+	            if ($element.is(':disabled')) {
+	                $checkbox.attr('disabled', 'disabled')
+	                    .prop('disabled', true)
+	                    .closest('a')
+	                    .attr("tabindex", "-1")
+	                    .closest('li')
+	                    .addClass('disabled');
+	            }
+
+	            $checkbox.prop('checked', selected);
+
+	            if (selected && this.options.selectedClass) {
+	                $checkbox.closest('li')
+	                    .addClass(this.options.selectedClass);
+	            }
+	        },
+
+	        /**
+	         * Creates a divider using the given select option.
+	         *
+	         * @param {jQuery} element
+	         */
+	        createDivider: function(element) {
+	            var $divider = $(this.options.templates.divider);
+	            this.$ul.append($divider);
+	        },
+
+	        /**
+	         * Creates an optgroup.
+	         *
+	         * @param {jQuery} group
+	         */
+	        createOptgroup: function(group) {
+	            var groupName = $(group).prop('label');
+
+	            // Add a header for the group.
+	            var $li = $(this.options.templates.liGroup);
+	            
+	            if (this.options.enableHTML) {
+	                $('label', $li).html(groupName);
+	            }
+	            else {
+	                $('label', $li).text(groupName);
+	            }
+	            
+	            if (this.options.enableClickableOptGroups) {
+	                $li.addClass('multiselect-group-clickable');
+	            }
+
+	            this.$ul.append($li);
+
+	            if ($(group).is(':disabled')) {
+	                $li.addClass('disabled');
+	            }
+
+	            // Add the options of the group.
+	            $('option', group).each($.proxy(function(index, element) {
+	                this.createOptionValue(element);
+	            }, this));
+	        },
+
+	        /**
+	         * Build the selct all.
+	         * 
+	         * Checks if a select all has already been created.
+	         */
+	        buildSelectAll: function() {
+	            if (typeof this.options.selectAllValue === 'number') {
+	                this.options.selectAllValue = this.options.selectAllValue.toString();
+	            }
+	            
+	            var alreadyHasSelectAll = this.hasSelectAll();
+
+	            if (!alreadyHasSelectAll && this.options.includeSelectAllOption && this.options.multiple
+	                    && $('option', this.$select).length > this.options.includeSelectAllIfMoreThan) {
+
+	                // Check whether to add a divider after the select all.
+	                if (this.options.includeSelectAllDivider) {
+	                    this.$ul.prepend($(this.options.templates.divider));
+	                }
+
+	                var $li = $(this.options.templates.li);
+	                $('label', $li).addClass("checkbox");
+	                
+	                if (this.options.enableHTML) {
+	                    $('label', $li).html(" " + this.options.selectAllText);
+	                }
+	                else {
+	                    $('label', $li).text(" " + this.options.selectAllText);
+	                }
+	                
+	                if (this.options.selectAllName) {
+	                    $('label', $li).prepend('<input type="checkbox" name="' + this.options.selectAllName + '" />');
+	                }
+	                else {
+	                    $('label', $li).prepend('<input type="checkbox" />');
+	                }
+	                
+	                var $checkbox = $('input', $li);
+	                $checkbox.val(this.options.selectAllValue);
+
+	                $li.addClass("multiselect-item multiselect-all");
+	                $checkbox.parent().parent()
+	                    .addClass('multiselect-all');
+
+	                this.$ul.prepend($li);
+
+	                $checkbox.prop('checked', false);
+	            }
+	        },
+
+	        /**
+	         * Builds the filter.
+	         */
+	        buildFilter: function() {
+
+	            // Build filter if filtering OR case insensitive filtering is enabled and the number of options exceeds (or equals) enableFilterLength.
+	            if (this.options.enableFiltering || this.options.enableCaseInsensitiveFiltering) {
+	                var enableFilterLength = Math.max(this.options.enableFiltering, this.options.enableCaseInsensitiveFiltering);
+
+	                if (this.$select.find('option').length >= enableFilterLength) {
+
+	                    this.$filter = $(this.options.templates.filter);
+	                    $('input', this.$filter).attr('placeholder', this.options.filterPlaceholder);
+	                    
+	                    // Adds optional filter clear button
+	                    if(this.options.includeFilterClearBtn){
+	                        var clearBtn = $(this.options.templates.filterClearBtn);
+	                        clearBtn.on('click', $.proxy(function(event){
+	                            clearTimeout(this.searchTimeout);
+	                            this.$filter.find('.multiselect-search').val('');
+	                            $('li', this.$ul).show().removeClass("filter-hidden");
+	                            this.updateSelectAll();
+	                        }, this));
+	                        this.$filter.find('.input-group').append(clearBtn);
+	                    }
+	                    
+	                    this.$ul.prepend(this.$filter);
+
+	                    this.$filter.val(this.query).on('click', function(event) {
+	                        event.stopPropagation();
+	                    }).on('input keydown', $.proxy(function(event) {
+	                        // Cancel enter key default behaviour
+	                        if (event.which === 13) {
+	                          event.preventDefault();
+	                        }
+	                        
+	                        // This is useful to catch "keydown" events after the browser has updated the control.
+	                        clearTimeout(this.searchTimeout);
+
+	                        this.searchTimeout = this.asyncFunction($.proxy(function() {
+
+	                            if (this.query !== event.target.value) {
+	                                this.query = event.target.value;
+
+	                                var currentGroup, currentGroupVisible;
+	                                $.each($('li', this.$ul), $.proxy(function(index, element) {
+	                                    var value = $('input', element).length > 0 ? $('input', element).val() : "";
+	                                    var text = $('label', element).text();
+
+	                                    var filterCandidate = '';
+	                                    if ((this.options.filterBehavior === 'text')) {
+	                                        filterCandidate = text;
+	                                    }
+	                                    else if ((this.options.filterBehavior === 'value')) {
+	                                        filterCandidate = value;
+	                                    }
+	                                    else if (this.options.filterBehavior === 'both') {
+	                                        filterCandidate = text + '\n' + value;
+	                                    }
+
+	                                    if (value !== this.options.selectAllValue && text) {
+	                                        // By default lets assume that element is not
+	                                        // interesting for this search.
+	                                        var showElement = false;
+
+	                                        if (this.options.enableCaseInsensitiveFiltering && filterCandidate.toLowerCase().indexOf(this.query.toLowerCase()) > -1) {
+	                                            showElement = true;
+	                                        }
+	                                        else if (filterCandidate.indexOf(this.query) > -1) {
+	                                            showElement = true;
+	                                        }
+
+	                                        // Toggle current element (group or group item) according to showElement boolean.
+	                                        $(element).toggle(showElement).toggleClass('filter-hidden', !showElement);
+	                                        
+	                                        // Differentiate groups and group items.
+	                                        if ($(element).hasClass('multiselect-group')) {
+	                                            // Remember group status.
+	                                            currentGroup = element;
+	                                            currentGroupVisible = showElement;
+	                                        }
+	                                        else {
+	                                            // Show group name when at least one of its items is visible.
+	                                            if (showElement) {
+	                                                $(currentGroup).show().removeClass('filter-hidden');
+	                                            }
+	                                            
+	                                            // Show all group items when group name satisfies filter.
+	                                            if (!showElement && currentGroupVisible) {
+	                                                $(element).show().removeClass('filter-hidden');
+	                                            }
+	                                        }
+	                                    }
+	                                }, this));
+	                            }
+
+	                            this.updateSelectAll();
+	                        }, this), 300, this);
+	                    }, this));
+	                }
+	            }
+	        },
+
+	        /**
+	         * Unbinds the whole plugin.
+	         */
+	        destroy: function() {
+	            this.$container.remove();
+	            this.$select.show();
+	            this.$select.data('multiselect', null);
+	        },
+
+	        /**
+	         * Refreshs the multiselect based on the selected options of the select.
+	         */
+	        refresh: function() {
+	            $('option', this.$select).each($.proxy(function(index, element) {
+	                var $input = $('li input', this.$ul).filter(function() {
+	                    return $(this).val() === $(element).val();
+	                });
+
+	                if ($(element).is(':selected')) {
+	                    $input.prop('checked', true);
+
+	                    if (this.options.selectedClass) {
+	                        $input.closest('li')
+	                            .addClass(this.options.selectedClass);
+	                    }
+	                }
+	                else {
+	                    $input.prop('checked', false);
+
+	                    if (this.options.selectedClass) {
+	                        $input.closest('li')
+	                            .removeClass(this.options.selectedClass);
+	                    }
+	                }
+
+	                if ($(element).is(":disabled")) {
+	                    $input.attr('disabled', 'disabled')
+	                        .prop('disabled', true)
+	                        .closest('li')
+	                        .addClass('disabled');
+	                }
+	                else {
+	                    $input.prop('disabled', false)
+	                        .closest('li')
+	                        .removeClass('disabled');
+	                }
+	            }, this));
+
+	            this.updateButtonText();
+	            this.updateSelectAll();
+	        },
+
+	        /**
+	         * Select all options of the given values.
+	         * 
+	         * If triggerOnChange is set to true, the on change event is triggered if
+	         * and only if one value is passed.
+	         * 
+	         * @param {Array} selectValues
+	         * @param {Boolean} triggerOnChange
+	         */
+	        select: function(selectValues, triggerOnChange) {
+	            if(!$.isArray(selectValues)) {
+	                selectValues = [selectValues];
+	            }
+
+	            for (var i = 0; i < selectValues.length; i++) {
+	                var value = selectValues[i];
+
+	                if (value === null || value === undefined) {
+	                    continue;
+	                }
+
+	                var $option = this.getOptionByValue(value);
+	                var $checkbox = this.getInputByValue(value);
+
+	                if($option === undefined || $checkbox === undefined) {
+	                    continue;
+	                }
+	                
+	                if (!this.options.multiple) {
+	                    this.deselectAll(false);
+	                }
+	                
+	                if (this.options.selectedClass) {
+	                    $checkbox.closest('li')
+	                        .addClass(this.options.selectedClass);
+	                }
+
+	                $checkbox.prop('checked', true);
+	                $option.prop('selected', true);
+	                
+	                if (triggerOnChange) {
+	                    this.options.onChange($option, true);
+	                }
+	            }
+
+	            this.updateButtonText();
+	            this.updateSelectAll();
+	        },
+
+	        /**
+	         * Clears all selected items.
+	         */
+	        clearSelection: function () {
+	            this.deselectAll(false);
+	            this.updateButtonText();
+	            this.updateSelectAll();
+	        },
+
+	        /**
+	         * Deselects all options of the given values.
+	         * 
+	         * If triggerOnChange is set to true, the on change event is triggered, if
+	         * and only if one value is passed.
+	         * 
+	         * @param {Array} deselectValues
+	         * @param {Boolean} triggerOnChange
+	         */
+	        deselect: function(deselectValues, triggerOnChange) {
+	            if(!$.isArray(deselectValues)) {
+	                deselectValues = [deselectValues];
+	            }
+
+	            for (var i = 0; i < deselectValues.length; i++) {
+	                var value = deselectValues[i];
+
+	                if (value === null || value === undefined) {
+	                    continue;
+	                }
+
+	                var $option = this.getOptionByValue(value);
+	                var $checkbox = this.getInputByValue(value);
+
+	                if($option === undefined || $checkbox === undefined) {
+	                    continue;
+	                }
+
+	                if (this.options.selectedClass) {
+	                    $checkbox.closest('li')
+	                        .removeClass(this.options.selectedClass);
+	                }
+
+	                $checkbox.prop('checked', false);
+	                $option.prop('selected', false);
+	                
+	                if (triggerOnChange) {
+	                    this.options.onChange($option, false);
+	                }
+	            }
+
+	            this.updateButtonText();
+	            this.updateSelectAll();
+	        },
+	        
+	        /**
+	         * Selects all enabled & visible options.
+	         *
+	         * If justVisible is true or not specified, only visible options are selected.
+	         *
+	         * @param {Boolean} justVisible
+	         * @param {Boolean} triggerOnSelectAll
+	         */
+	        selectAll: function (justVisible, triggerOnSelectAll) {
+	            var justVisible = typeof justVisible === 'undefined' ? true : justVisible;
+	            var allCheckboxes = $("li input[type='checkbox']:enabled", this.$ul);
+	            var visibleCheckboxes = allCheckboxes.filter(":visible");
+	            var allCheckboxesCount = allCheckboxes.length;
+	            var visibleCheckboxesCount = visibleCheckboxes.length;
+	            
+	            if(justVisible) {
+	                visibleCheckboxes.prop('checked', true);
+	                $("li:not(.divider):not(.disabled)", this.$ul).filter(":visible").addClass(this.options.selectedClass);
+	            }
+	            else {
+	                allCheckboxes.prop('checked', true);
+	                $("li:not(.divider):not(.disabled)", this.$ul).addClass(this.options.selectedClass);
+	            }
+	                
+	            if (allCheckboxesCount === visibleCheckboxesCount || justVisible === false) {
+	                $("option:enabled", this.$select).prop('selected', true);
+	            }
+	            else {
+	                var values = visibleCheckboxes.map(function() {
+	                    return $(this).val();
+	                }).get();
+	                
+	                $("option:enabled", this.$select).filter(function(index) {
+	                    return $.inArray($(this).val(), values) !== -1;
+	                }).prop('selected', true);
+	            }
+	            
+	            if (triggerOnSelectAll) {
+	                this.options.onSelectAll();
+	            }
+	        },
+
+	        /**
+	         * Deselects all options.
+	         * 
+	         * If justVisible is true or not specified, only visible options are deselected.
+	         * 
+	         * @param {Boolean} justVisible
+	         */
+	        deselectAll: function (justVisible) {
+	            var justVisible = typeof justVisible === 'undefined' ? true : justVisible;
+	            
+	            if(justVisible) {              
+	                var visibleCheckboxes = $("li input[type='checkbox']:not(:disabled)", this.$ul).filter(":visible");
+	                visibleCheckboxes.prop('checked', false);
+	                
+	                var values = visibleCheckboxes.map(function() {
+	                    return $(this).val();
+	                }).get();
+	                
+	                $("option:enabled", this.$select).filter(function(index) {
+	                    return $.inArray($(this).val(), values) !== -1;
+	                }).prop('selected', false);
+	                
+	                if (this.options.selectedClass) {
+	                    $("li:not(.divider):not(.disabled)", this.$ul).filter(":visible").removeClass(this.options.selectedClass);
+	                }
+	            }
+	            else {
+	                $("li input[type='checkbox']:enabled", this.$ul).prop('checked', false);
+	                $("option:enabled", this.$select).prop('selected', false);
+	                
+	                if (this.options.selectedClass) {
+	                    $("li:not(.divider):not(.disabled)", this.$ul).removeClass(this.options.selectedClass);
+	                }
+	            }
+	        },
+
+	        /**
+	         * Rebuild the plugin.
+	         * 
+	         * Rebuilds the dropdown, the filter and the select all option.
+	         */
+	        rebuild: function() {
+	            this.$ul.html('');
+
+	            // Important to distinguish between radios and checkboxes.
+	            this.options.multiple = this.$select.attr('multiple') === "multiple";
+
+	            this.buildSelectAll();
+	            this.buildDropdownOptions();
+	            this.buildFilter();
+
+	            this.updateButtonText();
+	            this.updateSelectAll();
+	            
+	            if (this.options.disableIfEmpty && $('option', this.$select).length <= 0) {
+	                this.disable();
+	            }
+	            else {
+	                this.enable();
+	            }
+	            
+	            if (this.options.dropRight) {
+	                this.$ul.addClass('pull-right');
+	            }
+	        },
+
+	        /**
+	         * The provided data will be used to build the dropdown.
+	         */
+	        dataprovider: function(dataprovider) {
+	            
+	            var groupCounter = 0;
+	            var $select = this.$select.empty();
+	            
+	            $.each(dataprovider, function (index, option) {
+	                var $tag;
+	                
+	                if ($.isArray(option.children)) { // create optiongroup tag
+	                    groupCounter++;
+	                    
+	                    $tag = $('<optgroup/>').attr({
+	                        label: option.label || 'Group ' + groupCounter,
+	                        disabled: !!option.disabled
+	                    });
+	                    
+	                    forEach(option.children, function(subOption) { // add children option tags
+	                        $tag.append($('<option/>').attr({
+	                            value: subOption.value,
+	                            label: subOption.label || subOption.value,
+	                            title: subOption.title,
+	                            selected: !!subOption.selected,
+	                            disabled: !!subOption.disabled
+	                        }));
+	                    });
+	                }
+	                else {
+	                    $tag = $('<option/>').attr({
+	                        value: option.value,
+	                        label: option.label || option.value,
+	                        title: option.title,
+	                        selected: !!option.selected,
+	                        disabled: !!option.disabled
+	                    });
+	                }
+	                
+	                $select.append($tag);
+	            });
+	            
+	            this.rebuild();
+	        },
+
+	        /**
+	         * Enable the multiselect.
+	         */
+	        enable: function() {
+	            this.$select.prop('disabled', false);
+	            this.$button.prop('disabled', false)
+	                .removeClass('disabled');
+	        },
+
+	        /**
+	         * Disable the multiselect.
+	         */
+	        disable: function() {
+	            this.$select.prop('disabled', true);
+	            this.$button.prop('disabled', true)
+	                .addClass('disabled');
+	        },
+
+	        /**
+	         * Set the options.
+	         *
+	         * @param {Array} options
+	         */
+	        setOptions: function(options) {
+	            this.options = this.mergeOptions(options);
+	        },
+
+	        /**
+	         * Merges the given options with the default options.
+	         *
+	         * @param {Array} options
+	         * @returns {Array}
+	         */
+	        mergeOptions: function(options) {
+	            return $.extend(true, {}, this.defaults, this.options, options);
+	        },
+
+	        /**
+	         * Checks whether a select all checkbox is present.
+	         *
+	         * @returns {Boolean}
+	         */
+	        hasSelectAll: function() {
+	            return $('li.multiselect-all', this.$ul).length > 0;
+	        },
+
+	        /**
+	         * Updates the select all checkbox based on the currently displayed and selected checkboxes.
+	         */
+	        updateSelectAll: function() {
+	            if (this.hasSelectAll()) {
+	                var allBoxes = $("li:not(.multiselect-item):not(.filter-hidden) input:enabled", this.$ul);
+	                var allBoxesLength = allBoxes.length;
+	                var checkedBoxesLength = allBoxes.filter(":checked").length;
+	                var selectAllLi  = $("li.multiselect-all", this.$ul);
+	                var selectAllInput = selectAllLi.find("input");
+	                
+	                if (checkedBoxesLength > 0 && checkedBoxesLength === allBoxesLength) {
+	                    selectAllInput.prop("checked", true);
+	                    selectAllLi.addClass(this.options.selectedClass);
+	                    this.options.onSelectAll();
+	                }
+	                else {
+	                    selectAllInput.prop("checked", false);
+	                    selectAllLi.removeClass(this.options.selectedClass);
+	                }
+	            }
+	        },
+
+	        /**
+	         * Update the button text and its title based on the currently selected options.
+	         */
+	        updateButtonText: function() {
+	            var options = this.getSelected();
+	            
+	            // First update the displayed button text.
+	            if (this.options.enableHTML) {
+	                $('.multiselect .multiselect-selected-text', this.$container).html(this.options.buttonText(options, this.$select));
+	            }
+	            else {
+	                $('.multiselect .multiselect-selected-text', this.$container).text(this.options.buttonText(options, this.$select));
+	            }
+	            
+	            // Now update the title attribute of the button.
+	            $('.multiselect', this.$container).attr('title', this.options.buttonTitle(options, this.$select));
+	        },
+
+	        /**
+	         * Get all selected options.
+	         *
+	         * @returns {jQUery}
+	         */
+	        getSelected: function() {
+	            return $('option', this.$select).filter(":selected");
+	        },
+
+	        /**
+	         * Gets a select option by its value.
+	         *
+	         * @param {String} value
+	         * @returns {jQuery}
+	         */
+	        getOptionByValue: function (value) {
+
+	            var options = $('option', this.$select);
+	            var valueToCompare = value.toString();
+
+	            for (var i = 0; i < options.length; i = i + 1) {
+	                var option = options[i];
+	                if (option.value === valueToCompare) {
+	                    return $(option);
+	                }
+	            }
+	        },
+
+	        /**
+	         * Get the input (radio/checkbox) by its value.
+	         *
+	         * @param {String} value
+	         * @returns {jQuery}
+	         */
+	        getInputByValue: function (value) {
+
+	            var checkboxes = $('li input', this.$ul);
+	            var valueToCompare = value.toString();
+
+	            for (var i = 0; i < checkboxes.length; i = i + 1) {
+	                var checkbox = checkboxes[i];
+	                if (checkbox.value === valueToCompare) {
+	                    return $(checkbox);
+	                }
+	            }
+	        },
+
+	        /**
+	         * Used for knockout integration.
+	         */
+	        updateOriginalOptions: function() {
+	            this.originalOptions = this.$select.clone()[0].options;
+	        },
+
+	        asyncFunction: function(callback, timeout, self) {
+	            var args = Array.prototype.slice.call(arguments, 3);
+	            return setTimeout(function() {
+	                callback.apply(self || window, args);
+	            }, timeout);
+	        },
+
+	        setAllSelectedText: function(allSelectedText) {
+	            this.options.allSelectedText = allSelectedText;
+	            this.updateButtonText();
+	        }
+	    };
+
+	    $.fn.multiselect = function(option, parameter, extraOptions) {
+	        return this.each(function() {
+	            var data = $(this).data('multiselect');
+	            var options = typeof option === 'object' && option;
+
+	            // Initialize the multiselect.
+	            if (!data) {
+	                data = new Multiselect(this, options);
+	                $(this).data('multiselect', data);
+	            }
+
+	            // Call multiselect method.
+	            if (typeof option === 'string') {
+	                data[option](parameter, extraOptions);
+	                
+	                if (option === 'destroy') {
+	                    $(this).data('multiselect', false);
+	                }
+	            }
+	        });
+	    };
+
+	    $.fn.multiselect.Constructor = Multiselect;
+
+	    $(function() {
+	        $("select[data-role=multiselect]").multiselect();
+	    });
+
+	}(window.jQuery);
+
+
+/***/ },
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var environment = __webpack_require__(20);
+	var environment = __webpack_require__(21);
 
-	var DiffPatcher = __webpack_require__(21).DiffPatcher;
+	var DiffPatcher = __webpack_require__(22).DiffPatcher;
 	exports.DiffPatcher = DiffPatcher;
 
 	exports.create = function(options){
 	  return new DiffPatcher(options);
 	};
 
-	exports.dateReviver = __webpack_require__(26);
+	exports.dateReviver = __webpack_require__(27);
 
 	var defaultInstance;
 
@@ -89862,11 +91373,11 @@ webpackJsonp([0,2],[
 	  exports.homepage = '{{package-homepage}}';
 	  exports.version = '{{package-version}}';
 	} else {
-	  var packageInfo = __webpack_require__(37);
+	  var packageInfo = __webpack_require__(38);
 	  exports.homepage = packageInfo.homepage;
 	  exports.version = packageInfo.version;
 
-	  var formatters = __webpack_require__(38);
+	  var formatters = __webpack_require__(39);
 	  exports.formatters = formatters;
 	  // shortcut for console
 	  exports.console = formatters.console;
@@ -89874,7 +91385,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	
@@ -89882,20 +91393,20 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Processor = __webpack_require__(22).Processor;
-	var Pipe = __webpack_require__(23).Pipe;
-	var DiffContext = __webpack_require__(24).DiffContext;
-	var PatchContext = __webpack_require__(27).PatchContext;
-	var ReverseContext = __webpack_require__(28).ReverseContext;
+	var Processor = __webpack_require__(23).Processor;
+	var Pipe = __webpack_require__(24).Pipe;
+	var DiffContext = __webpack_require__(25).DiffContext;
+	var PatchContext = __webpack_require__(28).PatchContext;
+	var ReverseContext = __webpack_require__(29).ReverseContext;
 
-	var trivial = __webpack_require__(29);
-	var nested = __webpack_require__(30);
-	var arrays = __webpack_require__(31);
-	var dates = __webpack_require__(33);
-	var texts = __webpack_require__(34);
+	var trivial = __webpack_require__(30);
+	var nested = __webpack_require__(31);
+	var arrays = __webpack_require__(32);
+	var dates = __webpack_require__(34);
+	var texts = __webpack_require__(35);
 
 	var DiffPatcher = function DiffPatcher(options) {
 	  this.processor = new Processor(options);
@@ -89949,7 +91460,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 	
@@ -90015,7 +91526,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	var Pipe = function Pipe(name) {
@@ -90133,11 +91644,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Context = __webpack_require__(25).Context;
-	var dateReviver = __webpack_require__(26);
+	var Context = __webpack_require__(26).Context;
+	var dateReviver = __webpack_require__(27);
 
 	var DiffContext = function DiffContext(left, right) {
 	  this.left = left;
@@ -90167,11 +91678,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var Pipe = __webpack_require__(23).Pipe;
+	var Pipe = __webpack_require__(24).Pipe;
 
 	var Context = function Context(){
 	};
@@ -90222,7 +91733,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports) {
 
 	// use as 2nd parameter for JSON.parse to revive Date instances
@@ -90239,10 +91750,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Context = __webpack_require__(25).Context;
+	var Context = __webpack_require__(26).Context;
 
 	var PatchContext = function PatchContext(left, delta) {
 	  this.left = left;
@@ -90256,10 +91767,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Context = __webpack_require__(25).Context;
+	var Context = __webpack_require__(26).Context;
 
 	var ReverseContext = function ReverseContext(delta) {
 	  this.delta = delta;
@@ -90272,7 +91783,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	var isArray = (typeof Array.isArray === 'function') ?
@@ -90379,12 +91890,12 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DiffContext = __webpack_require__(24).DiffContext;
-	var PatchContext = __webpack_require__(27).PatchContext;
-	var ReverseContext = __webpack_require__(28).ReverseContext;
+	var DiffContext = __webpack_require__(25).DiffContext;
+	var PatchContext = __webpack_require__(28).PatchContext;
+	var ReverseContext = __webpack_require__(29).ReverseContext;
 
 	var collectChildrenDiffFilter = function collectChildrenDiffFilter(context) {
 	  if (!context || !context.children) {
@@ -90527,14 +92038,14 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DiffContext = __webpack_require__(24).DiffContext;
-	var PatchContext = __webpack_require__(27).PatchContext;
-	var ReverseContext = __webpack_require__(28).ReverseContext;
+	var DiffContext = __webpack_require__(25).DiffContext;
+	var PatchContext = __webpack_require__(28).PatchContext;
+	var ReverseContext = __webpack_require__(29).ReverseContext;
 
-	var lcs = __webpack_require__(32);
+	var lcs = __webpack_require__(33);
 
 	var ARRAY_MOVE = 3;
 
@@ -90971,7 +92482,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	/*
@@ -91051,7 +92562,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	var diffFilter = function datesDiffFilter(context) {
@@ -91076,7 +92587,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global diff_match_patch */
@@ -91096,7 +92607,7 @@ webpackJsonp([0,2],[
 	    } else if (true) {
 	      try {
 	        var dmpModuleName = 'diff_match_patch_uncompressed';
-	        var dmp = __webpack_require__(35)("./" + dmpModuleName);
+	        var dmp = __webpack_require__(36)("./" + dmpModuleName);
 	        instance = new dmp.diff_match_patch();
 	      } catch (err) {
 	        instance = null;
@@ -91218,12 +92729,12 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./diff_match_patch_uncompressed": 36,
-		"./diff_match_patch_uncompressed.js": 36
+		"./diff_match_patch_uncompressed": 37,
+		"./diff_match_patch_uncompressed.js": 37
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -91236,11 +92747,11 @@ webpackJsonp([0,2],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 35;
+	webpackContext.id = 36;
 
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	/**
@@ -93407,85 +94918,46 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = {
-		"_args": [
-			[
-				{
-					"raw": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-					"scope": null,
-					"escapedName": "jsondiffpatch",
-					"name": "jsondiffpatch",
-					"rawSpec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-					"spec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-					"type": "hosted",
-					"hosted": {
-						"type": "github",
-						"ssh": "git@github.com:cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-						"sshUrl": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-						"httpsUrl": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-						"gitUrl": "git://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-						"shortcut": "github:cheapsteak/jsondiffpatch#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-						"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
-					}
-				},
-				"/Users/hnahal/dcc-docs/node_modules/@icgc/dictionary-viewer"
-			]
-		],
-		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_id": "jsondiffpatch@0.1.43",
-		"_inCache": true,
-		"_location": "/jsondiffpatch",
-		"_phantomChildren": {},
-		"_requested": {
-			"raw": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-			"scope": null,
-			"escapedName": "jsondiffpatch",
-			"name": "jsondiffpatch",
-			"rawSpec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-			"spec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-			"type": "hosted",
-			"hosted": {
-				"type": "github",
-				"ssh": "git@github.com:cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-				"sshUrl": "git+ssh://git@github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-				"httpsUrl": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-				"gitUrl": "git://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-				"shortcut": "github:cheapsteak/jsondiffpatch#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-				"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
-			}
-		},
-		"_requiredBy": [
-			"/@icgc/dictionary-viewer"
-		],
-		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_shasum": "a43f9bfda42600b63f4dc7a5b27f910eebdefbec",
-		"_shrinkwrap": null,
-		"_spec": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_where": "/Users/hnahal/dcc-docs/node_modules/@icgc/dictionary-viewer",
+		"name": "jsondiffpatch",
+		"version": "0.1.43",
 		"author": {
 			"name": "Benjamin Eidelman",
 			"email": "beneidel@gmail.com"
 		},
-		"bin": {
-			"jsondiffpatch": "./bin/jsondiffpatch"
-		},
-		"bugs": {
-			"url": "https://github.com/benjamine/jsondiffpatch/issues"
-		},
-		"bundleDependencies": [],
+		"description": "Diff & Patch for Javascript objects",
 		"contributors": [
 			{
 				"name": "Benjamin Eidelman",
 				"email": "beneidel@gmail.com"
 			}
 		],
+		"bin": {
+			"jsondiffpatch": "./bin/jsondiffpatch"
+		},
+		"scripts": {
+			"test": "gulp test && gulp test-browser",
+			"bump": "gulp bump",
+			"cover": "istanbul cover --root src gulp test",
+			"cover-report": "open coverage/lcov-report/index.html",
+			"cover-publish": "istanbul cover _mocha --report lcovonly && codeclimate < coverage/lcov.info"
+		},
+		"main": "./src/main",
+		"repository": {
+			"type": "git",
+			"url": "git+https://github.com/benjamine/jsondiffpatch.git"
+		},
+		"keywords": [
+			"json",
+			"diff",
+			"patch"
+		],
 		"dependencies": {
 			"chalk": "^0.5.1"
 		},
-		"description": "Diff & Patch for Javascript objects",
 		"devDependencies": {
 			"bulk-require": "^0.2.1",
 			"codeclimate-test-reporter": "0.0.3",
@@ -93495,35 +94967,10 @@ webpackJsonp([0,2],[
 			"istanbul": "^0.3.2",
 			"mocha": "^1.21.4"
 		},
+		"bundleDependencies": [],
+		"license": "MIT",
 		"engine": {
 			"node": ">=0.10"
-		},
-		"engines": {
-			"node": "*"
-		},
-		"gitHead": "1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"homepage": "https://github.com/benjamine/jsondiffpatch",
-		"keywords": [
-			"json",
-			"diff",
-			"patch"
-		],
-		"license": "MIT",
-		"main": "./src/main",
-		"name": "jsondiffpatch",
-		"optionalDependencies": {},
-		"readme": "jsondiffpatch\n=============\n\n<!--- badges -->\n[![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n[![Code Climate](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/gpa.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![Test Coverage](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/coverage.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![NPM version](https://badge.fury.io/js/jsondiffpatch.svg)](http://badge.fury.io/js/jsondiffpatch)\n[![NPM dependencies](https://david-dm.org/benjamine/jsondiffpatch.svg)](https://david-dm.org/benjamine/jsondiffpatch)\n[![Bower version](https://badge.fury.io/bo/jsondiffpatch.svg)](http://badge.fury.io/bo/jsondiffpatch)\n\nDiff & patch JavaScript objects\n\n-----\n**[Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html)**\n-----\n\n- min+gzipped < 6KB\n- browser (```/public/build/jsondiffpatch.js```) and server (eg. node.js)\n- includes [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) for long text diffs (diff at character level)\n- smart array diffing using [LCS](http://en.wikipedia.org/wiki/Longest_common_subsequence_problem), ***IMPORTANT NOTE:*** to match objects inside an array you must provide an ```objectHash``` function (this is how objects are matched, otherwise a dumb match by position is used). For more details, check [Array diff documentation](docs/arrays.md)\n- reverse a delta\n- unpatch (eg. revert object to its original state using a delta)\n- simplistic, pure JSON, low footprint [delta format](docs/deltas.md)\n- multiple output formatters:\n    - html (check it at the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html))\n    - annotated json (html), makes the JSON delta format self-explained\n    - console (colored), try running ```./node_modules/.bin/jsondiffpatch left.json right.json```\n    - write your own! check [Formatters documentation](docs/formatters.md)\n\nSupported platforms\n----------------\n\n* Any modern browser and IE8+\n\n[![Testling Status](https://ci.testling.com/benjamine/jsondiffpatch.png)](https://ci.testling.com/benjamine/jsondiffpatch)\n\nAnd you can test your current browser visiting the [test page](http://benjamine.github.com/jsondiffpatch/test/index.html).\n\n* Node.js [![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n\nIf you want to run tests locally:\n``` sh\nnpm i\n# will test in node.js and phantomjs (headless browser)\nnpm test\n# or test on specific browsers (using karma.js)\nBROWSERS=chrome,phantomjs npm test\n```\nUsage\n-----\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        capital: \"Buenos Aires\",\n        independence: new Date(1816, 6, 9),\n        unasur: true\n    };\n\n    // clone country, using dateReviver for Date objects\n    var country2 = JSON.parse(JSON.stringify(country), jsondiffpatch.dateReviver);\n\n    // make some changes\n    country2.name = \"Republica Argentina\";\n    country2.population = 41324992;\n    delete country2.capital;\n\n    var delta = jsondiffpatch.diff(country, country2);\n\n    assertSame(delta, {\n        \"name\":[\"Argentina\",\"Republica Argentina\"], // old value, new value\n        \"population\":[\"41324992\"], // new value\n        \"capital\":[\"Buenos Aires\", 0, 0] // deleted\n    });\n\n    // patch original\n    jsondiffpatch.patch(country, delta);\n\n    // reverse diff\n    var reverseDelta = jsondiffpatch.reverse(delta);\n    // also country2 can be return to original value with: jsondiffpatch.unpatch(country2, delta);\n\n    var delta2 = jsondiffpatch.diff(country, country2);\n    assert(delta2 === undefined)\n    // undefined => no difference\n```\n\nArray diffing:\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        cities: [\n        {\n            name: 'Buenos Aires',\n            population: 13028000,\n        },\n        {\n            name: 'Cordoba',\n            population: 1430023,\n        },\n        {\n            name: 'Rosario',\n            population: 1136286,\n        },\n        {\n            name: 'Mendoza',\n            population: 901126,\n        },\n        {\n            name: 'San Miguel de Tucuman',\n            population: 800000,\n        }\n        ]\n    };\n\n    // clone country\n    var country2 = JSON.parse(JSON.stringify(country));\n\n    // delete Cordoba\n    country.cities.splice(1, 1);\n\n    // add La Plata\n    country.cities.splice(4, 0, {\n        name: 'La Plata'\n        });\n\n    // modify Rosario, and move it\n    var rosario = country.cities.splice(1, 1)[0];\n    rosario.population += 1234;\n    country.cities.push(rosario);\n\n    // create a configured instance, match objects by name\n    var diffpatcher = jsondiffpatch.create({\n        objectHash: function(obj) {\n            return obj.name;\n        }\n    });\n\n    var delta = diffpatcher.diff(country, country2);\n\n    assertSame(delta, {\n        \"cities\": {\n            \"_t\": \"a\", // indicates this node is an array (not an object)\n            \"1\": [\n                // inserted at index 1\n                {\n                    \"name\": \"Cordoba\",\n                    \"population\": 1430023\n                }]\n            ,\n            \"2\": {\n                // population modified at index 2 (Rosario)\n                \"population\": [\n                    1137520,\n                    1136286\n                ]\n            },\n            \"_3\": [\n                // removed from index 3\n                {\n                    \"name\": \"La Plata\"\n                }, 0, 0],\n            \"_4\": [\n                // move from index 4 to index 2\n                '', 2, 3]\n        }\n    });\n```\n\nFor more example cases (nested objects or arrays, long text diffs) check ```test/examples/```\n\nIf you want to understand deltas, see [delta format documentation](docs/deltas.md)\n\nInstalling\n---------------\n\n### npm (node.js)\n\n``` sh\nnpm install jsondiffpatch\n```\n\n``` js\nvar jsondiffpatch = require('jsondiffpatch').create(options);\n```\n\n### bower (browser)\n\n``` sh\nbower install jsondiffpatch\n```\n\nbrowser bundles are in the ```/public/build``` folder (you can re-generate these using ```make``` or ```gulp```, `npm test` will do that too):\n- ```jsondiffpatch.js``` main bundle\n- ```jsondiffpatch.full.js``` main bundle + [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) library for text diffs\n- ```jsondiffpatch-formatters.js``` builtin formatters (only those useful in a browser)\n\nAll these come in minified versions (```.min.js```), and separate sourcemap files.\n\nOptions\n-------\n\n``` javascript\nvar jsondiffpatch = require('jsondiffpatch').create({\n    // used to match objects when diffing arrays, by default only === operator is used\n    objectHash: function(obj) {\n        // this function is used only to when objects are not equal by ref\n        return obj._id || obj.id;\n    },\n    arrays: {\n        // default true, detect items moved inside the array (otherwise they will be registered as remove+add)\n        detectMove: true,\n        // default false, the value of items moved is not included in deltas\n        includeValueOnMove: false\n    },\n    textDiff: {\n        // default 60, minimum string length (left and right sides) to use text diff algorythm: google-diff-match-patch\n        minLength: 60\n    },\n    propertyFilter: function(name, context) {\n      /*\n       this optional function can be specified to ignore object properties (eg. volatile data)\n        name: property name, present in either context.left or context.right objects\n        context: the diff context (has context.left and context.right objects)\n      */\n      return name.slice(0, 1) !== '$';\n    },\n    cloneDiffValues: false /* default false. if true, values in the obtained delta will be cloned,\n      to ensure delta keeps no references to left or right objects. this becomes useful\n      if you're diffing and patching the same objects multiple times without serializing deltas.\n      instead of true, a function can be specified here to provide a custom clone(value)\n      */\n});\n```\n\nVisual Diff\n----------------\n\n``` html\n<!DOCTYPE html>\n<html>\n    <head>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch.min.js\"></script>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch-formatters.min.js\"></script>\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/html.css\" type=\"text/css\" />\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/annotated.css\" type=\"text/css\" />\n    </head>\n    <body>\n        <div id=\"visual\"></div>\n        <hr/>\n        <div id=\"annotated\"></div>\n        <script>\n            var left = { a: 3, b: 4 };\n            var right = { a: 5, c: 9 };\n            var delta = jsondiffpatch.diff(left, right);\n\n            // beautiful html diff\n            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, left);\n\n            // self-explained json\n            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, left);\n        </script>\n    </body>\n</html>\n```\n\nTo see formatters in action check the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html).\n\nFor more details check [Formatters documentation](docs/formatters.md)\n\nConsole\n--------\n\n``` sh\n# diff two json files, colored output (using chalk lib)\n./node_modules/.bin/jsondiffpatch ./left.json ./right.json\n\n# or install globally\nnpm install -g jsondiffpatch\n\njsondiffpatch ./demo/left.json ./demo/right.json\n```\n\n![console_demo!](public/demo/consoledemo.png)\n\nPlugins\n-------\n\n```diff()```, ```patch()``` and ```reverse()``` functions are implemented using Pipes & Filters pattern, making it extremely customizable by adding or replacing filters on a pipe.\n\nCheck [Plugins documentation](docs/plugins.md) for details.\n",
-		"readmeFilename": "README.md",
-		"repository": {
-			"type": "git",
-			"url": "git+https://github.com/benjamine/jsondiffpatch.git"
-		},
-		"scripts": {
-			"bump": "gulp bump",
-			"cover": "istanbul cover --root src gulp test",
-			"cover-publish": "istanbul cover _mocha --report lcovonly && codeclimate < coverage/lcov.info",
-			"cover-report": "open coverage/lcov-report/index.html",
-			"test": "gulp test && gulp test-browser"
 		},
 		"testling": {
 			"harness": "mocha",
@@ -93543,27 +94990,40 @@ webpackJsonp([0,2],[
 				"android-browser/4.2..latest"
 			]
 		},
-		"version": "0.1.43"
+		"engines": {
+			"node": "*"
+		},
+		"homepage": "https://github.com/benjamine/jsondiffpatch",
+		"gitHead": "1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"readme": "jsondiffpatch\n=============\n\n<!--- badges -->\n[![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n[![Code Climate](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/gpa.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![Test Coverage](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/coverage.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![NPM version](https://badge.fury.io/js/jsondiffpatch.svg)](http://badge.fury.io/js/jsondiffpatch)\n[![NPM dependencies](https://david-dm.org/benjamine/jsondiffpatch.svg)](https://david-dm.org/benjamine/jsondiffpatch)\n[![Bower version](https://badge.fury.io/bo/jsondiffpatch.svg)](http://badge.fury.io/bo/jsondiffpatch)\n\nDiff & patch JavaScript objects\n\n-----\n**[Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html)**\n-----\n\n- min+gzipped < 6KB\n- browser (```/public/build/jsondiffpatch.js```) and server (eg. node.js)\n- includes [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) for long text diffs (diff at character level)\n- smart array diffing using [LCS](http://en.wikipedia.org/wiki/Longest_common_subsequence_problem), ***IMPORTANT NOTE:*** to match objects inside an array you must provide an ```objectHash``` function (this is how objects are matched, otherwise a dumb match by position is used). For more details, check [Array diff documentation](docs/arrays.md)\n- reverse a delta\n- unpatch (eg. revert object to its original state using a delta)\n- simplistic, pure JSON, low footprint [delta format](docs/deltas.md)\n- multiple output formatters:\n    - html (check it at the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html))\n    - annotated json (html), makes the JSON delta format self-explained\n    - console (colored), try running ```./node_modules/.bin/jsondiffpatch left.json right.json```\n    - write your own! check [Formatters documentation](docs/formatters.md)\n\nSupported platforms\n----------------\n\n* Any modern browser and IE8+\n\n[![Testling Status](https://ci.testling.com/benjamine/jsondiffpatch.png)](https://ci.testling.com/benjamine/jsondiffpatch)\n\nAnd you can test your current browser visiting the [test page](http://benjamine.github.com/jsondiffpatch/test/index.html).\n\n* Node.js [![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n\nIf you want to run tests locally:\n``` sh\nnpm i\n# will test in node.js and phantomjs (headless browser)\nnpm test\n# or test on specific browsers (using karma.js)\nBROWSERS=chrome,phantomjs npm test\n```\nUsage\n-----\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        capital: \"Buenos Aires\",\n        independence: new Date(1816, 6, 9),\n        unasur: true\n    };\n\n    // clone country, using dateReviver for Date objects\n    var country2 = JSON.parse(JSON.stringify(country), jsondiffpatch.dateReviver);\n\n    // make some changes\n    country2.name = \"Republica Argentina\";\n    country2.population = 41324992;\n    delete country2.capital;\n\n    var delta = jsondiffpatch.diff(country, country2);\n\n    assertSame(delta, {\n        \"name\":[\"Argentina\",\"Republica Argentina\"], // old value, new value\n        \"population\":[\"41324992\"], // new value\n        \"capital\":[\"Buenos Aires\", 0, 0] // deleted\n    });\n\n    // patch original\n    jsondiffpatch.patch(country, delta);\n\n    // reverse diff\n    var reverseDelta = jsondiffpatch.reverse(delta);\n    // also country2 can be return to original value with: jsondiffpatch.unpatch(country2, delta);\n\n    var delta2 = jsondiffpatch.diff(country, country2);\n    assert(delta2 === undefined)\n    // undefined => no difference\n```\n\nArray diffing:\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        cities: [\n        {\n            name: 'Buenos Aires',\n            population: 13028000,\n        },\n        {\n            name: 'Cordoba',\n            population: 1430023,\n        },\n        {\n            name: 'Rosario',\n            population: 1136286,\n        },\n        {\n            name: 'Mendoza',\n            population: 901126,\n        },\n        {\n            name: 'San Miguel de Tucuman',\n            population: 800000,\n        }\n        ]\n    };\n\n    // clone country\n    var country2 = JSON.parse(JSON.stringify(country));\n\n    // delete Cordoba\n    country.cities.splice(1, 1);\n\n    // add La Plata\n    country.cities.splice(4, 0, {\n        name: 'La Plata'\n        });\n\n    // modify Rosario, and move it\n    var rosario = country.cities.splice(1, 1)[0];\n    rosario.population += 1234;\n    country.cities.push(rosario);\n\n    // create a configured instance, match objects by name\n    var diffpatcher = jsondiffpatch.create({\n        objectHash: function(obj) {\n            return obj.name;\n        }\n    });\n\n    var delta = diffpatcher.diff(country, country2);\n\n    assertSame(delta, {\n        \"cities\": {\n            \"_t\": \"a\", // indicates this node is an array (not an object)\n            \"1\": [\n                // inserted at index 1\n                {\n                    \"name\": \"Cordoba\",\n                    \"population\": 1430023\n                }]\n            ,\n            \"2\": {\n                // population modified at index 2 (Rosario)\n                \"population\": [\n                    1137520,\n                    1136286\n                ]\n            },\n            \"_3\": [\n                // removed from index 3\n                {\n                    \"name\": \"La Plata\"\n                }, 0, 0],\n            \"_4\": [\n                // move from index 4 to index 2\n                '', 2, 3]\n        }\n    });\n```\n\nFor more example cases (nested objects or arrays, long text diffs) check ```test/examples/```\n\nIf you want to understand deltas, see [delta format documentation](docs/deltas.md)\n\nInstalling\n---------------\n\n### npm (node.js)\n\n``` sh\nnpm install jsondiffpatch\n```\n\n``` js\nvar jsondiffpatch = require('jsondiffpatch').create(options);\n```\n\n### bower (browser)\n\n``` sh\nbower install jsondiffpatch\n```\n\nbrowser bundles are in the ```/public/build``` folder (you can re-generate these using ```make``` or ```gulp```, `npm test` will do that too):\n- ```jsondiffpatch.js``` main bundle\n- ```jsondiffpatch.full.js``` main bundle + [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) library for text diffs\n- ```jsondiffpatch-formatters.js``` builtin formatters (only those useful in a browser)\n\nAll these come in minified versions (```.min.js```), and separate sourcemap files.\n\nOptions\n-------\n\n``` javascript\nvar jsondiffpatch = require('jsondiffpatch').create({\n    // used to match objects when diffing arrays, by default only === operator is used\n    objectHash: function(obj) {\n        // this function is used only to when objects are not equal by ref\n        return obj._id || obj.id;\n    },\n    arrays: {\n        // default true, detect items moved inside the array (otherwise they will be registered as remove+add)\n        detectMove: true,\n        // default false, the value of items moved is not included in deltas\n        includeValueOnMove: false\n    },\n    textDiff: {\n        // default 60, minimum string length (left and right sides) to use text diff algorythm: google-diff-match-patch\n        minLength: 60\n    },\n    propertyFilter: function(name, context) {\n      /*\n       this optional function can be specified to ignore object properties (eg. volatile data)\n        name: property name, present in either context.left or context.right objects\n        context: the diff context (has context.left and context.right objects)\n      */\n      return name.slice(0, 1) !== '$';\n    },\n    cloneDiffValues: false /* default false. if true, values in the obtained delta will be cloned,\n      to ensure delta keeps no references to left or right objects. this becomes useful\n      if you're diffing and patching the same objects multiple times without serializing deltas.\n      instead of true, a function can be specified here to provide a custom clone(value)\n      */\n});\n```\n\nVisual Diff\n----------------\n\n``` html\n<!DOCTYPE html>\n<html>\n    <head>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch.min.js\"></script>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch-formatters.min.js\"></script>\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/html.css\" type=\"text/css\" />\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/annotated.css\" type=\"text/css\" />\n    </head>\n    <body>\n        <div id=\"visual\"></div>\n        <hr/>\n        <div id=\"annotated\"></div>\n        <script>\n            var left = { a: 3, b: 4 };\n            var right = { a: 5, c: 9 };\n            var delta = jsondiffpatch.diff(left, right);\n\n            // beautiful html diff\n            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, left);\n\n            // self-explained json\n            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, left);\n        </script>\n    </body>\n</html>\n```\n\nTo see formatters in action check the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html).\n\nFor more details check [Formatters documentation](docs/formatters.md)\n\nConsole\n--------\n\n``` sh\n# diff two json files, colored output (using chalk lib)\n./node_modules/.bin/jsondiffpatch ./left.json ./right.json\n\n# or install globally\nnpm install -g jsondiffpatch\n\njsondiffpatch ./demo/left.json ./demo/right.json\n```\n\n![console_demo!](public/demo/consoledemo.png)\n\nPlugins\n-------\n\n```diff()```, ```patch()``` and ```reverse()``` functions are implemented using Pipes & Filters pattern, making it extremely customizable by adding or replacing filters on a pipe.\n\nCheck [Plugins documentation](docs/plugins.md) for details.\n",
+		"readmeFilename": "README.md",
+		"bugs": {
+			"url": "https://github.com/benjamine/jsondiffpatch/issues"
+		},
+		"_id": "jsondiffpatch@0.1.43",
+		"_shasum": "0f68650d4cc3f2f7635fb2feee6f8914faa11f87",
+		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5"
 	};
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var environment = __webpack_require__(20);
+	var environment = __webpack_require__(21);
 
-	exports.base = __webpack_require__(39);
-	exports.html = __webpack_require__(40);
-	exports.annotated = __webpack_require__(41);
-	exports.jsonpatch = __webpack_require__(42);
+	exports.base = __webpack_require__(40);
+	exports.html = __webpack_require__(41);
+	exports.annotated = __webpack_require__(42);
+	exports.jsonpatch = __webpack_require__(43);
 
 	if (!environment.isBrowser) {
-	  exports.console = __webpack_require__(43);
+	  exports.console = __webpack_require__(44);
 	}
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	var isArray = (typeof Array.isArray === 'function') ?
@@ -93799,10 +95259,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var base = __webpack_require__(39);
+	var base = __webpack_require__(40);
 	var BaseFormatter = base.BaseFormatter;
 
 	var HtmlFormatter = function HtmlFormatter() {};
@@ -94086,10 +95546,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var base = __webpack_require__(39);
+	var base = __webpack_require__(40);
 	var BaseFormatter = base.BaseFormatter;
 
 	var AnnotatedFormatter = function AnnotatedFormatter() {
@@ -94289,11 +95749,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function () {
-	  var base = __webpack_require__(39);
+	  var base = __webpack_require__(40);
 	  var BaseFormatter = base.BaseFormatter;
 
 	  var named = {
@@ -94473,11 +95933,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var chalk = __webpack_require__(44);
-	var base = __webpack_require__(39);
+	var chalk = __webpack_require__(45);
+	var base = __webpack_require__(40);
 	var BaseFormatter = base.BaseFormatter;
 
 	var colors = {
@@ -94664,15 +96124,15 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var escapeStringRegexp = __webpack_require__(45);
-	var ansiStyles = __webpack_require__(46);
-	var stripAnsi = __webpack_require__(47);
-	var hasAnsi = __webpack_require__(49);
-	var supportsColor = __webpack_require__(50);
+	var escapeStringRegexp = __webpack_require__(46);
+	var ansiStyles = __webpack_require__(47);
+	var stripAnsi = __webpack_require__(48);
+	var hasAnsi = __webpack_require__(50);
+	var supportsColor = __webpack_require__(51);
 	var defineProps = Object.defineProperties;
 	var chalk = module.exports;
 
@@ -94765,7 +96225,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -94782,7 +96242,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -94828,11 +96288,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ansiRegex = __webpack_require__(48)();
+	var ansiRegex = __webpack_require__(49)();
 
 	module.exports = function (str) {
 		return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
@@ -94840,7 +96300,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -94850,17 +96310,17 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ansiRegex = __webpack_require__(48);
+	var ansiRegex = __webpack_require__(49);
 	var re = new RegExp(ansiRegex().source); // remove the `g` flag
 	module.exports = re.test.bind(re);
 
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	'use strict';
