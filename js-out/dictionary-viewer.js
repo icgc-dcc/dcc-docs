@@ -60,24 +60,7 @@ webpackJsonp([0,2],[
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {var angular = __webpack_require__(2);
-	__webpack_require__(4);
-	__webpack_require__(6);
-	__webpack_require__(8);
-	var _ = __webpack_require__(10);
-	var RegexColorizer = __webpack_require__(11);
-	var d3 = __webpack_require__(12);
-	__webpack_require__(13)(d3);
-	var js_beautify = __webpack_require__(14).js_beautify;
-	var JSONEditor = __webpack_require__(18);
-	var multiselect = __webpack_require__(19);
-	global.jsondiffpatch = __webpack_require__(20);
-	global.jsondiffpatch.formatters = {
-	  html: __webpack_require__(41)
-	};
-
-
-	////////////////////////////////////////////////////////////////////////////////
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {'use strict';var angular=__webpack_require__(2);__webpack_require__(4);__webpack_require__(6);__webpack_require__(8);var _=__webpack_require__(10);var RegexColorizer=__webpack_require__(11);var d3=__webpack_require__(12);__webpack_require__(13)(d3);var js_beautify=__webpack_require__(14).js_beautify;var JSONEditor=__webpack_require__(18);var multiselect=__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"bootstrap-multiselect/dist/js/bootstrap-multiselect.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));global.jsondiffpatch=__webpack_require__(19);global.jsondiffpatch.formatters={html:__webpack_require__(40)};////////////////////////////////////////////////////////////////////////////////
 	// DCC Dictionary viewer
 	// Browse and compare ICGC data dictionaries
 	//
@@ -93,1320 +76,93 @@ webpackJsonp([0,2],[
 	// - Styles: HighlightJS, JS-Beautify, regex-colorizer JS, Bootstrap
 	//
 	////////////////////////////////////////////////////////////////////////////////
-	'use strict';
-
-	var dictionaryApp = dictionaryApp || {};
-
-	(function() {
-
-	  angular.module('DictionaryViewerApp', [])
-	    .constant('DictionaryBaseURLConstants' , {
-	      DEV: 'http://localhost:5380',
-	      BETA: '',
-	      PROD: 'https://submissions.dcc.icgc.org'
-	    })
-	    .constant('DictionaryAppConstants', {
-	      VIEWS: ['graph', 'details', 'codelist', 'report'],
-	      PRETTY_VIEW_MAP: {
-	        graph: 'Overview', details: 'Details', codelist: 'Codelists', report: 'Changes Report'
-	      },
-	      DETAIL_FORMAT_TYPES: {
-	        table: 'Table',
-	        json: 'JSON'
-	      },
-	      FIELD_ATTRIBUTES_TYPE: ['Open Access', 'Controlled', 'Required', 'N/A Valid', 'N/A Invalid', 'Unique']
-	    })
-	    .controller('DictionaryViewerController', function (DictionaryBaseURLConstants) {
-	      this.DictionaryBaseURLConstants = DictionaryBaseURLConstants;
-	  });
-	})();
-	/* globals JSONEditor, dictionaryApp */
-
-	'use strict';
-
-	angular.module('DictionaryViewerApp')
-	  .constant('DictionaryViewerConstants', {
-	    EVENTS: {
-	      RENDER_COMPLETE: 'event.dictionary-viewer.rendered'
-	    },
-	    SCROLL_OFFSET: 60
-	  })
-	  .directive('dictionaryViewer', function($http, $location, $anchorScroll,
-	                                          $templateCache, $compile, DictionaryAppConstants) {
-	    return {
-	      restrict: 'EA',
-	      templateUrl: 'scripts/views/dictionary-viewer-directive.html',
-	      scope: {
-	        baseDictionaryUrl: '@',
-	        showHeaderNav: '@',
-	        hideGraphLegend: '@',
-	        // Configurable Params
-	        searchQuery: '=',
-	        filterDataType: '='
-	        //
-	      },
-	      controller: function($rootScope, $scope, DictionaryService, $timeout, DictionaryViewerConstants) {
-	        var _controller = this,
-	            _firstRun = true,
-	            _previousVersion = {from: null, to: null};
-	        // Renderer and dictionary logic
-	        _controller.state = null;
-	        _controller.lastUpdate = null;
-	        _controller.tableViewer = null;
-	        _controller.dictUtil = null;
-	        _controller.getCurrentView = DictionaryService.getCurrentViewType;
-	        _controller.changeReport = null;
-
-	        _controller.shouldShowHeaderNav = $scope.showHeaderNav === 'false' ? false : true;
-	        _controller.shouldHideGraphLegend = $scope.hideGraphLegend === 'true' ? true : false;
-
-	        var searchParams = $location.search();
-
-	        // params
-	        _controller.vFrom = searchParams.vFrom || '';
-	        _controller.vTo = searchParams.vTo ||'';
-	        _controller.q = typeof $scope.searchQuery === 'string' ?  $scope.searchQuery : (searchParams.q || '');
-	        _controller.dataType = $scope.filterDataType || 'all';
-	        _controller.selectedAttributes = $scope.selectedAttributes || [];
-	        _controller.selectedDetailFormatType = DictionaryAppConstants.DETAIL_FORMAT_TYPES.table;
-
-	        _controller.attributes = DictionaryAppConstants.FIELD_ATTRIBUTES_TYPE;
-
-	        _controller.detailFormatTypes = DictionaryAppConstants.DETAIL_FORMAT_TYPES;
-
-	        _controller.hideUnusedCodeLists = searchParams.hideUnusedCodeLists === 'false' ? false : true;
-
-	        // Query timer
-	        var qPromise = null;
-
-	        _controller.viewTypes = DictionaryService.getViewTypes();
-
-	        // Master sync
-	        _controller.update = function (shouldForceUpdate) {
-	          var search = $location.search();
-	          console.log('update', search);
-
-	          if (search.vFrom && search.vFrom !== '') {
-	            _controller.vFrom = search.vFrom;
-	          }
-
-	          if (search.vTo && search.vTo !== '') {
-	            _controller.vTo = search.vTo;
-	          }
-
-	          if (search.hideUnusedCodeLists === 'false') {
-	            _controller.hideUnusedCodeLists = false;
-	          }
-	          else {
-	            _controller.hideUnusedCodeLists = true;
-	          }
-
-	          //if (search.viewMode) _controller.viewMode = search.viewMode;
-	          _controller.dataType = search.dataType || 'all';
-	          _controller.q = search.q || '';
-	          // We do not want to do this every time therefore first run check
-	          if(_firstRun){
-	            _firstRun = false;
-	            _controller.selectedAttributes = search.selectedAttributes ? search.selectedAttributes.split(',') : [];
-	            // Give time to tableViewer to render first
-	            $timeout(function(){
-	              _controller.tableViewer.selectedAttributes(_controller.selectedAttributes);
-	            }, 300)
-	          }
-	          _controller.isReportOpen = search.isReportOpen === 'true' ? true : false;
-
-	          _controller.render(shouldForceUpdate || false);
-	        };
-
-	        // Init
-	        DictionaryService.init($scope.baseDictionaryUrl || '').then(function(dictionaryData) {
-	          var codeLists = dictionaryData.codeList;
-
-	          console.log('Done AJAX calls');
-
-	          var codelistMap = {};
-	          codeLists.forEach(function (c) {
-	            codelistMap[c.name] = c;
-	          });
-
-	          _controller.codeLists = codeLists;
-	          _controller.dictUtil = DictionaryService.getDictionaryUtils();
-	          _controller.dictionaryVersionList = DictionaryService.getDictionaryVersionList();
-	          _controller.tableViewer = new dictionaryApp.TableViewer(_controller.dictUtil, codelistMap,
-	            ! _controller.shouldHideGraphLegend);
-	          _controller.isReportOpen = false;
-
-	          // FIXME: need better 'sorting'
-	          var versionRange = DictionaryService.dictionaryVersionRange();
-	          _controller.vFrom = versionRange.from;
-	          _controller.vTo = versionRange.to;
-
-	          var handleGraphToggle = function () {
-	            $scope.$apply(function () {
-	              var search = $location.search();
-	              search.viewMode = 'details';
-	              search.dataType = _controller.tableViewer.selectedDataType;
-	              $location.search(search);
-	            });
-	          };
-
-	          // funtion to call when user selection changes
-	          _controller.updateAttributeFilter = function(){
-	            var search = $location.search();
-	            search.viewMode = 'details';
-	            search.selectedAttributes = [_controller.selectedAttributes];
-	            $location.search(search);
-	          }
-
-	          // Externalized function
-	          _controller.tableViewer.toggleNodeFunc = handleGraphToggle;
-
-	          _controller.tableViewer.toggleDataTypeFunc = handleGraphToggle;
-
-	          _controller.filterChangesReport = function(changeObj) {
-
-	            var query = _controller.q || '',
-	                shouldIncludeObj = true;
-
-	            if (! query) {
-	              return shouldIncludeObj;
-	            }
-
-	            var normalizeStr = function(s) {
-	              return s.trim().toLowerCase().replace(/[\s_]+/g, '').replace(/\s{2,}/g, ' ');
-	            }, 
-	            normalizedQuery = normalizeStr(query);
-
-	            // Ignore strings with only spaces
-	            if (! normalizedQuery) {
-	              return shouldIncludeObj;
-	            }
-
-	            // Now for the check default to not including in the filter
-	            shouldIncludeObj = false;
-
-	            ['type','name'].map(function (key) {
-
-	              if ( typeof changeObj[key] === 'string' &&
-	                   normalizeStr(changeObj[key]).indexOf(normalizedQuery) >= 0 ) {
-	                shouldIncludeObj = true;
-	              }
-	            });
-
-
-	            return shouldIncludeObj;
-	          };
-
-
-	          var container = document.getElementById('jsonviewer');
-	          var options = {
-	            mode: 'view'
-	          };
-	          var editor = new JSONEditor(container, options);
-	          _controller.jsonEditor = editor;
-
-	          startWatcher();
-	        });
-
-
-
-
-	        function startWatcher() {
-	          $scope.$watch(function () {
-	            var searchTriggers = {};
-
-	            angular.copy($location.search(), searchTriggers);
-
-	            // A view change should never re-trigger a render event
-	            delete searchTriggers.viewMode;
-
-	            return searchTriggers;
-	          }, function () {
-	            _controller.update(true);
-	          }, true);
-
-	          if (angular.isDefined($scope.searchQuery)) {
-	            $scope.$watch(function() {
-	                return $scope.searchQuery;
-	              },
-	              function(searchVal, oldSearchVal) {
-	                if (searchVal !== oldSearchVal) {
-	                  _controller.q = searchVal;
-	                  _controller.doFilter();
-	                }
-	            });
-	          }
-
-	          $scope.$watch(function() {
-	              return _controller.q;
-	            },
-	            function (newQ, oldQ) {
-	              if (newQ !== oldQ) {
-	                _controller.doFilter();
-	              }
-	            });
-	        }
-
-
-	        $scope.$watch(function() {
-	            return _controller.hideUnusedCodeLists;
-	          },
-	          function(newVal, oldVal) {
-
-	            if (newVal === oldVal) {
-	              return;
-	            }
-
-	            var search = $location.search();
-
-	            if (_controller.hideUnusedCodeLists) {
-	              search.hideUnusedCodeLists = 'true';
-	            }
-	            else {
-	              search.hideUnusedCodeLists = 'false';
-	            }
-
-	            $location.search(search);
-	        });
-
-	        _controller.setView = DictionaryService.setView;
-
-	        _controller.goto = function (view, type) {
-	          var search = $location.search();
-	          search.viewMode = view;
-	          search.dataType = type;
-	          delete search.q;
-	          $location.search(search);
-	        };
-
-
-	        _controller.switchDictionary = DictionaryService.setDictionaryFilterRange;
-
-	        _controller.doFilter = function () {
-	          $timeout.cancel(qPromise);
-	          _controller.tableViewer.filter(_controller.q, _controller.selectedAttributes);
-
-	          qPromise = $timeout(function () {
-	            var search = $location.search();
-	            var txt = _controller.q;
-	            search.q = txt;
-
-	            _controller.tableViewer.filter(_controller.q, _controller.selectedAttributes);
-	            $location.search(search);
-	          }, 300);
-	        };
-
-
-	        _controller.render = function (shouldForceRender) {
-	          var versionFrom = _controller.vFrom;
-	          var versionTo = _controller.vTo;
-	          var viewMode = _controller.getCurrentView();
-	          var query = _controller.q;
-	          var dataType = _controller.dataType;
-	          var selectedAttributes = _controller.selectedAttributes;
-
-	          if (shouldForceRender !== true &&
-	              _previousVersion.from === versionFrom &&
-	              _previousVersion.to === versionTo) {
-	            console.log('No Version Change Render Aborting...');
-	            return;
-	          }
-
-	          _previousVersion.from = versionFrom;
-	          _previousVersion.to = versionTo;
-
-
-	          // Ensure the Dictionary Service has the correct version ranges before rendering
-	          DictionaryService.dictionaryVersionRange(versionFrom, versionTo);
-
-	          console.log('Render', versionFrom, versionTo, viewMode, query, dataType);
-
-	          _controller.tableViewer.showDictionaryTable(versionFrom, versionTo);
-	          _controller.tableViewer.selectDataType(dataType);
-	          _controller.tableViewer.selectedAttributes(selectedAttributes);
-	          _controller.tableViewer.showDictionaryGraph(versionFrom, versionTo, function() {
-	            _controller.tableViewer.filter(query, selectedAttributes);
-	          });
-
-
-
-	          _controller.generateChangeList();
-	          
-	          _controller.dictUtil.getDictionary(versionTo).then(function (dictTo) {
-	            _controller.state = dictTo.state;
-	            _controller.lastUpdate = dictTo.lastUpdate;
-	            _controller.codeLists.forEach(function (codeList) {
-	              codeList.coverage = _controller.dictUtil.getCodeListCoverage(codeList.name, dictTo).sort();
-	            });
-
-	            _controller.codeListsFiltered = _controller.codeLists;
-
-	            if (_controller.hideUnusedCodeLists === true) {
-	              _controller.codeListsFiltered = _.filter(_controller.codeLists, function (codeList) {
-	                return codeList.coverage.length > 0;
-	              });
-	            }
-	          });
-
-	          if (_controller.jsonEditor) {
-	            var dictionaryJSON = {};
-	            _controller.dictUtil.getDictionary(versionTo).then(function (dictionariesJSON) {
-	              if (_controller.dataType !== 'all' &&
-	                dictionariesJSON && angular.isDefined(dictionariesJSON.files)) {
-
-	                angular.copy(dictionariesJSON, dictionaryJSON);
-
-	                // Filter the JSON based on the data type
-	                var dictionaryFiles = [];
-
-	                for (var i = 0; i < dictionaryJSON.files.length; i++) {
-	                  var file = dictionaryJSON.files[i];
-
-	                  if (file.name === dataType) {
-	                    dictionaryFiles = dictionaryFiles.concat(dictionaryFiles, file);
-	                  }
-
-	                }
-
-	                dictionaryJSON.files = dictionaryFiles;
-	              } else {
-	                angular.copy(dictionariesJSON, dictionaryJSON);
-	              }
-
-	              // Only go into the condition if any of the attribute filter is selected
-	              if(_.isArray(selectedAttributes) && !_.isEmpty(selectedAttributes) && !_.isEmpty(dictionaryJSON)){
-	                  var dictionaryFiles = _.map(dictionaryJSON.files, function(file){
-	                    var fields = [];
-
-	                    _.each(file.fields, function(field){
-	                      
-	                      var fieldAttributes = 0, 
-	                        // Check to see if there are any required fields
-	                        required = _.find(field.restrictions, function (restriction) {
-	                          return restriction.type === 'required';
-	                        });
-	                      // Going through all the selected attributes
-	                      _.each(selectedAttributes, function(attribute){
-	                        if(attribute === 'Open Access' && field.controlled === false){
-	                          fieldAttributes++;
-	                        }else if(attribute === 'Controlled'  && field.controlled === true){
-	                          fieldAttributes++;
-	                        }else if(attribute === 'Required' && required){
-	                          fieldAttributes++;
-	                        }else if(attribute === 'N/A Valid' && required){
-	                          if (required.config.acceptMissingCode === true) {
-	                            fieldAttributes++;
-	                          }
-	                        }else if(attribute === 'N/A Invalid' && required){
-	                          if(required.config.acceptMissingCode !== true) {
-	                            fieldAttributes++;
-	                          }
-	                        }else if(attribute === 'Unique'){
-	                          if(file.uniqueFields && file.uniqueFields.indexOf(field.name) >= 0){
-	                            fieldAttributes++;
-	                          }
-	                        }
-	                      });
-	                      // Add this field only if it has all the selected attributes
-	                      // therefore the vaue of fieldAttributes should be equal to the length of selectedAttributes array
-	                      if(fieldAttributes === selectedAttributes.length){
-	                        fields.push(field);
-	                      }
-	                    });
-	                    file.fields = fields
-	                    return file;
-	                  });
-	                dictionaryJSON.files = dictionaryFiles;
-	              }
-
-	              _controller.jsonEditor.set(dictionaryJSON);
-
-	              if (dictionaryJSON.files.length === 1) {
-	                _controller.jsonEditor.expandAll();
-	              }
-	            });
-
-	          }
-
-	          $rootScope.$broadcast(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE, null);
-
-	          // Skip the rest if our view mode isn't table
-
-	          if (_controller.getCurrentView() !== 'table') {
-	            return;
-	          }
-
-
-	          if (_firstRun) {
-	            _initListeners(versionFrom, versionTo, viewMode, query, dataType);
-
-	            _firstRun = false;
-
-	            if ($location.hash()) {
-	              $anchorScroll.yOffset = DictionaryViewerConstants.SCROLL_OFFSET;
-	              $anchorScroll();
-	            }
-	          }
-
-
-	          // Grab the links (for the table views) and initialize the appropriate hover/focus listeners
-	          var anchors = jQuery('.header-text-link');
-
-	          if (anchors.length) {
-	            anchors.off('hover.dictionary').hover(function () {
-	              _bindAnchors.call(this, versionFrom, versionTo, viewMode, query, dataType);
-	            },
-	              function () {
-	            });
-	            anchors.off('focus.dictionary').focus(function () {
-	              _bindAnchors.call(this, versionFrom, versionTo, viewMode, query, dataType);
-	            });
-	          }
-	        };
-
-	        _controller.generateChangeList = function() {
-	          DictionaryService.generateChangeList().then(function (report) {
-	            $scope.$applyAsync(function () {
-	              _controller.changeReport = report;
-	            });
-	          });
-	        };
-
-	        function _bindAnchors(versionFrom, versionTo, viewMode, query, dataType) {
-	          var hoveredEl = jQuery(this); // jshint ignore:line
-
-
-
-	          var href = '#?viewMode=' + viewMode + '&q=' + query +
-	                     '&dataType=' + (dataType || 'all') + '&vFrom=' + versionFrom +
-	                     '&vTo=' + versionTo + '#' + hoveredEl.attr('id');
-
-
-	          hoveredEl.attr('href', href);
-
-	        }
-
-	        function _initListeners() {
-	          var wrapperEl = jQuery('.vis-wrapper');
-
-	          wrapperEl.click(function(e) {
-	            var clickedEl = jQuery(e.target);
-
-	            if (! clickedEl.hasClass('header-text-link')) {
-	              return;
-	            }
-
-	            var id = clickedEl.attr('id');
-
-	            if ( ! id) {
-	              return;
-	            }
-
-	            $location.hash(id);
-	            $anchorScroll.yOffset = DictionaryViewerConstants.SCROLL_OFFSET;
-	            $anchorScroll();
-
-	          });
-	        }
-
-	        // Waiting for angular to do its binding and then initializing multiselect
-	        $timeout(function(){
-	          jQuery('#fields-filter').multiselect({
-	            numberDisplayed: 2
-	          });
-	        }, 300);
-	      },
-	      controllerAs: 'dictionaryViewerCtrl'
-	    };
-
-	  })
-	  .directive('reportDataChanges', function(){    
-	    return {      
-	      restrict: 'E',
-	      scope: {
-	        change: '=',
-	        type: '@'
-	      },
-	      templateUrl: 'scripts/views/data-changes.html'
-	    };
-	  })
-	  .directive('reportDataAddition', function(){    
-	    return {      
-	      restrict: 'E',
-	      scope: {
-	        addition: '=',
-	        type: '@'
-	      },
-	      templateUrl: 'scripts/views/data-addition.html',
-	    };
-	  })
-	  .directive('reportDataRemoval', function(){   
-	    return {      
-	      restrict: 'E',
-	      scope: {
-	        removal: '=',
-	        type: '@'
-	      },
-	      templateUrl: 'scripts/views/data-removal.html'
-	    };
-	  });
-	'use strict';
-
-	angular.module('DictionaryViewerApp')
-	  .filter('prettyPrintView', function(DictionaryAppConstants) {
-	    var prettyPrintViewMap = DictionaryAppConstants.PRETTY_VIEW_MAP;
-
-	    return function(input) {
-	      return angular.isDefined(prettyPrintViewMap[input]) ? prettyPrintViewMap[input] : input;
-	    };
-	  })
-	  .filter('sanitize', ['$sce', function($sce) {
-	    return function(htmlCode){
-	      return $sce.trustAsHtml(htmlCode);
-	    };
-	  }])
-	  .filter('findDiffs', function (JSONDiffService) {
-	    return _.memoize(function (data) {
-	      return data.map(function (node) {
-	        var diff = JSONDiffService.formatDifferences(node.from, node.to);
-	        return _.extend({}, node, { diff : diff});
-	      });
-	    }, function resolver (data) {
-	      return _.pluck(data, 'id');
-	    });
-	  });
-	/* globals $ */
-	'use strict';
-
-	var dictionaryApp = dictionaryApp || {};
-
-	////////////////////////////////////////////////////////////////////////////////
+	'use strict';var dictionaryApp=dictionaryApp||{};(function(){angular.module('DictionaryViewerApp',[]).constant('DictionaryBaseURLConstants',{DEV:'http://localhost:5380',BETA:'',PROD:'https://submissions.dcc.icgc.org'}).constant('DictionaryAppConstants',{VIEWS:['graph','details','codelist','report'],PRETTY_VIEW_MAP:{graph:'Overview',details:'Details',codelist:'Codelists',report:'Changes Report'},DETAIL_FORMAT_TYPES:{table:'Table',json:'JSON'},FIELD_ATTRIBUTES_TYPE:['Open Access','Controlled','Required','N/A Valid','N/A Invalid','Unique']}).controller('DictionaryViewerController',function(DictionaryBaseURLConstants){this.DictionaryBaseURLConstants=DictionaryBaseURLConstants;});})();/* globals JSONEditor, dictionaryApp */'use strict';angular.module('DictionaryViewerApp').constant('DictionaryViewerConstants',{EVENTS:{RENDER_COMPLETE:'event.dictionary-viewer.rendered'},SCROLL_OFFSET:60}).directive('dictionaryViewer',function($http,$location,$anchorScroll,$templateCache,$compile,DictionaryAppConstants){return{restrict:'EA',templateUrl:'scripts/views/dictionary-viewer-directive.html',scope:{baseDictionaryUrl:'@',showHeaderNav:'@',hideGraphLegend:'@',// Configurable Params
+	searchQuery:'=',filterDataType:'='//
+	},controller:function controller($rootScope,$scope,DictionaryService,$timeout,DictionaryViewerConstants){var _controller=this,_firstRun=true,_previousVersion={from:null,to:null};// Renderer and dictionary logic
+	_controller.state=null;_controller.lastUpdate=null;_controller.tableViewer=null;_controller.dictUtil=null;_controller.getCurrentView=DictionaryService.getCurrentViewType;_controller.changeReport=null;_controller.shouldShowHeaderNav=$scope.showHeaderNav==='false'?false:true;_controller.shouldHideGraphLegend=$scope.hideGraphLegend==='true'?true:false;var searchParams=$location.search();// params
+	_controller.vFrom=searchParams.vFrom||'';_controller.vTo=searchParams.vTo||'';_controller.q=typeof $scope.searchQuery==='string'?$scope.searchQuery:searchParams.q||'';_controller.dataType=$scope.filterDataType||'all';_controller.selectedAttributes=$scope.selectedAttributes||[];_controller.selectedDetailFormatType=DictionaryAppConstants.DETAIL_FORMAT_TYPES.table;_controller.attributes=DictionaryAppConstants.FIELD_ATTRIBUTES_TYPE;_controller.detailFormatTypes=DictionaryAppConstants.DETAIL_FORMAT_TYPES;_controller.hideUnusedCodeLists=searchParams.hideUnusedCodeLists==='false'?false:true;// Query timer
+	var qPromise=null;_controller.viewTypes=DictionaryService.getViewTypes();// Master sync
+	_controller.update=function(shouldForceUpdate){var search=$location.search();console.log('update',search);if(search.vFrom&&search.vFrom!==''){_controller.vFrom=search.vFrom;}if(search.vTo&&search.vTo!==''){_controller.vTo=search.vTo;}if(search.hideUnusedCodeLists==='false'){_controller.hideUnusedCodeLists=false;}else{_controller.hideUnusedCodeLists=true;}//if (search.viewMode) _controller.viewMode = search.viewMode;
+	_controller.dataType=search.dataType||'all';_controller.q=search.q||'';// We do not want to do this every time therefore first run check
+	if(_firstRun){_firstRun=false;_controller.selectedAttributes=search.selectedAttributes?search.selectedAttributes.split(','):[];// Give time to tableViewer to render first
+	$timeout(function(){_controller.tableViewer.selectedAttributes(_controller.selectedAttributes);},300);}_controller.isReportOpen=search.isReportOpen==='true'?true:false;_controller.render(shouldForceUpdate||false);};// Init
+	DictionaryService.init($scope.baseDictionaryUrl||'').then(function(dictionaryData){var codeLists=dictionaryData.codeList;console.log('Done AJAX calls');var codelistMap={};codeLists.forEach(function(c){codelistMap[c.name]=c;});_controller.codeLists=codeLists;_controller.dictUtil=DictionaryService.getDictionaryUtils();_controller.dictionaryVersionList=DictionaryService.getDictionaryVersionList();_controller.tableViewer=new dictionaryApp.TableViewer(_controller.dictUtil,codelistMap,!_controller.shouldHideGraphLegend);_controller.isReportOpen=false;// FIXME: need better 'sorting'
+	var versionRange=DictionaryService.dictionaryVersionRange();_controller.vFrom=versionRange.from;_controller.vTo=versionRange.to;var handleGraphToggle=function handleGraphToggle(){$scope.$apply(function(){var search=$location.search();search.viewMode='details';search.dataType=_controller.tableViewer.selectedDataType;$location.search(search);});};// funtion to call when user selection changes
+	_controller.updateAttributeFilter=function(){var search=$location.search();search.viewMode='details';search.selectedAttributes=[_controller.selectedAttributes];$location.search(search);};// Externalized function
+	_controller.tableViewer.toggleNodeFunc=handleGraphToggle;_controller.tableViewer.toggleDataTypeFunc=handleGraphToggle;_controller.filterChangesReport=function(changeObj){var query=_controller.q||'',shouldIncludeObj=true;if(!query){return shouldIncludeObj;}var normalizeStr=function normalizeStr(s){return s.trim().toLowerCase().replace(/[\s_]+/g,'').replace(/\s{2,}/g,' ');},normalizedQuery=normalizeStr(query);// Ignore strings with only spaces
+	if(!normalizedQuery){return shouldIncludeObj;}// Now for the check default to not including in the filter
+	shouldIncludeObj=false;['type','name'].map(function(key){if(typeof changeObj[key]==='string'&&normalizeStr(changeObj[key]).indexOf(normalizedQuery)>=0){shouldIncludeObj=true;}});return shouldIncludeObj;};var container=document.getElementById('jsonviewer');var options={mode:'view'};var editor=new JSONEditor(container,options);_controller.jsonEditor=editor;startWatcher();});function startWatcher(){$scope.$watch(function(){var searchTriggers={};angular.copy($location.search(),searchTriggers);// A view change should never re-trigger a render event
+	delete searchTriggers.viewMode;return searchTriggers;},function(){_controller.update(true);},true);if(angular.isDefined($scope.searchQuery)){$scope.$watch(function(){return $scope.searchQuery;},function(searchVal,oldSearchVal){if(searchVal!==oldSearchVal){_controller.q=searchVal;_controller.doFilter();}});}$scope.$watch(function(){return _controller.q;},function(newQ,oldQ){if(newQ!==oldQ){_controller.doFilter();}});}$scope.$watch(function(){return _controller.hideUnusedCodeLists;},function(newVal,oldVal){if(newVal===oldVal){return;}var search=$location.search();if(_controller.hideUnusedCodeLists){search.hideUnusedCodeLists='true';}else{search.hideUnusedCodeLists='false';}$location.search(search);});_controller.setView=DictionaryService.setView;_controller.goto=function(view,type){var search=$location.search();search.viewMode=view;search.dataType=type;delete search.q;$location.search(search);};_controller.switchDictionary=DictionaryService.setDictionaryFilterRange;_controller.doFilter=function(){$timeout.cancel(qPromise);_controller.tableViewer.filter(_controller.q,_controller.selectedAttributes);qPromise=$timeout(function(){var search=$location.search();var txt=_controller.q;search.q=txt;_controller.tableViewer.filter(_controller.q,_controller.selectedAttributes);$location.search(search);},300);};_controller.render=function(shouldForceRender){var versionFrom=_controller.vFrom;var versionTo=_controller.vTo;var viewMode=_controller.getCurrentView();var query=_controller.q;var dataType=_controller.dataType;var selectedAttributes=_controller.selectedAttributes;if(shouldForceRender!==true&&_previousVersion.from===versionFrom&&_previousVersion.to===versionTo){console.log('No Version Change Render Aborting...');return;}_previousVersion.from=versionFrom;_previousVersion.to=versionTo;// Ensure the Dictionary Service has the correct version ranges before rendering
+	DictionaryService.dictionaryVersionRange(versionFrom,versionTo);console.log('Render',versionFrom,versionTo,viewMode,query,dataType);_controller.tableViewer.showDictionaryTable(versionFrom,versionTo);_controller.tableViewer.selectDataType(dataType);_controller.tableViewer.selectedAttributes(selectedAttributes);_controller.tableViewer.showDictionaryGraph(versionFrom,versionTo,function(){_controller.tableViewer.filter(query,selectedAttributes);});_controller.generateChangeList();_controller.dictUtil.getDictionary(versionTo).then(function(dictTo){_controller.state=dictTo.state;_controller.lastUpdate=dictTo.lastUpdate;_controller.codeLists.forEach(function(codeList){codeList.coverage=_controller.dictUtil.getCodeListCoverage(codeList.name,dictTo).sort();});_controller.codeListsFiltered=_controller.codeLists;if(_controller.hideUnusedCodeLists===true){_controller.codeListsFiltered=_.filter(_controller.codeLists,function(codeList){return codeList.coverage.length>0;});}});if(_controller.jsonEditor){var dictionaryJSON={};_controller.dictUtil.getDictionary(versionTo).then(function(dictionariesJSON){if(_controller.dataType!=='all'&&dictionariesJSON&&angular.isDefined(dictionariesJSON.files)){angular.copy(dictionariesJSON,dictionaryJSON);// Filter the JSON based on the data type
+	var dictionaryFiles=[];for(var i=0;i<dictionaryJSON.files.length;i++){var file=dictionaryJSON.files[i];if(file.name===dataType){dictionaryFiles=dictionaryFiles.concat(dictionaryFiles,file);}}dictionaryJSON.files=dictionaryFiles;}else{angular.copy(dictionariesJSON,dictionaryJSON);}// Only go into the condition if any of the attribute filter is selected
+	if(_.isArray(selectedAttributes)&&!_.isEmpty(selectedAttributes)&&!_.isEmpty(dictionaryJSON)){var dictionaryFiles=_.map(dictionaryJSON.files,function(file){var fields=[];_.each(file.fields,function(field){var fieldAttributes=0,// Check to see if there are any required fields
+	required=_.find(field.restrictions,function(restriction){return restriction.type==='required';});// Going through all the selected attributes
+	_.each(selectedAttributes,function(attribute){if(attribute==='Open Access'&&field.controlled===false){fieldAttributes++;}else if(attribute==='Controlled'&&field.controlled===true){fieldAttributes++;}else if(attribute==='Required'&&required){fieldAttributes++;}else if(attribute==='N/A Valid'&&required){if(required.config.acceptMissingCode===true){fieldAttributes++;}}else if(attribute==='N/A Invalid'&&required){if(required.config.acceptMissingCode!==true){fieldAttributes++;}}else if(attribute==='Unique'){if(file.uniqueFields&&file.uniqueFields.indexOf(field.name)>=0){fieldAttributes++;}}});// Add this field only if it has all the selected attributes
+	// therefore the vaue of fieldAttributes should be equal to the length of selectedAttributes array
+	if(fieldAttributes===selectedAttributes.length){fields.push(field);}});file.fields=fields;return file;});dictionaryJSON.files=dictionaryFiles;}_controller.jsonEditor.set(dictionaryJSON);if(dictionaryJSON.files.length===1){_controller.jsonEditor.expandAll();}});}$rootScope.$broadcast(DictionaryViewerConstants.EVENTS.RENDER_COMPLETE,null);// Skip the rest if our view mode isn't table
+	if(_controller.getCurrentView()!=='table'){return;}if(_firstRun){_initListeners(versionFrom,versionTo,viewMode,query,dataType);_firstRun=false;if($location.hash()){$anchorScroll.yOffset=DictionaryViewerConstants.SCROLL_OFFSET;$anchorScroll();}}// Grab the links (for the table views) and initialize the appropriate hover/focus listeners
+	var anchors=jQuery('.header-text-link');if(anchors.length){anchors.off('hover.dictionary').hover(function(){_bindAnchors.call(this,versionFrom,versionTo,viewMode,query,dataType);},function(){});anchors.off('focus.dictionary').focus(function(){_bindAnchors.call(this,versionFrom,versionTo,viewMode,query,dataType);});}};_controller.generateChangeList=function(){DictionaryService.generateChangeList().then(function(report){$scope.$applyAsync(function(){_controller.changeReport=report;});});};function _bindAnchors(versionFrom,versionTo,viewMode,query,dataType){var hoveredEl=jQuery(this);// jshint ignore:line
+	var href='#?viewMode='+viewMode+'&q='+query+'&dataType='+(dataType||'all')+'&vFrom='+versionFrom+'&vTo='+versionTo+'#'+hoveredEl.attr('id');hoveredEl.attr('href',href);}function _initListeners(){var wrapperEl=jQuery('.vis-wrapper');wrapperEl.click(function(e){var clickedEl=jQuery(e.target);if(!clickedEl.hasClass('header-text-link')){return;}var id=clickedEl.attr('id');if(!id){return;}$location.hash(id);$anchorScroll.yOffset=DictionaryViewerConstants.SCROLL_OFFSET;$anchorScroll();});}// Waiting for angular to do its binding and then initializing multiselect
+	$timeout(function(){jQuery('#fields-filter').multiselect({numberDisplayed:2});},300);},controllerAs:'dictionaryViewerCtrl'};}).directive('reportDataChanges',function(){return{restrict:'E',scope:{change:'=',type:'@'},templateUrl:'scripts/views/data-changes.html'};}).directive('reportDataAddition',function(){return{restrict:'E',scope:{addition:'=',type:'@'},templateUrl:'scripts/views/data-addition.html'};}).directive('reportDataRemoval',function(){return{restrict:'E',scope:{removal:'=',type:'@'},templateUrl:'scripts/views/data-removal.html'};});'use strict';angular.module('DictionaryViewerApp').filter('prettyPrintView',function(DictionaryAppConstants){var prettyPrintViewMap=DictionaryAppConstants.PRETTY_VIEW_MAP;return function(input){return angular.isDefined(prettyPrintViewMap[input])?prettyPrintViewMap[input]:input;};}).filter('sanitize',['$sce',function($sce){return function(htmlCode){return $sce.trustAsHtml(htmlCode);};}]).filter('findDiffs',function(JSONDiffService){return _.memoize(function(data){return data.map(function(node){var diff=JSONDiffService.formatDifferences(node.from,node.to);return _.extend({},node,{diff:diff});});},function resolver(data){return _.pluck(data,'id');});});/* globals $ */'use strict';var dictionaryApp=dictionaryApp||{};////////////////////////////////////////////////////////////////////////////////
 	// Dictionary reader and utilities
 	////////////////////////////////////////////////////////////////////////////////
-	(function() {
-
-	   function DictionaryUtil(list, webserviceURL) {
-	     this.webserviceURL = webserviceURL;
-
-	      list = _.filter(list, function(d) {
-	         var pattern = new RegExp('^draft');
-	         return pattern.test(d.version) === false;
-	      });
-
-	      this.dictList = list;
-
-	      this.sortedDictionaryList = _.sortBy(this.dictList, function(obj) {
-	        var suffix = obj.version.replace(/\d+.\d+/, '');
-	        return suffix;
-	      }).reverse();
-
-	      this.sortedDictionaryList = _.sortBy(this.sortedDictionaryList, function(obj) {
-	        var ver = obj.version.split('.')[1];
-	        ver = ver.split(/[-_]/)[0];
-	        ver = ver.replace(/[^\d]/, '');
-	        return -ver;
-	      });
-
-	      this.versionList = _.pluck(this.sortedDictionaryList, 'version');
-	      this.dictionaryMap = {};
-
-	      for (var i=0; i < list.length; i++) {
-	         this.dictionaryMap[ list[i].version ] = list[i];
-	      }
-	   }
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Basic Getters
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.getDictionary = function(version) {
-	     var _self = this;
-	     var url = _self.webserviceURL + '/dictionaries/' + version;
-	     var dict = _self.dictionaryMap[version];
-	     if (_.has(dict, 'files')) {
-	       return $.Deferred().promise(dict);
-	     } else if (_.has(dict, 'then')) {
-	       return dict;
-	     } else {
-	       _self.dictionaryMap[version] = $.ajax({
-	         url: url,
-	         dataType: 'json'
-	       });
-	       _self.dictionaryMap[version].done(function (data) {
-	         return data;
-	       });
-	       return _self.dictionaryMap[version];
-	     }
-	   };
-
-	   DictionaryUtil.prototype.getFileType = function(version, filename) {
-	      var dict = this.getDictionary(version);
-
-	      if (!dict) {
-	        return null;
-	      }
-
-	      return _.find(dict.files, function(f) { return f.name === filename; });
-	   };
-
-	   DictionaryUtil.prototype.getField = function(version, filename, fieldname) {
-	      var file = this.getFileType(version, filename);
-
-	     if (!file) {
-	        return null;
-	      }
-
-	     return _.find(file.fields, function(f) { return f.name === fieldname; });
-	   };
-	   
-	   
-	   DictionaryUtil.prototype.getFileTypeFromDict = function(dict, filename) {
-	      if (!dict) {
-	        return null;
-	      }
-
-	      return _.find(dict.files, function(f) { return f.name === filename; });
-	   };
-
-	   DictionaryUtil.prototype.getFieldFromDict = function(dict, filename, fieldname) {
-	      var file = this.getFileTypeFromDict(dict, filename);
-
-	     if (!file) {
-	        return null;
-	      }
-
-	     return _.find(file.fields, function(f) { return f.name === fieldname; });
-	   };
-
-	   DictionaryUtil.prototype.getFilePatternDiff = function(dict, tableTo) {
-	     var tableFrom = this.getFileTypeFromDict(dict, tableTo.name);
-
-	      if (!tableFrom) {
-	        return null;
-	      }
-
-	      return _.isEqual(tableFrom.pattern, tableTo.pattern);
-	   };
-
-	   DictionaryUtil.prototype.getFileLabelDiff = function(dict, tableTo) {
-	     var tableFrom = this.getFileTypeFromDict(dict, tableTo.name);
-	     
-	      if (!tableFrom) {
-	        return null;
-	      }
-	      
-	      return _.isEqual(tableFrom.label, tableTo.label);
-	   };
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // How the files should be sorted
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.sortingOrder = function() {
-	      return [
-	         'donor', 'specimen', 'sample',
-	         'biomarker', 'surgery', 'therapy', 'family', 'exposure',
-	         'ssm_m', 'ssm_p', 'ssm_s',
-	         'sgv_m', 'sgv_p',
-	         'cnsm_m', 'cnsm_p', 'cnsm_s',
-	         'stsm_m', 'stsm_p', 'stsm_s',
-	         'exp_g', 'exp_m',
-	         'pexp_m', 'pexp_p',
-	         'mirna_m', 'mirna_p', 'mirna_s',
-	         'jcn_m', 'jcn_p',
-	         'meth_m', 'meth_p', 'meth_s',
-	         'meth_seq_m', 'meth_seq_p',
-	         'mirna_seq_m', 'mirna_seq_p',
-	         'exp_seq_m', 'exp_seq_p',
-	         'exp_array_m', 'exp_array_p',
-	         'meth_array_m', 'meth_array_p',
-	         'meth_array_probes'
-	      ];
-	   };
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Determines whether if there are significant changes
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.isDifferent = function(row1, row2) {
-
-	     if (! _.isEqual(row1.restrictions, row2.restrictions) || ! _.isEqual(row1.label, row2.label)) {
-	        return true;
-	      }
-
-	      return false;
-	   };
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Verbose comparison, gives a detail list of what are the differences
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.isDifferent2 = function(row1, row2) {
-	      var diffList = [];
-	      function getRestriction(r, type) {
-
-	        if (! r.restrictions) {
-	           return {};
-	        }
-
-	         return _.find(r.restrictions, function(res) {
-	            return res.type === type;
-	         });
-	      }
-
-	      if (row1.controlled !== row2.controlled) {
-	         diffList.push('controlled');
-	      }
-	      if (! _.isEqual(getRestriction(row1, 'regex'), getRestriction(row2, 'regex'))) {
-	         diffList.push('regex');
-	      }
-	      if (! _.isEqual(getRestriction(row1, 'required'), getRestriction(row2, 'required'))) {
-	         diffList.push('required');
-	      }
-	      if (! _.isEqual(getRestriction(row1, 'script'), getRestriction(row2, 'script'))) {
-	         diffList.push('script');
-	      }
-	      if (! _.isEqual(getRestriction(row1, 'codelist'), getRestriction(row2, 'codelist'))) {
-	         diffList.push('codelist');
-	      }
-
-	      return diffList;
-	   };
-
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Determines whether if row matches
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.isMatch = function(row, regex) {
-	      var restrictionList = row.restrictions;
-	      var codelist = _.find(restrictionList, function(obj) { return obj.type === 'codelist'; });
-
-	      if (row.name.match(regex) || (codelist && codelist.config.name.match(regex))) {
-	         return true;
-	      }
-
-	      return false;
-	   };
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Produces a difference list by comparing two different verions of a dictionary
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.createDiffListing = function(versionFrom, versionTo) {
-	      var report = {};
-	      var _self = this;
-	      report.fieldsAdded   = [];
-	      report.fieldsRemoved = [];
-	      report.fieldsChanged = [];
-	      report.fileDataChanged = [];
-
-	      function addDiff (diffType, entry) {
-	        var entryWithIndex = _.extend({
-	          id: _.uniqueId()
-	        }, entry);
-
-	        switch (diffType) {
-	          case 'fieldsAdded':
-	            report.fieldsAdded.push(entryWithIndex);
-	            break;
-	          case 'fieldsRemoved':
-	            report.fieldsRemoved.push(entryWithIndex);
-	            break;
-	          case 'fieldsChanged':
-	            report.fieldsChanged.push(entryWithIndex);
-	            break;
-	          case 'fileDataChanged':
-	            report.fileDataChanged.push(entryWithIndex);
-	            break;
-	          default: 
-	            throw new Error('unsupported diffType');
-	        }
-	      }
-
-	      return _self.getDictionary(versionFrom).then(function (dictFrom) {
-	        return _self.getDictionary(versionTo).then(function (dictTo) {      
-
-	          // Sorting dictionary files
-	          dictFrom.files = _.sortBy(dictFrom.files, function (d) {
-	            return _self.sortingOrder().indexOf(d.name);
-	          });   
-
-	          dictTo.files = _.sortBy(dictTo.files, function (d) {
-	            return _self.sortingOrder().indexOf(d.name);
-	          });    
-	          
-	          // Scan for changed and remove file types
-	          if (dictFrom.files) {
-	            dictFrom.files.forEach(function (fileFrom) {
-	              var fileTo = _self.getFileTypeFromDict(dictTo, fileFrom.name);
-	               
-	              // If no file, then it as been removed.
-	              // Otherwise we need to check each field for changes.
-	              if (!fileTo) {
-	                fileFrom.fields.forEach(function (fieldFrom) {
-	                  addDiff('fieldsRemoved', {
-	                    type: fileFrom.name,
-	                    name: fieldFrom.name,
-	                    from: fileFrom,
-	                    to: {}
-	                  });
-	                });
-	              } else {
-	                // Check file metadata change
-	                if(!_.isEqual(fileFrom, fileTo)){
-
-	                  if(!_self.getFileLabelDiff(dictFrom, fileTo)){
-	                    addDiff('fileDataChanged', {
-	                      type: fileTo.name,
-	                      name: fileTo.label,
-	                      from: fileFrom.label,
-	                      to:  fileTo.label
-	                    });
-	                  }
-
-	                  if(!_self.getFilePatternDiff(dictFrom, fileTo)){
-	                    addDiff('fileDataChanged', {
-	                      type: fileTo.name,
-	                      name: 'File Name Pattern',
-	                      from: fileFrom.pattern,
-	                      to:  fileTo.pattern
-	                    });
-	                  }
-	                }
-	                
-	                // Check removed and changed
-	                fileFrom.fields.forEach(function (fieldFrom) {
-	                  var fieldTo = _self.getFieldFromDict(dictTo, fileFrom.name, fieldFrom.name);
-
-	                  if (!fieldTo) {
-	                    addDiff('fieldsRemoved', {
-	                      type: fileFrom.name,
-	                      name: fieldFrom.name,
-	                      from: fieldFrom,
-	                      to: fieldTo
-	                    });
-	                  } else if (_self.isDifferent2(fieldTo, fieldFrom).length > 0) {
-	                    // var difference = _.omit(jsondiffpatch.diff(fieldFrom, fieldTo), 'expanded');
-
-	                    addDiff('fieldsChanged', {
-	                      type: fileFrom.name,
-	                      name: fieldFrom.name,
-	                      changes: _self.isDifferent2(fieldTo, fieldFrom),
-	                      from: fieldFrom,
-	                      to: fieldTo
-	                    });
-	                  }
-	                });
-
-	                // Check new
-	                fileTo.fields.forEach(function (fieldTo) {
-	                  var fieldFrom = _self.getFieldFromDict(dictFrom, fileTo.name, fieldTo.name);
-	                  if (!fieldFrom) {
-	                    addDiff('fieldsAdded', {
-	                      type: fileTo.name,
-	                      name: fieldTo.name,
-	                      from: fieldFrom,
-	                      to: fieldTo
-	                    });
-	                  }
-	                });
-	              }
-	            });
-	          }
-	          
-	          // Now reverse logic to check for completely new file types
-	          if (dictTo.files) {
-	            dictTo.files.forEach(function (fileTo) {
-	              var fileFrom = _self.getFileTypeFromDict(dictFrom, fileTo.name);
-	              // fileTo is new
-	              if (!fileFrom) {
-	                fileTo.fields.forEach(function (fieldTo) {
-	                  addDiff('fieldsAdded', {
-	                    type: fileTo.name,
-	                    name: fieldTo.name,
-	                    from: {},
-	                    to: fieldTo
-	                  });
-	                });
-	              }
-	            });
-	          }
-	          
-	          return report;
-	          
-	        });
-	      });
-	      
-	      
-	   };
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Splits codelists into used/non-used in a specific version
-	   // Note there is only ONE codelist
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.getCodeListCoverage = function (name, dictionary) {
-	     var result = [];
-
-	     dictionary.files.forEach(function (file) {
-	       file.fields.forEach(function (field) {
-	         var restrictions = field.restrictions;
-	         var codelist = _.find(restrictions, function (obj) { return obj.type === 'codelist'; });
-
-	         if (!codelist) {
-	           return;
-	         }
-
-	         var codelistName = codelist.config.name;
-	         if (codelistName === name && result.indexOf(file.name) === -1) {
-	           result.push(file.name);
-	         }
-	       });
-	     });
-
-	     return result;
-	   };
-
-
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Build a tree using a edge list
-	   // It isn't a tree per se, but semantically a tree representation makes most sense
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.buildTree2 = function(node, relations, visited, dict) {
-	      var _self = this;
-
-	      node.data = _.find(dict.files, function(f) {
-	        return f.name === node.name;
-	      });
-
-	      var children = _.filter(relations, function(r) {
-	         return r.parentNode === node.name;
-	      });
-
-	      node.children = [];
-
-	      children.forEach(function(child) {
-	         if (visited[child.node]) {
-	           return;
-	         }
-
-	         var c = {name:child.node, ancestor:node.name};
-	         node.children.push(c);
-	         visited[child.node] = 1;
-	      });
-
-	      node.children = _.sortBy(node.children, function(child) {
-	         return child.name;
-	      });
-
-	      node.children.forEach(function(child) {
-	         _self.buildTree2(child, relations, visited, dict);
-	      });
-
-	      node.children.sort(function(n) {
-	         return n.name.length;
-	      });
-	   };
-
-
-	   ////////////////////////////////////////////////////////////////////////////////
-	   // Return a list of describing filetype->filetype relations
-	   ////////////////////////////////////////////////////////////////////////////////
-	   DictionaryUtil.prototype.getParentRelation = function(dict) {
-	      var list = [];
-	      var roleMap = {};
-	      var files = dict.files;
-
-	      files.forEach(function(f) {
-	         roleMap[f.name] = f.role;
-	      });
-
-	      files.forEach(function(f) {
-	         if (f.relations.length === 0) {
-	            list.push({
-	               node: f.name,
-	               parentNode: null
-	            });
-	         } else {
-	            f.relations.forEach(function(r) {
-	               if (roleMap[r.other] === 'SYSTEM') {
-	                  list.push({
-	                     node:r.other,
-	                     parentNode: f.name
-	                  });
-	               } else {
-	                  list.push({
-	                     node:f.name,
-	                     parentNode: r.other
-	                  });
-	               }
-	            });
-	         }
-	      });
-	      return list;
-	   };
-
-	   dictionaryApp.DictionaryUtil = DictionaryUtil;
-	})();
-
-
-
-	/* globals RegexColorizer, hljs, js_beautify */
-
-	'use strict';
-
-	var dictionaryApp = dictionaryApp || {};
-
-	(function() {
-
-	  function ModalManager(id) {
-	    var _self = this,
-	        _modalID = id,
-	        _modalEl,
-	        _modelTitleEl,
-	        _modelBodyTextEl;
-
-
-	    function _init() {
-	      if (! _modalID) {
-	        console.error('Could not instantiate modal with and ID!');
-	        return;
-	      }
-
-	      _modalEl = jQuery('#' + _modalID);
-
-	      if ( _modalEl.length === 0 ) {
-	        console.error('Could not find modal with ID ' + _modalID +  ' !');
-	        return;
-	      }
-
-	      _modelTitleEl = _modalEl.find('.modal-title');
-	      _modelBodyTextEl = _modalEl.find('.modal-body');
-
-	    }
-
-	    _self.title = function(title) {
-
-	      if (arguments.length === 1) {
-	        _modelTitleEl.html(title);
-	      }
-
-	      return _modelTitleEl.text();
-	    };
-
-	    _self.bodyText = function(title) {
-
-	      if (arguments.length === 1) {
-	        _modelBodyTextEl.html(title);
-	      }
-
-	      return _modelBodyTextEl.text();
-	    };
-
-	    _self.show = function(shouldShow) {
-	      var toggleArg = shouldShow === false ? 'hide' : 'show';
-
-	      _modalEl.modal(toggleArg);
-	    };
-
-
-	    _init();
-
-	  }
-
-	  function TableViewer(dictionary, codelist, shouldRenderLegend) {
-	    this.dictUtil = dictionary;
-	    this.codelistMap = codelist;
-	    this.isTable = true;
-	    this.toggleNodeFunc = null;
-	    this.toggleDataTypeFunc = null;
-	    this.shouldRenderLegend = shouldRenderLegend === false ? false : true;
-	    this.modalManager = new ModalManager('dictionaryModal');
-
-	    this.selectedDataType = 'all';
-
-
-	    // Configurations
-	    this.barHeight = 25;
-	    this.colourDefault = d3.rgb(240, 240, 240);
-
-	    this.colourHighlight = d3.rgb(242, 155, 4);
-
-	    this.colourNew = d3.rgb(77, 175, 74);
-	    this.colourChanged = d3.rgb(158, 123, 5);
-
-	    this.colourMinimapDefault = d3.rgb(230, 230, 230);
-	    this.colourMinimapSelect = d3.rgb(166, 206, 227);
-
-	  }
-
+	(function(){function DictionaryUtil(list,webserviceURL){this.webserviceURL=webserviceURL;list=_.filter(list,function(d){var pattern=new RegExp('^draft');return pattern.test(d.version)===false;});this.dictList=list;this.sortedDictionaryList=_.sortBy(this.dictList,function(obj){var suffix=obj.version.replace(/\d+.\d+/,'');return suffix;}).reverse();this.sortedDictionaryList=_.sortBy(this.sortedDictionaryList,function(obj){var ver=obj.version.split('.')[1];ver=ver.split(/[-_]/)[0];ver=ver.replace(/[^\d]/,'');return-ver;});this.versionList=_.pluck(this.sortedDictionaryList,'version');this.dictionaryMap={};for(var i=0;i<list.length;i++){this.dictionaryMap[list[i].version]=list[i];}}////////////////////////////////////////////////////////////////////////////////
+	// Basic Getters
 	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.getDictionary=function(version){var _self=this;var url=_self.webserviceURL+'/dictionaries/'+version;var dict=_self.dictionaryMap[version];if(_.has(dict,'files')){return $.Deferred().promise(dict);}else if(_.has(dict,'then')){return dict;}else{_self.dictionaryMap[version]=$.ajax({url:url,dataType:'json'});_self.dictionaryMap[version].done(function(data){return data;});return _self.dictionaryMap[version];}};DictionaryUtil.prototype.getFileType=function(version,filename){var dict=this.getDictionary(version);if(!dict){return null;}return _.find(dict.files,function(f){return f.name===filename;});};DictionaryUtil.prototype.getField=function(version,filename,fieldname){var file=this.getFileType(version,filename);if(!file){return null;}return _.find(file.fields,function(f){return f.name===fieldname;});};DictionaryUtil.prototype.getFileTypeFromDict=function(dict,filename){if(!dict){return null;}return _.find(dict.files,function(f){return f.name===filename;});};DictionaryUtil.prototype.getFieldFromDict=function(dict,filename,fieldname){var file=this.getFileTypeFromDict(dict,filename);if(!file){return null;}return _.find(file.fields,function(f){return f.name===fieldname;});};DictionaryUtil.prototype.getFilePatternDiff=function(dict,tableTo){var tableFrom=this.getFileTypeFromDict(dict,tableTo.name);if(!tableFrom){return null;}return _.isEqual(tableFrom.pattern,tableTo.pattern);};DictionaryUtil.prototype.getFileLabelDiff=function(dict,tableTo){var tableFrom=this.getFileTypeFromDict(dict,tableTo.name);if(!tableFrom){return null;}return _.isEqual(tableFrom.label,tableTo.label);};////////////////////////////////////////////////////////////////////////////////
+	// How the files should be sorted
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.sortingOrder=function(){return['donor','specimen','sample','biomarker','surgery','therapy','family','exposure','ssm_m','ssm_p','ssm_s','sgv_m','sgv_p','cnsm_m','cnsm_p','cnsm_s','stsm_m','stsm_p','stsm_s','exp_g','exp_m','pexp_m','pexp_p','mirna_m','mirna_p','mirna_s','jcn_m','jcn_p','meth_m','meth_p','meth_s','meth_seq_m','meth_seq_p','mirna_seq_m','mirna_seq_p','exp_seq_m','exp_seq_p','exp_array_m','exp_array_p','meth_array_m','meth_array_p','meth_array_probes'];};////////////////////////////////////////////////////////////////////////////////
+	// Determines whether if there are significant changes
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.isDifferent=function(row1,row2){if(!_.isEqual(row1.restrictions,row2.restrictions)||!_.isEqual(row1.label,row2.label)){return true;}return false;};////////////////////////////////////////////////////////////////////////////////
+	// Verbose comparison, gives a detail list of what are the differences
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.isDifferent2=function(row1,row2){var diffList=[];function getRestriction(r,type){if(!r.restrictions){return{};}return _.find(r.restrictions,function(res){return res.type===type;});}if(row1.controlled!==row2.controlled){diffList.push('controlled');}if(!_.isEqual(getRestriction(row1,'regex'),getRestriction(row2,'regex'))){diffList.push('regex');}if(!_.isEqual(getRestriction(row1,'required'),getRestriction(row2,'required'))){diffList.push('required');}if(!_.isEqual(getRestriction(row1,'script'),getRestriction(row2,'script'))){diffList.push('script');}if(!_.isEqual(getRestriction(row1,'codelist'),getRestriction(row2,'codelist'))){diffList.push('codelist');}return diffList;};////////////////////////////////////////////////////////////////////////////////
+	// Determines whether if row matches
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.isMatch=function(row,regex){var restrictionList=row.restrictions;var codelist=_.find(restrictionList,function(obj){return obj.type==='codelist';});if(row.name.match(regex)||codelist&&codelist.config.name.match(regex)){return true;}return false;};////////////////////////////////////////////////////////////////////////////////
+	// Produces a difference list by comparing two different verions of a dictionary
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.createDiffListing=function(versionFrom,versionTo){var report={};var _self=this;report.fieldsAdded=[];report.fieldsRemoved=[];report.fieldsChanged=[];report.fileDataChanged=[];function addDiff(diffType,entry){var entryWithIndex=_.extend({id:_.uniqueId()},entry);switch(diffType){case'fieldsAdded':report.fieldsAdded.push(entryWithIndex);break;case'fieldsRemoved':report.fieldsRemoved.push(entryWithIndex);break;case'fieldsChanged':report.fieldsChanged.push(entryWithIndex);break;case'fileDataChanged':report.fileDataChanged.push(entryWithIndex);break;default:throw new Error('unsupported diffType');}}return _self.getDictionary(versionFrom).then(function(dictFrom){return _self.getDictionary(versionTo).then(function(dictTo){// Sorting dictionary files
+	dictFrom.files=_.sortBy(dictFrom.files,function(d){return _self.sortingOrder().indexOf(d.name);});dictTo.files=_.sortBy(dictTo.files,function(d){return _self.sortingOrder().indexOf(d.name);});// Scan for changed and remove file types
+	if(dictFrom.files){dictFrom.files.forEach(function(fileFrom){var fileTo=_self.getFileTypeFromDict(dictTo,fileFrom.name);// If no file, then it as been removed.
+	// Otherwise we need to check each field for changes.
+	if(!fileTo){fileFrom.fields.forEach(function(fieldFrom){addDiff('fieldsRemoved',{type:fileFrom.name,name:fieldFrom.name,from:fileFrom,to:{}});});}else{// Check file metadata change
+	if(!_.isEqual(fileFrom,fileTo)){if(!_self.getFileLabelDiff(dictFrom,fileTo)){addDiff('fileDataChanged',{type:fileTo.name,name:fileTo.label,from:fileFrom.label,to:fileTo.label});}if(!_self.getFilePatternDiff(dictFrom,fileTo)){addDiff('fileDataChanged',{type:fileTo.name,name:'File Name Pattern',from:fileFrom.pattern,to:fileTo.pattern});}}// Check removed and changed
+	fileFrom.fields.forEach(function(fieldFrom){var fieldTo=_self.getFieldFromDict(dictTo,fileFrom.name,fieldFrom.name);if(!fieldTo){addDiff('fieldsRemoved',{type:fileFrom.name,name:fieldFrom.name,from:fieldFrom,to:fieldTo});}else if(_self.isDifferent2(fieldTo,fieldFrom).length>0){// var difference = _.omit(jsondiffpatch.diff(fieldFrom, fieldTo), 'expanded');
+	addDiff('fieldsChanged',{type:fileFrom.name,name:fieldFrom.name,changes:_self.isDifferent2(fieldTo,fieldFrom),from:fieldFrom,to:fieldTo});}});// Check new
+	fileTo.fields.forEach(function(fieldTo){var fieldFrom=_self.getFieldFromDict(dictFrom,fileTo.name,fieldTo.name);if(!fieldFrom){addDiff('fieldsAdded',{type:fileTo.name,name:fieldTo.name,from:fieldFrom,to:fieldTo});}});}});}// Now reverse logic to check for completely new file types
+	if(dictTo.files){dictTo.files.forEach(function(fileTo){var fileFrom=_self.getFileTypeFromDict(dictFrom,fileTo.name);// fileTo is new
+	if(!fileFrom){fileTo.fields.forEach(function(fieldTo){addDiff('fieldsAdded',{type:fileTo.name,name:fieldTo.name,from:{},to:fieldTo});});}});}return report;});});};////////////////////////////////////////////////////////////////////////////////
+	// Splits codelists into used/non-used in a specific version
+	// Note there is only ONE codelist
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.getCodeListCoverage=function(name,dictionary){var result=[];dictionary.files.forEach(function(file){file.fields.forEach(function(field){var restrictions=field.restrictions;var codelist=_.find(restrictions,function(obj){return obj.type==='codelist';});if(!codelist){return;}var codelistName=codelist.config.name;if(codelistName===name&&result.indexOf(file.name)===-1){result.push(file.name);}});});return result;};////////////////////////////////////////////////////////////////////////////////
+	// Build a tree using a edge list
+	// It isn't a tree per se, but semantically a tree representation makes most sense
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.buildTree2=function(node,relations,visited,dict){var _self=this;node.data=_.find(dict.files,function(f){return f.name===node.name;});var children=_.filter(relations,function(r){return r.parentNode===node.name;});node.children=[];children.forEach(function(child){if(visited[child.node]){return;}var c={name:child.node,ancestor:node.name};node.children.push(c);visited[child.node]=1;});node.children=_.sortBy(node.children,function(child){return child.name;});node.children.forEach(function(child){_self.buildTree2(child,relations,visited,dict);});node.children.sort(function(n){return n.name.length;});};////////////////////////////////////////////////////////////////////////////////
+	// Return a list of describing filetype->filetype relations
+	////////////////////////////////////////////////////////////////////////////////
+	DictionaryUtil.prototype.getParentRelation=function(dict){var list=[];var roleMap={};var files=dict.files;files.forEach(function(f){roleMap[f.name]=f.role;});files.forEach(function(f){if(f.relations.length===0){list.push({node:f.name,parentNode:null});}else{f.relations.forEach(function(r){if(roleMap[r.other]==='SYSTEM'){list.push({node:r.other,parentNode:f.name});}else{list.push({node:f.name,parentNode:r.other});}});}});return list;};dictionaryApp.DictionaryUtil=DictionaryUtil;})();/* globals RegexColorizer, hljs, js_beautify */'use strict';var dictionaryApp=dictionaryApp||{};(function(){function ModalManager(id){var _self=this,_modalID=id,_modalEl,_modelTitleEl,_modelBodyTextEl;function _init(){if(!_modalID){console.error('Could not instantiate modal with and ID!');return;}_modalEl=jQuery('#'+_modalID);if(_modalEl.length===0){console.error('Could not find modal with ID '+_modalID+' !');return;}_modelTitleEl=_modalEl.find('.modal-title');_modelBodyTextEl=_modalEl.find('.modal-body');}_self.title=function(title){if(arguments.length===1){_modelTitleEl.html(title);}return _modelTitleEl.text();};_self.bodyText=function(title){if(arguments.length===1){_modelBodyTextEl.html(title);}return _modelBodyTextEl.text();};_self.show=function(shouldShow){var toggleArg=shouldShow===false?'hide':'show';_modalEl.modal(toggleArg);};_init();}function TableViewer(dictionary,codelist,shouldRenderLegend){this.dictUtil=dictionary;this.codelistMap=codelist;this.isTable=true;this.toggleNodeFunc=null;this.toggleDataTypeFunc=null;this.shouldRenderLegend=shouldRenderLegend===false?false:true;this.modalManager=new ModalManager('dictionaryModal');this.selectedDataType='all';// Configurations
+	this.barHeight=25;this.colourDefault=d3.rgb(240,240,240);this.colourHighlight=d3.rgb(242,155,4);this.colourNew=d3.rgb(77,175,74);this.colourChanged=d3.rgb(158,123,5);this.colourMinimapDefault=d3.rgb(230,230,230);this.colourMinimapSelect=d3.rgb(166,206,227);}////////////////////////////////////////////////////////////////////////////////
 	// Main dictionary function
-	  ////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.showCodeLists = function () {
-	  };
-
-	  TableViewer.prototype.showDictionaryTable = function (versionFrom, versionTo) {
-
-	    var _self = this;
-	    _self.dictUtil.getDictionary(versionFrom).then(function (dictFrom) {
-	    _self.dictUtil.getDictionary(versionTo).then(function (dictTo) {
-	      // Reset
-	      d3.select('#datatypeGraph').transition().duration(300).style('opacity', 0.1).each('end', function () {
-	        d3.select('#datatypeGraph').style('display', 'none');
-	        d3.select('#datatypeTable').style('display', 'block');
-	        d3.select('#datatypeSelector').style('visibility', 'visible');
-	        d3.select('#datatypeTable').transition().duration(400).style('opacity', 1.0);
-	      });
-	      
-	      // Re-order according to importance and data type
-	      dictTo.files = _.sortBy(dictTo.files, function (d) {
-	        return _self.dictUtil.sortingOrder().indexOf(d.name);
-	      });
-
-	      // Clean up DOM
-	      d3.select('#minimap').selectAll('*').remove();
-	      d3.select('#datatypeTable').selectAll('*').remove();
-
-	      // Ensure basic visiblity interactions are in place
-	      d3.select('body').on('click', function () {
-	        d3.select('#minimapWrapper').style('display', 'none');
-	      });
-	      
-	      d3.select('#minimapLabel')
-	        .classed('data-type-list', true)
-	        .on('click', function () {
-	          if (d3.select('#minimapWrapper').style('display') === 'none') {
-	            d3.select('#minimapWrapper').style('display', 'block');
-	          } else {
-	            d3.select('#minimapWrapper').style('display', 'none');
-	          }
-	          d3.event.stopPropagation();
-	        });
-	        
-	      // Hardwire 'all data type' minimap option, note minimap height is dynamically
-	      // computed.
-	      var currentY = 1;
-	      var grp = d3.select('#minimap').append('g').attr('id', 'minimap-all')
-	        .attr('transform', 'translate(' + 0 + ',' + (currentY) + ')');
-	      _self.buildFilterRow(grp, 'all', 'All Data Types', _self.barHeight);
-	      currentY += _self.barHeight;
-
-	      // Main building block
-	      d3.select('#datatypeTable')
-	        .selectAll('div')
-	        .data(dictTo.files)
-	        .enter()
-	        .append('div')
-	        .classed('selection_wrapper', true)
-	        .append('div')
-	        .classed('filter_wrapper', true)
-	        .each(function (table) {
-	          
-	          d3.select(this)
-	            .append('h3')
-	            .append('a')
-	            .attr('id', table.name)
-	            .attr('href', '')
-	            .classed('header-text-link', true)
-	            .text(table.label)
-	            .append('i')
-	            .classed('icon-share-1 header-hover-aid', true);
-
-	          var metadataTable = d3.select(this)
-	            .append('table')
-	            .classed('table', true)
-	            .classed('table-bordered', true)
-	            .classed('table-striped', true)
-	            .classed('table-condensed', true)
-	            .classed('table-file-metadata', true);
-
-	          var metadataTableBody = metadataTable.append('tbody');
-
-	          var filePatternDiff = !_self.dictUtil.getFilePatternDiff(dictFrom, table);
-	          var fileLabelDiff = !_self.dictUtil.getFileLabelDiff(dictFrom, table);
-	          
-
-	          if(fileLabelDiff){
-	            metadataTableBody.append('tr')
-	              .html('<td class="data-diff"></td><th>File Type:</th><td>' + table.label + '</td>');
-	          }else{
-	            metadataTableBody.append('tr')
-	              .html('<td></td><th>File Type:</th><td>' + table.label + '</td>');
-	          }
-
-	          metadataTableBody.append('tr')
-	            .html('<td></td><th>File Key:</th><td>' + table.name + '</td>');
-
-	          if(filePatternDiff){
-	            metadataTableBody.append('tr')
-	              .html('<td class="data-diff"></td><th>File Name Pattern:</th><td class="regex">' + 
-	              table.pattern + '</td>');
-	          }else{
-	            metadataTableBody.append('tr')
-	              .html('<td></td><th>File Name Pattern:</th><td class="regex">' + table.pattern + '</td>');
-	          }
-	          
-
-	          // Create the minimap things
-	          var realH = Math.max(_self.barHeight, 5 + table.fields.length);
-	          var grp = d3.select('#minimap').append('g').attr('id', 'minimap-' + table.name)
-	            .attr('transform', 'translate(' + 0 + ',' + (currentY) + ')');
-	          _self.buildFilterRow(grp, table.name, table.label, realH);
-	          currentY += realH;
-
-
-	          // Table - definition
-	          var dtable = d3.select(this)
-	            .append('table')
-	            .classed('table', true)
-	            .classed('table-bordered', true)
-	            .classed('table-hover', true)
-	            .classed('table-condensed', true)
-	            .classed('dictionary_table', true);
-
-	          // Table - columns
-	          var thead = dtable.append('thead').append('tr');
-	          thead.append('th').style('width', '5px').text('');
-	          thead.append('th').text('Field');
-	          thead.append('th').text('Attributes');
-	          thead.append('th').text('Type');
-	          thead.append('th').text('Description');
-	          thead.append('th').text('CodeList');
-	          thead.append('th').text('RegExp');
-	          thead.append('th').text('Script');
-
-	          // Table - build
-	          var tbody = dtable.append('tbody');
-	          tbody.selectAll('tr')
-	            .data(table.fields)
-	            .enter()
-	            .append('tr')
-	            .style('font-size', '1em')
-	            .style('background-color', function (d) {
-	              return table.uniqueFields && table.uniqueFields.indexOf(d.name) >= 0 ? '#DFF0D8' : 'transparent';
-	            })
-	            .each(function (row, idx) {
-	              var oldRow = _self.dictUtil.getFieldFromDict(dictFrom, table.name, row.name);
-	              _self.buildRow(d3.select(this), row, oldRow, idx, table.uniqueFields);
-	            });
-	        });
-	      
-
-	      // Auto adjust the svg height
-	      d3.select('#minimap').attr('height', (currentY + 5) + 'px');
-
-	      // Turn on regexp highlighter
-	      RegexColorizer.colorizeAll();
-
-	    });
-	   });
-	  };
-
-
 	////////////////////////////////////////////////////////////////////////////////
+	TableViewer.prototype.showCodeLists=function(){};TableViewer.prototype.showDictionaryTable=function(versionFrom,versionTo){var _self=this;_self.dictUtil.getDictionary(versionFrom).then(function(dictFrom){_self.dictUtil.getDictionary(versionTo).then(function(dictTo){// Reset
+	d3.select('#datatypeGraph').transition().duration(300).style('opacity',0.1).each('end',function(){d3.select('#datatypeGraph').style('display','none');d3.select('#datatypeTable').style('display','block');d3.select('#datatypeSelector').style('visibility','visible');d3.select('#datatypeTable').transition().duration(400).style('opacity',1.0);});// Re-order according to importance and data type
+	dictTo.files=_.sortBy(dictTo.files,function(d){return _self.dictUtil.sortingOrder().indexOf(d.name);});// Clean up DOM
+	d3.select('#minimap').selectAll('*').remove();d3.select('#datatypeTable').selectAll('*').remove();// Ensure basic visiblity interactions are in place
+	d3.select('body').on('click',function(){d3.select('#minimapWrapper').style('display','none');});d3.select('#minimapLabel').classed('data-type-list',true).on('click',function(){if(d3.select('#minimapWrapper').style('display')==='none'){d3.select('#minimapWrapper').style('display','block');}else{d3.select('#minimapWrapper').style('display','none');}d3.event.stopPropagation();});// Hardwire 'all data type' minimap option, note minimap height is dynamically
+	// computed.
+	var currentY=1;var grp=d3.select('#minimap').append('g').attr('id','minimap-all').attr('transform','translate('+0+','+currentY+')');_self.buildFilterRow(grp,'all','All Data Types',_self.barHeight);currentY+=_self.barHeight;// Main building block
+	d3.select('#datatypeTable').selectAll('div').data(dictTo.files).enter().append('div').classed('selection_wrapper',true).append('div').classed('filter_wrapper',true).each(function(table){d3.select(this).append('h3').append('a').attr('id',table.name).attr('href','').classed('header-text-link',true).text(table.label).append('i').classed('icon-share-1 header-hover-aid',true);var metadataTable=d3.select(this).append('table').classed('table',true).classed('table-bordered',true).classed('table-striped',true).classed('table-condensed',true).classed('table-file-metadata',true);var metadataTableBody=metadataTable.append('tbody');var filePatternDiff=!_self.dictUtil.getFilePatternDiff(dictFrom,table);var fileLabelDiff=!_self.dictUtil.getFileLabelDiff(dictFrom,table);if(fileLabelDiff){metadataTableBody.append('tr').html('<td class="data-diff"></td><th>File Type:</th><td>'+table.label+'</td>');}else{metadataTableBody.append('tr').html('<td></td><th>File Type:</th><td>'+table.label+'</td>');}metadataTableBody.append('tr').html('<td></td><th>File Key:</th><td>'+table.name+'</td>');if(filePatternDiff){metadataTableBody.append('tr').html('<td class="data-diff"></td><th>File Name Pattern:</th><td class="regex">'+table.pattern+'</td>');}else{metadataTableBody.append('tr').html('<td></td><th>File Name Pattern:</th><td class="regex">'+table.pattern+'</td>');}// Create the minimap things
+	var realH=Math.max(_self.barHeight,5+table.fields.length);var grp=d3.select('#minimap').append('g').attr('id','minimap-'+table.name).attr('transform','translate('+0+','+currentY+')');_self.buildFilterRow(grp,table.name,table.label,realH);currentY+=realH;// Table - definition
+	var dtable=d3.select(this).append('table').classed('table',true).classed('table-bordered',true).classed('table-hover',true).classed('table-condensed',true).classed('dictionary_table',true);// Table - columns
+	var thead=dtable.append('thead').append('tr');thead.append('th').style('width','5px').text('');thead.append('th').text('Field');thead.append('th').text('Attributes');thead.append('th').text('Type');thead.append('th').text('Description');thead.append('th').text('CodeList');thead.append('th').text('RegExp');thead.append('th').text('Script');// Table - build
+	var tbody=dtable.append('tbody');tbody.selectAll('tr').data(table.fields).enter().append('tr').style('font-size','1em').style('background-color',function(d){return table.uniqueFields&&table.uniqueFields.indexOf(d.name)>=0?'#DFF0D8':'transparent';}).each(function(row,idx){var oldRow=_self.dictUtil.getFieldFromDict(dictFrom,table.name,row.name);_self.buildRow(d3.select(this),row,oldRow,idx,table.uniqueFields);});});// Auto adjust the svg height
+	d3.select('#minimap').attr('height',currentY+5+'px');// Turn on regexp highlighter
+	RegexColorizer.colorizeAll();});});};////////////////////////////////////////////////////////////////////////////////
 	// Build a data type table row, cell by cell. The 5 parameters are:
 	//  elem  - D3 reference to a TR element
 	//  row   - The field from current dictionary version
@@ -1414,908 +170,71 @@ webpackJsonp([0,2],[
 	//  idx - row index, used for ordering
 	//  uniqueFields - The unique fields for the table
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.buildRow = function (elem, row, rowFrom, idx, uniqueFields) {
-	    var _self = this;
-	    var restrictionList = row.restrictions;
-	    var codelist = _.find(restrictionList, function (obj) {
-	      return obj.type === 'codelist';
-	    });
-	    var regex = _.find(restrictionList, function (obj) {
-	      return obj.type === 'regex';
-	    });
-	    var script = _.find(restrictionList, function (obj) {
-	      return obj.type === 'script';
-	    });
-	    var required = _.find(restrictionList, function (obj) {
-	      return obj.type === 'required';
-	    });
-
-	    var tableName = d3.select(elem.node().parentNode).datum().name;
-	    var compareRow = rowFrom;
-
-	    var differenceList = compareRow ? _self.dictUtil.isDifferent2(row, compareRow) : [];
-
-
-	    // Updates the datatype minimap
-	    var minimap = d3.select('#minimap').select('#minimap-' + tableName).append('rect').attr('x', 2).attr('y', 2 + idx)
-	      .attr('height', 1).attr('width', 20);
-	    if (!compareRow) {
-	      minimap.style('fill', _self.colourNew);
-	      // entryNew ++;
-	    } else if (differenceList.length > 0) {
-	      minimap.style('fill', _self.colourChanged);
-	    } else {
-	      minimap.style('fill', _self.colourDefault);
-	    }
-
-
-	    // New/Changed Flag
-	    elem.append('td').style('background-color', function () {
-	      if (!compareRow) {
-	        return _self.colourNew;
-	      }
-
-	      if (differenceList.length > 0) {
-	        return _self.colourChanged;
-	      }
-
-	      return null;
-	    });
-
-	    // Field
-	    elem.append('td').classed('monospaced', true).text(row.name);
-
-	    // Attribute
-	    var attrBox = elem.append('td').classed('badges', true);
-
-	    function addBadge(txt, colour) {
-	      attrBox.append('div').classed('badge', true).style('background-color', colour).text(txt);
-	      attrBox.append('br');
-	    }
-
-	    if (row.controlled === true) {
-	      addBadge('Controlled', '#b94a48');
-	    } else {
-	      addBadge('Open Access', '#468847');
-	    }
-
-	    if (required) {
-	      addBadge('Required', '#468847');
-
-	      if (required.config.acceptMissingCode === true) {
-	        addBadge('N/A Valid', '#468847');
-	      } else {
-	        addBadge('N/A Invalid', '#b94a48');
-	      }
-	    }
-	    if (uniqueFields && uniqueFields.indexOf(row.name) >= 0) {
-	      addBadge('Unique', '#bbb');
-	    }
-
-	    // Type
-	    elem.append('td').text(row.valueType);
-
-	    // Description
-	    elem.append('td').style('max-width', '260px').text(row.label);
-
-	    // Code Lists
-	    elem.append('td').each(function (d) {
-	      d.expanded = false;
-	      var cell = d3.select(this);
-	      if (codelist) {
-	        d3.select(this).append('a')
-	          .text(codelist.config.name + ' ')
-	          .on('click', function (d) {
-	            d.expanded = !d.expanded;
-	            if (d.expanded) {
-	              d3.select(this).select('i').classed('glyphicon-chevron-down', false);
-	              d3.select(this).select('i').classed('glyphicon-chevron-up', true);
-	              cell.select('ul').style('display', 'block');
-	            } else {
-	              d3.select(this).select('i').classed('glyphicon-chevron-down', true);
-	              d3.select(this).select('i').classed('glyphicon-chevron-up', false);
-	              cell.select('ul').style('display', 'none');
-	            }
-	          })
-	          .append('i')
-	          .classed('glyphicon', true)
-	          .classed('glyphicon-chevron-down', true)
-	          .style('position', 'inherit'); // Not sure why this works, otherwise it overlap with svg
-
-	        var list = d3.select(this).append('ul').style('display', 'none').classed('list-unstyled', true);
-	        var c = _self.codelistMap[codelist.config.name];
-	        c.terms.forEach(function (term) {
-	          list.append('li').classed('data-type-list', true).text(term.code + '  ' + term.value);
-	        });
-	      }
-	    });
-
-	    // Regexp
-	    elem.append('td').style('max-width', '250px').each(function () {
-	      if (regex) {
-	        d3.select(this)
-	          .append('p')
-	          .classed('regex', true)
-	          .text(regex.config.pattern);
-
-	        if (regex.config.examples) {
-	          var example = d3.select(this).append('pre')
-	            .classed('code-shard', true)
-	            .on('click', function () {
-	              var examples = [];
-	              var baseURL = 'http://www.regexplanet.com/advanced/java/index.html?';
-	              baseURL = baseURL + 'regex=' + encodeURIComponent(regex.config.pattern);
-
-	              if (Array.isArray(regex.config.examples)) {
-	                examples = regex.config.examples;
-	              } else {
-	                examples = regex.config.examples.split(', ');
-	              }
-	              examples.forEach(function (ex) {
-	                baseURL += '&input=' + encodeURIComponent(ex);
-	              });
-
-	              window.open(baseURL, '_blank');
-	            })
-	            .append('code');
-
-	          example.append('p').text('Examples');
-	          example.append('a')
-	            .text(regex.config.examples);
-
-	          //.text(regex.config.examples);
-	        }
-	      }
-	    });
-
-	    // Script
-	    elem.append('td')
-	      .style('max-width', '250px')
-	      .style('overflow', 'auto')
-	      .style('position', 'relative')
-	      .each(function () {
-	        if (script) {
-	          var beautifiedScript = hljs.highlight('java', js_beautify(script.config.script)).value;
-	          var codeBlock =  d3.select(this);
-
-
-	          codeBlock.append('p').classed('code-constrained-width', true).html(script.config.description);
-
-	          var codeContainer = codeBlock.append('div').classed('code-container', true);
-
-	          codeContainer
-	            .append('pre')
-	            .classed('code-shard code-constrained-width', true)
-
-	            .on('click', function () {
-	              _self.modalManager.title('<i>' + row.name + '</i> Field Script Restriction');
-	              _self.modalManager.bodyText('<pre class="code-shard"><code>' + beautifiedScript + '</code></pre>');
-	              _self.modalManager.show();
-	            })
-	            .append('code')
-	            .html(beautifiedScript);
-
-	          codeContainer.append('i').classed('fa fa-search-plus code-zoom-indicator', true);
-	        }
-	      });
-
-	  };
-
-
-	////////////////////////////////////////////////////////////////////////////////
+	TableViewer.prototype.buildRow=function(elem,row,rowFrom,idx,uniqueFields){var _self=this;var restrictionList=row.restrictions;var codelist=_.find(restrictionList,function(obj){return obj.type==='codelist';});var regex=_.find(restrictionList,function(obj){return obj.type==='regex';});var script=_.find(restrictionList,function(obj){return obj.type==='script';});var required=_.find(restrictionList,function(obj){return obj.type==='required';});var tableName=d3.select(elem.node().parentNode).datum().name;var compareRow=rowFrom;var differenceList=compareRow?_self.dictUtil.isDifferent2(row,compareRow):[];// Updates the datatype minimap
+	var minimap=d3.select('#minimap').select('#minimap-'+tableName).append('rect').attr('x',2).attr('y',2+idx).attr('height',1).attr('width',20);if(!compareRow){minimap.style('fill',_self.colourNew);// entryNew ++;
+	}else if(differenceList.length>0){minimap.style('fill',_self.colourChanged);}else{minimap.style('fill',_self.colourDefault);}// New/Changed Flag
+	elem.append('td').style('background-color',function(){if(!compareRow){return _self.colourNew;}if(differenceList.length>0){return _self.colourChanged;}return null;});// Field
+	elem.append('td').classed('monospaced',true).text(row.name);// Attribute
+	var attrBox=elem.append('td').classed('badges',true);function addBadge(txt,colour){attrBox.append('div').classed('badge',true).style('background-color',colour).text(txt);attrBox.append('br');}if(row.controlled===true){addBadge('Controlled','#b94a48');}else{addBadge('Open Access','#468847');}if(required){addBadge('Required','#468847');if(required.config.acceptMissingCode===true){addBadge('N/A Valid','#468847');}else{addBadge('N/A Invalid','#b94a48');}}if(uniqueFields&&uniqueFields.indexOf(row.name)>=0){addBadge('Unique','#bbb');}// Type
+	elem.append('td').text(row.valueType);// Description
+	elem.append('td').style('max-width','260px').text(row.label);// Code Lists
+	elem.append('td').each(function(d){d.expanded=false;var cell=d3.select(this);if(codelist){d3.select(this).append('a').text(codelist.config.name+' ').on('click',function(d){d.expanded=!d.expanded;if(d.expanded){d3.select(this).select('i').classed('glyphicon-chevron-down',false);d3.select(this).select('i').classed('glyphicon-chevron-up',true);cell.select('ul').style('display','block');}else{d3.select(this).select('i').classed('glyphicon-chevron-down',true);d3.select(this).select('i').classed('glyphicon-chevron-up',false);cell.select('ul').style('display','none');}}).append('i').classed('glyphicon',true).classed('glyphicon-chevron-down',true).style('position','inherit');// Not sure why this works, otherwise it overlap with svg
+	var list=d3.select(this).append('ul').style('display','none').classed('list-unstyled',true);var c=_self.codelistMap[codelist.config.name];c.terms.forEach(function(term){list.append('li').classed('data-type-list',true).text(term.code+'  '+term.value);});}});// Regexp
+	elem.append('td').style('max-width','250px').each(function(){if(regex){d3.select(this).append('p').classed('regex',true).text(regex.config.pattern);if(regex.config.examples){var example=d3.select(this).append('pre').classed('code-shard',true).on('click',function(){var examples=[];var baseURL='http://www.regexplanet.com/advanced/java/index.html?';baseURL=baseURL+'regex='+encodeURIComponent(regex.config.pattern);if(Array.isArray(regex.config.examples)){examples=regex.config.examples;}else{examples=regex.config.examples.split(', ');}examples.forEach(function(ex){baseURL+='&input='+encodeURIComponent(ex);});window.open(baseURL,'_blank');}).append('code');example.append('p').text('Examples');example.append('a').text(regex.config.examples);//.text(regex.config.examples);
+	}}});// Script
+	elem.append('td').style('max-width','250px').style('overflow','auto').style('position','relative').each(function(){if(script){var beautifiedScript=hljs.highlight('java',js_beautify(script.config.script)).value;var codeBlock=d3.select(this);codeBlock.append('p').classed('code-constrained-width',true).html(script.config.description);var codeContainer=codeBlock.append('div').classed('code-container',true);codeContainer.append('pre').classed('code-shard code-constrained-width',true).on('click',function(){_self.modalManager.title('<i>'+row.name+'</i> Field Script Restriction');_self.modalManager.bodyText('<pre class="code-shard"><code>'+beautifiedScript+'</code></pre>');_self.modalManager.show();}).append('code').html(beautifiedScript);codeContainer.append('i').classed('fa fa-search-plus code-zoom-indicator',true);}});};////////////////////////////////////////////////////////////////////////////////
 	// Data type filter, hide unmatched datatype tables
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.selectDataType = function (label) {
-
-	    d3.select('#minimapLabel').select('span').html(label + '&nbsp;&nbsp;');
-	    d3.select('#minimapWrapper').style('display', 'none');
-
-	    window.scrollTo(0, 0);
-
-	    d3.selectAll('.selection_wrapper').style('display', 'block');
-
-	    // if (val === 'all') {
-	    if (label === 'all') {
-	      d3.selectAll('.selection_wrapper').style('display', 'block');
-	    } else {
-	      d3.selectAll('.selection_wrapper').filter(function (section) {
-
-	        if (section.name === label) {
-	          return 0;
-	        }
-
-	        return 1;
-	      }).style('display', 'none');
-	    }
-	  };
-
-	  ////////////////////////////////////////////////////////////////////////////////
-	  // Attributes filter, hide unmatched attribute rows
-	  ////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.selectedAttributes = function (attributes) {
-	    if(_.isArray(attributes) && !_.isEmpty(attributes)){
-	      var selector = '.badges';
-	      // First hide all the rows
-	      d3.selectAll('.dictionary_table').selectAll('tbody tr').style('display', 'none');
-	      // Updating selector query for jQuery based on the selected attributes
-	      _.each(attributes, function(attribute){
-	        selector += ':contains('+ attribute +')';
-	      })
-	      $(selector).each(function(){
-	        // Then show the ones that has user selected attribute filter
-	        d3.select(this.parentNode).style('display', 'table-row');
-	      });
-	    }
-	  };
-
+	TableViewer.prototype.selectDataType=function(label){d3.select('#minimapLabel').select('span').html(label+'&nbsp;&nbsp;');d3.select('#minimapWrapper').style('display','none');window.scrollTo(0,0);d3.selectAll('.selection_wrapper').style('display','block');// if (val === 'all') {
+	if(label==='all'){d3.selectAll('.selection_wrapper').style('display','block');}else{d3.selectAll('.selection_wrapper').filter(function(section){if(section.name===label){return 0;}return 1;}).style('display','none');}};////////////////////////////////////////////////////////////////////////////////
+	// Attributes filter, hide unmatched attribute rows
 	////////////////////////////////////////////////////////////////////////////////
+	TableViewer.prototype.selectedAttributes=function(attributes){if(_.isArray(attributes)&&!_.isEmpty(attributes)){var selector='.badges';// First hide all the rows
+	d3.selectAll('.dictionary_table').selectAll('tbody tr').style('display','none');// Updating selector query for jQuery based on the selected attributes
+	_.each(attributes,function(attribute){selector+=':contains('+attribute+')';});$(selector).each(function(){// Then show the ones that has user selected attribute filter
+	d3.select(this.parentNode).style('display','table-row');});}};////////////////////////////////////////////////////////////////////////////////
 	// Builds a mini-map row (one row per table)
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.buildFilterRow = function (grp, name, label, height) {
-	    var _self = this;
-	    grp.selectAll('rect')
-	      .data([{cCurrent: _self.colourMinimapDefault}])
-	      .enter()
-	      .append('rect')
-	      .attr('width', 300).attr('height', (height - 1)).style('fill', _self.colourMinimapDefault)
-	      .on('mouseover', function () {
-	        d3.select(this).style('fill', _self.colourMinimapSelect);
-	      })
-	      .on('mouseout', function (d) {
-	        d3.select(this).style('fill', d.cCurrent);
-	      })
-	      .on('click', function () {
-	        //_self.selectDataType(name);
-	        // d3.event.stopPropagation();
-
-	        _self.selectedDataType = name;
-	        _self.toggleDataTypeFunc();
-	      });
-
-	    grp.append('text')
-	      .attr('x', 30)
-	      .attr('y', 15)
-	      .attr('font-size', '0.9em')
-	      .style('pointer-events', 'none')
-	      .text(name);
-	  };
-
-
-	////////////////////////////////////////////////////////////////////////////////
+	TableViewer.prototype.buildFilterRow=function(grp,name,label,height){var _self=this;grp.selectAll('rect').data([{cCurrent:_self.colourMinimapDefault}]).enter().append('rect').attr('width',300).attr('height',height-1).style('fill',_self.colourMinimapDefault).on('mouseover',function(){d3.select(this).style('fill',_self.colourMinimapSelect);}).on('mouseout',function(d){d3.select(this).style('fill',d.cCurrent);}).on('click',function(){//_self.selectDataType(name);
+	// d3.event.stopPropagation();
+	_self.selectedDataType=name;_self.toggleDataTypeFunc();});grp.append('text').attr('x',30).attr('y',15).attr('font-size','0.9em').style('pointer-events','none').text(name);};////////////////////////////////////////////////////////////////////////////////
 	// Search and filter dictionary
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.filter = function (txt, attributeFilter) {
-	    var _self = this;
-	    var re = new RegExp(txt, 'i');
-	    var datatypeMap = {};
-
-	    window.scrollTo(0, 0);
-
-	    if ((!txt || txt === '') && (!_.isArray(attributeFilter) || _.isEmpty(attributeFilter))) {
-	      d3.selectAll('.dictionary_table').selectAll('tr').style('display', 'table-row');
-	      d3.selectAll('.filter_wrapper').style('display', 'block');
-	    } else {
-	      d3.selectAll('.dictionary_table').selectAll('tbody').selectAll('tr').filter(function (d) {
-
-	        if (_self.dictUtil.isMatch(d, re) === true) {
-	          var parentName = d3.select(d3.select(this).node().parentNode).datum().name;
-
-	          if (!datatypeMap[parentName]) {
-	            datatypeMap[parentName] = 1;
-	          } else {
-	            datatypeMap[parentName]++;
-	          }
-	          return 0;
-	        }
-	        return 1;
-	      }).style('display', 'none');
-
-	      d3.selectAll('.filter_wrapper').each(function (d) {
-	        d3.select(this).style('display', 'block');
-	        //if (! datatypeMap[d.name] || datatypeMap[d.name] > d.fields.length) {
-	        if (!datatypeMap[d.name]) {
-	          d3.select(this).style('display', 'none');
-	        }
-	      });
-	    }
-
-	    // Highlight corresponding entires in the minimap
-	    d3.select('#minimap')
-	      .selectAll('g')
-	      .each(function () {
-	        var datatype = d3.select(this).attr('id').split('-')[1];
-	        if (datatype in datatypeMap) {
-	          d3.select(this).select('rect').style('fill', function (d) {
-	            d.cCurrent = _self.colourHighlight;
-	            return d.cCurrent;
-	          });
-	        } else {
-	          d3.select(this).select('rect').style('fill', function (d) {
-	            d.cCurrent = _self.colourMinimapDefault;
-	            return d.cCurrent;
-	          });
-	        }
-	      });
-
-	    // Highlight the graph viewer
-	    d3.select('#graph-diagram').selectAll('circle').style('fill', null);
-	    d3.select('#graph-diagram').selectAll('.filter-indicator').style('opacity', 0);
-	    d3.select('#graph-diagram').selectAll('circle').filter(function (node) {
-	      if (!txt || txt === '') {
-	        return false;
-	      }
-
-	      if (!node) {
-	        return false;
-	      }
-
-	      var matches = _.filter(node.data.fields, function (field) {
-	        return _self.dictUtil.isMatch(field, re);
-	      });
-	      return matches.length > 0;
-	    }).style('fill', _self.colourHighlight);
-
-	    d3.select('#graph-diagram').selectAll('.filter-indicator').filter(function (field) {
-	      if (!txt || txt === '') {
-	        return false;
-	      }
-
-	      if (!field) {
-	        return false;
-	      }
-
-	      return _self.dictUtil.isMatch(field, re);
-	    }).style('opacity', 1.0);
-
-	  };
-
-	////////////////////////////////////////////////////////////////////////////////
+	TableViewer.prototype.filter=function(txt,attributeFilter){var _self=this;var re=new RegExp(txt,'i');var datatypeMap={};window.scrollTo(0,0);if((!txt||txt==='')&&(!_.isArray(attributeFilter)||_.isEmpty(attributeFilter))){d3.selectAll('.dictionary_table').selectAll('tr').style('display','table-row');d3.selectAll('.filter_wrapper').style('display','block');}else{d3.selectAll('.dictionary_table').selectAll('tbody').selectAll('tr').filter(function(d){if(_self.dictUtil.isMatch(d,re)===true){var parentName=d3.select(d3.select(this).node().parentNode).datum().name;if(!datatypeMap[parentName]){datatypeMap[parentName]=1;}else{datatypeMap[parentName]++;}return 0;}return 1;}).style('display','none');d3.selectAll('.filter_wrapper').each(function(d){d3.select(this).style('display','block');//if (! datatypeMap[d.name] || datatypeMap[d.name] > d.fields.length) {
+	if(!datatypeMap[d.name]){d3.select(this).style('display','none');}});}// Highlight corresponding entires in the minimap
+	d3.select('#minimap').selectAll('g').each(function(){var datatype=d3.select(this).attr('id').split('-')[1];if(datatype in datatypeMap){d3.select(this).select('rect').style('fill',function(d){d.cCurrent=_self.colourHighlight;return d.cCurrent;});}else{d3.select(this).select('rect').style('fill',function(d){d.cCurrent=_self.colourMinimapDefault;return d.cCurrent;});}});// Highlight the graph viewer
+	d3.select('#graph-diagram').selectAll('circle').style('fill',null);d3.select('#graph-diagram').selectAll('.filter-indicator').style('opacity',0);d3.select('#graph-diagram').selectAll('circle').filter(function(node){if(!txt||txt===''){return false;}if(!node){return false;}var matches=_.filter(node.data.fields,function(field){return _self.dictUtil.isMatch(field,re);});return matches.length>0;}).style('fill',_self.colourHighlight);d3.select('#graph-diagram').selectAll('.filter-indicator').filter(function(field){if(!txt||txt===''){return false;}if(!field){return false;}return _self.dictUtil.isMatch(field,re);}).style('opacity',1.0);};////////////////////////////////////////////////////////////////////////////////
 	// Render the dictioary in a tree/graph layout
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.showDictionaryGraph = function (versionFrom, versionTo, renderCallback) {
-	    var _self = this;
-
-	    _self.dictUtil.getDictionary(versionTo).then(function (dictTo) {
-	      _self.dictUtil.getDictionary(versionFrom).then(function (dictFrom) {
-
-	        // This is pivoted
-	        var graphHeight = 700;
-	        var graphWidth = 1400;
-
-	        var tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
-	          return d;
-	        });
-
-	        window.scrollTo(0, 0);
-
-	        // Clear
-	        d3.select('#graph').selectAll('*').remove();
-
-
-	        var svg = d3.select('#graph')
-	          .append('svg')
-	          .attr('id', 'graph-diagram')
-	          .attr('viewBox', '0 0 ' + graphWidth + ' ' + (graphHeight + 100))
-	          .attr('preserveAspectRatio', 'xMinYMin')
-	          .append('g')
-	          .attr('transform', 'translate(40, 20)');
-	        svg.call(tip);
-	        
-	        var i = 0;
-
-	        var tree = d3.layout.tree().size([graphHeight, graphWidth]);
-	        var diagonal = d3.svg.diagonal().projection(function (d) {
-	          return [d.y, d.x];
-	        });
-	        
-	        var list = _self.dictUtil.getParentRelation(dictTo);
-
-	        // It is easier to understand if we have donor file type as the root
-	        var root = { name: 'donor' };
-	        var visited = {};
-	        visited.donor = 1;
-	        _self.dictUtil.buildTree2(root, list, visited, dictTo);
-
-	        root.x0 = 200;
-	        root.y0 = 0;
-
-	        // Toggle children on click.
-	        function click(d) {
-	          d3.event.stopPropagation();
-
-	          // order matters
-	          _self.selectedDataType = d.name;
-	          _self.toggleNodeFunc();
-	        }
-	        
-	        // In a nutshell, we are trying to render a graph as if it is a tree ...
-	        function update(root) {
-	          // Compute the new tree layout.
-	          var nodes = tree.nodes(root).reverse();
-	          var links = tree.links(nodes);
-	          var reln = [];
-	          
-	          // Normalize for fixed-depth.
-	          nodes.forEach(function (d) {
-	            if (d.depth === 1) {
-	              d.y = 150;
-	            }
-	            else {
-	              d.y = d.depth * 220;
-	            }
-
-	            // hardwired, make a bit more room
-	            var len = _.filter(nodes, function (n) {
-	              return n.depth === d.depth;
-	            });
-	            if (d.depth < 3 && len.length > 4) {
-	              d.x = d.x + (d.x - graphHeight / 2) * 0.8;
-	            }
-
-	            // check same level 'children'
-	            var name = d.name;
-	            var relations = _.filter(list, function (l) {
-	              return name === l.parentNode;
-	            });
-
-	            var _findFn = function (n) {
-	              return n.name === reln.node;
-	            };
-
-	            for (var idx = 0; idx < relations.length; idx++) {
-	              reln = relations[idx];
-	              var node = _.find(nodes, _findFn);
-
-	              if (node && node.depth === d.depth) {
-	                d.y += 95;
-	                break;
-	              }
-	            }
-	          });
-	          
-	          // Update the nodes…
-	          var node = svg.selectAll('g.node')
-	            .data(nodes, function (d) {
-	              return d.id || (d.id = ++i);
-	            });
-	            
-	          // Enter any new nodes at the parent's previous position.
-	          var nodeEnter = node.enter().append('g')
-	            .attr('id', function (d) {
-	              return d.name;
-	            })
-	            .attr('class', 'node')
-	            .attr('transform', function (d) {
-	              return 'translate(' + d.y + ',' + d.x + ')';
-	            })
-	            .on('click', click)
-	            .on('mouseover', function () {
-	              d3.select(this).selectAll('text').style('font-weight', 'bold');
-	              d3.select(this).selectAll('circle').style('stroke-width', 2);
-	            })
-	            .on('mouseout', function () {
-	              d3.select(this).selectAll('text').style('font-weight', null);
-	              d3.select(this).selectAll('circle').style('stroke-width', 1);
-	            });
-	          nodeEnter.append('circle')
-	            .attr('r', 6.5)
-	            .style('fill', function (d) {
-	              return d._children ? 'lightsteelblue' : '#fff';
-	            });
-
-	          nodeEnter.append('text')
-	            .attr('x', '10')
-	            .attr('dy', '.10em')
-	            .style('font-size', '1.05em')
-	            .text(function (d) {
-	              return d.name + ' (' + d.data.fields.length + ' Fields)';
-	            })
-	            .style('fill-opacity', 1);
-
-	          nodeEnter.each(function (node) {
-	            var ref = d3.select(this);
-
-	            // This is just to act as a backdrop to trigger interaction more smoothly
-	            ref.append('rect')
-	              .classed('dummy', true)
-	              .attr('x', 10)
-	              .attr('y', 6)
-	              .attr('width', 4.0 * node.data.fields.length)
-	              .attr('height', 10)
-	              .style('opacity', 0);
-
-	            ref.selectAll('.field-indicator')
-	              .data(node.data.fields)
-	              .enter()
-	              .append('rect')
-	              .classed('field-indicator', true)
-	              .attr('x', function (d, i) {
-	                return 10 + 4.0 * i;
-	              })
-	              .attr('y', '6')
-	              .attr('height', 11)
-	              .attr('width', 2.0)
-	              .style('fill', function (field) {
-	                var fieldFrom = _self.dictUtil.getFieldFromDict(dictFrom, node.name, field.name);
-	                if (!fieldFrom) {
-	                  return _self.colourNew;
-	                } else if (fieldFrom && _self.dictUtil.isDifferent2(field, fieldFrom).length > 0) {
-	                  return _self.colourChanged;
-	                } else {
-	                  return '#DDDDEE';
-	                }
-	              })
-	              .style('opacity', function (field) {
-	                var fieldFrom = _self.dictUtil.getFieldFromDict(dictFrom, node.name, field.name);
-	                if (!fieldFrom) {
-	                  return 1.0;
-	                } else if (fieldFrom && _self.dictUtil.isDifferent2(field, fieldFrom).length > 0) {
-	                  return 1.0;
-	                } else {
-	                  return 0.6;
-	                }
-
-	              });
-
-
-	            ref.selectAll('.filter-indicator')
-	              .data(node.data.fields)
-	              .enter()
-	              .append('rect')
-	              .classed('filter-indicator', true)
-	              .attr('x', function (d, i) {
-	                return 10 + 4.0 * i;
-	              })
-	              .attr('y', '17')
-	              .attr('height', 5)
-	              .attr('width', 2)
-	              .style('opacity', 0)
-	              .style('fill', function () {
-	                return _self.colourHighlight;
-	              });
-	          });
-
-	          links = [];
-	          list.forEach(function (rel) {
-	            if (rel.parentNode === null) {
-	              return;
-	            }
-	            var a = svg.select('#' + rel.node).datum();
-	            var b = svg.select('#' + rel.parentNode).datum();
-
-
-	            reln = [];
-	            reln = reln.concat(_.filter(a.data.relations, function (r) {
-	              return r.other !== a.name;
-	            }));
-	            if (reln.length === 0) {
-	              reln = reln.concat(_.filter(b.data.relations, function (r) {
-	                return r.other !== a.name;
-	              }));
-	            }
-
-	            var reversed = false;
-	            reln = [];
-
-	            reln = _.filter(a.data.relations, function (r) {
-	              return r.other === b.name;
-	            });
-
-	            if (reln.length === 0) {
-	              reln = _.filter(b.data.relations, function (r) {
-	                return r.other === a.name;
-	              });
-	              reversed = true;
-	            }
-
-	            // Extract edge relations from the two sources
-	            links.push({
-	              source: { x: a.x, y: a.y },
-	              target: { x: b.x, y: b.y },
-	              sourceName: a.name,
-	              targetName: b.name,
-	              reln: reln,
-	              reversed: reversed
-	            });
-	          });
-
-
-	          function relationText(name, fields) {
-	            return name + '( ' + fields.join(', ') + ' )';
-	          }
-
-	          svg.insert('g', ':first-child').selectAll('path.link')
-	            .data(links)
-	            .enter()
-	            .append('path')
-	            .attr('class', 'link')
-	            .attr('d', diagonal)
-	            .on('mouseover', function (d) {
-	              d3.select(this).classed('link-hover', true);
-
-	              // Build tooltip
-	              var bb = d3.select(this).node().getBBox();
-	              var arrow = d.reversed ? ' --> ' : ' <-- ';
-	              var buffer = '';
-	              d.reln.forEach(function (r) {
-	                buffer += relationText(d.targetName, r.otherFields) +
-	                arrow +
-	                relationText(d.sourceName, r.fields) +
-	                '<br>';
-	              });
-
-	              // Set it to approximate center so it doesn't look weird for path-diagnols
-	              tip.offset([(bb.height / 2.0) - 10, 0]);
-	              tip.show(buffer);
-	            })
-	            .on('mouseout', function () {
-	              d3.select(this).classed('link-hover', false);
-	              tip.hide();
-	            });
-
-
-	          // Stash the old positions for transition.
-	          nodes.forEach(function (d) {
-	            d.x0 = d.x;
-	            d.y0 = d.y;
-	          });
-
-	        } // End of Update...
-	        update(root);
-	        
-	        if (_self.shouldRenderLegend) {
-	          _self.renderLegend(svg, 20, 30);
-	        }
-
-	        if (typeof renderCallback === 'function') {
-	          renderCallback.call(_self);
-	        }
-
-	      });
-	    });
-	    
-	  };
-
-
-	////////////////////////////////////////////////////////////////////////////////
+	TableViewer.prototype.showDictionaryGraph=function(versionFrom,versionTo,renderCallback){var _self=this;_self.dictUtil.getDictionary(versionTo).then(function(dictTo){_self.dictUtil.getDictionary(versionFrom).then(function(dictFrom){// This is pivoted
+	var graphHeight=700;var graphWidth=1400;var tip=d3.tip().attr('class','d3-tip').html(function(d){return d;});window.scrollTo(0,0);// Clear
+	d3.select('#graph').selectAll('*').remove();var svg=d3.select('#graph').append('svg').attr('id','graph-diagram').attr('viewBox','0 0 '+graphWidth+' '+(graphHeight+100)).attr('preserveAspectRatio','xMinYMin').append('g').attr('transform','translate(40, 20)');svg.call(tip);var i=0;var tree=d3.layout.tree().size([graphHeight,graphWidth]);var diagonal=d3.svg.diagonal().projection(function(d){return[d.y,d.x];});var list=_self.dictUtil.getParentRelation(dictTo);// It is easier to understand if we have donor file type as the root
+	var root={name:'donor'};var visited={};visited.donor=1;_self.dictUtil.buildTree2(root,list,visited,dictTo);root.x0=200;root.y0=0;// Toggle children on click.
+	function click(d){d3.event.stopPropagation();// order matters
+	_self.selectedDataType=d.name;_self.toggleNodeFunc();}// In a nutshell, we are trying to render a graph as if it is a tree ...
+	function update(root){// Compute the new tree layout.
+	var nodes=tree.nodes(root).reverse();var links=tree.links(nodes);var reln=[];// Normalize for fixed-depth.
+	nodes.forEach(function(d){if(d.depth===1){d.y=150;}else{d.y=d.depth*220;}// hardwired, make a bit more room
+	var len=_.filter(nodes,function(n){return n.depth===d.depth;});if(d.depth<3&&len.length>4){d.x=d.x+(d.x-graphHeight/2)*0.8;}// check same level 'children'
+	var name=d.name;var relations=_.filter(list,function(l){return name===l.parentNode;});var _findFn=function _findFn(n){return n.name===reln.node;};for(var idx=0;idx<relations.length;idx++){reln=relations[idx];var node=_.find(nodes,_findFn);if(node&&node.depth===d.depth){d.y+=95;break;}}});// Update the nodes…
+	var node=svg.selectAll('g.node').data(nodes,function(d){return d.id||(d.id=++i);});// Enter any new nodes at the parent's previous position.
+	var nodeEnter=node.enter().append('g').attr('id',function(d){return d.name;}).attr('class','node').attr('transform',function(d){return'translate('+d.y+','+d.x+')';}).on('click',click).on('mouseover',function(){d3.select(this).selectAll('text').style('font-weight','bold');d3.select(this).selectAll('circle').style('stroke-width',2);}).on('mouseout',function(){d3.select(this).selectAll('text').style('font-weight',null);d3.select(this).selectAll('circle').style('stroke-width',1);});nodeEnter.append('circle').attr('r',6.5).style('fill',function(d){return d._children?'lightsteelblue':'#fff';});nodeEnter.append('text').attr('x','10').attr('dy','.10em').style('font-size','1.05em').text(function(d){return d.name+' ('+d.data.fields.length+' Fields)';}).style('fill-opacity',1);nodeEnter.each(function(node){var ref=d3.select(this);// This is just to act as a backdrop to trigger interaction more smoothly
+	ref.append('rect').classed('dummy',true).attr('x',10).attr('y',6).attr('width',4.0*node.data.fields.length).attr('height',10).style('opacity',0);ref.selectAll('.field-indicator').data(node.data.fields).enter().append('rect').classed('field-indicator',true).attr('x',function(d,i){return 10+4.0*i;}).attr('y','6').attr('height',11).attr('width',2.0).style('fill',function(field){var fieldFrom=_self.dictUtil.getFieldFromDict(dictFrom,node.name,field.name);if(!fieldFrom){return _self.colourNew;}else if(fieldFrom&&_self.dictUtil.isDifferent2(field,fieldFrom).length>0){return _self.colourChanged;}else{return'#DDDDEE';}}).style('opacity',function(field){var fieldFrom=_self.dictUtil.getFieldFromDict(dictFrom,node.name,field.name);if(!fieldFrom){return 1.0;}else if(fieldFrom&&_self.dictUtil.isDifferent2(field,fieldFrom).length>0){return 1.0;}else{return 0.6;}});ref.selectAll('.filter-indicator').data(node.data.fields).enter().append('rect').classed('filter-indicator',true).attr('x',function(d,i){return 10+4.0*i;}).attr('y','17').attr('height',5).attr('width',2).style('opacity',0).style('fill',function(){return _self.colourHighlight;});});links=[];list.forEach(function(rel){if(rel.parentNode===null){return;}var a=svg.select('#'+rel.node).datum();var b=svg.select('#'+rel.parentNode).datum();reln=[];reln=reln.concat(_.filter(a.data.relations,function(r){return r.other!==a.name;}));if(reln.length===0){reln=reln.concat(_.filter(b.data.relations,function(r){return r.other!==a.name;}));}var reversed=false;reln=[];reln=_.filter(a.data.relations,function(r){return r.other===b.name;});if(reln.length===0){reln=_.filter(b.data.relations,function(r){return r.other===a.name;});reversed=true;}// Extract edge relations from the two sources
+	links.push({source:{x:a.x,y:a.y},target:{x:b.x,y:b.y},sourceName:a.name,targetName:b.name,reln:reln,reversed:reversed});});function relationText(name,fields){return name+'( '+fields.join(', ')+' )';}svg.insert('g',':first-child').selectAll('path.link').data(links).enter().append('path').attr('class','link').attr('d',diagonal).on('mouseover',function(d){d3.select(this).classed('link-hover',true);// Build tooltip
+	var bb=d3.select(this).node().getBBox();var arrow=d.reversed?' --> ':' <-- ';var buffer='';d.reln.forEach(function(r){buffer+=relationText(d.targetName,r.otherFields)+arrow+relationText(d.sourceName,r.fields)+'<br>';});// Set it to approximate center so it doesn't look weird for path-diagnols
+	tip.offset([bb.height/2.0-10,0]);tip.show(buffer);}).on('mouseout',function(){d3.select(this).classed('link-hover',false);tip.hide();});// Stash the old positions for transition.
+	nodes.forEach(function(d){d.x0=d.x;d.y0=d.y;});}// End of Update...
+	update(root);if(_self.shouldRenderLegend){_self.renderLegend(svg,20,30);}if(typeof renderCallback==='function'){renderCallback.call(_self);}});});};////////////////////////////////////////////////////////////////////////////////
 	// Legend
 	////////////////////////////////////////////////////////////////////////////////
-	  TableViewer.prototype.renderLegend = function (svg, x, y) {
-	    var legend = svg.insert('g', ':first-child')
-	      .attr('id', 'graph-legend')
-	      .attr('font-size', '0.8em')
-	      .attr('transform', 'translate(' + x + ',' + y + ')');
-
-	    legend.append('rect')
-	      .attr('x', -15)
-	      .attr('y', -15)
-	      .attr('width', 180)
-	      .attr('height', 70)
-	      .attr('stroke', '#cccccc')
-	      .attr('fill', '#FFFFFF');
-
-	    legend.append('text')
-	      .attr('x', 0)
-	      .attr('fill', '#000000')
-	      .attr('font-size', '12px')
-	      .attr('font-weight', 'bold')
-	      .text('Legend');
-
-	    legend.append('circle')
-	      .attr('cx', 10)
-	      .attr('cy', 17)
-	      .attr('r', 6.5)
-	      .attr('fill', '#FFFFFF')
-	      .attr('stroke-width', '1.5px')
-	      .attr('stroke', 'steelblue');
-
-	    /* legend.append('text')
+	TableViewer.prototype.renderLegend=function(svg,x,y){var legend=svg.insert('g',':first-child').attr('id','graph-legend').attr('font-size','0.8em').attr('transform','translate('+x+','+y+')');legend.append('rect').attr('x',-15).attr('y',-15).attr('width',180).attr('height',70).attr('stroke','#cccccc').attr('fill','#FFFFFF');legend.append('text').attr('x',0).attr('fill','#000000').attr('font-size','12px').attr('font-weight','bold').text('Legend');legend.append('circle').attr('cx',10).attr('cy',17).attr('r',6.5).attr('fill','#FFFFFF').attr('stroke-width','1.5px').attr('stroke','steelblue');/* legend.append('text')
 	      .attr('x', 23)
 	      .attr('y', 23)
-	      .text('meth_array_m'); */
-
-	    for (var i = 0; i < 6; i++) {
-	      legend.append('rect')
-	        .attr('x', 4 + 4 * i)
-	        .attr('y', '33')
-	        .attr('height', 11)
-	        .attr('width', 2)
-	        .style('fill', '#cccccc');
-	    }
-
-	    legend.append('text')
-	      .attr('x', 23)
-	      .attr('y', 21)
-	      .attr('fill', '#666666')
-	      .text('FileType Name');
-
-	    legend.append('text')
-	      .attr('x', 33)
-	      .attr('y', 42)
-	      .attr('fill', '#666666')
-	      .text('# Fields');
-	  };
-
-	  dictionaryApp.TableViewer = TableViewer;
-	})();
-
-
-	/* globals dictionaryApp */
-	'use strict';
-
-	angular.module('DictionaryViewerApp')
-	  .service('DictionaryService', function($location, $http, $q, DictionaryAppConstants) {
-
-	    var _service = this,
-	        _dictionaryList = null,
-	        _codeList = null,
-	        _dictionaryUtils = null,
-	        _versionRange = {from: null, to: null},
-	        _latestDictionaryVersion = '',
-	        _DEFAULT_FROM_VERSION_INDEX = 0,
-	        _DEFAULT_TO_VERSION_INDEX = 0;
-
-	    _service.init = _init;
-	    _service.getCachedDictionaryList = _getCachedDictionaryList;
-	    _service.getCachedCodeList = _getCachedCodeList;
-	    _service.getViewTypes = _getViewTypes;
-	    _service.setDictionaryFilterRange = _setDictionaryFilterRange;
-	    _service.setView = _setView;
-	    _service.getDictionaryUtils = _getDictionaryUtils;
-	    _service.getDictionaryVersionList = _getDictionaryVersionList;
-	    _service.getCurrentViewType = _getCurrentViewType;
-	    _service.dictionaryVersionRange = _dictionaryVersionRange;
-	    _service.generateChangeList = _generateChangeList;
-	    _service.getLatestDictionaryVersion = _getLatestDictionaryVersion;
-
-	    function _init(baseURL) {
-	      return _getDictionaries(baseURL);
-	    }
-
-
-	    function _getDictionaries(baseURL) {
-	      var deferred = $q.defer(),
-	          webserviceURL = (baseURL || '') + '/ws';
-
-	      $http.get(webserviceURL + '/dictionaries/versions')
-	        .then(function (dictionaryList) {
-
-	          // Grab the code list
-	          $http.get(webserviceURL + '/codeLists')
-	            .then(function (codeList) {
-	                _dictionaryList = dictionaryList.data;
-	                _codeList = codeList.data;
-
-	                _dictionaryUtils = new dictionaryApp.DictionaryUtil(_dictionaryList, webserviceURL);
-
-	                // The version list is sorted in descending order (latest version first)
-	                // use the latest current version as the default.
-	                _dictionaryVersionRange(
-	                  _dictionaryUtils.versionList[_DEFAULT_FROM_VERSION_INDEX],
-	                  _dictionaryUtils.versionList[_DEFAULT_TO_VERSION_INDEX]
-	                );
-
-	                _latestDictionaryVersion = _dictionaryUtils.versionList[0];
-
-	                deferred.resolve({dictionaryList: _dictionaryList, codeList: _codeList});
-	              },
-	              function(reason) {
-	                deferred.reject(reason);
-	              }
-	            );
-
-	        },
-	        function(reason) {
-	          deferred.reject(reason);
-	        });
-
-	      return deferred.promise;
-	    }
-
-	    function _getLatestDictionaryVersion() {
-	      return _latestDictionaryVersion;
-	    }
-
-	    function _getCachedDictionaryList() {
-	      return _dictionaryList;
-	    }
-
-	    function _getCachedCodeList() {
-	      return _codeList;
-	    }
-
-	    function _getViewTypes() {
-	      return DictionaryAppConstants.VIEWS;
-	    }
-
-	    function _setDictionaryFilterRange(fromVersion, toVersion) {
-	      var search = $location.search();
-	      search.vFrom = encodeURIComponent(fromVersion);
-	      search.vTo = encodeURIComponent(toVersion);
-
-	      _dictionaryVersionRange(fromVersion, toVersion);
-	      $location.search(search);
-	    }
-
-	    function _setView(view) {
-	        console.log('change view');
-	        var search = $location.search();
-
-	        search.viewMode = view;
-
-	        // Nullify any hash that may interfere from a pure view change
-	        $location.search(search).hash(null);
-	    }
-
-	    function _getDictionaryUtils() {
-	      return _dictionaryUtils;
-	    }
-
-	    function _getDictionaryVersionList() {
-	      var versionList = [];
-
-	      if (_dictionaryUtils) {
-	        versionList = _dictionaryUtils.versionList;
-	      }
-
-	      return versionList;
-	    }
-
-	    function _getCurrentViewType() {
-	      var search = $location.search();
-
-	      return angular.isString(search.viewMode) ? search.viewMode : 'graph';
-	    }
-
-	    function _dictionaryVersionRange(from, to) {
-
-	      if (arguments.length === 2) {
-	        _versionRange.from = from;
-	        _versionRange.to = to;
-	      }
-
-	      return _versionRange;
-	    }
-
-	    function _generateChangeList() {
-	      var changeReport = null;
-
-	      if (! _dictionaryUtils) {
-	        return changeReport;
-	      }
-
-	      return _dictionaryUtils.createDiffListing(_versionRange.from, _versionRange.to).then(function (report) {
-	        changeReport = report;
-
-	        return changeReport;
-	      });
-	      
-	    }
-
-	  })
-	  .service('JSONDiffService', function($window){
-	    var _service = this,
-	      _formatService = $window.jsondiffpatch,
-	      _diffService = _formatService.create({ textDiff: { minLength: 10 }});
-
-
-	    _service.getDifferences = function(from, to){
-	      var differences = _diffService.diff(from, to);
-
-	      if(_.has(differences, 'expanded')){
-	        differences = _.omit(differences, 'expanded');
-	      }
-
-	      return differences;
-	    };
-
-	    _service.formatDifferences = function(from, to){
-	      return _formatService.formatters.html.format(_service.getDifferences(from, to));
-	    };
-
-	  });
-	/*jshint curly:true, eqeqeq:true, laxbreak:true, noempty:false */
-	/*
+	      .text('meth_array_m'); */for(var i=0;i<6;i++){legend.append('rect').attr('x',4+4*i).attr('y','33').attr('height',11).attr('width',2).style('fill','#cccccc');}legend.append('text').attr('x',23).attr('y',21).attr('fill','#666666').text('FileType Name');legend.append('text').attr('x',33).attr('y',42).attr('fill','#666666').text('# Fields');};dictionaryApp.TableViewer=TableViewer;})();/* globals dictionaryApp */'use strict';angular.module('DictionaryViewerApp').service('DictionaryService',function($location,$http,$q,DictionaryAppConstants){var _service=this,_dictionaryList=null,_codeList=null,_dictionaryUtils=null,_versionRange={from:null,to:null},_latestDictionaryVersion='',_DEFAULT_FROM_VERSION_INDEX=0,_DEFAULT_TO_VERSION_INDEX=0;_service.init=_init;_service.getCachedDictionaryList=_getCachedDictionaryList;_service.getCachedCodeList=_getCachedCodeList;_service.getViewTypes=_getViewTypes;_service.setDictionaryFilterRange=_setDictionaryFilterRange;_service.setView=_setView;_service.getDictionaryUtils=_getDictionaryUtils;_service.getDictionaryVersionList=_getDictionaryVersionList;_service.getCurrentViewType=_getCurrentViewType;_service.dictionaryVersionRange=_dictionaryVersionRange;_service.generateChangeList=_generateChangeList;_service.getLatestDictionaryVersion=_getLatestDictionaryVersion;function _init(baseURL){return _getDictionaries(baseURL);}function _getDictionaries(baseURL){var deferred=$q.defer(),webserviceURL=(baseURL||'')+'/ws';$http.get(webserviceURL+'/dictionaries/versions').then(function(dictionaryList){// Grab the code list
+	$http.get(webserviceURL+'/codeLists').then(function(codeList){_dictionaryList=dictionaryList.data;_codeList=codeList.data;_dictionaryUtils=new dictionaryApp.DictionaryUtil(_dictionaryList,webserviceURL);// The version list is sorted in descending order (latest version first)
+	// use the latest current version as the default.
+	_dictionaryVersionRange(_dictionaryUtils.versionList[_DEFAULT_FROM_VERSION_INDEX],_dictionaryUtils.versionList[_DEFAULT_TO_VERSION_INDEX]);_latestDictionaryVersion=_dictionaryUtils.versionList[0];deferred.resolve({dictionaryList:_dictionaryList,codeList:_codeList});},function(reason){deferred.reject(reason);});},function(reason){deferred.reject(reason);});return deferred.promise;}function _getLatestDictionaryVersion(){return _latestDictionaryVersion;}function _getCachedDictionaryList(){return _dictionaryList;}function _getCachedCodeList(){return _codeList;}function _getViewTypes(){return DictionaryAppConstants.VIEWS;}function _setDictionaryFilterRange(fromVersion,toVersion){var search=$location.search();search.vFrom=encodeURIComponent(fromVersion);search.vTo=encodeURIComponent(toVersion);_dictionaryVersionRange(fromVersion,toVersion);$location.search(search);}function _setView(view){console.log('change view');var search=$location.search();search.viewMode=view;// Nullify any hash that may interfere from a pure view change
+	$location.search(search).hash(null);}function _getDictionaryUtils(){return _dictionaryUtils;}function _getDictionaryVersionList(){var versionList=[];if(_dictionaryUtils){versionList=_dictionaryUtils.versionList;}return versionList;}function _getCurrentViewType(){var search=$location.search();return angular.isString(search.viewMode)?search.viewMode:'graph';}function _dictionaryVersionRange(from,to){if(arguments.length===2){_versionRange.from=from;_versionRange.to=to;}return _versionRange;}function _generateChangeList(){var changeReport=null;if(!_dictionaryUtils){return changeReport;}return _dictionaryUtils.createDiffListing(_versionRange.from,_versionRange.to).then(function(report){changeReport=report;return changeReport;});}}).service('JSONDiffService',function($window){var _service=this,_formatService=$window.jsondiffpatch,_diffService=_formatService.create({textDiff:{minLength:10}});_service.getDifferences=function(from,to){var differences=_diffService.diff(from,to);if(_.has(differences,'expanded')){differences=_.omit(differences,'expanded');}return differences;};_service.formatDifferences=function(from,to){return _formatService.formatters.html.format(_service.getDifferences(from,to));};});/*jshint curly:true, eqeqeq:true, laxbreak:true, noempty:false *//*
 
 	  The MIT License (MIT)
 
@@ -2387,1602 +306,181 @@ webpackJsonp([0,2],[
 	      'indent_char': '\t'
 	    });
 
-	*/
-
-
-	(function() {
-	    function js_beautify(js_source_text, options) {
-	        "use strict";
-	        var beautifier = new Beautifier(js_source_text, options);
-	        return beautifier.beautify();
-	    }
-
-	    function Beautifier(js_source_text, options) {
-	        "use strict";
-	        var input, output_lines;
-	        var token_text, token_type, last_type, last_last_text, indent_string;
-	        var flags, previous_flags, flag_store;
-	        var whitespace, wordchar, punct, parser_pos, line_starters, digits;
-	        var prefix;
-	        var input_wanted_newline;
-	        var output_wrapped, output_space_before_token;
-	        var input_length, n_newlines, whitespace_before_token;
-	        var handlers, MODE, opt;
-	        var preindent_string = '';
-
-	        whitespace = "\n\r\t ".split('');
-	        wordchar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_$'.split('');
-	        digits = '0123456789'.split('');
-
-	        punct = '+ - * / % & ++ -- = += -= *= /= %= == === != !== > < >= <= >> << >>> >>>= >>= <<= && &= | || ! !! , : ? ^ ^= |= ::';
-	        punct += ' <%= <% %> <?= <? ?>'; // try to be a good boy and try not to break the markup language identifiers
-	        punct = punct.split(' ');
-
-	        // words which should always start on new line.
-	        line_starters = 'continue,try,throw,return,var,if,switch,case,default,for,while,break,function'.split(',');
-
-	        MODE = {
-	            BlockStatement: 'BlockStatement', // 'BLOCK'
-	            Statement: 'Statement', // 'STATEMENT'
-	            ObjectLiteral: 'ObjectLiteral', // 'OBJECT',
-	            ArrayLiteral: 'ArrayLiteral', //'[EXPRESSION]',
-	            ForInitializer: 'ForInitializer', //'(FOR-EXPRESSION)',
-	            Conditional: 'Conditional', //'(COND-EXPRESSION)',
-	            Expression: 'Expression' //'(EXPRESSION)'
-	        };
-
-	        handlers = {
-	            'TK_START_EXPR': handle_start_expr,
-	            'TK_END_EXPR': handle_end_expr,
-	            'TK_START_BLOCK': handle_start_block,
-	            'TK_END_BLOCK': handle_end_block,
-	            'TK_WORD': handle_word,
-	            'TK_SEMICOLON': handle_semicolon,
-	            'TK_STRING': handle_string,
-	            'TK_EQUALS': handle_equals,
-	            'TK_OPERATOR': handle_operator,
-	            'TK_COMMA': handle_comma,
-	            'TK_BLOCK_COMMENT': handle_block_comment,
-	            'TK_INLINE_COMMENT': handle_inline_comment,
-	            'TK_COMMENT': handle_comment,
-	            'TK_DOT': handle_dot,
-	            'TK_UNKNOWN': handle_unknown
-	        };
-
-	        function create_flags(flags_base, mode) {
-	            var next_indent_level = 0;
-	            if (flags_base) {
-	                next_indent_level = flags_base.indentation_level;
-	                next_indent_level += (flags_base.var_line && flags_base.var_line_reindented) ? 1 : 0;
-	                if (!just_added_newline() &&
-	                    flags_base.line_indent_level > next_indent_level) {
-	                    next_indent_level = flags_base.line_indent_level;
-	                }
-	            }
-
-	            var next_flags = {
-	                mode: mode,
-	                parent: flags_base,
-	                last_text: flags_base ? flags_base.last_text : '', // last token text
-	                last_word: flags_base ? flags_base.last_word : '', // last 'TK_WORD' passed
-	                var_line: false,
-	                var_line_tainted: false,
-	                var_line_reindented: false,
-	                in_html_comment: false,
-	                multiline_frame: false,
-	                if_block: false,
-	                do_block: false,
-	                do_while: false,
-	                in_case_statement: false, // switch(..){ INSIDE HERE }
-	                in_case: false, // we're on the exact line with "case 0:"
-	                case_body: false, // the indented case-action block
-	                indentation_level: next_indent_level,
-	                line_indent_level: flags_base ? flags_base.line_indent_level : next_indent_level,
-	                start_line_index: output_lines.length,
-	                had_comment: false,
-	                ternary_depth: 0
-	            }
-	            return next_flags;
-	        }
-
-	        // Using object instead of string to allow for later expansion of info about each line
-
-	        function create_output_line() {
-	            return {
-	                text: []
-	            };
-	        }
-
-	        // Some interpreters have unexpected results with foo = baz || bar;
-	        options = options ? options : {};
-	        opt = {};
-
-	        // compatibility
-	        if (options.space_after_anon_function !== undefined && options.jslint_happy === undefined) {
-	            options.jslint_happy = options.space_after_anon_function;
-	        }
-	        if (options.braces_on_own_line !== undefined) { //graceful handling of deprecated option
-	            opt.brace_style = options.braces_on_own_line ? "expand" : "collapse";
-	        }
-	        opt.brace_style = options.brace_style ? options.brace_style : (opt.brace_style ? opt.brace_style : "collapse");
-
-	        // graceful handling of deprecated option
-	        if (opt.brace_style === "expand-strict") {
-	            opt.brace_style = "expand";
-	        }
-
-
-	        opt.indent_size = options.indent_size ? parseInt(options.indent_size, 10) : 4;
-	        opt.indent_char = options.indent_char ? options.indent_char : ' ';
-	        opt.preserve_newlines = (options.preserve_newlines === undefined) ? true : options.preserve_newlines;
-	        opt.break_chained_methods = (options.break_chained_methods === undefined) ? false : options.break_chained_methods;
-	        opt.max_preserve_newlines = (options.max_preserve_newlines === undefined) ? 0 : parseInt(options.max_preserve_newlines, 10);
-	        opt.space_in_paren = (options.space_in_paren === undefined) ? false : options.space_in_paren;
-	        opt.jslint_happy = (options.jslint_happy === undefined) ? false : options.jslint_happy;
-	        opt.keep_array_indentation = (options.keep_array_indentation === undefined) ? false : options.keep_array_indentation;
-	        opt.space_before_conditional = (options.space_before_conditional === undefined) ? true : options.space_before_conditional;
-	        opt.unescape_strings = (options.unescape_strings === undefined) ? false : options.unescape_strings;
-	        opt.wrap_line_length = (options.wrap_line_length === undefined) ? 0 : parseInt(options.wrap_line_length, 10);
-	        opt.e4x = (options.e4x === undefined) ? false : options.e4x;
-
-	        if(options.indent_with_tabs){
-	            opt.indent_char = '\t';
-	            opt.indent_size = 1;
-	        }
-
-	        //----------------------------------
-	        indent_string = '';
-	        while (opt.indent_size > 0) {
-	            indent_string += opt.indent_char;
-	            opt.indent_size -= 1;
-	        }
-
-	        while (js_source_text && (js_source_text.charAt(0) === ' ' || js_source_text.charAt(0) === '\t')) {
-	            preindent_string += js_source_text.charAt(0);
-	            js_source_text = js_source_text.substring(1);
-	        }
-	        input = js_source_text;
-	        // cache the source's length.
-	        input_length = js_source_text.length;
-
-	        last_type = 'TK_START_BLOCK'; // last token type
-	        last_last_text = ''; // pre-last token text
-	        output_lines = [create_output_line()];
-	        output_wrapped = false;
-	        output_space_before_token = false;
-	        whitespace_before_token = [];
-
-	        // Stack of parsing/formatting states, including MODE.
-	        // We tokenize, parse, and output in an almost purely a forward-only stream of token input
-	        // and formatted output.  This makes the beautifier less accurate than full parsers
-	        // but also far more tolerant of syntax errors.
-	        //
-	        // For example, the default mode is MODE.BlockStatement. If we see a '{' we push a new frame of type
-	        // MODE.BlockStatement on the the stack, even though it could be object literal.  If we later
-	        // encounter a ":", we'll switch to to MODE.ObjectLiteral.  If we then see a ";",
-	        // most full parsers would die, but the beautifier gracefully falls back to
-	        // MODE.BlockStatement and continues on.
-	        flag_store = [];
-	        set_mode(MODE.BlockStatement);
-
-	        parser_pos = 0;
-
-	        this.beautify = function() {
-	            /*jshint onevar:true */
-	            var t, i, keep_whitespace, sweet_code;
-
-	            while (true) {
-	                t = get_next_token();
-	                token_text = t[0];
-	                token_type = t[1];
-
-	                if (token_type === 'TK_EOF') {
-	                    break;
-	                }
-
-	                keep_whitespace = opt.keep_array_indentation && is_array(flags.mode);
-	                input_wanted_newline = n_newlines > 0;
-
-	                if (keep_whitespace) {
-	                    for (i = 0; i < n_newlines; i += 1) {
-	                        print_newline(i > 0);
-	                    }
-	                } else {
-	                    if (opt.max_preserve_newlines && n_newlines > opt.max_preserve_newlines) {
-	                        n_newlines = opt.max_preserve_newlines;
-	                    }
-
-	                    if (opt.preserve_newlines) {
-	                        if (n_newlines > 1) {
-	                            print_newline();
-	                            for (i = 1; i < n_newlines; i += 1) {
-	                                print_newline(true);
-	                            }
-	                        }
-	                    }
-	                }
-
-	                handlers[token_type]();
-
-	                // The cleanest handling of inline comments is to treat them as though they aren't there.
-	                // Just continue formatting and the behavior should be logical.
-	                // Also ignore unknown tokens.  Again, this should result in better behavior.
-	                if (token_type !== 'TK_INLINE_COMMENT' && token_type !== 'TK_COMMENT' &&
-	                    token_type !== 'TK_BLOCK_COMMENT' && token_type !== 'TK_UNKNOWN') {
-	                    last_last_text = flags.last_text;
-	                    last_type = token_type;
-	                    flags.last_text = token_text;
-	                }
-	                flags.had_comment = (token_type === 'TK_INLINE_COMMENT' || token_type === 'TK_COMMENT'
-	                    || token_type === 'TK_BLOCK_COMMENT');
-	            }
-
-
-	            sweet_code = output_lines[0].text.join('');
-	            for (var line_index = 1; line_index < output_lines.length; line_index++) {
-	                sweet_code += '\n' + output_lines[line_index].text.join('');
-	            }
-	            sweet_code = sweet_code.replace(/[\r\n ]+$/, '');
-	            return sweet_code;
-	        };
-
-	        function trim_output(eat_newlines) {
-	            eat_newlines = (eat_newlines === undefined) ? false : eat_newlines;
-
-	            if (output_lines.length) {
-	                trim_output_line(output_lines[output_lines.length - 1], eat_newlines);
-
-	                while (eat_newlines && output_lines.length > 1 &&
-	                    output_lines[output_lines.length - 1].text.length === 0) {
-	                    output_lines.pop();
-	                    trim_output_line(output_lines[output_lines.length - 1], eat_newlines);
-	                }
-	            }
-	        }
-
-	        function trim_output_line(line) {
-	            while (line.text.length &&
-	                (line.text[line.text.length - 1] === ' ' ||
-	                    line.text[line.text.length - 1] === indent_string ||
-	                    line.text[line.text.length - 1] === preindent_string)) {
-	                line.text.pop();
-	            }
-	        }
-
-	        function trim(s) {
-	            return s.replace(/^\s+|\s+$/g, '');
-	        }
-
-	        // we could use just string.split, but
-	        // IE doesn't like returning empty strings
-
-	        function split_newlines(s) {
-	            //return s.split(/\x0d\x0a|\x0a/);
-
-	            s = s.replace(/\x0d/g, '');
-	            var out = [],
-	                idx = s.indexOf("\n");
-	            while (idx !== -1) {
-	                out.push(s.substring(0, idx));
-	                s = s.substring(idx + 1);
-	                idx = s.indexOf("\n");
-	            }
-	            if (s.length) {
-	                out.push(s);
-	            }
-	            return out;
-	        }
-
-	        function just_added_newline() {
-	            var line = output_lines[output_lines.length - 1];
-	            return line.text.length === 0;
-	        }
-
-	        function just_added_blankline() {
-	            if (just_added_newline()) {
-	                if (output_lines.length === 1) {
-	                    return true; // start of the file and newline = blank
-	                }
-
-	                var line = output_lines[output_lines.length - 2];
-	                return line.text.length === 0;
-	            }
-	            return false;
-	        }
-
-	        function allow_wrap_or_preserved_newline(force_linewrap) {
-	            force_linewrap = (force_linewrap === undefined) ? false : force_linewrap;
-	            if (opt.wrap_line_length && !force_linewrap) {
-	                var line = output_lines[output_lines.length - 1];
-	                var proposed_line_length = 0;
-	                // never wrap the first token of a line.
-	                if (line.text.length > 0) {
-	                    proposed_line_length = line.text.join('').length + token_text.length +
-	                        (output_space_before_token ? 1 : 0);
-	                    if (proposed_line_length >= opt.wrap_line_length) {
-	                        force_linewrap = true;
-	                    }
-	                }
-	            }
-	            if (((opt.preserve_newlines && input_wanted_newline) || force_linewrap) && !just_added_newline()) {
-	                print_newline(false, true);
-
-	                // Expressions and array literals already indent their contents.
-	                if (!(is_array(flags.mode) || is_expression(flags.mode))) {
-	                    output_wrapped = true;
-	                }
-	            }
-	        }
-
-	        function print_newline(force_newline, preserve_statement_flags) {
-	            output_wrapped = false;
-	            output_space_before_token = false;
-
-	            if (!preserve_statement_flags) {
-	                if (flags.last_text !== ';') {
-	                    while (flags.mode === MODE.Statement && !flags.if_block && !flags.do_block) {
-	                        restore_mode();
-	                    }
-	                }
-	            }
-
-	            if (output_lines.length === 1 && just_added_newline()) {
-	                return; // no newline on start of file
-	            }
-
-	            if (force_newline || !just_added_newline()) {
-	                flags.multiline_frame = true;
-	                output_lines.push(create_output_line());
-	            }
-	        }
-
-	        function print_token_line_indentation() {
-	            if (just_added_newline()) {
-	                var line = output_lines[output_lines.length - 1];
-	                if (opt.keep_array_indentation && is_array(flags.mode) && input_wanted_newline) {
-	                    // prevent removing of this whitespace as redundant
-	                    line.text.push('');
-	                    for (var i = 0; i < whitespace_before_token.length; i += 1) {
-	                        line.text.push(whitespace_before_token[i]);
-	                    }
-	                } else {
-	                    if (preindent_string) {
-	                        line.text.push(preindent_string);
-	                    }
-
-	                    print_indent_string(flags.indentation_level +
-	                        (flags.var_line && flags.var_line_reindented ? 1 : 0) +
-	                        (output_wrapped ? 1 : 0));
-	                }
-	            }
-	        }
-
-	        function print_indent_string(level) {
-	            // Never indent your first output indent at the start of the file
-	            if (output_lines.length > 1) {
-	                var line = output_lines[output_lines.length - 1];
-
-	                flags.line_indent_level = level;
-	                for (var i = 0; i < level; i += 1) {
-	                    line.text.push(indent_string);
-	                }
-	            }
-	        }
-
-	        function print_token_space_before() {
-	            var line = output_lines[output_lines.length - 1];
-	            if (output_space_before_token && line.text.length) {
-	                var last_output = line.text[line.text.length - 1];
-	                if (last_output !== ' ' && last_output !== indent_string) { // prevent occassional duplicate space
-	                    line.text.push(' ');
-	                }
-	            }
-	        }
-
-	        function print_token(printable_token) {
-	            printable_token = printable_token || token_text;
-	            print_token_line_indentation();
-	            output_wrapped = false;
-	            print_token_space_before();
-	            output_space_before_token = false;
-	            output_lines[output_lines.length - 1].text.push(printable_token);
-	        }
-
-	        function indent() {
-	            flags.indentation_level += 1;
-	        }
-
-	        function deindent() {
-	            if (flags.indentation_level > 0 &&
-	                ((!flags.parent) || flags.indentation_level > flags.parent.indentation_level))
-	                flags.indentation_level -= 1;
-	        }
-
-	        function remove_redundant_indentation(frame) {
-	            // This implementation is effective but has some issues:
-	            //     - less than great performance due to array splicing
-	            //     - can cause line wrap to happen too soon due to indent removal
-	            //           after wrap points are calculated
-	            // These issues are minor compared to ugly indentation.
-
-	            if (frame.multiline_frame) return;
-
-	            // remove one indent from each line inside this section
-	            var index = frame.start_line_index;
-	            var splice_index = 0;
-	            var line;
-
-	            while (index < output_lines.length) {
-	                line = output_lines[index];
-	                index++;
-
-	                // skip empty lines
-	                if (line.text.length === 0) {
-	                    continue;
-	                }
-
-	                // skip the preindent string if present
-	                if (preindent_string && line.text[0] === preindent_string) {
-	                    splice_index = 1;
-	                } else {
-	                    splice_index = 0;
-	                }
-
-	                // remove one indent, if present
-	                if (line.text[splice_index] === indent_string) {
-	                    line.text.splice(splice_index, 1);
-	                }
-	            }
-	        }
-
-	        function set_mode(mode) {
-	            if (flags) {
-	                flag_store.push(flags);
-	                previous_flags = flags;
-	            } else {
-	                previous_flags = create_flags(null, mode);
-	            }
-
-	            flags = create_flags(previous_flags, mode);
-	        }
-
-	        function is_array(mode) {
-	            return mode === MODE.ArrayLiteral;
-	        }
-
-	        function is_expression(mode) {
-	            return in_array(mode, [MODE.Expression, MODE.ForInitializer, MODE.Conditional]);
-	        }
-
-	        function restore_mode() {
-	            if (flag_store.length > 0) {
-	                previous_flags = flags;
-	                flags = flag_store.pop();
-	            }
-	        }
-
-	        function start_of_object_property() {
-	            return flags.mode === MODE.ObjectLiteral && flags.last_text === ':' &&
-	                flags.ternary_depth === 0;
-	        }
-
-	        function start_of_statement() {
-	            if (
-	                (flags.last_text === 'do' ||
-	                    (flags.last_text === 'else' && token_text !== 'if') ||
-	                    (last_type === 'TK_END_EXPR' && (previous_flags.mode === MODE.ForInitializer || previous_flags.mode === MODE.Conditional)))) {
-	                // Issue #276:
-	                // If starting a new statement with [if, for, while, do], push to a new line.
-	                // if (a) if (b) if(c) d(); else e(); else f();
-	                allow_wrap_or_preserved_newline(
-	                    in_array(token_text, ['do', 'for', 'if', 'while']));
-
-	                set_mode(MODE.Statement);
-	                // Issue #275:
-	                // If starting on a newline, all of a statement should be indented.
-	                // if not, use line wrapping logic for indent.
-	                if (just_added_newline()) {
-	                    indent();
-	                    output_wrapped = false;
-	                }
-	                return true;
-	            }
-	            return false;
-	        }
-
-	        function all_lines_start_with(lines, c) {
-	            for (var i = 0; i < lines.length; i++) {
-	                var line = trim(lines[i]);
-	                if (line.charAt(0) !== c) {
-	                    return false;
-	                }
-	            }
-	            return true;
-	        }
-
-	        function is_special_word(word) {
-	            return in_array(word, ['case', 'return', 'do', 'if', 'throw', 'else']);
-	        }
-
-	        function in_array(what, arr) {
-	            for (var i = 0; i < arr.length; i += 1) {
-	                if (arr[i] === what) {
-	                    return true;
-	                }
-	            }
-	            return false;
-	        }
-
-	        function unescape_string(s) {
-	            var esc = false,
-	                out = '',
-	                pos = 0,
-	                s_hex = '',
-	                escaped = 0,
-	                c;
-
-	            while (esc || pos < s.length) {
-
-	                c = s.charAt(pos);
-	                pos++;
-
-	                if (esc) {
-	                    esc = false;
-	                    if (c === 'x') {
-	                        // simple hex-escape \x24
-	                        s_hex = s.substr(pos, 2);
-	                        pos += 2;
-	                    } else if (c === 'u') {
-	                        // unicode-escape, \u2134
-	                        s_hex = s.substr(pos, 4);
-	                        pos += 4;
-	                    } else {
-	                        // some common escape, e.g \n
-	                        out += '\\' + c;
-	                        continue;
-	                    }
-	                    if (!s_hex.match(/^[0123456789abcdefABCDEF]+$/)) {
-	                        // some weird escaping, bail out,
-	                        // leaving whole string intact
-	                        return s;
-	                    }
-
-	                    escaped = parseInt(s_hex, 16);
-
-	                    if (escaped >= 0x00 && escaped < 0x20) {
-	                        // leave 0x00...0x1f escaped
-	                        if (c === 'x') {
-	                            out += '\\x' + s_hex;
-	                        } else {
-	                            out += '\\u' + s_hex;
-	                        }
-	                        continue;
-	                    } else if (escaped === 0x22 || escaped === 0x27 || escaped === 0x5c) {
-	                        // single-quote, apostrophe, backslash - escape these
-	                        out += '\\' + String.fromCharCode(escaped);
-	                    } else if (c === 'x' && escaped > 0x7e && escaped <= 0xff) {
-	                        // we bail out on \x7f..\xff,
-	                        // leaving whole string escaped,
-	                        // as it's probably completely binary
-	                        return s;
-	                    } else {
-	                        out += String.fromCharCode(escaped);
-	                    }
-	                } else if (c === '\\') {
-	                    esc = true;
-	                } else {
-	                    out += c;
-	                }
-	            }
-	            return out;
-	        }
-
-	        function is_next(find) {
-	            var local_pos = parser_pos;
-	            var c = input.charAt(local_pos);
-	            while (in_array(c, whitespace) && c !== find) {
-	                local_pos++;
-	                if (local_pos >= input_length) {
-	                    return false;
-	                }
-	                c = input.charAt(local_pos);
-	            }
-	            return c === find;
-	        }
-
-	        function get_next_token() {
-	            var i, resulting_string;
-
-	            n_newlines = 0;
-
-	            if (parser_pos >= input_length) {
-	                return ['', 'TK_EOF'];
-	            }
-
-	            input_wanted_newline = false;
-	            whitespace_before_token = [];
-
-	            var c = input.charAt(parser_pos);
-	            parser_pos += 1;
-
-	            while (in_array(c, whitespace)) {
-
-	                if (c === '\n') {
-	                    n_newlines += 1;
-	                    whitespace_before_token = [];
-	                } else if (n_newlines) {
-	                    if (c === indent_string) {
-	                        whitespace_before_token.push(indent_string);
-	                    } else if (c !== '\r') {
-	                        whitespace_before_token.push(' ');
-	                    }
-	                }
-
-	                if (parser_pos >= input_length) {
-	                    return ['', 'TK_EOF'];
-	                }
-
-	                c = input.charAt(parser_pos);
-	                parser_pos += 1;
-	            }
-
-	            if (in_array(c, wordchar)) {
-	                if (parser_pos < input_length) {
-	                    while (in_array(input.charAt(parser_pos), wordchar)) {
-	                        c += input.charAt(parser_pos);
-	                        parser_pos += 1;
-	                        if (parser_pos === input_length) {
-	                            break;
-	                        }
-	                    }
-	                }
-
-	                // small and surprisingly unugly hack for 1E-10 representation
-	                if (parser_pos !== input_length && c.match(/^[0-9]+[Ee]$/) && (input.charAt(parser_pos) === '-' || input.charAt(parser_pos) === '+')) {
-
-	                    var sign = input.charAt(parser_pos);
-	                    parser_pos += 1;
-
-	                    var t = get_next_token();
-	                    c += sign + t[0];
-	                    return [c, 'TK_WORD'];
-	                }
-
-	                if (c === 'in') { // hack for 'in' operator
-	                    return [c, 'TK_OPERATOR'];
-	                }
-	                return [c, 'TK_WORD'];
-	            }
-
-	            if (c === '(' || c === '[') {
-	                return [c, 'TK_START_EXPR'];
-	            }
-
-	            if (c === ')' || c === ']') {
-	                return [c, 'TK_END_EXPR'];
-	            }
-
-	            if (c === '{') {
-	                return [c, 'TK_START_BLOCK'];
-	            }
-
-	            if (c === '}') {
-	                return [c, 'TK_END_BLOCK'];
-	            }
-
-	            if (c === ';') {
-	                return [c, 'TK_SEMICOLON'];
-	            }
-
-	            if (c === '/') {
-	                var comment = '';
-	                // peek for comment /* ... */
-	                var inline_comment = true;
-	                if (input.charAt(parser_pos) === '*') {
-	                    parser_pos += 1;
-	                    if (parser_pos < input_length) {
-	                        while (parser_pos < input_length && !(input.charAt(parser_pos) === '*' && input.charAt(parser_pos + 1) && input.charAt(parser_pos + 1) === '/')) {
-	                            c = input.charAt(parser_pos);
-	                            comment += c;
-	                            if (c === "\n" || c === "\r") {
-	                                inline_comment = false;
-	                            }
-	                            parser_pos += 1;
-	                            if (parser_pos >= input_length) {
-	                                break;
-	                            }
-	                        }
-	                    }
-	                    parser_pos += 2;
-	                    if (inline_comment && n_newlines === 0) {
-	                        return ['/*' + comment + '*/', 'TK_INLINE_COMMENT'];
-	                    } else {
-	                        return ['/*' + comment + '*/', 'TK_BLOCK_COMMENT'];
-	                    }
-	                }
-	                // peek for comment // ...
-	                if (input.charAt(parser_pos) === '/') {
-	                    comment = c;
-	                    while (input.charAt(parser_pos) !== '\r' && input.charAt(parser_pos) !== '\n') {
-	                        comment += input.charAt(parser_pos);
-	                        parser_pos += 1;
-	                        if (parser_pos >= input_length) {
-	                            break;
-	                        }
-	                    }
-	                    return [comment, 'TK_COMMENT'];
-	                }
-
-	            }
-
-
-	            if (c === "'" || c === '"' || // string
-	                (
-	                    (c === '/') || // regexp
-	                    (opt.e4x && c === "<" && input.slice(parser_pos - 1).match(/^<([-a-zA-Z:0-9_.]+|{[^{}]*}|!\[CDATA\[[\s\S]*?\]\])\s*([-a-zA-Z:0-9_.]+=('[^']*'|"[^"]*"|{[^{}]*})\s*)*\/?\s*>/)) // xml
-	                ) && ( // regex and xml can only appear in specific locations during parsing
-	                    (last_type === 'TK_WORD' && is_special_word(flags.last_text)) ||
-	                    (last_type === 'TK_END_EXPR' && in_array(previous_flags.mode, [MODE.Conditional, MODE.ForInitializer])) ||
-	                    (in_array(last_type, ['TK_COMMENT', 'TK_START_EXPR', 'TK_START_BLOCK',
-	                        'TK_END_BLOCK', 'TK_OPERATOR', 'TK_EQUALS', 'TK_EOF', 'TK_SEMICOLON', 'TK_COMMA'
-	                    ]))
-	                )) {
-
-	                var sep = c,
-	                    esc = false,
-	                    has_char_escapes = false;
-
-	                resulting_string = c;
-
-	                if (parser_pos < input_length) {
-	                    if (sep === '/') {
-	                        //
-	                        // handle regexp
-	                        //
-	                        var in_char_class = false;
-	                        while (esc || in_char_class || input.charAt(parser_pos) !== sep) {
-	                            resulting_string += input.charAt(parser_pos);
-	                            if (!esc) {
-	                                esc = input.charAt(parser_pos) === '\\';
-	                                if (input.charAt(parser_pos) === '[') {
-	                                    in_char_class = true;
-	                                } else if (input.charAt(parser_pos) === ']') {
-	                                    in_char_class = false;
-	                                }
-	                            } else {
-	                                esc = false;
-	                            }
-	                            parser_pos += 1;
-	                            if (parser_pos >= input_length) {
-	                                // incomplete string/rexp when end-of-file reached.
-	                                // bail out with what had been received so far.
-	                                return [resulting_string, 'TK_STRING'];
-	                            }
-	                        }
-	                    } else if (opt.e4x && sep === '<') {
-	                        //
-	                        // handle e4x xml literals
-	                        //
-	                        var xmlRegExp = /<(\/?)([-a-zA-Z:0-9_.]+|{[^{}]*}|!\[CDATA\[[\s\S]*?\]\])\s*([-a-zA-Z:0-9_.]+=('[^']*'|"[^"]*"|{[^{}]*})\s*)*(\/?)\s*>/g;
-	                        var xmlStr = input.slice(parser_pos - 1);
-	                        var match = xmlRegExp.exec(xmlStr);
-	                        if (match && match.index === 0) {
-	                            var rootTag = match[2];
-	                            var depth = 0;
-	                            while (match) {
-	                                var isEndTag = !! match[1];
-	                                var tagName = match[2];
-	                                var isSingletonTag = ( !! match[match.length - 1]) || (tagName.slice(0, 8) === "![CDATA[");
-	                                if (tagName === rootTag && !isSingletonTag) {
-	                                    if (isEndTag) {
-	                                        --depth;
-	                                    } else {
-	                                        ++depth;
-	                                    }
-	                                }
-	                                if (depth <= 0) {
-	                                    break;
-	                                }
-	                                match = xmlRegExp.exec(xmlStr);
-	                            }
-	                            var xmlLength = match ? match.index + match[0].length : xmlStr.length;
-	                            parser_pos += xmlLength - 1;
-	                            return [xmlStr.slice(0, xmlLength), "TK_STRING"];
-	                        }
-	                    } else {
-	                        //
-	                        // handle string
-	                        //
-	                        while (esc || input.charAt(parser_pos) !== sep) {
-	                            resulting_string += input.charAt(parser_pos);
-	                            if (esc) {
-	                                if (input.charAt(parser_pos) === 'x' || input.charAt(parser_pos) === 'u') {
-	                                    has_char_escapes = true;
-	                                }
-	                                esc = false;
-	                            } else {
-	                                esc = input.charAt(parser_pos) === '\\';
-	                            }
-	                            parser_pos += 1;
-	                            if (parser_pos >= input_length) {
-	                                // incomplete string/rexp when end-of-file reached.
-	                                // bail out with what had been received so far.
-	                                return [resulting_string, 'TK_STRING'];
-	                            }
-	                        }
-
-	                    }
-	                }
-
-	                parser_pos += 1;
-	                resulting_string += sep;
-
-	                if (has_char_escapes && opt.unescape_strings) {
-	                    resulting_string = unescape_string(resulting_string);
-	                }
-
-	                if (sep === '/') {
-	                    // regexps may have modifiers /regexp/MOD , so fetch those, too
-	                    while (parser_pos < input_length && in_array(input.charAt(parser_pos), wordchar)) {
-	                        resulting_string += input.charAt(parser_pos);
-	                        parser_pos += 1;
-	                    }
-	                }
-	                return [resulting_string, 'TK_STRING'];
-	            }
-
-	            if (c === '#') {
-
-
-	                if (output_lines.length === 1 && output_lines[0].text.length === 0 &&
-	                    input.charAt(parser_pos) === '!') {
-	                    // shebang
-	                    resulting_string = c;
-	                    while (parser_pos < input_length && c !== '\n') {
-	                        c = input.charAt(parser_pos);
-	                        resulting_string += c;
-	                        parser_pos += 1;
-	                    }
-	                    return [trim(resulting_string) + '\n', 'TK_UNKNOWN'];
-	                }
-
-
-
-	                // Spidermonkey-specific sharp variables for circular references
-	                // https://developer.mozilla.org/En/Sharp_variables_in_JavaScript
-	                // http://mxr.mozilla.org/mozilla-central/source/js/src/jsscan.cpp around line 1935
-	                var sharp = '#';
-	                if (parser_pos < input_length && in_array(input.charAt(parser_pos), digits)) {
-	                    do {
-	                        c = input.charAt(parser_pos);
-	                        sharp += c;
-	                        parser_pos += 1;
-	                    } while (parser_pos < input_length && c !== '#' && c !== '=');
-	                    if (c === '#') {
-	                        //
-	                    } else if (input.charAt(parser_pos) === '[' && input.charAt(parser_pos + 1) === ']') {
-	                        sharp += '[]';
-	                        parser_pos += 2;
-	                    } else if (input.charAt(parser_pos) === '{' && input.charAt(parser_pos + 1) === '}') {
-	                        sharp += '{}';
-	                        parser_pos += 2;
-	                    }
-	                    return [sharp, 'TK_WORD'];
-	                }
-	            }
-
-	            if (c === '<' && input.substring(parser_pos - 1, parser_pos + 3) === '<!--') {
-	                parser_pos += 3;
-	                c = '<!--';
-	                while (input.charAt(parser_pos) !== '\n' && parser_pos < input_length) {
-	                    c += input.charAt(parser_pos);
-	                    parser_pos++;
-	                }
-	                flags.in_html_comment = true;
-	                return [c, 'TK_COMMENT'];
-	            }
-
-	            if (c === '-' && flags.in_html_comment && input.substring(parser_pos - 1, parser_pos + 2) === '-->') {
-	                flags.in_html_comment = false;
-	                parser_pos += 2;
-	                return ['-->', 'TK_COMMENT'];
-	            }
-
-	            if (c === '.') {
-	                return [c, 'TK_DOT'];
-	            }
-
-	            if (in_array(c, punct)) {
-	                while (parser_pos < input_length && in_array(c + input.charAt(parser_pos), punct)) {
-	                    c += input.charAt(parser_pos);
-	                    parser_pos += 1;
-	                    if (parser_pos >= input_length) {
-	                        break;
-	                    }
-	                }
-
-	                if (c === ',') {
-	                    return [c, 'TK_COMMA'];
-	                } else if (c === '=') {
-	                    return [c, 'TK_EQUALS'];
-	                } else {
-	                    return [c, 'TK_OPERATOR'];
-	                }
-	            }
-
-	            return [c, 'TK_UNKNOWN'];
-	        }
-
-	        function handle_start_expr() {
-	            if (start_of_statement()) {
-	                // The conditional starts the statement if appropriate.
-	            }
-
-	            var next_mode = MODE.Expression;
-	            if (token_text === '[') {
-
-	                if (last_type === 'TK_WORD' || flags.last_text === ')') {
-	                    // this is array index specifier, break immediately
-	                    // a[x], fn()[x]
-	                    if (in_array(flags.last_text, line_starters)) {
-	                        output_space_before_token = true;
-	                    }
-	                    set_mode(next_mode);
-	                    print_token();
-	                    indent();
-	                    if (opt.space_in_paren) {
-	                        output_space_before_token = true;
-	                    }
-	                    return;
-	                }
-
-	                next_mode = MODE.ArrayLiteral;
-	                if (is_array(flags.mode)) {
-	                    if (flags.last_text === '[' ||
-	                        (flags.last_text === ',' && (last_last_text === ']' || last_last_text === '}'))) {
-	                        // ], [ goes to new line
-	                        // }, [ goes to new line
-	                        if (!opt.keep_array_indentation) {
-	                            print_newline();
-	                        }
-	                    }
-	                }
-
-	            } else {
-	                if (flags.last_text === 'for') {
-	                    next_mode = MODE.ForInitializer;
-	                } else if (in_array(flags.last_text, ['if', 'while'])) {
-	                    next_mode = MODE.Conditional;
-	                } else {
-	                    // next_mode = MODE.Expression;
-	                }
-	            }
-
-	            if (flags.last_text === ';' || last_type === 'TK_START_BLOCK') {
-	                print_newline();
-	            } else if (last_type === 'TK_END_EXPR' || last_type === 'TK_START_EXPR' || last_type === 'TK_END_BLOCK' || flags.last_text === '.') {
-	                // TODO: Consider whether forcing this is required.  Review failing tests when removed.
-	                allow_wrap_or_preserved_newline(input_wanted_newline);
-	                output_wrapped = false;
-	                // do nothing on (( and )( and ][ and ]( and .(
-	            } else if (last_type !== 'TK_WORD' && last_type !== 'TK_OPERATOR') {
-	                output_space_before_token = true;
-	            } else if (flags.last_word === 'function' || flags.last_word === 'typeof') {
-	                // function() vs function ()
-	                if (opt.jslint_happy) {
-	                    output_space_before_token = true;
-	                }
-	            } else if (in_array(flags.last_text, line_starters) || flags.last_text === 'catch') {
-	                if (opt.space_before_conditional) {
-	                    output_space_before_token = true;
-	                }
-	            }
-
-	            // Support of this kind of newline preservation.
-	            // a = (b &&
-	            //     (c || d));
-	            if (token_text === '(') {
-	                if (last_type === 'TK_EQUALS' || last_type === 'TK_OPERATOR') {
-	                    if (!start_of_object_property()) {
-	                        allow_wrap_or_preserved_newline();
-	                    }
-	                }
-	            }
-
-	            set_mode(next_mode);
-	            print_token();
-	            if (opt.space_in_paren) {
-	                output_space_before_token = true;
-	            }
-
-	            // In all cases, if we newline while inside an expression it should be indented.
-	            indent();
-	        }
-
-	        function handle_end_expr() {
-	            // statements inside expressions are not valid syntax, but...
-	            // statements must all be closed when their container closes
-	            while (flags.mode === MODE.Statement) {
-	                restore_mode();
-	            }
-
-	            if (token_text === ']' && is_array(flags.mode) && flags.multiline_frame && !opt.keep_array_indentation) {
-	                print_newline();
-	            }
-
-	            if (flags.multiline_frame) {
-	                allow_wrap_or_preserved_newline();
-	            }
-	            if (opt.space_in_paren) {
-	                if (last_type === 'TK_START_EXPR') {
-	                    // () [] no inner space in empty parens like these, ever, ref #320
-	                    trim_output();
-	                    output_space_before_token = false;
-	                } else {
-	                    output_space_before_token = true;
-	                }
-	            }
-	            if (token_text === ']' && opt.keep_array_indentation) {
-	                print_token();
-	                restore_mode();
-	            } else {
-	                restore_mode();
-	                print_token();
-	            }
-	            remove_redundant_indentation(previous_flags);
-
-	            // do {} while () // no statement required after
-	            if (flags.do_while && previous_flags.mode === MODE.Conditional) {
-	                previous_flags.mode = MODE.Expression;
-	                flags.do_block = false;
-	                flags.do_while = false;
-
-	            }
-	        }
-
-	        function handle_start_block() {
-	            set_mode(MODE.BlockStatement);
-
-	            var empty_braces = is_next('}');
-	            var empty_anonymous_function = empty_braces && flags.last_word === 'function' &&
-	                last_type === 'TK_END_EXPR';
-
-	            if (opt.brace_style === "expand") {
-	                if (last_type !== 'TK_OPERATOR' &&
-	                    (empty_anonymous_function ||
-	                        last_type === 'TK_EQUALS' ||
-	                        (is_special_word(flags.last_text) && flags.last_text !== 'else'))) {
-	                    output_space_before_token = true;
-	                } else {
-	                    print_newline();
-	                }
-	            } else { // collapse
-	                if (last_type !== 'TK_OPERATOR' && last_type !== 'TK_START_EXPR') {
-	                    if (last_type === 'TK_START_BLOCK') {
-	                        print_newline();
-	                    } else {
-	                        output_space_before_token = true;
-	                    }
-	                } else {
-	                    // if TK_OPERATOR or TK_START_EXPR
-	                    if (is_array(previous_flags.mode) && flags.last_text === ',') {
-	                        if (last_last_text === '}') {
-	                            // }, { in array context
-	                            output_space_before_token = true;
-	                        } else {
-	                            print_newline(); // [a, b, c, {
-	                        }
-	                    }
-	                }
-	            }
-	            print_token();
-	            indent();
-	        }
-
-	        function handle_end_block() {
-	            // statements must all be closed when their container closes
-	            while (flags.mode === MODE.Statement) {
-	                restore_mode();
-	            }
-	            var empty_braces = last_type === 'TK_START_BLOCK';
-
-	            if (opt.brace_style === "expand") {
-	                if (!empty_braces) {
-	                    print_newline();
-	                }
-	            } else {
-	                // skip {}
-	                if (!empty_braces) {
-	                    if (is_array(flags.mode) && opt.keep_array_indentation) {
-	                        // we REALLY need a newline here, but newliner would skip that
-	                        opt.keep_array_indentation = false;
-	                        print_newline();
-	                        opt.keep_array_indentation = true;
-
-	                    } else {
-	                        print_newline();
-	                    }
-	                }
-	            }
-	            restore_mode();
-	            print_token();
-	        }
-
-	        function handle_word() {
-	            if (start_of_statement()) {
-	                // The conditional starts the statement if appropriate.
-	            } else if (input_wanted_newline && !is_expression(flags.mode) &&
-	                (last_type !== 'TK_OPERATOR' || (flags.last_text === '--' || flags.last_text === '++')) &&
-	                last_type !== 'TK_EQUALS' &&
-	                (opt.preserve_newlines || flags.last_text !== 'var')) {
-
-	                print_newline();
-	            }
-
-	            if (flags.do_block && !flags.do_while) {
-	                if (token_text === 'while') {
-	                    // do {} ## while ()
-	                    output_space_before_token = true;
-	                    print_token();
-	                    output_space_before_token = true;
-	                    flags.do_while = true;
-	                    return;
-	                } else {
-	                    // do {} should always have while as the next word.
-	                    // if we don't see the expected while, recover
-	                    print_newline();
-	                    flags.do_block = false;
-	                }
-	            }
-
-	            // if may be followed by else, or not
-	            // Bare/inline ifs are tricky
-	            // Need to unwind the modes correctly: if (a) if (b) c(); else d(); else e();
-	            if (flags.if_block) {
-	                if (token_text !== 'else') {
-	                    while (flags.mode === MODE.Statement) {
-	                        restore_mode();
-	                    }
-	                    flags.if_block = false;
-	                }
-	            }
-
-	            if (token_text === 'case' || (token_text === 'default' && flags.in_case_statement)) {
-	                print_newline();
-	                if (flags.case_body || opt.jslint_happy) {
-	                    // switch cases following one another
-	                    deindent();
-	                    flags.case_body = false;
-	                }
-	                print_token();
-	                flags.in_case = true;
-	                flags.in_case_statement = true;
-	                return;
-	            }
-
-	            if (token_text === 'function') {
-	                if (flags.var_line && last_type !== 'TK_EQUALS') {
-	                    flags.var_line_reindented = true;
-	                }
-	                if (in_array(flags.last_text, ['}', ';']) || (just_added_newline() && ! in_array(flags.last_text, ['{', ':', '=', ',']))) {
-	                    // make sure there is a nice clean space of at least one blank line
-	                    // before a new function definition
-	                    if ( ! just_added_blankline() && ! flags.had_comment) {
-	                        print_newline();
-	                        print_newline(true);
-	                    }
-	                }
-	                if (last_type === 'TK_WORD') {
-	                    if (flags.last_text === 'get' || flags.last_text === 'set' || flags.last_text === 'new' || flags.last_text === 'return') {
-	                        output_space_before_token = true;
-	                    } else {
-	                        print_newline();
-	                    }
-	                } else if (last_type === 'TK_OPERATOR' || flags.last_text === '=') {
-	                    // foo = function
-	                    output_space_before_token = true;
-	                } else if (is_expression(flags.mode)) {
-	                    // (function
-	                } else {
-	                    print_newline();
-	                }
-	            }
-
-	            if (last_type === 'TK_COMMA' || last_type === 'TK_START_EXPR' || last_type === 'TK_EQUALS' || last_type === 'TK_OPERATOR') {
-	                if (!start_of_object_property()) {
-	                    allow_wrap_or_preserved_newline();
-	                }
-	            }
-
-	            if (token_text === 'function') {
-	                print_token();
-	                flags.last_word = token_text;
-	                return;
-	            }
-
-	            prefix = 'NONE';
-
-	            if (last_type === 'TK_END_BLOCK') {
-	                if (!in_array(token_text, ['else', 'catch', 'finally'])) {
-	                    prefix = 'NEWLINE';
-	                } else {
-	                    if (opt.brace_style === "expand" || opt.brace_style === "end-expand") {
-	                        prefix = 'NEWLINE';
-	                    } else {
-	                        prefix = 'SPACE';
-	                        output_space_before_token = true;
-	                    }
-	                }
-	            } else if (last_type === 'TK_SEMICOLON' && flags.mode === MODE.BlockStatement) {
-	                // TODO: Should this be for STATEMENT as well?
-	                prefix = 'NEWLINE';
-	            } else if (last_type === 'TK_SEMICOLON' && is_expression(flags.mode)) {
-	                prefix = 'SPACE';
-	            } else if (last_type === 'TK_STRING') {
-	                prefix = 'NEWLINE';
-	            } else if (last_type === 'TK_WORD') {
-	                prefix = 'SPACE';
-	            } else if (last_type === 'TK_START_BLOCK') {
-	                prefix = 'NEWLINE';
-	            } else if (last_type === 'TK_END_EXPR') {
-	                output_space_before_token = true;
-	                prefix = 'NEWLINE';
-	            }
-
-	            if (in_array(token_text, line_starters) && flags.last_text !== ')') {
-	                if (flags.last_text === 'else') {
-	                    prefix = 'SPACE';
-	                } else {
-	                    prefix = 'NEWLINE';
-	                }
-
-	            }
-
-	            if (in_array(token_text, ['else', 'catch', 'finally'])) {
-	                if (last_type !== 'TK_END_BLOCK' || opt.brace_style === "expand" || opt.brace_style === "end-expand") {
-	                    print_newline();
-	                } else {
-	                    trim_output(true);
-	                    var line = output_lines[output_lines.length - 1];
-	                    // If we trimmed and there's something other than a close block before us
-	                    // put a newline back in.  Handles '} // comment' scenario.
-	                    if (line.text[line.text.length - 1] !== '}') {
-	                        print_newline();
-	                    }
-	                    output_space_before_token = true;
-	                }
-	            } else if (prefix === 'NEWLINE') {
-	                if (is_special_word(flags.last_text)) {
-	                    // no newline between 'return nnn'
-	                    output_space_before_token = true;
-	                } else if (last_type !== 'TK_END_EXPR') {
-	                    if ((last_type !== 'TK_START_EXPR' || token_text !== 'var') && flags.last_text !== ':') {
-	                        // no need to force newline on 'var': for (var x = 0...)
-	                        if (token_text === 'if' && flags.last_word === 'else' && flags.last_text !== '{') {
-	                            // no newline for } else if {
-	                            output_space_before_token = true;
-	                        } else {
-	                            flags.var_line = false;
-	                            flags.var_line_reindented = false;
-	                            print_newline();
-	                        }
-	                    }
-	                } else if (in_array(token_text, line_starters) && flags.last_text !== ')') {
-	                    flags.var_line = false;
-	                    flags.var_line_reindented = false;
-	                    print_newline();
-	                }
-	            } else if (is_array(flags.mode) && flags.last_text === ',' && last_last_text === '}') {
-	                print_newline(); // }, in lists get a newline treatment
-	            } else if (prefix === 'SPACE') {
-	                output_space_before_token = true;
-	            }
-	            print_token();
-	            flags.last_word = token_text;
-
-	            if (token_text === 'var') {
-	                flags.var_line = true;
-	                flags.var_line_reindented = false;
-	                flags.var_line_tainted = false;
-	            }
-
-	            if (token_text === 'do') {
-	                flags.do_block = true;
-	            }
-
-	            if (token_text === 'if') {
-	                flags.if_block = true;
-	            }
-	        }
-
-	        function handle_semicolon() {
-	            if (start_of_statement()) {
-	                // The conditional starts the statement if appropriate.
-	                // Semicolon can be the start (and end) of a statement
-	                output_space_before_token = false;
-	            }
-	            while (flags.mode === MODE.Statement && !flags.if_block && !flags.do_block) {
-	                restore_mode();
-	            }
-	            print_token();
-	            flags.var_line = false;
-	            flags.var_line_reindented = false;
-	            if (flags.mode === MODE.ObjectLiteral) {
-	                // if we're in OBJECT mode and see a semicolon, its invalid syntax
-	                // recover back to treating this as a BLOCK
-	                flags.mode = MODE.BlockStatement;
-	            }
-	        }
-
-	        function handle_string() {
-	            if (start_of_statement()) {
-	                // The conditional starts the statement if appropriate.
-	                // One difference - strings want at least a space before
-	                output_space_before_token = true;
-	            } else if (last_type === 'TK_WORD') {
-	                output_space_before_token = true;
-	            } else if (last_type === 'TK_COMMA' || last_type === 'TK_START_EXPR' || last_type === 'TK_EQUALS' || last_type === 'TK_OPERATOR') {
-	                if (!start_of_object_property()) {
-	                    allow_wrap_or_preserved_newline();
-	                }
-	            } else {
-	                print_newline();
-	            }
-	            print_token();
-	        }
-
-	        function handle_equals() {
-	            if (flags.var_line) {
-	                // just got an '=' in a var-line, different formatting/line-breaking, etc will now be done
-	                flags.var_line_tainted = true;
-	            }
-	            output_space_before_token = true;
-	            print_token();
-	            output_space_before_token = true;
-	        }
-
-	        function handle_comma() {
-	            if (flags.var_line) {
-	                if (is_expression(flags.mode) || last_type === 'TK_END_BLOCK') {
-	                    // do not break on comma, for(var a = 1, b = 2)
-	                    flags.var_line_tainted = false;
-	                }
-
-	                if (flags.var_line) {
-	                    flags.var_line_reindented = true;
-	                }
-
-	                print_token();
-
-	                if (flags.var_line_tainted) {
-	                    flags.var_line_tainted = false;
-	                    print_newline();
-	                } else {
-	                    output_space_before_token = true;
-	                }
-	                return;
-	            }
-
-	            if (last_type === 'TK_END_BLOCK' && flags.mode !== MODE.Expression) {
-	                print_token();
-	                if (flags.mode === MODE.ObjectLiteral && flags.last_text === '}') {
-	                    print_newline();
-	                } else {
-	                    output_space_before_token = true;
-	                }
-	            } else {
-	                if (flags.mode === MODE.ObjectLiteral) {
-	                    print_token();
-	                    print_newline();
-	                } else {
-	                    // EXPR or DO_BLOCK
-	                    print_token();
-	                    output_space_before_token = true;
-	                }
-	            }
-	        }
-
-	        function handle_operator() {
-	            var space_before = true;
-	            var space_after = true;
-	            if (is_special_word(flags.last_text)) {
-	                // "return" had a special handling in TK_WORD. Now we need to return the favor
-	                output_space_before_token = true;
-	                print_token();
-	                return;
-	            }
-
-	            // hack for actionscript's import .*;
-	            if (token_text === '*' && last_type === 'TK_DOT' && !last_last_text.match(/^\d+$/)) {
-	                print_token();
-	                return;
-	            }
-
-	            if (token_text === ':' && flags.in_case) {
-	                flags.case_body = true;
-	                indent();
-	                print_token();
-	                print_newline();
-	                flags.in_case = false;
-	                return;
-	            }
-
-	            if (token_text === '::') {
-	                // no spaces around exotic namespacing syntax operator
-	                print_token();
-	                return;
-	            }
-
-	            // http://www.ecma-international.org/ecma-262/5.1/#sec-7.9.1
-	            // if there is a newline between -- or ++ and anything else we should preserve it.
-	            if (input_wanted_newline && (token_text === '--' || token_text === '++')) {
-	                print_newline();
-	            }
-
-	            if (in_array(token_text, ['--', '++', '!']) || (in_array(token_text, ['-', '+']) && (in_array(last_type, ['TK_START_BLOCK', 'TK_START_EXPR', 'TK_EQUALS', 'TK_OPERATOR']) || in_array(flags.last_text, line_starters) || flags.last_text === ','))) {
-	                // unary operators (and binary +/- pretending to be unary) special cases
-
-	                space_before = false;
-	                space_after = false;
-
-	                if (flags.last_text === ';' && is_expression(flags.mode)) {
-	                    // for (;; ++i)
-	                    //        ^^^
-	                    space_before = true;
-	                }
-
-	                if (last_type === 'TK_WORD' && in_array(flags.last_text, line_starters)) {
-	                    space_before = true;
-	                }
-
-	                if ((flags.mode === MODE.BlockStatement || flags.mode === MODE.Statement) && (flags.last_text === '{' || flags.last_text === ';')) {
-	                    // { foo; --i }
-	                    // foo(); --bar;
-	                    print_newline();
-	                }
-	            } else if (token_text === ':') {
-	                if (flags.ternary_depth === 0) {
-	                    if (flags.mode === MODE.BlockStatement) {
-	                        flags.mode = MODE.ObjectLiteral;
-	                    }
-	                    space_before = false;
-	                } else {
-	                    flags.ternary_depth -= 1;
-	                }
-	            } else if (token_text === '?') {
-	                flags.ternary_depth += 1;
-	            }
-	            output_space_before_token = output_space_before_token || space_before;
-	            print_token();
-	            output_space_before_token = space_after;
-	        }
-
-	        function handle_block_comment() {
-	            var lines = split_newlines(token_text);
-	            var j; // iterator for this case
-	            var javadoc = false;
-
-	            // block comment starts with a new line
-	            print_newline(false, true);
-	            if (lines.length > 1) {
-	                if (all_lines_start_with(lines.slice(1), '*')) {
-	                    javadoc = true;
-	                }
-	            }
-
-	            // first line always indented
-	            print_token(lines[0]);
-	            for (j = 1; j < lines.length; j++) {
-	                print_newline(false, true);
-	                if (javadoc) {
-	                    // javadoc: reformat and re-indent
-	                    print_token(' ' + trim(lines[j]));
-	                } else {
-	                    // normal comments output raw
-	                    output_lines[output_lines.length - 1].text.push(lines[j]);
-	                }
-	            }
-
-	            // for comments of more than one line, make sure there's a new line after
-	            print_newline(false, true);
-	        }
-
-	        function handle_inline_comment() {
-	            output_space_before_token = true;
-	            print_token();
-	            output_space_before_token = true;
-	        }
-
-	        function handle_comment() {
-	            if (input_wanted_newline) {
-	                print_newline(false, true);
-	            } else {
-	                trim_output(true);
-	            }
-
-	            output_space_before_token = true;
-	            print_token();
-	            print_newline(false, true);
-	        }
-
-	        function handle_dot() {
-	            if (is_special_word(flags.last_text)) {
-	                output_space_before_token = true;
-	            } else {
-	                // allow preserved newlines before dots in general
-	                // force newlines on dots after close paren when break_chained - for bar().baz()
-	                allow_wrap_or_preserved_newline(flags.last_text === ')' && opt.break_chained_methods);
-	            }
-
-	            print_token();
-	        }
-
-	        function handle_unknown() {
-	            print_token();
-
-	            if (token_text[token_text.length - 1] === '\n') {
-	                print_newline();
-	            }
-	        }
-	    }
-
-
-	    if (true) {
-	        // Add support for require.js
-	        if (false) {
-	            define(function(require, exports, module) {
-	                exports.js_beautify = js_beautify;
-	            });
-	        } else {
-	            // if is AMD ( https://github.com/amdjs/amdjs-api/wiki/AMD#defineamd-property- )
-	            !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-	                return js_beautify;
-	            }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	        }
-
-	    } else if (typeof exports !== "undefined") {
-	        // Add support for CommonJS. Just put this file somewhere on your require.paths
-	        // and you will be able to `var js_beautify = require("beautify").js_beautify`.
-	        exports.js_beautify = js_beautify;
-	    } else if (typeof window !== "undefined") {
-	        // If we're running a web page and don't have either of the above, add our one global
-	        window.js_beautify = js_beautify;
-	    } else if (typeof global !== "undefined") {
-	        // If we don't even have window, try global.
-	        global.js_beautify = js_beautify;
-	    }
-
-	}());
-
-	angular.module('DictionaryViewerApp').run(['$templateCache', function($templateCache) {  'use strict';
-
-	  $templateCache.put('scripts/views/data-addition.html',
-	    "<i class=\"fa fa-plus\"></i> <span data-ng-bind-template=\"{{addition.type}} - {{addition.name}}\"></span><div class=\"collapse content\" id=\"{{type}}{{addition.id}}\" data-ng-if=\"addition.diff\"><div class=\"well\" data-ng-bind-html=\"addition.diff | sanitize\"></div></div>"
-	  );
-
-
-	  $templateCache.put('scripts/views/data-changes.html',
-	    "<i class=\"fa fa-exchange\"></i> <span data-ng-bind-template=\"{{change.type}} - {{change.name}}\"></span><div class=\"collapse content\" id=\"{{type}}{{change.id}}\" data-ng-if=\"change.diff\"><div class=\"well\" data-ng-bind-html=\"change.diff | sanitize\"></div></div>"
-	  );
-
-
-	  $templateCache.put('scripts/views/data-removal.html',
-	    "<i class=\"fa fa-minus\"></i> <span data-ng-bind-template=\"{{removal.type}} - {{removal.name}}\"></span><div class=\"collapse content\" id=\"{{type}}{{removal.id}}\" data-ng-if=\"removal.diff\"><div class=\"well\" data-ng-bind-html=\"removal.diff | sanitize\"></div></div>"
-	  );
-
-
-	  $templateCache.put('scripts/views/dictionary-viewer-directive.html',
-	    "<div id=\"dictionaryModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\"><div class=\"modal-header\"><button type=\"button\" class=\"t_button pull-right\" data-dismiss=\"modal\" aria-label=\"Close\"><i aria-hidden=\"true\" class=\"icon-cancel\"></i></button><h3 class=\"modal-title\"></h3></div><div class=\"modal-body\"></div><div class=\"modal-footer\"><button type=\"button\" class=\"t_button\" data-dismiss=\"modal\">Close</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal --><div id=\"dictionary-view-container\"><div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\" data-ng-if=\"dictionaryViewerCtrl.shouldShowHeaderNav === true\"><div class=\"container-fluid\"><!-- Brand and toggle get grouped for better mobile display --><div class=\"navbar-header\"><span class=\"navbar-brand\"><img src=\"https://dcc.icgc.org/styles/images/icgc-logo.png\" width=\"20px\"> <span style=\"font-size:1.7rem; vertical-align:middle\"><span style=\"color:#777777\">ICGC</span> <span>Dictionary Viewer</span></span></span></div><!-- Collect the nav links, forms, and other content for toggling --><div class=\"collapse navbar-collapse\"><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><input data-ng-model=\"dictionaryViewerCtrl.q\" data-ng-model-options=\"{debounce: 350}\" data-ng-click=\"$event.stopPropagation()\" class=\"form-control\" id=\"filter\" type=\"text\" size=\"25\" placeholder=\"Search:\"></div></div><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vFrom\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div>TO<div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vTo\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div></div><div class=\"navbar-form navbar-right\"><div><span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourNew}\">{{dictionaryViewerCtrl.changeReport.fieldsAdded.length}} new</span> &nbsp;&nbsp; <span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourChanged}\">{{dictionaryViewerCtrl.changeReport.fieldsChanged.length}} changed</span></div></div></div></div></div><div class=\"tab-container\"><ul class=\"nav nav-tabs\" role=\"tablist\"><li data-ng-repeat=\"viewType in dictionaryViewerCtrl.viewTypes\" role=\"presentation\" data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === viewType}\"><a href=\"javascript:void(0)\" aria-controls=\"{{viewType}}\" role=\"tab\" data-toggle=\"tab\" class=\"{{viewType}}-tab\" data-ng-bind=\"viewType | prettyPrintView\" data-target=\"{{viewType}}\" data-ng-click=\"dictionaryViewerCtrl.setView(viewType)\"></a></li></ul><div class=\"tab-content\"><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'details'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"table\"><div class=\"vis-wrapper\"><!-- template for table viewer--><div class=\"clearfix\"><div class=\"minimap-container col-md-12\"><div id=\"datatypeSelector\" class=\"col-md-12\"><div class=\"col-md-3 file-container\"><label for=\"detail-format-type\">Files:</label><button id=\"minimapLabel\" class=\"btn btn-primary\"><span>all</span><i class=\"glyphicon glyphicon-chevron-down\"></i></button><br><div id=\"minimapWrapper\"><svg id=\"minimap\" height=\"0px\" width=\"275px\" style=\"pointer-events:visibleFill; z-index:10\"></svg></div></div><div class=\"col-md-1\"></div><div class=\"col-md-4\"><label for=\"fields-filter\">Attributes: &nbsp;</label><select class=\"form-control\" id=\"fields-filter\" multiple data-ng-change=\"dictionaryViewerCtrl.updateAttributeFilter()\" data-ng-model=\"dictionaryViewerCtrl.selectedAttributes\"><option ng-repeat=\"attribute in dictionaryViewerCtrl.attributes\">{{attribute}}</option></select></div><div class=\"col-md-1\"></div><div class=\"col-md-3 detail-format-container\" style=\"text-align: right\"><label for=\"detail-format-type\">Format:</label><select class=\"form-control\" id=\"detail-format-type\" data-ng-options=\"formatTypeName for (formatTypeKey, formatTypeName) in dictionaryViewerCtrl.detailFormatTypes\" data-ng-model=\"dictionaryViewerCtrl.selectedDetailFormatType\"></select></div></div><div id=\"datatypeSelector\" class=\"col-md-12\"><div class=\"col-md-3 file-data-container\"><label>Version: &nbsp;</label><span>{{dictionaryViewerCtrl.vTo}}</span></div><div class=\"col-md-1\"></div><div class=\"col-md-4 file-data-container\"><label>Last updated: &nbsp;</label><span>{{dictionaryViewerCtrl.lastUpdate | date:'shortDate'}}</span></div><div class=\"col-md-1\"></div><div class=\"col-md-3 file-data-container\"><label>State: &nbsp;</label><span ng-style=\"{'color' : dictionaryViewerCtrl.state==='OPEN' ? '#499246' : '#a71617'}\">{{dictionaryViewerCtrl.state}}</span></div></div></div></div><!-- template for json viewer --><div id=\"jsonviewer\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.json\" ng-cloak></div><div id=\"datatypeTable\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.table\" ng-cloak></div></div></div><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'graph'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"graph\"><div class=\"vis-wrapper\"><!-- template for graph viewer --><div id=\"datatypeGraph\"><div id=\"graph-diagram\" class=\"graph\"></div></div></div></div><!-- template for report --><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'report'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"report\"><div class=\"report-wrapper\"><div class=\"file-metadata-report\"><div id=\"file-metadata-modifications\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fileDataChanged.length\"><h3 class=\"change-modification-header\"><i class=\"fa fa-exchange\"></i> File Data Modifications</h3><div class=\"change-report-container change-modifications\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fileChanged{{changes.id}}\" aria-expanded=\"false\" data-ng-repeat=\"changes in dictionaryViewerCtrl.changeReport.fileDataChanged \n" +
-	    "                                        | filter: dictionaryViewerCtrl.filterChangesReport \n" +
-	    "                                        | findDiffs track by changes.id\"><report-data-changes change=\"changes\" type=\"fileChanged\"></report-data-changes></li></ul></div></div></div><div class=\"field-report\"><div id=\"field-additions\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsAdded.length\"><h3 class=\"change-addition-header\"><i class=\"fa fa-plus\"></i> Field Name Additions</h3><div class=\"change-report-container change-additions\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldAdded{{additions.id}}\" aria-expanded=\"false\" data-ng-repeat=\"additions in dictionaryViewerCtrl.changeReport.fieldsAdded\n" +
-	    "                                      | filter: dictionaryViewerCtrl.filterChangesReport\n" +
-	    "                                      | findDiffs track by additions.id\"><report-data-addition addition=\"additions\" type=\"fieldAdded\"></report-data-addition></li></ul></div></div><div id=\"field-modifications\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsChanged.length\"><h3 class=\"change-modification-header\"><i class=\"fa fa-exchange\"></i> Field Name Modifications</h3><div class=\"change-report-container change-modifications\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldChange{{changes.id}}\" aria-expanded=\"false\" data-ng-repeat=\"changes in dictionaryViewerCtrl.changeReport.fieldsChanged \n" +
-	    "                                      | filter: dictionaryViewerCtrl.filterChangesReport \n" +
-	    "                                      | findDiffs track by changes.id\"><report-data-changes change=\"changes\" type=\"fieldChange\"></report-data-changes></li></ul></div></div><div id=\"field-deletions\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsRemoved.length\"><h3 class=\"change-removal-header\"><i class=\"fa fa-minus\"></i> Field Name Deletions</h3><div class=\"change-report-container change-removals\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldRemoved{{removals.id}}\" aria-expanded=\"false\" data-ng-repeat=\"removals in dictionaryViewerCtrl.changeReport.fieldsRemoved \n" +
-	    "                                        | filter: dictionaryViewerCtrl.filterChangesReport\n" +
-	    "                                        | findDiffs track by removals.id\"><report-data-removal removal=\"removals\" type=\"fieldRemoved\"></report-data-removal></li></ul></div></div></div><div data-ng-if=\"! dictionaryViewerCtrl.changeReport.fieldsAdded.length && ! dictionaryViewerCtrl.changeReport.fieldsChanged.length && ! dictionaryViewerCtrl.changeReport.fieldsRemoved.length\">No Changes to Report Between {{dictionaryViewerCtrl.vFrom}} and {{dictionaryViewerCtrl.vTo}} Dictionary Versions.</div></div></div><p id=\"jsondiffpatch-el\"></p><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'codelist'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"codelist\"><!-- template for codelists --><div class=\"codelist-wrapper\"><div><span>Hide unused Codelists: <input type=\"checkbox\" data-ng-model=\"dictionaryViewerCtrl.hideUnusedCodeLists\"></span></div><br><table class=\"table table-condensed table-bordered table-hover\"><thead><tr><th>Name</th><th>Used in ...</th></tr></thead><tbody><tr data-ng-repeat=\"codeList in dictionaryViewerCtrl.codeListsFiltered | filter:{'name':dictionaryViewerCtrl.q} | orderBy:'name'\" data-ng-init=\"expanded=false\"><td><span data-ng-click=\"expanded=!expanded\"><a href=\"\">{{codeList.name}} <i class=\"{{expanded? 'glyphicon glyphicon-chevron-up': 'glyphicon glyphicon-chevron-down'}}\"></i></a></span><ul data-ng-show=\"expanded\" class=\"list-unstyled\"><li data-ng-repeat=\"term in codeList.terms\">{{term.code}} &nbsp;&nbsp;&nbsp; {{term.value}}</li></ul></td><td style=\"max-width:60rem\"><span data-ng-repeat=\"datatype in codeList.coverage\"><a href=\"\" data-ng-click=\"dictionaryViewerCtrl.goto('table', datatype)\">{{datatype}}</a>&nbsp;&nbsp;</span></td></tr></tbody></table></div></div></div></div></div>"
-	  );
-	} ]);
+	*/(function(){function js_beautify(js_source_text,options){"use strict";var beautifier=new Beautifier(js_source_text,options);return beautifier.beautify();}function Beautifier(js_source_text,options){"use strict";var input,output_lines;var token_text,token_type,last_type,last_last_text,indent_string;var flags,previous_flags,flag_store;var whitespace,wordchar,punct,parser_pos,line_starters,digits;var prefix;var input_wanted_newline;var output_wrapped,output_space_before_token;var input_length,n_newlines,whitespace_before_token;var handlers,MODE,opt;var preindent_string='';whitespace="\n\r\t ".split('');wordchar='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_$'.split('');digits='0123456789'.split('');punct='+ - * / % & ++ -- = += -= *= /= %= == === != !== > < >= <= >> << >>> >>>= >>= <<= && &= | || ! !! , : ? ^ ^= |= ::';punct+=' <%= <% %> <?= <? ?>';// try to be a good boy and try not to break the markup language identifiers
+	punct=punct.split(' ');// words which should always start on new line.
+	line_starters='continue,try,throw,return,var,if,switch,case,default,for,while,break,function'.split(',');MODE={BlockStatement:'BlockStatement',// 'BLOCK'
+	Statement:'Statement',// 'STATEMENT'
+	ObjectLiteral:'ObjectLiteral',// 'OBJECT',
+	ArrayLiteral:'ArrayLiteral',//'[EXPRESSION]',
+	ForInitializer:'ForInitializer',//'(FOR-EXPRESSION)',
+	Conditional:'Conditional',//'(COND-EXPRESSION)',
+	Expression:'Expression'//'(EXPRESSION)'
+	};handlers={'TK_START_EXPR':handle_start_expr,'TK_END_EXPR':handle_end_expr,'TK_START_BLOCK':handle_start_block,'TK_END_BLOCK':handle_end_block,'TK_WORD':handle_word,'TK_SEMICOLON':handle_semicolon,'TK_STRING':handle_string,'TK_EQUALS':handle_equals,'TK_OPERATOR':handle_operator,'TK_COMMA':handle_comma,'TK_BLOCK_COMMENT':handle_block_comment,'TK_INLINE_COMMENT':handle_inline_comment,'TK_COMMENT':handle_comment,'TK_DOT':handle_dot,'TK_UNKNOWN':handle_unknown};function create_flags(flags_base,mode){var next_indent_level=0;if(flags_base){next_indent_level=flags_base.indentation_level;next_indent_level+=flags_base.var_line&&flags_base.var_line_reindented?1:0;if(!just_added_newline()&&flags_base.line_indent_level>next_indent_level){next_indent_level=flags_base.line_indent_level;}}var next_flags={mode:mode,parent:flags_base,last_text:flags_base?flags_base.last_text:'',// last token text
+	last_word:flags_base?flags_base.last_word:'',// last 'TK_WORD' passed
+	var_line:false,var_line_tainted:false,var_line_reindented:false,in_html_comment:false,multiline_frame:false,if_block:false,do_block:false,do_while:false,in_case_statement:false,// switch(..){ INSIDE HERE }
+	in_case:false,// we're on the exact line with "case 0:"
+	case_body:false,// the indented case-action block
+	indentation_level:next_indent_level,line_indent_level:flags_base?flags_base.line_indent_level:next_indent_level,start_line_index:output_lines.length,had_comment:false,ternary_depth:0};return next_flags;}// Using object instead of string to allow for later expansion of info about each line
+	function create_output_line(){return{text:[]};}// Some interpreters have unexpected results with foo = baz || bar;
+	options=options?options:{};opt={};// compatibility
+	if(options.space_after_anon_function!==undefined&&options.jslint_happy===undefined){options.jslint_happy=options.space_after_anon_function;}if(options.braces_on_own_line!==undefined){//graceful handling of deprecated option
+	opt.brace_style=options.braces_on_own_line?"expand":"collapse";}opt.brace_style=options.brace_style?options.brace_style:opt.brace_style?opt.brace_style:"collapse";// graceful handling of deprecated option
+	if(opt.brace_style==="expand-strict"){opt.brace_style="expand";}opt.indent_size=options.indent_size?parseInt(options.indent_size,10):4;opt.indent_char=options.indent_char?options.indent_char:' ';opt.preserve_newlines=options.preserve_newlines===undefined?true:options.preserve_newlines;opt.break_chained_methods=options.break_chained_methods===undefined?false:options.break_chained_methods;opt.max_preserve_newlines=options.max_preserve_newlines===undefined?0:parseInt(options.max_preserve_newlines,10);opt.space_in_paren=options.space_in_paren===undefined?false:options.space_in_paren;opt.jslint_happy=options.jslint_happy===undefined?false:options.jslint_happy;opt.keep_array_indentation=options.keep_array_indentation===undefined?false:options.keep_array_indentation;opt.space_before_conditional=options.space_before_conditional===undefined?true:options.space_before_conditional;opt.unescape_strings=options.unescape_strings===undefined?false:options.unescape_strings;opt.wrap_line_length=options.wrap_line_length===undefined?0:parseInt(options.wrap_line_length,10);opt.e4x=options.e4x===undefined?false:options.e4x;if(options.indent_with_tabs){opt.indent_char='\t';opt.indent_size=1;}//----------------------------------
+	indent_string='';while(opt.indent_size>0){indent_string+=opt.indent_char;opt.indent_size-=1;}while(js_source_text&&(js_source_text.charAt(0)===' '||js_source_text.charAt(0)==='\t')){preindent_string+=js_source_text.charAt(0);js_source_text=js_source_text.substring(1);}input=js_source_text;// cache the source's length.
+	input_length=js_source_text.length;last_type='TK_START_BLOCK';// last token type
+	last_last_text='';// pre-last token text
+	output_lines=[create_output_line()];output_wrapped=false;output_space_before_token=false;whitespace_before_token=[];// Stack of parsing/formatting states, including MODE.
+	// We tokenize, parse, and output in an almost purely a forward-only stream of token input
+	// and formatted output.  This makes the beautifier less accurate than full parsers
+	// but also far more tolerant of syntax errors.
+	//
+	// For example, the default mode is MODE.BlockStatement. If we see a '{' we push a new frame of type
+	// MODE.BlockStatement on the the stack, even though it could be object literal.  If we later
+	// encounter a ":", we'll switch to to MODE.ObjectLiteral.  If we then see a ";",
+	// most full parsers would die, but the beautifier gracefully falls back to
+	// MODE.BlockStatement and continues on.
+	flag_store=[];set_mode(MODE.BlockStatement);parser_pos=0;this.beautify=function(){/*jshint onevar:true */var t,i,keep_whitespace,sweet_code;while(true){t=get_next_token();token_text=t[0];token_type=t[1];if(token_type==='TK_EOF'){break;}keep_whitespace=opt.keep_array_indentation&&is_array(flags.mode);input_wanted_newline=n_newlines>0;if(keep_whitespace){for(i=0;i<n_newlines;i+=1){print_newline(i>0);}}else{if(opt.max_preserve_newlines&&n_newlines>opt.max_preserve_newlines){n_newlines=opt.max_preserve_newlines;}if(opt.preserve_newlines){if(n_newlines>1){print_newline();for(i=1;i<n_newlines;i+=1){print_newline(true);}}}}handlers[token_type]();// The cleanest handling of inline comments is to treat them as though they aren't there.
+	// Just continue formatting and the behavior should be logical.
+	// Also ignore unknown tokens.  Again, this should result in better behavior.
+	if(token_type!=='TK_INLINE_COMMENT'&&token_type!=='TK_COMMENT'&&token_type!=='TK_BLOCK_COMMENT'&&token_type!=='TK_UNKNOWN'){last_last_text=flags.last_text;last_type=token_type;flags.last_text=token_text;}flags.had_comment=token_type==='TK_INLINE_COMMENT'||token_type==='TK_COMMENT'||token_type==='TK_BLOCK_COMMENT';}sweet_code=output_lines[0].text.join('');for(var line_index=1;line_index<output_lines.length;line_index++){sweet_code+='\n'+output_lines[line_index].text.join('');}sweet_code=sweet_code.replace(/[\r\n ]+$/,'');return sweet_code;};function trim_output(eat_newlines){eat_newlines=eat_newlines===undefined?false:eat_newlines;if(output_lines.length){trim_output_line(output_lines[output_lines.length-1],eat_newlines);while(eat_newlines&&output_lines.length>1&&output_lines[output_lines.length-1].text.length===0){output_lines.pop();trim_output_line(output_lines[output_lines.length-1],eat_newlines);}}}function trim_output_line(line){while(line.text.length&&(line.text[line.text.length-1]===' '||line.text[line.text.length-1]===indent_string||line.text[line.text.length-1]===preindent_string)){line.text.pop();}}function trim(s){return s.replace(/^\s+|\s+$/g,'');}// we could use just string.split, but
+	// IE doesn't like returning empty strings
+	function split_newlines(s){//return s.split(/\x0d\x0a|\x0a/);
+	s=s.replace(/\x0d/g,'');var out=[],idx=s.indexOf("\n");while(idx!==-1){out.push(s.substring(0,idx));s=s.substring(idx+1);idx=s.indexOf("\n");}if(s.length){out.push(s);}return out;}function just_added_newline(){var line=output_lines[output_lines.length-1];return line.text.length===0;}function just_added_blankline(){if(just_added_newline()){if(output_lines.length===1){return true;// start of the file and newline = blank
+	}var line=output_lines[output_lines.length-2];return line.text.length===0;}return false;}function allow_wrap_or_preserved_newline(force_linewrap){force_linewrap=force_linewrap===undefined?false:force_linewrap;if(opt.wrap_line_length&&!force_linewrap){var line=output_lines[output_lines.length-1];var proposed_line_length=0;// never wrap the first token of a line.
+	if(line.text.length>0){proposed_line_length=line.text.join('').length+token_text.length+(output_space_before_token?1:0);if(proposed_line_length>=opt.wrap_line_length){force_linewrap=true;}}}if((opt.preserve_newlines&&input_wanted_newline||force_linewrap)&&!just_added_newline()){print_newline(false,true);// Expressions and array literals already indent their contents.
+	if(!(is_array(flags.mode)||is_expression(flags.mode))){output_wrapped=true;}}}function print_newline(force_newline,preserve_statement_flags){output_wrapped=false;output_space_before_token=false;if(!preserve_statement_flags){if(flags.last_text!==';'){while(flags.mode===MODE.Statement&&!flags.if_block&&!flags.do_block){restore_mode();}}}if(output_lines.length===1&&just_added_newline()){return;// no newline on start of file
+	}if(force_newline||!just_added_newline()){flags.multiline_frame=true;output_lines.push(create_output_line());}}function print_token_line_indentation(){if(just_added_newline()){var line=output_lines[output_lines.length-1];if(opt.keep_array_indentation&&is_array(flags.mode)&&input_wanted_newline){// prevent removing of this whitespace as redundant
+	line.text.push('');for(var i=0;i<whitespace_before_token.length;i+=1){line.text.push(whitespace_before_token[i]);}}else{if(preindent_string){line.text.push(preindent_string);}print_indent_string(flags.indentation_level+(flags.var_line&&flags.var_line_reindented?1:0)+(output_wrapped?1:0));}}}function print_indent_string(level){// Never indent your first output indent at the start of the file
+	if(output_lines.length>1){var line=output_lines[output_lines.length-1];flags.line_indent_level=level;for(var i=0;i<level;i+=1){line.text.push(indent_string);}}}function print_token_space_before(){var line=output_lines[output_lines.length-1];if(output_space_before_token&&line.text.length){var last_output=line.text[line.text.length-1];if(last_output!==' '&&last_output!==indent_string){// prevent occassional duplicate space
+	line.text.push(' ');}}}function print_token(printable_token){printable_token=printable_token||token_text;print_token_line_indentation();output_wrapped=false;print_token_space_before();output_space_before_token=false;output_lines[output_lines.length-1].text.push(printable_token);}function indent(){flags.indentation_level+=1;}function deindent(){if(flags.indentation_level>0&&(!flags.parent||flags.indentation_level>flags.parent.indentation_level))flags.indentation_level-=1;}function remove_redundant_indentation(frame){// This implementation is effective but has some issues:
+	//     - less than great performance due to array splicing
+	//     - can cause line wrap to happen too soon due to indent removal
+	//           after wrap points are calculated
+	// These issues are minor compared to ugly indentation.
+	if(frame.multiline_frame)return;// remove one indent from each line inside this section
+	var index=frame.start_line_index;var splice_index=0;var line;while(index<output_lines.length){line=output_lines[index];index++;// skip empty lines
+	if(line.text.length===0){continue;}// skip the preindent string if present
+	if(preindent_string&&line.text[0]===preindent_string){splice_index=1;}else{splice_index=0;}// remove one indent, if present
+	if(line.text[splice_index]===indent_string){line.text.splice(splice_index,1);}}}function set_mode(mode){if(flags){flag_store.push(flags);previous_flags=flags;}else{previous_flags=create_flags(null,mode);}flags=create_flags(previous_flags,mode);}function is_array(mode){return mode===MODE.ArrayLiteral;}function is_expression(mode){return in_array(mode,[MODE.Expression,MODE.ForInitializer,MODE.Conditional]);}function restore_mode(){if(flag_store.length>0){previous_flags=flags;flags=flag_store.pop();}}function start_of_object_property(){return flags.mode===MODE.ObjectLiteral&&flags.last_text===':'&&flags.ternary_depth===0;}function start_of_statement(){if(flags.last_text==='do'||flags.last_text==='else'&&token_text!=='if'||last_type==='TK_END_EXPR'&&(previous_flags.mode===MODE.ForInitializer||previous_flags.mode===MODE.Conditional)){// Issue #276:
+	// If starting a new statement with [if, for, while, do], push to a new line.
+	// if (a) if (b) if(c) d(); else e(); else f();
+	allow_wrap_or_preserved_newline(in_array(token_text,['do','for','if','while']));set_mode(MODE.Statement);// Issue #275:
+	// If starting on a newline, all of a statement should be indented.
+	// if not, use line wrapping logic for indent.
+	if(just_added_newline()){indent();output_wrapped=false;}return true;}return false;}function all_lines_start_with(lines,c){for(var i=0;i<lines.length;i++){var line=trim(lines[i]);if(line.charAt(0)!==c){return false;}}return true;}function is_special_word(word){return in_array(word,['case','return','do','if','throw','else']);}function in_array(what,arr){for(var i=0;i<arr.length;i+=1){if(arr[i]===what){return true;}}return false;}function unescape_string(s){var esc=false,out='',pos=0,s_hex='',escaped=0,c;while(esc||pos<s.length){c=s.charAt(pos);pos++;if(esc){esc=false;if(c==='x'){// simple hex-escape \x24
+	s_hex=s.substr(pos,2);pos+=2;}else if(c==='u'){// unicode-escape, \u2134
+	s_hex=s.substr(pos,4);pos+=4;}else{// some common escape, e.g \n
+	out+='\\'+c;continue;}if(!s_hex.match(/^[0123456789abcdefABCDEF]+$/)){// some weird escaping, bail out,
+	// leaving whole string intact
+	return s;}escaped=parseInt(s_hex,16);if(escaped>=0x00&&escaped<0x20){// leave 0x00...0x1f escaped
+	if(c==='x'){out+='\\x'+s_hex;}else{out+='\\u'+s_hex;}continue;}else if(escaped===0x22||escaped===0x27||escaped===0x5c){// single-quote, apostrophe, backslash - escape these
+	out+='\\'+String.fromCharCode(escaped);}else if(c==='x'&&escaped>0x7e&&escaped<=0xff){// we bail out on \x7f..\xff,
+	// leaving whole string escaped,
+	// as it's probably completely binary
+	return s;}else{out+=String.fromCharCode(escaped);}}else if(c==='\\'){esc=true;}else{out+=c;}}return out;}function is_next(find){var local_pos=parser_pos;var c=input.charAt(local_pos);while(in_array(c,whitespace)&&c!==find){local_pos++;if(local_pos>=input_length){return false;}c=input.charAt(local_pos);}return c===find;}function get_next_token(){var i,resulting_string;n_newlines=0;if(parser_pos>=input_length){return['','TK_EOF'];}input_wanted_newline=false;whitespace_before_token=[];var c=input.charAt(parser_pos);parser_pos+=1;while(in_array(c,whitespace)){if(c==='\n'){n_newlines+=1;whitespace_before_token=[];}else if(n_newlines){if(c===indent_string){whitespace_before_token.push(indent_string);}else if(c!=='\r'){whitespace_before_token.push(' ');}}if(parser_pos>=input_length){return['','TK_EOF'];}c=input.charAt(parser_pos);parser_pos+=1;}if(in_array(c,wordchar)){if(parser_pos<input_length){while(in_array(input.charAt(parser_pos),wordchar)){c+=input.charAt(parser_pos);parser_pos+=1;if(parser_pos===input_length){break;}}}// small and surprisingly unugly hack for 1E-10 representation
+	if(parser_pos!==input_length&&c.match(/^[0-9]+[Ee]$/)&&(input.charAt(parser_pos)==='-'||input.charAt(parser_pos)==='+')){var sign=input.charAt(parser_pos);parser_pos+=1;var t=get_next_token();c+=sign+t[0];return[c,'TK_WORD'];}if(c==='in'){// hack for 'in' operator
+	return[c,'TK_OPERATOR'];}return[c,'TK_WORD'];}if(c==='('||c==='['){return[c,'TK_START_EXPR'];}if(c===')'||c===']'){return[c,'TK_END_EXPR'];}if(c==='{'){return[c,'TK_START_BLOCK'];}if(c==='}'){return[c,'TK_END_BLOCK'];}if(c===';'){return[c,'TK_SEMICOLON'];}if(c==='/'){var comment='';// peek for comment /* ... */
+	var inline_comment=true;if(input.charAt(parser_pos)==='*'){parser_pos+=1;if(parser_pos<input_length){while(parser_pos<input_length&&!(input.charAt(parser_pos)==='*'&&input.charAt(parser_pos+1)&&input.charAt(parser_pos+1)==='/')){c=input.charAt(parser_pos);comment+=c;if(c==="\n"||c==="\r"){inline_comment=false;}parser_pos+=1;if(parser_pos>=input_length){break;}}}parser_pos+=2;if(inline_comment&&n_newlines===0){return['/*'+comment+'*/','TK_INLINE_COMMENT'];}else{return['/*'+comment+'*/','TK_BLOCK_COMMENT'];}}// peek for comment // ...
+	if(input.charAt(parser_pos)==='/'){comment=c;while(input.charAt(parser_pos)!=='\r'&&input.charAt(parser_pos)!=='\n'){comment+=input.charAt(parser_pos);parser_pos+=1;if(parser_pos>=input_length){break;}}return[comment,'TK_COMMENT'];}}if(c==="'"||c==='"'||// string
+	(c==='/'||// regexp
+	opt.e4x&&c==="<"&&input.slice(parser_pos-1).match(/^<([-a-zA-Z:0-9_.]+|{[^{}]*}|!\[CDATA\[[\s\S]*?\]\])\s*([-a-zA-Z:0-9_.]+=('[^']*'|"[^"]*"|{[^{}]*})\s*)*\/?\s*>/)// xml
+	)&&(// regex and xml can only appear in specific locations during parsing
+	last_type==='TK_WORD'&&is_special_word(flags.last_text)||last_type==='TK_END_EXPR'&&in_array(previous_flags.mode,[MODE.Conditional,MODE.ForInitializer])||in_array(last_type,['TK_COMMENT','TK_START_EXPR','TK_START_BLOCK','TK_END_BLOCK','TK_OPERATOR','TK_EQUALS','TK_EOF','TK_SEMICOLON','TK_COMMA']))){var sep=c,esc=false,has_char_escapes=false;resulting_string=c;if(parser_pos<input_length){if(sep==='/'){//
+	// handle regexp
+	//
+	var in_char_class=false;while(esc||in_char_class||input.charAt(parser_pos)!==sep){resulting_string+=input.charAt(parser_pos);if(!esc){esc=input.charAt(parser_pos)==='\\';if(input.charAt(parser_pos)==='['){in_char_class=true;}else if(input.charAt(parser_pos)===']'){in_char_class=false;}}else{esc=false;}parser_pos+=1;if(parser_pos>=input_length){// incomplete string/rexp when end-of-file reached.
+	// bail out with what had been received so far.
+	return[resulting_string,'TK_STRING'];}}}else if(opt.e4x&&sep==='<'){//
+	// handle e4x xml literals
+	//
+	var xmlRegExp=/<(\/?)([-a-zA-Z:0-9_.]+|{[^{}]*}|!\[CDATA\[[\s\S]*?\]\])\s*([-a-zA-Z:0-9_.]+=('[^']*'|"[^"]*"|{[^{}]*})\s*)*(\/?)\s*>/g;var xmlStr=input.slice(parser_pos-1);var match=xmlRegExp.exec(xmlStr);if(match&&match.index===0){var rootTag=match[2];var depth=0;while(match){var isEndTag=!!match[1];var tagName=match[2];var isSingletonTag=!!match[match.length-1]||tagName.slice(0,8)==="![CDATA[";if(tagName===rootTag&&!isSingletonTag){if(isEndTag){--depth;}else{++depth;}}if(depth<=0){break;}match=xmlRegExp.exec(xmlStr);}var xmlLength=match?match.index+match[0].length:xmlStr.length;parser_pos+=xmlLength-1;return[xmlStr.slice(0,xmlLength),"TK_STRING"];}}else{//
+	// handle string
+	//
+	while(esc||input.charAt(parser_pos)!==sep){resulting_string+=input.charAt(parser_pos);if(esc){if(input.charAt(parser_pos)==='x'||input.charAt(parser_pos)==='u'){has_char_escapes=true;}esc=false;}else{esc=input.charAt(parser_pos)==='\\';}parser_pos+=1;if(parser_pos>=input_length){// incomplete string/rexp when end-of-file reached.
+	// bail out with what had been received so far.
+	return[resulting_string,'TK_STRING'];}}}}parser_pos+=1;resulting_string+=sep;if(has_char_escapes&&opt.unescape_strings){resulting_string=unescape_string(resulting_string);}if(sep==='/'){// regexps may have modifiers /regexp/MOD , so fetch those, too
+	while(parser_pos<input_length&&in_array(input.charAt(parser_pos),wordchar)){resulting_string+=input.charAt(parser_pos);parser_pos+=1;}}return[resulting_string,'TK_STRING'];}if(c==='#'){if(output_lines.length===1&&output_lines[0].text.length===0&&input.charAt(parser_pos)==='!'){// shebang
+	resulting_string=c;while(parser_pos<input_length&&c!=='\n'){c=input.charAt(parser_pos);resulting_string+=c;parser_pos+=1;}return[trim(resulting_string)+'\n','TK_UNKNOWN'];}// Spidermonkey-specific sharp variables for circular references
+	// https://developer.mozilla.org/En/Sharp_variables_in_JavaScript
+	// http://mxr.mozilla.org/mozilla-central/source/js/src/jsscan.cpp around line 1935
+	var sharp='#';if(parser_pos<input_length&&in_array(input.charAt(parser_pos),digits)){do{c=input.charAt(parser_pos);sharp+=c;parser_pos+=1;}while(parser_pos<input_length&&c!=='#'&&c!=='=');if(c==='#'){//
+	}else if(input.charAt(parser_pos)==='['&&input.charAt(parser_pos+1)===']'){sharp+='[]';parser_pos+=2;}else if(input.charAt(parser_pos)==='{'&&input.charAt(parser_pos+1)==='}'){sharp+='{}';parser_pos+=2;}return[sharp,'TK_WORD'];}}if(c==='<'&&input.substring(parser_pos-1,parser_pos+3)==='<!--'){parser_pos+=3;c='<!--';while(input.charAt(parser_pos)!=='\n'&&parser_pos<input_length){c+=input.charAt(parser_pos);parser_pos++;}flags.in_html_comment=true;return[c,'TK_COMMENT'];}if(c==='-'&&flags.in_html_comment&&input.substring(parser_pos-1,parser_pos+2)==='-->'){flags.in_html_comment=false;parser_pos+=2;return['-->','TK_COMMENT'];}if(c==='.'){return[c,'TK_DOT'];}if(in_array(c,punct)){while(parser_pos<input_length&&in_array(c+input.charAt(parser_pos),punct)){c+=input.charAt(parser_pos);parser_pos+=1;if(parser_pos>=input_length){break;}}if(c===','){return[c,'TK_COMMA'];}else if(c==='='){return[c,'TK_EQUALS'];}else{return[c,'TK_OPERATOR'];}}return[c,'TK_UNKNOWN'];}function handle_start_expr(){if(start_of_statement()){// The conditional starts the statement if appropriate.
+	}var next_mode=MODE.Expression;if(token_text==='['){if(last_type==='TK_WORD'||flags.last_text===')'){// this is array index specifier, break immediately
+	// a[x], fn()[x]
+	if(in_array(flags.last_text,line_starters)){output_space_before_token=true;}set_mode(next_mode);print_token();indent();if(opt.space_in_paren){output_space_before_token=true;}return;}next_mode=MODE.ArrayLiteral;if(is_array(flags.mode)){if(flags.last_text==='['||flags.last_text===','&&(last_last_text===']'||last_last_text==='}')){// ], [ goes to new line
+	// }, [ goes to new line
+	if(!opt.keep_array_indentation){print_newline();}}}}else{if(flags.last_text==='for'){next_mode=MODE.ForInitializer;}else if(in_array(flags.last_text,['if','while'])){next_mode=MODE.Conditional;}else{// next_mode = MODE.Expression;
+	}}if(flags.last_text===';'||last_type==='TK_START_BLOCK'){print_newline();}else if(last_type==='TK_END_EXPR'||last_type==='TK_START_EXPR'||last_type==='TK_END_BLOCK'||flags.last_text==='.'){// TODO: Consider whether forcing this is required.  Review failing tests when removed.
+	allow_wrap_or_preserved_newline(input_wanted_newline);output_wrapped=false;// do nothing on (( and )( and ][ and ]( and .(
+	}else if(last_type!=='TK_WORD'&&last_type!=='TK_OPERATOR'){output_space_before_token=true;}else if(flags.last_word==='function'||flags.last_word==='typeof'){// function() vs function ()
+	if(opt.jslint_happy){output_space_before_token=true;}}else if(in_array(flags.last_text,line_starters)||flags.last_text==='catch'){if(opt.space_before_conditional){output_space_before_token=true;}}// Support of this kind of newline preservation.
+	// a = (b &&
+	//     (c || d));
+	if(token_text==='('){if(last_type==='TK_EQUALS'||last_type==='TK_OPERATOR'){if(!start_of_object_property()){allow_wrap_or_preserved_newline();}}}set_mode(next_mode);print_token();if(opt.space_in_paren){output_space_before_token=true;}// In all cases, if we newline while inside an expression it should be indented.
+	indent();}function handle_end_expr(){// statements inside expressions are not valid syntax, but...
+	// statements must all be closed when their container closes
+	while(flags.mode===MODE.Statement){restore_mode();}if(token_text===']'&&is_array(flags.mode)&&flags.multiline_frame&&!opt.keep_array_indentation){print_newline();}if(flags.multiline_frame){allow_wrap_or_preserved_newline();}if(opt.space_in_paren){if(last_type==='TK_START_EXPR'){// () [] no inner space in empty parens like these, ever, ref #320
+	trim_output();output_space_before_token=false;}else{output_space_before_token=true;}}if(token_text===']'&&opt.keep_array_indentation){print_token();restore_mode();}else{restore_mode();print_token();}remove_redundant_indentation(previous_flags);// do {} while () // no statement required after
+	if(flags.do_while&&previous_flags.mode===MODE.Conditional){previous_flags.mode=MODE.Expression;flags.do_block=false;flags.do_while=false;}}function handle_start_block(){set_mode(MODE.BlockStatement);var empty_braces=is_next('}');var empty_anonymous_function=empty_braces&&flags.last_word==='function'&&last_type==='TK_END_EXPR';if(opt.brace_style==="expand"){if(last_type!=='TK_OPERATOR'&&(empty_anonymous_function||last_type==='TK_EQUALS'||is_special_word(flags.last_text)&&flags.last_text!=='else')){output_space_before_token=true;}else{print_newline();}}else{// collapse
+	if(last_type!=='TK_OPERATOR'&&last_type!=='TK_START_EXPR'){if(last_type==='TK_START_BLOCK'){print_newline();}else{output_space_before_token=true;}}else{// if TK_OPERATOR or TK_START_EXPR
+	if(is_array(previous_flags.mode)&&flags.last_text===','){if(last_last_text==='}'){// }, { in array context
+	output_space_before_token=true;}else{print_newline();// [a, b, c, {
+	}}}}print_token();indent();}function handle_end_block(){// statements must all be closed when their container closes
+	while(flags.mode===MODE.Statement){restore_mode();}var empty_braces=last_type==='TK_START_BLOCK';if(opt.brace_style==="expand"){if(!empty_braces){print_newline();}}else{// skip {}
+	if(!empty_braces){if(is_array(flags.mode)&&opt.keep_array_indentation){// we REALLY need a newline here, but newliner would skip that
+	opt.keep_array_indentation=false;print_newline();opt.keep_array_indentation=true;}else{print_newline();}}}restore_mode();print_token();}function handle_word(){if(start_of_statement()){// The conditional starts the statement if appropriate.
+	}else if(input_wanted_newline&&!is_expression(flags.mode)&&(last_type!=='TK_OPERATOR'||flags.last_text==='--'||flags.last_text==='++')&&last_type!=='TK_EQUALS'&&(opt.preserve_newlines||flags.last_text!=='var')){print_newline();}if(flags.do_block&&!flags.do_while){if(token_text==='while'){// do {} ## while ()
+	output_space_before_token=true;print_token();output_space_before_token=true;flags.do_while=true;return;}else{// do {} should always have while as the next word.
+	// if we don't see the expected while, recover
+	print_newline();flags.do_block=false;}}// if may be followed by else, or not
+	// Bare/inline ifs are tricky
+	// Need to unwind the modes correctly: if (a) if (b) c(); else d(); else e();
+	if(flags.if_block){if(token_text!=='else'){while(flags.mode===MODE.Statement){restore_mode();}flags.if_block=false;}}if(token_text==='case'||token_text==='default'&&flags.in_case_statement){print_newline();if(flags.case_body||opt.jslint_happy){// switch cases following one another
+	deindent();flags.case_body=false;}print_token();flags.in_case=true;flags.in_case_statement=true;return;}if(token_text==='function'){if(flags.var_line&&last_type!=='TK_EQUALS'){flags.var_line_reindented=true;}if(in_array(flags.last_text,['}',';'])||just_added_newline()&&!in_array(flags.last_text,['{',':','=',','])){// make sure there is a nice clean space of at least one blank line
+	// before a new function definition
+	if(!just_added_blankline()&&!flags.had_comment){print_newline();print_newline(true);}}if(last_type==='TK_WORD'){if(flags.last_text==='get'||flags.last_text==='set'||flags.last_text==='new'||flags.last_text==='return'){output_space_before_token=true;}else{print_newline();}}else if(last_type==='TK_OPERATOR'||flags.last_text==='='){// foo = function
+	output_space_before_token=true;}else if(is_expression(flags.mode)){// (function
+	}else{print_newline();}}if(last_type==='TK_COMMA'||last_type==='TK_START_EXPR'||last_type==='TK_EQUALS'||last_type==='TK_OPERATOR'){if(!start_of_object_property()){allow_wrap_or_preserved_newline();}}if(token_text==='function'){print_token();flags.last_word=token_text;return;}prefix='NONE';if(last_type==='TK_END_BLOCK'){if(!in_array(token_text,['else','catch','finally'])){prefix='NEWLINE';}else{if(opt.brace_style==="expand"||opt.brace_style==="end-expand"){prefix='NEWLINE';}else{prefix='SPACE';output_space_before_token=true;}}}else if(last_type==='TK_SEMICOLON'&&flags.mode===MODE.BlockStatement){// TODO: Should this be for STATEMENT as well?
+	prefix='NEWLINE';}else if(last_type==='TK_SEMICOLON'&&is_expression(flags.mode)){prefix='SPACE';}else if(last_type==='TK_STRING'){prefix='NEWLINE';}else if(last_type==='TK_WORD'){prefix='SPACE';}else if(last_type==='TK_START_BLOCK'){prefix='NEWLINE';}else if(last_type==='TK_END_EXPR'){output_space_before_token=true;prefix='NEWLINE';}if(in_array(token_text,line_starters)&&flags.last_text!==')'){if(flags.last_text==='else'){prefix='SPACE';}else{prefix='NEWLINE';}}if(in_array(token_text,['else','catch','finally'])){if(last_type!=='TK_END_BLOCK'||opt.brace_style==="expand"||opt.brace_style==="end-expand"){print_newline();}else{trim_output(true);var line=output_lines[output_lines.length-1];// If we trimmed and there's something other than a close block before us
+	// put a newline back in.  Handles '} // comment' scenario.
+	if(line.text[line.text.length-1]!=='}'){print_newline();}output_space_before_token=true;}}else if(prefix==='NEWLINE'){if(is_special_word(flags.last_text)){// no newline between 'return nnn'
+	output_space_before_token=true;}else if(last_type!=='TK_END_EXPR'){if((last_type!=='TK_START_EXPR'||token_text!=='var')&&flags.last_text!==':'){// no need to force newline on 'var': for (var x = 0...)
+	if(token_text==='if'&&flags.last_word==='else'&&flags.last_text!=='{'){// no newline for } else if {
+	output_space_before_token=true;}else{flags.var_line=false;flags.var_line_reindented=false;print_newline();}}}else if(in_array(token_text,line_starters)&&flags.last_text!==')'){flags.var_line=false;flags.var_line_reindented=false;print_newline();}}else if(is_array(flags.mode)&&flags.last_text===','&&last_last_text==='}'){print_newline();// }, in lists get a newline treatment
+	}else if(prefix==='SPACE'){output_space_before_token=true;}print_token();flags.last_word=token_text;if(token_text==='var'){flags.var_line=true;flags.var_line_reindented=false;flags.var_line_tainted=false;}if(token_text==='do'){flags.do_block=true;}if(token_text==='if'){flags.if_block=true;}}function handle_semicolon(){if(start_of_statement()){// The conditional starts the statement if appropriate.
+	// Semicolon can be the start (and end) of a statement
+	output_space_before_token=false;}while(flags.mode===MODE.Statement&&!flags.if_block&&!flags.do_block){restore_mode();}print_token();flags.var_line=false;flags.var_line_reindented=false;if(flags.mode===MODE.ObjectLiteral){// if we're in OBJECT mode and see a semicolon, its invalid syntax
+	// recover back to treating this as a BLOCK
+	flags.mode=MODE.BlockStatement;}}function handle_string(){if(start_of_statement()){// The conditional starts the statement if appropriate.
+	// One difference - strings want at least a space before
+	output_space_before_token=true;}else if(last_type==='TK_WORD'){output_space_before_token=true;}else if(last_type==='TK_COMMA'||last_type==='TK_START_EXPR'||last_type==='TK_EQUALS'||last_type==='TK_OPERATOR'){if(!start_of_object_property()){allow_wrap_or_preserved_newline();}}else{print_newline();}print_token();}function handle_equals(){if(flags.var_line){// just got an '=' in a var-line, different formatting/line-breaking, etc will now be done
+	flags.var_line_tainted=true;}output_space_before_token=true;print_token();output_space_before_token=true;}function handle_comma(){if(flags.var_line){if(is_expression(flags.mode)||last_type==='TK_END_BLOCK'){// do not break on comma, for(var a = 1, b = 2)
+	flags.var_line_tainted=false;}if(flags.var_line){flags.var_line_reindented=true;}print_token();if(flags.var_line_tainted){flags.var_line_tainted=false;print_newline();}else{output_space_before_token=true;}return;}if(last_type==='TK_END_BLOCK'&&flags.mode!==MODE.Expression){print_token();if(flags.mode===MODE.ObjectLiteral&&flags.last_text==='}'){print_newline();}else{output_space_before_token=true;}}else{if(flags.mode===MODE.ObjectLiteral){print_token();print_newline();}else{// EXPR or DO_BLOCK
+	print_token();output_space_before_token=true;}}}function handle_operator(){var space_before=true;var space_after=true;if(is_special_word(flags.last_text)){// "return" had a special handling in TK_WORD. Now we need to return the favor
+	output_space_before_token=true;print_token();return;}// hack for actionscript's import .*;
+	if(token_text==='*'&&last_type==='TK_DOT'&&!last_last_text.match(/^\d+$/)){print_token();return;}if(token_text===':'&&flags.in_case){flags.case_body=true;indent();print_token();print_newline();flags.in_case=false;return;}if(token_text==='::'){// no spaces around exotic namespacing syntax operator
+	print_token();return;}// http://www.ecma-international.org/ecma-262/5.1/#sec-7.9.1
+	// if there is a newline between -- or ++ and anything else we should preserve it.
+	if(input_wanted_newline&&(token_text==='--'||token_text==='++')){print_newline();}if(in_array(token_text,['--','++','!'])||in_array(token_text,['-','+'])&&(in_array(last_type,['TK_START_BLOCK','TK_START_EXPR','TK_EQUALS','TK_OPERATOR'])||in_array(flags.last_text,line_starters)||flags.last_text===',')){// unary operators (and binary +/- pretending to be unary) special cases
+	space_before=false;space_after=false;if(flags.last_text===';'&&is_expression(flags.mode)){// for (;; ++i)
+	//        ^^^
+	space_before=true;}if(last_type==='TK_WORD'&&in_array(flags.last_text,line_starters)){space_before=true;}if((flags.mode===MODE.BlockStatement||flags.mode===MODE.Statement)&&(flags.last_text==='{'||flags.last_text===';')){// { foo; --i }
+	// foo(); --bar;
+	print_newline();}}else if(token_text===':'){if(flags.ternary_depth===0){if(flags.mode===MODE.BlockStatement){flags.mode=MODE.ObjectLiteral;}space_before=false;}else{flags.ternary_depth-=1;}}else if(token_text==='?'){flags.ternary_depth+=1;}output_space_before_token=output_space_before_token||space_before;print_token();output_space_before_token=space_after;}function handle_block_comment(){var lines=split_newlines(token_text);var j;// iterator for this case
+	var javadoc=false;// block comment starts with a new line
+	print_newline(false,true);if(lines.length>1){if(all_lines_start_with(lines.slice(1),'*')){javadoc=true;}}// first line always indented
+	print_token(lines[0]);for(j=1;j<lines.length;j++){print_newline(false,true);if(javadoc){// javadoc: reformat and re-indent
+	print_token(' '+trim(lines[j]));}else{// normal comments output raw
+	output_lines[output_lines.length-1].text.push(lines[j]);}}// for comments of more than one line, make sure there's a new line after
+	print_newline(false,true);}function handle_inline_comment(){output_space_before_token=true;print_token();output_space_before_token=true;}function handle_comment(){if(input_wanted_newline){print_newline(false,true);}else{trim_output(true);}output_space_before_token=true;print_token();print_newline(false,true);}function handle_dot(){if(is_special_word(flags.last_text)){output_space_before_token=true;}else{// allow preserved newlines before dots in general
+	// force newlines on dots after close paren when break_chained - for bar().baz()
+	allow_wrap_or_preserved_newline(flags.last_text===')'&&opt.break_chained_methods);}print_token();}function handle_unknown(){print_token();if(token_text[token_text.length-1]==='\n'){print_newline();}}}if(true){// Add support for require.js
+	if(false){define(function(require,exports,module){exports.js_beautify=js_beautify;});}else{// if is AMD ( https://github.com/amdjs/amdjs-api/wiki/AMD#defineamd-property- )
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function(){return js_beautify;}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));}}else if(typeof exports!=="undefined"){// Add support for CommonJS. Just put this file somewhere on your require.paths
+	// and you will be able to `var js_beautify = require("beautify").js_beautify`.
+	exports.js_beautify=js_beautify;}else if(typeof window!=="undefined"){// If we're running a web page and don't have either of the above, add our one global
+	window.js_beautify=js_beautify;}else if(typeof global!=="undefined"){// If we don't even have window, try global.
+	global.js_beautify=js_beautify;}})();angular.module('DictionaryViewerApp').run(['$templateCache',function($templateCache){'use strict';$templateCache.put('scripts/views/data-addition.html',"<i class=\"fa fa-plus\"></i> <span data-ng-bind-template=\"{{addition.type}} - {{addition.name}}\"></span><div class=\"collapse content\" id=\"{{type}}{{addition.id}}\" data-ng-if=\"addition.diff\"><div class=\"well\" data-ng-bind-html=\"addition.diff | sanitize\"></div></div>");$templateCache.put('scripts/views/data-changes.html',"<i class=\"fa fa-exchange\"></i> <span data-ng-bind-template=\"{{change.type}} - {{change.name}}\"></span><div class=\"collapse content\" id=\"{{type}}{{change.id}}\" data-ng-if=\"change.diff\"><div class=\"well\" data-ng-bind-html=\"change.diff | sanitize\"></div></div>");$templateCache.put('scripts/views/data-removal.html',"<i class=\"fa fa-minus\"></i> <span data-ng-bind-template=\"{{removal.type}} - {{removal.name}}\"></span><div class=\"collapse content\" id=\"{{type}}{{removal.id}}\" data-ng-if=\"removal.diff\"><div class=\"well\" data-ng-bind-html=\"removal.diff | sanitize\"></div></div>");$templateCache.put('scripts/views/dictionary-viewer-directive.html',"<div id=\"dictionaryModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\"><div class=\"modal-dialog modal-lg\"><div class=\"modal-content\"><div class=\"modal-header\"><button type=\"button\" class=\"t_button pull-right\" data-dismiss=\"modal\" aria-label=\"Close\"><i aria-hidden=\"true\" class=\"icon-cancel\"></i></button><h3 class=\"modal-title\"></h3></div><div class=\"modal-body\"></div><div class=\"modal-footer\"><button type=\"button\" class=\"t_button\" data-dismiss=\"modal\">Close</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal --><div id=\"dictionary-view-container\"><div class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\" data-ng-if=\"dictionaryViewerCtrl.shouldShowHeaderNav === true\"><div class=\"container-fluid\"><!-- Brand and toggle get grouped for better mobile display --><div class=\"navbar-header\"><span class=\"navbar-brand\"><img src=\"https://dcc.icgc.org/styles/images/icgc-logo.png\" width=\"20px\"> <span style=\"font-size:1.7rem; vertical-align:middle\"><span style=\"color:#777777\">ICGC</span> <span>Dictionary Viewer</span></span></span></div><!-- Collect the nav links, forms, and other content for toggling --><div class=\"collapse navbar-collapse\"><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><input data-ng-model=\"dictionaryViewerCtrl.q\" data-ng-model-options=\"{debounce: 350}\" data-ng-click=\"$event.stopPropagation()\" class=\"form-control\" id=\"filter\" type=\"text\" size=\"25\" placeholder=\"Search:\"></div></div><div class=\"navbar-form navbar-left\" role=\"search\"><div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vFrom\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div>TO<div class=\"form-group\"><select class=\"form-control\" data-ng-model=\"dictionaryViewerCtrl.vTo\" data-ng-options=\"item for item in dictionaryViewerCtrl.dictionaryVersionList\" data-ng-change=\"dictionaryViewerCtrl.switchDictionary(dictionaryViewerCtrl.vFrom, dictionaryViewerCtrl.vTo)\" style=\"width:6em\"></select></div></div><div class=\"navbar-form navbar-right\"><div><span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourNew}\">{{dictionaryViewerCtrl.changeReport.fieldsAdded.length}} new</span> &nbsp;&nbsp; <span data-ng-style=\"{color: dictionaryViewerCtrl.tableViewer.colourChanged}\">{{dictionaryViewerCtrl.changeReport.fieldsChanged.length}} changed</span></div></div></div></div></div><div class=\"tab-container\"><ul class=\"nav nav-tabs\" role=\"tablist\"><li data-ng-repeat=\"viewType in dictionaryViewerCtrl.viewTypes\" role=\"presentation\" data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === viewType}\"><a href=\"javascript:void(0)\" aria-controls=\"{{viewType}}\" role=\"tab\" data-toggle=\"tab\" class=\"{{viewType}}-tab\" data-ng-bind=\"viewType | prettyPrintView\" data-target=\"{{viewType}}\" data-ng-click=\"dictionaryViewerCtrl.setView(viewType)\"></a></li></ul><div class=\"tab-content\"><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'details'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"table\"><div class=\"vis-wrapper\"><!-- template for table viewer--><div class=\"clearfix\"><div class=\"minimap-container col-md-12\"><div id=\"datatypeSelector\" class=\"col-md-12\"><div class=\"col-md-3 file-container\"><label for=\"detail-format-type\">Files:</label><button id=\"minimapLabel\" class=\"btn btn-primary\"><span>all</span><i class=\"glyphicon glyphicon-chevron-down\"></i></button><br><div id=\"minimapWrapper\"><svg id=\"minimap\" height=\"0px\" width=\"275px\" style=\"pointer-events:visibleFill; z-index:10\"></svg></div></div><div class=\"col-md-1\"></div><div class=\"col-md-4\"><label for=\"fields-filter\">Attributes: &nbsp;</label><select class=\"form-control\" id=\"fields-filter\" multiple data-ng-change=\"dictionaryViewerCtrl.updateAttributeFilter()\" data-ng-model=\"dictionaryViewerCtrl.selectedAttributes\"><option ng-repeat=\"attribute in dictionaryViewerCtrl.attributes\">{{attribute}}</option></select></div><div class=\"col-md-1\"></div><div class=\"col-md-3 detail-format-container\" style=\"text-align: right\"><label for=\"detail-format-type\">Format:</label><select class=\"form-control\" id=\"detail-format-type\" data-ng-options=\"formatTypeName for (formatTypeKey, formatTypeName) in dictionaryViewerCtrl.detailFormatTypes\" data-ng-model=\"dictionaryViewerCtrl.selectedDetailFormatType\"></select></div></div><div id=\"datatypeSelector\" class=\"col-md-12\"><div class=\"col-md-3 file-data-container\"><label>Version: &nbsp;</label><span>{{dictionaryViewerCtrl.vTo}}</span></div><div class=\"col-md-1\"></div><div class=\"col-md-4 file-data-container\"><label>Last updated: &nbsp;</label><span>{{dictionaryViewerCtrl.lastUpdate | date:'shortDate'}}</span></div><div class=\"col-md-1\"></div><div class=\"col-md-3 file-data-container\"><label>State: &nbsp;</label><span ng-style=\"{'color' : dictionaryViewerCtrl.state==='OPEN' ? '#499246' : '#a71617'}\">{{dictionaryViewerCtrl.state}}</span></div></div></div></div><!-- template for json viewer --><div id=\"jsonviewer\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.json\" ng-cloak></div><div id=\"datatypeTable\" data-ng-show=\"dictionaryViewerCtrl.selectedDetailFormatType === dictionaryViewerCtrl.detailFormatTypes.table\" ng-cloak></div></div></div><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'graph'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"graph\"><div class=\"vis-wrapper\"><!-- template for graph viewer --><div id=\"datatypeGraph\"><div id=\"graph-diagram\" class=\"graph\"></div></div></div></div><!-- template for report --><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'report'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"report\"><div class=\"report-wrapper\"><div class=\"file-metadata-report\"><div id=\"file-metadata-modifications\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fileDataChanged.length\"><h3 class=\"change-modification-header\"><i class=\"fa fa-exchange\"></i> File Data Modifications</h3><div class=\"change-report-container change-modifications\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fileChanged{{changes.id}}\" aria-expanded=\"false\" data-ng-repeat=\"changes in dictionaryViewerCtrl.changeReport.fileDataChanged \n"+"                                        | filter: dictionaryViewerCtrl.filterChangesReport \n"+"                                        | findDiffs track by changes.id\"><report-data-changes change=\"changes\" type=\"fileChanged\"></report-data-changes></li></ul></div></div></div><div class=\"field-report\"><div id=\"field-additions\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsAdded.length\"><h3 class=\"change-addition-header\"><i class=\"fa fa-plus\"></i> Field Name Additions</h3><div class=\"change-report-container change-additions\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldAdded{{additions.id}}\" aria-expanded=\"false\" data-ng-repeat=\"additions in dictionaryViewerCtrl.changeReport.fieldsAdded\n"+"                                      | filter: dictionaryViewerCtrl.filterChangesReport\n"+"                                      | findDiffs track by additions.id\"><report-data-addition addition=\"additions\" type=\"fieldAdded\"></report-data-addition></li></ul></div></div><div id=\"field-modifications\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsChanged.length\"><h3 class=\"change-modification-header\"><i class=\"fa fa-exchange\"></i> Field Name Modifications</h3><div class=\"change-report-container change-modifications\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldChange{{changes.id}}\" aria-expanded=\"false\" data-ng-repeat=\"changes in dictionaryViewerCtrl.changeReport.fieldsChanged \n"+"                                      | filter: dictionaryViewerCtrl.filterChangesReport \n"+"                                      | findDiffs track by changes.id\"><report-data-changes change=\"changes\" type=\"fieldChange\"></report-data-changes></li></ul></div></div><div id=\"field-deletions\" data-ng-if=\"dictionaryViewerCtrl.changeReport.fieldsRemoved.length\"><h3 class=\"change-removal-header\"><i class=\"fa fa-minus\"></i> Field Name Deletions</h3><div class=\"change-report-container change-removals\"><ul class=\"change-report-list\"><li data-toggle=\"collapse\" data-target=\"#fieldRemoved{{removals.id}}\" aria-expanded=\"false\" data-ng-repeat=\"removals in dictionaryViewerCtrl.changeReport.fieldsRemoved \n"+"                                        | filter: dictionaryViewerCtrl.filterChangesReport\n"+"                                        | findDiffs track by removals.id\"><report-data-removal removal=\"removals\" type=\"fieldRemoved\"></report-data-removal></li></ul></div></div></div><div data-ng-if=\"! dictionaryViewerCtrl.changeReport.fieldsAdded.length && ! dictionaryViewerCtrl.changeReport.fieldsChanged.length && ! dictionaryViewerCtrl.changeReport.fieldsRemoved.length\">No Changes to Report Between {{dictionaryViewerCtrl.vFrom}} and {{dictionaryViewerCtrl.vTo}} Dictionary Versions.</div></div></div><p id=\"jsondiffpatch-el\"></p><div data-ng-class=\"{'active': dictionaryViewerCtrl.getCurrentView() === 'codelist'}\" class=\"tab-pane\" role=\"tabpanel\" id=\"codelist\"><!-- template for codelists --><div class=\"codelist-wrapper\"><div><span>Hide unused Codelists: <input type=\"checkbox\" data-ng-model=\"dictionaryViewerCtrl.hideUnusedCodeLists\"></span></div><br><table class=\"table table-condensed table-bordered table-hover\"><thead><tr><th>Name</th><th>Used in ...</th></tr></thead><tbody><tr data-ng-repeat=\"codeList in dictionaryViewerCtrl.codeListsFiltered | filter:{'name':dictionaryViewerCtrl.q} | orderBy:'name'\" data-ng-init=\"expanded=false\"><td><span data-ng-click=\"expanded=!expanded\"><a href=\"\">{{codeList.name}} <i class=\"{{expanded? 'glyphicon glyphicon-chevron-up': 'glyphicon glyphicon-chevron-down'}}\"></i></a></span><ul data-ng-show=\"expanded\" class=\"list-unstyled\"><li data-ng-repeat=\"term in codeList.terms\">{{term.code}} &nbsp;&nbsp;&nbsp; {{term.value}}</li></ul></td><td style=\"max-width:60rem\"><span data-ng-repeat=\"datatype in codeList.coverage\"><a href=\"\" data-ng-click=\"dictionaryViewerCtrl.goto('table', datatype)\">{{datatype}}</a>&nbsp;&nbsp;</span></td></tr></tbody></table></div></div></div></div></div>");}]);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -33863,7 +30361,7 @@ webpackJsonp([0,2],[
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.4.12
+	 * @license AngularJS v1.4.14
 	 * (c) 2010-2015 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -89903,1441 +86401,19 @@ webpackJsonp([0,2],[
 
 /***/ },
 /* 19 */
-/***/ function(module, exports) {
-
-	/**
-	 * Bootstrap Multiselect (https://github.com/davidstutz/bootstrap-multiselect)
-	 * 
-	 * Apache License, Version 2.0:
-	 * Copyright (c) 2012 - 2015 David Stutz
-	 * 
-	 * Licensed under the Apache License, Version 2.0 (the "License"); you may not
-	 * use this file except in compliance with the License. You may obtain a
-	 * copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-	 * 
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-	 * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-	 * License for the specific language governing permissions and limitations
-	 * under the License.
-	 * 
-	 * BSD 3-Clause License:
-	 * Copyright (c) 2012 - 2015 David Stutz
-	 * All rights reserved.
-	 * 
-	 * Redistribution and use in source and binary forms, with or without
-	 * modification, are permitted provided that the following conditions are met:
-	 *    - Redistributions of source code must retain the above copyright notice,
-	 *      this list of conditions and the following disclaimer.
-	 *    - Redistributions in binary form must reproduce the above copyright notice,
-	 *      this list of conditions and the following disclaimer in the documentation
-	 *      and/or other materials provided with the distribution.
-	 *    - Neither the name of David Stutz nor the names of its contributors may be
-	 *      used to endorse or promote products derived from this software without
-	 *      specific prior written permission.
-	 * 
-	 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-	 * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
-	 * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-	 * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
-	 * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-	 * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-	 * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-	 * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-	 * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-	 * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-	 * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-	 */
-	!function ($) {
-	    "use strict";// jshint ;_;
-
-	    if (typeof ko !== 'undefined' && ko.bindingHandlers && !ko.bindingHandlers.multiselect) {
-	        ko.bindingHandlers.multiselect = {
-	            after: ['options', 'value', 'selectedOptions'],
-
-	            init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-	                var $element = $(element);
-	                var config = ko.toJS(valueAccessor());
-
-	                $element.multiselect(config);
-
-	                if (allBindings.has('options')) {
-	                    var options = allBindings.get('options');
-	                    if (ko.isObservable(options)) {
-	                        ko.computed({
-	                            read: function() {
-	                                options();
-	                                setTimeout(function() {
-	                                    var ms = $element.data('multiselect');
-	                                    if (ms)
-	                                        ms.updateOriginalOptions();//Not sure how beneficial this is.
-	                                    $element.multiselect('rebuild');
-	                                }, 1);
-	                            },
-	                            disposeWhenNodeIsRemoved: element
-	                        });
-	                    }
-	                }
-
-	                //value and selectedOptions are two-way, so these will be triggered even by our own actions.
-	                //It needs some way to tell if they are triggered because of us or because of outside change.
-	                //It doesn't loop but it's a waste of processing.
-	                if (allBindings.has('value')) {
-	                    var value = allBindings.get('value');
-	                    if (ko.isObservable(value)) {
-	                        ko.computed({
-	                            read: function() {
-	                                value();
-	                                setTimeout(function() {
-	                                    $element.multiselect('refresh');
-	                                }, 1);
-	                            },
-	                            disposeWhenNodeIsRemoved: element
-	                        }).extend({ rateLimit: 100, notifyWhenChangesStop: true });
-	                    }
-	                }
-
-	                //Switched from arrayChange subscription to general subscription using 'refresh'.
-	                //Not sure performance is any better using 'select' and 'deselect'.
-	                if (allBindings.has('selectedOptions')) {
-	                    var selectedOptions = allBindings.get('selectedOptions');
-	                    if (ko.isObservable(selectedOptions)) {
-	                        ko.computed({
-	                            read: function() {
-	                                selectedOptions();
-	                                setTimeout(function() {
-	                                    $element.multiselect('refresh');
-	                                }, 1);
-	                            },
-	                            disposeWhenNodeIsRemoved: element
-	                        }).extend({ rateLimit: 100, notifyWhenChangesStop: true });
-	                    }
-	                }
-
-	                ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-	                    $element.multiselect('destroy');
-	                });
-	            },
-
-	            update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-	                var $element = $(element);
-	                var config = ko.toJS(valueAccessor());
-
-	                $element.multiselect('setOptions', config);
-	                $element.multiselect('rebuild');
-	            }
-	        };
-	    }
-
-	    function forEach(array, callback) {
-	        for (var index = 0; index < array.length; ++index) {
-	            callback(array[index], index);
-	        }
-	    }
-
-	    /**
-	     * Constructor to create a new multiselect using the given select.
-	     *
-	     * @param {jQuery} select
-	     * @param {Object} options
-	     * @returns {Multiselect}
-	     */
-	    function Multiselect(select, options) {
-
-	        this.$select = $(select);
-	        
-	        // Placeholder via data attributes
-	        if (this.$select.attr("data-placeholder")) {
-	            options.nonSelectedText = this.$select.data("placeholder");
-	        }
-	        
-	        this.options = this.mergeOptions($.extend({}, options, this.$select.data()));
-
-	        // Initialization.
-	        // We have to clone to create a new reference.
-	        this.originalOptions = this.$select.clone()[0].options;
-	        this.query = '';
-	        this.searchTimeout = null;
-	        this.lastToggledInput = null
-
-	        this.options.multiple = this.$select.attr('multiple') === "multiple";
-	        this.options.onChange = $.proxy(this.options.onChange, this);
-	        this.options.onDropdownShow = $.proxy(this.options.onDropdownShow, this);
-	        this.options.onDropdownHide = $.proxy(this.options.onDropdownHide, this);
-	        this.options.onDropdownShown = $.proxy(this.options.onDropdownShown, this);
-	        this.options.onDropdownHidden = $.proxy(this.options.onDropdownHidden, this);
-	        
-	        // Build select all if enabled.
-	        this.buildContainer();
-	        this.buildButton();
-	        this.buildDropdown();
-	        this.buildSelectAll();
-	        this.buildDropdownOptions();
-	        this.buildFilter();
-
-	        this.updateButtonText();
-	        this.updateSelectAll();
-
-	        if (this.options.disableIfEmpty && $('option', this.$select).length <= 0) {
-	            this.disable();
-	        }
-	        
-	        this.$select.hide().after(this.$container);
-	    };
-
-	    Multiselect.prototype = {
-
-	        defaults: {
-	            /**
-	             * Default text function will either print 'None selected' in case no
-	             * option is selected or a list of the selected options up to a length
-	             * of 3 selected options.
-	             * 
-	             * @param {jQuery} options
-	             * @param {jQuery} select
-	             * @returns {String}
-	             */
-	            buttonText: function(options, select) {
-	                if (options.length === 0) {
-	                    return this.nonSelectedText;
-	                }
-	                else if (this.allSelectedText 
-	                            && options.length === $('option', $(select)).length 
-	                            && $('option', $(select)).length !== 1 
-	                            && this.multiple) {
-
-	                    if (this.selectAllNumber) {
-	                        return this.allSelectedText + ' (' + options.length + ')';
-	                    }
-	                    else {
-	                        return this.allSelectedText;
-	                    }
-	                }
-	                else if (options.length > this.numberDisplayed) {
-	                    return options.length + ' ' + this.nSelectedText;
-	                }
-	                else {
-	                    var selected = '';
-	                    var delimiter = this.delimiterText;
-	                    
-	                    options.each(function() {
-	                        var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
-	                        selected += label + delimiter;
-	                    });
-	                    
-	                    return selected.substr(0, selected.length - 2);
-	                }
-	            },
-	            /**
-	             * Updates the title of the button similar to the buttonText function.
-	             * 
-	             * @param {jQuery} options
-	             * @param {jQuery} select
-	             * @returns {@exp;selected@call;substr}
-	             */
-	            buttonTitle: function(options, select) {
-	                if (options.length === 0) {
-	                    return this.nonSelectedText;
-	                }
-	                else {
-	                    var selected = '';
-	                    var delimiter = this.delimiterText;
-	                    
-	                    options.each(function () {
-	                        var label = ($(this).attr('label') !== undefined) ? $(this).attr('label') : $(this).text();
-	                        selected += label + delimiter;
-	                    });
-	                    return selected.substr(0, selected.length - 2);
-	                }
-	            },
-	            /**
-	             * Create a label.
-	             *
-	             * @param {jQuery} element
-	             * @returns {String}
-	             */
-	            optionLabel: function(element){
-	                return $(element).attr('label') || $(element).text();
-	            },
-	            /**
-	             * Triggered on change of the multiselect.
-	             * 
-	             * Not triggered when selecting/deselecting options manually.
-	             * 
-	             * @param {jQuery} option
-	             * @param {Boolean} checked
-	             */
-	            onChange : function(option, checked) {
-
-	            },
-	            /**
-	             * Triggered when the dropdown is shown.
-	             *
-	             * @param {jQuery} event
-	             */
-	            onDropdownShow: function(event) {
-
-	            },
-	            /**
-	             * Triggered when the dropdown is hidden.
-	             *
-	             * @param {jQuery} event
-	             */
-	            onDropdownHide: function(event) {
-
-	            },
-	            /**
-	             * Triggered after the dropdown is shown.
-	             * 
-	             * @param {jQuery} event
-	             */
-	            onDropdownShown: function(event) {
-	                
-	            },
-	            /**
-	             * Triggered after the dropdown is hidden.
-	             * 
-	             * @param {jQuery} event
-	             */
-	            onDropdownHidden: function(event) {
-	                
-	            },
-	            /**
-	             * Triggered on select all.
-	             */
-	            onSelectAll: function() {
-	                
-	            },
-	            enableHTML: false,
-	            buttonClass: 'btn btn-default',
-	            inheritClass: false,
-	            buttonWidth: 'auto',
-	            buttonContainer: '<div class="btn-group" />',
-	            dropRight: false,
-	            selectedClass: 'active',
-	            // Maximum height of the dropdown menu.
-	            // If maximum height is exceeded a scrollbar will be displayed.
-	            maxHeight: false,
-	            checkboxName: false,
-	            includeSelectAllOption: false,
-	            includeSelectAllIfMoreThan: 0,
-	            selectAllText: ' Select all',
-	            selectAllValue: 'multiselect-all',
-	            selectAllName: false,
-	            selectAllNumber: true,
-	            enableFiltering: false,
-	            enableCaseInsensitiveFiltering: false,
-	            enableClickableOptGroups: false,
-	            filterPlaceholder: 'Search',
-	            // possible options: 'text', 'value', 'both'
-	            filterBehavior: 'text',
-	            includeFilterClearBtn: true,
-	            preventInputChangeEvent: false,
-	            nonSelectedText: 'None selected',
-	            nSelectedText: 'selected',
-	            allSelectedText: 'All selected',
-	            numberDisplayed: 3,
-	            disableIfEmpty: false,
-	            delimiterText: ', ',
-	            templates: {
-	                button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> <b class="caret"></b></button>',
-	                ul: '<ul class="multiselect-container dropdown-menu"></ul>',
-	                filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
-	                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="glyphicon glyphicon-remove-circle"></i></button></span>',
-	                li: '<li><a tabindex="0"><label></label></a></li>',
-	                divider: '<li class="multiselect-item divider"></li>',
-	                liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
-	            }
-	        },
-
-	        constructor: Multiselect,
-
-	        /**
-	         * Builds the container of the multiselect.
-	         */
-	        buildContainer: function() {
-	            this.$container = $(this.options.buttonContainer);
-	            this.$container.on('show.bs.dropdown', this.options.onDropdownShow);
-	            this.$container.on('hide.bs.dropdown', this.options.onDropdownHide);
-	            this.$container.on('shown.bs.dropdown', this.options.onDropdownShown);
-	            this.$container.on('hidden.bs.dropdown', this.options.onDropdownHidden);
-	        },
-
-	        /**
-	         * Builds the button of the multiselect.
-	         */
-	        buildButton: function() {
-	            this.$button = $(this.options.templates.button).addClass(this.options.buttonClass);
-	            if (this.$select.attr('class') && this.options.inheritClass) {
-	                this.$button.addClass(this.$select.attr('class'));
-	            }
-	            // Adopt active state.
-	            if (this.$select.prop('disabled')) {
-	                this.disable();
-	            }
-	            else {
-	                this.enable();
-	            }
-
-	            // Manually add button width if set.
-	            if (this.options.buttonWidth && this.options.buttonWidth !== 'auto') {
-	                this.$button.css({
-	                    'width' : this.options.buttonWidth,
-	                    'overflow' : 'hidden',
-	                    'text-overflow' : 'ellipsis'
-	                });
-	                this.$container.css({
-	                    'width': this.options.buttonWidth
-	                });
-	            }
-
-	            // Keep the tab index from the select.
-	            var tabindex = this.$select.attr('tabindex');
-	            if (tabindex) {
-	                this.$button.attr('tabindex', tabindex);
-	            }
-
-	            this.$container.prepend(this.$button);
-	        },
-
-	        /**
-	         * Builds the ul representing the dropdown menu.
-	         */
-	        buildDropdown: function() {
-
-	            // Build ul.
-	            this.$ul = $(this.options.templates.ul);
-
-	            if (this.options.dropRight) {
-	                this.$ul.addClass('pull-right');
-	            }
-
-	            // Set max height of dropdown menu to activate auto scrollbar.
-	            if (this.options.maxHeight) {
-	                // TODO: Add a class for this option to move the css declarations.
-	                this.$ul.css({
-	                    'max-height': this.options.maxHeight + 'px',
-	                    'overflow-y': 'auto',
-	                    'overflow-x': 'hidden'
-	                });
-	            }
-
-	            this.$container.append(this.$ul);
-	        },
-
-	        /**
-	         * Build the dropdown options and binds all nessecary events.
-	         * 
-	         * Uses createDivider and createOptionValue to create the necessary options.
-	         */
-	        buildDropdownOptions: function() {
-
-	            this.$select.children().each($.proxy(function(index, element) {
-
-	                var $element = $(element);
-	                // Support optgroups and options without a group simultaneously.
-	                var tag = $element.prop('tagName')
-	                    .toLowerCase();
-	            
-	                if ($element.prop('value') === this.options.selectAllValue) {
-	                    return;
-	                }
-
-	                if (tag === 'optgroup') {
-	                    this.createOptgroup(element);
-	                }
-	                else if (tag === 'option') {
-
-	                    if ($element.data('role') === 'divider') {
-	                        this.createDivider();
-	                    }
-	                    else {
-	                        this.createOptionValue(element);
-	                    }
-
-	                }
-
-	                // Other illegal tags will be ignored.
-	            }, this));
-
-	            // Bind the change event on the dropdown elements.
-	            $('li input', this.$ul).on('change', $.proxy(function(event) {
-	                var $target = $(event.target);
-
-	                var checked = $target.prop('checked') || false;
-	                var isSelectAllOption = $target.val() === this.options.selectAllValue;
-
-	                // Apply or unapply the configured selected class.
-	                if (this.options.selectedClass) {
-	                    if (checked) {
-	                        $target.closest('li')
-	                            .addClass(this.options.selectedClass);
-	                    }
-	                    else {
-	                        $target.closest('li')
-	                            .removeClass(this.options.selectedClass);
-	                    }
-	                }
-
-	                // Get the corresponding option.
-	                var value = $target.val();
-	                var $option = this.getOptionByValue(value);
-
-	                var $optionsNotThis = $('option', this.$select).not($option);
-	                var $checkboxesNotThis = $('input', this.$container).not($target);
-
-	                if (isSelectAllOption) {
-	                    if (checked) {
-	                        this.selectAll();
-	                    }
-	                    else {
-	                        this.deselectAll();
-	                    }
-	                }
-
-	                if(!isSelectAllOption){
-	                    if (checked) {
-	                        $option.prop('selected', true);
-
-	                        if (this.options.multiple) {
-	                            // Simply select additional option.
-	                            $option.prop('selected', true);
-	                        }
-	                        else {
-	                            // Unselect all other options and corresponding checkboxes.
-	                            if (this.options.selectedClass) {
-	                                $($checkboxesNotThis).closest('li').removeClass(this.options.selectedClass);
-	                            }
-
-	                            $($checkboxesNotThis).prop('checked', false);
-	                            $optionsNotThis.prop('selected', false);
-
-	                            // It's a single selection, so close.
-	                            this.$button.click();
-	                        }
-
-	                        if (this.options.selectedClass === "active") {
-	                            $optionsNotThis.closest("a").css("outline", "");
-	                        }
-	                    }
-	                    else {
-	                        // Unselect option.
-	                        $option.prop('selected', false);
-	                    }
-	                }
-
-	                this.$select.change();
-
-	                this.updateButtonText();
-	                this.updateSelectAll();
-
-	                this.options.onChange($option, checked);
-
-	                if(this.options.preventInputChangeEvent) {
-	                    return false;
-	                }
-	            }, this));
-
-	            $('li a', this.$ul).on('mousedown', function(e) {
-	                if (e.shiftKey) {
-	                    // Prevent selecting text by Shift+click
-	                    return false;
-	                }
-	            });
-	        
-	            $('li a', this.$ul).on('touchstart click', $.proxy(function(event) {
-	                event.stopPropagation();
-
-	                var $target = $(event.target);
-	                
-	                if (event.shiftKey && this.options.multiple) {
-	                    if($target.is("label")){ // Handles checkbox selection manually (see https://github.com/davidstutz/bootstrap-multiselect/issues/431)
-	                        event.preventDefault();
-	                        $target = $target.find("input");
-	                        $target.prop("checked", !$target.prop("checked"));
-	                    }
-	                    var checked = $target.prop('checked') || false;
-
-	                    if (this.lastToggledInput !== null && this.lastToggledInput !== $target) { // Make sure we actually have a range
-	                        var from = $target.closest("li").index();
-	                        var to = this.lastToggledInput.closest("li").index();
-	                        
-	                        if (from > to) { // Swap the indices
-	                            var tmp = to;
-	                            to = from;
-	                            from = tmp;
-	                        }
-	                        
-	                        // Make sure we grab all elements since slice excludes the last index
-	                        ++to;
-	                        
-	                        // Change the checkboxes and underlying options
-	                        var range = this.$ul.find("li").slice(from, to).find("input");
-	                        
-	                        range.prop('checked', checked);
-	                        
-	                        if (this.options.selectedClass) {
-	                            range.closest('li')
-	                                .toggleClass(this.options.selectedClass, checked);
-	                        }
-	                        
-	                        for (var i = 0, j = range.length; i < j; i++) {
-	                            var $checkbox = $(range[i]);
-
-	                            var $option = this.getOptionByValue($checkbox.val());
-
-	                            $option.prop('selected', checked);
-	                        }                   
-	                    }
-	                    
-	                    // Trigger the select "change" event
-	                    $target.trigger("change");
-	                }
-	                
-	                // Remembers last clicked option
-	                if($target.is("input") && !$target.closest("li").is(".multiselect-item")){
-	                    this.lastToggledInput = $target;
-	                }
-
-	                $target.blur();
-	            }, this));
-
-	            // Keyboard support.
-	            this.$container.off('keydown.multiselect').on('keydown.multiselect', $.proxy(function(event) {
-	                if ($('input[type="text"]', this.$container).is(':focus')) {
-	                    return;
-	                }
-
-	                if (event.keyCode === 9 && this.$container.hasClass('open')) {
-	                    this.$button.click();
-	                }
-	                else {
-	                    var $items = $(this.$container).find("li:not(.divider):not(.disabled) a").filter(":visible");
-
-	                    if (!$items.length) {
-	                        return;
-	                    }
-
-	                    var index = $items.index($items.filter(':focus'));
-
-	                    // Navigation up.
-	                    if (event.keyCode === 38 && index > 0) {
-	                        index--;
-	                    }
-	                    // Navigate down.
-	                    else if (event.keyCode === 40 && index < $items.length - 1) {
-	                        index++;
-	                    }
-	                    else if (!~index) {
-	                        index = 0;
-	                    }
-
-	                    var $current = $items.eq(index);
-	                    $current.focus();
-
-	                    if (event.keyCode === 32 || event.keyCode === 13) {
-	                        var $checkbox = $current.find('input');
-
-	                        $checkbox.prop("checked", !$checkbox.prop("checked"));
-	                        $checkbox.change();
-	                    }
-
-	                    event.stopPropagation();
-	                    event.preventDefault();
-	                }
-	            }, this));
-
-	            if(this.options.enableClickableOptGroups && this.options.multiple) {
-	                $('li.multiselect-group', this.$ul).on('click', $.proxy(function(event) {
-	                    event.stopPropagation();
-
-	                    var group = $(event.target).parent();
-
-	                    // Search all option in optgroup
-	                    var $options = group.nextUntil('li.multiselect-group');
-	                    var $visibleOptions = $options.filter(":visible:not(.disabled)");
-
-	                    // check or uncheck items
-	                    var allChecked = true;
-	                    var optionInputs = $visibleOptions.find('input');
-	                    optionInputs.each(function() {
-	                        allChecked = allChecked && $(this).prop('checked');
-	                    });
-
-	                    optionInputs.prop('checked', !allChecked).trigger('change');
-	               }, this));
-	            }
-	        },
-
-	        /**
-	         * Create an option using the given select option.
-	         *
-	         * @param {jQuery} element
-	         */
-	        createOptionValue: function(element) {
-	            var $element = $(element);
-	            if ($element.is(':selected')) {
-	                $element.prop('selected', true);
-	            }
-
-	            // Support the label attribute on options.
-	            var label = this.options.optionLabel(element);
-	            var value = $element.val();
-	            var inputType = this.options.multiple ? "checkbox" : "radio";
-
-	            var $li = $(this.options.templates.li);
-	            var $label = $('label', $li);
-	            $label.addClass(inputType);
-
-	            if (this.options.enableHTML) {
-	                $label.html(" " + label);
-	            }
-	            else {
-	                $label.text(" " + label);
-	            }
-	        
-	            var $checkbox = $('<input/>').attr('type', inputType);
-
-	            if (this.options.checkboxName) {
-	                $checkbox.attr('name', this.options.checkboxName);
-	            }
-	            $label.prepend($checkbox);
-
-	            var selected = $element.prop('selected') || false;
-	            $checkbox.val(value);
-
-	            if (value === this.options.selectAllValue) {
-	                $li.addClass("multiselect-item multiselect-all");
-	                $checkbox.parent().parent()
-	                    .addClass('multiselect-all');
-	            }
-
-	            $label.attr('title', $element.attr('title'));
-
-	            this.$ul.append($li);
-
-	            if ($element.is(':disabled')) {
-	                $checkbox.attr('disabled', 'disabled')
-	                    .prop('disabled', true)
-	                    .closest('a')
-	                    .attr("tabindex", "-1")
-	                    .closest('li')
-	                    .addClass('disabled');
-	            }
-
-	            $checkbox.prop('checked', selected);
-
-	            if (selected && this.options.selectedClass) {
-	                $checkbox.closest('li')
-	                    .addClass(this.options.selectedClass);
-	            }
-	        },
-
-	        /**
-	         * Creates a divider using the given select option.
-	         *
-	         * @param {jQuery} element
-	         */
-	        createDivider: function(element) {
-	            var $divider = $(this.options.templates.divider);
-	            this.$ul.append($divider);
-	        },
-
-	        /**
-	         * Creates an optgroup.
-	         *
-	         * @param {jQuery} group
-	         */
-	        createOptgroup: function(group) {
-	            var groupName = $(group).prop('label');
-
-	            // Add a header for the group.
-	            var $li = $(this.options.templates.liGroup);
-	            
-	            if (this.options.enableHTML) {
-	                $('label', $li).html(groupName);
-	            }
-	            else {
-	                $('label', $li).text(groupName);
-	            }
-	            
-	            if (this.options.enableClickableOptGroups) {
-	                $li.addClass('multiselect-group-clickable');
-	            }
-
-	            this.$ul.append($li);
-
-	            if ($(group).is(':disabled')) {
-	                $li.addClass('disabled');
-	            }
-
-	            // Add the options of the group.
-	            $('option', group).each($.proxy(function(index, element) {
-	                this.createOptionValue(element);
-	            }, this));
-	        },
-
-	        /**
-	         * Build the selct all.
-	         * 
-	         * Checks if a select all has already been created.
-	         */
-	        buildSelectAll: function() {
-	            if (typeof this.options.selectAllValue === 'number') {
-	                this.options.selectAllValue = this.options.selectAllValue.toString();
-	            }
-	            
-	            var alreadyHasSelectAll = this.hasSelectAll();
-
-	            if (!alreadyHasSelectAll && this.options.includeSelectAllOption && this.options.multiple
-	                    && $('option', this.$select).length > this.options.includeSelectAllIfMoreThan) {
-
-	                // Check whether to add a divider after the select all.
-	                if (this.options.includeSelectAllDivider) {
-	                    this.$ul.prepend($(this.options.templates.divider));
-	                }
-
-	                var $li = $(this.options.templates.li);
-	                $('label', $li).addClass("checkbox");
-	                
-	                if (this.options.enableHTML) {
-	                    $('label', $li).html(" " + this.options.selectAllText);
-	                }
-	                else {
-	                    $('label', $li).text(" " + this.options.selectAllText);
-	                }
-	                
-	                if (this.options.selectAllName) {
-	                    $('label', $li).prepend('<input type="checkbox" name="' + this.options.selectAllName + '" />');
-	                }
-	                else {
-	                    $('label', $li).prepend('<input type="checkbox" />');
-	                }
-	                
-	                var $checkbox = $('input', $li);
-	                $checkbox.val(this.options.selectAllValue);
-
-	                $li.addClass("multiselect-item multiselect-all");
-	                $checkbox.parent().parent()
-	                    .addClass('multiselect-all');
-
-	                this.$ul.prepend($li);
-
-	                $checkbox.prop('checked', false);
-	            }
-	        },
-
-	        /**
-	         * Builds the filter.
-	         */
-	        buildFilter: function() {
-
-	            // Build filter if filtering OR case insensitive filtering is enabled and the number of options exceeds (or equals) enableFilterLength.
-	            if (this.options.enableFiltering || this.options.enableCaseInsensitiveFiltering) {
-	                var enableFilterLength = Math.max(this.options.enableFiltering, this.options.enableCaseInsensitiveFiltering);
-
-	                if (this.$select.find('option').length >= enableFilterLength) {
-
-	                    this.$filter = $(this.options.templates.filter);
-	                    $('input', this.$filter).attr('placeholder', this.options.filterPlaceholder);
-	                    
-	                    // Adds optional filter clear button
-	                    if(this.options.includeFilterClearBtn){
-	                        var clearBtn = $(this.options.templates.filterClearBtn);
-	                        clearBtn.on('click', $.proxy(function(event){
-	                            clearTimeout(this.searchTimeout);
-	                            this.$filter.find('.multiselect-search').val('');
-	                            $('li', this.$ul).show().removeClass("filter-hidden");
-	                            this.updateSelectAll();
-	                        }, this));
-	                        this.$filter.find('.input-group').append(clearBtn);
-	                    }
-	                    
-	                    this.$ul.prepend(this.$filter);
-
-	                    this.$filter.val(this.query).on('click', function(event) {
-	                        event.stopPropagation();
-	                    }).on('input keydown', $.proxy(function(event) {
-	                        // Cancel enter key default behaviour
-	                        if (event.which === 13) {
-	                          event.preventDefault();
-	                        }
-	                        
-	                        // This is useful to catch "keydown" events after the browser has updated the control.
-	                        clearTimeout(this.searchTimeout);
-
-	                        this.searchTimeout = this.asyncFunction($.proxy(function() {
-
-	                            if (this.query !== event.target.value) {
-	                                this.query = event.target.value;
-
-	                                var currentGroup, currentGroupVisible;
-	                                $.each($('li', this.$ul), $.proxy(function(index, element) {
-	                                    var value = $('input', element).length > 0 ? $('input', element).val() : "";
-	                                    var text = $('label', element).text();
-
-	                                    var filterCandidate = '';
-	                                    if ((this.options.filterBehavior === 'text')) {
-	                                        filterCandidate = text;
-	                                    }
-	                                    else if ((this.options.filterBehavior === 'value')) {
-	                                        filterCandidate = value;
-	                                    }
-	                                    else if (this.options.filterBehavior === 'both') {
-	                                        filterCandidate = text + '\n' + value;
-	                                    }
-
-	                                    if (value !== this.options.selectAllValue && text) {
-	                                        // By default lets assume that element is not
-	                                        // interesting for this search.
-	                                        var showElement = false;
-
-	                                        if (this.options.enableCaseInsensitiveFiltering && filterCandidate.toLowerCase().indexOf(this.query.toLowerCase()) > -1) {
-	                                            showElement = true;
-	                                        }
-	                                        else if (filterCandidate.indexOf(this.query) > -1) {
-	                                            showElement = true;
-	                                        }
-
-	                                        // Toggle current element (group or group item) according to showElement boolean.
-	                                        $(element).toggle(showElement).toggleClass('filter-hidden', !showElement);
-	                                        
-	                                        // Differentiate groups and group items.
-	                                        if ($(element).hasClass('multiselect-group')) {
-	                                            // Remember group status.
-	                                            currentGroup = element;
-	                                            currentGroupVisible = showElement;
-	                                        }
-	                                        else {
-	                                            // Show group name when at least one of its items is visible.
-	                                            if (showElement) {
-	                                                $(currentGroup).show().removeClass('filter-hidden');
-	                                            }
-	                                            
-	                                            // Show all group items when group name satisfies filter.
-	                                            if (!showElement && currentGroupVisible) {
-	                                                $(element).show().removeClass('filter-hidden');
-	                                            }
-	                                        }
-	                                    }
-	                                }, this));
-	                            }
-
-	                            this.updateSelectAll();
-	                        }, this), 300, this);
-	                    }, this));
-	                }
-	            }
-	        },
-
-	        /**
-	         * Unbinds the whole plugin.
-	         */
-	        destroy: function() {
-	            this.$container.remove();
-	            this.$select.show();
-	            this.$select.data('multiselect', null);
-	        },
-
-	        /**
-	         * Refreshs the multiselect based on the selected options of the select.
-	         */
-	        refresh: function() {
-	            $('option', this.$select).each($.proxy(function(index, element) {
-	                var $input = $('li input', this.$ul).filter(function() {
-	                    return $(this).val() === $(element).val();
-	                });
-
-	                if ($(element).is(':selected')) {
-	                    $input.prop('checked', true);
-
-	                    if (this.options.selectedClass) {
-	                        $input.closest('li')
-	                            .addClass(this.options.selectedClass);
-	                    }
-	                }
-	                else {
-	                    $input.prop('checked', false);
-
-	                    if (this.options.selectedClass) {
-	                        $input.closest('li')
-	                            .removeClass(this.options.selectedClass);
-	                    }
-	                }
-
-	                if ($(element).is(":disabled")) {
-	                    $input.attr('disabled', 'disabled')
-	                        .prop('disabled', true)
-	                        .closest('li')
-	                        .addClass('disabled');
-	                }
-	                else {
-	                    $input.prop('disabled', false)
-	                        .closest('li')
-	                        .removeClass('disabled');
-	                }
-	            }, this));
-
-	            this.updateButtonText();
-	            this.updateSelectAll();
-	        },
-
-	        /**
-	         * Select all options of the given values.
-	         * 
-	         * If triggerOnChange is set to true, the on change event is triggered if
-	         * and only if one value is passed.
-	         * 
-	         * @param {Array} selectValues
-	         * @param {Boolean} triggerOnChange
-	         */
-	        select: function(selectValues, triggerOnChange) {
-	            if(!$.isArray(selectValues)) {
-	                selectValues = [selectValues];
-	            }
-
-	            for (var i = 0; i < selectValues.length; i++) {
-	                var value = selectValues[i];
-
-	                if (value === null || value === undefined) {
-	                    continue;
-	                }
-
-	                var $option = this.getOptionByValue(value);
-	                var $checkbox = this.getInputByValue(value);
-
-	                if($option === undefined || $checkbox === undefined) {
-	                    continue;
-	                }
-	                
-	                if (!this.options.multiple) {
-	                    this.deselectAll(false);
-	                }
-	                
-	                if (this.options.selectedClass) {
-	                    $checkbox.closest('li')
-	                        .addClass(this.options.selectedClass);
-	                }
-
-	                $checkbox.prop('checked', true);
-	                $option.prop('selected', true);
-	                
-	                if (triggerOnChange) {
-	                    this.options.onChange($option, true);
-	                }
-	            }
-
-	            this.updateButtonText();
-	            this.updateSelectAll();
-	        },
-
-	        /**
-	         * Clears all selected items.
-	         */
-	        clearSelection: function () {
-	            this.deselectAll(false);
-	            this.updateButtonText();
-	            this.updateSelectAll();
-	        },
-
-	        /**
-	         * Deselects all options of the given values.
-	         * 
-	         * If triggerOnChange is set to true, the on change event is triggered, if
-	         * and only if one value is passed.
-	         * 
-	         * @param {Array} deselectValues
-	         * @param {Boolean} triggerOnChange
-	         */
-	        deselect: function(deselectValues, triggerOnChange) {
-	            if(!$.isArray(deselectValues)) {
-	                deselectValues = [deselectValues];
-	            }
-
-	            for (var i = 0; i < deselectValues.length; i++) {
-	                var value = deselectValues[i];
-
-	                if (value === null || value === undefined) {
-	                    continue;
-	                }
-
-	                var $option = this.getOptionByValue(value);
-	                var $checkbox = this.getInputByValue(value);
-
-	                if($option === undefined || $checkbox === undefined) {
-	                    continue;
-	                }
-
-	                if (this.options.selectedClass) {
-	                    $checkbox.closest('li')
-	                        .removeClass(this.options.selectedClass);
-	                }
-
-	                $checkbox.prop('checked', false);
-	                $option.prop('selected', false);
-	                
-	                if (triggerOnChange) {
-	                    this.options.onChange($option, false);
-	                }
-	            }
-
-	            this.updateButtonText();
-	            this.updateSelectAll();
-	        },
-	        
-	        /**
-	         * Selects all enabled & visible options.
-	         *
-	         * If justVisible is true or not specified, only visible options are selected.
-	         *
-	         * @param {Boolean} justVisible
-	         * @param {Boolean} triggerOnSelectAll
-	         */
-	        selectAll: function (justVisible, triggerOnSelectAll) {
-	            var justVisible = typeof justVisible === 'undefined' ? true : justVisible;
-	            var allCheckboxes = $("li input[type='checkbox']:enabled", this.$ul);
-	            var visibleCheckboxes = allCheckboxes.filter(":visible");
-	            var allCheckboxesCount = allCheckboxes.length;
-	            var visibleCheckboxesCount = visibleCheckboxes.length;
-	            
-	            if(justVisible) {
-	                visibleCheckboxes.prop('checked', true);
-	                $("li:not(.divider):not(.disabled)", this.$ul).filter(":visible").addClass(this.options.selectedClass);
-	            }
-	            else {
-	                allCheckboxes.prop('checked', true);
-	                $("li:not(.divider):not(.disabled)", this.$ul).addClass(this.options.selectedClass);
-	            }
-	                
-	            if (allCheckboxesCount === visibleCheckboxesCount || justVisible === false) {
-	                $("option:enabled", this.$select).prop('selected', true);
-	            }
-	            else {
-	                var values = visibleCheckboxes.map(function() {
-	                    return $(this).val();
-	                }).get();
-	                
-	                $("option:enabled", this.$select).filter(function(index) {
-	                    return $.inArray($(this).val(), values) !== -1;
-	                }).prop('selected', true);
-	            }
-	            
-	            if (triggerOnSelectAll) {
-	                this.options.onSelectAll();
-	            }
-	        },
-
-	        /**
-	         * Deselects all options.
-	         * 
-	         * If justVisible is true or not specified, only visible options are deselected.
-	         * 
-	         * @param {Boolean} justVisible
-	         */
-	        deselectAll: function (justVisible) {
-	            var justVisible = typeof justVisible === 'undefined' ? true : justVisible;
-	            
-	            if(justVisible) {              
-	                var visibleCheckboxes = $("li input[type='checkbox']:not(:disabled)", this.$ul).filter(":visible");
-	                visibleCheckboxes.prop('checked', false);
-	                
-	                var values = visibleCheckboxes.map(function() {
-	                    return $(this).val();
-	                }).get();
-	                
-	                $("option:enabled", this.$select).filter(function(index) {
-	                    return $.inArray($(this).val(), values) !== -1;
-	                }).prop('selected', false);
-	                
-	                if (this.options.selectedClass) {
-	                    $("li:not(.divider):not(.disabled)", this.$ul).filter(":visible").removeClass(this.options.selectedClass);
-	                }
-	            }
-	            else {
-	                $("li input[type='checkbox']:enabled", this.$ul).prop('checked', false);
-	                $("option:enabled", this.$select).prop('selected', false);
-	                
-	                if (this.options.selectedClass) {
-	                    $("li:not(.divider):not(.disabled)", this.$ul).removeClass(this.options.selectedClass);
-	                }
-	            }
-	        },
-
-	        /**
-	         * Rebuild the plugin.
-	         * 
-	         * Rebuilds the dropdown, the filter and the select all option.
-	         */
-	        rebuild: function() {
-	            this.$ul.html('');
-
-	            // Important to distinguish between radios and checkboxes.
-	            this.options.multiple = this.$select.attr('multiple') === "multiple";
-
-	            this.buildSelectAll();
-	            this.buildDropdownOptions();
-	            this.buildFilter();
-
-	            this.updateButtonText();
-	            this.updateSelectAll();
-	            
-	            if (this.options.disableIfEmpty && $('option', this.$select).length <= 0) {
-	                this.disable();
-	            }
-	            else {
-	                this.enable();
-	            }
-	            
-	            if (this.options.dropRight) {
-	                this.$ul.addClass('pull-right');
-	            }
-	        },
-
-	        /**
-	         * The provided data will be used to build the dropdown.
-	         */
-	        dataprovider: function(dataprovider) {
-	            
-	            var groupCounter = 0;
-	            var $select = this.$select.empty();
-	            
-	            $.each(dataprovider, function (index, option) {
-	                var $tag;
-	                
-	                if ($.isArray(option.children)) { // create optiongroup tag
-	                    groupCounter++;
-	                    
-	                    $tag = $('<optgroup/>').attr({
-	                        label: option.label || 'Group ' + groupCounter,
-	                        disabled: !!option.disabled
-	                    });
-	                    
-	                    forEach(option.children, function(subOption) { // add children option tags
-	                        $tag.append($('<option/>').attr({
-	                            value: subOption.value,
-	                            label: subOption.label || subOption.value,
-	                            title: subOption.title,
-	                            selected: !!subOption.selected,
-	                            disabled: !!subOption.disabled
-	                        }));
-	                    });
-	                }
-	                else {
-	                    $tag = $('<option/>').attr({
-	                        value: option.value,
-	                        label: option.label || option.value,
-	                        title: option.title,
-	                        selected: !!option.selected,
-	                        disabled: !!option.disabled
-	                    });
-	                }
-	                
-	                $select.append($tag);
-	            });
-	            
-	            this.rebuild();
-	        },
-
-	        /**
-	         * Enable the multiselect.
-	         */
-	        enable: function() {
-	            this.$select.prop('disabled', false);
-	            this.$button.prop('disabled', false)
-	                .removeClass('disabled');
-	        },
-
-	        /**
-	         * Disable the multiselect.
-	         */
-	        disable: function() {
-	            this.$select.prop('disabled', true);
-	            this.$button.prop('disabled', true)
-	                .addClass('disabled');
-	        },
-
-	        /**
-	         * Set the options.
-	         *
-	         * @param {Array} options
-	         */
-	        setOptions: function(options) {
-	            this.options = this.mergeOptions(options);
-	        },
-
-	        /**
-	         * Merges the given options with the default options.
-	         *
-	         * @param {Array} options
-	         * @returns {Array}
-	         */
-	        mergeOptions: function(options) {
-	            return $.extend(true, {}, this.defaults, this.options, options);
-	        },
-
-	        /**
-	         * Checks whether a select all checkbox is present.
-	         *
-	         * @returns {Boolean}
-	         */
-	        hasSelectAll: function() {
-	            return $('li.multiselect-all', this.$ul).length > 0;
-	        },
-
-	        /**
-	         * Updates the select all checkbox based on the currently displayed and selected checkboxes.
-	         */
-	        updateSelectAll: function() {
-	            if (this.hasSelectAll()) {
-	                var allBoxes = $("li:not(.multiselect-item):not(.filter-hidden) input:enabled", this.$ul);
-	                var allBoxesLength = allBoxes.length;
-	                var checkedBoxesLength = allBoxes.filter(":checked").length;
-	                var selectAllLi  = $("li.multiselect-all", this.$ul);
-	                var selectAllInput = selectAllLi.find("input");
-	                
-	                if (checkedBoxesLength > 0 && checkedBoxesLength === allBoxesLength) {
-	                    selectAllInput.prop("checked", true);
-	                    selectAllLi.addClass(this.options.selectedClass);
-	                    this.options.onSelectAll();
-	                }
-	                else {
-	                    selectAllInput.prop("checked", false);
-	                    selectAllLi.removeClass(this.options.selectedClass);
-	                }
-	            }
-	        },
-
-	        /**
-	         * Update the button text and its title based on the currently selected options.
-	         */
-	        updateButtonText: function() {
-	            var options = this.getSelected();
-	            
-	            // First update the displayed button text.
-	            if (this.options.enableHTML) {
-	                $('.multiselect .multiselect-selected-text', this.$container).html(this.options.buttonText(options, this.$select));
-	            }
-	            else {
-	                $('.multiselect .multiselect-selected-text', this.$container).text(this.options.buttonText(options, this.$select));
-	            }
-	            
-	            // Now update the title attribute of the button.
-	            $('.multiselect', this.$container).attr('title', this.options.buttonTitle(options, this.$select));
-	        },
-
-	        /**
-	         * Get all selected options.
-	         *
-	         * @returns {jQUery}
-	         */
-	        getSelected: function() {
-	            return $('option', this.$select).filter(":selected");
-	        },
-
-	        /**
-	         * Gets a select option by its value.
-	         *
-	         * @param {String} value
-	         * @returns {jQuery}
-	         */
-	        getOptionByValue: function (value) {
-
-	            var options = $('option', this.$select);
-	            var valueToCompare = value.toString();
-
-	            for (var i = 0; i < options.length; i = i + 1) {
-	                var option = options[i];
-	                if (option.value === valueToCompare) {
-	                    return $(option);
-	                }
-	            }
-	        },
-
-	        /**
-	         * Get the input (radio/checkbox) by its value.
-	         *
-	         * @param {String} value
-	         * @returns {jQuery}
-	         */
-	        getInputByValue: function (value) {
-
-	            var checkboxes = $('li input', this.$ul);
-	            var valueToCompare = value.toString();
-
-	            for (var i = 0; i < checkboxes.length; i = i + 1) {
-	                var checkbox = checkboxes[i];
-	                if (checkbox.value === valueToCompare) {
-	                    return $(checkbox);
-	                }
-	            }
-	        },
-
-	        /**
-	         * Used for knockout integration.
-	         */
-	        updateOriginalOptions: function() {
-	            this.originalOptions = this.$select.clone()[0].options;
-	        },
-
-	        asyncFunction: function(callback, timeout, self) {
-	            var args = Array.prototype.slice.call(arguments, 3);
-	            return setTimeout(function() {
-	                callback.apply(self || window, args);
-	            }, timeout);
-	        },
-
-	        setAllSelectedText: function(allSelectedText) {
-	            this.options.allSelectedText = allSelectedText;
-	            this.updateButtonText();
-	        }
-	    };
-
-	    $.fn.multiselect = function(option, parameter, extraOptions) {
-	        return this.each(function() {
-	            var data = $(this).data('multiselect');
-	            var options = typeof option === 'object' && option;
-
-	            // Initialize the multiselect.
-	            if (!data) {
-	                data = new Multiselect(this, options);
-	                $(this).data('multiselect', data);
-	            }
-
-	            // Call multiselect method.
-	            if (typeof option === 'string') {
-	                data[option](parameter, extraOptions);
-	                
-	                if (option === 'destroy') {
-	                    $(this).data('multiselect', false);
-	                }
-	            }
-	        });
-	    };
-
-	    $.fn.multiselect.Constructor = Multiselect;
-
-	    $(function() {
-	        $("select[data-role=multiselect]").multiselect();
-	    });
-
-	}(window.jQuery);
-
-
-/***/ },
-/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var environment = __webpack_require__(21);
+	var environment = __webpack_require__(20);
 
-	var DiffPatcher = __webpack_require__(22).DiffPatcher;
+	var DiffPatcher = __webpack_require__(21).DiffPatcher;
 	exports.DiffPatcher = DiffPatcher;
 
 	exports.create = function(options){
 	  return new DiffPatcher(options);
 	};
 
-	exports.dateReviver = __webpack_require__(27);
+	exports.dateReviver = __webpack_require__(26);
 
 	var defaultInstance;
 
@@ -91373,11 +86449,11 @@ webpackJsonp([0,2],[
 	  exports.homepage = '{{package-homepage}}';
 	  exports.version = '{{package-version}}';
 	} else {
-	  var packageInfo = __webpack_require__(38);
+	  var packageInfo = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../package.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	  exports.homepage = packageInfo.homepage;
 	  exports.version = packageInfo.version;
 
-	  var formatters = __webpack_require__(39);
+	  var formatters = __webpack_require__(38);
 	  exports.formatters = formatters;
 	  // shortcut for console
 	  exports.console = formatters.console;
@@ -91385,7 +86461,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports) {
 
 	
@@ -91393,20 +86469,20 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Processor = __webpack_require__(23).Processor;
-	var Pipe = __webpack_require__(24).Pipe;
-	var DiffContext = __webpack_require__(25).DiffContext;
-	var PatchContext = __webpack_require__(28).PatchContext;
-	var ReverseContext = __webpack_require__(29).ReverseContext;
+	var Processor = __webpack_require__(22).Processor;
+	var Pipe = __webpack_require__(23).Pipe;
+	var DiffContext = __webpack_require__(24).DiffContext;
+	var PatchContext = __webpack_require__(27).PatchContext;
+	var ReverseContext = __webpack_require__(28).ReverseContext;
 
-	var trivial = __webpack_require__(30);
-	var nested = __webpack_require__(31);
-	var arrays = __webpack_require__(32);
-	var dates = __webpack_require__(34);
-	var texts = __webpack_require__(35);
+	var trivial = __webpack_require__(29);
+	var nested = __webpack_require__(30);
+	var arrays = __webpack_require__(31);
+	var dates = __webpack_require__(33);
+	var texts = __webpack_require__(34);
 
 	var DiffPatcher = function DiffPatcher(options) {
 	  this.processor = new Processor(options);
@@ -91460,7 +86536,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports) {
 
 	
@@ -91526,7 +86602,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports) {
 
 	var Pipe = function Pipe(name) {
@@ -91644,11 +86720,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Context = __webpack_require__(26).Context;
-	var dateReviver = __webpack_require__(27);
+	var Context = __webpack_require__(25).Context;
+	var dateReviver = __webpack_require__(26);
 
 	var DiffContext = function DiffContext(left, right) {
 	  this.left = left;
@@ -91678,11 +86754,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var Pipe = __webpack_require__(24).Pipe;
+	var Pipe = __webpack_require__(23).Pipe;
 
 	var Context = function Context(){
 	};
@@ -91733,7 +86809,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports) {
 
 	// use as 2nd parameter for JSON.parse to revive Date instances
@@ -91750,10 +86826,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 28 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Context = __webpack_require__(26).Context;
+	var Context = __webpack_require__(25).Context;
 
 	var PatchContext = function PatchContext(left, delta) {
 	  this.left = left;
@@ -91767,10 +86843,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 29 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Context = __webpack_require__(26).Context;
+	var Context = __webpack_require__(25).Context;
 
 	var ReverseContext = function ReverseContext(delta) {
 	  this.delta = delta;
@@ -91783,7 +86859,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 30 */
+/* 29 */
 /***/ function(module, exports) {
 
 	var isArray = (typeof Array.isArray === 'function') ?
@@ -91890,12 +86966,12 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 31 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DiffContext = __webpack_require__(25).DiffContext;
-	var PatchContext = __webpack_require__(28).PatchContext;
-	var ReverseContext = __webpack_require__(29).ReverseContext;
+	var DiffContext = __webpack_require__(24).DiffContext;
+	var PatchContext = __webpack_require__(27).PatchContext;
+	var ReverseContext = __webpack_require__(28).ReverseContext;
 
 	var collectChildrenDiffFilter = function collectChildrenDiffFilter(context) {
 	  if (!context || !context.children) {
@@ -92038,14 +87114,14 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 32 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DiffContext = __webpack_require__(25).DiffContext;
-	var PatchContext = __webpack_require__(28).PatchContext;
-	var ReverseContext = __webpack_require__(29).ReverseContext;
+	var DiffContext = __webpack_require__(24).DiffContext;
+	var PatchContext = __webpack_require__(27).PatchContext;
+	var ReverseContext = __webpack_require__(28).ReverseContext;
 
-	var lcs = __webpack_require__(33);
+	var lcs = __webpack_require__(32);
 
 	var ARRAY_MOVE = 3;
 
@@ -92482,7 +87558,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 33 */
+/* 32 */
 /***/ function(module, exports) {
 
 	/*
@@ -92562,7 +87638,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 34 */
+/* 33 */
 /***/ function(module, exports) {
 
 	var diffFilter = function datesDiffFilter(context) {
@@ -92587,7 +87663,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 35 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global diff_match_patch */
@@ -92607,7 +87683,7 @@ webpackJsonp([0,2],[
 	    } else if (true) {
 	      try {
 	        var dmpModuleName = 'diff_match_patch_uncompressed';
-	        var dmp = __webpack_require__(36)("./" + dmpModuleName);
+	        var dmp = __webpack_require__(35)("./" + dmpModuleName);
 	        instance = new dmp.diff_match_patch();
 	      } catch (err) {
 	        instance = null;
@@ -92729,12 +87805,12 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./diff_match_patch_uncompressed": 37,
-		"./diff_match_patch_uncompressed.js": 37
+		"./diff_match_patch_uncompressed": 36,
+		"./diff_match_patch_uncompressed.js": 36
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -92747,11 +87823,11 @@ webpackJsonp([0,2],[
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 36;
+	webpackContext.id = 35;
 
 
 /***/ },
-/* 37 */
+/* 36 */
 /***/ function(module, exports) {
 
 	/**
@@ -94918,112 +89994,24 @@ webpackJsonp([0,2],[
 
 
 /***/ },
+/* 37 */,
 /* 38 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		"name": "jsondiffpatch",
-		"version": "0.1.43",
-		"author": {
-			"name": "Benjamin Eidelman",
-			"email": "beneidel@gmail.com"
-		},
-		"description": "Diff & Patch for Javascript objects",
-		"contributors": [
-			{
-				"name": "Benjamin Eidelman",
-				"email": "beneidel@gmail.com"
-			}
-		],
-		"bin": {
-			"jsondiffpatch": "./bin/jsondiffpatch"
-		},
-		"scripts": {
-			"test": "gulp test && gulp test-browser",
-			"bump": "gulp bump",
-			"cover": "istanbul cover --root src gulp test",
-			"cover-report": "open coverage/lcov-report/index.html",
-			"cover-publish": "istanbul cover _mocha --report lcovonly && codeclimate < coverage/lcov.info"
-		},
-		"main": "./src/main",
-		"repository": {
-			"type": "git",
-			"url": "git+https://github.com/benjamine/jsondiffpatch.git"
-		},
-		"keywords": [
-			"json",
-			"diff",
-			"patch"
-		],
-		"dependencies": {
-			"chalk": "^0.5.1"
-		},
-		"devDependencies": {
-			"bulk-require": "^0.2.1",
-			"codeclimate-test-reporter": "0.0.3",
-			"expect.js": "~0.3.1",
-			"fiberglass": "0.0.22",
-			"gulp": "^3.8.8",
-			"istanbul": "^0.3.2",
-			"mocha": "^1.21.4"
-		},
-		"bundleDependencies": [],
-		"license": "MIT",
-		"engine": {
-			"node": ">=0.10"
-		},
-		"testling": {
-			"harness": "mocha",
-			"files": "test/index.js",
-			"scripts": [
-				"build/jsondiffpatch.js",
-				"external/diff_match_patch_uncompressed.js"
-			],
-			"browsers": [
-				"ie/8..latest",
-				"chrome/27..latest",
-				"firefox/22..latest",
-				"safari/5.1..latest",
-				"opera/12..latest",
-				"iphone/6..latest",
-				"ipad/6..latest",
-				"android-browser/4.2..latest"
-			]
-		},
-		"engines": {
-			"node": "*"
-		},
-		"homepage": "https://github.com/benjamine/jsondiffpatch",
-		"gitHead": "1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"readme": "jsondiffpatch\n=============\n\n<!--- badges -->\n[![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n[![Code Climate](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/gpa.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![Test Coverage](https://codeclimate.com/github/benjamine/jsondiffpatch/badges/coverage.svg)](https://codeclimate.com/github/benjamine/jsondiffpatch)\n[![NPM version](https://badge.fury.io/js/jsondiffpatch.svg)](http://badge.fury.io/js/jsondiffpatch)\n[![NPM dependencies](https://david-dm.org/benjamine/jsondiffpatch.svg)](https://david-dm.org/benjamine/jsondiffpatch)\n[![Bower version](https://badge.fury.io/bo/jsondiffpatch.svg)](http://badge.fury.io/bo/jsondiffpatch)\n\nDiff & patch JavaScript objects\n\n-----\n**[Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html)**\n-----\n\n- min+gzipped < 6KB\n- browser (```/public/build/jsondiffpatch.js```) and server (eg. node.js)\n- includes [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) for long text diffs (diff at character level)\n- smart array diffing using [LCS](http://en.wikipedia.org/wiki/Longest_common_subsequence_problem), ***IMPORTANT NOTE:*** to match objects inside an array you must provide an ```objectHash``` function (this is how objects are matched, otherwise a dumb match by position is used). For more details, check [Array diff documentation](docs/arrays.md)\n- reverse a delta\n- unpatch (eg. revert object to its original state using a delta)\n- simplistic, pure JSON, low footprint [delta format](docs/deltas.md)\n- multiple output formatters:\n    - html (check it at the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html))\n    - annotated json (html), makes the JSON delta format self-explained\n    - console (colored), try running ```./node_modules/.bin/jsondiffpatch left.json right.json```\n    - write your own! check [Formatters documentation](docs/formatters.md)\n\nSupported platforms\n----------------\n\n* Any modern browser and IE8+\n\n[![Testling Status](https://ci.testling.com/benjamine/jsondiffpatch.png)](https://ci.testling.com/benjamine/jsondiffpatch)\n\nAnd you can test your current browser visiting the [test page](http://benjamine.github.com/jsondiffpatch/test/index.html).\n\n* Node.js [![Build Status](https://secure.travis-ci.org/benjamine/jsondiffpatch.svg)](http://travis-ci.org/benjamine/jsondiffpatch)\n\nIf you want to run tests locally:\n``` sh\nnpm i\n# will test in node.js and phantomjs (headless browser)\nnpm test\n# or test on specific browsers (using karma.js)\nBROWSERS=chrome,phantomjs npm test\n```\nUsage\n-----\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        capital: \"Buenos Aires\",\n        independence: new Date(1816, 6, 9),\n        unasur: true\n    };\n\n    // clone country, using dateReviver for Date objects\n    var country2 = JSON.parse(JSON.stringify(country), jsondiffpatch.dateReviver);\n\n    // make some changes\n    country2.name = \"Republica Argentina\";\n    country2.population = 41324992;\n    delete country2.capital;\n\n    var delta = jsondiffpatch.diff(country, country2);\n\n    assertSame(delta, {\n        \"name\":[\"Argentina\",\"Republica Argentina\"], // old value, new value\n        \"population\":[\"41324992\"], // new value\n        \"capital\":[\"Buenos Aires\", 0, 0] // deleted\n    });\n\n    // patch original\n    jsondiffpatch.patch(country, delta);\n\n    // reverse diff\n    var reverseDelta = jsondiffpatch.reverse(delta);\n    // also country2 can be return to original value with: jsondiffpatch.unpatch(country2, delta);\n\n    var delta2 = jsondiffpatch.diff(country, country2);\n    assert(delta2 === undefined)\n    // undefined => no difference\n```\n\nArray diffing:\n\n``` javascript\n    // sample data\n    var country = {\n        name: \"Argentina\",\n        cities: [\n        {\n            name: 'Buenos Aires',\n            population: 13028000,\n        },\n        {\n            name: 'Cordoba',\n            population: 1430023,\n        },\n        {\n            name: 'Rosario',\n            population: 1136286,\n        },\n        {\n            name: 'Mendoza',\n            population: 901126,\n        },\n        {\n            name: 'San Miguel de Tucuman',\n            population: 800000,\n        }\n        ]\n    };\n\n    // clone country\n    var country2 = JSON.parse(JSON.stringify(country));\n\n    // delete Cordoba\n    country.cities.splice(1, 1);\n\n    // add La Plata\n    country.cities.splice(4, 0, {\n        name: 'La Plata'\n        });\n\n    // modify Rosario, and move it\n    var rosario = country.cities.splice(1, 1)[0];\n    rosario.population += 1234;\n    country.cities.push(rosario);\n\n    // create a configured instance, match objects by name\n    var diffpatcher = jsondiffpatch.create({\n        objectHash: function(obj) {\n            return obj.name;\n        }\n    });\n\n    var delta = diffpatcher.diff(country, country2);\n\n    assertSame(delta, {\n        \"cities\": {\n            \"_t\": \"a\", // indicates this node is an array (not an object)\n            \"1\": [\n                // inserted at index 1\n                {\n                    \"name\": \"Cordoba\",\n                    \"population\": 1430023\n                }]\n            ,\n            \"2\": {\n                // population modified at index 2 (Rosario)\n                \"population\": [\n                    1137520,\n                    1136286\n                ]\n            },\n            \"_3\": [\n                // removed from index 3\n                {\n                    \"name\": \"La Plata\"\n                }, 0, 0],\n            \"_4\": [\n                // move from index 4 to index 2\n                '', 2, 3]\n        }\n    });\n```\n\nFor more example cases (nested objects or arrays, long text diffs) check ```test/examples/```\n\nIf you want to understand deltas, see [delta format documentation](docs/deltas.md)\n\nInstalling\n---------------\n\n### npm (node.js)\n\n``` sh\nnpm install jsondiffpatch\n```\n\n``` js\nvar jsondiffpatch = require('jsondiffpatch').create(options);\n```\n\n### bower (browser)\n\n``` sh\nbower install jsondiffpatch\n```\n\nbrowser bundles are in the ```/public/build``` folder (you can re-generate these using ```make``` or ```gulp```, `npm test` will do that too):\n- ```jsondiffpatch.js``` main bundle\n- ```jsondiffpatch.full.js``` main bundle + [google-diff-match-patch](http://code.google.com/p/google-diff-match-patch/) library for text diffs\n- ```jsondiffpatch-formatters.js``` builtin formatters (only those useful in a browser)\n\nAll these come in minified versions (```.min.js```), and separate sourcemap files.\n\nOptions\n-------\n\n``` javascript\nvar jsondiffpatch = require('jsondiffpatch').create({\n    // used to match objects when diffing arrays, by default only === operator is used\n    objectHash: function(obj) {\n        // this function is used only to when objects are not equal by ref\n        return obj._id || obj.id;\n    },\n    arrays: {\n        // default true, detect items moved inside the array (otherwise they will be registered as remove+add)\n        detectMove: true,\n        // default false, the value of items moved is not included in deltas\n        includeValueOnMove: false\n    },\n    textDiff: {\n        // default 60, minimum string length (left and right sides) to use text diff algorythm: google-diff-match-patch\n        minLength: 60\n    },\n    propertyFilter: function(name, context) {\n      /*\n       this optional function can be specified to ignore object properties (eg. volatile data)\n        name: property name, present in either context.left or context.right objects\n        context: the diff context (has context.left and context.right objects)\n      */\n      return name.slice(0, 1) !== '$';\n    },\n    cloneDiffValues: false /* default false. if true, values in the obtained delta will be cloned,\n      to ensure delta keeps no references to left or right objects. this becomes useful\n      if you're diffing and patching the same objects multiple times without serializing deltas.\n      instead of true, a function can be specified here to provide a custom clone(value)\n      */\n});\n```\n\nVisual Diff\n----------------\n\n``` html\n<!DOCTYPE html>\n<html>\n    <head>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch.min.js\"></script>\n        <script type=\"text/javascript\" src=\"public/build/jsondiffpatch-formatters.min.js\"></script>\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/html.css\" type=\"text/css\" />\n        <link rel=\"stylesheet\" href=\"public/formatters-styles/annotated.css\" type=\"text/css\" />\n    </head>\n    <body>\n        <div id=\"visual\"></div>\n        <hr/>\n        <div id=\"annotated\"></div>\n        <script>\n            var left = { a: 3, b: 4 };\n            var right = { a: 5, c: 9 };\n            var delta = jsondiffpatch.diff(left, right);\n\n            // beautiful html diff\n            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, left);\n\n            // self-explained json\n            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, left);\n        </script>\n    </body>\n</html>\n```\n\nTo see formatters in action check the [Live Demo](http://benjamine.github.com/jsondiffpatch/demo/index.html).\n\nFor more details check [Formatters documentation](docs/formatters.md)\n\nConsole\n--------\n\n``` sh\n# diff two json files, colored output (using chalk lib)\n./node_modules/.bin/jsondiffpatch ./left.json ./right.json\n\n# or install globally\nnpm install -g jsondiffpatch\n\njsondiffpatch ./demo/left.json ./demo/right.json\n```\n\n![console_demo!](public/demo/consoledemo.png)\n\nPlugins\n-------\n\n```diff()```, ```patch()``` and ```reverse()``` functions are implemented using Pipes & Filters pattern, making it extremely customizable by adding or replacing filters on a pipe.\n\nCheck [Plugins documentation](docs/plugins.md) for details.\n",
-		"readmeFilename": "README.md",
-		"bugs": {
-			"url": "https://github.com/benjamine/jsondiffpatch/issues"
-		},
-		"_id": "jsondiffpatch@0.1.43",
-		"_shasum": "0f68650d4cc3f2f7635fb2feee6f8914faa11f87",
-		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5"
-	};
-
-/***/ },
-/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var environment = __webpack_require__(21);
+	var environment = __webpack_require__(20);
 
-	exports.base = __webpack_require__(40);
-	exports.html = __webpack_require__(41);
-	exports.annotated = __webpack_require__(42);
-	exports.jsonpatch = __webpack_require__(43);
+	exports.base = __webpack_require__(39);
+	exports.html = __webpack_require__(40);
+	exports.annotated = __webpack_require__(41);
+	exports.jsonpatch = __webpack_require__(42);
 
 	if (!environment.isBrowser) {
-	  exports.console = __webpack_require__(44);
+	  exports.console = __webpack_require__(43);
 	}
 
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports) {
 
 	var isArray = (typeof Array.isArray === 'function') ?
@@ -95259,10 +90247,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 41 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var base = __webpack_require__(40);
+	var base = __webpack_require__(39);
 	var BaseFormatter = base.BaseFormatter;
 
 	var HtmlFormatter = function HtmlFormatter() {};
@@ -95546,10 +90534,10 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 42 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var base = __webpack_require__(40);
+	var base = __webpack_require__(39);
 	var BaseFormatter = base.BaseFormatter;
 
 	var AnnotatedFormatter = function AnnotatedFormatter() {
@@ -95749,11 +90737,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 43 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function () {
-	  var base = __webpack_require__(40);
+	  var base = __webpack_require__(39);
 	  var BaseFormatter = base.BaseFormatter;
 
 	  var named = {
@@ -95933,11 +90921,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 44 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var chalk = __webpack_require__(45);
-	var base = __webpack_require__(40);
+	var chalk = __webpack_require__(44);
+	var base = __webpack_require__(39);
 	var BaseFormatter = base.BaseFormatter;
 
 	var colors = {
@@ -96124,15 +91112,15 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 45 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var escapeStringRegexp = __webpack_require__(46);
-	var ansiStyles = __webpack_require__(47);
-	var stripAnsi = __webpack_require__(48);
-	var hasAnsi = __webpack_require__(50);
-	var supportsColor = __webpack_require__(51);
+	var escapeStringRegexp = __webpack_require__(45);
+	var ansiStyles = __webpack_require__(46);
+	var stripAnsi = __webpack_require__(47);
+	var hasAnsi = __webpack_require__(49);
+	var supportsColor = __webpack_require__(50);
 	var defineProps = Object.defineProperties;
 	var chalk = module.exports;
 
@@ -96225,7 +91213,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -96242,7 +91230,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 47 */
+/* 46 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -96288,11 +91276,11 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 48 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ansiRegex = __webpack_require__(49)();
+	var ansiRegex = __webpack_require__(48)();
 
 	module.exports = function (str) {
 		return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
@@ -96300,7 +91288,7 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 49 */
+/* 48 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -96310,17 +91298,17 @@ webpackJsonp([0,2],[
 
 
 /***/ },
-/* 50 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ansiRegex = __webpack_require__(49);
+	var ansiRegex = __webpack_require__(48);
 	var re = new RegExp(ansiRegex().source); // remove the `g` flag
 	module.exports = re.test.bind(re);
 
 
 /***/ },
-/* 51 */
+/* 50 */
 /***/ function(module, exports) {
 
 	'use strict';
