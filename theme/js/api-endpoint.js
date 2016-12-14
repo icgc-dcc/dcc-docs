@@ -85,14 +85,14 @@ $(function () {
           $propWrapDiv.contents().appendTo($propWrapSpan);
           $propWrapSpan.appendTo($propWrapDiv);
         });
-        $('.swagger-ui .loader').toggleClass('active');
-        $('.swagger-ui .content').toggleClass('active');
+        _loaderContent.removeClass('active');
+        _apiContent.addClass('active');
 
       },
       onFailure: function() {
         _errorAlert.fadeIn('fast');
-        $('.swagger-ui .loader').toggleClass('active');
-        $('.swagger-ui .content').toggleClass('active');
+        _loaderContent.removeClass('active');
+        _apiContent.addClass('active');
       },
       docExpansion: "none"
     });
@@ -137,9 +137,6 @@ $(function () {
     if (e) {
       e.preventDefault();
     }
-
-
-
 
     _toggleServerConfigBttn.addClass('animate-spin');
 
@@ -208,12 +205,13 @@ $(function () {
       _endpointBasePathEl = $('#server-endpoint-url-path'),
       _toggleServerConfigBttn = $('#change-base-server-bttn'),
       _saveServerConfigBttn = $('#change-base-server-bttn'),
+      _loaderContent = $('.swagger-ui .loader'),
+      _apiContent = $('.swagger-ui .content'),
       _errorAlert = $('#swagger-error'),
       _isConfigControlOpen = false,
       _hasReloadedRequest = false;
 
-  
-  $('.swagger-ui .loader').toggleClass('active');
+  _loaderContent.addClass('active');
   _init();
 
 });
