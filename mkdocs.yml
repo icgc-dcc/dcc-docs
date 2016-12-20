@@ -22,6 +22,7 @@ pages:
   - Releases: 'portal/releases.md' 
   - Repositories: 'portal/repositories.md'
   - Search: 'portal/search.md'
+  - Browsers: 'portal/browsers.md'
 - Cloud:
   - About: 'cloud/about.md'
   - Guide: 'cloud/guide.md'
@@ -308,6 +309,9 @@ extra:
   dictionary_viewer_css_rel_url: '/dictionary/styles/dictionary.css'
   api_endpoint_page_id: 'API Endpoints'
   resources:
+    Browsers:
+      styles:
+        - //maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
     Binaries:
       scripts:
         - /js-out/software-page.js
