@@ -22,7 +22,9 @@ brew cask install slack
 
 ## XCode and Command Line Tools
 
-See http://railsapps.github.io/xcode-command-line-tools.html
+Follow the instructions below:
+
+[http://railsapps.github.io/xcode-command-line-tools.html]()
 
 ## Java
 
@@ -70,7 +72,7 @@ brew switch mongo 2.4.4-x86_64
 
 ## Git
 
-Download _dmg _from [http://git-scm.com/download/mac](http://git-scm.com/download/mac)
+Download _dmg_ from [http://git-scm.com/download/mac](http://git-scm.com/download/mac)
 
 ## HubFlow
 
@@ -242,7 +244,6 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 
 Consider all of these utilities optional, but highly recommended.
 
-
 ### Trailer.app
 
 Track pull requests and issues across repositories, directly in your Notification Center or on any device.
@@ -252,6 +253,12 @@ Track pull requests and issues across repositories, directly in your Notificatio
 ```shell
 brew cask install trailer
 ```
+
+### Docker
+
+Docker for Mac:
+
+[https://docs.docker.com/engine/installation/mac/]()
 
 ### MacDown
 
@@ -286,6 +293,26 @@ brew install zsh
 Plugin system for `zsh`
 
 [https://github.com/robbyrussell/oh-my-zsh]()
+
+### HTTP
+
+Modern alternative to `curl`:
+
+[https://github.com/jkbrzt/httpie]()
+
+```shell
+brew install httpie
+```
+
+### jq
+
+`jq` is a lightweight and flexible command-line JSON processor:
+
+[https://stedolan.github.io/jq/]()
+
+```shell
+brew install jq
+```
 
 ### Other
 
