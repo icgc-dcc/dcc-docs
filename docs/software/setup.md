@@ -97,7 +97,12 @@ See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https
 
 ### Installation 
 
-Install Maven 3.2.1 or what is specified in [https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml](https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml) `maven-enforcer-plugin`
+Install Maven 3.2.1 or what is specified in [icgc-dcc/dcc-parent/pom.xml](https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml#L1340) `maven-enforcer-plugin.requireMavenVersion`
+
+```shell
+brew install maven
+brew switch maven 3.2.1
+```
 
 To check your installation, run:
 
