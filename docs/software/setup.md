@@ -26,11 +26,19 @@ See http://railsapps.github.io/xcode-command-line-tools.html
 
 ## Java
 
+Install Java 8:
+
 ```shell
 brew cask install java
 ```
 
-Ensure this reports java 8:
+Add the following to `~/.bash_profile`:
+
+```shell
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+```
+
+Source `~/.bash_profile` or open a new terminal and ensure this reports Java 8:
 
 ```shell
 java -version   
@@ -38,16 +46,6 @@ java -version
 java version "1.8.0_31"
 Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
-```
-
-## iTerm2
-
-Very powerful terminal emulator for Mac:
-
-[http://www.iterm2.com/](http://www.iterm2.com/)
-
-```shell
-brew cask install iterm2 
 ```
 
 ## Elasticsearch
@@ -155,7 +153,7 @@ val myVar = new MyAnonymousClass() { ... }
 
 Activate source downloading in the maven plugin, tick the **Preferences > Maven > Maven Download Artifact Sources** box.
 
-## Add Static Import Favorites
+### Add Static Import Favorites
 
 Add some classes to your favorite static imports via **Preferences > Java > Editor > Content Assist > Favorites**:
 
@@ -190,7 +188,7 @@ The ShellEd plugin provides basic syntax highlighting and outlining for shell sc
 
  [http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide](http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide)
 
-## Node.js
+## NodeJS
 
 ```shell
 brew install nvm
@@ -200,9 +198,11 @@ Then read [https://davidwalsh.name/nvm](https://davidwalsh.name/nvm) for usage 
 
 Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. [https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui)).
 
-## Setting up DCC Projects
+## Projects
 
-### Setting up DCC-Portal 
+After installing the above, navigate to the project(s) that you will be working on in [GitHub](https://github.com/icgc-dcc) and follow the top-level `README.md`s and linked sub-module `README.md`s.
+
+### Eclipse Based Projects
 
 _Assumes everything above has been installed correctly._
 
@@ -215,13 +215,13 @@ cd <workspace>/dcc-portal
 mvn
 ```
 
-Once the build completes, you will be able to import the projects in ecplise:
+Once the build completes, you will be able to import the projects in eclise:
 
 **File > Import > Maven > Existing Maven Projects**
 
 browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.
 
-### Setting up DCC-ETL
+## Reference Data
 
 You will need to download the DCC reference genome from: 
 
@@ -233,27 +233,52 @@ and extract it to **/tmp**. Ensure that the contents of the file are not in a ne
 ln -s GRC37.75.fasta GRC37.fasta
 ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 ```
+## Utilities
 
-Clone the dcc-etl project to your workspace using git. In one terminal, start mongo:
+Consider all of these utilities optional, but highly recommended.
 
-```shell
-mongod
-```
 
-Test with: `mongo`
+### Trailer.app
 
-and in another terminal, start elasticsearch:
+Track pull requests and issues across repositories, directly in your Notification Center or on any device.
 
-```shell
-elasticsearch -f
-```
-
-Test with: `curl localhost:9200` 
-
-<u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the _cluster.name_ is **elasticsearch** in elasticsearch.yml file.
-
-and finally in yet another terminal, go to your dcc-etl project and from the terminal execute:
+[https://ptsochantaris.github.io/trailer/]()
 
 ```shell
-mvn
+brew cask install trailer
 ```
+
+### MacDown
+
+MacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo’s Mou.
+
+[http://macdown.uranusjr.com/]()
+
+```shell
+brew cask install macdown
+```
+
+### iTerm2
+
+Very powerful terminal emulator for Mac:
+
+[http://www.iterm2.com/]()
+
+```shell
+brew cask install iterm2 
+```
+
+### ZSH
+
+Great shell alternative that is mostly compatible with Bash:
+
+```shell
+brew install zsh
+```
+
+## Oh-My-Zsh
+
+Plugin system for `zsh`
+
+[https://github.com/robbyrussell/oh-my-zsh]()
+
