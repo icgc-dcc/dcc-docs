@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         
+        
+        <link rel="canonical" href="http://docs.icgc.org/software/setup/">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+
+   <title>Setup - ICGC DCC Docs</title>
+
+        <link rel="prefetch" href="/fonts/fontello/font/icgc-icons.woff?93317606" />
+        <link href="/fonts/fontello/css/icgc-icons.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,700italic' rel='stylesheet'
+              type='text/css'>
+        
+        <link href="/css/bootstrap-custom.css" rel="stylesheet">
+        <link href="/css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link href="/fonts/fontello/css/animation.css" rel="stylesheet">
+        <link href="/css/base.css" rel="stylesheet">
+        <link href="/css/icgc-common.css" rel="stylesheet">
+        
+
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script src="/js/jquery-1.11.3.min.js"></script>
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="background-container"></div>
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+            <a class="navbar-brand" href="../..">
+            
+                <span class="project-org">ICGC</span> DCC Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="/../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../portal/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/access/">Access</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/analysis/">Analysis</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">API</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../portal/api/">Guide</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../portal/api-endpoints/">Endpoints</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/methods/">Methods</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/projects/">Projects</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/publication/">Publication</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/releases/">Releases</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/repositories/">Repositories</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/search/">Search</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../portal/browsers/">Browsers</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../cloud/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../cloud/guide/">Guide</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../cloud/icgc-get/">icgc-get</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../cloud/repositories/">Repositories</a>
+    
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Submission <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../submission/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/api/">API</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/projects/">Projects</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/institutions/">Institutions</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../submission/faq/">FAQ</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Guide</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../submission/guide/intro/">Introduction</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submitting-raw-data-ega/">Submitting Raw Data to EGA</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submission-file-format/">Submission File Format</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/file-submission/">File Submission</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/overview/submission-validation/">Submission Validation</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/ega_file_validation/">EGA Raw File Validation</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/mvel-script-restriction-example-cases/">MVEL Script Restriction Example Cases</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/incremental-submission-feature/">Incremental Submission Feature</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/selective-validation-feature/">Selective Validation Feature</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/dcc-data-element-specifications/">DCC Data Element Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/clinical-data-submission-file-specifications/">Clinical Data Submission File Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/donor-clinical-data-guidelines/">Donor Clinical Data Guidelines</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/sample-type-specification/">Sample Type Specification</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/experimental-data-submission-file-specifications/">Experimental Data Submission File Specifications</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/guide/icgc-simple-somatic-mutation-format/">Simple Somatic Mutation Format</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">PCAWG</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../submission/pcawg/pancancer-clinical-data-requirements/">PanCancer Clinical Data Requirements</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../submission/pcawg/pcawg-faq/">FAQ</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dictionary <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/about/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../dictionary/viewer/">Viewer</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Release Notes</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../../dictionary/releases/">Releases</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-23/">Release 23</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-22/">Release 22</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-21/">Release 21</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-20/">Release 20</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-19/">Release 19</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-18/">Release 18</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-17/">Release 17</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-16/">Release 16</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../../dictionary/release-15/">Release 15</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../about/">About</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Releases</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    
+    <a href="../storage-client/">Storage Client</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../portal/">Portal</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../submission/">Submission</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../icgc-get/">icgc-get</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    
+    <a href="../binaries/">Binaries</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../code/">Source Code</a>
+    
+</li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Development</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    
+    <a href="./">Setup</a>
+    
+</li>
+
+        
+            
+<li >
+    
+    <a href="../development/">General</a>
+    
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+                <li class="menu-bar"></li>
+            </ul>
+
+            <!-- Search -->
+            <div class="searchbox-container col-sm-3 col-md-3">
+               <form class="searchbox navbar-form" role="search">
+                  <input id="mkdocs-search-query" type="search" placeholder="Search..." autocomplete="off" name="search" class="searchbox-input">
+                  <span class="searchbox-icon">
+                      <i class="icon-search search-bttn"></i>
+                      <i class="icon-cancel search-cancel-bttn"></i>
+                  </span>
+               </form>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+        <div class="parent-container">
+
+            <div id="docs-container" class="container">
+                
+
+<div id="mkdocs-search-results-container" class="row">
+    <div class="col-md-12">
+        <h1 id="dictionary-viewer" class="no-auto-render">
+            <span class="header-badge" style="padding: 0.90rem 1.0rem 1.2rem 1.6rem;">
+                <i class="icon-search"></i>
+            </span> Search Results
+        </h1>
+        <div id="search-body">
+
+        </div>
+        <div id="mkdocs-search-results">
+
+        </div>
+    </div>
+</div>
+                <div id="body">
+                
+                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#setup">Setup</a>
+           <ul class="nav">
+           
+               <li class=""><a href="#homebrew">Homebrew</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#cask">Cask</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#slack">Slack</a>
+               
+               </li>
+           
+               <li class=""><a href="#xcode">XCode</a>
+               
+               </li>
+           
+               <li class=""><a href="#iterm2">iTerm2</a>
+               
+               </li>
+           
+               <li class=""><a href="#elasticsearch">Elasticsearch</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#head-plugin">Head Plugin</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#mongodb">MongoDB</a>
+               
+               </li>
+           
+               <li class=""><a href="#git">Git</a>
+               
+               </li>
+           
+               <li class=""><a href="#hubflow">HubFlow</a>
+               
+               </li>
+           
+               <li class=""><a href="#github">GitHub</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#setup_1">Setup</a></li>
+                        
+                        <li class=""><a href="#workflow">Workflow</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#maven">Maven</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#installation">Installation</a></li>
+                        
+                        <li class=""><a href="#shade-plug-in">Shade plug-in</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#eclipse">Eclipse</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#installation_1">Installation</a></li>
+                        
+                        <li class=""><a href="#settings">Settings</a></li>
+                        
+                        <li class=""><a href="#lombok-support">Lombok Support</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#add-static-import-favorites">Add Static Import Favorites</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#plugins">Plugins</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#nodejs">Node.js</a>
+               
+               </li>
+           
+               <li class=""><a href="#setting-up-dcc-projects">Setting up DCC Projects</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#setting-up-dcc-portal">Setting up DCC-Portal</a></li>
+                        
+                        <li class=""><a href="#setting-up-dcc-etl">Setting up DCC-ETL</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+           </ul>
+       </li>
+        </li>
+    
+    </ul>
+</div></div>
+                
+                <div class="col-md-9 main-container" role="main">
+                   
+
+<h1 id="setup">Setup</h1>
+<h2 id="homebrew">Homebrew</h2>
+<p>Mac developers are using Homebrew (<code>brew</code>) which can be installed from:</p>
+<p><a href="http://brew.sh/">http://brew.sh/</a></p>
+<h3 id="cask"><span>Cask</span></h3>
+<p>It is recommended to install all applications with Cask to promote automation. Hopefully one day this page can be scripted.</p>
+<p><a href="https://caskroom.github.io/">https://caskroom.github.io/</a></p>
+<h2 id="slack">Slack</h2>
+<p>We use Slack almost entirely for internal communication, so install this ASAP.</p>
+<p><code>brew cask install slack</code></p>
+<h2 id="xcode">XCode</h2>
+<p>OS X no longer ships with developer command line tools, which will cause installing certain projects to fail. To install the tools yourself, go to the App Store and install Xcode (free, but requires an Apple ID). Then run XCode, select "Preferences..." from the "Xcode" menu (or press Command-,). Click the "Downloads" button in the upper right of the preferences window, and then click the arrow next to "Command Line Tools" in the "Components" section.</p>
+<h2 id="iterm2">iTerm2</h2>
+<p>Very powerful terminal emulator for Mac:</p>
+<p><a href="http://www.iterm2.com/">http://www.iterm2.com/</a></p>
+<h2 id="elasticsearch">Elasticsearch</h2>
+<p><code>brew install elasticsearch14</code></p>
+<p><code>brew switch elasticsearch14 1.4.4</code></p>
+<h3 id="head-plugin"><span class="pln" style="color: rgb(0,0,0);">Head Plugin</span></h3>
+<pre>/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head</pre>
+
+<h2 id="mongodb">MongoDB</h2>
+<p><code>brew install mongo</code></p>
+<p><code>brew switch mongo 2.4.4-x86_64</code></p>
+<h2 id="git">Git</h2>
+<p>Download _dmg _from <a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
+<h2 id="hubflow">HubFlow</h2>
+<p><code>brew install hubflow</code></p>
+<p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
+<h2 id="github">GitHub</h2>
+<h3 id="setup_1">Setup</h3>
+<p><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="2d40b185-9fa4-4536-aa6b-0a049e8f7356"><ac:plain-text-body></ac:plain-text-body></ac:structured-macro></p>
+<ol>
+<li>Clone a project from GitHub:<br />
+<code>git clone git@github.com:icgc-dcc/&lt;project&gt;.git</code></li>
+<li>Init Git-flow (default settings):<br />
+<code>git hf init</code></li>
+</ol>
+<h3 id="workflow">Workflow</h3>
+<p><a href="http://datasift.github.com/gitflow/GitFlowForGitHub.html">http://datasift.github.com/gitflow/GitFlowForGitHub.html</a></p>
+<ol>
+<li>
+<p>Create a new branch for your work<br />
+    Use the ticket number and a brief description of the ticket:<br />
+<em>ie.</em> DCC-103-Git-SOP<br />
+<strong>git hf feature start BRANCH_NAME</strong><br />
+    or checkout an existing branch<br />
+<strong>git hf feature checkout BRANCH_NAME</strong>  </p>
+</li>
+<li>
+<p>Make your changes (commit often) and push your branch<br />
+<strong>git add foo.java bar.java</strong><br />
+<strong>git commit -m '[TICKET] - Nice commit message'</strong><br />
+<strong><em>*git add bar.java</em>*<br />
+</strong>git commit -m '[TICKET] - Nice commit message'****  </p>
+</li>
+<li>
+<p>Push to GitHub to keep the public branch up-to-date<strong>git hf feature push<br />
+</strong></p>
+</li>
+<li><em>Optional - _If you have been working for a while, you can merge <strong>develop </strong>back into your <strong>branch</strong> if you think they are getting too out of sync <br />
+<strong>git hf update<strong><em>* &amp;&amp; </em></strong>*git</strong> <strong>merge develop</strong><br />
+    _deal with merge conflicts</em></li>
+<li>When you are finished, open a pull request on GitHub<br />
+    Use the Pull Request button at the top of the Repo<br />
+    Select <strong>develop</strong> as the <strong>base</strong> and <strong>BRANCH_NAME</strong> as the <strong>head</strong><br />
+<strong>GitHub will let you know if the merge will be successful</strong><br />
+    <span style="color: rgb(102,102,153);"><strong><at some point in the future>Jenkins will merge the pull request into develop and report the results as a comment on the pull request</strong></span><br />
+<em><span style="color: rgb(0,0,0);">until Jenkins is setup, another team member can checkout the branch and make sure all tests pass/do code review/whatever</span></em><br />
+    <span style="color: rgb(0,0,0);"><strong>git checkout feature/BRANCH_NAME</strong></span><br />
+    <span><em>running tests:</em> cd server &amp;&amp; mvn tests or </span><span style="color: rgb(0,0,0);">cd client &amp;&amp; cakes tests</span><br />
+<em><span style="color: rgb(0,0,0);"><br />
+    </span></em></li>
+<li>Merging the pull request<br />
+    <span style="color: rgb(0,0,0);"><strong>If at least one other person has approved, and there are no other comments, the branch can be merged using GitHub </strong><br />
+    </span><strong>If the branch cannot be auto-merged into develop, develop must first be merged back into the branch and all conflicts resolved (see step 4) </strong></li>
+<li>After the pull request has been accepted and merged on GitHub, the branch can be deleted<br />
+<strong>git hf update &amp;&amp; </strong><strong>git hf feature finish BRANCH_NAME</strong></li>
+</ol>
+<h2 id="maven">Maven</h2>
+<h3 id="installation">Installation</h3>
+<p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml">https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml</a> <code>&lt;span&gt;maven-enforcer-plugin&lt;/span&gt;</code></p>
+<h3 id="shade-plug-in"><span style="color: rgb(0,0,0);">Shade plug-in</span></h3>
+<p>This helps with dependency conflicts (especially hadoop's): <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html">http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html</a></p>
+<p>Currently use naming convention for the shaded artifact: org.icgc.dcc.shaded.${name} (like "org.icgc.dcc.shaded.jackson", "org.icgc.dcc.shaded.sshd", ...)</p>
+<h2 id="eclipse">Eclipse</h2>
+<h3 id="installation_1">Installation</h3>
+<p>Download and install Eclipse 4.6.x or latest for Java EE developers:</p>
+<p><a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a></p>
+<h3 id="settings">Settings</h3>
+<p>Install m2e and add the builderhelper plugin:</p>
+<p><a href="http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2">http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2</a></p>
+<h3 id="lombok-support">Lombok Support</h3>
+<p>A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, <code>toString()</code>, <code>hashCode()</code>, <code>equals()</code>, <code>static Logger log</code>, etc.). This is seemless to <code>javac</code> via <code>mvn</code>, but the Java 6 <a href="http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html">transformations</a> will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute <code>java -jar [lombok.jar](http://projectlombok.googlecode.com/files/lombok.jar)</code> and point it to your Eclipse installation. See <a href="http://projectlombok.org/features/index.html">http://projectlombok.org/features/index.html</a> for details. </p>
+<p><ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="73f509de-3dfa-41ea-a901-aff94979e1fe"><ac:rich-text-body></p>
+<p>As of 13/09/19 at least, do <strong>not</strong> use a builder method (defined with <code>@Builder</code>) in a statically imported manner. Eclipse is fine but upon compilation with maven, one gets:</p>
+<p>error: cannot find symbol, [ERROR] symbol:   static builder, [ERROR] location: class</p>
+<p></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="a31bd6c2-3c84-4fd0-b6c3-a916dd491c8f"><ac:rich-text-body></p>
+<p>As of 14/07/07, do <strong>not</strong> use constructs like:</p>
+<p>val myVar = new MyAnonymousClass() { ... }</p>
+<p>(see <a href="https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary">https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary</a>)</p>
+<p></ac:rich-text-body></ac:structured-macro></p>
+<p>Activate source downloading in the maven plugin, t<span style="line-height: 1.4285715;">ick the</span> <strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong> <span style="line-height: 1.4285715;">box</span></p>
+<h2 id="add-static-import-favorites">Add Static Import Favorites</h2>
+<p>Add some classes to your favorite static imports via <strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
+<ul>
+<li>Guava's <code>Preconditions</code></li>
+<li>PowerMock's <code>&lt;span&gt;PowerMockito&lt;/span&gt;</code></li>
+<li>Mockito's <code>Mockito</code></li>
+<li><span>AsserJ's <code>&lt;span&gt;org.assertj.core.api.Assertions.*&lt;/span&gt;</code></span></li>
+</ul>
+<h3 id="plugins">Plugins</h3>
+<h4 id="moreunit-plugin">MoreUnit Plugin</h4>
+<p>Useful JUnit Eclipse integration extensions can be installed by following the instructions here:</p>
+<p><a href="http://moreunit.sourceforge.net/">http://moreunit.sourceforge.net/</a></p>
+<h4 id="grep-console">Grep Console</h4>
+<p>Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:</p>
+<p><a href="http://marian.schedenig.name/projects/grep-console/">http://marian.schedenig.name/projects/grep-console/</a></p>
+<h4 id="jsonedit-plugin">JSONEdit Plugin</h4>
+<p>Useful for editing JSON files in Eclipse, with syntax highlighting and formatting. Follow the instructions here:</p>
+<p><a href="http://eclipsejsonedit.sourceforge.net/">http://eclipsejsonedit.sourceforge.net/</a></p>
+<h4 id="yedit-plugin">YEdit Plugin</h4>
+<p>Useful for editing YAML files in Eclipse, with syntax highlighting and formatting. Follow the instructions here:</p>
+<p><a href="https://code.google.com/p/yedit/">https://code.google.com/p/yedit/</a></p>
+<h4 id="shelled-plugin">ShellEd Plugin</h4>
+<p>The ShellEd plugin provides basic syntax highlighting and outlining for shell script editing.  Follow the instructions here:</p>
+<p><a href="http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide">http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide</a></p>
+<h2 id="nodejs">Node.js</h2>
+<pre>brew install nvm</pre>
+
+<p>Then read <a href="https://davidwalsh.name/nvm">https://davidwalsh.name/nvm</a> for usage information.</p>
+<p>Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui</a>).</p>
+<h2 id="setting-up-dcc-projects">Setting up DCC Projects</h2>
+<h3 id="setting-up-dcc-portal">Setting up DCC-Portal</h3>
+<p><em>Assumes everything above has been installed correctly.</em></p>
+<p>Clone the repository from git to your workspace and follow the instructions in the <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">setup of the DCC-Portal-UI</a>.</p>
+<p>After that, in the terminal:</p>
+<pre>cd your_workspace/dcc-portal</pre>
+
+<pre>mvn</pre>
+
+<p>Once the build completes, you will be able to import the projects in ecplise:</p>
+<pre>File > Import > Maven > Existing Maven Projects</pre>
+
+<p>browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.</p>
+<h3 id="setting-up-dcc-etl">Setting up DCC-ETL</h3>
+<p>You will need to download the DCC reference genome from: </p>
+<p><a href="https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz">https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz</a></p>
+<p>and extract it to <strong>/tmp</strong>. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink GRCh37.fasta to GRC37.75.fasta and GRCh37.fasta.fai to GRCh37.75.fasta.fai by executing the following:</p>
+<pre class="p1">> ln -s GRC37.75.fasta GRC37.fasta</pre>
+
+<pre class="p1">> ln -s GRC37.75.fasta.fai GRC37.fasta.fai</pre>
+
+<p>Clone the dcc-etl project to your workspace using git. In one terminal, start mongo:</p>
+<pre class="p1">> mongod       </pre>
+
+<p>Test with: <code>mongo</code></p>
+<p>and in another terminal, start elasticsearch:</p>
+<pre class="p1">> elasticsearch -f</pre>
+
+<p>Test with: <code>curl localhost:9200</code> </p>
+<p><u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the <em>cluster.name</em> is <strong>elasticsearch</strong>in elasticsearch.yml file.</p>
+<p>and finally in yet another terminal, go to your dcc-etl project and from the terminal execute:</p>
+<pre class="p1">> mvn</pre>
+               </div>
+               </div>
+            </div>
+
+            <footer id="docs-footer">
+                <div class="row">
+                    <div class="col-md-12 logo">
+                        <a href="http://oicr.on.ca/" target="_blank"><img src="../../img/OICR2logo.png"></a>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-12 footer-caption">
+                        <small>
+                            &copy; 2015-2016 <a href="https://icgc.org" target="_blank">International Cancer Genome Consortium.</a>
+                            All Rights reserved.
+                        </small>
+
+                        
+                        <small class="version-caption">
+                            ICGC DCC Docs Version 1.0
+                        </small>
+                        
+                    </div>
+                </div>
+                
+            </footer>
+
+            <script src="/js/jQuery-FontSpy.js"></script>
+            <script src="/js/bootstrap-3.0.3.min.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+            <script src="/js/lunr-0.5.7.min.js"></script>
+            <script src="/js/jquery.highlight-4.closure.js"></script>
+            <script src="/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+            <script src="/js/jquery.scrollUp.min.js"></script>
+            <script src="/js/icgc-common.js"></script>
+            <script>var base_url = '../..';</script>
+        </div>
+        <script src="/js-out/commons-chunk.js"></script>
+
+        
+    </body>
+</html>
