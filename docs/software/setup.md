@@ -232,9 +232,9 @@ browse and import your dcc-portal projects. You can ignore any plugin execution 
 
 You will need to download the DCC reference genome from: 
 
-[https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz](https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz)
+[https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/](https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/)
 
-and extract it to **/tmp**. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink GRCh37.fasta to GRC37.75.fasta and GRCh37.fasta.fai to GRCh37.75.fasta.fai by executing the following:
+and extract it to `/tmp`. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink `GRCh37.fasta` to `GRC37.75.fasta` and `GRCh37.fasta.fai` to `GRCh37.75.fasta.fai` by executing the following:
 
 ```shell
 ln -s GRC37.75.fasta GRC37.fasta
