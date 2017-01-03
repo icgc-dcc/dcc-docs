@@ -989,6 +989,7 @@ performRelease
 <li>Don't use <code>val</code> on the lefthand side of an array assignment</li>
 <li>Don't use <code>val</code> on the lefthand side of a lambda assignment</li>
 <li>Don't <code>@UlitityClass</code></li>
+<li>Don't use a builder method (defined with <code>@Builder</code>) in a <code>static</code>ally imported manner (see <a href="https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary">here</a>)</li>
 </ul>
 <h3 id="utility-classes">Utility Classes</h3>
 <p>Utility classes should be cohesive and focused, and not a dumping grounds for a bunch of unrelated methods.</p>

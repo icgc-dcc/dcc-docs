@@ -919,16 +919,12 @@ OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&
 <p>Install m2e and add the builderhelper plugin:</p>
 <p><a href="http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2">http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2</a></p>
 <h3 id="lombok-support">Lombok Support</h3>
-<p>A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, <code>toString()</code>, <code>hashCode()</code>, <code>equals()</code>, <code>static Logger log</code>, etc.). This is seemless to <code>javac</code> via <code>mvn</code>, but the Java 6 <a href="http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html">transformations</a> will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute <code>java -jar [lombok.jar](http://projectlombok.googlecode.com/files/lombok.jar)</code> and point it to your Eclipse installation. See <a href="http://projectlombok.org/features/index.html">http://projectlombok.org/features/index.html</a> for details. </p>
-<p>As of 13/09/19 at least, do <strong>not</strong> use a builder method (defined with <code>@Builder</code>) in a statically imported manner. Eclipse is fine but upon compilation with maven, one gets:</p>
-<pre><code>  error: cannot find symbol, [ERROR] symbol:   static builder, [ERROR] location: class
+<p>A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, <code>toString()</code>, <code>hashCode()</code>, <code>equals()</code>, <code>static Logger log</code>, etc.). This is seemless to <code>javac</code> via <code>mvn</code>, but the Java 6 <a href="http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html">transformations</a> will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute </p>
+<pre><code class="shell">wget http://projectlombok.googlecode.com/files/lombok.jar
+java -jar lombok.jar
 </code></pre>
 
-<p>As of 14/07/07, do <strong>not</strong> use constructs like:</p>
-<pre><code class="java">val myVar = new MyAnonymousClass() { ... }
-</code></pre>
-
-<p>(see <a href="https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary">https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary</a>)</p>
+<p>And point it to your Eclipse installation. See <a href="http://projectlombok.org/features/index.html">http://projectlombok.org/features/index.html</a> for details. </p>
 <p>Activate source downloading in the maven plugin, tick the <strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong> box.</p>
 <h3 id="add-static-import-favorites">Add Static Import Favorites</h3>
 <p>Add some classes to your favorite static imports via <strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
