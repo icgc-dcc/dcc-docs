@@ -884,7 +884,11 @@ brew switch mongo 2.4.4-x86_64
 </ol>
 <h2 id="maven">Maven</h2>
 <h3 id="installation">Installation</h3>
-<p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml">https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml</a> <code>maven-enforcer-plugin</code></p>
+<p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml#L1340">icgc-dcc/dcc-parent/pom.xml</a> <code>maven-enforcer-plugin.requireMavenVersion</code></p>
+<pre><code class="shell">brew install maven
+brew switch maven 3.2.1
+</code></pre>
+
 <p>To check your installation, run:</p>
 <pre><code class="shell">mvn -v
 
