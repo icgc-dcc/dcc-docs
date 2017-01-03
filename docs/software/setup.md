@@ -6,7 +6,7 @@ Mac developers are using Homebrew (`brew`) which can be installed from:
 
 [http://brew.sh/](http://brew.sh/)
 
-### <span>Cask</span>
+### Cask
 
 It is recommended to install all applications with Cask to promote automation. Hopefully one day this page can be scripted.
 
@@ -16,11 +16,29 @@ It is recommended to install all applications with Cask to promote automation. H
 
 We use Slack almost entirely for internal communication, so install this ASAP.
 
-`brew cask install slack`
+```shell
+brew cask install slack
+```
 
 ## XCode
 
 OS X no longer ships with developer command line tools, which will cause installing certain projects to fail. To install the tools yourself, go to the App Store and install Xcode (free, but requires an Apple ID). Then run XCode, select "Preferences..." from the "Xcode" menu (or press Command-,). Click the "Downloads" button in the upper right of the preferences window, and then click the arrow next to "Command Line Tools" in the "Components" section.
+
+## Java
+
+```shell
+brew cask install java
+```
+
+Ensure this reports java 8:
+
+```shell
+java -version   
+                                                                                                                                         
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+```
 
 ## iTerm2
 
@@ -28,21 +46,29 @@ Very powerful terminal emulator for Mac:
 
 [http://www.iterm2.com/](http://www.iterm2.com/)
 
+```shell
+brew cask install iterm2 
+```
+
 ## Elasticsearch
 
-`brew install elasticsearch14`
-
-`brew switch elasticsearch14 1.4.4`
+```shell
+brew install elasticsearch14
+brew switch elasticsearch14 1.4.4
+```
 
 ### <span class="pln" style="color: rgb(0,0,0);">Head Plugin</span>
 
-<pre>/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head</pre>
+```shell
+/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
+```
 
 ## MongoDB
 
-`brew install mongo`
-
-`brew switch mongo 2.4.4-x86_64`
+```shell
+brew install mongo
+brew switch mongo 2.4.4-x86_64
+```
 
 ## Git
 
@@ -50,7 +76,9 @@ Download _dmg _from [http://git-scm.com/download/mac](http://git-scm.com/down
 
 ## HubFlow
 
-`brew install hubflow`
+```shell
+brew install hubflow
+```
 
 See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md) for details on how we use this.
 
@@ -107,13 +135,13 @@ See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https
 
 ### Installation 
 
-Install Maven 3.2.1 or what is specified in [https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml](https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml) `<span>maven-enforcer-plugin</span>`
+Install Maven 3.2.1 or what is specified in [https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml](https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml) `maven-enforcer-plugin`
 
-### <span style="color: rgb(0,0,0);">Shade plug-in</span>
+### Shade Plug-in
 
-This helps with dependency conflicts (especially hadoop's): [http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html](http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html)
+This helps with dependency conflicts (especially Hadoop's): [http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html](http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html)
 
-Currently use naming convention for the shaded artifact: org.icgc.dcc.shaded.${name} (like "org.icgc.dcc.shaded.jackson", "org.icgc.dcc.shaded.sshd", ...)
+Currently use naming convention for the shaded artifact: `org.icgc.dcc.shaded.${name}` (like `org.icgc.dcc.shaded.jackson`, `org.icgc.dcc.shaded.sshd`, ...)
 
 ## Eclipse
 
@@ -156,9 +184,9 @@ Activate source downloading in the maven plugin, t<span style="line-height: 1.42
 Add some classes to your favorite static imports via **Preferences > Java > Editor > Content Assist > Favorites**:
 
 *   Guava's `Preconditions`
-*   PowerMock's `<span>PowerMockito</span>`
+*   PowerMock's `PowerMockito`
 *   Mockito's `Mockito`
-*   <span>AsserJ's `<span>org.assertj.core.api.Assertions.*</span>`</span>
+*   AssertJ's `org.assertj.core.api.Assertions.*`
 
 ### Plugins
 
@@ -194,7 +222,9 @@ The ShellEd plugin provides basic syntax highlighting and outlining for shell sc
 
 ## Node.js
 
-<pre>brew install nvm</pre>
+```shell
+brew install nvm
+```
 
 Then read [https://davidwalsh.name/nvm](https://davidwalsh.name/nvm) for usage information.
 
@@ -210,13 +240,14 @@ Clone the repository from git to your workspace and follow the instructions in t
 
 After that, in the terminal:
 
-<pre>cd your_workspace/dcc-portal</pre>
-
-<pre>mvn</pre>
+```shell
+cd your_workspace/dcc-portal
+mvn
+```
 
 Once the build completes, you will be able to import the projects in ecplise:
 
-<pre>File > Import > Maven > Existing Maven Projects</pre>
+`File > Import > Maven > Existing Maven Projects`
 
 browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.
 
@@ -228,24 +259,31 @@ You will need to download the DCC reference genome from: 
 
 and extract it to **/tmp**. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink GRCh37.fasta to GRC37.75.fasta and GRCh37.fasta.fai to GRCh37.75.fasta.fai by executing the following:
 
-<pre class="p1">> ln -s GRC37.75.fasta GRC37.fasta</pre>
-
-<pre class="p1">> ln -s GRC37.75.fasta.fai GRC37.fasta.fai</pre>
+```shell
+ln -s GRC37.75.fasta GRC37.fasta
+ln -s GRC37.75.fasta.fai GRC37.fasta.fai
+```
 
 Clone the dcc-etl project to your workspace using git. In one terminal, start mongo:
 
-<pre class="p1">> mongod       </pre>
+```shell
+mongod
+```
 
 Test with: `mongo`
 
 and in another terminal, start elasticsearch:
 
-<pre class="p1">> elasticsearch -f</pre>
+```shell
+elasticsearch -f
+```
 
 Test with: `curl localhost:9200` 
 
-<u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the _cluster.name_ is **elasticsearch**in elasticsearch.yml file.
+<u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the _cluster.name_ is **elasticsearch** in elasticsearch.yml file.
 
 and finally in yet another terminal, go to your dcc-etl project and from the terminal execute:
 
-<pre class="p1">> mvn</pre>
+```shell
+mvn
+```
