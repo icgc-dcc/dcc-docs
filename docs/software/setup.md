@@ -142,21 +142,14 @@ Install m2e and add the builderhelper plugin:
 
 ### Lombok Support
 
-A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, `toString()`, `hashCode()`, `equals()`, `static Logger log`, etc.). This is seemless to `javac` via `mvn`, but the Java 6 [transformations](http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html) will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute `java -jar [lombok.jar](http://projectlombok.googlecode.com/files/lombok.jar)` and point it to your Eclipse installation. See [http://projectlombok.org/features/index.html](http://projectlombok.org/features/index.html) for details. 
+A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, `toString()`, `hashCode()`, `equals()`, `static Logger log`, etc.). This is seemless to `javac` via `mvn`, but the Java 6 [transformations](http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html) will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute 
 
-As of 13/09/19 at least, do **not** use a builder method (defined with `@Builder`) in a statically imported manner. Eclipse is fine but upon compilation with maven, one gets:
-
-```
-  error: cannot find symbol, [ERROR] symbol:   static builder, [ERROR] location: class
-```
-
-As of 14/07/07, do **not** use constructs like:
-
-```java
-val myVar = new MyAnonymousClass() { ... }
+```shell
+wget http://projectlombok.googlecode.com/files/lombok.jar
+java -jar lombok.jar
 ```
 
-(see [https://code.google.com/p/projectlombok/issues/detail?id=694&sort=-id&colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary](https://code.google.com/p/projectlombok/issues/detail?id=694&sort=-id&colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary))
+And point it to your Eclipse installation. See [http://projectlombok.org/features/index.html](http://projectlombok.org/features/index.html) for details. 
 
 Activate source downloading in the maven plugin, tick the **Preferences > Maven > Maven Download Artifact Sources** box.
 

@@ -234,7 +234,7 @@ Things to avoid to prevent `javac` [issues](https://github.com/rzwitserloot/lomb
 - Don't use `val` on the lefthand side of an array assignment
 - Don't use `val` on the lefthand side of a lambda assignment
 - Don't `@UlitityClass`
-
+- Don't use a builder method (defined with `@Builder`) in a `static`ally imported manner (see [here](https://code.google.com/p/projectlombok/issues/detail?id=694&sort=-id&colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary))
 
 ###  Utility Classes
 
