@@ -297,7 +297,9 @@ pages:
     - icgc-get: 'software/icgc-get.md'
   - Binaries: 'software/binaries.md'
   - Source Code: 'software/code.md'
-  - Development: 'software/development.md'
+  - Development: 
+    - Setup: 'software/setup.md'
+    - General: 'software/development.md'
 extra:
   project_root_dir: '/'
   project_org: 'ICGC'
