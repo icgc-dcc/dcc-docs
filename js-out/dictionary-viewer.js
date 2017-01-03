@@ -95001,7 +95001,7 @@ webpackJsonp([0,2],[
 			"url": "https://github.com/benjamine/jsondiffpatch/issues"
 		},
 		"_id": "jsondiffpatch@0.1.43",
-		"_shasum": "7c47f215b840819a15f6a2a9f8ae59f97f275896",
+		"_shasum": "596e43635775b3b52b309e7fbfd12c8f45dd7253",
 		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
 		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5"
 	};
