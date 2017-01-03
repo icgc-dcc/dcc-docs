@@ -248,7 +248,7 @@ Consider all of these utilities optional, but highly recommended.
 
 Track pull requests and issues across repositories, directly in your Notification Center or on any device.
 
-[https://ptsochantaris.github.io/trailer/]()
+[https://ptsochantaris.github.io/trailer/](https://ptsochantaris.github.io/trailer/)
 
 ```shell
 brew cask install trailer
@@ -258,13 +258,13 @@ brew cask install trailer
 
 Docker for Mac:
 
-[https://docs.docker.com/engine/installation/mac/]()
+[https://docs.docker.com/engine/installation/mac/](https://docs.docker.com/engine/installation/mac/)
 
 ### MacDown
 
 MacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo’s Mou.
 
-[http://macdown.uranusjr.com/]()
+[http://macdown.uranusjr.com/](http://macdown.uranusjr.com/)
 
 ```shell
 brew cask install macdown
@@ -274,7 +274,7 @@ brew cask install macdown
 
 Very powerful terminal emulator for Mac:
 
-[http://www.iterm2.com/]()
+[http://www.iterm2.com/](http://www.iterm2.com/)
 
 ```shell
 brew cask install iterm2 
@@ -292,13 +292,13 @@ brew install zsh
 
 Plugin system for `zsh`
 
-[https://github.com/robbyrussell/oh-my-zsh]()
+[https://github.com/robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 ### HTTP
 
 Modern alternative to `curl`:
 
-[https://github.com/jkbrzt/httpie]()
+[https://github.com/jkbrzt/httpie](https://github.com/jkbrzt/httpie)
 
 ```shell
 brew install httpie
@@ -308,7 +308,7 @@ brew install httpie
 
 `jq` is a lightweight and flexible command-line JSON processor:
 
-[https://stedolan.github.io/jq/]()
+[https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)
 
 ```shell
 brew install jq
@@ -318,5 +318,4 @@ brew install jq
 
 Useful other things:
 
-[https://danielmiessler.com/blog/first-10-things-new-mac]()
-
+[https://danielmiessler.com/blog/first-10-things-new-mac](https://danielmiessler.com/blog/first-10-things-new-mac)
