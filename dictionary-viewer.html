@@ -1,0 +1,16 @@
+<link href="{{ base_url }}/vendor/angular-loading-bar/loading-bar.min.css" rel="stylesheet">
+<link href="{{ base_url }}/css/dictionary-viewer-print.css" rel="stylesheet" media="print">
+
+<script type="application/javascript">
+    (function() {
+        window.$icgcApp = window.$icgcApp || {};
+
+
+        window.$icgcApp.dictionaryViewer = {
+            config: {
+                baseDictionaryURL:  '{{ config.extra.dictionary_viewer_base_url }}'
+            }
+        };
+
+    })();
+</script>
