@@ -706,6 +706,10 @@
                
                </li>
            
+               <li class=""><a href="#java">Java</a>
+               
+               </li>
+           
                <li class=""><a href="#iterm2">iTerm2</a>
                
                </li>
@@ -818,12 +822,29 @@
 <p><code>brew cask install slack</code></p>
 <h2 id="xcode">XCode</h2>
 <p>OS X no longer ships with developer command line tools, which will cause installing certain projects to fail. To install the tools yourself, go to the App Store and install Xcode (free, but requires an Apple ID). Then run XCode, select "Preferences..." from the "Xcode" menu (or press Command-,). Click the "Downloads" button in the upper right of the preferences window, and then click the arrow next to "Command Line Tools" in the "Components" section.</p>
+<h2 id="java">Java</h2>
+<pre><code class="shell">brew cask install java
+</code></pre>
+
+<p>Ensure this reports java 8:</p>
+<pre><code class="shell">java -version   
+
+java version &quot;1.8.0_31&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+</code></pre>
+
 <h2 id="iterm2">iTerm2</h2>
 <p>Very powerful terminal emulator for Mac:</p>
 <p><a href="http://www.iterm2.com/">http://www.iterm2.com/</a></p>
+<pre><code class="shell">brew cask install iterm2 
+</code></pre>
+
 <h2 id="elasticsearch">Elasticsearch</h2>
-<p><code>brew install elasticsearch14</code></p>
-<p><code>brew switch elasticsearch14 1.4.4</code></p>
+<pre><code class="shell">brew install elasticsearch14
+brew switch elasticsearch14 1.4.4
+</code></pre>
+
 <h3 id="head-plugin"><span class="pln" style="color: rgb(0,0,0);">Head Plugin</span></h3>
 <pre>/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head</pre>
 
@@ -967,7 +988,7 @@
 <pre class="p1">> elasticsearch -f</pre>
 
 <p>Test with: <code>curl localhost:9200</code> </p>
-<p><u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the <em>cluster.name</em> is <strong>elasticsearch</strong>in elasticsearch.yml file.</p>
+<p><u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the <em>cluster.name</em> is <strong>elasticsearch</strong> in elasticsearch.yml file.</p>
 <p>and finally in yet another terminal, go to your dcc-etl project and from the terminal execute:</p>
 <pre class="p1">> mvn</pre>
                </div>
