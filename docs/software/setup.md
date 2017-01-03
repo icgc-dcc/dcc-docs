@@ -140,6 +140,10 @@ Install m2e and add the builderhelper plugin:
 
 [http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2](http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2)
 
+Install and configure IDE settings:
+
+[https://github.com/icgc-dcc/dcc-cm/tree/develop/ide](https://github.com/icgc-dcc/dcc-cm/tree/develop/ide)
+
 ### Lombok Support
 
 A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, `toString()`, `hashCode()`, `equals()`, `static Logger log`, etc.). This is seemless to `javac` via `mvn`, but the Java 6 [transformations](http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html) will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute 
@@ -170,25 +174,24 @@ Useful JUnit Eclipse integration extensions can be installed by following the in
 
 [http://moreunit.sourceforge.net/](http://moreunit.sourceforge.net/)
 
+#### FindBugs
+
+Locally run FindBugs within your IDE:
+
+[http://findbugs.sourceforge.net/manual/eclipse.html](http://findbugs.sourceforge.net/manual/eclipse.html)
+
 #### Grep Console
 
 Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:
 
 [http://marian.schedenig.name/projects/grep-console/](http://marian.schedenig.name/projects/grep-console/)
 
-#### YEdit Plugin
+Configuration is available in the Eclipse section.
 
-Useful for editing YAML files in Eclipse, with syntax highlighting and formatting. Follow the instructions here:
-
-[https://code.google.com/p/yedit/](https://code.google.com/p/yedit/)
-
-#### ShellEd Plugin
-
-The ShellEd plugin provides basic syntax highlighting and outlining for shell script editing.  Follow the instructions here:
-
- [http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide](http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide)
 
 ## NodeJS
+
+This is only required for projects that use a UI built by `npm` (e.g. `dcc-docs`, `dcc-portal`, `dcc-submission`, `dcc-dev`, etc.)
 
 ```shell
 brew install nvm
@@ -202,24 +205,13 @@ Then follow instructions in each GitHub's repo for the required node / npm versi
 
 After installing the above, navigate to the project(s) that you will be working on in [GitHub](https://github.com/icgc-dcc) and follow the top-level `README.md`s and linked sub-module `README.md`s.
 
-### Eclipse Based Projects
+### Eclipse Projects
 
-_Assumes everything above has been installed correctly._
+To import an Eclipse based project, click on the following in the file menu:
 
-Clone the repository from git to your workspace and follow the instructions in the [setup of the DCC-Portal-UI](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui).
+**File > Import > Maven > Materialize Maven Projects from SCM**
 
-After that, in the terminal:
-
-```shell
-cd <workspace>/dcc-portal
-mvn
-```
-
-Once the build completes, you will be able to import the projects in eclise:
-
-**File > Import > Maven > Existing Maven Projects**
-
-browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.
+Then enter the git URL of the project from [icgc-dcc](https://github.com/icgc-dcc). You can ignore any plugin execution errors that might occur in pom.xml.
 
 ## Reference Data
 
@@ -233,6 +225,7 @@ and extract it to `/tmp`. Ensure that the contents of the file are not in a nest
 ln -s GRC37.75.fasta GRC37.fasta
 ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 ```
+
 ## Utilities
 
 Consider all of these utilities optional, but highly recommended.
