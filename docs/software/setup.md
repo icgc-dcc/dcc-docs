@@ -20,9 +20,9 @@ We use Slack almost entirely for internal communication, so install this ASAP.
 brew cask install slack
 ```
 
-## XCode
+## XCode and Command Line Tools
 
-OS X no longer ships with developer command line tools, which will cause installing certain projects to fail. To install the tools yourself, go to the App Store and install Xcode (free, but requires an Apple ID). Then run XCode, select "Preferences..." from the "Xcode" menu (or press Command-,). Click the "Downloads" button in the upper right of the preferences window, and then click the arrow next to "Command Line Tools" in the "Components" section.
+See http://railsapps.github.io/xcode-command-line-tools.html
 
 ## Java
 
@@ -57,7 +57,7 @@ brew install elasticsearch14
 brew switch elasticsearch14 1.4.4
 ```
 
-### <span class="pln" style="color: rgb(0,0,0);">Head Plugin</span>
+### Head Plugin
 
 ```shell
 /usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
@@ -86,50 +86,14 @@ See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https
 
 ### Setup
 
-<ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="2d40b185-9fa4-4536-aa6b-0a049e8f7356"><ac:plain-text-body></ac:plain-text-body></ac:structured-macro>
-
 1.  Clone a project from GitHub:  
-    `git clone git@github.com:icgc-dcc/<project>.git`
+    ```shell
+    git clone git@github.com:icgc-dcc/<project>.git
+    ```
 2.  Init Git-flow (default settings):  
-    `git hf init`
-
-### Workflow
-
-[http://datasift.github.com/gitflow/GitFlowForGitHub.html](http://datasift.github.com/gitflow/GitFlowForGitHub.html)
-
-1.  Create a new branch for your work  
-    Use the ticket number and a brief description of the ticket:  
-    _ie._ DCC-103-Git-SOP  
-    **git hf feature start BRANCH_NAME**  
-    or checkout an existing branch  
-    **git hf feature checkout BRANCH_NAME**  
-
-2.  Make your changes (commit often) and push your branch  
-    **git add foo.java bar.java**  
-    **git commit -m '[TICKET] - Nice commit message'**  
-    ****git add bar.java**  
-    **git commit -m '[TICKET] - Nice commit message'****  
-
-3.  Push to GitHub to keep the public branch up-to-date**git hf feature push  
-    **
-4.  _Optional - _If you have been working for a while, you can merge **develop **back into your **branch** if you think they are getting too out of sync   
-    **git hf update**** && ****git** **merge develop**  
-    _deal with merge conflicts_
-5.  When you are finished, open a pull request on GitHub  
-    Use the Pull Request button at the top of the Repo  
-    Select **develop** as the **base** and **BRANCH_NAME** as the **head**  
-    **GitHub will let you know if the merge will be successful**  
-    <span style="color: rgb(102,102,153);">**<at some point in the future>Jenkins will merge the pull request into develop and report the results as a comment on the pull request**</span>  
-    _<span style="color: rgb(0,0,0);">until Jenkins is setup, another team member can checkout the branch and make sure all tests pass/do code review/whatever</span>_  
-    <span style="color: rgb(0,0,0);">**git checkout feature/BRANCH_NAME**</span>  
-    <span>_running tests:_ cd server && mvn tests or </span><span style="color: rgb(0,0,0);">cd client && cakes tests</span>  
-    _<span style="color: rgb(0,0,0);">  
-    </span>_
-6.  Merging the pull request  
-    <span style="color: rgb(0,0,0);">**If at least one other person has approved, and there are no other comments, the branch can be merged using GitHub **  
-    </span>**If the branch cannot be auto-merged into develop, develop must first be merged back into the branch and all conflicts resolved (see step 4) **
-7.  After the pull request has been accepted and merged on GitHub, the branch can be deleted  
-    **git hf update && ****git hf feature finish BRANCH_NAME**
+    ```shell
+    git hf init
+    ```
 
 ## Maven
 
@@ -137,11 +101,25 @@ See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https
 
 Install Maven 3.2.1 or what is specified in [https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml](https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml) `maven-enforcer-plugin`
 
+To check your installation, run:
+
+```shell
+mvn -v
+
+Apache Maven 3.2.1 (ea8b2b07643dbb1b84b6d16e1f08391b666bc1e9; 2014-02-14T12:37:52-05:00)
+Maven home: /usr/local/Cellar/maven/3.2.1/libexec
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
+
+```
+
 ### Shade Plug-in
 
 This helps with dependency conflicts (especially Hadoop's): [http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html](http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html)
 
-Currently use naming convention for the shaded artifact: `org.icgc.dcc.shaded.${name}` (like `org.icgc.dcc.shaded.jackson`, `org.icgc.dcc.shaded.sshd`, ...)
+Currently use naming convention for the shaded artifact: `org.icgc.dcc.shaded.${name}` (e.g. `org.icgc.dcc.shaded.jackson`, `org.icgc.dcc.shaded.sshd`, ...)
 
 ## Eclipse
 
@@ -161,23 +139,21 @@ Install m2e and add the builderhelper plugin:
 
 A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, `toString()`, `hashCode()`, `equals()`, `static Logger log`, etc.). This is seemless to `javac` via `mvn`, but the Java 6 [transformations](http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html) will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute `java -jar [lombok.jar](http://projectlombok.googlecode.com/files/lombok.jar)` and point it to your Eclipse installation. See [http://projectlombok.org/features/index.html](http://projectlombok.org/features/index.html) for details. 
 
-<ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="73f509de-3dfa-41ea-a901-aff94979e1fe"><ac:rich-text-body>
-
 As of 13/09/19 at least, do **not** use a builder method (defined with `@Builder`) in a statically imported manner. Eclipse is fine but upon compilation with maven, one gets:
 
+```
   error: cannot find symbol, [ERROR] symbol:   static builder, [ERROR] location: class
-
-</ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="a31bd6c2-3c84-4fd0-b6c3-a916dd491c8f"><ac:rich-text-body>
+```
 
 As of 14/07/07, do **not** use constructs like:
 
+```java
 val myVar = new MyAnonymousClass() { ... }
+```
 
 (see [https://code.google.com/p/projectlombok/issues/detail?id=694&sort=-id&colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary](https://code.google.com/p/projectlombok/issues/detail?id=694&sort=-id&colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary))
 
-</ac:rich-text-body></ac:structured-macro>
-
-Activate source downloading in the maven plugin, t<span style="line-height: 1.4285715;">ick the</span> **Preferences > Maven > Maven Download Artifact Sources** <span style="line-height: 1.4285715;">box</span>
+Activate source downloading in the maven plugin, tick the **Preferences > Maven > Maven Download Artifact Sources** box.
 
 ## Add Static Import Favorites
 
@@ -201,12 +177,6 @@ Useful JUnit Eclipse integration extensions can be installed by following the in
 Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:
 
 [http://marian.schedenig.name/projects/grep-console/](http://marian.schedenig.name/projects/grep-console/)
-
-#### JSONEdit Plugin
-
-Useful for editing JSON files in Eclipse, with syntax highlighting and formatting. Follow the instructions here:
-
-[http://eclipsejsonedit.sourceforge.net/](http://eclipsejsonedit.sourceforge.net/)
 
 #### YEdit Plugin
 
@@ -241,13 +211,13 @@ Clone the repository from git to your workspace and follow the instructions in t
 After that, in the terminal:
 
 ```shell
-cd your_workspace/dcc-portal
+cd <workspace>/dcc-portal
 mvn
 ```
 
 Once the build completes, you will be able to import the projects in ecplise:
 
-`File > Import > Maven > Existing Maven Projects`
+**File > Import > Maven > Existing Maven Projects**
 
 browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.
 
