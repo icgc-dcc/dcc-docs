@@ -281,9 +281,15 @@ Great shell alternative that is mostly compatible with Bash:
 brew install zsh
 ```
 
-## Oh-My-Zsh
+### Oh-My-Zsh
 
 Plugin system for `zsh`
 
 [https://github.com/robbyrussell/oh-my-zsh]()
+
+### Other
+
+Useful other things:
+
+[https://danielmiessler.com/blog/first-10-things-new-mac]()
 
