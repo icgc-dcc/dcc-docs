@@ -309,4 +309,6 @@ brew install jq
 
 Useful other things:
 
-[https://danielmiessler.com/blog/first-10-things-new-mac](https://danielmiessler.com/blog/first-10-things-new-mac)
+- [https://danielmiessler.com/blog/first-10-things-new-mac](https://danielmiessler.com/blog/first-10-things-new-mac)
+- [spf13](http://vim.spf13.com/)
+
