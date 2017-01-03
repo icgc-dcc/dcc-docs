@@ -2,9 +2,7 @@
 
 ## Setup
 
-Please follow the directions here:
-
-[https://wiki.oicr.on.ca/display/DCCSOFT/Development+-+Setup]()
+Please follow the directions [here](https://wiki.oicr.on.ca/display/DCCSOFT/Development+-+Setup).
 
 ## General Conventions
 
