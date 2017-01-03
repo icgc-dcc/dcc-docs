@@ -1,8 +1,6 @@
-# Development
+# General
 
-## Setup
-
-Please follow the directions [here](/software/setup.md).
+This section outlines the general conventions used while developing. If you have not first followed the [setup](/software/setup.md) instructions, please do so first.
 
 ## General Conventions
 

@@ -1,5 +1,10 @@
 # Setup
 
+
+This document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.
+
+Once complete, please see [/software/development.md](general) for general conventions used during development.
+
 ## Homebrew
 
 Mac developers are using Homebrew (`brew`) which can be installed from:
