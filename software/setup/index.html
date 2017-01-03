@@ -710,10 +710,6 @@
                
                </li>
            
-               <li class=""><a href="#iterm2">iTerm2</a>
-               
-               </li>
-           
                <li class=""><a href="#elasticsearch">Elasticsearch</a>
                
                     <ul class="nav">
@@ -768,13 +764,7 @@
                         
                         <li class=""><a href="#lombok-support">Lombok Support</a></li>
                         
-                    </ul>
-               
-               </li>
-           
-               <li class=""><a href="#add-static-import-favorites">Add Static Import Favorites</a>
-               
-                    <ul class="nav">
+                        <li class=""><a href="#add-static-import-favorites">Add Static Import Favorites</a></li>
                         
                         <li class=""><a href="#plugins">Plugins</a></li>
                         
@@ -782,19 +772,41 @@
                
                </li>
            
-               <li class=""><a href="#nodejs">Node.js</a>
+               <li class=""><a href="#nodejs">NodeJS</a>
                
                </li>
            
-               <li class=""><a href="#setting-up-dcc-projects">Setting up DCC Projects</a>
+               <li class=""><a href="#projects">Projects</a>
                
                     <ul class="nav">
                         
-                        <li class=""><a href="#setting-up-dcc-portal">Setting up DCC-Portal</a></li>
-                        
-                        <li class=""><a href="#setting-up-dcc-etl">Setting up DCC-ETL</a></li>
+                        <li class=""><a href="#eclipse-based-projects">Eclipse Based Projects</a></li>
                         
                     </ul>
+               
+               </li>
+           
+               <li class=""><a href="#reference-data">Reference Data</a>
+               
+               </li>
+           
+               <li class=""><a href="#utilities">Utilities</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#trailerapp">Trailer.app</a></li>
+                        
+                        <li class=""><a href="#macdown">MacDown</a></li>
+                        
+                        <li class=""><a href="#iterm2">iTerm2</a></li>
+                        
+                        <li class=""><a href="#zsh">ZSH</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#oh-my-zsh">Oh-My-Zsh</a>
                
                </li>
            
@@ -823,21 +835,20 @@
 <h2 id="xcode-and-command-line-tools">XCode and Command Line Tools</h2>
 <p>See http://railsapps.github.io/xcode-command-line-tools.html</p>
 <h2 id="java">Java</h2>
+<p>Install Java 8:</p>
 <pre><code class="shell">brew cask install java
 </code></pre>
 
-<p>Ensure this reports java 8:</p>
+<p>Add the following to <code>~/.bash_profile</code>:</p>
+<pre><code class="shell">export JAVA_HOME=&quot;$(/usr/libexec/java_home -v 1.8)&quot;
+</code></pre>
+
+<p>Source <code>~/.bash_profile</code> or open a new terminal and ensure this reports Java 8:</p>
 <pre><code class="shell">java -version   
 
 java version &quot;1.8.0_31&quot;
 Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
-</code></pre>
-
-<h2 id="iterm2">iTerm2</h2>
-<p>Very powerful terminal emulator for Mac:</p>
-<p><a href="http://www.iterm2.com/">http://www.iterm2.com/</a></p>
-<pre><code class="shell">brew cask install iterm2 
 </code></pre>
 
 <h2 id="elasticsearch">Elasticsearch</h2>
@@ -908,7 +919,7 @@ OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&
 
 <p>(see <a href="https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary">https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary</a>)</p>
 <p>Activate source downloading in the maven plugin, tick the <strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong> box.</p>
-<h2 id="add-static-import-favorites">Add Static Import Favorites</h2>
+<h3 id="add-static-import-favorites">Add Static Import Favorites</h3>
 <p>Add some classes to your favorite static imports via <strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
 <ul>
 <li>Guava's <code>Preconditions</code></li>
@@ -929,14 +940,15 @@ OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&
 <h4 id="shelled-plugin">ShellEd Plugin</h4>
 <p>The ShellEd plugin provides basic syntax highlighting and outlining for shell script editing.  Follow the instructions here:</p>
 <p><a href="http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide">http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide</a></p>
-<h2 id="nodejs">Node.js</h2>
+<h2 id="nodejs">NodeJS</h2>
 <pre><code class="shell">brew install nvm
 </code></pre>
 
 <p>Then read <a href="https://davidwalsh.name/nvm">https://davidwalsh.name/nvm</a> for usage information.</p>
 <p>Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui</a>).</p>
-<h2 id="setting-up-dcc-projects">Setting up DCC Projects</h2>
-<h3 id="setting-up-dcc-portal">Setting up DCC-Portal</h3>
+<h2 id="projects">Projects</h2>
+<p>After installing the above, navigate to the project(s) that you will be working on in <a href="https://github.com/icgc-dcc">GitHub</a> and follow the top-level <code>README.md</code>s and linked sub-module <code>README.md</code>s.</p>
+<h3 id="eclipse-based-projects">Eclipse Based Projects</h3>
 <p><em>Assumes everything above has been installed correctly.</em></p>
 <p>Clone the repository from git to your workspace and follow the instructions in the <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">setup of the DCC-Portal-UI</a>.</p>
 <p>After that, in the terminal:</p>
@@ -944,10 +956,10 @@ OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&
 mvn
 </code></pre>
 
-<p>Once the build completes, you will be able to import the projects in ecplise:</p>
+<p>Once the build completes, you will be able to import the projects in eclise:</p>
 <p><strong>File &gt; Import &gt; Maven &gt; Existing Maven Projects</strong></p>
 <p>browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.</p>
-<h3 id="setting-up-dcc-etl">Setting up DCC-ETL</h3>
+<h2 id="reference-data">Reference Data</h2>
 <p>You will need to download the DCC reference genome from: </p>
 <p><a href="https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz">https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz</a></p>
 <p>and extract it to <strong>/tmp</strong>. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink GRCh37.fasta to GRC37.75.fasta and GRCh37.fasta.fai to GRCh37.75.fasta.fai by executing the following:</p>
@@ -955,20 +967,34 @@ mvn
 ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 </code></pre>
 
-<p>Clone the dcc-etl project to your workspace using git. In one terminal, start mongo:</p>
-<pre><code class="shell">mongod
+<h2 id="utilities">Utilities</h2>
+<p>Consider all of these utilities optional, but highly recommended.</p>
+<h3 id="trailerapp">Trailer.app</h3>
+<p>Track pull requests and issues across repositories, directly in your Notification Center or on any device.</p>
+<p><a href="">https://ptsochantaris.github.io/trailer/</a></p>
+<pre><code class="shell">brew cask install trailer
 </code></pre>
 
-<p>Test with: <code>mongo</code></p>
-<p>and in another terminal, start elasticsearch:</p>
-<pre><code class="shell">elasticsearch -f
+<h3 id="macdown">MacDown</h3>
+<p>MacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo’s Mou.</p>
+<p><a href="">http://macdown.uranusjr.com/</a></p>
+<pre><code class="shell">brew cask install macdown
 </code></pre>
 
-<p>Test with: <code>curl localhost:9200</code> </p>
-<p><u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the <em>cluster.name</em> is <strong>elasticsearch</strong> in elasticsearch.yml file.</p>
-<p>and finally in yet another terminal, go to your dcc-etl project and from the terminal execute:</p>
-<pre><code class="shell">mvn
+<h3 id="iterm2">iTerm2</h3>
+<p>Very powerful terminal emulator for Mac:</p>
+<p><a href="">http://www.iterm2.com/</a></p>
+<pre><code class="shell">brew cask install iterm2 
 </code></pre>
+
+<h3 id="zsh">ZSH</h3>
+<p>Great shell alternative that is mostly compatible with Bash:</p>
+<pre><code class="shell">brew install zsh
+</code></pre>
+
+<h2 id="oh-my-zsh">Oh-My-Zsh</h2>
+<p>Plugin system for <code>zsh</code></p>
+<p><a href="">https://github.com/robbyrussell/oh-my-zsh</a></p>
                </div>
                </div>
             </div>
