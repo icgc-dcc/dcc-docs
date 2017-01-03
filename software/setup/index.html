@@ -702,7 +702,7 @@
                
                </li>
            
-               <li class=""><a href="#xcode">XCode</a>
+               <li class=""><a href="#xcode-and-command-line-tools">XCode and Command Line Tools</a>
                
                </li>
            
@@ -741,8 +741,6 @@
                     <ul class="nav">
                         
                         <li class=""><a href="#setup_1">Setup</a></li>
-                        
-                        <li class=""><a href="#workflow">Workflow</a></li>
                         
                     </ul>
                
@@ -822,8 +820,8 @@
 <pre><code class="shell">brew cask install slack
 </code></pre>
 
-<h2 id="xcode">XCode</h2>
-<p>OS X no longer ships with developer command line tools, which will cause installing certain projects to fail. To install the tools yourself, go to the App Store and install Xcode (free, but requires an Apple ID). Then run XCode, select "Preferences..." from the "Xcode" menu (or press Command-,). Click the "Downloads" button in the upper right of the preferences window, and then click the arrow next to "Command Line Tools" in the "Components" section.</p>
+<h2 id="xcode-and-command-line-tools">XCode and Command Line Tools</h2>
+<p>See http://railsapps.github.io/xcode-command-line-tools.html</p>
 <h2 id="java">Java</h2>
 <pre><code class="shell">brew cask install java
 </code></pre>
@@ -847,7 +845,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
 brew switch elasticsearch14 1.4.4
 </code></pre>
 
-<h3 id="head-plugin"><span class="pln" style="color: rgb(0,0,0);">Head Plugin</span></h3>
+<h3 id="head-plugin">Head Plugin</h3>
 <pre><code class="shell">/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
 </code></pre>
 
@@ -865,60 +863,32 @@ brew switch mongo 2.4.4-x86_64
 <p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
 <h2 id="github">GitHub</h2>
 <h3 id="setup_1">Setup</h3>
-<p><ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="2d40b185-9fa4-4536-aa6b-0a049e8f7356"><ac:plain-text-body></ac:plain-text-body></ac:structured-macro></p>
 <ol>
 <li>Clone a project from GitHub:<br />
-<code>git clone git@github.com:icgc-dcc/&lt;project&gt;.git</code></li>
+<code>shell
+    git clone git@github.com:icgc-dcc/&lt;project&gt;.git</code></li>
 <li>Init Git-flow (default settings):<br />
-<code>git hf init</code></li>
-</ol>
-<h3 id="workflow">Workflow</h3>
-<p><a href="http://datasift.github.com/gitflow/GitFlowForGitHub.html">http://datasift.github.com/gitflow/GitFlowForGitHub.html</a></p>
-<ol>
-<li>
-<p>Create a new branch for your work<br />
-    Use the ticket number and a brief description of the ticket:<br />
-<em>ie.</em> DCC-103-Git-SOP<br />
-<strong>git hf feature start BRANCH_NAME</strong><br />
-    or checkout an existing branch<br />
-<strong>git hf feature checkout BRANCH_NAME</strong>  </p>
-</li>
-<li>
-<p>Make your changes (commit often) and push your branch<br />
-<strong>git add foo.java bar.java</strong><br />
-<strong>git commit -m '[TICKET] - Nice commit message'</strong><br />
-<strong><em>*git add bar.java</em>*<br />
-</strong>git commit -m '[TICKET] - Nice commit message'****  </p>
-</li>
-<li>
-<p>Push to GitHub to keep the public branch up-to-date<strong>git hf feature push<br />
-</strong></p>
-</li>
-<li><em>Optional - _If you have been working for a while, you can merge <strong>develop </strong>back into your <strong>branch</strong> if you think they are getting too out of sync <br />
-<strong>git hf update<strong><em>* &amp;&amp; </em></strong>*git</strong> <strong>merge develop</strong><br />
-    _deal with merge conflicts</em></li>
-<li>When you are finished, open a pull request on GitHub<br />
-    Use the Pull Request button at the top of the Repo<br />
-    Select <strong>develop</strong> as the <strong>base</strong> and <strong>BRANCH_NAME</strong> as the <strong>head</strong><br />
-<strong>GitHub will let you know if the merge will be successful</strong><br />
-    <span style="color: rgb(102,102,153);"><strong><at some point in the future>Jenkins will merge the pull request into develop and report the results as a comment on the pull request</strong></span><br />
-<em><span style="color: rgb(0,0,0);">until Jenkins is setup, another team member can checkout the branch and make sure all tests pass/do code review/whatever</span></em><br />
-    <span style="color: rgb(0,0,0);"><strong>git checkout feature/BRANCH_NAME</strong></span><br />
-    <span><em>running tests:</em> cd server &amp;&amp; mvn tests or </span><span style="color: rgb(0,0,0);">cd client &amp;&amp; cakes tests</span><br />
-<em><span style="color: rgb(0,0,0);"><br />
-    </span></em></li>
-<li>Merging the pull request<br />
-    <span style="color: rgb(0,0,0);"><strong>If at least one other person has approved, and there are no other comments, the branch can be merged using GitHub </strong><br />
-    </span><strong>If the branch cannot be auto-merged into develop, develop must first be merged back into the branch and all conflicts resolved (see step 4) </strong></li>
-<li>After the pull request has been accepted and merged on GitHub, the branch can be deleted<br />
-<strong>git hf update &amp;&amp; </strong><strong>git hf feature finish BRANCH_NAME</strong></li>
+<code>shell
+    git hf init</code></li>
 </ol>
 <h2 id="maven">Maven</h2>
 <h3 id="installation">Installation</h3>
 <p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml">https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml</a> <code>maven-enforcer-plugin</code></p>
+<p>To check your installation, run:</p>
+<pre><code class="shell">mvn -v
+
+Apache Maven 3.2.1 (ea8b2b07643dbb1b84b6d16e1f08391b666bc1e9; 2014-02-14T12:37:52-05:00)
+Maven home: /usr/local/Cellar/maven/3.2.1/libexec
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;
+
+</code></pre>
+
 <h3 id="shade-plug-in">Shade Plug-in</h3>
 <p>This helps with dependency conflicts (especially Hadoop's): <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html">http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html</a></p>
-<p>Currently use naming convention for the shaded artifact: <code>org.icgc.dcc.shaded.${name}</code> (like <code>org.icgc.dcc.shaded.jackson</code>, <code>org.icgc.dcc.shaded.sshd</code>, ...)</p>
+<p>Currently use naming convention for the shaded artifact: <code>org.icgc.dcc.shaded.${name}</code> (e.g. <code>org.icgc.dcc.shaded.jackson</code>, <code>org.icgc.dcc.shaded.sshd</code>, ...)</p>
 <h2 id="eclipse">Eclipse</h2>
 <h3 id="installation_1">Installation</h3>
 <p>Download and install Eclipse 4.6.x or latest for Java EE developers:</p>
@@ -928,15 +898,16 @@ brew switch mongo 2.4.4-x86_64
 <p><a href="http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2">http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2</a></p>
 <h3 id="lombok-support">Lombok Support</h3>
 <p>A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, <code>toString()</code>, <code>hashCode()</code>, <code>equals()</code>, <code>static Logger log</code>, etc.). This is seemless to <code>javac</code> via <code>mvn</code>, but the Java 6 <a href="http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html">transformations</a> will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute <code>java -jar [lombok.jar](http://projectlombok.googlecode.com/files/lombok.jar)</code> and point it to your Eclipse installation. See <a href="http://projectlombok.org/features/index.html">http://projectlombok.org/features/index.html</a> for details. </p>
-<p><ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="73f509de-3dfa-41ea-a901-aff94979e1fe"><ac:rich-text-body></p>
 <p>As of 13/09/19 at least, do <strong>not</strong> use a builder method (defined with <code>@Builder</code>) in a statically imported manner. Eclipse is fine but upon compilation with maven, one gets:</p>
-<p>error: cannot find symbol, [ERROR] symbol:   static builder, [ERROR] location: class</p>
-<p></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="a31bd6c2-3c84-4fd0-b6c3-a916dd491c8f"><ac:rich-text-body></p>
+<pre><code>  error: cannot find symbol, [ERROR] symbol:   static builder, [ERROR] location: class
+</code></pre>
+
 <p>As of 14/07/07, do <strong>not</strong> use constructs like:</p>
-<p>val myVar = new MyAnonymousClass() { ... }</p>
+<pre><code class="java">val myVar = new MyAnonymousClass() { ... }
+</code></pre>
+
 <p>(see <a href="https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary">https://code.google.com/p/projectlombok/issues/detail?id=694&amp;sort=-id&amp;colspec=ID%20Type%20Status%20Priority%20Target%20Component%20Owner%20Summary</a>)</p>
-<p></ac:rich-text-body></ac:structured-macro></p>
-<p>Activate source downloading in the maven plugin, t<span style="line-height: 1.4285715;">ick the</span> <strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong> <span style="line-height: 1.4285715;">box</span></p>
+<p>Activate source downloading in the maven plugin, tick the <strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong> box.</p>
 <h2 id="add-static-import-favorites">Add Static Import Favorites</h2>
 <p>Add some classes to your favorite static imports via <strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
 <ul>
@@ -952,9 +923,6 @@ brew switch mongo 2.4.4-x86_64
 <h4 id="grep-console">Grep Console</h4>
 <p>Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:</p>
 <p><a href="http://marian.schedenig.name/projects/grep-console/">http://marian.schedenig.name/projects/grep-console/</a></p>
-<h4 id="jsonedit-plugin">JSONEdit Plugin</h4>
-<p>Useful for editing JSON files in Eclipse, with syntax highlighting and formatting. Follow the instructions here:</p>
-<p><a href="http://eclipsejsonedit.sourceforge.net/">http://eclipsejsonedit.sourceforge.net/</a></p>
 <h4 id="yedit-plugin">YEdit Plugin</h4>
 <p>Useful for editing YAML files in Eclipse, with syntax highlighting and formatting. Follow the instructions here:</p>
 <p><a href="https://code.google.com/p/yedit/">https://code.google.com/p/yedit/</a></p>
@@ -972,12 +940,12 @@ brew switch mongo 2.4.4-x86_64
 <p><em>Assumes everything above has been installed correctly.</em></p>
 <p>Clone the repository from git to your workspace and follow the instructions in the <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">setup of the DCC-Portal-UI</a>.</p>
 <p>After that, in the terminal:</p>
-<pre><code class="shell">cd your_workspace/dcc-portal
+<pre><code class="shell">cd &lt;workspace&gt;/dcc-portal
 mvn
 </code></pre>
 
 <p>Once the build completes, you will be able to import the projects in ecplise:</p>
-<p><code>File &gt; Import &gt; Maven &gt; Existing Maven Projects</code></p>
+<p><strong>File &gt; Import &gt; Maven &gt; Existing Maven Projects</strong></p>
 <p>browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.</p>
 <h3 id="setting-up-dcc-etl">Setting up DCC-ETL</h3>
 <p>You will need to download the DCC reference genome from: </p>
