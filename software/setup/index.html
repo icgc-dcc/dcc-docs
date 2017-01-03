@@ -754,7 +754,7 @@
                         
                         <li class=""><a href="#installation">Installation</a></li>
                         
-                        <li class=""><a href="#shade-plug-in">Shade plug-in</a></li>
+                        <li class=""><a href="#shade-plug-in">Shade Plug-in</a></li>
                         
                     </ul>
                
@@ -814,12 +814,14 @@
 <h2 id="homebrew">Homebrew</h2>
 <p>Mac developers are using Homebrew (<code>brew</code>) which can be installed from:</p>
 <p><a href="http://brew.sh/">http://brew.sh/</a></p>
-<h3 id="cask"><span>Cask</span></h3>
+<h3 id="cask">Cask</h3>
 <p>It is recommended to install all applications with Cask to promote automation. Hopefully one day this page can be scripted.</p>
 <p><a href="https://caskroom.github.io/">https://caskroom.github.io/</a></p>
 <h2 id="slack">Slack</h2>
 <p>We use Slack almost entirely for internal communication, so install this ASAP.</p>
-<p><code>brew cask install slack</code></p>
+<pre><code class="shell">brew cask install slack
+</code></pre>
+
 <h2 id="xcode">XCode</h2>
 <p>OS X no longer ships with developer command line tools, which will cause installing certain projects to fail. To install the tools yourself, go to the App Store and install Xcode (free, but requires an Apple ID). Then run XCode, select "Preferences..." from the "Xcode" menu (or press Command-,). Click the "Downloads" button in the upper right of the preferences window, and then click the arrow next to "Command Line Tools" in the "Components" section.</p>
 <h2 id="java">Java</h2>
@@ -846,15 +848,20 @@ brew switch elasticsearch14 1.4.4
 </code></pre>
 
 <h3 id="head-plugin"><span class="pln" style="color: rgb(0,0,0);">Head Plugin</span></h3>
-<pre>/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head</pre>
+<pre><code class="shell">/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
+</code></pre>
 
 <h2 id="mongodb">MongoDB</h2>
-<p><code>brew install mongo</code></p>
-<p><code>brew switch mongo 2.4.4-x86_64</code></p>
+<pre><code class="shell">brew install mongo
+brew switch mongo 2.4.4-x86_64
+</code></pre>
+
 <h2 id="git">Git</h2>
 <p>Download _dmg _from <a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
 <h2 id="hubflow">HubFlow</h2>
-<p><code>brew install hubflow</code></p>
+<pre><code class="shell">brew install hubflow
+</code></pre>
+
 <p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
 <h2 id="github">GitHub</h2>
 <h3 id="setup_1">Setup</h3>
@@ -908,10 +915,10 @@ brew switch elasticsearch14 1.4.4
 </ol>
 <h2 id="maven">Maven</h2>
 <h3 id="installation">Installation</h3>
-<p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml">https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml</a> <code>&lt;span&gt;maven-enforcer-plugin&lt;/span&gt;</code></p>
-<h3 id="shade-plug-in"><span style="color: rgb(0,0,0);">Shade plug-in</span></h3>
-<p>This helps with dependency conflicts (especially hadoop's): <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html">http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html</a></p>
-<p>Currently use naming convention for the shaded artifact: org.icgc.dcc.shaded.${name} (like "org.icgc.dcc.shaded.jackson", "org.icgc.dcc.shaded.sshd", ...)</p>
+<p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml">https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml</a> <code>maven-enforcer-plugin</code></p>
+<h3 id="shade-plug-in">Shade Plug-in</h3>
+<p>This helps with dependency conflicts (especially Hadoop's): <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html">http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html</a></p>
+<p>Currently use naming convention for the shaded artifact: <code>org.icgc.dcc.shaded.${name}</code> (like <code>org.icgc.dcc.shaded.jackson</code>, <code>org.icgc.dcc.shaded.sshd</code>, ...)</p>
 <h2 id="eclipse">Eclipse</h2>
 <h3 id="installation_1">Installation</h3>
 <p>Download and install Eclipse 4.6.x or latest for Java EE developers:</p>
@@ -934,9 +941,9 @@ brew switch elasticsearch14 1.4.4
 <p>Add some classes to your favorite static imports via <strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
 <ul>
 <li>Guava's <code>Preconditions</code></li>
-<li>PowerMock's <code>&lt;span&gt;PowerMockito&lt;/span&gt;</code></li>
+<li>PowerMock's <code>PowerMockito</code></li>
 <li>Mockito's <code>Mockito</code></li>
-<li><span>AsserJ's <code>&lt;span&gt;org.assertj.core.api.Assertions.*&lt;/span&gt;</code></span></li>
+<li>AssertJ's <code>org.assertj.core.api.Assertions.*</code></li>
 </ul>
 <h3 id="plugins">Plugins</h3>
 <h4 id="moreunit-plugin">MoreUnit Plugin</h4>
@@ -955,7 +962,8 @@ brew switch elasticsearch14 1.4.4
 <p>The ShellEd plugin provides basic syntax highlighting and outlining for shell script editing.  Follow the instructions here:</p>
 <p><a href="http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide">http://sourceforge.net/apps/trac/shelled/wiki/Documentation/InstallGuide</a></p>
 <h2 id="nodejs">Node.js</h2>
-<pre>brew install nvm</pre>
+<pre><code class="shell">brew install nvm
+</code></pre>
 
 <p>Then read <a href="https://davidwalsh.name/nvm">https://davidwalsh.name/nvm</a> for usage information.</p>
 <p>Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui</a>).</p>
@@ -964,33 +972,35 @@ brew switch elasticsearch14 1.4.4
 <p><em>Assumes everything above has been installed correctly.</em></p>
 <p>Clone the repository from git to your workspace and follow the instructions in the <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">setup of the DCC-Portal-UI</a>.</p>
 <p>After that, in the terminal:</p>
-<pre>cd your_workspace/dcc-portal</pre>
-
-<pre>mvn</pre>
+<pre><code class="shell">cd your_workspace/dcc-portal
+mvn
+</code></pre>
 
 <p>Once the build completes, you will be able to import the projects in ecplise:</p>
-<pre>File > Import > Maven > Existing Maven Projects</pre>
-
+<p><code>File &gt; Import &gt; Maven &gt; Existing Maven Projects</code></p>
 <p>browse and import your dcc-portal projects. You can ignore any plugin execution errors that might occur in pom.xml.</p>
 <h3 id="setting-up-dcc-etl">Setting up DCC-ETL</h3>
 <p>You will need to download the DCC reference genome from: </p>
 <p><a href="https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz">https://seqwaremaven.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/dcc-reference-genome-GRCh37.75.v1.tar.gz</a></p>
 <p>and extract it to <strong>/tmp</strong>. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink GRCh37.fasta to GRC37.75.fasta and GRCh37.fasta.fai to GRCh37.75.fasta.fai by executing the following:</p>
-<pre class="p1">> ln -s GRC37.75.fasta GRC37.fasta</pre>
-
-<pre class="p1">> ln -s GRC37.75.fasta.fai GRC37.fasta.fai</pre>
+<pre><code class="shell">ln -s GRC37.75.fasta GRC37.fasta
+ln -s GRC37.75.fasta.fai GRC37.fasta.fai
+</code></pre>
 
 <p>Clone the dcc-etl project to your workspace using git. In one terminal, start mongo:</p>
-<pre class="p1">> mongod       </pre>
+<pre><code class="shell">mongod
+</code></pre>
 
 <p>Test with: <code>mongo</code></p>
 <p>and in another terminal, start elasticsearch:</p>
-<pre class="p1">> elasticsearch -f</pre>
+<pre><code class="shell">elasticsearch -f
+</code></pre>
 
 <p>Test with: <code>curl localhost:9200</code> </p>
 <p><u>Note</u>: Make sure that the elasticsearch version is exactly 0.90.1 and that the <em>cluster.name</em> is <strong>elasticsearch</strong> in elasticsearch.yml file.</p>
 <p>and finally in yet another terminal, go to your dcc-etl project and from the terminal execute:</p>
-<pre class="p1">> mvn</pre>
+<pre><code class="shell">mvn
+</code></pre>
                </div>
                </div>
             </div>
