@@ -43,10 +43,10 @@ h2, h3, h4 {
 }
 
 h2 {
-  font-size: 2.4rem;
-  font-weight: 400;
+  font-size: 2.4rem !important;
+  font-weight: 400 !important;
   /*border-bottom: 3px solid #166aa2;*/
-  padding-bottom: 10px;  
+  padding-bottom: 10px !important;  
 }
 
 h3 {
