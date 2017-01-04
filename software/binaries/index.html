@@ -566,7 +566,7 @@
             
 <li >
     
-    <a href="../storage-client/">Storage Client</a>
+    <a href="../releases/storage-client/">Storage Client</a>
     
 </li>
 
@@ -574,7 +574,7 @@
             
 <li >
     
-    <a href="../portal/">Portal</a>
+    <a href="../releases/portal/">Portal</a>
     
 </li>
 
@@ -582,7 +582,7 @@
             
 <li >
     
-    <a href="../submission/">Submission</a>
+    <a href="../releases/submission/">Submission</a>
     
 </li>
 
@@ -590,7 +590,7 @@
             
 <li >
     
-    <a href="../icgc-get/">icgc-get</a>
+    <a href="../releases/icgc-get/">icgc-get</a>
     
 </li>
 
@@ -623,7 +623,7 @@
             
 <li >
     
-    <a href="../setup/">Setup</a>
+    <a href="../development/setup/">Setup</a>
     
 </li>
 
@@ -631,7 +631,7 @@
             
 <li >
     
-    <a href="../development/">General</a>
+    <a href="../development/general/">General</a>
     
 </li>
 
@@ -772,19 +772,19 @@ However, if you wish to use an old version you may choose from the following:</p
 <h3 id="gpg-verification">GPG Verification</h3>
 <p>To verify the signed software you will need to ensure you have downloaded our public key and imported it:</p>
 <p>From a key server:</p>
-<pre><code>$ gpg --keyserver pgp.mit.edu --recv-key 0xAFE5D0B6
+<pre><code class="shell">$ gpg --keyserver pgp.mit.edu --recv-key 0xAFE5D0B6
 </code></pre>
 
 <p>From a file:</p>
-<pre><code>$ gpg --import icgc-software.pub
+<pre><code class="shell">$ gpg --import icgc-software.pub
 </code></pre>
 
 <p>Once the public key has been imported you can verify the signature:</p>
-<pre><code>$ gpg icgc-storage-client-0.0.27-dist.tar.gz.asc
+<pre><code class="shell">$ gpg icgc-storage-client-0.0.27-dist.tar.gz.asc
 </code></pre>
 
 <p>If successful, the output should contain the following:</p>
-<pre><code>gpg: assuming signed data in 'icgc-storage-client-0.0.27-dist.tar.gz'
+<pre><code class="shell">gpg: assuming signed data in 'icgc-storage-client-0.0.27-dist.tar.gz'
 gpg: Signature made Mon  5 Oct 12:38:09 2015 EDT using RSA key ID AFE5D0B6
 gpg: Good signature from &quot;ICGC DCC (Sign public software releases) &lt;dcc-support@icgc.org&gt;&quot;
 </code></pre>

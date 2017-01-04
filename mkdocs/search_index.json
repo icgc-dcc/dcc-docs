@@ -2062,7 +2062,7 @@
         }, 
         {
             "location": "/software/about/", 
-            "text": "About\n\n\nOverview\n\n\nThis is the Portal documentation section which describes the DCC binaries and source code.\n\n\nFor information about binaries and downloads, please see \nhere.\n\n\nFor release notes for ICGC software, see below:\n\n\n\n\nStorage Client\n\n\nPortal\n\n\nSubmission System\n\n\nicgc-get\n\n\n\n\nFor information about source code, project and repositories please see \nhere\n.\n\n\nFor information about development, please see \nhere\n.", 
+            "text": "About\n\n\nOverview\n\n\nThis is the Portal documentation section which describes the DCC binaries and source code.\n\n\nFor information about binaries and downloads, please see \nhere.\n\n\nFor release notes for ICGC software, see below:\n\n\n\n\nPortal\n\n\nicgc-get\n\n\nStorage Client\n\n\nSubmission System\n\n\n\n\nFor information about source code, project and repositories please see \nhere\n.\n\n\nFor information about development, please see \nhere\n.", 
             "title": "About"
         }, 
         {
@@ -2072,261 +2072,261 @@
         }, 
         {
             "location": "/software/about/#overview", 
-            "text": "This is the Portal documentation section which describes the DCC binaries and source code.  For information about binaries and downloads, please see  here.  For release notes for ICGC software, see below:   Storage Client  Portal  Submission System  icgc-get   For information about source code, project and repositories please see  here .  For information about development, please see  here .", 
+            "text": "This is the Portal documentation section which describes the DCC binaries and source code.  For information about binaries and downloads, please see  here.  For release notes for ICGC software, see below:   Portal  icgc-get  Storage Client  Submission System   For information about source code, project and repositories please see  here .  For information about development, please see  here .", 
             "title": "Overview"
         }, 
         {
-            "location": "/software/storage-client/", 
+            "location": "/software/releases/storage-client/", 
             "text": "Storage Client Release Notes\n\n\n* indicates this release contains breaking changes and older versions will no longer work\n\n\n1.0.20* - Sept 22, 2016\n\n\n\n\nsync with Metadata service data changes. \n\n\n\n\n1.0.19* - Jul 15, 2016\n\n\n\n\nStability improvements: validate pre-signed url's, verify repository connection permissions, check for concurrent uploads\n\n\n\n\n1.0.18 - Jun 13, 2016\n\n\n\n\nInternal, housekeeping updates\n\n\n\n\n1.0.17* - Jun 10, 2016\n\n\n\n\nChange Upload process to prevent duplicate uploads from being initiated\n\n\n\n\n1.0.16* - May 30, 2016\n\n\n\n\nPerform additional MD5 checking to ensure validity of download\n\n\n\n\n1.0.15 - May 19, 2016\n\n\n\n\nAccept multiple object id's with --object-id parameter\n\n\n\n\n1.0.14 - May 2, 2016\n\n\n\n\nBatch/Manifest Slicing. Validate java version, validate repository code in download manifest files against client profile\n\n\n\n\n1.0.13 - Mar 22, 2016\n\n\n\n\nFixed infinite loop in download when part size mismatches stream length\n\n\n\n\n1.0.12 - Mar 19, 2016\n\n\n\n\nFixed application of HTTP timeouts for uploads / downloads\n\n\n\n\n1.0.10 - Feb 19, 2016\n\n\n\n\nAdditional user informational message improvements\n\n\n\n\n1.0.9 - Feb 17, 2016\n\n\n\n\nPerform check for adequate disk space before beginning downloads\n\n\n\n\n1.0.8 - Feb 11, 2016\n\n\n\n\nImproved informational and error messages to user\n\n\n\n\n1.0.5 - Dec 5, 2015\n\n\n\n\nGA Client release - cleaned up command line arguments;\n\n\nRemoved obsolete, unused options", 
             "title": "Storage Client"
         }, 
         {
-            "location": "/software/storage-client/#storage-client-release-notes", 
+            "location": "/software/releases/storage-client/#storage-client-release-notes", 
             "text": "* indicates this release contains breaking changes and older versions will no longer work", 
             "title": "Storage Client Release Notes"
         }, 
         {
-            "location": "/software/storage-client/#102042-sept-22-2016", 
+            "location": "/software/releases/storage-client/#102042-sept-22-2016", 
             "text": "sync with Metadata service data changes.", 
             "title": "1.0.20* - Sept 22, 2016"
         }, 
         {
-            "location": "/software/storage-client/#101942-jul-15-2016", 
+            "location": "/software/releases/storage-client/#101942-jul-15-2016", 
             "text": "Stability improvements: validate pre-signed url's, verify repository connection permissions, check for concurrent uploads", 
             "title": "1.0.19* - Jul 15, 2016"
         }, 
         {
-            "location": "/software/storage-client/#1018-jun-13-2016", 
+            "location": "/software/releases/storage-client/#1018-jun-13-2016", 
             "text": "Internal, housekeeping updates", 
             "title": "1.0.18 - Jun 13, 2016"
         }, 
         {
-            "location": "/software/storage-client/#101742-jun-10-2016", 
+            "location": "/software/releases/storage-client/#101742-jun-10-2016", 
             "text": "Change Upload process to prevent duplicate uploads from being initiated", 
             "title": "1.0.17* - Jun 10, 2016"
         }, 
         {
-            "location": "/software/storage-client/#101642-may-30-2016", 
+            "location": "/software/releases/storage-client/#101642-may-30-2016", 
             "text": "Perform additional MD5 checking to ensure validity of download", 
             "title": "1.0.16* - May 30, 2016"
         }, 
         {
-            "location": "/software/storage-client/#1015-may-19-2016", 
+            "location": "/software/releases/storage-client/#1015-may-19-2016", 
             "text": "Accept multiple object id's with --object-id parameter", 
             "title": "1.0.15 - May 19, 2016"
         }, 
         {
-            "location": "/software/storage-client/#1014-may-2-2016", 
+            "location": "/software/releases/storage-client/#1014-may-2-2016", 
             "text": "Batch/Manifest Slicing. Validate java version, validate repository code in download manifest files against client profile", 
             "title": "1.0.14 - May 2, 2016"
         }, 
         {
-            "location": "/software/storage-client/#1013-mar-22-2016", 
+            "location": "/software/releases/storage-client/#1013-mar-22-2016", 
             "text": "Fixed infinite loop in download when part size mismatches stream length", 
             "title": "1.0.13 - Mar 22, 2016"
         }, 
         {
-            "location": "/software/storage-client/#1012-mar-19-2016", 
+            "location": "/software/releases/storage-client/#1012-mar-19-2016", 
             "text": "Fixed application of HTTP timeouts for uploads / downloads", 
             "title": "1.0.12 - Mar 19, 2016"
         }, 
         {
-            "location": "/software/storage-client/#1010-feb-19-2016", 
+            "location": "/software/releases/storage-client/#1010-feb-19-2016", 
             "text": "Additional user informational message improvements", 
             "title": "1.0.10 - Feb 19, 2016"
         }, 
         {
-            "location": "/software/storage-client/#109-feb-17-2016", 
+            "location": "/software/releases/storage-client/#109-feb-17-2016", 
             "text": "Perform check for adequate disk space before beginning downloads", 
             "title": "1.0.9 - Feb 17, 2016"
         }, 
         {
-            "location": "/software/storage-client/#108-feb-11-2016", 
+            "location": "/software/releases/storage-client/#108-feb-11-2016", 
             "text": "Improved informational and error messages to user", 
             "title": "1.0.8 - Feb 11, 2016"
         }, 
         {
-            "location": "/software/storage-client/#105-dec-5-2015", 
+            "location": "/software/releases/storage-client/#105-dec-5-2015", 
             "text": "GA Client release - cleaned up command line arguments;  Removed obsolete, unused options", 
             "title": "1.0.5 - Dec 5, 2015"
         }, 
         {
-            "location": "/software/portal/", 
+            "location": "/software/releases/portal/", 
             "text": "Portal Software Release Notes\n\n\nNote that code level release notes may found on \nGitHub\n. The following details user facing features / changes covered in each release.\n\n\n4.2.6 - July 5th, 2016\n\n\n\n\nAdded support for new \nDownload Service\n\n\nAdded ability to stream directly from \nAdvanced Search\n after clicking on \"Download Donor Data\"\n\n\n\n\n4.2.3 - June 23rd, 2016\n\n\n\n\nAdded support for \"Not filtering\" in \nAdvanced Search\n\n\nAdded facet charts in the \nRepository Browser\n\n\nRemoved TCGA repository in the Repository Browser as this is replaced with GDC\n\n\nAdded \nGDC clinical and biospecimen\n files in the Repository Browser\n\n\nUnified behaviours for \"copy to clipboard\" widgets\n\n\nCharting library upgrades\n\n\nVarious bug fixes\n\n\n\n\n4.2.2 - June 15th, 2016\n\n\n\n\nGDC files published in the \nRepository Browser\n.\n\n\nSupport for saving, sharing and searching by File Sets in \nRepository Browser\n\n\nAdded support for searching by Manifest ID in the \nRepository Browser\n\n\nAdded support for searching by Submitter Bundle ID in the \nRepository Browser\n\n\nChanged software hosting to https://artifacts.oicr.on.ca\n\n\nImproved loading icon placement\n\n\nVarious bug fixes\n\n\n\n\n4.0.25 - June 8th, 2016\n\n\n\n\nInitial set of projects for PCAWG EGA files published in the \nRepository Browser\n.\n\n\n\n\n4.0.24 - June 7th, 2016\n\n\n\n\nCan search for files based on Bundle ID, and the Bundle ID will be shown for file results in keyword search.\n\n\nThe Gene entity page will now show all available drugs instead of limiting to a list of 10 results.\n\n\nClicking on clinical trials from the gene page will now scroll to the trials section of compound page.\n\n\nVarious bug fixes\n\n\n\n\n4.0.14 - May 4th, 2016\n\n\n\n\nIobio integration added to VCF files stored in AWS/Collaboratory.  e.g. Go to VCF Stats section in \nhttps://dcc.icgc.org/repositories/files/FI378419\n\n\nFixed truncated or failing downloads that were occuring for some users.\n\n\nVarious minor bug fixes.\n\n\n\n\n3.8.20 - Nov 27, 2015\n\n\n\n\nAdded Drug/Compound entity page which correlates targeted genes and provides context into clinical trials, e.g. Go to Sprycel Compound page (\nhttps://dcc.icgc.org/compound/ZINC000003986735\n)\n\n\nAdded Drug/Compound section in Gene Entity Page, e.g. Go to Compound section in EGFR Gene page (\nhttps://dcc.icgc.org/genes/ENSG00000146648\n)\n\n\nAdded Quick Search support for Drug/Compound, e.g. Type Leukeran in the Quick Search\n\n\nIobio integration added to aligned BAM files stored in AWS/Collaboratory, e.g. Go to BAM Stats section in \nhttps://dcc.icgc.org/repositories/files/FI9974\n\n\nAdded highlight of genes overlapping with Enrichement Analysis input genes in Pathway Viewer, e.g. Look for R-HSA-5654716 Pathway Viewer in \nhttps://dcc.icgc.org/pathways/ea41722b-5f8f-4735-8830-4c2fb52b2ff3\n\n\n\n\n3.8.18.3 - Nov 18, 2015\n\n\n\n\nReleased ICGC in the Cloud (\nhttps://dcc.icgc.org/icgc-in-the-cloud\n), see Amazon post: \nhttps://aws.amazon.com/blogs/aws/\n\n\nDisplayed User Guide to explore and analyze ICGC data stored in Amazon AWS and Collaboratory (\nhttps://dcc.icgc.org/icgc-in-the-cloud/guide\n)\n\n\nSeparated DCC data releases (\nhttps://dcc.icgc.org/releases\n) from Data Repositories (\nhttps://dcc.icgc.org/repositories\n)\n\n\nRe-organized filters and added Analysis Software filter on Data Repositories browser\n\n\nImproved performance of the Advanced Search page\n\n\nVarious Bug fixes\n\n\n\n\n3.8.16.1 - Oct 28, 2015\n\n\n\n\nDisplayed Pathway Viewer from Reactome Pathway Entity Page, (e.g. \nhttps://dcc.icgc.org/genesets/R-HSA-392154\n, click on \"Pathway Viewer\" section in the navigation bar: mutated genes are highlighted and mutation count is displayed at the top-right corner of the entity. User should click on entity to view details about genes and mutation count)\n\n\nDisplayed Pathway Viewer from an Enrichment Analysis for all the enriched gene sets (e.g. \nhttps://icgc.org/Zir\n, click on \"Open in Pathway Viewer\" and navigate through the reactome pathways to view pathway diagrams)\n\n\nEnhanced data repositories, e.g. assigned a File ID FI99999, added Specimen Type facet (link: \nhttps://dcc.icgc.org/repositories\n\n\nUpdated File Entity Page layout (e.g. \nhttps://dcc.icgc.org/repositories/files/FI9995\n)\n\n\nWhen navigating from Donor Entity page to Genome Viewer, the mutation sorting and filter is now carried over\n\n\nSignificantly reduced the load time of stacked bar chart in Project Summary page (\nhttps://dcc.icgc.org/projects\n\n\nRefactored Browser API to fix various problems that could result in error 500s being returned\n\n\nBug fixes for Project Sample Sheet, Pie Chart colouring\n\n\n\n\n3.8.14.4 - Sept 22, 2015\n\n\n\n\nAdded functionality to view files in external repositories based on filters from advanced search (Go to \nhttps://dcc.icgc.org/search\n, select your filters then in Donor tab click on \"View in External Repositories\" ). Documentation is available \nhere\n\n\nAdded functionality to download donor data and view donor sets in external repositories browser from Data Analysis (icons are available for saved donor sets here: \nhttps://dcc.icgc.org/analysis/sets\n)\n\n\nAdded functionality to upload a donor set in Donor facet in Advanced Search (\nhttps://dcc.icgc.org/search\n and External Repositories browser (\nhttps://dcc.icgc.org/repositories\n)\n\n\nAdded full screen support for Genome Viewer\n\n\nAdded Tumor Types facet in Projects page (\nhttps://dcc.icgc.org/projects\n)\n\n\nBug fixes for gene query in the case of no donor analysis and for Pathway Viewer\n\n\n\n\n3.8.9.3 - July 3, 2015\n\n\n\n\nAdded PCAWG section to home page and footer\n\n\nAdded PCAWG page - \nhttps://pcawg.icgc.org\n\n\nMinor bug fixes\n\n\n\n\n3.8.8.0 - June 16, 2015\n\n\n\n\nAdded DCC - \nExternal Repository feature\n. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here: \nhttps://docs.icgc.org/data-portal-usage#externalrep\n\n\nAdded Study facet to filter PCAWG (Pan-Cancer Analysis of Whole Genome) Donors in Advanced Search - Donor tab, e.g. \n PCAWG Donors in Advanced Search \n\n\nAdded support for clinical supplementary files (family, exposure, therapy). Displayed in Donor Entity Page and exported in Donors files\n\n\nAdded support for pending donors and projects. Documentation is available here: \nhttps://docs.icgc.org/data-portal-usage#pendingdonors\n\n\nAdded preliminary UI / API support for \"donor states\". API documentation available here: \nhttps://dcc.icgc.org/docs/\n\n\nReduced project colour space to primary sites\n\n\nBug fixes and core javascript libraries upgrades\n\n\n\n\n3.8.2.3 - April 7, 2015\n\n\n\n\nRedesigned Data Analysis feature to improve user experience (\nhttps://dcc.icgc.org/analysis/sets\n). Documentation available \nhere\n\n\nAdded demo analyses: User can launch them from \nhttps://dcc.icgc.org/analysis\n\n\nAdded Phenotype Comparison analysis to Data Analysis feature (\nhttps://dcc.icgc.org/analysis\n)\n\n\nAdded functionality to upload a custom gene set and save it in Data Analysis (\nhttps://dcc.icgc.org/analysis/sets\n). User can then perform analysis on saved gene set\n\n\nAdded version control and version deprecation for data analyses: User will get a warning message on his analyses if ICGC data has been updated\n\n\nBug fixes and libraries upgrade\n\n\n\n\n3.8.2.2 - March 16, 2015\n\n\n\n\nAdded new visualization to show \"Donor Count History\" (\nhttps://dcc.icgc.org/projects/history\n)\n\n\nBug fixes\n\n\n\n\n3.7.6.6 - February 11, 2015\n\n\n\n\nAdded \"GA4GH Beacon\" feature (\nhttps://dcc.icgc.org/ga4gh/beacon\n)\n\n\nAdded \"Saved Sets\" feature (\nhttps://dcc.icgc.org/analysis\n)\n\n\nAdded \"Set Analysis\" feature (\nhttps://dcc.icgc.org/analysis\n)\n\n\nAdded \"Enrichment Analysis\" feature (\nhttps://dcc.icgc.org/analysis\n)\n\n\nProjects page layout update and optimization (\nhttps://dcc.icgc.org/projects\n)\n\n\nVarious bug fixes\n\n\n\n\n3.7.6.2 - January 21, 2015\n\n\n\n\n\"Gene Ontology\" quick search (\nhttps://dcc.icgc.org/q?q=GO:1901662\n)\n\n\n\"Gene Ontology\" advanced search (\nhttps://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%...\n)\n\n\n\"Gene Ontology\" entity pages (see \nhttps://dcc.icgc.org/genesets/GO:0008195\n)\n\n\nUpdated \"Reactome Pathway\" data (see \nhttps://dcc.icgc.org/genesets/REACT_13797\n)\n\n\nUpdate \"Cancer Gene Census\" data (see \nhttps://dcc.icgc.org/genesets/GS1\n)\n\n\nGeneralized \"Pathway\", \"Cancer Gene Census\" and \"Gene Ontology\" into unified \"Gene Set\" integration\n\n\nVarious small fixes\n\n\n\n\n3.7.4.1 - December 3, 2014\n\n\n\n\nAdded new visualization showing \"Number of Somatic Mutations in Donor's Exomes Across Cancer Projects\" (see \nhttps://dcc.icgc.org/projects\n)\n\n\nUsers can now upload their own custom gene list in Advanced Search (see \nhttps://dcc.icgc.org/search/g\n)\n\n\nAdded Markdown support for data repository for inline viewing of README files (see \nhttps://dcc.icgc.org/repositories\n)\n\n\nImproved general client-side page responsiveness of chart rendering\n\n\nMinor bug fixes\n\n\n\n\n3.5.12 - September 29, 2014\n\n\n\n\nFixed bug wherein a DACO authorization was being denied to ICGC.org (non-OpenID) users with granted access\n\n\nImproved general client-side page responsiveness\n\n\n\n\n3.5 - September 12, 2014\n\n\n\n\nUpgraded to Genome Maps 1.1.7\n\n\nImproved site performance through better caching\n\n\nAdded \"Multiple Observations per Donor Mutation Occurrence\" feature\n\n\nAdded \"Short URL\" feature\n\n\nAdded \"Repository URL Right-click to Copy\" feature\n\n\n\n\n3.2 - May 15, 2014\n\n\n\n\nAdded \"Aggregated SSM VCF\" feature\n\n\nAdded \"Pathway Entity Page\" feature\n\n\nAdded \"Pathway Search\" feature\n\n\nAdded \"Gene Sets\" feature\n\n\nAdded \"Functional Impact\" feature\n\n\nAdded \"Project Search\" feature\n\n\nAdded \"Authentication and Authorization\" feature\n\n\nAdded \"Controlled Access Download\" feature\n\n\nAdded \"Asynchronous Download\" feature\n\n\nAdded \"Public RESTful API\" feature", 
             "title": "Portal"
         }, 
         {
-            "location": "/software/portal/#portal-software-release-notes", 
+            "location": "/software/releases/portal/#portal-software-release-notes", 
             "text": "Note that code level release notes may found on  GitHub . The following details user facing features / changes covered in each release.", 
             "title": "Portal Software Release Notes"
         }, 
         {
-            "location": "/software/portal/#426-july-5th-2016", 
+            "location": "/software/releases/portal/#426-july-5th-2016", 
             "text": "Added support for new  Download Service  Added ability to stream directly from  Advanced Search  after clicking on \"Download Donor Data\"", 
             "title": "4.2.6 - July 5th, 2016"
         }, 
         {
-            "location": "/software/portal/#423-june-23rd-2016", 
+            "location": "/software/releases/portal/#423-june-23rd-2016", 
             "text": "Added support for \"Not filtering\" in  Advanced Search  Added facet charts in the  Repository Browser  Removed TCGA repository in the Repository Browser as this is replaced with GDC  Added  GDC clinical and biospecimen  files in the Repository Browser  Unified behaviours for \"copy to clipboard\" widgets  Charting library upgrades  Various bug fixes", 
             "title": "4.2.3 - June 23rd, 2016"
         }, 
         {
-            "location": "/software/portal/#422-june-15th-2016", 
+            "location": "/software/releases/portal/#422-june-15th-2016", 
             "text": "GDC files published in the  Repository Browser .  Support for saving, sharing and searching by File Sets in  Repository Browser  Added support for searching by Manifest ID in the  Repository Browser  Added support for searching by Submitter Bundle ID in the  Repository Browser  Changed software hosting to https://artifacts.oicr.on.ca  Improved loading icon placement  Various bug fixes", 
             "title": "4.2.2 - June 15th, 2016"
         }, 
         {
-            "location": "/software/portal/#4025-june-8th-2016", 
+            "location": "/software/releases/portal/#4025-june-8th-2016", 
             "text": "Initial set of projects for PCAWG EGA files published in the  Repository Browser .", 
             "title": "4.0.25 - June 8th, 2016"
         }, 
         {
-            "location": "/software/portal/#4024-june-7th-2016", 
+            "location": "/software/releases/portal/#4024-june-7th-2016", 
             "text": "Can search for files based on Bundle ID, and the Bundle ID will be shown for file results in keyword search.  The Gene entity page will now show all available drugs instead of limiting to a list of 10 results.  Clicking on clinical trials from the gene page will now scroll to the trials section of compound page.  Various bug fixes", 
             "title": "4.0.24 - June 7th, 2016"
         }, 
         {
-            "location": "/software/portal/#4014-may-4th-2016", 
+            "location": "/software/releases/portal/#4014-may-4th-2016", 
             "text": "Iobio integration added to VCF files stored in AWS/Collaboratory.  e.g. Go to VCF Stats section in  https://dcc.icgc.org/repositories/files/FI378419  Fixed truncated or failing downloads that were occuring for some users.  Various minor bug fixes.", 
             "title": "4.0.14 - May 4th, 2016"
         }, 
         {
-            "location": "/software/portal/#3820-nov-27-2015", 
+            "location": "/software/releases/portal/#3820-nov-27-2015", 
             "text": "Added Drug/Compound entity page which correlates targeted genes and provides context into clinical trials, e.g. Go to Sprycel Compound page ( https://dcc.icgc.org/compound/ZINC000003986735 )  Added Drug/Compound section in Gene Entity Page, e.g. Go to Compound section in EGFR Gene page ( https://dcc.icgc.org/genes/ENSG00000146648 )  Added Quick Search support for Drug/Compound, e.g. Type Leukeran in the Quick Search  Iobio integration added to aligned BAM files stored in AWS/Collaboratory, e.g. Go to BAM Stats section in  https://dcc.icgc.org/repositories/files/FI9974  Added highlight of genes overlapping with Enrichement Analysis input genes in Pathway Viewer, e.g. Look for R-HSA-5654716 Pathway Viewer in  https://dcc.icgc.org/pathways/ea41722b-5f8f-4735-8830-4c2fb52b2ff3", 
             "title": "3.8.20 - Nov 27, 2015"
         }, 
         {
-            "location": "/software/portal/#38183-nov-18-2015", 
+            "location": "/software/releases/portal/#38183-nov-18-2015", 
             "text": "Released ICGC in the Cloud ( https://dcc.icgc.org/icgc-in-the-cloud ), see Amazon post:  https://aws.amazon.com/blogs/aws/  Displayed User Guide to explore and analyze ICGC data stored in Amazon AWS and Collaboratory ( https://dcc.icgc.org/icgc-in-the-cloud/guide )  Separated DCC data releases ( https://dcc.icgc.org/releases ) from Data Repositories ( https://dcc.icgc.org/repositories )  Re-organized filters and added Analysis Software filter on Data Repositories browser  Improved performance of the Advanced Search page  Various Bug fixes", 
             "title": "3.8.18.3 - Nov 18, 2015"
         }, 
         {
-            "location": "/software/portal/#38161-oct-28-2015", 
+            "location": "/software/releases/portal/#38161-oct-28-2015", 
             "text": "Displayed Pathway Viewer from Reactome Pathway Entity Page, (e.g.  https://dcc.icgc.org/genesets/R-HSA-392154 , click on \"Pathway Viewer\" section in the navigation bar: mutated genes are highlighted and mutation count is displayed at the top-right corner of the entity. User should click on entity to view details about genes and mutation count)  Displayed Pathway Viewer from an Enrichment Analysis for all the enriched gene sets (e.g.  https://icgc.org/Zir , click on \"Open in Pathway Viewer\" and navigate through the reactome pathways to view pathway diagrams)  Enhanced data repositories, e.g. assigned a File ID FI99999, added Specimen Type facet (link:  https://dcc.icgc.org/repositories  Updated File Entity Page layout (e.g.  https://dcc.icgc.org/repositories/files/FI9995 )  When navigating from Donor Entity page to Genome Viewer, the mutation sorting and filter is now carried over  Significantly reduced the load time of stacked bar chart in Project Summary page ( https://dcc.icgc.org/projects  Refactored Browser API to fix various problems that could result in error 500s being returned  Bug fixes for Project Sample Sheet, Pie Chart colouring", 
             "title": "3.8.16.1 - Oct 28, 2015"
         }, 
         {
-            "location": "/software/portal/#38144-sept-22-2015", 
+            "location": "/software/releases/portal/#38144-sept-22-2015", 
             "text": "Added functionality to view files in external repositories based on filters from advanced search (Go to  https://dcc.icgc.org/search , select your filters then in Donor tab click on \"View in External Repositories\" ). Documentation is available  here  Added functionality to download donor data and view donor sets in external repositories browser from Data Analysis (icons are available for saved donor sets here:  https://dcc.icgc.org/analysis/sets )  Added functionality to upload a donor set in Donor facet in Advanced Search ( https://dcc.icgc.org/search  and External Repositories browser ( https://dcc.icgc.org/repositories )  Added full screen support for Genome Viewer  Added Tumor Types facet in Projects page ( https://dcc.icgc.org/projects )  Bug fixes for gene query in the case of no donor analysis and for Pathway Viewer", 
             "title": "3.8.14.4 - Sept 22, 2015"
         }, 
         {
-            "location": "/software/portal/#3893-july-3-2015", 
+            "location": "/software/releases/portal/#3893-july-3-2015", 
             "text": "Added PCAWG section to home page and footer  Added PCAWG page -  https://pcawg.icgc.org  Minor bug fixes", 
             "title": "3.8.9.3 - July 3, 2015"
         }, 
         {
-            "location": "/software/portal/#3880-june-16-2015", 
+            "location": "/software/releases/portal/#3880-june-16-2015", 
             "text": "Added DCC -  External Repository feature . User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here:  https://docs.icgc.org/data-portal-usage#externalrep  Added Study facet to filter PCAWG (Pan-Cancer Analysis of Whole Genome) Donors in Advanced Search - Donor tab, e.g.   PCAWG Donors in Advanced Search   Added support for clinical supplementary files (family, exposure, therapy). Displayed in Donor Entity Page and exported in Donors files  Added support for pending donors and projects. Documentation is available here:  https://docs.icgc.org/data-portal-usage#pendingdonors  Added preliminary UI / API support for \"donor states\". API documentation available here:  https://dcc.icgc.org/docs/  Reduced project colour space to primary sites  Bug fixes and core javascript libraries upgrades", 
             "title": "3.8.8.0 - June 16, 2015"
         }, 
         {
-            "location": "/software/portal/#3823-april-7-2015", 
+            "location": "/software/releases/portal/#3823-april-7-2015", 
             "text": "Redesigned Data Analysis feature to improve user experience ( https://dcc.icgc.org/analysis/sets ). Documentation available  here  Added demo analyses: User can launch them from  https://dcc.icgc.org/analysis  Added Phenotype Comparison analysis to Data Analysis feature ( https://dcc.icgc.org/analysis )  Added functionality to upload a custom gene set and save it in Data Analysis ( https://dcc.icgc.org/analysis/sets ). User can then perform analysis on saved gene set  Added version control and version deprecation for data analyses: User will get a warning message on his analyses if ICGC data has been updated  Bug fixes and libraries upgrade", 
             "title": "3.8.2.3 - April 7, 2015"
         }, 
         {
-            "location": "/software/portal/#3822-march-16-2015", 
+            "location": "/software/releases/portal/#3822-march-16-2015", 
             "text": "Added new visualization to show \"Donor Count History\" ( https://dcc.icgc.org/projects/history )  Bug fixes", 
             "title": "3.8.2.2 - March 16, 2015"
         }, 
         {
-            "location": "/software/portal/#3766-february-11-2015", 
+            "location": "/software/releases/portal/#3766-february-11-2015", 
             "text": "Added \"GA4GH Beacon\" feature ( https://dcc.icgc.org/ga4gh/beacon )  Added \"Saved Sets\" feature ( https://dcc.icgc.org/analysis )  Added \"Set Analysis\" feature ( https://dcc.icgc.org/analysis )  Added \"Enrichment Analysis\" feature ( https://dcc.icgc.org/analysis )  Projects page layout update and optimization ( https://dcc.icgc.org/projects )  Various bug fixes", 
             "title": "3.7.6.6 - February 11, 2015"
         }, 
         {
-            "location": "/software/portal/#3762-january-21-2015", 
+            "location": "/software/releases/portal/#3762-january-21-2015", 
             "text": "\"Gene Ontology\" quick search ( https://dcc.icgc.org/q?q=GO:1901662 )  \"Gene Ontology\" advanced search ( https://dcc.icgc.org/search/g?filters=%7B%22gene%22%3A%7B%22goTermId%22%... )  \"Gene Ontology\" entity pages (see  https://dcc.icgc.org/genesets/GO:0008195 )  Updated \"Reactome Pathway\" data (see  https://dcc.icgc.org/genesets/REACT_13797 )  Update \"Cancer Gene Census\" data (see  https://dcc.icgc.org/genesets/GS1 )  Generalized \"Pathway\", \"Cancer Gene Census\" and \"Gene Ontology\" into unified \"Gene Set\" integration  Various small fixes", 
             "title": "3.7.6.2 - January 21, 2015"
         }, 
         {
-            "location": "/software/portal/#3741-december-3-2014", 
+            "location": "/software/releases/portal/#3741-december-3-2014", 
             "text": "Added new visualization showing \"Number of Somatic Mutations in Donor's Exomes Across Cancer Projects\" (see  https://dcc.icgc.org/projects )  Users can now upload their own custom gene list in Advanced Search (see  https://dcc.icgc.org/search/g )  Added Markdown support for data repository for inline viewing of README files (see  https://dcc.icgc.org/repositories )  Improved general client-side page responsiveness of chart rendering  Minor bug fixes", 
             "title": "3.7.4.1 - December 3, 2014"
         }, 
         {
-            "location": "/software/portal/#3512-september-29-2014", 
+            "location": "/software/releases/portal/#3512-september-29-2014", 
             "text": "Fixed bug wherein a DACO authorization was being denied to ICGC.org (non-OpenID) users with granted access  Improved general client-side page responsiveness", 
             "title": "3.5.12 - September 29, 2014"
         }, 
         {
-            "location": "/software/portal/#35-september-12-2014", 
+            "location": "/software/releases/portal/#35-september-12-2014", 
             "text": "Upgraded to Genome Maps 1.1.7  Improved site performance through better caching  Added \"Multiple Observations per Donor Mutation Occurrence\" feature  Added \"Short URL\" feature  Added \"Repository URL Right-click to Copy\" feature", 
             "title": "3.5 - September 12, 2014"
         }, 
         {
-            "location": "/software/portal/#32-may-15-2014", 
+            "location": "/software/releases/portal/#32-may-15-2014", 
             "text": "Added \"Aggregated SSM VCF\" feature  Added \"Pathway Entity Page\" feature  Added \"Pathway Search\" feature  Added \"Gene Sets\" feature  Added \"Functional Impact\" feature  Added \"Project Search\" feature  Added \"Authentication and Authorization\" feature  Added \"Controlled Access Download\" feature  Added \"Asynchronous Download\" feature  Added \"Public RESTful API\" feature", 
             "title": "3.2 - May 15, 2014"
         }, 
         {
-            "location": "/software/submission/", 
+            "location": "/software/releases/submission/", 
             "text": "Submission System Release Notes\n\n\n3.6.1.1 - October 10, 2014\n\n\n\n\nAdded \"header-only file validation\" to inform the user of an unintended empty submission file\n\n\nAdded \"sample type validation\" to verify that samples referenced in meta file \nanalyzed_sample_id\n, \nmatched_sample_id\n and \nreference_sample_type\n fields are consistent with the \nspecimen_type\n field found in the associated specimen files.\n\n\n\n\n2.6 - March 17, 2014\n\n\n\n\nIncremental data submission. Users can now manage their data submission directory and upload only new data. Please see \nhere\n for more information\n\n\nSupport multiple files. Data can be split in multiple files per data type\n\n\nSelective data validation. Users can now validate data by data type and not anymore the whole submission each time.\n\n\nNew user interface\n\n\nFaster validation engine\n\n\nMany bug fixes\n\n\n\n\nFor more information, please see the Submission System Guide available \n here \n. Please don't hesitate to contact us at \ndcc-support@icgc.org\n if you have any questions or to report any bugs.\n\n\nSincerely,\nThe DCC team.", 
             "title": "Submission"
         }, 
         {
-            "location": "/software/submission/#submission-system-release-notes", 
+            "location": "/software/releases/submission/#submission-system-release-notes", 
             "text": "", 
             "title": "Submission System Release Notes"
         }, 
         {
-            "location": "/software/submission/#3611-october-10-2014", 
+            "location": "/software/releases/submission/#3611-october-10-2014", 
             "text": "Added \"header-only file validation\" to inform the user of an unintended empty submission file  Added \"sample type validation\" to verify that samples referenced in meta file  analyzed_sample_id ,  matched_sample_id  and  reference_sample_type  fields are consistent with the  specimen_type  field found in the associated specimen files.", 
             "title": "3.6.1.1 - October 10, 2014"
         }, 
         {
-            "location": "/software/submission/#26-march-17-2014", 
+            "location": "/software/releases/submission/#26-march-17-2014", 
             "text": "Incremental data submission. Users can now manage their data submission directory and upload only new data. Please see  here  for more information  Support multiple files. Data can be split in multiple files per data type  Selective data validation. Users can now validate data by data type and not anymore the whole submission each time.  New user interface  Faster validation engine  Many bug fixes   For more information, please see the Submission System Guide available   here  . Please don't hesitate to contact us at  dcc-support@icgc.org  if you have any questions or to report any bugs.  Sincerely,\nThe DCC team.", 
             "title": "2.6 - March 17, 2014"
         }, 
         {
-            "location": "/software/icgc-get/", 
+            "location": "/software/releases/icgc-get/", 
             "text": "icgc-get Release Notes\n\n\n0.5.7 - Nov 9, 2016\n\n\n\n\nImproved messages to user when files have already been downloaded. \n\n\nFixed bug that prevented changing the number of threads the icgc-storage client would use. \n\n\n\n\n0.5.6 - Nov 3, 2016\n\n\n\n\nFixed access checking for GDC repository. \n\n\nMisc bug fixes related to exception handling. \n\n\n\n\n0.5.5 - Nov 2, 2016\n\n\n\n\nFixes issue with PDC downloads not working\n\n\nFixes OSX binary from returning \nFailed to execute\n on successful operations. \n\n\nRemoved debug logging on awscli when downloading from PDC. \n\n\n\n\n0.5.3 - Oct 19, 2016\n\n\n\n\nFixes issue where downloading by manifest could cause a bad request in obtaining file metadata.\n\n\n\n\n0.5.1 - Sept 22, 2016\n\n\n\n\nImprovements in configuration prompts, especially in handling incorrect inputs. \n\n\nWhen specifying an output directory, icgc-get will attempt to create the directory if possible. \n\n\n\n\n0.5.0 - Sept 20, 2016\n\n\n\n\nGenerated \nconfig.yaml\n documents unset configuration should users like to be able to modify their configuration by hand.\n\n\nBetter error handling for unrecoverable and corrupted configuration. \n\n\n\n\n0.4.4 - Sept 13, 2016\n\n\n\n\nAdded headers to output indicating which File Ids are being downloaded and from which repository. \n\n\n\n\n0.4.1 - Aug 15, 2016\n\n\n\n\nInitial release.", 
             "title": "icgc-get"
         }, 
         {
-            "location": "/software/icgc-get/#icgc-get-release-notes", 
+            "location": "/software/releases/icgc-get/#icgc-get-release-notes", 
             "text": "", 
             "title": "icgc-get Release Notes"
         }, 
         {
-            "location": "/software/icgc-get/#057-nov-9-2016", 
+            "location": "/software/releases/icgc-get/#057-nov-9-2016", 
             "text": "Improved messages to user when files have already been downloaded.   Fixed bug that prevented changing the number of threads the icgc-storage client would use.", 
             "title": "0.5.7 - Nov 9, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#056-nov-3-2016", 
+            "location": "/software/releases/icgc-get/#056-nov-3-2016", 
             "text": "Fixed access checking for GDC repository.   Misc bug fixes related to exception handling.", 
             "title": "0.5.6 - Nov 3, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#055-nov-2-2016", 
+            "location": "/software/releases/icgc-get/#055-nov-2-2016", 
             "text": "Fixes issue with PDC downloads not working  Fixes OSX binary from returning  Failed to execute  on successful operations.   Removed debug logging on awscli when downloading from PDC.", 
             "title": "0.5.5 - Nov 2, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#053-oct-19-2016", 
+            "location": "/software/releases/icgc-get/#053-oct-19-2016", 
             "text": "Fixes issue where downloading by manifest could cause a bad request in obtaining file metadata.", 
             "title": "0.5.3 - Oct 19, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#051-sept-22-2016", 
+            "location": "/software/releases/icgc-get/#051-sept-22-2016", 
             "text": "Improvements in configuration prompts, especially in handling incorrect inputs.   When specifying an output directory, icgc-get will attempt to create the directory if possible.", 
             "title": "0.5.1 - Sept 22, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#050-sept-20-2016", 
+            "location": "/software/releases/icgc-get/#050-sept-20-2016", 
             "text": "Generated  config.yaml  documents unset configuration should users like to be able to modify their configuration by hand.  Better error handling for unrecoverable and corrupted configuration.", 
             "title": "0.5.0 - Sept 20, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#044-sept-13-2016", 
+            "location": "/software/releases/icgc-get/#044-sept-13-2016", 
             "text": "Added headers to output indicating which File Ids are being downloaded and from which repository.", 
             "title": "0.4.4 - Sept 13, 2016"
         }, 
         {
-            "location": "/software/icgc-get/#041-aug-15-2016", 
+            "location": "/software/releases/icgc-get/#041-aug-15-2016", 
             "text": "Initial release.", 
             "title": "0.4.1 - Aug 15, 2016"
         }, 
@@ -2481,372 +2481,377 @@
             "title": "Parent (dcc-parent)"
         }, 
         {
-            "location": "/software/setup/", 
-            "text": "Setup\n\n\nThis document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.\n\n\nOnce complete, please see \ngeneral\n for general conventions used during development.\n\n\nHomebrew\n\n\nHomebrew, \nbrew\n, is the defacto package manager for MacOs. To install follow the directions below:\n\n\nhttp://brew.sh/\n\n\nCask\n\n\nIt is recommended to install all applications with Cask to promote automation (hopefully one day this page can be scripted).\n\n\nhttps://caskroom.github.io/\n\n\nTo install:\n\n\nbrew tap caskroom/cask\n\n\n\n\nSlack\n\n\nWe use Slack almost entirely for internal communication, so install this ASAP.\n\n\nbrew cask install slack\n\n\n\n\nXCode and Command Line Tools\n\n\nFollow the instructions below:\n\n\nhttp://railsapps.github.io/xcode-command-line-tools.html\n\n\nAlternatively, install XCode from AppStore and execute the following (untested):\n\n\nxcode-select --install\n\n\n\n\nJava\n\n\nInstall Java 8:\n\n\nbrew cask install java\n\n\n\n\nAdd the following to \n~/.bash_profile\n:\n\n\nexport JAVA_HOME=\n$(/usr/libexec/java_home -v 1.8)\n\n\n\n\n\nSource \n~/.bash_profile\n or open a new terminal and ensure this reports Java 8:\n\n\njava -version   \n\njava version \n1.8.0_31\n\nJava(TM) SE Runtime Environment (build 1.8.0_31-b13)\nJava HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)\n\n\n\n\nElasticsearch\n\n\nbrew install elasticsearch14\nbrew switch elasticsearch14 1.4.4\n\n\n\n\nHead Plugin\n\n\n/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head\n\n\n\n\nMongoDB\n\n\nbrew install mongo\nbrew switch mongo 2.4.4-x86_64\n\n\n\n\nGit\n\n\nbrew install git\n\n\n\n\nHubFlow\n\n\nbrew install hubflow\n\n\n\n\nSee\u00a0\nhttps://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md\n\u00a0for details on how we use this.\n\n\nGitHub\n\n\nSetup\n\n\nCreate an account and send to \n@btiernay\n.\n\n\nMaven\n\n\nInstallation\n\n\nInstall Maven 3.2.1 or what is specified in\u00a0\nicgc-dcc/dcc-parent/pom.xml\n\u00a0\nmaven-enforcer-plugin.requireMavenVersion\n\n\nbrew install maven\nbrew switch maven 3.2.1\n\n\n\n\nTo check your installation, run:\n\n\nmvn -v\n\n...\nJava version: 1.8.0_31, vendor: Oracle Corporation\n...\n\n\n\n\n\nEclipse\n\n\nInstallation\n\n\nDownload and install Eclipse 4.6.x or latest for Java EE developers:\n\n\nhttp://www.eclipse.org/downloads/\n\n\nAlternatively, you may try the following (untested):\n\n\nhttp://macappstore.org/eclipse-jee/\n\n\nbrew cask install eclipse-jee\n\n\n\n\nSettings\n\n\nInstall and configure IDE settings:\n\n\nhttps://github.com/icgc-dcc/dcc-cm/tree/develop/ide\n\n\nLombok Support\n\n\nA number of the DCC projects are using \nLombok\n to reduce boilerplate code (e.g., getters, setters,\u00a0\ntoString()\n,\u00a0\nhashCode()\n,\u00a0\nequals()\n,\u00a0\nstatic Logger log\n, etc.). This is seemless to\u00a0\njavac\n\u00a0via\u00a0\nmvn\n, but the Java 6\u00a0\ntransformations\n\u00a0will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute\u00a0\n\n\nwget http://projectlombok.googlecode.com/files/lombok.jar\njava -jar\u00a0lombok.jar\n\n\n\n\nAnd point it to your Eclipse installation. See\u00a0\nhttp://projectlombok.org/features/index.html\n\u00a0for details.\u00a0\n\n\nMaven m2e\n\n\nActivate source downloading in the maven plugin, tick the following: \n\n\nPreferences \n Maven \n Maven Download Artifact Sources\n\n\nOpen to XML view, tick the following:\n\n\nPreferences \n Maven \n User Interace \n Open XML page in the POM editor by default\n\n\nHide warnings for incomplete mappings, tick the following:\n\n\nPreferences \n Maven \n User Interace \n Hide warnings for incomplete mapping\n\n\nJava Static Import Favorites\n\n\nAdd some classes to your favorite static imports via:\n\n\nPreferences \n Java \n Editor \n Content Assist \n Favorites\n:\n\n\n\n\nGuava's \nPreconditions\n\n\nPowerMock's\u00a0\nPowerMockito\n\n\nMockito's \nMockito\n\n\nAssertJ's\u00a0\norg.assertj.core.api.Assertions.*\n\n\n\n\nPlugins\n\n\nMoreUnit Plugin\n\n\nUseful JUnit Eclipse integration extensions can be installed by following the instructions here:\n\n\nhttp://moreunit.sourceforge.net/\n\n\nOr try the following (untested):\n\n\neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.feature.group \neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.mock.feature.group\n\n\n\n\nFindBugs\n\n\nLocally run FindBugs within your IDE:\n\n\nhttp://findbugs.sourceforge.net/manual/eclipse.html\n\n\nOr try the following (untested):\n\n\neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group\n\n\n\n\nGrep Console\n\n\nPlugin for colorizing and filtering the Eclipse console. Follow the instructions here (configuration is available in the Eclipse section):\n\n\nhttp://marian.schedenig.name/projects/grep-console/\n\n\nOr try the following (untested):\n\n\neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group\n\n\n\n\nNodeJS\n\n\nThis is only required for projects that use a UI built by \nnpm\n (e.g. \ndcc-docs\n, \ndcc-portal\n, \ndcc-submission\n, \ndcc-dev\n, etc.)\n\n\nbrew install nvm\n\n\n\n\nThen read \nhttps://davidwalsh.name/nvm\n\u00a0for usage information.\n\n\nThen follow instructions in each GitHub's repo for the required node / npm versions (e.g. \nhttps://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui\n).\n\n\nProjects\n\n\nAfter installing the above, navigate to the project(s) that you will be working on in \nGitHub\n and follow the top-level \nREADME.md\ns and linked sub-module \nREADME.md\ns.\n\n\nAll Projects\n\n\nClone a project from GitHub:  \n\n\ncd ~/Workspaces/dcc\ngit clone git@github.com:icgc-dcc/\nproject\n.git\n\n\n\n\nInit Git-flow (default settings):  \n\n\ncd \nproject\n\ngit hf init\n\n\n\n\nEclipse Projects\n\n\nTo import an Eclipse based project, click on the following in the file menu:\n\n\nFile \n Import \n Maven \n Existing Maven Projects\n\n\nReference Data\n\n\nYou will need to download the DCC reference genome from our \nArtifactory\n server:\u00a0\n\n\nhttps://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/\n\n\nand extract it to \n/tmp\n. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink \nGRCh37.fasta\n to \nGRC37.75.fasta\n and\u00a0\nGRCh37.fasta.fai\n to\u00a0\nGRCh37.75.fasta.fai\n by executing the following:\n\n\nln -s\u00a0GRC37.75.fasta\u00a0GRC37.fasta\nln -s\u00a0GRC37.75.fasta.fai GRC37.fasta.fai\n\n\n\n\nUtilities\n\n\nConsider all of these utilities optional, but highly recommended.\n\n\nTrailer\n\n\nTrack pull requests and issues across repositories, directly in your Notification Center or on any Apple device.\n\n\nhttps://ptsochantaris.github.io/trailer/\n\n\nbrew cask install trailer\n\n\n\n\nDocker\n\n\nDocker for Mac:\n\n\nhttps://docs.docker.com/engine/installation/mac/\n\n\nOr try (untested):\n\n\nbrew cask install docker-beta\n\n\n\n\nMacDown\n\n\nMacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo\u2019s Mou.\n\n\nhttp://macdown.uranusjr.com/\n\n\nbrew cask install macdown\n\n\n\n\niTerm2\n\n\nVery powerful terminal emulator for Mac:\n\n\nhttp://www.iterm2.com/\n\n\nbrew cask install iterm2 \n\n\n\n\nZsh\n\n\nGreat shell alternative that is mostly compatible with Bash:\n\n\nbrew install zsh zsh-completions\n\n\n\n\nOh My Zsh\n\n\nPlugin system for \nzsh\n\n\nhttps://github.com/robbyrussell/oh-my-zsh\n\n\nAdd the following to \n~/.zshrc\n / \n~/.bash_profile\n:\n\n\nplugins=(git git-hubflow mvn brew nvm node npm vagrant httpie)\n\n\n\n\nHTTP\n\n\nModern alternative to \ncurl\n:\n\n\nhttps://github.com/jkbrzt/httpie\n\n\nbrew install httpie\n\n\n\n\njq\n\n\njq\n is a lightweight and flexible command-line JSON processor:\n\n\nhttps://stedolan.github.io/jq/\n\n\nbrew install jq\n\n\n\n\nOther\n\n\nOther useful things:\n\n\n\n\nhttps://danielmiessler.com/blog/first-10-things-new-mac\n\n\nspf13\n\n\nbrew cask install google-chrome\n\n\nbrew cask install virtualbox\n\n\nbrew cask install vagrant", 
+            "location": "/software/development/setup/", 
+            "text": "Setup\n\n\nThis document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.\n\n\nOnce complete, please see \ngeneral\n for general conventions used during development.\n\n\nHomebrew\n\n\nHomebrew, \nbrew\n, is the defacto package manager for MacOs. Most software described here requires it. \n\n\nTo install follow the directions below:\n\n\nhttp://brew.sh/\n\n\nCask\n\n\nIt is recommended to install all applications with Cask to promote automation (hopefully one day this page can be scripted).\n\n\nhttps://caskroom.github.io/\n\n\nTo install:\n\n\nbrew tap caskroom/cask\n\n\n\n\nSlack\n\n\nWe use Slack almost entirely for internal communication, so install this ASAP.\n\n\nbrew cask install slack\n\n\n\n\nXCode and Command Line Tools\n\n\nFollow the instructions below:\n\n\nhttp://railsapps.github.io/xcode-command-line-tools.html\n\n\nAlternatively, install XCode from AppStore and execute the following (untested):\n\n\nxcode-select --install\n\n\n\n\nJava\n\n\nInstall Java 8:\n\n\nbrew cask install java\n\n\n\n\nAdd the following to \n~/.bash_profile\n:\n\n\nexport JAVA_HOME=\n$(/usr/libexec/java_home -v 1.8)\n\n\n\n\n\nSource \n~/.bash_profile\n or open a new terminal and ensure this reports Java 8:\n\n\njava -version   \n\njava version \n1.8.0_31\n\nJava(TM) SE Runtime Environment (build 1.8.0_31-b13)\nJava HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)\n\n\n\n\nElasticsearch\n\n\nbrew install elasticsearch14\nbrew switch elasticsearch14 1.4.4\n\n\n\n\nHead Plugin\n\n\n/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head\n\n\n\n\nMongoDB\n\n\nbrew install mongo\nbrew switch mongo 2.4.4-x86_64\n\n\n\n\nGit\n\n\nbrew install git\n\n\n\n\nHubFlow\n\n\nbrew install hubflow\n\n\n\n\nSee\u00a0\nhttps://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md\n\u00a0for details on how we use this.\n\n\nGitHub\n\n\nSetup\n\n\nCreate an account and send to \n@btiernay\n.\n\n\nMaven\n\n\nInstallation\n\n\nInstall Maven 3.2.1 or what is specified in\u00a0\nicgc-dcc/dcc-parent/pom.xml\n\u00a0\nmaven-enforcer-plugin.requireMavenVersion\n\n\nbrew install maven\nbrew switch maven 3.2.1\n\n\n\n\nTo check your installation, run:\n\n\nmvn -v\n\n...\nJava version: 1.8.0_31, vendor: Oracle Corporation\n...\n\n\n\n\n\nEclipse\n\n\nInstallation\n\n\nDownload and install Eclipse 4.6.x or latest for Java EE developers:\n\n\nhttp://www.eclipse.org/downloads/\n\n\nAlternatively, you may try the following (untested):\n\n\nhttp://macappstore.org/eclipse-jee/\n\n\nbrew cask install eclipse-jee\n\n\n\n\nSettings\n\n\nInstall and configure IDE settings:\n\n\nhttps://github.com/icgc-dcc/dcc-cm/tree/develop/ide\n\n\nLombok Support\n\n\nA number of the DCC projects are using \nLombok\n to reduce boilerplate code (e.g., getters, setters,\u00a0\ntoString()\n,\u00a0\nhashCode()\n,\u00a0\nequals()\n,\u00a0\nstatic Logger log\n, etc.). This is seemless to\u00a0\njavac\n\u00a0via\u00a0\nmvn\n, but the Java 6\u00a0\ntransformations\n\u00a0will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute\u00a0\n\n\nwget http://projectlombok.googlecode.com/files/lombok.jar\njava -jar\u00a0lombok.jar\n\n\n\n\nAnd point it to your Eclipse installation. See\u00a0\nhttp://projectlombok.org/features/index.html\n\u00a0for details.\u00a0\n\n\nMaven m2e\n\n\nActivate source downloading in the maven plugin, tick the following: \n\n\nPreferences \n Maven \n Maven Download Artifact Sources\n\n\nOpen to XML view, tick the following:\n\n\nPreferences \n Maven \n User Interace \n Open XML page in the POM editor by default\n\n\nHide warnings for incomplete mappings, tick the following:\n\n\nPreferences \n Maven \n User Interace \n Hide warnings for incomplete mapping\n\n\nJava Static Import Favorites\n\n\nAdd some classes to your favorite static imports via:\n\n\nPreferences \n Java \n Editor \n Content Assist \n Favorites\n:\n\n\n\n\nGuava's \nPreconditions\n\n\nPowerMock's\u00a0\nPowerMockito\n\n\nMockito's \nMockito\n\n\nAssertJ's\u00a0\norg.assertj.core.api.Assertions.*\n\n\n\n\nPlugins\n\n\nMoreUnit Plugin\n\n\nUseful JUnit Eclipse integration extensions can be installed by following the instructions here:\n\n\nhttp://moreunit.sourceforge.net/\n\n\nOr try the following (untested):\n\n\neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.feature.group \neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.mock.feature.group\n\n\n\n\nFindBugs Plugin\n\n\nLocally run FindBugs within your IDE:\n\n\nhttp://findbugs.sourceforge.net/manual/eclipse.html\n\n\nOr try the following (untested):\n\n\neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group\n\n\n\n\nGrep Console Plugin\n\n\nPlugin for colorizing and filtering the Eclipse console. Follow the instructions here (configuration is available in the Eclipse section):\n\n\nhttp://marian.schedenig.name/projects/grep-console/\n\n\nOr try the following (untested):\n\n\neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group\n\n\n\n\nVS Code\n\n\nMost frontend developers choose to use the VS Code IDE for development.\n\n\nTo install:\n\n\nbrew cask install vscode\n\n\n\n\nNode.js\n\n\nThis is only required for projects that use a UI built by \nnpm\n (e.g. \ndcc-docs\n, \ndcc-portal\n, \ndcc-submission\n, \ndcc-dev\n, etc.)\n\n\nbrew install nvm\n\n\n\n\nThen read \nhttps://davidwalsh.name/nvm\n\u00a0for usage information.\n\n\nThen follow instructions in each GitHub's repo for the required node / npm versions (e.g. \nhttps://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui\n).\n\n\nProjects\n\n\nAfter installing the above, navigate to the project(s) that you will be working on in \nGitHub\n and follow the top-level \nREADME.md\ns and linked sub-module \nREADME.md\ns.\n\n\nAll Projects\n\n\nClone a project from GitHub:  \n\n\ncd ~/Workspaces/dcc\ngit clone git@github.com:icgc-dcc/\nproject\n.git\n\n\n\n\nInit Git-flow (default settings):  \n\n\ncd \nproject\n\ngit hf init\n\n\n\n\nEclipse Projects\n\n\nTo import an Eclipse based project, click on the following in the file menu:\n\n\nFile \n Import \n Maven \n Existing Maven Projects\n\n\nReference Data\n\n\nYou will need to download the DCC reference genome from our \nArtifactory\n server:\u00a0\n\n\nhttps://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/\n\n\nand extract it to \n/tmp\n. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink \nGRCh37.fasta\n to \nGRC37.75.fasta\n and\u00a0\nGRCh37.fasta.fai\n to\u00a0\nGRCh37.75.fasta.fai\n by executing the following:\n\n\nln -s\u00a0GRC37.75.fasta\u00a0GRC37.fasta\nln -s\u00a0GRC37.75.fasta.fai GRC37.fasta.fai\n\n\n\n\nUtilities\n\n\nConsider all of these utilities optional, but highly recommended.\n\n\nTrailer\n\n\nTrack pull requests and issues across repositories, directly in your Notification Center or on any Apple device.\n\n\nhttps://ptsochantaris.github.io/trailer/\n\n\nbrew cask install trailer\n\n\n\n\nDocker\n\n\nDocker for Mac:\n\n\nhttps://docs.docker.com/engine/installation/mac/\n\n\nOr try (untested):\n\n\nbrew cask install docker-beta\n\n\n\n\nMacDown\n\n\nMacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo\u2019s Mou.\n\n\nhttp://macdown.uranusjr.com/\n\n\nbrew cask install macdown\n\n\n\n\niTerm2\n\n\nVery powerful terminal emulator for Mac:\n\n\nhttp://www.iterm2.com/\n\n\nbrew cask install iterm2 \n\n\n\n\nzsh\n\n\nGreat shell alternative that is mostly compatible with Bash:\n\n\nbrew install zsh zsh-completions\n\n\n\n\nOh My Zsh\n\n\nPlugin system for \nzsh\n\n\nhttps://github.com/robbyrussell/oh-my-zsh\n\n\nAdd the following to \n~/.zshrc\n / \n~/.bash_profile\n:\n\n\nplugins=(git git-hubflow mvn brew nvm node npm vagrant httpie)\n\n\n\n\nhttpie\n\n\nModern alternative to \ncurl\n:\n\n\nhttps://github.com/jkbrzt/httpie\n\n\nbrew install httpie\n\n\n\n\njq\n\n\njq\n is a lightweight and flexible command-line JSON processor:\n\n\nhttps://stedolan.github.io/jq/\n\n\nbrew install jq\n\n\n\n\nOther\n\n\nOther useful things:\n\n\n\n\nhttps://danielmiessler.com/blog/first-10-things-new-mac\n\n\nspf13\n\n\nbrew cask install google-chrome\n\n\nbrew cask install virtualbox\n\n\nbrew cask install vagrant", 
             "title": "Setup"
         }, 
         {
-            "location": "/software/setup/#setup", 
+            "location": "/software/development/setup/#setup", 
             "text": "This document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.  Once complete, please see  general  for general conventions used during development.", 
             "title": "Setup"
         }, 
         {
-            "location": "/software/setup/#homebrew", 
-            "text": "Homebrew,  brew , is the defacto package manager for MacOs. To install follow the directions below:  http://brew.sh/", 
+            "location": "/software/development/setup/#homebrew", 
+            "text": "Homebrew,  brew , is the defacto package manager for MacOs. Most software described here requires it.   To install follow the directions below:  http://brew.sh/", 
             "title": "Homebrew"
         }, 
         {
-            "location": "/software/setup/#cask", 
+            "location": "/software/development/setup/#cask", 
             "text": "It is recommended to install all applications with Cask to promote automation (hopefully one day this page can be scripted).  https://caskroom.github.io/  To install:  brew tap caskroom/cask", 
             "title": "Cask"
         }, 
         {
-            "location": "/software/setup/#slack", 
+            "location": "/software/development/setup/#slack", 
             "text": "We use Slack almost entirely for internal communication, so install this ASAP.  brew cask install slack", 
             "title": "Slack"
         }, 
         {
-            "location": "/software/setup/#xcode-and-command-line-tools", 
+            "location": "/software/development/setup/#xcode-and-command-line-tools", 
             "text": "Follow the instructions below:  http://railsapps.github.io/xcode-command-line-tools.html  Alternatively, install XCode from AppStore and execute the following (untested):  xcode-select --install", 
             "title": "XCode and Command Line Tools"
         }, 
         {
-            "location": "/software/setup/#java", 
+            "location": "/software/development/setup/#java", 
             "text": "Install Java 8:  brew cask install java  Add the following to  ~/.bash_profile :  export JAVA_HOME= $(/usr/libexec/java_home -v 1.8)   Source  ~/.bash_profile  or open a new terminal and ensure this reports Java 8:  java -version   \n\njava version  1.8.0_31 \nJava(TM) SE Runtime Environment (build 1.8.0_31-b13)\nJava HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)", 
             "title": "Java"
         }, 
         {
-            "location": "/software/setup/#elasticsearch", 
+            "location": "/software/development/setup/#elasticsearch", 
             "text": "brew install elasticsearch14\nbrew switch elasticsearch14 1.4.4", 
             "title": "Elasticsearch"
         }, 
         {
-            "location": "/software/setup/#head-plugin", 
+            "location": "/software/development/setup/#head-plugin", 
             "text": "/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head", 
             "title": "Head Plugin"
         }, 
         {
-            "location": "/software/setup/#mongodb", 
+            "location": "/software/development/setup/#mongodb", 
             "text": "brew install mongo\nbrew switch mongo 2.4.4-x86_64", 
             "title": "MongoDB"
         }, 
         {
-            "location": "/software/setup/#git", 
+            "location": "/software/development/setup/#git", 
             "text": "brew install git", 
             "title": "Git"
         }, 
         {
-            "location": "/software/setup/#hubflow", 
+            "location": "/software/development/setup/#hubflow", 
             "text": "brew install hubflow  See\u00a0 https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md \u00a0for details on how we use this.", 
             "title": "HubFlow"
         }, 
         {
-            "location": "/software/setup/#github", 
+            "location": "/software/development/setup/#github", 
             "text": "", 
             "title": "GitHub"
         }, 
         {
-            "location": "/software/setup/#setup_1", 
+            "location": "/software/development/setup/#setup_1", 
             "text": "Create an account and send to  @btiernay .", 
             "title": "Setup"
         }, 
         {
-            "location": "/software/setup/#maven", 
+            "location": "/software/development/setup/#maven", 
             "text": "", 
             "title": "Maven"
         }, 
         {
-            "location": "/software/setup/#installation", 
+            "location": "/software/development/setup/#installation", 
             "text": "Install Maven 3.2.1 or what is specified in\u00a0 icgc-dcc/dcc-parent/pom.xml \u00a0 maven-enforcer-plugin.requireMavenVersion  brew install maven\nbrew switch maven 3.2.1  To check your installation, run:  mvn -v\n\n...\nJava version: 1.8.0_31, vendor: Oracle Corporation\n...", 
             "title": "Installation"
         }, 
         {
-            "location": "/software/setup/#eclipse", 
+            "location": "/software/development/setup/#eclipse", 
             "text": "", 
             "title": "Eclipse"
         }, 
         {
-            "location": "/software/setup/#installation_1", 
+            "location": "/software/development/setup/#installation_1", 
             "text": "Download and install Eclipse 4.6.x or latest for Java EE developers:  http://www.eclipse.org/downloads/  Alternatively, you may try the following (untested):  http://macappstore.org/eclipse-jee/  brew cask install eclipse-jee", 
             "title": "Installation"
         }, 
         {
-            "location": "/software/setup/#settings", 
+            "location": "/software/development/setup/#settings", 
             "text": "Install and configure IDE settings:  https://github.com/icgc-dcc/dcc-cm/tree/develop/ide", 
             "title": "Settings"
         }, 
         {
-            "location": "/software/setup/#lombok-support", 
+            "location": "/software/development/setup/#lombok-support", 
             "text": "A number of the DCC projects are using  Lombok  to reduce boilerplate code (e.g., getters, setters,\u00a0 toString() ,\u00a0 hashCode() ,\u00a0 equals() ,\u00a0 static Logger log , etc.). This is seemless to\u00a0 javac \u00a0via\u00a0 mvn , but the Java 6\u00a0 transformations \u00a0will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute\u00a0  wget http://projectlombok.googlecode.com/files/lombok.jar\njava -jar\u00a0lombok.jar  And point it to your Eclipse installation. See\u00a0 http://projectlombok.org/features/index.html \u00a0for details.", 
             "title": "Lombok Support"
         }, 
         {
-            "location": "/software/setup/#maven-m2e", 
+            "location": "/software/development/setup/#maven-m2e", 
             "text": "Activate source downloading in the maven plugin, tick the following:   Preferences   Maven   Maven Download Artifact Sources  Open to XML view, tick the following:  Preferences   Maven   User Interace   Open XML page in the POM editor by default  Hide warnings for incomplete mappings, tick the following:  Preferences   Maven   User Interace   Hide warnings for incomplete mapping", 
             "title": "Maven m2e"
         }, 
         {
-            "location": "/software/setup/#java-static-import-favorites", 
+            "location": "/software/development/setup/#java-static-import-favorites", 
             "text": "Add some classes to your favorite static imports via:  Preferences   Java   Editor   Content Assist   Favorites :   Guava's  Preconditions  PowerMock's\u00a0 PowerMockito  Mockito's  Mockito  AssertJ's\u00a0 org.assertj.core.api.Assertions.*", 
             "title": "Java Static Import Favorites"
         }, 
         {
-            "location": "/software/setup/#plugins", 
+            "location": "/software/development/setup/#plugins", 
             "text": "", 
             "title": "Plugins"
         }, 
         {
-            "location": "/software/setup/#moreunit-plugin", 
+            "location": "/software/development/setup/#moreunit-plugin", 
             "text": "Useful JUnit Eclipse integration extensions can be installed by following the instructions here:  http://moreunit.sourceforge.net/  Or try the following (untested):  eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.feature.group \neclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.mock.feature.group", 
             "title": "MoreUnit Plugin"
         }, 
         {
-            "location": "/software/setup/#findbugs", 
+            "location": "/software/development/setup/#findbugs-plugin", 
             "text": "Locally run FindBugs within your IDE:  http://findbugs.sourceforge.net/manual/eclipse.html  Or try the following (untested):  eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group", 
-            "title": "FindBugs"
+            "title": "FindBugs Plugin"
         }, 
         {
-            "location": "/software/setup/#grep-console", 
+            "location": "/software/development/setup/#grep-console-plugin", 
             "text": "Plugin for colorizing and filtering the Eclipse console. Follow the instructions here (configuration is available in the Eclipse section):  http://marian.schedenig.name/projects/grep-console/  Or try the following (untested):  eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group", 
-            "title": "Grep Console"
+            "title": "Grep Console Plugin"
         }, 
         {
-            "location": "/software/setup/#nodejs", 
+            "location": "/software/development/setup/#vs-code", 
+            "text": "Most frontend developers choose to use the VS Code IDE for development.  To install:  brew cask install vscode", 
+            "title": "VS Code"
+        }, 
+        {
+            "location": "/software/development/setup/#nodejs", 
             "text": "This is only required for projects that use a UI built by  npm  (e.g.  dcc-docs ,  dcc-portal ,  dcc-submission ,  dcc-dev , etc.)  brew install nvm  Then read  https://davidwalsh.name/nvm \u00a0for usage information.  Then follow instructions in each GitHub's repo for the required node / npm versions (e.g.  https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui ).", 
-            "title": "NodeJS"
+            "title": "Node.js"
         }, 
         {
-            "location": "/software/setup/#projects", 
+            "location": "/software/development/setup/#projects", 
             "text": "After installing the above, navigate to the project(s) that you will be working on in  GitHub  and follow the top-level  README.md s and linked sub-module  README.md s.", 
             "title": "Projects"
         }, 
         {
-            "location": "/software/setup/#all-projects", 
+            "location": "/software/development/setup/#all-projects", 
             "text": "Clone a project from GitHub:    cd ~/Workspaces/dcc\ngit clone git@github.com:icgc-dcc/ project .git  Init Git-flow (default settings):    cd  project \ngit hf init", 
             "title": "All Projects"
         }, 
         {
-            "location": "/software/setup/#eclipse-projects", 
+            "location": "/software/development/setup/#eclipse-projects", 
             "text": "To import an Eclipse based project, click on the following in the file menu:  File   Import   Maven   Existing Maven Projects", 
             "title": "Eclipse Projects"
         }, 
         {
-            "location": "/software/setup/#reference-data", 
+            "location": "/software/development/setup/#reference-data", 
             "text": "You will need to download the DCC reference genome from our  Artifactory  server:\u00a0  https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/  and extract it to  /tmp . Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink  GRCh37.fasta  to  GRC37.75.fasta  and\u00a0 GRCh37.fasta.fai  to\u00a0 GRCh37.75.fasta.fai  by executing the following:  ln -s\u00a0GRC37.75.fasta\u00a0GRC37.fasta\nln -s\u00a0GRC37.75.fasta.fai GRC37.fasta.fai", 
             "title": "Reference Data"
         }, 
         {
-            "location": "/software/setup/#utilities", 
+            "location": "/software/development/setup/#utilities", 
             "text": "Consider all of these utilities optional, but highly recommended.", 
             "title": "Utilities"
         }, 
         {
-            "location": "/software/setup/#trailer", 
+            "location": "/software/development/setup/#trailer", 
             "text": "Track pull requests and issues across repositories, directly in your Notification Center or on any Apple device.  https://ptsochantaris.github.io/trailer/  brew cask install trailer", 
             "title": "Trailer"
         }, 
         {
-            "location": "/software/setup/#docker", 
+            "location": "/software/development/setup/#docker", 
             "text": "Docker for Mac:  https://docs.docker.com/engine/installation/mac/  Or try (untested):  brew cask install docker-beta", 
             "title": "Docker"
         }, 
         {
-            "location": "/software/setup/#macdown", 
+            "location": "/software/development/setup/#macdown", 
             "text": "MacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo\u2019s Mou.  http://macdown.uranusjr.com/  brew cask install macdown", 
             "title": "MacDown"
         }, 
         {
-            "location": "/software/setup/#iterm2", 
+            "location": "/software/development/setup/#iterm2", 
             "text": "Very powerful terminal emulator for Mac:  http://www.iterm2.com/  brew cask install iterm2", 
             "title": "iTerm2"
         }, 
         {
-            "location": "/software/setup/#zsh", 
+            "location": "/software/development/setup/#zsh", 
             "text": "Great shell alternative that is mostly compatible with Bash:  brew install zsh zsh-completions", 
-            "title": "Zsh"
+            "title": "zsh"
         }, 
         {
-            "location": "/software/setup/#oh-my-zsh", 
+            "location": "/software/development/setup/#oh-my-zsh", 
             "text": "Plugin system for  zsh  https://github.com/robbyrussell/oh-my-zsh  Add the following to  ~/.zshrc  /  ~/.bash_profile :  plugins=(git git-hubflow mvn brew nvm node npm vagrant httpie)", 
             "title": "Oh My Zsh"
         }, 
         {
-            "location": "/software/setup/#http", 
+            "location": "/software/development/setup/#httpie", 
             "text": "Modern alternative to  curl :  https://github.com/jkbrzt/httpie  brew install httpie", 
-            "title": "HTTP"
+            "title": "httpie"
         }, 
         {
-            "location": "/software/setup/#jq", 
+            "location": "/software/development/setup/#jq", 
             "text": "jq  is a lightweight and flexible command-line JSON processor:  https://stedolan.github.io/jq/  brew install jq", 
             "title": "jq"
         }, 
         {
-            "location": "/software/setup/#other", 
+            "location": "/software/development/setup/#other", 
             "text": "Other useful things:   https://danielmiessler.com/blog/first-10-things-new-mac  spf13  brew cask install google-chrome  brew cask install virtualbox  brew cask install vagrant", 
             "title": "Other"
         }, 
         {
-            "location": "/software/development/", 
+            "location": "/software/development/general/", 
             "text": "General\n\n\nThis section outlines the general conventions used while developing. If you have not first followed the \nsetup\n instructions, please do so first.\n\n\nCommon\n\n\nWarnings\n\n\nSource code in develop or a pending pull-request \nshould have no warnings.\n Efforts should be made to ensure all warnings are addressed by committing code. \n@SuppressWarnings\n should be used only as a last resort.\n\n\nOther\n\n\nFor good or bad, we typically checkin all formatters to each projects' \n.settings\n folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:\n\n\n\n\nindentation is 2 spaces\n\n\nlines can have a length of up to 120 characters\n\n\nhard wrapping is maintained for developer control\n\n\n\n\nWhat is not covered by the Eclipse formatter is ordering within a class file. Here are the conventions we should enforce:\n\n\n\n\npackage declaration\n\n\nimports\n\n\nclass declaration\n\n\nstatic members (logger, etc.) 5. members\n\n\nconstructors\n\n\nmethods\n\n\ninner classes\n\n\n\n\nOrdering also depends on accessibility (members, methods and inner classes):\n\n\n\n\npublic\n\n\nprotected\n\n\npackage private (default visibility)\n\n\nprivate\n\n\n\n\npackage org.icgc.dcc;\nimport java.util.List;\n\npublic class TheClass {\n  private static final Logger log = LoggerFactory.getLogger(TheClass.class);\n  private static final String SOME_CONSTANT = \nSome Constant Value\n;\n\n  protected String someString;\n\n  private final Dependency dependency;\n\n  public TheClass(Dependency dependency) {\n    this.dependency = dependency;\n  }\n\n  public void useDependency() {\n    dependency.useIt();\n  }\n\n  protected void doSomething() {\n  }\n\n  void packageCallable() {\n  }\n\n  private void myMethod() {\n  }\n\n  public class AnotherClass {\n    // ...\n  }\n\n  private class YetAnotherClass {\n    // ...\n  }\n}\n\n\n\n\nComments\n\n\nGeneral\n\n\n\n\nCapitalize the first letter in every comment. E.g. \n// This is a comment\n\n\nAdd a single space after the comment character(s). E.g. \n// This is a comment\n\n\n\n\nAnti Patterns\n\n\nDo not commit commented code.\n The only exception to this rule is for code that \nwill\n eventually be uncommented. For example, if something is implemented correctly, but depends on something not yet implemented, you could commit this code commented. Otherwise, always remove commented code from the source. Source control is used to keep track of old code.\n\n\npublic void myMethod() {\n  // TODO: uncomment when TheOtherClass is implemented correctly\n  // theOtherClassInstance.callMe();\n  // Do nothing for now.\n}\n\n\n\n\nComments inline in the code should be kept to a \nminimal\n. Normally, code is self-explanatory, if it is not, it's probably to complex and should be rewritten.\n\n\nAcceptable comments are:\n\n\n\n\nfor referring to JIRA issues: \n// Added clause to fix DCC-467\n\n\nfor explaining a complex if/else if clause (when not possible to rewrite)\n\n\nfor providing examples (this is usually for configuration files): \n# http.port=4567\n\n\nfor specifying that code is incomplete: \n// TODO: complete this switch case\n\n\nfor specifying a side-effect that is not apparent in the code itself: \n// By setting this to null, we allow the GC to collect this earlier\n\n\n\n\nThey should \nnot\n be used:\n\n\n\n\nto comment unexplained behaviour (code should be fixed, not commented): \n// Don't know what this is doing\n\n\nto capture personal thoughts or things you've learned: \n// Framework X allows this\n\n\n\n\nDo not commit auto-generated comments.\n Eclipse has a nasty habit of generating comments, delete them before commiting:\n\n\n  /*\n   * (non-Javadoc)\n   *\n   * @see org.apache.sshd.server.PasswordAuthenticator#authenticate(java.lang.String,\n   * java.lang.String, org.apache.sshd.server.session.ServerSession)\n   */\n  @Override\n  public boolean authenticate(String username, String password, ServerSession session) {\n    return authenticate(username, password,\n      session.getIoSession().getRemoteAddress().toString());\n  }\n\n\n\n\nDo not comment getters and setters.\n If Eclipse generated them \ndelete\n them.\n\n\n/**\n * @return name\n */\npublic String getName() {\n  return name;\n}\n\n/**\n * @param name\n */\npublic void setName(String name) {\n  this.name = name;\n}\n\n\n\n\nAnnotations\n\n\nOrder\n\n\nPut more important annotations close to the method/class signature. Good rule of thumb is the logging annotation should be farthest away.\n\n\nGood Order:\n\n\n@Slf4j\n@Lazy\n@Configuration\npublic class SomeClass {\n\n\n\n\nBad Order:\n\n\n@Lazy\n@Configuration\n@Slf4j\npublic class SomeClass {\n\n\n\n\nBash\n\n\nStyle Guide\n\n\nThe convensions should follow the ones described in \nthis article\n.\n\n\nFile Names\n\n\nAn example of a \ngood\n file name:\n\n\nperform-release.sh\n\n\n\n\nAn example of a \nbad\n file name:\n\n\nperform_release.sh\nperform_release\nperformRelease.sh\nperformRelease\n\n\n\n\nHeader\n\n\nEach script should begin with header such as the following:\n\n\n#!/bin/bash\n#\n# Copyright (c) 2016 The Ontario Institute for Cancer Research. All rights reserved.\n#\n# This program and the accompanying materials are made available under the terms of the GNU Public License v3.0.\n# You should have received a copy of the GNU General Public License along with\n# this program. If not, see \nhttp://www.gnu.org/licenses/\n.\n#\n# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \nAS IS\n AND ANY\n# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES\n# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT\n# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED\n# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;\n# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER\n# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n#\n# Description:\n#   Runs the annotator\n#\n# Usage:\n#   ./annotator.sh \n--working-dir /path/to/the/dir\n [--project-names A,B] [--file-types ssm|sgv|ssm,sgv]\n#\n# Example:\n#   ./annotator.sh --working-dir /tmp/ICGC20 --project-names ALL_US --file-types ssm,sgv\n\n\n\n\nJava\n\n\nLombok\n\n\nThings to avoid to prevent \njavac\n \nissues\n:\n\n\n\n\nDon't use \nval\n inside a lambda\n\n\nDon't use \nval\n on the lefthand side of an array assignment\n\n\nDon't use \nval\n on the lefthand side of a lambda assignment\n\n\nDon't \n@UlitityClass\n\n\nDon't use a builder method (defined with \n@Builder\n) in a \nstatic\nally imported manner (see \nhere\n)\n\n\n\n\nUtility Classes\n\n\nUtility classes should be cohesive and focused, and not a dumping grounds for a bunch of unrelated methods.\n\n\nIn terms of naming and structure, don't do:\n\n\npublic class DonorUtils {\n  // ...\n}\n\n\n\n\nInstead do:\n\n\n@NoArgsConstructor(access = PRIVATE)\npublic final class Donors {\n  // ...\n}\n\n\n\n\nThis style is adopted from Guava and tends to promote cohesion because it relates more to the domain.\n\n\nIdeally Lombok's \n@UtilityClass\n would be used here, but currently this can lead to issues with \njavac\n and Eclipse. Please do not use.\n\n\nEnums\n\n\nUse all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:\n\n\n// Like this\nif(myValue == MyEnum.CONSTANT) {\n  // do something\n}\n\n// Not like this\nif(MyEnum.CONSTANT.equals(myValue)) {\n  // do something\n}\n\n\n\n\nComments\n\n\nPrefer \n//\n to \n/* */\n\n\nThere is no particular rationale for this style other than it is common in our codebase.\n\n\n\ufffc\ufffc\ufffc// good\n\n\n\n\n\ufffc\ufffc\ufffc\ufffc/* bad */\n\n\n\n\nField Comments\n\n\nIn general, if there are no specific comments that you have time to place atop class fields, it would be nice for the causal reader to add a comment that at least specifies their role. These should be specified as below, in the same general order, omitting empty sections:\n\n\n/**\n * Constants.\n */\n\n/**\n * Dependencies.\n */\n\n/**\n * Configuration.\n */\n\n/**\n * Metadata.\n */\n\n/**\n * State.\n */\n\n\n\n\nThese are the most common roles in practice which helps to mentally parse, navigate and index into the code.\n\n\n\n\n\n\n\n\nRole\n\n\nConstants\n\n\n\n\n\n\n\n\n\n\nConstants\n\n\npublic\n or \nprivate\n \nstatic\n \nfinal\n object references / primitive values.\n\n\n\n\n\n\nDependencies\n\n\nCollaborators required for delegation and interaction. When using Spring, these will typically be \n@Autowired\n\n\n\n\n\n\nConfiguration\n\n\nBehavioural configuration parameters that have been externalized to alter runtime functionality depending on context. Examples could be a database name, index name, number of threads, etc.\n\n\n\n\n\n\nMetadata\n\n\nSimilar to configuration, but with the purpose to describe other data. Examples include a data model, schema, field name\n\n\n\n\n\n\nState\n\n\nMutable state that changes over the objects lifetime. Examples include a stack, list, buffer, etc.\n\n\n\n\n\n\n\n\nIf Blocks\n\n\nAlways surround your if blocks with curly brackets:\n\n\n// like this:\nif(someCondition) {\n  doSomething();\n}\n\n// not like this:\nif(someCondition) doSomething();\n\n\n\n\nTernary operator\n\n\nTernary operator is acceptable when returning or assigning:\n\n\npublic Result someMethod() {\n  return valid ? doIt() : dontDoIt();\n}\n\npublic void someOtherMethod() {\n  int length = string != null ? string.length() : 0;\n}\n\n\n\n\nAvoid the ! operator\n\n\nInverting a condition using the ! operator is ok, but it often leads to mis-reading the code, for two reasons:\n\n\n\n\nit is small\n\n\nit is inserted at the begining of the clause (yet, we read from left to right, so we have to remember that the condition was inverted)\n\n\n\n\nSince there is no benefit in terms of performance, it is recommended to avoid using it and replace it with a comparision with false:\n\n\n// Like so:\n// This reads as \nIf myCondition is false\n\nif(myCondition == false) {\n  doSomething();\n}\n\n// Not like so:\n// This reads as \nIf not myCondition is true\n\nif(!myCondition) {\n  doSomething()\n}\n\n\n\n\nFunctional Programming\n\n\nGet familiar with Guava's Functional Idioms. And use them when it helps (read the Caveats on their Wiki). They allow transforming collections from one type to another without writing a for loop. They allow finding or filtering collections without any branching (if statement). Some examples:\n\n\npublic Iterable\nWantedType\n getListOfWanted() {\n  // say we have this list and we want to transform that into a sequence of WantedType instead (which is a member of Unwanted)\n  List\nUnwanted\n theListToTransform = getUnwanted();\n\n  return Iterables.transform(theListToTransform, new Function\nUnwanted, WantedType\n() {\n\n    public WantedType apply(Unwanted object) {\n       return object.getWanted();\n    }\n\n  });\n}\n\n\n\n\nThe example above demonstrates the \ntransform\n method of the \nIterables\n class. It is an extremely useful method which simply calls\nyour apply method for each element in an \nIterable\n (any collection). The result is a new \nIterable\n that is actually a view of the first. What is very nice about this is that it's a zero-copy operation. The instance returned is not a new collection, it is a view of the original that will transform the elements one-by-one as one iterates on the sequence. To make a List out of an \nIterable\n, call \nImmutableList.copyOf\n\n\nFurthermore, you can compose \nFunction\n instances, see the \nFunctions\n class.\n\n\nSimilar to \nFunctions\n are \nPredicates\n: instead of returning another type, they return a \nboolean\n. These are used to filter and find elements in a collection.\n\n\n\ufffc\ufffc\ufffc\ufffcpublic AnInstance getByName(final String name) {\n  List\nAnInstance\n instances = getInstances();\n\n    return Iterables.find(instances, new Predicate\nAnInstance\n() {\n\n      public boolean apply(AnInstance object) {\n        return object.getName().equals(name);\n      }\n\n    });\n}\n\n\n\n\nAgain, this is using the \nIterables\n class, but this time for finding a single element in an \nIterable\n. The benefit of this is that a \nPredicate\n can actually be written once and reused in multiple places. Think of a \nPredicate\n as a reusable condition within the brakets of an \nif()\n statement.\n\n\nAs \nGuava's Wiki\n mentions, don't be function simply to be functional. Do it when there's a net saving (improved readability or efficiency).\n\n\nMaven\n\n\nShade Plug-in\n\n\nThis helps with dependency conflicts (especially Hadoop's): \nhttp://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html\n\n\nCurrently use naming convention for the shaded artifact: \norg.icgc.dcc.shaded.${name}\n (e.g. \norg.icgc.dcc.shaded.jackson\n, \norg.icgc.dcc.shaded.sshd\n, ...)\n\n\nBest Practices\n\n\nTests\n\n\nUse long method names that convey the purpose of a test. Method names should have the following naming convention: \ntest_methodBeingEx ercised_purposeOfTheTest\n.\n\n\nFor example:\n\n\n\ufffc\ufffc\ufffc\ufffcclass ClassUnderTest {\n  public void doSomething(String param) {\n     // Something\n  }\n}\n\nclass ClassUnderTestTest {\n  @Test\n  public void test_doSomething_doesSomethingWithString() {\n    new ClassUnderTest().doSomething(\ndo it!\n)\n  }\n\n  @Test\n  public void test_doSomething_throwsWhenArgumentIsNull() {\n    new ClassUnderTest().doSomething(null)\n  }\n\n  @Test\n  public void test_doSomething_throwsWhenArgumentIsInvalid() {\n    new ClassUnderTest().doSomething(\ninvalid string\n)\n  }\n}\n\n\n\n\nInjection\n\n\n\n\nUse constructor injection and reduce visibility of injected class as much as possible.\n\n\nUse Guava's Preconditions (\ncheckArgument\n, \ncheckState\n, etc.) When checking arguments for not-nullness, use checkArgument ins\ntead of \ncheckNull\n. The later throws an \nNullPointerException\n which is a bit confusing.\n\n\n\n\n\ufffc\ufffc\ufffcclass TheClass {\n\n  private final Dependency dependency;\n\n  @Inject\n  public TheClass(Dependency dependency) {\n    checkArgument(dependency != null);\n    this.dependency = dependency;\n  }\n}\n\n\n\n\nUsing \nnull\n\n\nAvoid returning \nnull\n in a method. Methods should be written in a way that they either succeed (return an actual value) or fail (throw an exception). Returning null creates a third execution path that is prone to causing problems.\n\n\nTo avoid returning \nnull\n, you have a few options:\n\n\n\n\ncreate 2 methods, one for testing, one for executing\n\n\nuse \nOptional\n\n\n\n\nUsing 2 methods\n\n\nThe first case is ok when the test is fast. For example:\n\n\nclass MyClass {\n\n  private String mayBeNullForSomeReason;\n\n  public boolean hasString() {\n    return mayBeNullForSomeReason != null;\n  }\n\n  public String getString() {\n    checkState(hasString());\n    return mayBeNullForSomeReason;\n  }\n}\n\n\n\n\nThe example is not very convincing, but the idea is that a method exists for testing the expectation before actually invoking the actual method of interest. Why is this better? A few reasons:\n\n\n\n\nIt conveys the intention clearly: it is clear that getString() will never return null and that if you don't want to handle the exception, call hasString first.\n\n\nThere's no chance of getting an \nNPE\n in a very far-away piece of code. Imagine that the calling code is calling \ngetString()\n but not using it until something else happens. The \nNPE\n will be thrown when that something else happens instead of when \ngetString()\n was called (possibly at the wrong time).\n\n\n\n\nUsing \nOptional\n\n\nThe second method is to use the \nOptional\n class in Guava. This allows a method a value that may or may not be null. So the method itself always returns a value, but it is this value that may be absent. Reusing the same example as above:\n\n\nclass MyClass {\n\n  private String mayBeNullForSomeReason;\n\n  public Optional\nString\n getString() {\n    return new Optional(mayBeNullForSomeReason);\n  }\n}\n\n\n\n\nAgain, the benefits are similar as above. The main difference is that this creates an additional instance (\nOptional\n) which may not be possible when dealing with large amount of data (creating a million \nOptional\n instances is not a good idea). This strategy is good for implementing find operations: ones that iterate over collections or make similar expensive processes that may result in nothing. So instead of returning null in those cases, return an \nOptional\n.\n\n\nSo both solutions are better than returning \nnull\n, but are not necessarily applicable in the same situations.", 
             "title": "General"
         }, 
         {
-            "location": "/software/development/#general", 
+            "location": "/software/development/general/#general", 
             "text": "This section outlines the general conventions used while developing. If you have not first followed the  setup  instructions, please do so first.", 
             "title": "General"
         }, 
         {
-            "location": "/software/development/#common", 
+            "location": "/software/development/general/#common", 
             "text": "", 
             "title": "Common"
         }, 
         {
-            "location": "/software/development/#warnings", 
+            "location": "/software/development/general/#warnings", 
             "text": "Source code in develop or a pending pull-request  should have no warnings.  Efforts should be made to ensure all warnings are addressed by committing code.  @SuppressWarnings  should be used only as a last resort.", 
             "title": "Warnings"
         }, 
         {
-            "location": "/software/development/#other", 
+            "location": "/software/development/general/#other", 
             "text": "For good or bad, we typically checkin all formatters to each projects'  .settings  folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:   indentation is 2 spaces  lines can have a length of up to 120 characters  hard wrapping is maintained for developer control   What is not covered by the Eclipse formatter is ordering within a class file. Here are the conventions we should enforce:   package declaration  imports  class declaration  static members (logger, etc.) 5. members  constructors  methods  inner classes   Ordering also depends on accessibility (members, methods and inner classes):   public  protected  package private (default visibility)  private   package org.icgc.dcc;\nimport java.util.List;\n\npublic class TheClass {\n  private static final Logger log = LoggerFactory.getLogger(TheClass.class);\n  private static final String SOME_CONSTANT =  Some Constant Value ;\n\n  protected String someString;\n\n  private final Dependency dependency;\n\n  public TheClass(Dependency dependency) {\n    this.dependency = dependency;\n  }\n\n  public void useDependency() {\n    dependency.useIt();\n  }\n\n  protected void doSomething() {\n  }\n\n  void packageCallable() {\n  }\n\n  private void myMethod() {\n  }\n\n  public class AnotherClass {\n    // ...\n  }\n\n  private class YetAnotherClass {\n    // ...\n  }\n}", 
             "title": "Other"
         }, 
         {
-            "location": "/software/development/#comments", 
+            "location": "/software/development/general/#comments", 
             "text": "", 
             "title": "Comments"
         }, 
         {
-            "location": "/software/development/#general_1", 
+            "location": "/software/development/general/#general_1", 
             "text": "Capitalize the first letter in every comment. E.g.  // This is a comment  Add a single space after the comment character(s). E.g.  // This is a comment", 
             "title": "General"
         }, 
         {
-            "location": "/software/development/#anti-patterns", 
+            "location": "/software/development/general/#anti-patterns", 
             "text": "Do not commit commented code.  The only exception to this rule is for code that  will  eventually be uncommented. For example, if something is implemented correctly, but depends on something not yet implemented, you could commit this code commented. Otherwise, always remove commented code from the source. Source control is used to keep track of old code.  public void myMethod() {\n  // TODO: uncomment when TheOtherClass is implemented correctly\n  // theOtherClassInstance.callMe();\n  // Do nothing for now.\n}  Comments inline in the code should be kept to a  minimal . Normally, code is self-explanatory, if it is not, it's probably to complex and should be rewritten.  Acceptable comments are:   for referring to JIRA issues:  // Added clause to fix DCC-467  for explaining a complex if/else if clause (when not possible to rewrite)  for providing examples (this is usually for configuration files):  # http.port=4567  for specifying that code is incomplete:  // TODO: complete this switch case  for specifying a side-effect that is not apparent in the code itself:  // By setting this to null, we allow the GC to collect this earlier   They should  not  be used:   to comment unexplained behaviour (code should be fixed, not commented):  // Don't know what this is doing  to capture personal thoughts or things you've learned:  // Framework X allows this   Do not commit auto-generated comments.  Eclipse has a nasty habit of generating comments, delete them before commiting:    /*\n   * (non-Javadoc)\n   *\n   * @see org.apache.sshd.server.PasswordAuthenticator#authenticate(java.lang.String,\n   * java.lang.String, org.apache.sshd.server.session.ServerSession)\n   */\n  @Override\n  public boolean authenticate(String username, String password, ServerSession session) {\n    return authenticate(username, password,\n      session.getIoSession().getRemoteAddress().toString());\n  }  Do not comment getters and setters.  If Eclipse generated them  delete  them.  /**\n * @return name\n */\npublic String getName() {\n  return name;\n}\n\n/**\n * @param name\n */\npublic void setName(String name) {\n  this.name = name;\n}", 
             "title": "Anti Patterns"
         }, 
         {
-            "location": "/software/development/#annotations", 
+            "location": "/software/development/general/#annotations", 
             "text": "", 
             "title": "Annotations"
         }, 
         {
-            "location": "/software/development/#order", 
+            "location": "/software/development/general/#order", 
             "text": "Put more important annotations close to the method/class signature. Good rule of thumb is the logging annotation should be farthest away.  Good Order:  @Slf4j\n@Lazy\n@Configuration\npublic class SomeClass {  Bad Order:  @Lazy\n@Configuration\n@Slf4j\npublic class SomeClass {", 
             "title": "Order"
         }, 
         {
-            "location": "/software/development/#bash", 
+            "location": "/software/development/general/#bash", 
             "text": "", 
             "title": "Bash"
         }, 
         {
-            "location": "/software/development/#style-guide", 
+            "location": "/software/development/general/#style-guide", 
             "text": "The convensions should follow the ones described in  this article .", 
             "title": "Style Guide"
         }, 
         {
-            "location": "/software/development/#file-names", 
+            "location": "/software/development/general/#file-names", 
             "text": "An example of a  good  file name:  perform-release.sh  An example of a  bad  file name:  perform_release.sh\nperform_release\nperformRelease.sh\nperformRelease", 
             "title": "File Names"
         }, 
         {
-            "location": "/software/development/#header", 
+            "location": "/software/development/general/#header", 
             "text": "Each script should begin with header such as the following:  #!/bin/bash\n#\n# Copyright (c) 2016 The Ontario Institute for Cancer Research. All rights reserved.\n#\n# This program and the accompanying materials are made available under the terms of the GNU Public License v3.0.\n# You should have received a copy of the GNU General Public License along with\n# this program. If not, see  http://www.gnu.org/licenses/ .\n#\n# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS  AS IS  AND ANY\n# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES\n# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT\n# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED\n# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;\n# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER\n# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n#\n# Description:\n#   Runs the annotator\n#\n# Usage:\n#   ./annotator.sh  --working-dir /path/to/the/dir  [--project-names A,B] [--file-types ssm|sgv|ssm,sgv]\n#\n# Example:\n#   ./annotator.sh --working-dir /tmp/ICGC20 --project-names ALL_US --file-types ssm,sgv", 
             "title": "Header"
         }, 
         {
-            "location": "/software/development/#java", 
+            "location": "/software/development/general/#java", 
             "text": "", 
             "title": "Java"
         }, 
         {
-            "location": "/software/development/#lombok", 
+            "location": "/software/development/general/#lombok", 
             "text": "Things to avoid to prevent  javac   issues :   Don't use  val  inside a lambda  Don't use  val  on the lefthand side of an array assignment  Don't use  val  on the lefthand side of a lambda assignment  Don't  @UlitityClass  Don't use a builder method (defined with  @Builder ) in a  static ally imported manner (see  here )", 
             "title": "Lombok"
         }, 
         {
-            "location": "/software/development/#utility-classes", 
+            "location": "/software/development/general/#utility-classes", 
             "text": "Utility classes should be cohesive and focused, and not a dumping grounds for a bunch of unrelated methods.  In terms of naming and structure, don't do:  public class DonorUtils {\n  // ...\n}  Instead do:  @NoArgsConstructor(access = PRIVATE)\npublic final class Donors {\n  // ...\n}  This style is adopted from Guava and tends to promote cohesion because it relates more to the domain.  Ideally Lombok's  @UtilityClass  would be used here, but currently this can lead to issues with  javac  and Eclipse. Please do not use.", 
             "title": "Utility Classes"
         }, 
         {
-            "location": "/software/development/#enums", 
+            "location": "/software/development/general/#enums", 
             "text": "Use all capital letters for naming enum constants, unless there is some kind of compatibility concern with another system. Use == to compare enum constants, not equals:  // Like this\nif(myValue == MyEnum.CONSTANT) {\n  // do something\n}\n\n// Not like this\nif(MyEnum.CONSTANT.equals(myValue)) {\n  // do something\n}", 
             "title": "Enums"
         }, 
         {
-            "location": "/software/development/#comments_1", 
+            "location": "/software/development/general/#comments_1", 
             "text": "", 
             "title": "Comments"
         }, 
         {
-            "location": "/software/development/#prefer-to", 
+            "location": "/software/development/general/#prefer-to", 
             "text": "There is no particular rationale for this style other than it is common in our codebase.  \ufffc\ufffc\ufffc// good  \ufffc\ufffc\ufffc\ufffc/* bad */", 
             "title": "Prefer // to /* */"
         }, 
         {
-            "location": "/software/development/#field-comments", 
+            "location": "/software/development/general/#field-comments", 
             "text": "In general, if there are no specific comments that you have time to place atop class fields, it would be nice for the causal reader to add a comment that at least specifies their role. These should be specified as below, in the same general order, omitting empty sections:  /**\n * Constants.\n */\n\n/**\n * Dependencies.\n */\n\n/**\n * Configuration.\n */\n\n/**\n * Metadata.\n */\n\n/**\n * State.\n */  These are the most common roles in practice which helps to mentally parse, navigate and index into the code.     Role  Constants      Constants  public  or  private   static   final  object references / primitive values.    Dependencies  Collaborators required for delegation and interaction. When using Spring, these will typically be  @Autowired    Configuration  Behavioural configuration parameters that have been externalized to alter runtime functionality depending on context. Examples could be a database name, index name, number of threads, etc.    Metadata  Similar to configuration, but with the purpose to describe other data. Examples include a data model, schema, field name    State  Mutable state that changes over the objects lifetime. Examples include a stack, list, buffer, etc.", 
             "title": "Field Comments"
         }, 
         {
-            "location": "/software/development/#if-blocks", 
+            "location": "/software/development/general/#if-blocks", 
             "text": "Always surround your if blocks with curly brackets:  // like this:\nif(someCondition) {\n  doSomething();\n}\n\n// not like this:\nif(someCondition) doSomething();", 
             "title": "If Blocks"
         }, 
         {
-            "location": "/software/development/#ternary-operator", 
+            "location": "/software/development/general/#ternary-operator", 
             "text": "Ternary operator is acceptable when returning or assigning:  public Result someMethod() {\n  return valid ? doIt() : dontDoIt();\n}\n\npublic void someOtherMethod() {\n  int length = string != null ? string.length() : 0;\n}", 
             "title": "Ternary operator"
         }, 
         {
-            "location": "/software/development/#avoid-the-operator", 
+            "location": "/software/development/general/#avoid-the-operator", 
             "text": "Inverting a condition using the ! operator is ok, but it often leads to mis-reading the code, for two reasons:   it is small  it is inserted at the begining of the clause (yet, we read from left to right, so we have to remember that the condition was inverted)   Since there is no benefit in terms of performance, it is recommended to avoid using it and replace it with a comparision with false:  // Like so:\n// This reads as  If myCondition is false \nif(myCondition == false) {\n  doSomething();\n}\n\n// Not like so:\n// This reads as  If not myCondition is true \nif(!myCondition) {\n  doSomething()\n}", 
             "title": "Avoid the ! operator"
         }, 
         {
-            "location": "/software/development/#functional-programming", 
+            "location": "/software/development/general/#functional-programming", 
             "text": "Get familiar with Guava's Functional Idioms. And use them when it helps (read the Caveats on their Wiki). They allow transforming collections from one type to another without writing a for loop. They allow finding or filtering collections without any branching (if statement). Some examples:  public Iterable WantedType  getListOfWanted() {\n  // say we have this list and we want to transform that into a sequence of WantedType instead (which is a member of Unwanted)\n  List Unwanted  theListToTransform = getUnwanted();\n\n  return Iterables.transform(theListToTransform, new Function Unwanted, WantedType () {\n\n    public WantedType apply(Unwanted object) {\n       return object.getWanted();\n    }\n\n  });\n}  The example above demonstrates the  transform  method of the  Iterables  class. It is an extremely useful method which simply calls\nyour apply method for each element in an  Iterable  (any collection). The result is a new  Iterable  that is actually a view of the first. What is very nice about this is that it's a zero-copy operation. The instance returned is not a new collection, it is a view of the original that will transform the elements one-by-one as one iterates on the sequence. To make a List out of an  Iterable , call  ImmutableList.copyOf  Furthermore, you can compose  Function  instances, see the  Functions  class.  Similar to  Functions  are  Predicates : instead of returning another type, they return a  boolean . These are used to filter and find elements in a collection.  \ufffc\ufffc\ufffc\ufffcpublic AnInstance getByName(final String name) {\n  List AnInstance  instances = getInstances();\n\n    return Iterables.find(instances, new Predicate AnInstance () {\n\n      public boolean apply(AnInstance object) {\n        return object.getName().equals(name);\n      }\n\n    });\n}  Again, this is using the  Iterables  class, but this time for finding a single element in an  Iterable . The benefit of this is that a  Predicate  can actually be written once and reused in multiple places. Think of a  Predicate  as a reusable condition within the brakets of an  if()  statement.  As  Guava's Wiki  mentions, don't be function simply to be functional. Do it when there's a net saving (improved readability or efficiency).", 
             "title": "Functional Programming"
         }, 
         {
-            "location": "/software/development/#maven", 
+            "location": "/software/development/general/#maven", 
             "text": "", 
             "title": "Maven"
         }, 
         {
-            "location": "/software/development/#shade-plug-in", 
+            "location": "/software/development/general/#shade-plug-in", 
             "text": "This helps with dependency conflicts (especially Hadoop's):  http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html  Currently use naming convention for the shaded artifact:  org.icgc.dcc.shaded.${name}  (e.g.  org.icgc.dcc.shaded.jackson ,  org.icgc.dcc.shaded.sshd , ...)", 
             "title": "Shade Plug-in"
         }, 
         {
-            "location": "/software/development/#best-practices", 
+            "location": "/software/development/general/#best-practices", 
             "text": "", 
             "title": "Best Practices"
         }, 
         {
-            "location": "/software/development/#tests", 
+            "location": "/software/development/general/#tests", 
             "text": "Use long method names that convey the purpose of a test. Method names should have the following naming convention:  test_methodBeingEx ercised_purposeOfTheTest .  For example:  \ufffc\ufffc\ufffc\ufffcclass ClassUnderTest {\n  public void doSomething(String param) {\n     // Something\n  }\n}\n\nclass ClassUnderTestTest {\n  @Test\n  public void test_doSomething_doesSomethingWithString() {\n    new ClassUnderTest().doSomething( do it! )\n  }\n\n  @Test\n  public void test_doSomething_throwsWhenArgumentIsNull() {\n    new ClassUnderTest().doSomething(null)\n  }\n\n  @Test\n  public void test_doSomething_throwsWhenArgumentIsInvalid() {\n    new ClassUnderTest().doSomething( invalid string )\n  }\n}", 
             "title": "Tests"
         }, 
         {
-            "location": "/software/development/#injection", 
+            "location": "/software/development/general/#injection", 
             "text": "Use constructor injection and reduce visibility of injected class as much as possible.  Use Guava's Preconditions ( checkArgument ,  checkState , etc.) When checking arguments for not-nullness, use checkArgument ins\ntead of  checkNull . The later throws an  NullPointerException  which is a bit confusing.   \ufffc\ufffc\ufffcclass TheClass {\n\n  private final Dependency dependency;\n\n  @Inject\n  public TheClass(Dependency dependency) {\n    checkArgument(dependency != null);\n    this.dependency = dependency;\n  }\n}", 
             "title": "Injection"
         }, 
         {
-            "location": "/software/development/#using-null", 
+            "location": "/software/development/general/#using-null", 
             "text": "Avoid returning  null  in a method. Methods should be written in a way that they either succeed (return an actual value) or fail (throw an exception). Returning null creates a third execution path that is prone to causing problems.  To avoid returning  null , you have a few options:   create 2 methods, one for testing, one for executing  use  Optional", 
             "title": "Using null"
         }, 
         {
-            "location": "/software/development/#using-2-methods", 
+            "location": "/software/development/general/#using-2-methods", 
             "text": "The first case is ok when the test is fast. For example:  class MyClass {\n\n  private String mayBeNullForSomeReason;\n\n  public boolean hasString() {\n    return mayBeNullForSomeReason != null;\n  }\n\n  public String getString() {\n    checkState(hasString());\n    return mayBeNullForSomeReason;\n  }\n}  The example is not very convincing, but the idea is that a method exists for testing the expectation before actually invoking the actual method of interest. Why is this better? A few reasons:   It conveys the intention clearly: it is clear that getString() will never return null and that if you don't want to handle the exception, call hasString first.  There's no chance of getting an  NPE  in a very far-away piece of code. Imagine that the calling code is calling  getString()  but not using it until something else happens. The  NPE  will be thrown when that something else happens instead of when  getString()  was called (possibly at the wrong time).", 
             "title": "Using 2 methods"
         }, 
         {
-            "location": "/software/development/#using-optional", 
+            "location": "/software/development/general/#using-optional", 
             "text": "The second method is to use the  Optional  class in Guava. This allows a method a value that may or may not be null. So the method itself always returns a value, but it is this value that may be absent. Reusing the same example as above:  class MyClass {\n\n  private String mayBeNullForSomeReason;\n\n  public Optional String  getString() {\n    return new Optional(mayBeNullForSomeReason);\n  }\n}  Again, the benefits are similar as above. The main difference is that this creates an additional instance ( Optional ) which may not be possible when dealing with large amount of data (creating a million  Optional  instances is not a good idea). This strategy is good for implementing find operations: ones that iterate over collections or make similar expensive processes that may result in nothing. So instead of returning null in those cases, return an  Optional .  So both solutions are better than returning  null , but are not necessarily applicable in the same situations.", 
             "title": "Using Optional"
         }
