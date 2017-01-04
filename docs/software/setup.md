@@ -187,11 +187,25 @@ Useful JUnit Eclipse integration extensions can be installed by following the in
 
 [http://moreunit.sourceforge.net/](http://moreunit.sourceforge.net/)
 
+Or try the following (untested):
+
+```shell
+eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.feature.group 
+eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.mock.feature.group
+```
+
+
 #### FindBugs
 
 Locally run FindBugs within your IDE:
 
 [http://findbugs.sourceforge.net/manual/eclipse.html](http://findbugs.sourceforge.net/manual/eclipse.html)
+
+Or try the following (untested):
+
+```shell
+eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
+```
 
 #### Grep Console
 
@@ -199,7 +213,11 @@ Plugin for colorizing and filtering the Eclipse console. Follow the instructions
 
 [http://marian.schedenig.name/projects/grep-console/](http://marian.schedenig.name/projects/grep-console/)
 
-Configuration is available in the Eclipse section.
+Configuration is available in the Eclipse section. Or try the following (untested):
+
+```shell
+eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
+```
 
 
 ## NodeJS
