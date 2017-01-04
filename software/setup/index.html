@@ -746,8 +746,6 @@
                         
                         <li class=""><a href="#installation">Installation</a></li>
                         
-                        <li class=""><a href="#shade-plug-in">Shade Plug-in</a></li>
-                        
                     </ul>
                
                </li>
@@ -777,6 +775,8 @@
                <li class=""><a href="#projects">Projects</a>
                
                     <ul class="nav">
+                        
+                        <li class=""><a href="#all-projects">All Projects</a></li>
                         
                         <li class=""><a href="#eclipse-projects">Eclipse Projects</a></li>
                         
@@ -885,14 +885,14 @@ brew switch mongo 2.4.4-x86_64
 <p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
 <h2 id="github">GitHub</h2>
 <h3 id="setup_1">Setup</h3>
-<ol>
-<li>Clone a project from GitHub:<br />
-<code>shell
-    git clone git@github.com:icgc-dcc/&lt;project&gt;.git</code></li>
-<li>Init Git-flow (default settings):<br />
-<code>shell
-    git hf init</code></li>
-</ol>
+<p>Clone a project from GitHub:  </p>
+<pre><code class="shell">git clone git@github.com:icgc-dcc/&lt;project&gt;.git
+</code></pre>
+
+<p>Init Git-flow (default settings):  </p>
+<pre><code class="shell">git hf init
+</code></pre>
+
 <h2 id="maven">Maven</h2>
 <h3 id="installation">Installation</h3>
 <p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml#L1340">icgc-dcc/dcc-parent/pom.xml</a> <code>maven-enforcer-plugin.requireMavenVersion</code></p>
@@ -903,18 +903,12 @@ brew switch maven 3.2.1
 <p>To check your installation, run:</p>
 <pre><code class="shell">mvn -v
 
-Apache Maven 3.2.1 (ea8b2b07643dbb1b84b6d16e1f08391b666bc1e9; 2014-02-14T12:37:52-05:00)
-Maven home: /usr/local/Cellar/maven/3.2.1/libexec
+...
 Java version: 1.8.0_31, vendor: Oracle Corporation
-Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
-Default locale: en_US, platform encoding: UTF-8
-OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;
+...
 
 </code></pre>
 
-<h3 id="shade-plug-in">Shade Plug-in</h3>
-<p>This helps with dependency conflicts (especially Hadoop's): <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html">http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html</a></p>
-<p>Currently use naming convention for the shaded artifact: <code>org.icgc.dcc.shaded.${name}</code> (e.g. <code>org.icgc.dcc.shaded.jackson</code>, <code>org.icgc.dcc.shaded.sshd</code>, ...)</p>
 <h2 id="eclipse">Eclipse</h2>
 <h3 id="installation_1">Installation</h3>
 <p>Download and install Eclipse 4.6.x or latest for Java EE developers:</p>
@@ -965,10 +959,19 @@ java -jar lombok.jar
 <p>Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui</a>).</p>
 <h2 id="projects">Projects</h2>
 <p>After installing the above, navigate to the project(s) that you will be working on in <a href="https://github.com/icgc-dcc">GitHub</a> and follow the top-level <code>README.md</code>s and linked sub-module <code>README.md</code>s.</p>
+<h3 id="all-projects">All Projects</h3>
+<p>Clone a project from GitHub:  </p>
+<pre><code class="shell">cd ~/Workspaces/dcc
+git clone git@github.com:icgc-dcc/&lt;project&gt;.git
+</code></pre>
+
+<p>Init Git-flow (default settings):  </p>
+<pre><code class="shell">git hf init
+</code></pre>
+
 <h3 id="eclipse-projects">Eclipse Projects</h3>
 <p>To import an Eclipse based project, click on the following in the file menu:</p>
-<p><strong>File &gt; Import &gt; Maven &gt; Materialize Maven Projects from SCM</strong></p>
-<p>Then enter the git URL of the project from <a href="https://github.com/icgc-dcc">icgc-dcc</a>. You can ignore any plugin execution errors that might occur in pom.xml.</p>
+<p><strong>File &gt; Import &gt; Maven &gt; Existing Maven Projects</strong></p>
 <h2 id="reference-data">Reference Data</h2>
 <p>You will need to download the DCC reference genome from our <a href="https://artifacts.oicr.on.ca/artifactory">Artifactory</a> server: </p>
 <p><a href="https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/">https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/</a></p>
