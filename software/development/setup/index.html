@@ -704,7 +704,41 @@
                
                </li>
            
+               <li class=""><a href="#git">Git</a>
+               
+               </li>
+           
+               <li class=""><a href="#hubflow">HubFlow</a>
+               
+               </li>
+           
+               <li class=""><a href="#vs-code">VS Code</a>
+               
+               </li>
+           
+               <li class=""><a href="#nvm">nvm</a>
+               
+               </li>
+           
+               <li class=""><a href="#nodejs">Node.js</a>
+               
+               </li>
+           
+               <li class=""><a href="#yarn">Yarn</a>
+               
+               </li>
+           
                <li class=""><a href="#java">Java</a>
+               
+               </li>
+           
+               <li class=""><a href="#maven">Maven</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#installation">Installation</a></li>
+                        
+                    </ul>
                
                </li>
            
@@ -719,34 +753,6 @@
                </li>
            
                <li class=""><a href="#mongodb">MongoDB</a>
-               
-               </li>
-           
-               <li class=""><a href="#git">Git</a>
-               
-               </li>
-           
-               <li class=""><a href="#hubflow">HubFlow</a>
-               
-               </li>
-           
-               <li class=""><a href="#github">GitHub</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#setup_1">Setup</a></li>
-                        
-                    </ul>
-               
-               </li>
-           
-               <li class=""><a href="#maven">Maven</a>
-               
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#installation">Installation</a></li>
-                        
-                    </ul>
                
                </li>
            
@@ -767,14 +773,6 @@
                         <li class=""><a href="#plugins">Plugins</a></li>
                         
                     </ul>
-               
-               </li>
-           
-               <li class=""><a href="#vs-code">VS Code</a>
-               
-               </li>
-           
-               <li class=""><a href="#nodejs">Node.js</a>
                
                </li>
            
@@ -835,6 +833,7 @@
 <h1 id="setup">Setup</h1>
 <p>This document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.</p>
 <p>Once complete, please see <a href="../general/">general</a> for general conventions used during development.</p>
+<p>First, ensure you have a GitHub.com account and send the username to <a href="https://oicr-icgc.slack.com/messages/@btiernay/">@btiernay</a>.</p>
 <h2 id="homebrew">Homebrew</h2>
 <p>Homebrew, <code>brew</code>, is the defacto package manager for MacOs. Most software described here requires it. </p>
 <p>To install follow the directions below:</p>
@@ -858,6 +857,41 @@
 <pre><code class="shell">xcode-select --install
 </code></pre>
 
+<h2 id="git">Git</h2>
+<pre><code class="shell">brew install git
+</code></pre>
+
+<h2 id="hubflow">HubFlow</h2>
+<pre><code class="shell">brew install hubflow
+</code></pre>
+
+<p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
+<h2 id="vs-code">VS Code</h2>
+<p>Most frontend developers choose to use the VS Code IDE for development.</p>
+<p>To install:</p>
+<pre><code class="shell">brew cask install vscode
+</code></pre>
+
+<h2 id="nvm">nvm</h2>
+<p>Simple bash script to manage multiple active node.js versions.</p>
+<p>This is only required for projects that use a UI built with <code>npm</code> (e.g. <code>dcc-docs</code>, <code>dcc-portal</code>, <code>dcc-submission</code>, <code>dcc-dev</code>, etc.)</p>
+<p><a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a></p>
+<pre><code class="shell">brew install nvm
+</code></pre>
+
+<p>Then read <a href="https://davidwalsh.name/nvm">https://davidwalsh.name/nvm</a> for usage information.</p>
+<h2 id="nodejs">Node.js</h2>
+<p>To install: </p>
+<pre><code class="shell">nvm install &lt;version&gt;
+</code></pre>
+
+<p>Where the required <code>node</code> / <code>npm</code> versions are specified in each GitHub repo (e.g. <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui</a>).</p>
+<h2 id="yarn">Yarn</h2>
+<p>Fast, reliable, and secure javascript dependency management.</p>
+<p><a href="https://yarnpkg.com/">https://yarnpkg.com/</a></p>
+<pre><code class="shell">brew install yarn
+</code></pre>
+
 <h2 id="java">Java</h2>
 <p>Install Java 8:</p>
 <pre><code class="shell">brew cask install java
@@ -875,32 +909,6 @@ Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
 </code></pre>
 
-<h2 id="elasticsearch">Elasticsearch</h2>
-<pre><code class="shell">brew install elasticsearch14
-brew switch elasticsearch14 1.4.4
-</code></pre>
-
-<h3 id="head-plugin">Head Plugin</h3>
-<pre><code class="shell">/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
-</code></pre>
-
-<h2 id="mongodb">MongoDB</h2>
-<pre><code class="shell">brew install mongo
-brew switch mongo 2.4.4-x86_64
-</code></pre>
-
-<h2 id="git">Git</h2>
-<pre><code class="shell">brew install git
-</code></pre>
-
-<h2 id="hubflow">HubFlow</h2>
-<pre><code class="shell">brew install hubflow
-</code></pre>
-
-<p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
-<h2 id="github">GitHub</h2>
-<h3 id="setup_1">Setup</h3>
-<p>Create an account and send to <a href="https://oicr-icgc.slack.com/messages/@btiernay/">@btiernay</a>.</p>
 <h2 id="maven">Maven</h2>
 <h3 id="installation">Installation</h3>
 <p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml#L1340">icgc-dcc/dcc-parent/pom.xml</a> <code>maven-enforcer-plugin.requireMavenVersion</code></p>
@@ -915,6 +923,20 @@ brew switch maven 3.2.1
 Java version: 1.8.0_31, vendor: Oracle Corporation
 ...
 
+</code></pre>
+
+<h2 id="elasticsearch">Elasticsearch</h2>
+<pre><code class="shell">brew install elasticsearch14
+brew switch elasticsearch14 1.4.4
+</code></pre>
+
+<h3 id="head-plugin">Head Plugin</h3>
+<pre><code class="shell">/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
+</code></pre>
+
+<h2 id="mongodb">MongoDB</h2>
+<pre><code class="shell">brew install mongo
+brew switch mongo 2.4.4-x86_64
 </code></pre>
 
 <h2 id="eclipse">Eclipse</h2>
@@ -975,19 +997,6 @@ eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http:
 <pre><code class="shell">eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
 </code></pre>
 
-<h2 id="vs-code">VS Code</h2>
-<p>Most frontend developers choose to use the VS Code IDE for development.</p>
-<p>To install:</p>
-<pre><code class="shell">brew cask install vscode
-</code></pre>
-
-<h2 id="nodejs">Node.js</h2>
-<p>This is only required for projects that use a UI built by <code>npm</code> (e.g. <code>dcc-docs</code>, <code>dcc-portal</code>, <code>dcc-submission</code>, <code>dcc-dev</code>, etc.)</p>
-<pre><code class="shell">brew install nvm
-</code></pre>
-
-<p>Then read <a href="https://davidwalsh.name/nvm">https://davidwalsh.name/nvm</a> for usage information.</p>
-<p>Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. <a href="https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui">https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui</a>).</p>
 <h2 id="projects">Projects</h2>
 <p>After installing the above, navigate to the project(s) that you will be working on in <a href="https://github.com/icgc-dcc">GitHub</a> and follow the top-level <code>README.md</code>s and linked sub-module <code>README.md</code>s.</p>
 <h3 id="all-projects">All Projects</h3>
