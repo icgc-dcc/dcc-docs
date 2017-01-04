@@ -5,6 +5,8 @@ This document details the setup instructions required to develop DCC based proje
 
 Once complete, please see [general](/software/development/general.md) for general conventions used during development.
 
+First, ensure you have a GitHub.com account and send the username to [@btiernay](https://oicr-icgc.slack.com/messages/@btiernay/).
+
 ## Homebrew
 
 Homebrew, `brew`, is the defacto package manager for MacOs. Most software described here requires it. 
@@ -45,6 +47,64 @@ Alternatively, install XCode from AppStore and execute the following (untested):
 xcode-select --install
 ```
 
+## Git
+
+```shell
+brew install git
+```
+
+## HubFlow
+
+```shell
+brew install hubflow
+```
+
+See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md) for details on how we use this.
+
+## VS Code
+
+Most frontend developers choose to use the VS Code IDE for development.
+
+To install:
+
+```shell
+brew cask install vscode
+```
+
+## nvm
+
+Simple bash script to manage multiple active node.js versions.
+
+This is only required for projects that use a UI built with `npm` (e.g. `dcc-docs`, `dcc-portal`, `dcc-submission`, `dcc-dev`, etc.)
+
+[https://github.com/creationix/nvm](https://github.com/creationix/nvm)
+
+```shell
+brew install nvm
+```
+Then read [https://davidwalsh.name/nvm](https://davidwalsh.name/nvm) for usage information.
+
+## Node.js
+
+To install: 
+
+
+```shell
+nvm install <version>
+```
+
+Where the required `node` / `npm` versions are specified in each GitHub repo (e.g. [https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui)).
+
+## Yarn
+
+Fast, reliable, and secure javascript dependency management.
+
+[https://yarnpkg.com/](https://yarnpkg.com/)
+
+```shell
+brew install yarn
+```
+
 ## Java
 
 Install Java 8:
@@ -69,46 +129,6 @@ Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
 ```
 
-## Elasticsearch
-
-```shell
-brew install elasticsearch14
-brew switch elasticsearch14 1.4.4
-```
-
-### Head Plugin
-
-```shell
-/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
-```
-
-## MongoDB
-
-```shell
-brew install mongo
-brew switch mongo 2.4.4-x86_64
-```
-
-## Git
-
-```shell
-brew install git
-```
-
-## HubFlow
-
-```shell
-brew install hubflow
-```
-
-See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md) for details on how we use this.
-
-## GitHub
-
-### Setup
-
-Create an account and send to [@btiernay](https://oicr-icgc.slack.com/messages/@btiernay/).
-
 ## Maven
 
 ### Installation 
@@ -129,6 +149,26 @@ mvn -v
 Java version: 1.8.0_31, vendor: Oracle Corporation
 ...
 
+```
+
+## Elasticsearch
+
+```shell
+brew install elasticsearch14
+brew switch elasticsearch14 1.4.4
+```
+
+### Head Plugin
+
+```shell
+/usr/local/Cellar/elasticsearch/1.4.4/libexec/bin/plugin --install mobz/elasticsearch-head
+```
+
+## MongoDB
+
+```shell
+brew install mongo
+brew switch mongo 2.4.4-x86_64
 ```
 
 ## Eclipse
@@ -227,28 +267,6 @@ Or try the following (untested):
 ```shell
 eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
 ```
-
-## VS Code
-
-Most frontend developers choose to use the VS Code IDE for development.
-
-To install:
-
-```shell
-brew cask install vscode
-```
-
-## Node.js
-
-This is only required for projects that use a UI built by `npm` (e.g. `dcc-docs`, `dcc-portal`, `dcc-submission`, `dcc-dev`, etc.)
-
-```shell
-brew install nvm
-```
-
-Then read [https://davidwalsh.name/nvm](https://davidwalsh.name/nvm) for usage information.
-
-Then follow instructions in each GitHub's repo for the required node / npm versions (e.g. [https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui](https://github.com/icgc-dcc/dcc-portal/tree/develop/dcc-portal-ui)).
 
 ## Projects
 
