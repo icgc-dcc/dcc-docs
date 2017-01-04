@@ -943,13 +943,25 @@ java -jar lombok.jar
 <h4 id="moreunit-plugin">MoreUnit Plugin</h4>
 <p>Useful JUnit Eclipse integration extensions can be installed by following the instructions here:</p>
 <p><a href="http://moreunit.sourceforge.net/">http://moreunit.sourceforge.net/</a></p>
+<p>Or try the following (untested):</p>
+<pre><code class="shell">eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.feature.group 
+eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.mock.feature.group
+</code></pre>
+
 <h4 id="findbugs">FindBugs</h4>
 <p>Locally run FindBugs within your IDE:</p>
 <p><a href="http://findbugs.sourceforge.net/manual/eclipse.html">http://findbugs.sourceforge.net/manual/eclipse.html</a></p>
+<p>Or try the following (untested):</p>
+<pre><code class="shell">eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
+</code></pre>
+
 <h4 id="grep-console">Grep Console</h4>
 <p>Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:</p>
 <p><a href="http://marian.schedenig.name/projects/grep-console/">http://marian.schedenig.name/projects/grep-console/</a></p>
-<p>Configuration is available in the Eclipse section.</p>
+<p>Configuration is available in the Eclipse section. Or try the following (untested):</p>
+<pre><code class="shell">eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
+</code></pre>
+
 <h2 id="nodejs">NodeJS</h2>
 <p>This is only required for projects that use a UI built by <code>npm</code> (e.g. <code>dcc-docs</code>, <code>dcc-portal</code>, <code>dcc-submission</code>, <code>dcc-dev</code>, etc.)</p>
 <pre><code class="shell">brew install nvm
