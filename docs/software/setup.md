@@ -159,7 +159,7 @@ Install and configure IDE settings:
 
 ### Lombok Support
 
-A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, `toString()`, `hashCode()`, `equals()`, `static Logger log`, etc.). This is seemless to `javac` via `mvn`, but the Java 6 [transformations](http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html) will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute 
+A number of the DCC projects are using [Lombok](https://projectlombok.org/) to reduce boilerplate code (e.g., getters, setters, `toString()`, `hashCode()`, `equals()`, `static Logger log`, etc.). This is seemless to `javac` via `mvn`, but the Java 6 [transformations](http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html) will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute 
 
 ```shell
 wget http://projectlombok.googlecode.com/files/lombok.jar
@@ -209,11 +209,11 @@ eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http:
 
 #### Grep Console
 
-Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:
+Plugin for colorizing and filtering the Eclipse console. Follow the instructions here (configuration is available in the Eclipse section):
 
 [http://marian.schedenig.name/projects/grep-console/](http://marian.schedenig.name/projects/grep-console/)
 
-Configuration is available in the Eclipse section. Or try the following (untested):
+Or try the following (untested):
 
 ```shell
 eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
@@ -248,6 +248,7 @@ git clone git@github.com:icgc-dcc/<project>.git
 Init Git-flow (default settings):  
 
 ```shell
+cd <project>
 git hf init
 ```
 
@@ -290,6 +291,12 @@ Docker for Mac:
 
 [https://docs.docker.com/engine/installation/mac/](https://docs.docker.com/engine/installation/mac/)
 
+Or try (untested):
+
+```shell
+brew cask install docker-beta
+```
+
 ### MacDown
 
 MacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo’s Mou.
@@ -324,6 +331,12 @@ Plugin system for `zsh`
 
 [https://github.com/robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
+Add the following to `~/.zshrc` / `~/.bash_profile`:
+
+```shell
+plugins=(git git-hubflow mvn brew nvm node npm vagrant httpie)
+```
+
 ### HTTP
 
 Modern alternative to `curl`:
@@ -346,11 +359,10 @@ brew install jq
 
 ### Other
 
-Useful other things:
+Other useful things:
 
 - [https://danielmiessler.com/blog/first-10-things-new-mac](https://danielmiessler.com/blog/first-10-things-new-mac)
 - [spf13](http://vim.spf13.com/)
 - `brew cask install google-chrome`
 - `brew cask install virtualbox`
 - `brew cask install vagrant`
-
