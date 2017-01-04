@@ -2,9 +2,7 @@
 
 All binaries are hosted on [OICR's Artifactory repository](https://artifacts.oicr.on.ca/artifactory). You can find them in the [`dcc-release` repository](https://artifacts.oicr.on.ca/artifactory/simple/dcc-release/org/icgc/dcc/).
 
-
 This is the official DCC software page which publishes various tools for working with ICGC data. Software is provided in both tarball and Docker image format.
-
 
 ## Storage Client
 
@@ -62,22 +60,22 @@ To verify the signed software you will need to ensure you have downloaded our pu
 
 From a key server:
 
-```
+```shell
 $ gpg --keyserver pgp.mit.edu --recv-key 0xAFE5D0B6
 ```
 From a file:
 
-```
+```shell
 $ gpg --import icgc-software.pub
 ```
 Once the public key has been imported you can verify the signature:
 
-```
+```shell
 $ gpg icgc-storage-client-0.0.27-dist.tar.gz.asc
 ```
 If successful, the output should contain the following:
 
-```
+```shell
 gpg: assuming signed data in 'icgc-storage-client-0.0.27-dist.tar.gz'
 gpg: Signature made Mon  5 Oct 12:38:09 2015 EDT using RSA key ID AFE5D0B6
 gpg: Good signature from "ICGC DCC (Sign public software releases) <dcc-support@icgc.org>"

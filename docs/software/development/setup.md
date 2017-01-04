@@ -3,11 +3,13 @@
 
 This document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.
 
-Once complete, please see [general](/software/development.md) for general conventions used during development.
+Once complete, please see [general](/software/development/general.md) for general conventions used during development.
 
 ## Homebrew
 
-Homebrew, `brew`, is the defacto package manager for MacOs. To install follow the directions below:
+Homebrew, `brew`, is the defacto package manager for MacOs. Most software described here requires it. 
+
+To install follow the directions below:
 
 [http://brew.sh/](http://brew.sh/)
 
@@ -202,8 +204,7 @@ eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http:
 eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://moreunit.sourceforge.net/update-site/ -installIU org.moreunit.mock.feature.group
 ```
 
-
-#### FindBugs
+#### FindBugs Plugin
 
 Locally run FindBugs within your IDE:
 
@@ -215,7 +216,7 @@ Or try the following (untested):
 eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
 ```
 
-#### Grep Console
+#### Grep Console Plugin
 
 Plugin for colorizing and filtering the Eclipse console. Follow the instructions here (configuration is available in the Eclipse section):
 
@@ -227,8 +228,17 @@ Or try the following (untested):
 eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
 ```
 
+## VS Code
 
-## NodeJS
+Most frontend developers choose to use the VS Code IDE for development.
+
+To install:
+
+```shell
+brew cask install vscode
+```
+
+## Node.js
 
 This is only required for projects that use a UI built by `npm` (e.g. `dcc-docs`, `dcc-portal`, `dcc-submission`, `dcc-dev`, etc.)
 
@@ -325,7 +335,7 @@ Very powerful terminal emulator for Mac:
 brew cask install iterm2 
 ```
 
-### Zsh
+### zsh
 
 Great shell alternative that is mostly compatible with Bash:
 
@@ -345,7 +355,7 @@ Add the following to `~/.zshrc` / `~/.bash_profile`:
 plugins=(git git-hubflow mvn brew nvm node npm vagrant httpie)
 ```
 
-### HTTP
+### httpie
 
 Modern alternative to `curl`:
 
@@ -365,7 +375,7 @@ brew install httpie
 brew install jq
 ```
 
-### Other
+## Other
 
 Other useful things:
 

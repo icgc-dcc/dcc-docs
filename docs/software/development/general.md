@@ -1,6 +1,6 @@
 # General
 
-This section outlines the general conventions used while developing. If you have not first followed the [setup](/software/setup.md) instructions, please do so first.
+This section outlines the general conventions used while developing. If you have not first followed the [setup](/software/development/setup.md) instructions, please do so first.
 
 ## Common
 
@@ -175,13 +175,13 @@ The convensions should follow the ones described in [this article](http://robert
 
 An example of a **good** file name:
 
-```bash
+```shell
 perform-release.sh
 ```
 
 An example of a **bad** file name:
 
-```bash
+```shell
 perform_release.sh
 perform_release
 performRelease.sh
@@ -192,7 +192,7 @@ performRelease
 
 Each script should begin with header such as the following:
 
-```bash
+```shell
 #!/bin/bash
 #
 # Copyright (c) 2016 The Ontario Institute for Cancer Research. All rights reserved.
