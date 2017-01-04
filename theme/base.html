@@ -113,7 +113,7 @@
             {%- endfor %}
         </div>
         <script src="/js-out/commons-chunk.js"></script>
-
+        <script>hljs.initHighlightingOnLoad();</script>
         {% if config.extra.resources[current_page.title] %}
             {%- for path in config.extra.resources[current_page.title].scripts %}
                 <script src="{{ path }}"></script>

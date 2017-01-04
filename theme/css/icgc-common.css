@@ -43,10 +43,10 @@ h2, h3, h4 {
 }
 
 h2 {
-  font-size: 2.4rem;
-  font-weight: 400;
+  font-size: 2.4rem !important;
+  font-weight: 400 !important;
   /*border-bottom: 3px solid #166aa2;*/
-  padding-bottom: 10px;  
+  padding-bottom: 10px !important;  
 }
 
 h3 {
@@ -983,4 +983,22 @@ footer .logo img:hover {
 .focusText {
   -webkit-animation-name: focusText;
   animation-name: focusText;
+}
+
+li.resource div.heading h2{
+  font-size: 1.3em !important;
+  font-weight: normal !important;
+}
+
+li.resource div.heading h2 a{
+  color: #166aa2 !important;
+}
+
+li.resource.active div.heading h2 a{
+  color: #e9931c !important;
+}
+
+li.resource div.heading h2 a:hover{
+  color: #e9931c !important;
+  text-decoration: none;
 }
