@@ -2,7 +2,7 @@
 
 This section outlines the general conventions used while developing. If you have not first followed the [setup](/software/setup.md) instructions, please do so first.
 
-## General Conventions
+## Common
 
 ### Warnings
 
@@ -10,8 +10,7 @@ Source code in develop or a pending pull-request **should have no warnings.** Ef
 
 ### Other
 
-
-For good or bad, we typically checkin all formatters to each projects' .settings folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:
+For good or bad, we typically checkin all formatters to each projects' `.settings` folder for convenience. The code conventions should be enforced automatically by the Eclipse formatter whenever you save a file. The convention used is based on Sun Java Code Convention with the following modifications:
 
 - indentation is 2 spaces
 - lines can have a length of up to 120 characters
@@ -142,7 +141,7 @@ public void setName(String name) {
 }
 ```
 
-###  Annotations
+### Annotations
 
 #### Order
 
@@ -166,7 +165,7 @@ Bad Order:
 public class SomeClass {
 ```
 
-##  Bash Conventions
+##  Bash
 
 ###  Style Guide
 
@@ -222,7 +221,7 @@ Each script should begin with header such as the following:
 #   ./annotator.sh --working-dir /tmp/ICGC20 --project-names ALL_US --file-types ssm,sgv
 ```
 
-##  Java Conventions
+##  Java
 
 ###  Lombok
 
@@ -420,186 +419,15 @@ Again, this is using the `Iterables` class, but this time for finding a single e
 
 As [Guava's Wiki](https://code.google.com/p/guava-libraries/wiki/GuavaExplained) mentions, don't be function simply to be functional. Do it when there's a net saving (improved readability or efficiency).
 
-## CoffeeScript Conventions
+## Maven
 
-Influenced by [Polar's CoffeeScript Conventions](https://github.com/polarmobile/coffeescript-style-guide)
+### Shade Plug-in
 
-### Module Imports
+This helps with dependency conflicts (especially Hadoop's): [http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html](http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html)
 
-`require` statements should be placed on separate lines.
+Currently use naming convention for the shaded artifact: `org.icgc.dcc.shaded.${name}` (e.g. `org.icgc.dcc.shaded.jackson`, `org.icgc.dcc.shaded.sshd`, ...)
 
-```js
-require 'lib/setup'
-Backbone = require 'backbone'
-```
-
-These statements should be grouped in the following order:
-
-1. Third party library imports (Backbone, handlebars, etc)
-2. Chaplin (any Classes being pulled in from Chaplin)
-3. Models
-4. Collections
-5. Views
-6. Templates
-
-###  Whitespace in Expressions and Statements
-
-#### Avoid extraneous whitespace in the following situations
-
-Immediately inside parentheses, brackets or braces:
-
-```js
-($ 'body') # Yes
-( $ 'body' ) # No
-```
-
-Immediately before a comma:
-
-```js
-console.log x, y # Yes
-console.log x , y # No
-```
-
-#### Always surround these binary operators with a single space on either side
-
-- assignment: `=`
-- augmented assignment: `+=`, `-=`, etc.
-- comparisons: `==`, `<`, `>`, `<=`, `>=`, unless, etc.
-- arithmetic operators: `+`, `-`, `*`, `/`, etc.
-
-*(Do not use more than one space around these operators)*
-
-```js
-# Yes
-  x = 1
-  y = 1
-  fooBar = 3
-
-# No
-  x  =  1
-  y = 1
-  fooBar  =3
-```
-
-###  Naming Conventions
-
-Use `camelCase` (with a leading lowercase character) to name all variables, methods, and object properties.
-
-Use `CamelCase` (with a leading uppercase character) to name all classes.
-
-For constants, use all uppercase with underscores: `CONSTANT_LIKE_THIS`
-
-Methods and variables that are intended to be "private" should begin with a leading underscore: `_privateMethod: ->`
-
-###  Functions
-
-*(These guidelines also apply to the methods of a class.)*
-
-When declaring a function that takes arguments, always use a single space after the closing parenthesis of the arguments list:
-
-```js
-foo = (arg1, arg2) -> # Yes
-foo = (arg1, arg2)-> # No
-```
-
-Do not use parentheses when declaring functions that take no arguments:
-
-```js
-bar = -> # Yes
-bar = () -> # No
-```
-
-In cases where method calls are being chained and the code does not fit on a single line, each call should be placed on a separate line and indented by one level (i.e., two spaces), with a leading `.`.
-
-```js
-[1..3]
-  .map((x) -> x * x)
-  .concat([10..12])
-  .filter((x) -> x < 11)
-  .reduce((x, y) -> x + y)
-```
-
-When calling functions that terminate a line omit the parentheses:
-
-```js
-new Baz 12 instead of new Baz(12)
-
-foo(4).bar 8 instead of foo(4).bar(8)
-
-brush.ellipse {x: 10, y: 20} instead of brush.ellipse({x: 10, y: 20})
-```
-
-###  Strings
-
-Use string interpolation instead of string concatenation:
-
-```js
-"this is an #{adjective} string" # Yes
-"this is an " + adjective + " string" # No
-```
-
-Prefer single quoted strings (`''`) instead of double quoted (`""`) strings, unless features like string interpolation are being used for the given string.
-
-### Conditionals
-
-Favor unless over if for negative conditions.
-
-Instead of using `unless...else`, use `if...else`:
-
-```js
-# Yes
-  if true ...
-  else ...
-
-# No
-  unless false
-    ...
-  else
-    ...
-```
-
-Multi-line if/else clauses should use indentation:
-
-```js
-# Yes
-  if true
-    ...
-  else
-    ...
-
-# No
-  if true then ...
-  else ...
-```
-
-### Looping and Comprehensions
-
-Take advantage of comprehensions whenever possible:
-
-```js
-# Yes
-result = (item.name for item in array)
-
-# No
-results = []
-for item in array
-  results.push item.name
-```
-
-To filter:
-
-```js
-result = (item for item in array when item.name is "test")
-```
-
-To iterate over the keys and values of objects:
-
-```js
-object = one: 1, two: 2
-alert("#{key} = #{value}") for key, value of object
-```
-
-##  Best Practices
+## Best Practices
 
 ### Tests
 
@@ -685,7 +513,7 @@ The example is not very convincing, but the idea is that a method exists for tes
 1. It conveys the intention clearly: it is clear that getString() will never return null and that if you don't want to handle the exception, call hasString first.
 2. There's no chance of getting an `NPE` in a very far-away piece of code. Imagine that the calling code is calling `getString()` but not using it until something else happens. The `NPE` will be thrown when that something else happens instead of when `getString()` was called (possibly at the wrong time).
 
-### Using Optional
+### Using `Optional`
 
 The second method is to use the `Optional` class in Guava. This allows a method a value that may or may not be null. So the method itself always returns a value, but it is this value that may be absent. Reusing the same example as above:
 

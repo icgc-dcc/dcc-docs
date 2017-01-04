@@ -97,14 +97,17 @@ See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https
 
 ### Setup
 
-1.  Clone a project from GitHub:  
-    ```shell
-    git clone git@github.com:icgc-dcc/<project>.git
-    ```
-2.  Init Git-flow (default settings):  
-    ```shell
-    git hf init
-    ```
+Clone a project from GitHub:  
+
+```shell
+git clone git@github.com:icgc-dcc/<project>.git
+```
+
+Init Git-flow (default settings):  
+
+```shell
+git hf init
+```
 
 ## Maven
 
@@ -122,20 +125,11 @@ To check your installation, run:
 ```shell
 mvn -v
 
-Apache Maven 3.2.1 (ea8b2b07643dbb1b84b6d16e1f08391b666bc1e9; 2014-02-14T12:37:52-05:00)
-Maven home: /usr/local/Cellar/maven/3.2.1/libexec
+...
 Java version: 1.8.0_31, vendor: Oracle Corporation
-Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/jre
-Default locale: en_US, platform encoding: UTF-8
-OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
+...
 
 ```
-
-### Shade Plug-in
-
-This helps with dependency conflicts (especially Hadoop's): [http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html](http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html)
-
-Currently use naming convention for the shaded artifact: `org.icgc.dcc.shaded.${name}` (e.g. `org.icgc.dcc.shaded.jackson`, `org.icgc.dcc.shaded.sshd`, ...)
 
 ## Eclipse
 
@@ -224,13 +218,26 @@ Then follow instructions in each GitHub's repo for the required node / npm versi
 
 After installing the above, navigate to the project(s) that you will be working on in [GitHub](https://github.com/icgc-dcc) and follow the top-level `README.md`s and linked sub-module `README.md`s.
 
+### All Projects
+
+Clone a project from GitHub:  
+
+```shell
+cd ~/Workspaces/dcc
+git clone git@github.com:icgc-dcc/<project>.git
+```
+
+Init Git-flow (default settings):  
+
+```shell
+git hf init
+```
+
 ### Eclipse Projects
 
 To import an Eclipse based project, click on the following in the file menu:
 
-**File > Import > Maven > Materialize Maven Projects from SCM**
-
-Then enter the git URL of the project from [icgc-dcc](https://github.com/icgc-dcc). You can ignore any plugin execution errors that might occur in pom.xml.
+**File > Import > Maven > Existing Maven Projects**
 
 ## Reference Data
 
