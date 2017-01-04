@@ -690,11 +690,9 @@
            
                <li class=""><a href="#homebrew">Homebrew</a>
                
-                    <ul class="nav">
-                        
-                        <li class=""><a href="#cask">Cask</a></li>
-                        
-                    </ul>
+               </li>
+           
+               <li class=""><a href="#cask">Cask</a>
                
                </li>
            
@@ -794,7 +792,7 @@
                
                     <ul class="nav">
                         
-                        <li class=""><a href="#trailerapp">Trailer.app</a></li>
+                        <li class=""><a href="#trailer">Trailer</a></li>
                         
                         <li class=""><a href="#docker">Docker</a></li>
                         
@@ -802,9 +800,9 @@
                         
                         <li class=""><a href="#iterm2">iTerm2</a></li>
                         
-                        <li class=""><a href="#zsh">ZSH</a></li>
+                        <li class=""><a href="#zsh">Zsh</a></li>
                         
-                        <li class=""><a href="#oh-my-zsh">Oh-My-Zsh</a></li>
+                        <li class=""><a href="#oh-my-zsh">Oh My Zsh</a></li>
                         
                         <li class=""><a href="#http">HTTP</a></li>
                         
@@ -830,11 +828,15 @@
 <p>This document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.</p>
 <p>Once complete, please see <a href="../development/">general</a> for general conventions used during development.</p>
 <h2 id="homebrew">Homebrew</h2>
-<p>Mac developers are using Homebrew (<code>brew</code>) which can be installed from:</p>
+<p>Homebrew, <code>brew</code>, is the defacto package manager for MacOs. To install follow the directions below:</p>
 <p><a href="http://brew.sh/">http://brew.sh/</a></p>
-<h3 id="cask">Cask</h3>
-<p>It is recommended to install all applications with Cask to promote automation. Hopefully one day this page can be scripted.</p>
+<h2 id="cask">Cask</h2>
+<p>It is recommended to install all applications with Cask to promote automation (hopefully one day this page can be scripted).</p>
 <p><a href="https://caskroom.github.io/">https://caskroom.github.io/</a></p>
+<p>To install:</p>
+<pre><code class="shell">brew tap caskroom/cask
+</code></pre>
+
 <h2 id="slack">Slack</h2>
 <p>We use Slack almost entirely for internal communication, so install this ASAP.</p>
 <pre><code class="shell">brew cask install slack
@@ -917,6 +919,11 @@ OS name: &quot;mac os x&quot;, version: &quot;10.11.6&quot;, arch: &quot;x86_64&
 <h3 id="installation_1">Installation</h3>
 <p>Download and install Eclipse 4.6.x or latest for Java EE developers:</p>
 <p><a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a></p>
+<p>Alternatively, you may try the following (untested):</p>
+<p><a href="http://macappstore.org/eclipse-jee/">http://macappstore.org/eclipse-jee/</a></p>
+<pre><code class="shell">brew cask install eclipse-jee
+</code></pre>
+
 <h3 id="settings">Settings</h3>
 <p>Install m2e and add the builderhelper plugin:</p>
 <p><a href="http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2">http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2</a></p>
@@ -963,7 +970,7 @@ java -jar lombok.jar
 <p><strong>File &gt; Import &gt; Maven &gt; Materialize Maven Projects from SCM</strong></p>
 <p>Then enter the git URL of the project from <a href="https://github.com/icgc-dcc">icgc-dcc</a>. You can ignore any plugin execution errors that might occur in pom.xml.</p>
 <h2 id="reference-data">Reference Data</h2>
-<p>You will need to download the DCC reference genome from: </p>
+<p>You will need to download the DCC reference genome from our <a href="https://artifacts.oicr.on.ca/artifactory">Artifactory</a> server: </p>
 <p><a href="https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/">https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/</a></p>
 <p>and extract it to <code>/tmp</code>. Ensure that the contents of the file are not in a nested folder and are in the tmp folder. Once extracted, symlink <code>GRCh37.fasta</code> to <code>GRC37.75.fasta</code> and <code>GRCh37.fasta.fai</code> to <code>GRCh37.75.fasta.fai</code> by executing the following:</p>
 <pre><code class="shell">ln -s GRC37.75.fasta GRC37.fasta
@@ -972,8 +979,8 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 
 <h2 id="utilities">Utilities</h2>
 <p>Consider all of these utilities optional, but highly recommended.</p>
-<h3 id="trailerapp">Trailer.app</h3>
-<p>Track pull requests and issues across repositories, directly in your Notification Center or on any device.</p>
+<h3 id="trailer">Trailer</h3>
+<p>Track pull requests and issues across repositories, directly in your Notification Center or on any Apple device.</p>
 <p><a href="https://ptsochantaris.github.io/trailer/">https://ptsochantaris.github.io/trailer/</a></p>
 <pre><code class="shell">brew cask install trailer
 </code></pre>
@@ -993,12 +1000,12 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 <pre><code class="shell">brew cask install iterm2 
 </code></pre>
 
-<h3 id="zsh">ZSH</h3>
+<h3 id="zsh">Zsh</h3>
 <p>Great shell alternative that is mostly compatible with Bash:</p>
-<pre><code class="shell">brew install zsh
+<pre><code class="shell">brew install zsh zsh-completions
 </code></pre>
 
-<h3 id="oh-my-zsh">Oh-My-Zsh</h3>
+<h3 id="oh-my-zsh">Oh My Zsh</h3>
 <p>Plugin system for <code>zsh</code></p>
 <p><a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</a></p>
 <h3 id="http">HTTP</h3>
@@ -1015,7 +1022,13 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 
 <h3 id="other">Other</h3>
 <p>Useful other things:</p>
-<p><a href="https://danielmiessler.com/blog/first-10-things-new-mac">https://danielmiessler.com/blog/first-10-things-new-mac</a></p>
+<ul>
+<li><a href="https://danielmiessler.com/blog/first-10-things-new-mac">https://danielmiessler.com/blog/first-10-things-new-mac</a></li>
+<li><a href="http://vim.spf13.com/">spf13</a></li>
+<li><code>brew cask install google-chrome</code></li>
+<li><code>brew cask install virtualbox</code></li>
+<li><code>brew cask install vagrant</code></li>
+</ul>
                </div>
                </div>
             </div>
