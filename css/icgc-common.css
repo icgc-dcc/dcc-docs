@@ -43,7 +43,10 @@ h2, h3, h4 {
 }
 
 h2 {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  border-bottom: 3px solid #166aa2;
+  padding-bottom: 10px;  
 }
 
 h3 {
@@ -94,7 +97,7 @@ table a:not(.btn), .table a:not(.btn) {
 pre,
 pre code {
   color: #000;
-  background-color: #f5f2f0;
+  background-color: #fafafa;
 }
 
 pre code {
