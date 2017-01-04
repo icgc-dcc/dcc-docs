@@ -760,7 +760,9 @@
                         
                         <li class=""><a href="#lombok-support">Lombok Support</a></li>
                         
-                        <li class=""><a href="#add-static-import-favorites">Add Static Import Favorites</a></li>
+                        <li class=""><a href="#maven-m2e">Maven m2e</a></li>
+                        
+                        <li class=""><a href="#java-static-import-favorites">Java Static Import Favorites</a></li>
                         
                         <li class=""><a href="#plugins">Plugins</a></li>
                         
@@ -844,7 +846,11 @@
 
 <h2 id="xcode-and-command-line-tools">XCode and Command Line Tools</h2>
 <p>Follow the instructions below:</p>
-<p><a href="">http://railsapps.github.io/xcode-command-line-tools.html</a></p>
+<p><a href="http://railsapps.github.io/xcode-command-line-tools.html">http://railsapps.github.io/xcode-command-line-tools.html</a></p>
+<p>Alternatively, install XCode from AppStore and execute the following (untested):</p>
+<pre><code class="shell">xcode-select --install
+</code></pre>
+
 <h2 id="java">Java</h2>
 <p>Install Java 8:</p>
 <pre><code class="shell">brew cask install java
@@ -877,7 +883,9 @@ brew switch mongo 2.4.4-x86_64
 </code></pre>
 
 <h2 id="git">Git</h2>
-<p>Download <em>dmg</em> from <a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
+<pre><code class="shell">brew install git
+</code></pre>
+
 <h2 id="hubflow">HubFlow</h2>
 <pre><code class="shell">brew install hubflow
 </code></pre>
@@ -885,14 +893,7 @@ brew switch mongo 2.4.4-x86_64
 <p>See <a href="https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md">https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md</a> for details on how we use this.</p>
 <h2 id="github">GitHub</h2>
 <h3 id="setup_1">Setup</h3>
-<p>Clone a project from GitHub:  </p>
-<pre><code class="shell">git clone git@github.com:icgc-dcc/&lt;project&gt;.git
-</code></pre>
-
-<p>Init Git-flow (default settings):  </p>
-<pre><code class="shell">git hf init
-</code></pre>
-
+<p>Create an account and send to <a href="https://oicr-icgc.slack.com/messages/@btiernay/">@btiernay</a>.</p>
 <h2 id="maven">Maven</h2>
 <h3 id="installation">Installation</h3>
 <p>Install Maven 3.2.1 or what is specified in <a href="https://github.com/icgc-dcc/dcc-parent/blob/develop/pom.xml#L1340">icgc-dcc/dcc-parent/pom.xml</a> <code>maven-enforcer-plugin.requireMavenVersion</code></p>
@@ -919,8 +920,6 @@ Java version: 1.8.0_31, vendor: Oracle Corporation
 </code></pre>
 
 <h3 id="settings">Settings</h3>
-<p>Install m2e and add the builderhelper plugin:</p>
-<p><a href="http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2">http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2</a></p>
 <p>Install and configure IDE settings:</p>
 <p><a href="https://github.com/icgc-dcc/dcc-cm/tree/develop/ide">https://github.com/icgc-dcc/dcc-cm/tree/develop/ide</a></p>
 <h3 id="lombok-support">Lombok Support</h3>
@@ -930,9 +929,16 @@ java -jar lombok.jar
 </code></pre>
 
 <p>And point it to your Eclipse installation. See <a href="http://projectlombok.org/features/index.html">http://projectlombok.org/features/index.html</a> for details. </p>
-<p>Activate source downloading in the maven plugin, tick the <strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong> box.</p>
-<h3 id="add-static-import-favorites">Add Static Import Favorites</h3>
-<p>Add some classes to your favorite static imports via <strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
+<h3 id="maven-m2e">Maven m2e</h3>
+<p>Activate source downloading in the maven plugin, tick the following: </p>
+<p><strong>Preferences &gt; Maven &gt; Maven Download Artifact Sources</strong></p>
+<p>Open to XML view, tick the following:</p>
+<p><strong>Preferences &gt; Maven &gt; User Interace &gt; Open XML page in the POM editor by default</strong></p>
+<p>Hide warnings for incomplete mappings, tick the following:</p>
+<p><strong>Preferences &gt; Maven &gt; User Interace &gt; Hide warnings for incomplete mapping</strong></p>
+<h3 id="java-static-import-favorites">Java Static Import Favorites</h3>
+<p>Add some classes to your favorite static imports via:</p>
+<p><strong>Preferences &gt; Java &gt; Editor &gt; Content Assist &gt; Favorites</strong>:</p>
 <ul>
 <li>Guava's <code>Preconditions</code></li>
 <li>PowerMock's <code>PowerMockito</code></li>
