@@ -7,15 +7,21 @@ Once complete, please see [general](/software/development.md) for general conven
 
 ## Homebrew
 
-Mac developers are using Homebrew (`brew`) which can be installed from:
+Homebrew, `brew`, is the defacto package manager for MacOs. To install follow the directions below:
 
 [http://brew.sh/](http://brew.sh/)
 
-### Cask
+## Cask
 
-It is recommended to install all applications with Cask to promote automation. Hopefully one day this page can be scripted.
+It is recommended to install all applications with Cask to promote automation (hopefully one day this page can be scripted).
 
 [https://caskroom.github.io/](https://caskroom.github.io/)
+
+To install:
+
+```shell
+brew tap caskroom/cask
+```
 
 ## Slack
 
@@ -139,6 +145,14 @@ Download and install Eclipse 4.6.x or latest for Java EE developers:
 
 [http://www.eclipse.org/downloads/](http://www.eclipse.org/downloads/)
 
+Alternatively, you may try the following (untested):
+
+[http://macappstore.org/eclipse-jee/](http://macappstore.org/eclipse-jee/)
+
+```shell
+brew cask install eclipse-jee
+```
+
 ### Settings
 
 Install m2e and add the builderhelper plugin:
@@ -220,7 +234,7 @@ Then enter the git URL of the project from [icgc-dcc](https://github.com/icgc-dc
 
 ## Reference Data
 
-You will need to download the DCC reference genome from: 
+You will need to download the DCC reference genome from our [Artifactory](https://artifacts.oicr.on.ca/artifactory) server: 
 
 [https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/](https://artifacts.oicr.on.ca/artifactory/dcc-dependencies/org/icgc/dcc/dcc-reference-genome/GRCh37.75.v1/)
 
@@ -235,9 +249,9 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 
 Consider all of these utilities optional, but highly recommended.
 
-### Trailer.app
+### Trailer
 
-Track pull requests and issues across repositories, directly in your Notification Center or on any device.
+Track pull requests and issues across repositories, directly in your Notification Center or on any Apple device.
 
 [https://ptsochantaris.github.io/trailer/](https://ptsochantaris.github.io/trailer/)
 
@@ -271,15 +285,15 @@ Very powerful terminal emulator for Mac:
 brew cask install iterm2 
 ```
 
-### ZSH
+### Zsh
 
 Great shell alternative that is mostly compatible with Bash:
 
 ```shell
-brew install zsh
+brew install zsh zsh-completions
 ```
 
-### Oh-My-Zsh
+### Oh My Zsh
 
 Plugin system for `zsh`
 
@@ -311,4 +325,7 @@ Useful other things:
 
 - [https://danielmiessler.com/blog/first-10-things-new-mac](https://danielmiessler.com/blog/first-10-things-new-mac)
 - [spf13](http://vim.spf13.com/)
+- `brew cask install google-chrome`
+- `brew cask install virtualbox`
+- `brew cask install vagrant`
 
