@@ -924,7 +924,7 @@ Java version: 1.8.0_31, vendor: Oracle Corporation
 <p>Install and configure IDE settings:</p>
 <p><a href="https://github.com/icgc-dcc/dcc-cm/tree/develop/ide">https://github.com/icgc-dcc/dcc-cm/tree/develop/ide</a></p>
 <h3 id="lombok-support">Lombok Support</h3>
-<p>A number of the dcc projects are using Lombok to reduce boilerplate code (e.g., getters, setters, <code>toString()</code>, <code>hashCode()</code>, <code>equals()</code>, <code>static Logger log</code>, etc.). This is seemless to <code>javac</code> via <code>mvn</code>, but the Java 6 <a href="http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html">transformations</a> will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute </p>
+<p>A number of the DCC projects are using <a href="https://projectlombok.org/">Lombok</a> to reduce boilerplate code (e.g., getters, setters, <code>toString()</code>, <code>hashCode()</code>, <code>equals()</code>, <code>static Logger log</code>, etc.). This is seemless to <code>javac</code> via <code>mvn</code>, but the Java 6 <a href="http://notatube.blogspot.ca/2010/12/project-lombok-creating-custom.html">transformations</a> will not be reflected in Eclipse which will in turn cause compilation errors in your editor. To fix this, execute </p>
 <pre><code class="shell">wget http://projectlombok.googlecode.com/files/lombok.jar
 java -jar lombok.jar
 </code></pre>
@@ -956,9 +956,9 @@ eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http:
 </code></pre>
 
 <h4 id="grep-console">Grep Console</h4>
-<p>Plugin for colorizing and filtering the Eclipse console. Follow the instructions here:</p>
+<p>Plugin for colorizing and filtering the Eclipse console. Follow the instructions here (configuration is available in the Eclipse section):</p>
 <p><a href="http://marian.schedenig.name/projects/grep-console/">http://marian.schedenig.name/projects/grep-console/</a></p>
-<p>Configuration is available in the Eclipse section. Or try the following (untested):</p>
+<p>Or try the following (untested):</p>
 <pre><code class="shell">eclipse -nosplash -application org.eclipse.equinox.p2.director -repository http://findbugs.cs.umd.edu/eclipse/ -installIU edu.umd.cs.findbugs.plugin.eclipse.feature.group
 </code></pre>
 
@@ -978,7 +978,8 @@ git clone git@github.com:icgc-dcc/&lt;project&gt;.git
 </code></pre>
 
 <p>Init Git-flow (default settings):  </p>
-<pre><code class="shell">git hf init
+<pre><code class="shell">cd &lt;project&gt;
+git hf init
 </code></pre>
 
 <h3 id="eclipse-projects">Eclipse Projects</h3>
@@ -1003,6 +1004,10 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 <h3 id="docker">Docker</h3>
 <p>Docker for Mac:</p>
 <p><a href="https://docs.docker.com/engine/installation/mac/">https://docs.docker.com/engine/installation/mac/</a></p>
+<p>Or try (untested):</p>
+<pre><code class="shell">brew cask install docker-beta
+</code></pre>
+
 <h3 id="macdown">MacDown</h3>
 <p>MacDown is an open source Markdown editor for OS X, released under the MIT License. It is heavily influenced by Chen Luo’s Mou.</p>
 <p><a href="http://macdown.uranusjr.com/">http://macdown.uranusjr.com/</a></p>
@@ -1023,6 +1028,10 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 <h3 id="oh-my-zsh">Oh My Zsh</h3>
 <p>Plugin system for <code>zsh</code></p>
 <p><a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</a></p>
+<p>Add the following to <code>~/.zshrc</code> / <code>~/.bash_profile</code>:</p>
+<pre><code class="shell">plugins=(git git-hubflow mvn brew nvm node npm vagrant httpie)
+</code></pre>
+
 <h3 id="http">HTTP</h3>
 <p>Modern alternative to <code>curl</code>:</p>
 <p><a href="https://github.com/jkbrzt/httpie">https://github.com/jkbrzt/httpie</a></p>
@@ -1036,7 +1045,7 @@ ln -s GRC37.75.fasta.fai GRC37.fasta.fai
 </code></pre>
 
 <h3 id="other">Other</h3>
-<p>Useful other things:</p>
+<p>Other useful things:</p>
 <ul>
 <li><a href="https://danielmiessler.com/blog/first-10-things-new-mac">https://danielmiessler.com/blog/first-10-things-new-mac</a></li>
 <li><a href="http://vim.spf13.com/">spf13</a></li>
