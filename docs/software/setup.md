@@ -35,7 +35,13 @@ brew cask install slack
 
 Follow the instructions below:
 
-[http://railsapps.github.io/xcode-command-line-tools.html]()
+[http://railsapps.github.io/xcode-command-line-tools.html](http://railsapps.github.io/xcode-command-line-tools.html)
+
+Alternatively, install XCode from AppStore and execute the following (untested):
+
+```shell
+xcode-select --install
+```
 
 ## Java
 
@@ -83,7 +89,9 @@ brew switch mongo 2.4.4-x86_64
 
 ## Git
 
-Download _dmg_ from [http://git-scm.com/download/mac](http://git-scm.com/download/mac)
+```shell
+brew install git
+```
 
 ## HubFlow
 
@@ -97,17 +105,7 @@ See [https://github.com/icgc-dcc/dcc-portal/blob/develop/CONTRIBUTING.md](https
 
 ### Setup
 
-Clone a project from GitHub:  
-
-```shell
-git clone git@github.com:icgc-dcc/<project>.git
-```
-
-Init Git-flow (default settings):  
-
-```shell
-git hf init
-```
+Create an account and send to [@btiernay](https://oicr-icgc.slack.com/messages/@btiernay/).
 
 ## Maven
 
@@ -149,10 +147,6 @@ brew cask install eclipse-jee
 
 ### Settings
 
-Install m2e and add the builderhelper plugin:
-
-[http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2](http://stackoverflow.com/questions/12685683/m2e-connector-buildhelper-not-compatible-with-eclipse-juno-sr1-m2e-1-2)
-
 Install and configure IDE settings:
 
 [https://github.com/icgc-dcc/dcc-cm/tree/develop/ide](https://github.com/icgc-dcc/dcc-cm/tree/develop/ide)
@@ -168,11 +162,25 @@ java -jar lombok.jar
 
 And point it to your Eclipse installation. See [http://projectlombok.org/features/index.html](http://projectlombok.org/features/index.html) for details. 
 
-Activate source downloading in the maven plugin, tick the **Preferences > Maven > Maven Download Artifact Sources** box.
+### Maven m2e
 
-### Add Static Import Favorites
+Activate source downloading in the maven plugin, tick the following: 
 
-Add some classes to your favorite static imports via **Preferences > Java > Editor > Content Assist > Favorites**:
+**Preferences > Maven > Maven Download Artifact Sources**
+
+Open to XML view, tick the following:
+
+**Preferences > Maven > User Interace > Open XML page in the POM editor by default**
+
+Hide warnings for incomplete mappings, tick the following:
+
+**Preferences > Maven > User Interace > Hide warnings for incomplete mapping**
+
+### Java Static Import Favorites
+
+Add some classes to your favorite static imports via:
+
+**Preferences > Java > Editor > Content Assist > Favorites**:
 
 *   Guava's `Preconditions`
 *   PowerMock's `PowerMockito`
