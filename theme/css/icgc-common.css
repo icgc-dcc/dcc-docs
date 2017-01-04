@@ -984,3 +984,21 @@ footer .logo img:hover {
   -webkit-animation-name: focusText;
   animation-name: focusText;
 }
+
+li.resource div.heading h2{
+  font-size: 1.3em !important;
+  font-weight: normal !important;
+}
+
+li.resource div.heading h2 a{
+  color: #166aa2 !important;
+}
+
+li.resource.active div.heading h2 a{
+  color: #e9931c !important;
+}
+
+li.resource div.heading h2 a:hover{
+  color: #e9931c !important;
+  text-decoration: none;
+}
