@@ -147,8 +147,7 @@ To obtain access you must have an eRA commons account, and you must have dbGap a
 <https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data>
 
 #### Download Client Operation
-Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.]
-(https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
+Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.](https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
 
 
 ## PDC
