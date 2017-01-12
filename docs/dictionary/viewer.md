@@ -8,7 +8,7 @@
         </a>
     </h1>
     <div class="full-width-content dictionary-viewer-main">
-        <h2 class="loading-app" data-ng-if="!  DictionaryViewCtrl.latestDictionaryVersion"><i class="animate-spin icon-spinner"></i> Loading...</h2>
+        <h3 class="loading-app" data-ng-if="!  DictionaryViewCtrl.latestDictionaryVersion"><i class="animate-spin icon-spinner"></i> Loading...</h3>
         <div data-ng-show="DictionaryViewCtrl.latestDictionaryVersion" ng-cloak>
             <div class="dictionary-viewer-controls" data-ng-style="{'margin-bottom':DictionaryViewCtrl.versionRange.from === DictionaryViewCtrl.versionRange.to ? '0rem' : 'inherit'}">
                 <div class="version-select-container col-md-8">
