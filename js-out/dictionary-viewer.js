@@ -94942,13 +94942,12 @@ webpackJsonp([0,2],[
 						"directUrl": "https://raw.githubusercontent.com/cheapsteak/jsondiffpatch/1bf3df4875e4af1d17034649332ed19f33dbc4b5/package.json"
 					}
 				},
-				"/Users/ayang/dev/dcc-docs/node_modules/@icgc/dictionary-viewer"
+				"/Users/sjoshi/dcc-docs/node_modules/@icgc/dictionary-viewer"
 			]
 		],
 		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
 		"_id": "jsondiffpatch@0.1.43",
 		"_inCache": true,
-		"_installable": true,
 		"_location": "/jsondiffpatch",
 		"_phantomChildren": {},
 		"_requested": {
@@ -94973,10 +94972,10 @@ webpackJsonp([0,2],[
 			"/@icgc/dictionary-viewer"
 		],
 		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_shasum": "ac8d618429162998a57e3f3f080ab4bebec51e19",
+		"_shasum": "4cbce7d2fe4ab1541841e9d7a5e64a8eb0ae6451",
 		"_shrinkwrap": null,
 		"_spec": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_where": "/Users/ayang/dev/dcc-docs/node_modules/@icgc/dictionary-viewer",
+		"_where": "/Users/sjoshi/dcc-docs/node_modules/@icgc/dictionary-viewer",
 		"author": {
 			"name": "Benjamin Eidelman",
 			"email": "beneidel@gmail.com"

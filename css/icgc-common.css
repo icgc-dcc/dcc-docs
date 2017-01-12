@@ -135,7 +135,8 @@ code {
 }
 
 .loading-app {
-  color: #000;
+  color: #666666;
+  font-weight: normal;
 }
 
 .header-badge {
