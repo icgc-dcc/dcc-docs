@@ -8,7 +8,7 @@
 </h1>
   <div class="light swagger-ui full-width-content">
     <div class="loader">
-        <h2 class="loading-app"><i class="animate-spin icon-spinner"></i> Loading...</h2>
+        <h3 class="loading-app"><i class="animate-spin icon-spinner"></i> Loading Endpoints...</h3>
     </div>
     <div class="content">
       <section>
