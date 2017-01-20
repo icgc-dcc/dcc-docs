@@ -41,16 +41,22 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [PACA-CA][3] |  Canada |  Pancreatic Cancer - CA |  No Embargo. Data available without limitations |
 | [PRAD-CA][4] |  Canada |  Prostate Adenocarcinoma - CA |  No Embargo. Data available without limitations |
 | [BLCA-CN][5] |  China |  Bladder Urothelial carcinoma - CN |  No Embargo. Data available without limitations |
+| [COCA-CN][26] |  China |  Colorectal Cancer - CN |  No Embargo. Data available without limitations |
 | [ESCA-CN][25] |  China |  Esophageal Cancer - CN |  No Embargo. Data available without limitations |
 | [GACA-CN][6] |  China |  Gastric Cancer - CN |  No Embargo. Data available without limitations |
+| [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  No Embargo. Data available without limitations |
 | [RECA-CN][24] |  China |  Renal clear cell carcinoma - CN |  No Embargo. Data available without limitations |
 | [RECA-EU][28] |  European Union/France |  Renal Cell Cancer - EU/FR |  No Embargo. Data available without limitations |
 | [BOCA-FR][30] |  France |  Bone Cancer - Ewing Sarcoma - FR |  No Embargo. Data available without limitations |
+| [LIAD-FR][29] |  France |  Benign Liver Tumour - FR |  No Embargo. Data available without limitations |
 | [LICA-FR][7] |  France |  Liver Cancer - FR |  No Embargo. Data available without limitations |
+| [LIHM-FR][31] |  France |  Liver Hepatocellular Macronodules - FR |  No Embargo. Data available without limitations |
 | [EOPC-DE][8] |  Germany |  Early Onset Prostate Cancer - DE |  No Embargo. Data available without limitations |
 | [MALY-DE][9] |  Germany |  Malignant Lymphoma - DE |  No Embargo. Data available without limitations |
 | [PBCA-DE][10] |  Germany |  Pediatric Brain Cancer - DE |  No Embargo. Data available without limitations |
 | [ORCA-IN][18] |  India |  Oral Cancer - IN |  No Embargo. Data available without limitations |
+| [PAEN-IT][32] |  Italy |  Pancreatic Endocrine neoplasms - IT |  No Embargo. Data available without limitations |
+| [BTCA-JP][37] |  Japan |  Biliary Tract Cancer - JP |  No Embargo. Data available without limitations |
 | [LINC-JP][11] |  Japan |  Liver Cancer - NCC, JP |  No Embargo. Data available without limitations |
 | [LIRI-JP][12] |  Japan |  Liver Cancer - RIKEN, JP |  No Embargo. Data available without limitations |
 | [THCA-SA][33] |  Saudi Arabia |  Thyroid Cancer - SA |  No Embargo. Data available without limitations |
@@ -64,13 +70,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | No Embargo. Data available without limitations |
 | [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR |  Publication limitations in place until 2017-06-15 |
-| [COCA-CN][26] |  China |  Colorectal Cancer - CN |  Publication limitations in place until 2017-01-14 |
-| [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  Publication limitations in place until 2017-01-14 |
 | [BRCA-FR][41] |  France |  Breast Cancer - FR |  Publication limitations in place until 2018-08-23 |
-| [LIAD-FR][29] |  France |  Benign Liver Tumour - FR |  Publication limitations in place until 2016-09-11 |
-| [LIHM-FR][31] |  France |  Liver Hepatocellular Macronodules - FR |  Publication limitations in place until 2017-01-14 |
-| [PAEN-IT][32] |  Italy |  Pancreatic Endocrine neoplasms - IT |  Publication limitations in place until 2017-01-14 |
-| [BTCA-JP][37] |  Japan |  Biliary Tract Cancer - JP |  Publication limitations in place until 2016-11-27 |
 | [LAML-CN][39] |  China |  Leukemia - CN |  Publication limitations in place until 2018-05-16 |
 | [LICA-CN][38] |  China |  Liver Cancer - CN |  Publication limitations in place until 2017-05-16 |
 | [BRCA-KR][40] |  South Korea |  Breast Cancer - SK |  Publication limitations in place until 2018-08-23 |
