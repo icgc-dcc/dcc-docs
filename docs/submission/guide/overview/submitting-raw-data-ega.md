@@ -99,13 +99,13 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
 #### SAMPLE, EXPERIMENT and RUN XML files
 For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.
 
-### SAMPLE XML file
+##### SAMPLE XML file
 
 NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id
 
 | Name | VALUE |
 | ---- | ---- |
-| SAMPLE alias | DCC submitted analyzed_sample_id 
+| SAMPLE alias | DCC submitted [analyzed_sample_id][4]
 | icgc_project_code | ICGC Project code (http://docs.icgc.org/submission/projects/) 
 | submitter_donor_id |  DCC submitted [donor_id][1] 
 | submitter_specimen_id | DCC submitted [specimen_id][2] 
