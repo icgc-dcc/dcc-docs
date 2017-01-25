@@ -743,7 +743,7 @@
 <h4 id="policy-xml-file">POLICY XML file</h4>
 <pre><code class="xml">&lt;?xml version = '1.0' encoding = 'UTF-8'?&gt;
 &lt;POLICY_SET&gt;
-    &lt;POLICY alias=&quot;ICGC Data Access Agreements&quot; center_name=&quot;YOUR_CENTER_NAME_HERE&quot; broker_name=&quot;EGA&quot;&gt;
+    &lt;POLICY alias=&quot;ICGC Data Access Agreements&quot; center_name=&quot;YOUR_CENTER_NAME_HERE. See http://docs.icgc.org/submission/institutions/ (eg. OICR)&quot; broker_name=&quot;EGA&quot;&gt;
         &lt;TITLE&gt;ICGC Data Access&lt;/TITLE&gt;
         &lt;DAC_REF refname=&quot;ICGC Cancer Genome Projects&quot; refcenter=&quot;ICGC&quot;/&gt;
         &lt;DAC_REF accession=&quot;EGAC00001000010&quot;/&gt;
@@ -761,8 +761,7 @@
 </code></pre>
 
 <ul>
-<li>Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions of this manual.</li>
-<li>If your center’s name is incorrect or missing from here, please contact the DCC to have your center’s record added or revised.</li>
+<li>Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions at http://docs.icgc.org/submission/institutions/. If your center’s name is incorrect or missing from here, please contact the DCC at dcc-support@icgc.org to have your center’s record added or revised.</li>
 <li>The value of center_name should reflect the submitter’s affiliation and should remain consistent in the metadata XML for all subsequent submissions to EGA.</li>
 </ul>
 <h4 id="dataset-and-study-xml-files">DATASET and STUDY XML files</h4>
@@ -790,14 +789,14 @@
 <h5 id="study-xml-file">STUDY XML file</h5>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;STUDY_SET&gt;
-    &lt;STUDY alias=&quot;Pancreatic Cancer Genome Sequencing&quot; center_name=&quot;OICR&quot;&gt;
+    &lt;STUDY alias=&quot;TODO: UNIQUE NAME FOR SUBMISSION (eg. Pancreatic Cancer Genome Sequencing)&quot; center_name=&quot;TODO: centre name/abbreviation found at http://docs.icgc.org/submission/institutions/ (eg. OICR)&quot;&gt;
         &lt;DESCRIPTOR&gt;
-            &lt;STUDY_TITLE&gt;Title of publication&lt;/STUDY_TITLE&gt;
+            &lt;STUDY_TITLE&gt;TODO: Title of publication&lt;/STUDY_TITLE&gt;
             &lt;STUDY_TYPE existing_study_type=&quot;Whole Genome Sequencing&quot;/&gt;
             &lt;STUDY_ABSTRACT&gt;
-                STUDY ABSTRACT AS IT COULD APPEAR IN A PUBLICATION
+                TODO: STUDY ABSTRACT AS IT COULD APPEAR IN A PUBLICATION
             &lt;/STUDY_ABSTRACT&gt;
-            &lt;CENTER_PROJECT_NAME&gt;Pancreatic Cancer Sequencing Initiative&lt;/CENTER_PROJECT_NAME&gt;
+            &lt;CENTER_PROJECT_NAME&gt;TODO: Project Name (eg. Pancreatic Cancer Sequencing Initiative)&lt;/CENTER_PROJECT_NAME&gt;
         &lt;/DESCRIPTOR&gt;
         &lt;STUDY_ATTRIBUTES&gt;
             &lt;STUDY_ATTRIBUTE&gt;
@@ -806,11 +805,11 @@
             &lt;/STUDY_ATTRIBUTE&gt;
             &lt;STUDY_ATTRIBUTE&gt;
                 &lt;TAG&gt;Consortium Project Name&lt;/TAG&gt;
-                &lt;VALUE&gt;Pancreatic Cancer - CA&lt;/VALUE&gt;
+                &lt;VALUE&gt;TODO: TAG VALUE MUST CORRESPOND TO Project Name listed in http://docs.icgc.org/submission/projects/&lt;/VALUE&gt;
             &lt;/STUDY_ATTRIBUTE&gt;
             &lt;STUDY_ATTRIBUTE&gt;
                 &lt;TAG&gt;Consortium Project Code&lt;/TAG&gt;
-                &lt;VALUE&gt;PACA-CA&lt;/VALUE&gt;
+                &lt;VALUE&gt;TODO: TAG VALUE MUST CORRESPOND TO ICGC PROJECT CODE (eg. PACA-CA). DCC Project codes can be found at http://docs.icgc.org/submission/projects/&lt;/VALUE&gt;
             &lt;/STUDY_ATTRIBUTE&gt;
         &lt;/STUDY_ATTRIBUTES&gt;
     &lt;/STUDY&gt;
@@ -820,27 +819,22 @@
 <h4 id="sample-experiment-and-run-xml-files">SAMPLE, EXPERIMENT and RUN XML files</h4>
 <p>For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.</p>
 <h5 id="fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</h5>
-<pre><code class="xml">&lt;SAMPLE alias=&quot;CLLS0123&quot; ….&gt;
-    &lt;SAMPLE_ATTRIBUTES&gt;
-        &lt;SAMPLE_ATTRIBUTE&gt;
-            &lt;TAG&gt;Sample ID&lt;/TAG&gt;
-            &lt;VALUE&gt;CLLS0123&lt;/VALUE&gt;
-        &lt;/SAMPLE_ATTRIBUTE&gt;
-        &lt;SAMPLE_ATTRIBUTE&gt;
-            &lt;TAG&gt;Donor ID&lt;/TAG&gt;
-            &lt;VALUE&gt;CLLD0015&lt;/VALUE&gt;
-        &lt;/SAMPLE_ATTRIBUTE&gt;
-    &lt;SAMPLE_ATTRIBUTES&gt;
-&lt;/SAMPLE&gt;
-</code></pre>
-
+<p>NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id
+<img alt="" src="../../../../submissions/images/EGA_Sample_Metadata_XML.png" /></p>
 <h5 id="fragment-of-the-experiment-xml-file">Fragment of the EXPERIMENT XML file</h5>
 <pre><code class="xml">&lt;EXPERIMENT_SET&gt;
     &lt;EXPERIMENT alias=&quot;EXP12345&quot; … &gt;
         &lt;STUDY_REF refname=&quot;Pancreatic Cancer Genome Sequencing&quot; /&gt;
         .......
         &lt;DESIGN&gt;
-            &lt;SAMPLE_DESCRIPTOR refname=&quot;CLLS0123&quot; /&gt;
+            &lt;SAMPLE_DESCRIPTOR refname=&quot;TODO: SHOULD MATCH DCC-SUBMITTED analyzed_sample_id&quot; /&gt;
+        .......
+        &lt;LIBRARY_DESCRIPTOR&gt;
+           &lt;LIBRARY_STRATEGY&gt;
+              TODO: MUST MATCH DCC-SUBMITTED sequencing_strategy field
+           &lt;/LIBRARY_STRATEGY&gt;
+
+
 </code></pre>
 
 <h5 id="fragment-of-the-run-xml-file">Fragment of the RUN XML file</h5>
