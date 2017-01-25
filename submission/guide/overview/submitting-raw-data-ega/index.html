@@ -710,6 +710,10 @@
            
                <li class=""><a href="#sample-experiment-and-run-xml-files">SAMPLE, EXPERIMENT and RUN XML files</a>
                
+               </li>
+           
+               <li class=""><a href="#sample-xml-file">SAMPLE XML file</a>
+               
                     <ul class="nav">
                         
                         <li class=""><a href="#fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</a></li>
@@ -818,8 +822,43 @@
 
 <h4 id="sample-experiment-and-run-xml-files">SAMPLE, EXPERIMENT and RUN XML files</h4>
 <p>For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.</p>
-<h5 id="fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</h5>
+<h3 id="sample-xml-file">SAMPLE XML file</h3>
 <p>NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>VALUE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAMPLE alias</td>
+<td>DCC submitted analyzed_sample_id</td>
+</tr>
+<tr>
+<td>icgc_project_code</td>
+<td>ICGC Project code (http://docs.icgc.org/submission/projects/)</td>
+</tr>
+<tr>
+<td>submitter_donor_id</td>
+<td>DCC submitted <a href="http://docs.icgc.org/dictionary/viewer/#?q=donor_id&amp;viewMode=details&amp;dataType=donor">donor_id</a></td>
+</tr>
+<tr>
+<td>submitter_specimen_id</td>
+<td>DCC submitted <a href="http://docs.icgc.org/dictionary/viewer/#?q=specimen_id&amp;viewMode=details&amp;dataType=specimen">specimen_id</a></td>
+</tr>
+<tr>
+<td>specimen_type</td>
+<td>DCC submitted <a href="http://docs.icgc.org/dictionary/viewer/#?q=specimen_type&amp;viewMode=codelist&amp;dataType=specimen">specimen_type</a></td>
+</tr>
+<tr>
+<td>submitter_sample_id</td>
+<td>DCC submitted <a href="http://docs.icgc.org/dictionary/viewer/#?q=analyzed_sample_id&amp;viewMode=details&amp;dataType=sample">analyzed_sample_id</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</h5>
 <pre><code class="xml">&lt;SAMPLE_SET xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;ftp://ftp.sra.ebi.ac.uk/meta/xsd/sra_1_5/SRA.sample.xsd&quot;&gt;
    &lt;SAMPLE alias=&quot;MUST MATCH DCC-submitted analyzed_sample_id&quot; center_name=&quot;TODO: Enter centre name/abbreviation as specified at http://docs.icgc.org/submission/institutions/&quot;&gt;
       &lt;TITLE&gt;
@@ -857,7 +896,12 @@
              &lt;!--  http://www.ebi.ac.uk/efo/ . --&gt;
          &lt;/SAMPLE_ATTRIBUTE&gt;
          &lt;!--
-          The following sample attributes must have values that are consistent with DCC.
+          The following sample attributes must have values that are consistent with DCC:
+             1. icgc_project_code
+             2. submitter_donor_id
+             3. submitter_specimen_id
+             4. specimen_type
+             5. submitter_sample_id
           --&gt;
          &lt;SAMPLE_ATTRIBUTE&gt;
              &lt;TAG&gt;icgc_project_code&lt;/TAG&gt;
