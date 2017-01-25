@@ -94972,7 +94972,7 @@ webpackJsonp([0,2],[
 			"/@icgc/dictionary-viewer"
 		],
 		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_shasum": "1c01932442c1f9e472e8e2e04aa9672dbbe25621",
+		"_shasum": "3599bd4aa4c042d249e057dda1d47b81724813cc",
 		"_shrinkwrap": null,
 		"_spec": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
 		"_where": "/Users/hnahal/dcc-docs/node_modules/@icgc/dictionary-viewer",
