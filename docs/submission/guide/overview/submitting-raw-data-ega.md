@@ -106,7 +106,7 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 | Name | VALUE |
 | ---- | ---- |
 | SAMPLE alias | DCC submitted [analyzed_sample_id][4]
-| icgc_project_code | ICGC Project code (http://docs.icgc.org/submission/projects/) 
+| icgc_project_code | ICGC Project code [http://docs.icgc.org/submission/projects/][5] 
 | submitter_donor_id |  DCC submitted [donor_id][1] 
 | submitter_specimen_id | DCC submitted [specimen_id][2] 
 | specimen_type | DCC submitted [specimen_type][3] 
@@ -217,3 +217,4 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 [2]: http://docs.icgc.org/dictionary/viewer/#?q=specimen_id&viewMode=details&dataType=specimen
 [3]: http://docs.icgc.org/dictionary/viewer/#?q=specimen_type&viewMode=codelist&dataType=specimen
 [4]: http://docs.icgc.org/dictionary/viewer/#?q=analyzed_sample_id&viewMode=details&dataType=sample
+[5]: http://docs.icgc.org/submission/projects/
