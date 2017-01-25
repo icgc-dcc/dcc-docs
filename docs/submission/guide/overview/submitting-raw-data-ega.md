@@ -134,4 +134,4 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
         </FILES>
     </DATA_BLOCK>
 ```
-[1]: /submissions/images/EGA_Sample_Metadata_XML.png
+[1]: /submission/images/EGA_Sample_Metadata_XML.png
