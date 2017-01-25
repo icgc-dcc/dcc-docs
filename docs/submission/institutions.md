@@ -66,7 +66,7 @@
 | National Sequencing Center (Barcelona) |
 | NCI Bari (Italy) |
 | Norwegian Radium Hospital (Norway) |
-| Ontario Institute for Cancer Research |
+| Ontario Institute for Cancer Research (OICR) |
 | Osaka Medical Center for Cancer & Cardiovascular Diseases |
 | Peking University School of Oncology |
 | Peking University Third Hospital |
@@ -94,9 +94,9 @@
 | University of Tromsø (Norway) |
 | University of Verona |
 | Wakayama Medical University |
-| Wellcome Trust Sanger Institute |
+| Wellcome Trust Sanger Institute (WTSI) |
 | Westmead Institute for Cancer Research |
 | Washington University Genome Sequencing Center (St. Louis, MO) |
-| The Cancer Genome Atlas |
+| The Cancer Genome Atlas (TCGA) |
 | Nationwide Children's Hospital |
 | MD Anderson |

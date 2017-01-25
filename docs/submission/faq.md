@@ -70,8 +70,7 @@ The cross-field validation scripts are implemented in [MVEL][11]
 
 #### 15. Can I submit just clinical data without experimental data to ICGC?
 
-Please be advised that donors, specimen, and analyzed_samples with no associated experimental results will be ignored and not reported DCC Data Portal release.
-
+Yes, you can but clinical data alone is not useful and will not be counted towards an ICGC project's commitment target. We strongly encourage projects to submit molecular data as well.
 
 #### 16. What are "percentage_of_cellularity" and "level_of_cellularity" fields in the Specimen and Analyzed Sample Data File data file specifications? Do I need to fill both in?
 
