@@ -102,8 +102,71 @@ For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are pro
 
 ##### Fragment of the SAMPLE XML file
 NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id
-![][1]
 
+```xml
+<SAMPLE_SET xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ftp://ftp.sra.ebi.ac.uk/meta/xsd/sra_1_5/SRA.sample.xsd">
+   <SAMPLE alias="MUST MATCH DCC-submitted analyzed_sample_id" center_name="TODO: Enter centre name/abbreviation as specified at http://docs.icgc.org/submission/institutions/">
+      <TITLE>
+         TODO: A SHORT INFORMATIVE DESCRIPTION OF THE SAMPLE
+      </TITLE>
+      <SAMPLE_NAME>
+          <TAXON_ID>
+             TODO: PROVIDE NCBI TAXID FOR ORGANISM (e.g. 9606 for human)
+          </TAXON_ID>
+          <SCIENTIFIC_NAME>
+             TODO: SCIENTIFIC NAME AS APPEARS IN NCBI TAXONOMY FOR THE TAXON_ID (e.g. homo sapiens)
+         </SCIENTIFIC_NAME>
+         <COMMON_NAME>
+            TODO: OPTIONAL COMMON NAME AS APPEARS IN NCBI TAXONOMY FOR THE TAXON_ID (e.g. human)
+         </COMMON_NAME>
+      </SAMPLE_NAME>
+      <DESCRIPTION>
+         TODO: A LONGER DESCRIPTION OF SAMPLE AND HOW IT DIFFERS FROM OTHER SAMPLES
+      </DESCRIPTION>
+      <SAMPLE_ATTRIBUTES>
+         <!--
+            EGA requires Sample attributes Donor ID, Gender and phenotype for each sample
+         -->
+         <SAMPLE_ATTRIBUTE>
+            <TAG>subject_id</TAG>
+            <VALUE>project or DCC specific donor_id</VALUE>
+         </SAMPLE_ATTRIBUTE>
+         <SAMPLE_ATTRIBUTE>
+             <TAG>gender</TAG>
+             <VALUE>DCC-SUBMITTED donor_sex</VALUE>
+         </SAMPLE_ATTRIBUTE>
+         <SAMPLE_ATTRIBUTE>
+             <TAG>phenotype</TAG>
+             <VALUE>TODO: TAG VALUE, Experimental Ontology Factor (EFO) accession term recommended</VALUE>
+             <!--  http://www.ebi.ac.uk/efo/ . -->
+         </SAMPLE_ATTRIBUTE>
+         <!--
+          The following sample attributes must have values that are consistent with DCC.
+          -->
+         <SAMPLE_ATTRIBUTE>
+             <TAG>icgc_project_code</TAG>
+             <VALUE>TODO: TAG VALUE MUST CORRESPOND TO ICGC PROJECT CODE (eg. PACA-CA). DCC Project codes can be found at http://docs.icgc.org/submission/projects/<VALUES>
+         </SAMPLE_ATTRIBUTE>
+         <SAMPLE_ATTRIBUTE>
+            <TAG>submitter_donor_id</TAG>
+            <VALUE>DCC-submitted donor_id</VALUE>
+         </SAMPLE_ATTRIBUTE>
+                 <SAMPLE_ATTRIBUTE>
+            <TAG>submitter_specimen_id</TAG>
+            <VALUE>DCC-submitted specimen_id</VALUE>
+         </SAMPLE_ATTRIBUTE>
+         <SAMPLE_ATTRIBUTE>
+            <TAG>specimen_type</TAG>
+            <VALUE>DCC-submitted specimen_type (eg. Primary tumour - solid tissue)</VALUE>
+         </SAMPLE_ATTRIBUTE>
+         <SAMPLE_ATTRIBUTE>
+            <TAG>submitter_sample_id</TAG>
+            <VALUE>DCC-submitted analyzed_sample_id</VALUE>
+         </SAMPLE_ATTRIBUTE>
+      </SAMPLE_ATTRIBUTES>
+   </SAMPLE>
+</SAMPLE_SET>
+```
 
 ##### Fragment of the EXPERIMENT XML file
 
