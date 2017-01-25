@@ -819,8 +819,71 @@
 <h4 id="sample-experiment-and-run-xml-files">SAMPLE, EXPERIMENT and RUN XML files</h4>
 <p>For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.</p>
 <h5 id="fragment-of-the-sample-xml-file">Fragment of the SAMPLE XML file</h5>
-<p>NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id
-<img alt="" src="../../../../submission/images/EGA_Sample_Metadata_XML.png" /></p>
+<p>NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id</p>
+<pre><code class="xml">&lt;SAMPLE_SET xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;ftp://ftp.sra.ebi.ac.uk/meta/xsd/sra_1_5/SRA.sample.xsd&quot;&gt;
+   &lt;SAMPLE alias=&quot;MUST MATCH DCC-submitted analyzed_sample_id&quot; center_name=&quot;TODO: Enter centre name/abbreviation as specified at http://docs.icgc.org/submission/institutions/&quot;&gt;
+      &lt;TITLE&gt;
+         TODO: A SHORT INFORMATIVE DESCRIPTION OF THE SAMPLE
+      &lt;/TITLE&gt;
+      &lt;SAMPLE_NAME&gt;
+          &lt;TAXON_ID&gt;
+             TODO: PROVIDE NCBI TAXID FOR ORGANISM (e.g. 9606 for human)
+          &lt;/TAXON_ID&gt;
+          &lt;SCIENTIFIC_NAME&gt;
+             TODO: SCIENTIFIC NAME AS APPEARS IN NCBI TAXONOMY FOR THE TAXON_ID (e.g. homo sapiens)
+         &lt;/SCIENTIFIC_NAME&gt;
+         &lt;COMMON_NAME&gt;
+            TODO: OPTIONAL COMMON NAME AS APPEARS IN NCBI TAXONOMY FOR THE TAXON_ID (e.g. human)
+         &lt;/COMMON_NAME&gt;
+      &lt;/SAMPLE_NAME&gt;
+      &lt;DESCRIPTION&gt;
+         TODO: A LONGER DESCRIPTION OF SAMPLE AND HOW IT DIFFERS FROM OTHER SAMPLES
+      &lt;/DESCRIPTION&gt;
+      &lt;SAMPLE_ATTRIBUTES&gt;
+         &lt;!--
+            EGA requires Sample attributes Donor ID, Gender and phenotype for each sample
+         --&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+            &lt;TAG&gt;subject_id&lt;/TAG&gt;
+            &lt;VALUE&gt;project or DCC specific donor_id&lt;/VALUE&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+             &lt;TAG&gt;gender&lt;/TAG&gt;
+             &lt;VALUE&gt;DCC-SUBMITTED donor_sex&lt;/VALUE&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+             &lt;TAG&gt;phenotype&lt;/TAG&gt;
+             &lt;VALUE&gt;TODO: TAG VALUE, Experimental Ontology Factor (EFO) accession term recommended&lt;/VALUE&gt;
+             &lt;!--  http://www.ebi.ac.uk/efo/ . --&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+         &lt;!--
+          The following sample attributes must have values that are consistent with DCC.
+          --&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+             &lt;TAG&gt;icgc_project_code&lt;/TAG&gt;
+             &lt;VALUE&gt;TODO: TAG VALUE MUST CORRESPOND TO ICGC PROJECT CODE (eg. PACA-CA). DCC Project codes can be found at http://docs.icgc.org/submission/projects/&lt;VALUES&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+            &lt;TAG&gt;submitter_donor_id&lt;/TAG&gt;
+            &lt;VALUE&gt;DCC-submitted donor_id&lt;/VALUE&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+                 &lt;SAMPLE_ATTRIBUTE&gt;
+            &lt;TAG&gt;submitter_specimen_id&lt;/TAG&gt;
+            &lt;VALUE&gt;DCC-submitted specimen_id&lt;/VALUE&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+            &lt;TAG&gt;specimen_type&lt;/TAG&gt;
+            &lt;VALUE&gt;DCC-submitted specimen_type (eg. Primary tumour - solid tissue)&lt;/VALUE&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+         &lt;SAMPLE_ATTRIBUTE&gt;
+            &lt;TAG&gt;submitter_sample_id&lt;/TAG&gt;
+            &lt;VALUE&gt;DCC-submitted analyzed_sample_id&lt;/VALUE&gt;
+         &lt;/SAMPLE_ATTRIBUTE&gt;
+      &lt;/SAMPLE_ATTRIBUTES&gt;
+   &lt;/SAMPLE&gt;
+&lt;/SAMPLE_SET&gt;
+</code></pre>
+
 <h5 id="fragment-of-the-experiment-xml-file">Fragment of the EXPERIMENT XML file</h5>
 <pre><code class="xml">&lt;EXPERIMENT_SET&gt;
     &lt;EXPERIMENT alias=&quot;EXP12345&quot; … &gt;
