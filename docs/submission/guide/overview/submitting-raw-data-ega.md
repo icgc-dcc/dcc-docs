@@ -18,7 +18,7 @@ Submissions from ICGC members do not need to include a dac.xml, as the ICGC DAC 
 ```xml
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <POLICY_SET>
-    <POLICY alias="ICGC Data Access Agreements" center_name="YOUR_CENTER_NAME_HERE" broker_name="EGA">
+    <POLICY alias="ICGC Data Access Agreements" center_name="YOUR_CENTER_NAME_HERE. See http://docs.icgc.org/submission/institutions/ (eg. OICR)" broker_name="EGA">
         <TITLE>ICGC Data Access</TITLE>
         <DAC_REF refname="ICGC Cancer Genome Projects" refcenter="ICGC"/>
         <DAC_REF accession="EGAC00001000010"/>
@@ -35,9 +35,9 @@ Submissions from ICGC members do not need to include a dac.xml, as the ICGC DAC 
 </POLICY_SET>
 ```
 
-* Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions of this manual.
-* If your center’s name is incorrect or missing from here, please contact the DCC to have your center’s record added or revised.
+* Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions at http://docs.icgc.org/submission/institutions/. If your center’s name is incorrect or missing from here, please contact the DCC at dcc-support@icgc.org to have your center’s record added or revised.
 * The value of center_name should reflect the submitter’s affiliation and should remain consistent in the metadata XML for all subsequent submissions to EGA.
+
 #### DATASET and STUDY XML files
 
 The following examples of DATASET and STUDY xml files are written as per EGA's specifications with key items required for all ICGC submissions populated.
@@ -69,14 +69,14 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <STUDY_SET>
-    <STUDY alias="Pancreatic Cancer Genome Sequencing" center_name="OICR">
+    <STUDY alias="TODO: UNIQUE NAME FOR SUBMISSION (eg. Pancreatic Cancer Genome Sequencing)" center_name="TODO: centre name/abbreviation found at http://docs.icgc.org/submission/institutions/ (eg. OICR)">
         <DESCRIPTOR>
-            <STUDY_TITLE>Title of publication</STUDY_TITLE>
+            <STUDY_TITLE>TODO: Title of publication</STUDY_TITLE>
             <STUDY_TYPE existing_study_type="Whole Genome Sequencing"/>
             <STUDY_ABSTRACT>
-                STUDY ABSTRACT AS IT COULD APPEAR IN A PUBLICATION
+                TODO: STUDY ABSTRACT AS IT COULD APPEAR IN A PUBLICATION
             </STUDY_ABSTRACT>
-            <CENTER_PROJECT_NAME>Pancreatic Cancer Sequencing Initiative</CENTER_PROJECT_NAME>
+            <CENTER_PROJECT_NAME>TODO: Project Name (eg. Pancreatic Cancer Sequencing Initiative)</CENTER_PROJECT_NAME>
         </DESCRIPTOR>
         <STUDY_ATTRIBUTES>
             <STUDY_ATTRIBUTE>
@@ -85,11 +85,11 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
             </STUDY_ATTRIBUTE>
             <STUDY_ATTRIBUTE>
                 <TAG>Consortium Project Name</TAG>
-                <VALUE>Pancreatic Cancer - CA</VALUE>
+                <VALUE>TODO: TAG VALUE MUST CORRESPOND TO Project Name listed in http://docs.icgc.org/submission/projects/</VALUE>
             </STUDY_ATTRIBUTE>
             <STUDY_ATTRIBUTE>
                 <TAG>Consortium Project Code</TAG>
-                <VALUE>PACA-CA</VALUE>
+                <VALUE>TODO: TAG VALUE MUST CORRESPOND TO ICGC PROJECT CODE (eg. PACA-CA). DCC Project codes can be found at http://docs.icgc.org/submission/projects/</VALUE>
             </STUDY_ATTRIBUTE>
         </STUDY_ATTRIBUTES>
     </STUDY>
@@ -101,21 +101,9 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
 For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.
 
 ##### Fragment of the SAMPLE XML file
+NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id
+![][1]
 
-```xml
-<SAMPLE alias="CLLS0123" ….>
-    <SAMPLE_ATTRIBUTES>
-        <SAMPLE_ATTRIBUTE>
-            <TAG>Sample ID</TAG>
-            <VALUE>CLLS0123</VALUE>
-        </SAMPLE_ATTRIBUTE>
-        <SAMPLE_ATTRIBUTE>
-            <TAG>Donor ID</TAG>
-            <VALUE>CLLD0015</VALUE>
-        </SAMPLE_ATTRIBUTE>
-    <SAMPLE_ATTRIBUTES>
-</SAMPLE>
-```
 
 ##### Fragment of the EXPERIMENT XML file
 
@@ -125,7 +113,14 @@ For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are pro
         <STUDY_REF refname="Pancreatic Cancer Genome Sequencing" />
         .......
         <DESIGN>
-            <SAMPLE_DESCRIPTOR refname="CLLS0123" />
+            <SAMPLE_DESCRIPTOR refname="TODO: SHOULD MATCH DCC-SUBMITTED analyzed_sample_id" />
+        .......
+        <LIBRARY_DESCRIPTOR>
+           <LIBRARY_STRATEGY>
+              TODO: MUST MATCH DCC-SUBMITTED sequencing_strategy field
+           </LIBRARY_STRATEGY>
+
+
 ```
 
 ##### Fragment of the RUN XML file
@@ -139,3 +134,4 @@ For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are pro
         </FILES>
     </DATA_BLOCK>
 ```
+[1]: /submissions/images/EGA_Sample_Metadata_XML.png
