@@ -2,6 +2,13 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### 4.4.3 - January 30th, 2017
+* Added new page not found redirection
+* New share link popover behaviour 
+* Fix to reported sizes in the UI, will use base 10 instead of base 2. 
+* New page for searching [Compounds](https://dcc.icgc.org/compounds)
+* Minor bug fixes
+
 #### 4.2.6 - July 5th, 2016
 * Added support for new [Download Service](https://download.icgc.org/)
 * Added ability to stream directly from [Advanced Search](https://dcc.icgc.org/search) after clicking on "Download Donor Data"
