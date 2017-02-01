@@ -1,11 +1,12 @@
 # Submitting Raw Data to EGA
 
-The following instructions are meant to provide ICGC members with guidance on submitting raw sequence data to the European Genome-Phenome Archive (EGA). ICGC members are encouraged to consult the EGA guidelines prior to data submission. Detailed instructions on data submission are available EGA website at  and an FAQ is provided at .
+As part of the EGA submission process, EGA requires metadata in order to associate samples with the raw files you uploaded. This metadata is crucial for users to map your DCC-submitted samples to raw data files at EGA. The following instructions are meant to provide ICGC members with guidance on submitting metadata to the European Genome-Phenome Archive (EGA). ICGC members are encouraged to consult the [EGA submission guidelines][7] prior to data submission. 
 
 
-#### Overview of the EGA metadata xml files
+## Overview of the EGA metadata XML files
 
-![](/submission/images/ega-meta.png)
+![](/submission/images/sequencing-based_ega_metadata..png)
+![](/submission/images/array-based_ega_metadata.png)
 
 Below are example template files for POLICY, STUDY, DATASET, SAMPLE, EXPERIMENT, and RUN metadata.
 
@@ -13,7 +14,7 @@ Below are example template files for POLICY, STUDY, DATASET, SAMPLE, EXPERIMENT,
 Submissions from ICGC members do not need to include a dac.xml, as the ICGC DAC (Data Access Committee) already exists in the EGA system. The submitters only need to refer to the ICGC DAC in the policy.xml, as shown in the following policy.xml example.
 ```
 
-#### POLICY XML file
+### POLICY XML file
 
 ```xml
 <?xml version = '1.0' encoding = 'UTF-8'?>
@@ -35,14 +36,14 @@ Submissions from ICGC members do not need to include a dac.xml, as the ICGC DAC 
 </POLICY_SET>
 ```
 
-* Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions at http://docs.icgc.org/submission/institutions/. If your center’s name is incorrect or missing from here, please contact the DCC at dcc-support@icgc.org to have your center’s record added or revised.
+* Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions at <http://docs.icgc.org/submission/institutions/>. If your center’s name is incorrect or missing from here, please contact the DCC at <dcc-support@icgc.org> to have your center’s record added or revised.
 * The value of center_name should reflect the submitter’s affiliation and should remain consistent in the metadata XML for all subsequent submissions to EGA.
 
-#### DATASET and STUDY XML files
+## DATASET and STUDY XML files
 
-The following examples of DATASET and STUDY xml files are written as per EGA's specifications with key items required for all ICGC submissions populated.
+The following examples of DATASET and STUDY xml files are written as per EGA's specifications with key items required for all ICGC submissions populated with examples.
 
-##### DATASET XML file
+### DATASET XML file
 
 ```xml
 <?xml version = '1.0' encoding = 'UTF-8'?>
@@ -64,12 +65,12 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
 </DATASETS>
 ```
 
-##### STUDY XML file
+### STUDY XML file
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <STUDY_SET>
-    <STUDY alias="TODO: UNIQUE NAME FOR SUBMISSION (eg. Pancreatic Cancer Genome Sequencing)" center_name="TODO: centre name/abbreviation found at http://docs.icgc.org/submission/institutions/ (eg. OICR)">
+    <STUDY alias="TODO: UNIQUE NAME FOR SUBMISSION (eg. Pancreatic Cancer Genome Sequencing)" center_name="TODO: center name/abbreviation found at http://docs.icgc.org/submission/institutions/ (eg. OICR)">
         <DESCRIPTOR>
             <STUDY_TITLE>TODO: Title of publication</STUDY_TITLE>
             <STUDY_TYPE existing_study_type="Whole Genome Sequencing"/>
@@ -96,24 +97,25 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
 </STUDY_SET>
 ```
 
-#### SAMPLE, EXPERIMENT and RUN XML files
+## SAMPLE, EXPERIMENT and RUN XML files
 For SAMPLE, EXPERIMENT and RUN metadata, only fragments of the XML files are provided to illustrate how certain IDs are referenced across files.
 
-##### SAMPLE XML file
+### SAMPLE XML file
 
 NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submitted analyzed_sample_id
 
 | Name | VALUE |
 | ---- | ---- |
 | SAMPLE alias | DCC submitted [analyzed_sample_id][4]
-| icgc_project_code | ICGC Project code [http://docs.icgc.org/submission/projects/][5] 
+| icgc_project_code | ICGC Project code [http://docs.icgc.org/submission/projects/][6] 
 | submitter_donor_id |  DCC submitted [donor_id][1] 
 | submitter_specimen_id | DCC submitted [specimen_id][2] 
 | specimen_type | DCC submitted [specimen_type][3] 
 | submitter_sample_id | DCC submitted [analyzed_sample_id][4]
+| gender | DCC submitted [donor_sex][5]
 
 
-##### Fragment of the SAMPLE XML file
+### Fragment of the SAMPLE XML file
 ```xml
 <SAMPLE_SET xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ftp://ftp.sra.ebi.ac.uk/meta/xsd/sra_1_5/SRA.sample.xsd">
    <SAMPLE alias="MUST MATCH DCC-submitted analyzed_sample_id" center_name="TODO: Enter centre name/abbreviation as specified at http://docs.icgc.org/submission/institutions/">
@@ -184,7 +186,7 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 </SAMPLE_SET>
 ```
 
-##### Fragment of the EXPERIMENT XML file
+### Fragment of the EXPERIMENT XML file
 
 ```xml
 <EXPERIMENT_SET>
@@ -202,7 +204,7 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 
 ```
 
-##### Fragment of the RUN XML file
+### Fragment of the RUN XML file
 
 ```xml
 <RUN alias="SC_RUN_4000_2"/>
@@ -213,8 +215,20 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
         </FILES>
     </DATA_BLOCK>
 ```
+
+## Helpful Links at EGA:
+* [Quick Guide to submitting data to EGA][7]
+* [Preparing EGA XMLs][8]
+* [Submitting Metadata for Sequencing-based raw data][9]
+* [Submitting Metadata for Array-based raw data][10]
+
 [1]: http://docs.icgc.org/dictionary/viewer/#?q=donor_id&viewMode=details&dataType=donor
 [2]: http://docs.icgc.org/dictionary/viewer/#?q=specimen_id&viewMode=details&dataType=specimen
 [3]: http://docs.icgc.org/dictionary/viewer/#?q=specimen_type&viewMode=codelist&dataType=specimen
 [4]: http://docs.icgc.org/dictionary/viewer/#?q=analyzed_sample_id&viewMode=details&dataType=sample
-[5]: http://docs.icgc.org/submission/projects/
+[5]: http://docs.icgc.org/dictionary/viewer/#?q=donor_sex&viewMode=codelist&dataType=donor
+[6]: http://docs.icgc.org/submission/projects/
+[7]: https://ega-archive.org/quickguide 
+[8]: https://ega-archive.org/submission/sequence/programmatic_submissions/prepare_xml
+[9]: https://ega-archive.org/submission/sequence/metadata
+[10]: https://ega-archive.org/submission/array_based/metadata
