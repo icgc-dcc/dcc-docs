@@ -5,8 +5,8 @@ As part of the EGA submission process, EGA requires metadata in order to associa
 
 ## Overview of the EGA metadata XML files
 
-![](/submission/images/sequencing-based_ega_metadata..png)
-![](/submission/images/array-based_ega_metadata.png)
+![](/submission/images/sequencing-based_ega_metadata_model.png)
+![](/submission/images/array-based_ega_metadata_model.png)
 
 Below are example template files for POLICY, STUDY, DATASET, SAMPLE, EXPERIMENT, and RUN metadata.
 
