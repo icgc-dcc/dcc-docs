@@ -2,6 +2,10 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### 5.0.4 - February 7th, 2017
+* DCC Portal has been updated to support Elasticsearch 5.1.2 
+* Minor bug fixes
+
 #### 4.4.3 - January 30th, 2017
 * Added new page not found redirection
 * New share link popover behaviour 
