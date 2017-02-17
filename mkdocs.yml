@@ -59,6 +59,7 @@ pages:
   - Viewer: 'dictionary/viewer.md'
   - Release Notes:
     - Releases: 'dictionary/releases.md'
+    - Release 24: 'dictionary/release-24.md'
     - Release 23: 'dictionary/release-23.md'
     - Release 22: 'dictionary/release-22.md'
     - Release 21: 'dictionary/release-21.md'
