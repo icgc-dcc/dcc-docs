@@ -2,6 +2,7 @@
 
 This pages lists the dictionary release notes for each submission cycle. You can find additional details by following the links below.
 
+* [Dictionary v0.16a (Feb., 2017, Current for Release 24)][10]
 * [Dictionary v0.15a (Oct., 2016, Current for Release 23)][9]
 * [Dictionary v0.14a (May 2016, Current for Release 22)][8]
 * [Dictionary v0.13b (March 2016, Current for Release 21)][7]
@@ -21,3 +22,4 @@ This pages lists the dictionary release notes for each submission cycle. You can
 [7]: release-21.md
 [8]: release-22.md
 [9]: release-23.md
+[10]: release-24.md
