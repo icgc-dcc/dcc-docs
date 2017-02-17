@@ -75,6 +75,7 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | PBCA-DE |  Pediatric Brain Cancer - DE |  Germany |
 | PEME-CA |  Pediatric Medulloblastoma - CA |  Canada |
 | PRAD-CA |  Prostate Adenocarcinoma - CA |  Canada |
+| PRAD-FR |  Prostate Cancer - Adenocarcinoma - FR |  France |
 | PRAD-CN |  Prostate cancer - CN |  China |
 | PRAD-UK |  Prostate Adenocarcinoma - UK |  United Kingdom |
 | PRAD-US |  Prostate Adenocarcinoma - TCGA, US |  US |
@@ -91,5 +92,6 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | THCA-CN |  Thyroid papillary carcinoma - CN |  China |
 | THCA-SA |  Thyroid Cancer - SA |  Saudi Arabia |
 | THCA-US |  Head and Neck Thyroid Carcinoma - TCGA, US |  US |
+| UTCA-FR |  Uterine Cancer - Carcinosarcoma - FR | France |
 | UCEC-US |  Uterine Corpus Endometrial Carcinoma- TCGA, US |  US |
 | WT-US |  Wilms Tumor - TARGET, US |  US |  
