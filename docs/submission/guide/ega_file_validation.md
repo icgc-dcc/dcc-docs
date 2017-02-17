@@ -7,7 +7,7 @@ ICGC member projects are required by [ICGC policy][1], to submit their raw seque
 
 ### EGA File Accession Validation Check
 
-As of Release 23, a new validation rule will take effect requiring all new data submissions to submit an EGA File accession in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. This new validation check will validate the existence of the raw file at EGA, meaning all submissions with **unpublished** files at EGA will be **invalid**. 
+All new data submissions are required to submit an EGA File accession in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. This validation check will validate the existence of the raw file at EGA, meaning all submissions with **unpublished** files at EGA will be **invalid**. 
 
 | Field Name | Note |
 | --- | --- |
