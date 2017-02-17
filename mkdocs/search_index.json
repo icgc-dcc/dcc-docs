@@ -726,6 +726,16 @@
             "title": "Dictionary Release Notes"
         }, 
         {
+            "location": "/dictionary/release-24/", 
+            "text": "Dictionary v0.16a\n\n\nFeb 2017, Current for Release 24\n\n\nFeb 17, 2017\n\n\nUpdated to dictionary version 0.16a. Change between 0.16a and 0.15a:\n\n\n\n\nAdded ArrayExpress to 'raw_data_repository'\n\n\nUpdated script validation check for 'raw_data_accession' to allow for ArrayExpress accessions when 'raw_data_repository' is ArrayExpress ('7')", 
+            "title": "Release 24"
+        }, 
+        {
+            "location": "/dictionary/release-24/#dictionary-v016a", 
+            "text": "Feb 2017, Current for Release 24  Feb 17, 2017  Updated to dictionary version 0.16a. Change between 0.16a and 0.15a:   Added ArrayExpress to 'raw_data_repository'  Updated script validation check for 'raw_data_accession' to allow for ArrayExpress accessions when 'raw_data_repository' is ArrayExpress ('7')", 
+            "title": "Dictionary v0.16a"
+        }, 
+        {
             "location": "/dictionary/release-23/", 
             "text": "Dictionary v0.15a\n\n\nOct 2016, Current for Release 23\n\n\nOct 7, 2016\n\n\nUpdated to dictionary version 0.15a. Change between 0.15a and 0.14a:\n\n\n\n\nUpdated script validation check for 'raw_data_accession' to allow multiple EGA File accessions (EGAF*) when 'raw_data_repository' is EGA ('1')\n\n\nUpdated script validation check for 'donor_survival_time' to disallow 'donor_survival_time' = 0 when 'donor_vital_status' is alive ('1')", 
             "title": "Release 23"
