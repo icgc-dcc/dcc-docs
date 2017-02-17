@@ -2,7 +2,7 @@
 
 ## Summary
 
-ICGC member projects are required by [ICGC policy][1], to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for ICGC sequencing reads is the European Bioinformatics Institute's (EBI), European Genome-phenome Archive (EGA). When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply accession identifiers where the data has been archived. Projects are required to populate the 'raw_data_accession' field found in the experimental metadata files with these EGA accession identifiers. This enables data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. 
+ICGC member projects are required by [ICGC policy][1], to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for non-US ICGC projects' sequencing reads is the European Bioinformatics Institute's (EBI), [European Genome-phenome Archive (EGA)][3]. When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply file accession identifiers (of the format EGAF*) for each raw data file archived. Projects are required to populate the DCC 'raw_data_accession' field found in the [experimental metadata files][4] with these EGA File accession identifiers. These accession identifiers enable data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. 
 
 
 ### EGA File Accession Validation Check
@@ -16,7 +16,12 @@ As of Release 23, a new validation rule will take effect requiring all new data 
 
 ### Where to get the EGA File Accession:
 
-[EGA][3] provides a **Sample_File.map** mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: https://ega-archive.org/datasets/[EGA Dataset Accession ID], click on "Download Metadata" (Note: You must log into EGA to do this). This will download a file [EGA Dataset Accession ID].tar.gz. Once decompressed, the mapping file can be found at  [EGA Dataset Accession ID]/delimited_maps/Sample_File.map. Please submit the EGA File accession ID(s) for each sample ID in your DCC submission.
+[EGA][3] provides a **Sample_File.map** mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: 
+* Ensure you are logged into EGA
+* Go to the EGA Dataset page: https://ega-archive.org/datasets/[EGA Dataset Accession ID]
+* Click on "Download Metadata". This will download a file [EGA Dataset Accession ID].tar.gz. 
+* Once decompressed, the mapping file can be found at [EGA Dataset Accession ID]/delimited_maps/Sample_File.map. 
+* Please submit the EGA File accession ID(s) for each sample ID in your DCC submission.
 
 If the metadata for a given EGA Dataset has not been released and is not available via the website (and therefore cannot be downloaded as a tarball file), please contact EGA HelpDesk at [ega-helpdesk@ebi.ac.uk][2] who will provide data submitters with the Sample ID to EGA File Accession ID mapping information. 
 
@@ -46,6 +51,8 @@ The DCC Submission system will report the following error message if an EGA File
 Solution:
 * An EGA File accession (EGAF*) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".
 
+
 [1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
 [2]: ega-helpdesk@ebi.ac.uk
 [3]: https://ega-archive.org
+[4]: http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&viewMode=graph
