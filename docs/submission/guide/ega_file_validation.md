@@ -17,6 +17,7 @@ As of Release 23, a new validation rule will take effect requiring all new data 
 ### Where to get the EGA File Accession:
 
 [EGA][3] provides a **Sample_File.map** mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: 
+
 * Ensure you are logged into EGA
 * Go to the EGA Dataset page: https://ega-archive.org/datasets/[EGA Dataset Accession ID]
 * Click on "Download Metadata". This will download a file [EGA Dataset Accession ID].tar.gz. 
