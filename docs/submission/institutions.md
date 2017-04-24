@@ -58,7 +58,7 @@
 | Memorial Sloan-Kettering Cancer Center (New York, NY) |
 | Mount Sinai Hospital (Toronto) |
 | National Bioinformatics Institute |
-| National Cancer Center |
+| National Cancer Center Singapore|
 | National Center for tumour Diseases (Heidelberg) |
 | National DNA and tumour Bank Networks |
 | National Institute of Biomedical Genomics (Kalyani) |
@@ -77,7 +77,7 @@
 | Research Center for Advanced Science and Technology, University of Tokyo |
 | RIKEN |
 | Silicon Graphics Inc. |
-| Singapore General Hospital (Hong Kong) |
+| Singapore General Hospital |
 | Spanish Cancer Research Network |
 | Spanish National Cancer Research Centre (CNIO-Madrid) |
 | UCSF |
