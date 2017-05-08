@@ -14,7 +14,7 @@ Reusable software modules used throughout the ICGC DCC projects described here.
 ### Installation System (`dcc-cm`)
 [Configuration Management GitHub repository](https://github.com/icgc-dcc/dcc-cm)
 
-Installation automation and [configuration management](https://www.wikiwand.com/en/Configuration_management) (CM) system for DCC operational environments.
+Installation automation and [configuration management](https://en.wikipedia.org/wiki/Configuration_management) (CM) system for DCC operational environments.
 
 This project includes [Ansible](https://www.ansible.com/) playbooks for provisioning ETL, Portal, Downloader and Submission systems as well
 as docker containers for provisioning software on docker hosts.

@@ -91,7 +91,7 @@ Selected 4(four) out of 7(seven) files in the same repository.
 Only one Manifest file because the 4(four) files were in the same repository.
 
 **Note**
-For repositories such as Collaboratory and [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws/), the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click [here](/cloud/guide.md#overview)
+For repositories such as Collaboratory and [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws/), the Manifest ID is enough to download the requested files. For more detail on downloading these two files, click [here](/cloud/guide/#overview)
 
 ### Donor Sets
 

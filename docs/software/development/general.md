@@ -1,6 +1,6 @@
 # General
 
-This section outlines the general conventions used while developing. If you have not first followed the [setup](/software/development/setup.md) instructions, please do so first.
+This section outlines the general conventions used while developing. If you have not first followed the [setup](/software/development/setup/) instructions, please do so first.
 
 ## Common
 

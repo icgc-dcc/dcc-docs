@@ -99,4 +99,4 @@ The table below highlights the differences between VCF-like mutation format and 
 
 ### Germline Data Masking
 
-As of Release 15, ICGC DCC will be censoring the patient's germline genotype in Simple Somatic Mutation data in the case where genotype consists of allele(s) that does not match the reference genome allele. Detailed explanation is [here](/portal/methods.md#germline-data-masking).
+As of Release 15, ICGC DCC will be censoring the patient's germline genotype in Simple Somatic Mutation data in the case where genotype consists of allele(s) that does not match the reference genome allele. Detailed explanation is [here](/portal/methods/#germline-data-masking).

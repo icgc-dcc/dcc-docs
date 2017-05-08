@@ -57,7 +57,7 @@ _Revisions to CV Tables:_
 * New more comprehensive specimen types.
 * In line with PanCancer tumour/normal designations
 
-[1]: https://docs.icgc.org/specimen-type-mapping
+[1]: /specimen-type-mapping-09a/
 [2]: http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_type.v1
 [3]: https://docs.icgc.org/controlled-vocabulary-09a#specimen.0.specimen_type.v3
 [4]: https://docs.icgc.org/controlled-vocabulary#specimen.0.specimen_type.v3

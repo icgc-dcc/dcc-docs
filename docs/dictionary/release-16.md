@@ -77,5 +77,5 @@ _Revisions to Data Elements: Changes_
 [11]: http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m
 [12]: http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-primary-file-p
 [13]: http://docs.icgc.org/methylation-array-manifests
-[14]: http://submissions.dcc.icgc.org/dictionary.html
-[15]: https://submissions.dcc.icgc.org/dictionary.html
+[14]: http://docs.icgc.org/dictionary/viewer/
+[15]: http://docs.icgc.org/dictionary/viewer/

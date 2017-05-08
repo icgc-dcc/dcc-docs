@@ -28,6 +28,6 @@ _Revisions to CV Tables:_
 
 * New raw data repository TARGET added to codelist.
 
-Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out [here](https://submissions.dcc.icgc.org/dictionary.html)
+Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out [here](http://docs.icgc.org/dictionary/viewer/)
 
 [1]: https://docs.icgc.org/controlled-vocabulary#GLOBAL.0.raw_data_repository.v2

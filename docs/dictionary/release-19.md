@@ -80,4 +80,4 @@ All Files
 | other_therapy | New clinical field for PCAWG data |
 | other_therapy_response | New clinical field for PCAWG data |
 
-Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out [here](https://submissions.dcc.icgc.org/dictionary.html)
+Dictionary viewer Tool highlights differences between different dictionary versions. Please try it out [here](http://docs.icgc.org/dictionary/viewer/)

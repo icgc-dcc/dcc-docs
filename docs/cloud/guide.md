@@ -60,7 +60,7 @@ DACO Cloud Access is prerequisite to using the Storage Client. To apply for DACO
 
 The Access Token model used for protecting the cloud data set follows a similar process to Github’s [personal access tokens](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Tokens are used instead of a username / password to securely access ICGC resources.
 
-Related to Access Tokens is the concept of _Scopes_. Tokens allow you to associate Scopes which limit access to that needed for the target environment. This enhances security by following the [Principle of Least Privilege](http://www.wikiwand.com/en/Principle_of_least_privilege). Cloud specific Scopes will become available after acquiring DACO Cloud Access. An instance of a cloud download token will grant access to all of the available data in that environment.
+Related to Access Tokens is the concept of _Scopes_. Tokens allow you to associate Scopes which limit access to that needed for the target environment. This enhances security by following the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Cloud specific Scopes will become available after acquiring DACO Cloud Access. An instance of a cloud download token will grant access to all of the available data in that environment.
 
 ### Token Manager
 

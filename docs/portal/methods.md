@@ -86,7 +86,7 @@ Statistical methods used in Gene Set Enrichment Analysis:
 * Benjamini-Hochberg procedure is used for multiple test correction by controlling user selected FDR threshold.
 
 [1]: ftp://ftp.ensembl.org/pub/release-75/mysql/homo_sapiens_core_75_37/
-[2]: www.sequenceontology.org
+[2]: http://www.sequenceontology.org
 [3]: http://www.ncbi.nlm.nih.gov/pubmed/?term=23900255
 [4]: http://www.sequenceontology.org/miso/current_release/term/SO:0001583
 [5]: http://www.ncbi.nlm.nih.gov/pubmed/23033316

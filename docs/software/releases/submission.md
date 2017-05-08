@@ -17,6 +17,6 @@ For more information, please see the Submission System Guide available [ here ][
 Sincerely,
 The DCC team.
 
-[1]: /submission/guide/incremental-submission-feature.md
-[2]: /submission/about.md
+[1]: /submission/guide/incremental-submission-feature/
+[2]: /submission/about/
 [3]: mailto:dcc-support@icgc.org

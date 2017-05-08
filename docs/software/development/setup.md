@@ -3,7 +3,7 @@
 
 This document details the setup instructions required to develop DCC based projects. Note that the instructions are for both frontend and backend development. It assumes that the developer is using MacOS Sierra or above.
 
-Once complete, please see [general](/software/development/general.md) for general conventions used during development.
+Once complete, please see [general](/software/development/general/) for general conventions used during development.
 
 First, ensure you have a GitHub.com account and send the username to [@btiernay](https://oicr-icgc.slack.com/messages/@btiernay/).
 
