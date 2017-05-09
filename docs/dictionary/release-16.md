@@ -2,7 +2,7 @@
 
 ### Mar., 2014. Release 16
 
-NEW: Our new Dictionary Comparison Tool highlights differences between different dictionary versions. Please try it out [here][15]
+NEW: Our new Dictionary Comparison Tool highlights differences between different dictionary versions. Please try it out [here][14]
 
 #### **March 31th 2014**
 **Change between 0.8c and 0.8d:**
@@ -12,12 +12,12 @@ NEW: Our new Dictionary Comparison Tool highlights differences between different
 #### **March 19th 2014**
 **Change between 0.8b and 0.8c:**
 
-* Changed "total_read_count" in [exp_seq_m](http://docs.icgc.org/sequencing-based-gene-expression-expseq-analysis-metadata-file-m) and [mirna_seq_m](http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m) to accept N/A reserve codes. Also added a link to WHO International Histological Classification of Tumours for the "tumour_histological_type" field in [specimen data specification](http://docs.icgc.org/specimen-data-file-specimen)
+* Changed "total_read_count" in [exp_seq_m](/dictionary/viewer/#?vFrom=0.8b&vTo=0.8c&viewMode=details&dataType=exp_seq_m) and [mirna_seq_m](/dictionary/viewer/#?vFrom=0.8b&vTo=0.8c&viewMode=details&dataType=mirna_seq_m) to accept N/A reserve codes. Also added a link to WHO International Histological Classification of Tumours for the "tumour_histological_type" field in [specimen data specification](/dictionary/viewer/#?vFrom=0.8b&vTo=0.8c&viewMode=details&dataType=specimen)
 
 #### **March 11th 2014**
 **Change between 0.8a and 0.8b:**
 
-* Added a MVEL script restriction for "mutated_to_allele" field in Simple Somatic Mutations Primary File (ssm_p). See example [here](http://docs.icgc.org/mvel-script-restriction-examples)
+* Added a MVEL script restriction for "mutated_to_allele" field in Simple Somatic Mutations Primary File (ssm_p). See example [here](/dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=ssm_p)
 
 ##### Changes to Specifications Since Version 0.7e (Jan., 2014)
 
@@ -32,7 +32,7 @@ _Improvements:_
     * Array-based Gene Expression ([exp_array_m][9] and [ exp_array_p ][10])
     * Sequencing-based miRNA Expression ([mirna_seq_m][11] and [ mirna_seq_p ][12])
 
-**NOTE:** For Array-based methylation data, probe IDs will be cross-referenced against array manifest files. Please click [ here ][13] for additional details. If your array manifest file is not included in the list, please contact DCC.
+**NOTE:** For Array-based methylation data, probe IDs will be cross-referenced against array manifest files. If your array manifest file is not included in the list, please contact DCC.
 
 * Please see our dictionary diff tool [here][14] for more information
 
@@ -64,18 +64,16 @@ _Revisions to Data Elements: Changes_
 
 
 
-[1]: https://docs.icgc.org/incremental-submission-feature
-[2]: https://docs.icgc.org/selective-validation-feature
-[3]: http://docs.icgc.org/sequencing-based-dna-methylation-methseq-analysis-metadata-file-m
-[4]: http://docs.icgc.org/sequencing-based-dna-methylation-methseq-primary-file-p
-[5]: http://docs.icgc.org/array-based-dna-methylation-metharray-analysis-metadata-file-m
-[6]: http://docs.icgc.org/array-based-dna-methylation-metharray-primary-file-p
-[7]: http://docs.icgc.org/sequencing-based-gene-expression-expseq-analysis-metadata-file-m
-[8]: http://docs.icgc.org/sequencing-based-gene-expression-expseq-primary-file-p
-[9]: http://docs.icgc.org/array-based-gene-expression-exparray-analysis-metadata-file-m
-[10]: http://docs.icgc.org/array-based-gene-expression-exparray-primary-file-p
-[11]: http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-analysis-metadata-file-m
-[12]: http://docs.icgc.org/sequencing-based-mirna-expression-mirnaseq-primary-file-p
-[13]: http://docs.icgc.org/methylation-array-manifests
-[14]: http://submissions.dcc.icgc.org/dictionary.html
-[15]: https://submissions.dcc.icgc.org/dictionary.html
+[1]: /submission/guide/incremental-submission-feature/
+[2]: /submission/guide/selective-validation-feature/
+[3]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=meth_seq_m
+[4]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=meth_seq_p
+[5]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=meth_array_m
+[6]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=meth_array_p
+[7]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=exp_seq_m
+[8]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=exp_seq_p
+[9]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=exp_array_m
+[10]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=exp_array_p
+[11]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=mirna_seq_m
+[12]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=mirna_seq_p
+[14]: /dictionary/viewer/

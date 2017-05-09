@@ -54,4 +54,4 @@ Regular expressions (in Java format) specifying the exact format required, as we
 
  
 
-[1]: https://en.wikisource.org/wiki/MVEL_Language_Guide
+[1]: https://en.wikipedia.org/wiki/MVEL

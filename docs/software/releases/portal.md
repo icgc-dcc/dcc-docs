@@ -79,7 +79,7 @@ Note that code level release notes may found on [GitHub](https://github.com/icgc
 * Bug fixes for Project Sample Sheet, Pie Chart colouring
 
 #### 3.8.14.4 - Sept 22, 2015
-* Added functionality to view files in external repositories based on filters from advanced search (Go to [https://dcc.icgc.org/search][6], select your filters then in Donor tab click on "View in External Repositories" ). Documentation is available [here](/portal/repositories.md)
+* Added functionality to view files in external repositories based on filters from advanced search (Go to [https://dcc.icgc.org/search][6], select your filters then in Donor tab click on "View in External Repositories" ). Documentation is available [here](/portal/repositories/)
 * Added functionality to download donor data and view donor sets in external repositories browser from Data Analysis (icons are available for saved donor sets here: [https://dcc.icgc.org/analysis/sets][7])
 * Added functionality to upload a donor set in Donor facet in Advanced Search ([https://dcc.icgc.org/search][6] and External Repositories browser ([https://dcc.icgc.org/repositories][1])
 * Added full screen support for Genome Viewer
@@ -92,16 +92,16 @@ Note that code level release notes may found on [GitHub](https://github.com/icgc
 * Minor bug fixes
 
 #### 3.8.8.0 - June 16, 2015
-* Added DCC - [External Repository feature][1]. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here: [https://docs.icgc.org/data-portal-usage#externalrep](https://docs.icgc.org/data-portal-usage#externalrep)
+* Added DCC - [External Repository feature][1]. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here: [http://docs.icgc.org/portal/repositories](/portal/repositories/)
 * Added Study facet to filter PCAWG (Pan-Cancer Analysis of Whole Genome) Donors in Advanced Search - Donor tab, e.g. [ PCAWG Donors in Advanced Search ][2]
 * Added support for clinical supplementary files (family, exposure, therapy). Displayed in Donor Entity Page and exported in Donors files
-* Added support for pending donors and projects. Documentation is available here: [https://docs.icgc.org/data-portal-usage#pendingdonors](https://docs.icgc.org/data-portal-usage#pendingdonors)
+* Added support for pending donors and projects.
 * Added preliminary UI / API support for "donor states". API documentation available here: [https://dcc.icgc.org/docs/](https://dcc.icgc.org/docs/)
 * Reduced project colour space to primary sites
 * Bug fixes and core javascript libraries upgrades
 
 #### 3.8.2.3 - April 7, 2015
-* Redesigned Data Analysis feature to improve user experience ([https://dcc.icgc.org/analysis/sets][7]). Documentation available [here](/portal/methods.md)
+* Redesigned Data Analysis feature to improve user experience ([https://dcc.icgc.org/analysis/sets][7]). Documentation available [here](/portal/methods/)
 * Added demo analyses: User can launch them from [https://dcc.icgc.org/analysis][5]
 * Added Phenotype Comparison analysis to Data Analysis feature ([https://dcc.icgc.org/analysis][5])
 * Added functionality to upload a custom gene set and save it in Data Analysis ([https://dcc.icgc.org/analysis/sets][7]). User can then perform analysis on saved gene set

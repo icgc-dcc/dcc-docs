@@ -54,6 +54,6 @@ Solution:
 
 
 [1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
-[2]: ega-helpdesk@ebi.ac.uk
+[2]: mailto:ega-helpdesk@ebi.ac.uk
 [3]: https://ega-archive.org
 [4]: http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&viewMode=graph

@@ -222,6 +222,6 @@ Alternatively, you can also access the JSON format of the DCC Data Specification
 </tr>
 </tbody></table>
 
-[1]: /dictionary/release-17.md
-[2]: /dictionary/viewer.md
-[3]: /submission/api.md
+[1]: /dictionary/release-17/
+[2]: /dictionary/viewer/
+[3]: /submission/api/

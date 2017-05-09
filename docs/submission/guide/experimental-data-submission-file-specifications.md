@@ -31,5 +31,5 @@ Certain data elements (ie. analysis_id, analyzed_sample_id) regarded as [identif
 * Additional experimental information, such as genes/transcript affected, annotation etc.
 * This file is optional.
 
-[1]: /submission/guide/dcc-data-element-specifications.md#data-elements-containing-identifiers
+[1]: /submission/guide/dcc-data-element-specifications/#data-elements-containing-identifiers
   

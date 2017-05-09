@@ -24,7 +24,7 @@ PCAWG data are stored in individual GNOS repositories hosted at different academ
 For more information on ICGC/TCGA PCAWG Status, please go to [http://pancancer.info/][9].  
 Please note: PCAWG data set is currently restricted to the researchers who are part of the PCAWG study and will be open to the broader community at the end of the study.
 
-[1]: http://icgc.org/daco
+[1]: https://icgc.org/daco
 [2]: http://www.ebi.ac.uk/ega/dacs/EGAC00001000010
 [3]: http://www.ebi.ac.uk/ega
 [4]: http://cancergenome.nih.gov/
@@ -34,4 +34,4 @@ Please note: PCAWG data set is currently restricted to the researchers who are p
 [8]: methods#germline-data-masking
 [9]: http://pancancer.info/
 [10]: http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v5.p5
-[11]: https://tcga-data.nci.nih.gov/tcga/tcgaAccessTiers.jsp
+[11]: https://tcga-data.nci.nih.gov/docs/publications/tcga/

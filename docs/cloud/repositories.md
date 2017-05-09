@@ -20,7 +20,7 @@ Every repository has a repository code / id that is used to identify it in the [
 ICGC projects have two separate access control bodies. US based projects are controlled by the eRA Commons and dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). 
 
 ### ICGC DACO
-Follow the proceedure outlined at the [DACO page](https:/icgc.org/daco).
+Follow the proceedure outlined at the [DACO page](https://icgc.org/daco).
 
 Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal.
 
@@ -162,7 +162,7 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 | Governing Body       | University of Chicago/Open Commons Consortium|
 | Contact              | <support@opensciencedatacloud.org>|
 | Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>|
-| ICGC Portal Page     | [Portal](http://127.0.0.1:8080/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
+| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
 | Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)|
 | Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html) |
 | Repo Code            | `pdc`|
@@ -183,7 +183,7 @@ Where the data path can be retrieved from the ICGC data portal by selecting the 
 
 The following are some general resources that may be useful to users interested in PCAWG repositories:
 
-- [Annai repository listing](https://pcawg.annailabs.com)
+- [Annai repository listing](https://pancancer-token.annailabs.com/)
 - [Analysis user guide](https://annaisystems.zendesk.com/hc/en-us/article_attachments/201188358/Pan-Cancer_Researcher_Guide.pdf)
 - [PCAWG operational reports](http://pancancer.info/)
 
