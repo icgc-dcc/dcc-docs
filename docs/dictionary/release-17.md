@@ -48,16 +48,9 @@ _Revisions to Data Elements: Changes_
 | ----- | ---- |
 | sequencing_strategy | <ul><li>Mandatory. No longer accepts -777/-888</li></ul> |
 
-
-
-_Revisions to CV Tables:_
-
-[**specimen.0.specimen_type.v3][4]**
-
 * New more comprehensive specimen types.
 * In line with PanCancer tumour/normal designations
 
-[1]: /specimen-type-mapping-09a/
-[2]: http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_type.v1
-[3]: https://docs.icgc.org/controlled-vocabulary-09a#specimen.0.specimen_type.v3
-[4]: https://docs.icgc.org/controlled-vocabulary#specimen.0.specimen_type.v3
+[1]: /dictionary/viewer/#?viewMode=report&vFrom=0.8d&vTo=0.9a&dataType=specimen
+[2]: /dictionary/viewer/#?viewMode=details&vFrom=0.8d&vTo=0.8d&dataType=specimen
+[3]: /dictionary/viewer/#?viewMode=details&vFrom=0.9a&vTo=0.9a&dataType=specimen

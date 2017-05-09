@@ -92,10 +92,10 @@ Note that code level release notes may found on [GitHub](https://github.com/icgc
 * Minor bug fixes
 
 #### 3.8.8.0 - June 16, 2015
-* Added DCC - [External Repository feature][1]. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here: [https://docs.icgc.org/portal/repositories](https://docs.icgc.org/portal/repositories)
+* Added DCC - [External Repository feature][1]. User can search for ICGC-Donor files stored in external repository and create a manifest to download them. Documentation is available here: [http://docs.icgc.org/portal/repositories](/portal/repositories/)
 * Added Study facet to filter PCAWG (Pan-Cancer Analysis of Whole Genome) Donors in Advanced Search - Donor tab, e.g. [ PCAWG Donors in Advanced Search ][2]
 * Added support for clinical supplementary files (family, exposure, therapy). Displayed in Donor Entity Page and exported in Donors files
-* Added support for pending donors and projects. Documentation is available here: [https://docs.icgc.org/data-portal-usage#pendingdonors](https://docs.icgc.org/data-portal-usage#pendingdonors)
+* Added support for pending donors and projects.
 * Added preliminary UI / API support for "donor states". API documentation available here: [https://dcc.icgc.org/docs/](https://dcc.icgc.org/docs/)
 * Reduced project colour space to primary sites
 * Bug fixes and core javascript libraries upgrades

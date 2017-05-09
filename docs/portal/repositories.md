@@ -73,7 +73,7 @@ The BAM Stats section provides general information on the BAM file selected. Thi
 
 ### Manifests
 
-After a user has identified the project files they are interested in, using download clients will be necessary to actually retrieve the data from their host repositories. There are currently two different manifest file formats in use at ICGC; XML manifests are specific to GNOS repositories and are used by the [GeneTorrent transfer client](https://cghub.ucsc.edu/software/downloads.html).
+After a user has identified the project files they are interested in, using download clients will be necessary to actually retrieve the data from their host repositories. There are currently two different manifest file formats in use at ICGC; XML manifests are specific to GNOS repositories and are used by the <strike>[GeneTorrent transfer client](https://cghub.ucsc.edu/software/downloads.html)</strike>. <sup>[No longer available]</sup>
 
 Tab-delimited .txt manifest files are used for files that are located in the AWS-Virginia or Collaboratory repos and are used by the [icgc-storage-client](/software/binaries).
 

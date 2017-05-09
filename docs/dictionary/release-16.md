@@ -32,7 +32,7 @@ _Improvements:_
     * Array-based Gene Expression ([exp_array_m][9] and [ exp_array_p ][10])
     * Sequencing-based miRNA Expression ([mirna_seq_m][11] and [ mirna_seq_p ][12])
 
-**NOTE:** For Array-based methylation data, probe IDs will be cross-referenced against array manifest files. Please click [ here ][13] for additional details. If your array manifest file is not included in the list, please contact DCC.
+**NOTE:** For Array-based methylation data, probe IDs will be cross-referenced against array manifest files. If your array manifest file is not included in the list, please contact DCC.
 
 * Please see our dictionary diff tool [here][14] for more information
 
@@ -76,5 +76,4 @@ _Revisions to Data Elements: Changes_
 [10]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=exp_array_p
 [11]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=mirna_seq_m
 [12]: /dictionary/viewer/#?vFrom=0.8a&vTo=0.8b&viewMode=details&dataType=mirna_seq_p
-[13]: http://docs.icgc.org/methylation-array-manifests
 [14]: /dictionary/viewer/
