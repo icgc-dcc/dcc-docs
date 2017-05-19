@@ -2,6 +2,12 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### 5.0.14 - May 18th, 2017
+* Updated pathway viewer to use OnoJS build
+* Improvements to Genome Viewer
+* Added Chromosome facet to advanced search
+* General UI touchups and bug fixes
+
 #### 5.0.6 - March 2nd, 2017
 * Fixes related to the ranking of search results
 * Minor UI updates
