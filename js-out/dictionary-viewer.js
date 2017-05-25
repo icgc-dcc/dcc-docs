@@ -1607,18 +1607,24 @@ webpackJsonp([0,2],[
 	////////////////////////////////////////////////////////////////////////////////
 	  TableViewer.prototype.selectDataType = function (label) {
 
+	    var wrapper = d3.selectAll('.selection_wrapper'), _this = this, timeout;
+
+	    if(!wrapper.node()) {
+	      timeout = setTimeout(function(){ _this.selectDataType(label); }, 0);
+	    } else {
+	      clearTimeout(timeout);
+	    }
+
 	    d3.select('#minimapLabel').select('span').html(label + '&nbsp;&nbsp;');
 	    d3.select('#minimapWrapper').style('display', 'none');
 
 	    window.scrollTo(0, 0);
 
-	    d3.selectAll('.selection_wrapper').style('display', 'block');
+	    wrapper.style('display', 'block');
 
 	    // if (val === 'all') {
-	    if (label === 'all') {
-	      d3.selectAll('.selection_wrapper').style('display', 'block');
-	    } else {
-	      d3.selectAll('.selection_wrapper').filter(function (section) {
+	    if(label != 'all') {
+	      wrapper.filter(function (section) {
 
 	        if (section.name === label) {
 	          return 0;
@@ -94972,7 +94978,7 @@ webpackJsonp([0,2],[
 			"/@icgc/dictionary-viewer"
 		],
 		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_shasum": "375f41304ce351359a3cc7f0cd2b17834d80dbae",
+		"_shasum": "70c573a2f1fda18ddb171918a6602dd30b8a0732",
 		"_shrinkwrap": null,
 		"_spec": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
 		"_where": "/Users/sjoshi/dcc-docs/node_modules/@icgc/dictionary-viewer",
