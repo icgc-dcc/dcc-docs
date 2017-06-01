@@ -81,7 +81,7 @@ pages:
   - Development: 
     - Setup: 'software/development/setup.md'
     - General: 'software/development/general.md'
-- PCAWG: PCAWG/index.md
+- PCAWG: pcawg/index.md
 extra:
   project_root_dir: '/'
   project_org: 'ICGC'
