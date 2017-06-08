@@ -1,3 +1,5 @@
+full_width: true
+
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:1;">
         <img src="images/pcawg_landing.png" height="120"/><br>
@@ -16,7 +18,7 @@
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <img src="images/icgc_portal1.png"/>
+        <img src="images/icgc_portal1.png" width="700"/>
     </div>
 </div>
 
@@ -25,14 +27,14 @@
 <br>
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
-    <div style="flex:60;">
-        <img src="images/xena1.png"/>
-    </div>
-    <div style="flex:5;">
-    </div>
     <div style="flex:35;">
         <img src="images/ucsc_xena.png" height="70"/><br><br>
         UCSC Xena is an exploration tool for multi-omic resource data, enabling discovery of correlations among all open-access PCAWG primary results, and performance of survival analyses. Explore PCAWG data in UCSC Xena at <a href="https://pcawg.xenahubs.net">https://pcawg.xenahubs.net</a>.
+    </div>
+    <div style="flex:5;">
+    </div>
+    <div style="flex:60;">
+        <img src="images/xena1.png" width="700"/>
     </div>
 </div>
 
@@ -48,7 +50,7 @@
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <img src="images/expression_atlas_1.png"/>
+        <img src="images/expression_atlas_1.png" width="700"/>
     </div>
 </div>
 
@@ -56,14 +58,14 @@
 <hr>
 <br>
 
-<div style="display:flex;flex-direction: row;justify-content: center;align-items: center;">
-    <div style="flex:60;">
-        <img src="images/pcawg_scout_1.png"/>
-    </div>
-    <div style="flex:5;">
-    </div>
+<div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:35;">
         <img src="images/cnio_pcawg_scout.png" height="70"/><br><br>
         PCAWGScout ... (description to be added). Explore PCAWG data in CNIO PCAWGScout at <a href="http://pcawgscout.bioinfo.cnio.es">http://pcawgscout.bioinfo.cnio.es</a>.
+    </div>
+    <div style="flex:5;">
+    </div>
+    <div style="flex:60;">
+        <img src="images/pcawg_scout_1.png" width="700"/>
     </div>
 </div>

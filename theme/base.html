@@ -65,12 +65,18 @@
             <div id="docs-container" class="container">
                 {% include "search.html" %}
                 <div id="body">
-                {% if toc and ((toc | first) is defined) %}
-                <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
+                {% if meta and meta.full_width == ['true'] %}
+                    <div class="col-md-12 main-container" role="main">
+                        {% include "content.html" %}
+                    </div>
+                {% else %}
+                    {% if toc and ((toc | first) is defined) %}
+                        <div class="col-md-3 toc-container">{% include "toc.html" %}</div>
+                    {% endif %}
+                    <div class="col-md-9 main-container" role="main">
+                        {% include "content.html" %}
+                    </div>
                 {% endif %}
-                <div class="col-md-9 main-container" role="main">
-                   {% include "content.html" %}
-               </div>
                </div>
             </div>
 
