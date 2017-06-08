@@ -27,14 +27,14 @@ full_width: true
 <br>
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
-    <div style="flex:35;">
-        <img src="images/ucsc_xena.png" height="70"/><br><br>
-        UCSC Xena is an exploration tool for multi-omic resource data, enabling discovery of correlations among all open-access PCAWG primary results, and performance of survival analyses. Explore PCAWG data in UCSC Xena at <a href="https://pcawg.xenahubs.net">https://pcawg.xenahubs.net</a>.
+    <div style="flex:60;">
+        <img src="images/ucsc_xena_1.png" width="700"/>
     </div>
     <div style="flex:5;">
     </div>
-    <div style="flex:60;">
-        <img src="images/ucsc_xena_1.png" width="700"/>
+    <div style="flex:35;">
+        <img src="images/ucsc_xena.png" height="70"/><br><br>
+        UCSC Xena is an exploration tool for multi-omic resource data, enabling discovery of correlations among all open-access PCAWG primary results, and performance of survival analyses. Explore PCAWG data in UCSC Xena at <a href="https://pcawg.xenahubs.net">https://pcawg.xenahubs.net</a>.
     </div>
 </div>
 
@@ -59,13 +59,13 @@ full_width: true
 <br>
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
-    <div style="flex:35;">
-        <img src="images/cnio_pcawg_scout.png" height="70"/><br><br>
-        PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in CNIO PCAWGScout at <a href="http://pcawgscout.bioinfo.cnio.es">http://pcawgscout.bioinfo.cnio.es</a>.
+    <div style="flex:60;">
+        <img src="images/pcawg_scout_1.png" width="700"/>
     </div>
     <div style="flex:5;">
     </div>
-    <div style="flex:60;">
-        <img src="images/pcawg_scout_1.png" width="700"/>
+    <div style="flex:35;">
+        <img src="images/cnio_pcawg_scout.png" height="70"/><br><br>
+        PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in CNIO PCAWGScout at <a href="http://pcawgscout.bioinfo.cnio.es">http://pcawgscout.bioinfo.cnio.es</a>.
     </div>
 </div>
