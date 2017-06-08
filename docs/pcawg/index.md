@@ -13,7 +13,7 @@ full_width: true
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:35;">
         <img src="images/icgc_data_portal.png" height="70"/><br><br>
-        The ICGC Data Portal is the main data dissemination platform for ICGC. PCAWG data have been imported into or indexed by the data portal which makes data search / download / exploration simple and effective. Explore ICGC Data Portal at <a href="https://dcc.icgc.org">https://dcc.icgc.org</a>.
+        The ICGC Data Portal is the main data dissemination platform for ICGC. PCAWG data have been imported into or indexed by the data portal which makes data search / download / exploration simple and effective. Explore PCAWG data in ICGC Data Portal at <a href="https://dcc.icgc.org">https://dcc.icgc.org</a>.
     </div>
     <div style="flex:5;">
     </div>
@@ -66,6 +66,6 @@ full_width: true
     </div>
     <div style="flex:35;">
         <img src="images/cnio_pcawg_scout.png" height="70"/><br><br>
-        PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in CNIO PCAWGScout at <a href="http://pcawgscout.bioinfo.cnio.es">http://pcawgscout.bioinfo.cnio.es</a>.
+        PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in CNIO PCAWG-Scout at <a href="http://pcawgscout.bioinfo.cnio.es">http://pcawgscout.bioinfo.cnio.es</a>.
     </div>
 </div>
