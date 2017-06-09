@@ -13,7 +13,7 @@ full_width: true
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:35;">
         <img src="images/icgc_data_portal.png" height="70"/><br><br>
-        The ICGC Data Portal is the main data dissemination platform for ICGC. PCAWG data have been imported into or indexed by the data portal which makes data search / download / exploration simple and effective. Explore PCAWG data in ICGC Data Portal at <a href="https://dcc.icgc.org">https://dcc.icgc.org</a>.
+        The ICGC Data Portal is the main data dissemination platform for ICGC. PCAWG data have been imported into or indexed by the data portal which makes data search / download / exploration simple and effective. Explore ICGC Data Portal: <a href="https://dcc.icgc.org/search/m?mutations=%7B%22from%22:1%7D&filters=%7B%22mutation%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D">PCAWG Somatic Mutations</a>, <a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D">PCAWG data files in various repositories</a>.
     </div>
     <div style="flex:5;">
     </div>
