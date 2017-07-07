@@ -650,6 +650,12 @@
                 </li>
             
             
+            
+                <li >
+                    <a href="/../../pcawg/">PCAWG</a>
+                </li>
+            
+            
                 <li class="menu-bar"></li>
             </ul>
 
@@ -690,7 +696,8 @@
 </div>
                 <div id="body">
                 
-                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
+                    
+                        <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#data-submission-faq">Data Submission FAQ</a>
@@ -766,9 +773,9 @@
     
     </ul>
 </div></div>
-                
-                <div class="col-md-9 main-container" role="main">
-                   
+                    
+                    <div class="col-md-9 main-container" role="main">
+                        
 
 <h1 id="data-submission-faq">Data Submission FAQ</h1>
 <h4 id="1-how-do-i-upload-my-files-to-the-submission-system">1. How do I upload my files to the submission system?</h4>
@@ -803,7 +810,8 @@
 <p>Yes, you can but clinical data alone is not useful and will not be counted towards an ICGC project's commitment target. We strongly encourage projects to submit molecular data as well.</p>
 <h4 id="16-what-are-percentage_of_cellularity-and-level_of_cellularity-fields-in-the-specimen-and-analyzed-sample-data-file-data-file-specifications-do-i-need-to-fill-both-in">16. What are "percentage_of_cellularity" and "level_of_cellularity" fields in the Specimen and Analyzed Sample Data File data file specifications? Do I need to fill both in?</h4>
 <p>Cellularity is defined as the proportion of tumour nuclei to total number of nuclei in a given specimen or analyzed sample. The cellularity at the specimen level (ie. pathologist reported) could be different from the cellularity reported at the sample level (ie. using sequencing methods such as cell sorting). The two fields "percentage_of_cellularity" and "level_of_cellularity" record the same piece of information, but give the submitter the option to submit the information as either an integer value (percentage_of_cellularity) or a range of percentages (level_of_cellularity). An example would be in the case where a pathologist can only specify the cellularity of a specimen to be within a certain range (40-50% for example), then the "level_of_cellularity" data element could be populated with "3" (which defines 41-60% in the controlled vocabulary table), and "percentage_of_cellularity" could be populated with "-888" (not applicable).</p>
-               </div>
+                    </div>
+                
                </div>
             </div>
 

@@ -650,6 +650,12 @@
                 </li>
             
             
+            
+                <li >
+                    <a href="/../../../pcawg/">PCAWG</a>
+                </li>
+            
+            
                 <li class="menu-bar"></li>
             </ul>
 
@@ -690,7 +696,8 @@
 </div>
                 <div id="body">
                 
-                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
+                    
+                        <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#general">General</a>
@@ -780,9 +787,9 @@
     
     </ul>
 </div></div>
-                
-                <div class="col-md-9 main-container" role="main">
-                   
+                    
+                    <div class="col-md-9 main-container" role="main">
+                        
 
 <h1 id="general">General</h1>
 <p>This section outlines the general conventions used while developing. If you have not first followed the <a href="../../../software/development/setup/">setup</a> instructions, please do so first.</p>
@@ -1245,7 +1252,8 @@ tead of <code>checkNull</code>. The later throws an <code>NullPointerException</
 
 <p>Again, the benefits are similar as above. The main difference is that this creates an additional instance (<code>Optional</code>) which may not be possible when dealing with large amount of data (creating a million <code>Optional</code> instances is not a good idea). This strategy is good for implementing find operations: ones that iterate over collections or make similar expensive processes that may result in nothing. So instead of returning null in those cases, return an <code>Optional</code>.</p>
 <p>So both solutions are better than returning <code>null</code>, but are not necessarily applicable in the same situations.</p>
-               </div>
+                    </div>
+                
                </div>
             </div>
 

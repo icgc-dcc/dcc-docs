@@ -650,6 +650,12 @@
                 </li>
             
             
+            
+                <li >
+                    <a href="/../../pcawg/">PCAWG</a>
+                </li>
+            
+            
                 <li class="menu-bar"></li>
             </ul>
 
@@ -690,7 +696,8 @@
 </div>
                 <div id="body">
                 
-                <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
+                    
+                        <div class="col-md-3 toc-container"><div class="bs-sidebar hidden-print well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#icgc-get-user-guide">icgc-get User Guide</a>
@@ -770,9 +777,9 @@
     
     </ul>
 </div></div>
-                
-                <div class="col-md-9 main-container" role="main">
-                   
+                    
+                    <div class="col-md-9 main-container" role="main">
+                        
 
 <h1 id="icgc-get-user-guide">icgc-get User Guide</h1>
 <h2 id="overview">Overview</h2>
@@ -1169,7 +1176,8 @@ Clients:
 <h3 id="operation-using-docker">Operation using Docker</h3>
 <p><a href="../images/icgc_get_docker.png" title="Click on the image to see it in full"><img alt="" src="../images/ICGC_get_docker.png" /></a></p>
 <p>Alternatively, when the client is run using docker, the download clients are no longer directly accessible, as they are in a separate <a href="https://hub.docker.com/r/icgc/icgc-get/">Linux container</a>. To communicate with the download clients, icgc-get needs to use the Docker daemon as an intermediary. Similarly, when the the clients finish downloading the files they are unable to directly place them into the local filesystem beacuse of the isolated nature of the Linux container. They instead place them in a special mounted directory, which is shared between the Linux container and the local filesystem. icgc-get is monitoring the Docker daemon for a signal that the download client has finished working, and upon that signal, moves all of the files in the mounted directory to their proper place in the local filesystem.</p>
-               </div>
+                    </div>
+                
                </div>
             </div>
 
