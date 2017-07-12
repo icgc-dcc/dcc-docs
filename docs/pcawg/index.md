@@ -12,13 +12,13 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:35;">
-        <img src="images/icgc_data_portal.png" height="70"/><br><br>
+        <a href="https://dcc.icgc.org"><i class="fa-no-icon"><img src="images/icgc_data_portal.png" height="70"/></i></a><br><br>
         The ICGC Data Portal is the main data dissemination platform for ICGC. PCAWG data have been imported into or indexed by the data portal which makes data search / download / exploration simple and effective. Explore ICGC Data Portal: <a href="https://dcc.icgc.org/search/m?mutations=%7B%22from%22:1%7D&filters=%7B%22mutation%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D">PCAWG Somatic Mutations</a>, <a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D">PCAWG data files in various repositories</a>.
     </div>
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <img src="images/icgc_portal1.png" width="700"/>
+        <a class="fa-no-icon" href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22dataType%22:%7B%22is%22:%5B%22SSM%22%5D%7D,%22software%22:%7B%22is%22:%5B%22%20PCAWG%20SNV-MNV%20callers%22%5D%7D,%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1,%22size%22:25%7D"><i class="fa-no-icon"><img src="images/icgc_portal1.png" width="700"/></i></a>
     </div>
 </div>
 
@@ -28,12 +28,12 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:60;">
-        <img src="images/ucsc_xena_1.png" width="700"/>
+        <a href="https://xenabrowser.net/heatmap/?bookmark=24ad428d0f3bf3bf3205bcffab64d276"><i class="fa-no-icon"><img src="images/ucsc_xena_1.png" width="700"/></i></a>
     </div>
     <div style="flex:5;">
     </div>
     <div style="flex:35;">
-        <img src="images/ucsc_xena.png" height="70"/><br><br>
+        <a href="https://pcawg.xenahubs.net"><i class="fa-no-icon"><img src="images/ucsc_xena.png" height="70"/></i></a><br><br>
         UCSC Xena is an exploration tool for multi-omic resource data, enabling discovery of correlations among all open-access PCAWG primary results, and performance of survival analyses. Explore PCAWG data in UCSC Xena at <a href="https://pcawg.xenahubs.net">https://pcawg.xenahubs.net</a>.
     </div>
 </div>
@@ -44,13 +44,13 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:35;">
-        <img src="images/ebi_expression_atlas.png" height="70"/><br><br>
-         Expression Atlas is an open science resource that gives users a powerful way to find information about gene and protein expression across species and biological conditions such as different tissues, cell types, developmental stages and diseases among others. Explore PCAWG data in EBI Expression Atlas at <a href="https://goo.gl/TsIYE5">https://goo.gl/TsIYE5</a>.
+        <a href="https://goo.gl/TsIYE5"><i class="fa-no-icon"><img src="images/ebi_expression_atlas.png" height="70"/></i></a><br><br>
+        Expression Atlas is an open science resource that gives users a powerful way to find information about gene and protein expression across species and biological conditions such as different tissues, cell types, developmental stages and diseases among others. Explore PCAWG data in EBI Expression Atlas at <a href="https://goo.gl/TsIYE5">https://goo.gl/TsIYE5</a>.
     </div>
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <img src="images/expression_atlas_1.png" width="700"/>
+        <i class="fa-no-icon"><img src="images/expression_atlas_1.png" width="700"/></i>
     </div>
 </div>
 
@@ -60,12 +60,12 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:60;">
-        <img src="images/pcawg_scout_1.png" width="700"/>
+        <i class="fa-no-icon"><img src="images/pcawg_scout_1.png" width="700"/></i>
     </div>
     <div style="flex:5;">
     </div>
     <div style="flex:35;">
-        <img src="images/cnio_pcawg_scout.png" height="70"/><br><br>
+        <a href="http://pcawgscout.bioinfo.cnio.es"><i class="fa-no-icon"><img src="images/cnio_pcawg_scout.png" height="70"/></i></a><br><br>
         PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in CNIO PCAWG-Scout at <a href="http://pcawgscout.bioinfo.cnio.es">http://pcawgscout.bioinfo.cnio.es</a>.
     </div>
 </div>
