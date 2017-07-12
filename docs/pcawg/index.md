@@ -60,7 +60,7 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:60;">
-        <a href="http://pcawgscout.bioinfo.cnio.es"><i class="fa-no-icon"><img src="images/pcawg_scout_1.png" width="700"/></i></a>
+        <a href="http://pcawgscout.bioinfo.cnio.es/entity_list_action/Sample/characteristic_alterations/Prost-AdenoCa%20ERG%20non-fusion%20donors"><i class="fa-no-icon"><img src="images/pcawg_scout_1.png" width="700"/></i></a>
     </div>
     <div style="flex:5;">
     </div>
