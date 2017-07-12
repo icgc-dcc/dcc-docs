@@ -50,7 +50,7 @@ full_width: true
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <i class="fa-no-icon"><img src="images/expression_atlas_1.png" width="700"/></i>
+        <a href="http://www.ebi.ac.uk/gxa/experiments/E-MTAB-5200/Results?specific=true&geneQuery=%255B%257B%2522value%2522%253A%2522TMPRSS2%2522%252C%2522category%2522%253A%2522symbol%2522%257D%252C%257B%2522value%2522%253A%2522ENSG00000157554%2522%257D%252C%257B%2522value%2522%253A%2522SLC45A3%2522%252C%2522category%2522%253A%2522symbol%2522%257D%255D&filterFactors=%257B%2522ORGANISM_PART%2522%253A%255B%2522prostate%2520gland%2522%255D%257D&cutoff=0.5&accessKey=1522478c-1bd0-4863-848e-d15e86774418"><i class="fa-no-icon"><img src="images/expression_atlas_1.png" width="700"/></i></a>
     </div>
 </div>
 
@@ -60,7 +60,7 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:60;">
-        <i class="fa-no-icon"><img src="images/pcawg_scout_1.png" width="700"/></i>
+        <a href="http://pcawgscout.bioinfo.cnio.es"><i class="fa-no-icon"><img src="images/pcawg_scout_1.png" width="700"/></i></a>
     </div>
     <div style="flex:5;">
     </div>
