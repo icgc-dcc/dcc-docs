@@ -18,7 +18,7 @@ full_width: true
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <a class="fa-no-icon" href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22dataType%22:%7B%22is%22:%5B%22SSM%22%5D%7D,%22software%22:%7B%22is%22:%5B%22%20PCAWG%20SNV-MNV%20callers%22%5D%7D,%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1,%22size%22:25%7D"><i class="fa-no-icon"><img src="images/icgc_portal1.png" width="700"/></i></a>
+        <a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22dataType%22:%7B%22is%22:%5B%22SSM%22%5D%7D,%22software%22:%7B%22is%22:%5B%22%20PCAWG%20SNV-MNV%20callers%22%5D%7D,%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1,%22size%22:25%7D"><i class="fa-no-icon"><img src="images/icgc_portal1.png" width="700"/></i></a>
     </div>
 </div>
 
