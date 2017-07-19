@@ -2,6 +2,11 @@
 
 Note that code level release notes may found on [GitHub](https://github.com/icgc-dcc/dcc-portal/blob/develop/CHANGES.md). The following details user facing features / changes covered in each release.
 
+#### 5.1.6 - July 17th, 2017
+* Stacked bar charts on entity pages are now clickable
+* Compounds page displays current query similar to advanced search
+* Various UI fixes including a specific fix for page jitter in firefox
+
 #### 5.0.14 - May 18th, 2017
 * Updated pathway viewer to use OnoJS build
 * Improvements to Genome Viewer
