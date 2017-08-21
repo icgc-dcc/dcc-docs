@@ -38,12 +38,14 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [OV-AU][21] |  Australia |  Ovarian Cancer - AU |  No Embargo. Data available without limitations |
 | [PACA-AU][2] |  Australia |  Pancreatic Cancer - AU |  No Embargo. Data available without limitations |
 | [PAEN-AU][22] |  Australia |  Pancreatic Cancer Endocrine neoplasms - AU |  No Embargo. Data available without limitations |
+| [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR | No Embargo. Data available without limitations |
 | [PACA-CA][3] |  Canada |  Pancreatic Cancer - CA |  No Embargo. Data available without limitations |
 | [PRAD-CA][4] |  Canada |  Prostate Adenocarcinoma - CA |  No Embargo. Data available without limitations |
 | [BLCA-CN][5] |  China |  Bladder Urothelial carcinoma - CN |  No Embargo. Data available without limitations |
 | [COCA-CN][26] |  China |  Colorectal Cancer - CN |  No Embargo. Data available without limitations |
 | [ESCA-CN][25] |  China |  Esophageal Cancer - CN |  No Embargo. Data available without limitations |
 | [GACA-CN][6] |  China |  Gastric Cancer - CN |  No Embargo. Data available without limitations |
+| [LICA-CN][38] |  China |  Liver Cancer - CN |  No Embargo. Data available without limitations |
 | [LUSC-CN][27] |  China |  Lung Squamous cell carcinoma - CN |  No Embargo. Data available without limitations |
 | [RECA-CN][24] |  China |  Renal clear cell carcinoma - CN |  No Embargo. Data available without limitations |
 | [RECA-EU][28] |  European Union/France |  Renal Cell Cancer - EU/FR |  No Embargo. Data available without limitations |
@@ -69,11 +71,15 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | No Embargo. Data available without limitations |
-| [SKCA-BR][23] |  Brazil |  Skin Adenocarcinoma - BR |  Publication limitations in place until 2017-06-15 |
 | [BRCA-FR][41] |  France |  Breast Cancer - FR |  Publication limitations in place until 2018-08-23 |
 | [LAML-CN][39] |  China |  Leukemia - CN |  Publication limitations in place until 2018-05-16 |
-| [LICA-CN][38] |  China |  Liver Cancer - CN |  Publication limitations in place until 2017-05-16 |
-| [BRCA-KR][40] |  South Korea |  Breast Cancer - SK |  Publication limitations in place until 2018-08-23 |
+| [BRCA-KR][40] |  South Korea | Breast Cancer - SK |  Publication limitations in place until 2018-08-23 |
+| [LMS-FR][44] |  France | Soft tissue cancer - Leiomyosarcoma - FR |  Publication limitations in place until 2019-05-18 |
+| [PRAD-FR][45] |  France | Prostate Cancer - Adenocarcinoma - FR |  Publication limitations in place until 2019-05-18 |
+| [UTCA-FR][46] |  France | Uterine Cancer - Carcinosarcoma - FR |  Publication limitations in place until 2019-05-18 |
+| [NKTL-SG][47] |  Singapore | Blood Cancer - T-cell and NK-cell lymphoma - SG |  Publication limitations in place until 2019-05-18 |
+| [GBM-CN][48] |  China | Brain Cancer - CN |  Publication limitations in place until 2019-05-18 |
+| [THCA-CN][49] |  China | Thyroid Cancer - CN |  Publication limitations in place until 2019-05-18 |
 
 
 
@@ -126,3 +132,9 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [41]: https://dcc.icgc.org/projects/BRCA-FR
 [42]: https://dcc.icgc.org/projects/MELA-AU
 [43]: https://dcc.icgc.org/projects/BRCA-EU
+[44]: https://dcc.icgc.org/projects/LMS-FR
+[45]: https://dcc.icgc.org/projects/PRAD-FR
+[46]: https://dcc.icgc.org/projects/UTCA-FR
+[47]: https://dcc.icgc.org/projects/NKTL-SG
+[48]: https://dcc.icgc.org/projects/GBM-CN
+[49]: https://dcc.icgc.org/projects/THCA-CN
