@@ -42,10 +42,10 @@ The EGA Raw File Validation check will be valid if the following conditions are 
 3. If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id
 
 
-___
-**NOTE: Please ensure the sample ID you submit to EGA matches the sample ID you submit to DCC**
 
-___
+***NOTE: Please ensure the sample ID you submit to EGA matches the sample ID you submit to DCC***
+
+
 
 ### Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':
 
