@@ -32,9 +32,9 @@ If the metadata for a given EGA Dataset has not been released and is not availab
 ### Requirements:
 
 The EGA Raw File Validation check will be valid if the following conditions are met:
-1. Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
-2. One or more EGA File ID(s) should map to analyzed_sample_id
-3. If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id
+1.  Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
+2.  One or more EGA File ID(s) should map to analyzed_sample_id
+3.  If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id
 
 ### Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':
 
@@ -51,19 +51,22 @@ The EGA Raw File Validation check will be valid if the following conditions are 
 
 ### Interpreting Error Message related to Missing EGA File accessions:
 
-1. ```
+1. 
+
+```
 'At least one file accession is required for analysis_id: "some_analysis_id_1"'
 ```
 
 #### Interpretation:
-An EGA File Accession ID is not submitted for sample IDs with analysis_id "some_analysis_id_1":
+An EGA File Accession ID is not submitted for sample IDs with analysis_id "some_analysis_id_1"
 
 #### Solution:
 * An EGA File accession (EGAF*) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".
 
 
 
-2. ```
+2. 
+```
 Could not match file to sample in: [{"submitterSampleId":"BCC001T","fileId":"EGAF00001673032"}]
 ```
 
@@ -74,7 +77,8 @@ The sample ID submitted to DCC does not match the sample submitted to EGA ("BCC0
 Ensure the EGA-submitted sample ID matches the DCC-submitted sample ID for the given EGA File ID.
 
 
-3. ```
+3. 
+```
 No files found with id EGAF00001563762
 ```
 
