@@ -711,6 +711,8 @@
                         
                         <li class=""><a href="#where-to-get-the-ega-file-accession">Where to get the EGA File Accession:</a></li>
                         
+                        <li class=""><a href="#requirements">Requirements:</a></li>
+                        
                         <li class=""><a href="#examples-of-valid-raw_data_accession-when-raw_data_repository-is-ega">Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':</a></li>
                         
                         <li class=""><a href="#interpreting-error-message-related-to-missing-ega-file-accessions">Interpreting Error Message related to Missing EGA File accessions:</a></li>
@@ -763,6 +765,11 @@
 </ul>
 <p>If the metadata for a given EGA Dataset has not been released and is not available via the website (and therefore cannot be downloaded as a tarball file), please contact EGA HelpDesk at <a href="mailto:ega-helpdesk@ebi.ac.uk">ega-helpdesk@ebi.ac.uk</a> who will provide data submitters with the Sample ID to EGA File Accession ID mapping information. </p>
 <p><em>We strongly encourage ICGC member projects to start this process early as it may take time to gather and validate your data submission.</em></p>
+<h3 id="requirements">Requirements:</h3>
+<p>The EGA Raw File Validation check will be valid if the following conditions are met:
+1. Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
+2. One or more EGA File ID(s) should map to analyzed_sample_id
+3. If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id</p>
 <h3 id="examples-of-valid-raw_data_accession-when-raw_data_repository-is-ega">Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':</h3>
 <table>
 <thead>
@@ -773,19 +780,19 @@
 </thead>
 <tbody>
 <tr>
-<td>EGA File accession</td>
-<td>EGAF00000892107</td>
-</tr>
-<tr>
-<td>Multiple EGA File accessions</td>
+<td>Multiple EGA File accessions (one for 'analyzed_sample_id', one for 'matched_sample_id')</td>
 <td>EGAF00000892107:EGAF00000892115</td>
 </tr>
 <tr>
-<td>EGA Study, EGA Dataset, EGA File accession</td>
+<td>EGA File accession if 'matched_sample_id' field does not exist in metadata file</td>
+<td>EGAF00000892107</td>
+</tr>
+<tr>
+<td>EGA Study, EGA Dataset, mutliple EGA File accessions</td>
 <td>EGAS00001000262:EGAD00001001116:EGAF00000892115</td>
 </tr>
 <tr>
-<td>EGA Dataset, EGA File Accession</td>
+<td>EGA Dataset, multiple EGA File Accession</td>
 <td>EGAD00001001116:EGAF00000892115</td>
 </tr>
 <tr>
@@ -803,12 +810,38 @@
 </tbody>
 </table>
 <h3 id="interpreting-error-message-related-to-missing-ega-file-accessions">Interpreting Error Message related to Missing EGA File accessions:</h3>
-<p>The DCC Submission system will report the following error message if an EGA File Accession is not submitted for a given sample_id:</p>
-<pre><code>'At least one file accession is required for analysis_id: &quot;some_analysis_id_1&quot;'
+<ol>
+<li>```
+'At least one file accession is required for analysis_id: "some_analysis_id_1"'</li>
+</ol>
+<pre><code>
+#### Interpretation:
+An EGA File Accession ID is not submitted for sample IDs with analysis_id &quot;some_analysis_id_1&quot;:
+
+#### Solution:
+* An EGA File accession (EGAF*) is required in the &quot;raw_data_accession&quot; field for samples with analysis_id &quot;some_analysis_id_1&quot;.
+
+
+
+2. ```
+Could not match file to sample in: [{&quot;submitterSampleId&quot;:&quot;BCC001T&quot;,&quot;fileId&quot;:&quot;EGAF00001673032&quot;}]
 </code></pre>
 
-<p>Solution:
-<em> An EGA File accession (EGAF</em>) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".</p>
+<h4 id="interpretation">Interpretation:</h4>
+<p>The sample ID submitted to DCC does not match the sample submitted to EGA ("BCC001T") for the submitted EGA File ID accession EGAF00001673032.</p>
+<h4 id="solution">Solution:</h4>
+<p>Ensure the EGA-submitted sample ID matches the DCC-submitted sample ID for the given EGA File ID.</p>
+<ol>
+<li><code>No files found with id EGAF00001563762</code></li>
+</ol>
+<h4 id="interpretation_1">Interpretation:</h4>
+<p>The submitted EGA File ID does not exist in the EGA repository
+This error message can appear for the following reasons:
+- The submitted EGA File ID is incorrect
+- The EGA dataset to which this EGA File ID belongs to has not been released at EGA.
+- The EGA dataset associated with this EGA File ID does not belong to ICGC DAC.</p>
+<h4 id="solution_1">Solution:</h4>
+<p>Ensure the EGA dataset has been released and is under ICGC DAC at EGA, and the submitted EGA File ID is correctly formatted.</p>
                     </div>
                 
                </div>
