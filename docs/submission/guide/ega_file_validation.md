@@ -5,7 +5,7 @@
 ICGC member projects are required by [ICGC policy][1], to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for non-US ICGC projects' sequencing reads is the European Bioinformatics Institute's (EBI), [European Genome-phenome Archive (EGA)][3]. When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply file accession identifiers (of the format EGAF*) for each raw data file archived. Projects are required to populate the DCC 'raw_data_accession' field found in the [experimental metadata files][4] with these EGA File accession identifiers. These accession identifiers enable data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. 
 
 
-### EGA File Accession Validation Check
+## EGA File Accession Validation Check
 
 All new data submissions are required to submit an EGA File accession in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. This validation check will validate the existence of the raw file at EGA, meaning all submissions with **unpublished** files at EGA will be **invalid**. 
 
@@ -15,7 +15,7 @@ All new data submissions are required to submit an EGA File accession in the 'ra
 | raw_data_accession | Currently accepts: EGA Study (EGAS), Dataset (EGAD), Experiment (EGAX), Sample (EGAN), Run (EGAR), and File (EGAF) accessions. 
 
 
-### Where to get the EGA File Accession:
+## Where to get the EGA File Accession
 
 [EGA][3] provides a **Sample_File.map** mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: 
 
@@ -29,12 +29,13 @@ If the metadata for a given EGA Dataset has not been released and is not availab
 
 *We strongly encourage ICGC member projects to start this process early as it may take time to gather and validate your data submission.*
 
-### Requirements:
+## Requirements
 
 The EGA Raw File Validation check will be valid if the following conditions are met:
-1.  Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
-2.  One or more EGA File ID(s) should map to analyzed_sample_id
-3.  If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id
+
+1. Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
+2. One or more EGA File ID(s) should map to analyzed_sample_id
+3. If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id
 
 ### Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':
 
@@ -49,7 +50,7 @@ The EGA Raw File Validation check will be valid if the following conditions are 
 | EGA Study, EGA Dataset, EGA Sample, multiple EGA Experiment, multiple EGA Run, multiple EGA File accessions | EGAS00001000395:EGAD00001001956:EGAN00001223451:EGAX00001216629:EGAX00001213322:EGAX00001216631:EGAX00001216630:EGAX00001216695:EGAR00001229605:EGAR00001232235:EGAR00001229594:EGAR00001229593:EGAR00001229596:EGAF00000892107:EGAF00000892115 |
 
 
-### Interpreting Error Message related to Missing EGA File accessions:
+## Interpreting Error Message related to Missing EGA File accessions:
 
 ####Error Message #1:####
 ```
