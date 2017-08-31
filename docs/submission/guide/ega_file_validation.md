@@ -14,6 +14,7 @@ All new data submissions are required to submit an EGA File accession in the 'ra
 | raw_data_repository | code '1' for EGA |
 | raw_data_accession | Currently accepts: EGA Study (EGAS), Dataset (EGAD), Experiment (EGAX), Sample (EGAN), Run (EGAR), and File (EGAF) accessions. 
 
+
 ### Where to get the EGA File Accession:
 
 [EGA][3] provides a **Sample_File.map** mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: 
@@ -28,15 +29,21 @@ If the metadata for a given EGA Dataset has not been released and is not availab
 
 *We strongly encourage ICGC member projects to start this process early as it may take time to gather and validate your data submission.*
 
+### Requirements:
+
+The EGA Raw File Validation check will be valid if the following conditions are met:
+1. Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
+2. One or more EGA File ID(s) should map to analyzed_sample_id
+3. If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id
 
 ### Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':
 
 | Description | raw_data_accession |
 | --- | --- |
-| EGA File accession |	EGAF00000892107 |
-| Multiple EGA File accessions | EGAF00000892107:EGAF00000892115 |
-| EGA Study, EGA Dataset, EGA File accession | EGAS00001000262:EGAD00001001116:EGAF00000892115 |
-| EGA Dataset, EGA File Accession | EGAD00001001116:EGAF00000892115 |
+| Multiple EGA File accessions (one for 'analyzed_sample_id', one for 'matched_sample_id') | EGAF00000892107:EGAF00000892115 |
+| EGA File accession if 'matched_sample_id' field does not exist in metadata file |EGAF00000892107 |
+| EGA Study, EGA Dataset, mutliple EGA File accessions | EGAS00001000262:EGAD00001001116:EGAF00000892115 |
+| EGA Dataset, multiple EGA File Accession | EGAD00001001116:EGAF00000892115 |
 | EGA Dataset, multiple EGA File accessions | EGAD00001001116:EGAF00000892115:EGAF00000892107 |
 | EGA Dataset, Sample and multiple EGA File accessions | EGAS00001000262:EGAD00001001116:EGAN00001250305:EGAF00000892107:EGAF00000892115 | 
 | EGA Study, EGA Dataset, EGA Sample, multiple EGA Experiment, multiple EGA Run, multiple EGA File accessions | EGAS00001000395:EGAD00001001956:EGAN00001223451:EGAX00001216629:EGAX00001213322:EGAX00001216631:EGAX00001216630:EGAX00001216695:EGAR00001229605:EGAR00001232235:EGAR00001229594:EGAR00001229593:EGAR00001229596:EGAF00000892107:EGAF00000892115 |
@@ -44,13 +51,42 @@ If the metadata for a given EGA Dataset has not been released and is not availab
 
 ### Interpreting Error Message related to Missing EGA File accessions:
 
-The DCC Submission system will report the following error message if an EGA File Accession is not submitted for a given sample_id:
-```
+1. ```
 'At least one file accession is required for analysis_id: "some_analysis_id_1"'
 ```
 
-Solution:
+#### Interpretation:
+An EGA File Accession ID is not submitted for sample IDs with analysis_id "some_analysis_id_1":
+
+#### Solution:
 * An EGA File accession (EGAF*) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".
+
+
+
+2. ```
+Could not match file to sample in: [{"submitterSampleId":"BCC001T","fileId":"EGAF00001673032"}]
+```
+
+#### Interpretation:
+The sample ID submitted to DCC does not match the sample submitted to EGA ("BCC001T") for the submitted EGA File ID accession EGAF00001673032.
+
+#### Solution:
+Ensure the EGA-submitted sample ID matches the DCC-submitted sample ID for the given EGA File ID.
+
+
+3. ```
+No files found with id EGAF00001563762
+```
+
+#### Interpretation:
+The submitted EGA File ID does not exist in the EGA repository
+This error message can appear for the following reasons:
+- The submitted EGA File ID is incorrect
+- The EGA dataset to which this EGA File ID belongs to has not been released at EGA.
+- The EGA dataset associated with this EGA File ID does not belong to ICGC DAC.
+
+#### Solution:
+Ensure the EGA dataset has been released and is under ICGC DAC at EGA, and the submitted EGA File ID is correctly formatted.
 
 
 [1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
