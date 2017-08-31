@@ -51,45 +51,43 @@ The EGA Raw File Validation check will be valid if the following conditions are 
 
 ### Interpreting Error Message related to Missing EGA File accessions:
 
-1. 
-
+####Error Message #1:####
 ```
 'At least one file accession is required for analysis_id: "some_analysis_id_1"'
 ```
 
-#### Interpretation:
+** Interpretation: **
 An EGA File Accession ID is not submitted for sample IDs with analysis_id "some_analysis_id_1"
 
-#### Solution:
+**Solution**:
 * An EGA File accession (EGAF*) is required in the "raw_data_accession" field for samples with analysis_id "some_analysis_id_1".
 
 
-
-2. 
+####Error Message #2:####
 ```
 Could not match file to sample in: [{"submitterSampleId":"BCC001T","fileId":"EGAF00001673032"}]
 ```
 
-#### Interpretation:
+**Interpretation:**
 The sample ID submitted to DCC does not match the sample submitted to EGA ("BCC001T") for the submitted EGA File ID accession EGAF00001673032.
 
-#### Solution:
+**Solution:**
 Ensure the EGA-submitted sample ID matches the DCC-submitted sample ID for the given EGA File ID.
 
 
-3. 
+####Error Message #3:####
 ```
 No files found with id EGAF00001563762
 ```
 
-#### Interpretation:
+**Interpretation:**
 The submitted EGA File ID does not exist in the EGA repository
 This error message can appear for the following reasons:
 - The submitted EGA File ID is incorrect
 - The EGA dataset to which this EGA File ID belongs to has not been released at EGA.
 - The EGA dataset associated with this EGA File ID does not belong to ICGC DAC.
 
-#### Solution:
+**Solution:**
 Ensure the EGA dataset has been released and is under ICGC DAC at EGA, and the submitted EGA File ID is correctly formatted.
 
 
