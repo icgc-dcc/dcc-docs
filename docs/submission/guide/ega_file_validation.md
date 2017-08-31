@@ -52,7 +52,7 @@ The EGA Raw File Validation check will be valid if the following conditions are 
 | Description | raw_data_accession |
 | --- | --- |
 | Multiple EGA File accessions (one for 'analyzed_sample_id', one for 'matched_sample_id') | EGAF00000892107:EGAF00000892115 |
-| EGA File accession if 'matched_sample_id' field does not exist in metadata file |EGAF00000892107<br>EGAD00001001116:EGAF00000892115 |
+| EGA File accession if 'matched_sample_id' field does not exist in metadata file |EGAF00000892107<br/>EGAD00001001116:EGAF00000892115 |
 | EGA Study, EGA Dataset, mutliple EGA File accessions | EGAS00001000262:EGAD00001001116:EGAF00000892115 |
 | EGA Dataset, multiple EGA File accessions | EGAD00001001116:EGAF00000892115:EGAF00000892107 |
 | EGA Dataset, Sample and multiple EGA File accessions | EGAS00001000262:EGAD00001001116:EGAN00001250305:EGAF00000892107:EGAF00000892115 | 
