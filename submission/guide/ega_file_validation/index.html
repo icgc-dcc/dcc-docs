@@ -705,17 +705,35 @@
            
                <li class=""><a href="#summary">Summary</a>
                
+               </li>
+           
+               <li class=""><a href="#ega-file-accession-validation-check">EGA File Accession Validation Check</a>
+               
+               </li>
+           
+               <li class=""><a href="#where-to-get-the-ega-file-accession">Where to get the EGA File Accession</a>
+               
+               </li>
+           
+               <li class=""><a href="#requirements">Requirements</a>
+               
                     <ul class="nav">
-                        
-                        <li class=""><a href="#ega-file-accession-validation-check">EGA File Accession Validation Check</a></li>
-                        
-                        <li class=""><a href="#where-to-get-the-ega-file-accession">Where to get the EGA File Accession:</a></li>
-                        
-                        <li class=""><a href="#requirements">Requirements:</a></li>
                         
                         <li class=""><a href="#examples-of-valid-raw_data_accession-when-raw_data_repository-is-ega">Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':</a></li>
                         
-                        <li class=""><a href="#interpreting-error-message-related-to-missing-ega-file-accessions">Interpreting Error Message related to Missing EGA File accessions:</a></li>
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#interpreting-error-message-related-to-missing-ega-file-accessions">Interpreting Error Message related to Missing EGA File accessions:</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#error-message-1">Error Message #1:</a></li>
+                        
+                        <li class=""><a href="#error-message-2">Error Message #2:</a></li>
+                        
+                        <li class=""><a href="#error-message-3">Error Message #3:</a></li>
                         
                     </ul>
                
@@ -734,7 +752,7 @@
 <h1 id="ega-raw-file-validation">EGA Raw File Validation</h1>
 <h2 id="summary">Summary</h2>
 <p>ICGC member projects are required by <a href="https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies">ICGC policy</a>, to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for non-US ICGC projects' sequencing reads is the European Bioinformatics Institute's (EBI), <a href="https://ega-archive.org">European Genome-phenome Archive (EGA)</a>. When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply file accession identifiers (of the format EGAF*) for each raw data file archived. Projects are required to populate the DCC 'raw_data_accession' field found in the <a href="http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&amp;viewMode=graph">experimental metadata files</a> with these EGA File accession identifiers. These accession identifiers enable data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. </p>
-<h3 id="ega-file-accession-validation-check">EGA File Accession Validation Check</h3>
+<h2 id="ega-file-accession-validation-check">EGA File Accession Validation Check</h2>
 <p>All new data submissions are required to submit an EGA File accession in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. This validation check will validate the existence of the raw file at EGA, meaning all submissions with <strong>unpublished</strong> files at EGA will be <strong>invalid</strong>. </p>
 <table>
 <thead>
@@ -754,7 +772,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="where-to-get-the-ega-file-accession">Where to get the EGA File Accession:</h3>
+<h2 id="where-to-get-the-ega-file-accession">Where to get the EGA File Accession</h2>
 <p><a href="https://ega-archive.org">EGA</a> provides a <strong>Sample_File.map</strong> mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: </p>
 <ul>
 <li>Ensure you are logged into EGA</li>
@@ -765,11 +783,13 @@
 </ul>
 <p>If the metadata for a given EGA Dataset has not been released and is not available via the website (and therefore cannot be downloaded as a tarball file), please contact EGA HelpDesk at <a href="mailto:ega-helpdesk@ebi.ac.uk">ega-helpdesk@ebi.ac.uk</a> who will provide data submitters with the Sample ID to EGA File Accession ID mapping information. </p>
 <p><em>We strongly encourage ICGC member projects to start this process early as it may take time to gather and validate your data submission.</em></p>
-<h3 id="requirements">Requirements:</h3>
-<p>The EGA Raw File Validation check will be valid if the following conditions are met:
-1.  Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id
-2.  One or more EGA File ID(s) should map to analyzed_sample_id
-3.  If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id</p>
+<h2 id="requirements">Requirements</h2>
+<p>The EGA Raw File Validation check will be valid if the following conditions are met:</p>
+<ol>
+<li>Each submitted EGA File ID must map to either analyzed_sample_id or matched_sample_id</li>
+<li>One or more EGA File ID(s) should map to analyzed_sample_id</li>
+<li>If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id</li>
+</ol>
 <h3 id="examples-of-valid-raw_data_accession-when-raw_data_repository-is-ega">Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':</h3>
 <table>
 <thead>
@@ -809,7 +829,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="interpreting-error-message-related-to-missing-ega-file-accessions">Interpreting Error Message related to Missing EGA File accessions:</h3>
+<h2 id="interpreting-error-message-related-to-missing-ega-file-accessions">Interpreting Error Message related to Missing EGA File accessions:</h2>
 <h4 id="error-message-1">Error Message #1:</h4>
 <pre><code>'At least one file accession is required for analysis_id: &quot;some_analysis_id_1&quot;'
 </code></pre>
