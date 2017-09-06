@@ -1,7 +1,10 @@
 full_width: true
-# Welcome
+
+<center>
 
 This is the official project documentation site of the [ICGC](https://icgc.org/) Data Coordination Center (DCC) and its [Data Portal](https://dcc.icgc.org).
+
+</center>
 
 <div class="use-cases">
   <section class="background-grey">
@@ -105,12 +108,6 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
   </section>
 </div>
 
-## Contributing
-
-To help contribute to the documentation, open a pull request at <a href="https://github.com/icgc-dcc/dcc-docs"><i class="fa fa-github"></i> https://github.com/icgc-dcc/dcc-docs</a>.
-
-## Contact
-
-For user support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org).
-
-For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/).
+| Contributing | Contact |
+|-----------|-----------|
+| To help contribute to the documentation, open a pull request at <a href="https://github.com/icgc-dcc/dcc-docs"><i class="fa fa-github"></i> https://github.com/icgc-dcc/dcc-docs</a>. | For user support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org). For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/). |
