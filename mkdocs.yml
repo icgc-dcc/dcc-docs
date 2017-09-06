@@ -108,3 +108,7 @@ extra:
         - /vendor/angular-loading-bar/loading-bar.min.css
         - https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/5.1.5/jsoneditor.css
         - /css-out/dictionary-viewer.css
+    Home:
+      styles:
+        - https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons
+        - /css-out/homepage.css
