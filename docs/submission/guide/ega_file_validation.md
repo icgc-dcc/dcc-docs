@@ -17,12 +17,12 @@ This validation check will validate the existence of the raw file at EGA, meanin
 
 | Field Name | Note |
 | --- | --- |
-| analyzed_sample_id | Must match EGA's 'sample_alias' field in EGA Sample metadata XML* | 
-| matched_sample_id | Must match EGA's 'sample_alias' field in EGA Sample metadata XML* | 
+| analyzed_sample_id | Must match EGA's 'sample_alias' field in EGA Sample metadata XML[\*\*](#ega_sample_note)</sup> | 
+| matched_sample_id | Must match EGA's 'sample_alias' field in EGA Sample metadata XML[\*\*](#ega_sample_note)</sup> | 
 | raw_data_repository | code '1' for EGA |
 | raw_data_accession | Currently accepts: EGA Study (EGAS), Dataset (EGAD), Experiment (EGAX), Sample (EGAN), Run (EGAR), and File (EGAF) accessions. 
 
-**If you are unable to edit/update EGA's 'sample_alias' field, please include the sample attribute 'submitter_sample_id' in the EGA Sample metadata XML file and set the value equal to the DCC-submitted sample ID (see [here][6] for example EGA Sample XML file stucture)**
+<a id=ega_sample_note></a>\*\*If you are unable to edit/update EGA's 'sample_alias' field, please include the sample attribute 'submitter_sample_id' in the EGA Sample metadata XML file and set the value equal to the DCC-submitted sample ID (see [here][6] for example EGA Sample XML file stucture)
 
 
 ## Where to get the EGA File Accession
