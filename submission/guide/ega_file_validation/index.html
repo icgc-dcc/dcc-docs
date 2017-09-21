@@ -769,11 +769,11 @@
 <tbody>
 <tr>
 <td>analyzed_sample_id</td>
-<td>Must match EGA's 'sample_alias' field in EGA Sample metadata XML*</td>
+<td>Must match EGA's 'sample_alias' field in EGA Sample metadata XML<a href="#ega_sample_note">**</a></sup></td>
 </tr>
 <tr>
 <td>matched_sample_id</td>
-<td>Must match EGA's 'sample_alias' field in EGA Sample metadata XML*</td>
+<td>Must match EGA's 'sample_alias' field in EGA Sample metadata XML<a href="#ega_sample_note">**</a></sup></td>
 </tr>
 <tr>
 <td>raw_data_repository</td>
@@ -785,7 +785,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>If you are unable to edit/update EGA's 'sample_alias' field, please include the sample attribute 'submitter_sample_id' in the EGA Sample metadata XML file and set the value equal to the DCC-submitted sample ID (see <a href="http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/#sample-xml-file">here</a> for example EGA Sample XML file stucture)</strong></p>
+<p><a id=ega_sample_note></a>**If you are unable to edit/update EGA's 'sample_alias' field, please include the sample attribute 'submitter_sample_id' in the EGA Sample metadata XML file and set the value equal to the DCC-submitted sample ID (see <a href="http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/#sample-xml-file">here</a> for example EGA Sample XML file stucture)</p>
 <h2 id="where-to-get-the-ega-file-accession">Where to get the EGA File Accession</h2>
 <p><a href="https://ega-archive.org">EGA</a> provides a <strong>Sample_File.map</strong> mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: </p>
 <ul>
