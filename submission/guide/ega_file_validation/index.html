@@ -751,9 +751,14 @@
 
 <h1 id="ega-raw-file-validation">EGA Raw File Validation</h1>
 <h2 id="summary">Summary</h2>
-<p>ICGC member projects are required by <a href="https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies">ICGC policy</a>, to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for non-US ICGC projects' sequencing reads is the European Bioinformatics Institute's (EBI), <a href="https://ega-archive.org">European Genome-phenome Archive (EGA)</a>. When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply file accession identifiers (of the format EGAF*) for each raw data file archived. Projects are required to populate the DCC 'raw_data_accession' field found in the <a href="http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&amp;viewMode=graph">experimental metadata files</a> with these EGA File accession identifiers. These accession identifiers enable data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. </p>
+<p>ICGC member projects are required by <a href="https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies">ICGC policy</a>, to submit their raw sequencing data and other primary data to a controlled access public repository. The official ICGC DCC-supported repository for non-US ICGC projects' sequencing reads is the European Bioinformatics Institute's (EBI), <a href="https://ega-archive.org">European Genome-phenome Archive (EGA)</a>. When projects submit their raw sequencing data to EBI's EGA repository, EGA will supply file accession identifiers (of the format EGAFXXXXXXXXXXX) for each raw data file archived. Projects are required to populate the DCC 'raw_data_accession' field found in the <a href="http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&amp;viewMode=graph">experimental metadata files</a> with these EGA File accession identifiers, and ensure the DCC-submitted sample ID ('analyzed_sample_id' and 'matched_sample_id' DCC fields) matches the EGA-submitted sample ID ('sample_alias' field in EGA). The sample ID and EGA file accession identifiers enable data users to retrieve the corresponding raw data for a given DCC-submitted sample_id. </p>
 <h2 id="ega-file-accession-validation-check">EGA File Accession Validation Check</h2>
-<p>All new data submissions are required to submit an EGA File accession in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. This validation check will validate the existence of the raw file at EGA, meaning all submissions with <strong>unpublished</strong> files at EGA will be <strong>invalid</strong>. </p>
+<p>All new data submissions are required to:</p>
+<ol>
+<li>Submit EGA File accessions for the 'analyzed_sample_id' and 'matched_sample_id' in the 'raw_data_accession' field when the 'raw_data_repository' is 'EGA'. </li>
+<li>Ensure the DCC-submitted sample ID and EGA-submitted sample ID match </li>
+</ol>
+<p>This validation check will validate the existence of the raw file at EGA, meaning all submissions with <strong>unpublished</strong> files at EGA will be <strong>invalid</strong>. </p>
 <table>
 <thead>
 <tr>
@@ -762,6 +767,14 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>analyzed_sample_id</td>
+<td>Must match EGA's 'sample_alias' field in EGA Sample metadata XML*</td>
+</tr>
+<tr>
+<td>matched_sample_id</td>
+<td>Must match EGA's 'sample_alias' field in EGA Sample metadata XML*</td>
+</tr>
 <tr>
 <td>raw_data_repository</td>
 <td>code '1' for EGA</td>
@@ -772,6 +785,7 @@
 </tr>
 </tbody>
 </table>
+<p><strong>If you are unable to edit/update EGA's 'sample_alias' field, please include the sample attribute 'submitter_sample_id' in the EGA Sample metadata XML file and set the value equal to the DCC-submitted sample ID (see <a href="http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/#sample-xml-file">here</a> for example EGA Sample XML file stucture)</strong></p>
 <h2 id="where-to-get-the-ega-file-accession">Where to get the EGA File Accession</h2>
 <p><a href="https://ega-archive.org">EGA</a> provides a <strong>Sample_File.map</strong> mapping file which includes mapping information between a sample identifier and the EGA File Accession ID. For released EGA datasets, this mapping file can be found in the EGA dataset metadata tarball downloadable from the EGA website. For example for a given EGA dataset: </p>
 <ul>
@@ -790,7 +804,7 @@
 <li>One or more EGA File ID(s) should map to analyzed_sample_id</li>
 <li>If "matched_sample_id" field exists in metadata file, one or more EGA File ID(s) should map to matched_sample_id</li>
 </ol>
-<p><strong><em>NOTE: Please ensure the sample ID you submit to EGA matches the sample ID you submit to DCC</em></strong></p>
+<p><span style="color:red"><strong><em>NOTE: Please ensure the sample ID you submit to EGA ("sample_alias" EGA field) matches the sample ID you submit to DCC ("analyzed_sample_id" and "matched_sample_id" DCC field)</em></strong></span></p>
 <h3 id="examples-of-valid-raw_data_accession-when-raw_data_repository-is-ega">Examples of valid 'raw_data_accession' when 'raw_data_repository' is 'EGA':</h3>
 <table>
 <thead>
@@ -842,7 +856,7 @@ An EGA File Accession ID is not submitted for sample IDs with analysis_id "some_
 <p><strong>Interpretation:</strong>
 The sample ID submitted to DCC does not match the sample submitted to EGA ("BCC001T") for the submitted EGA File ID accession EGAF00001673032.</p>
 <p><strong>Solution:</strong>
-Ensure the EGA-submitted sample ID matches the DCC-submitted sample ID for the given EGA File ID.</p>
+Ensure the EGA-submitted sample ID ("sample_alias" field in EGA Sample XML file) matches the DCC-submitted sample ID for the given EGA File ID. If you are not able to edit/update the "sample_alias" field in EGA, please include the sample_attribute "submitter_sample_id" and set the value to match the DCC-submitted sample ID. This will ensure we are able to map the sample ID in EGA. For more information on EGA metadata requirements, please refer to the <a href="http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/">EGA Raw Data submission guide</a>.</p>
 <h4 id="error-message-3">Error Message #3:</h4>
 <pre><code>No files found with id EGAF00001563762
 </code></pre>
