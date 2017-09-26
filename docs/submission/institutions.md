@@ -24,6 +24,7 @@
 | CRUK (UK) |
 | Dana-Farber Cancer Institute |
 | DFCI (USA) |
+| Duke-NUS Medical School |
 | EMBL-EBI (Hinxton) |
 | Erasmus (Netherlands) |
 | European Molecular Biology Laboratory (EMBL), Heidelberg |
