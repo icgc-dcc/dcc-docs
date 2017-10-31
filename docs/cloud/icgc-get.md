@@ -123,7 +123,9 @@ variable or under `--repo-path` in the config file unless they are being run thr
 Most clients can be made to download using the UDT protocol by using the `--repo-udt` config option.
 
 ### Using the Portal generated ManifestId
-In addition to manually specifying repository precedence via command line, the precedence can also be specifed using a manifestId. When selecting files using Portal, a manifestId can be generated with a user defined precedence. The files can be downloaded using the following command: `./icgc-get download -m <manifestId>`. If a repository from the manifestId does not exist in the current icgc-get configuration, an error message will be returned containing a list of repositories missing from the configuration.
+In addition to manually specifying repository precedence via command line, the precedence can also be specifed using a manifestId. When selecting files using Portal, a manifestId can be generated with a user defined precedence. When file copies reside in more than one repository, this feature can be used to download a **unique** file copy from the first available repository (i.e no duplicate file downloads). A typical usecase is when file copies exist in different geographical locations, and the user defines repositories ordered by increasing distance from their geographical location in order to optimize download speeds. 
+
+The files can be downloaded using the following command: `./icgc-get download -m <manifestId>`. If one or more repositories defined by the manifestId are missing from the current configuration, an error message will be returned containing a list of the missing repositories.
 
 ### Repository Credentials
 
