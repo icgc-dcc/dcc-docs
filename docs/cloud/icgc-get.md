@@ -122,7 +122,8 @@ All clients require an absolute path to your local client installation set as `I
 variable or under `--repo-path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `--repo-transport-parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `--repo-udt` config option.
 
-### Using Portal generated Manifest Id
+### Using the Portal generated ManifestId
+In addition to manually specifying repository preciedance via command line, the precedance can also be specifed using a manifestId. When selecting files using Portal, a manifestId can be generated with a user defined precedance. The files can be downloaded using the following command: `./icgc-get download -m <manifestId>`. If a repository from the manifestId does not exist in the current icgc-get configuration, an error message will be returned containing a list of repositories missing from the configuration.
 
 ### Repository Credentials
 
