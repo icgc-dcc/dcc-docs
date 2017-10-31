@@ -122,6 +122,8 @@ All clients require an absolute path to your local client installation set as `I
 variable or under `--repo-path` in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under `--repo-transport-parallel` or `REPO_TRANSPORT_PARALLEL`
 Most clients can be made to download using the UDT protocol by using the `--repo-udt` config option.
 
+### Using Portal generated Manifest Id
+
 ### Repository Credentials
 
 #### Collaboratory and AWS Credentials
