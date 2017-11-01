@@ -300,7 +300,7 @@ Where `<file-ids>` is a space separated list of ICGC file IDs, identifiable by t
 The first required argument is the set of ICGC file ids or ICGC manifest id corresponding to the file or files you wish to download.
 This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a
 manifest id append the tag `-m` or `--manifest`. These ids may be retrieved from the [ICGC data portal](https://dcc.icgc.org/repositories) through the
-icgc-get button on the Data Repositories page. `icgc-get` is not capable of parsing client manifest files on the local machine.
+icgc-get button on the Data Repositories page. `icgc-get` is not capable of parsing client manifest files on the local machine. For more information on repository presendence using the manifestId, refer to [Using the Portal generated ManifestId](#using-the-portal-generated-manifestid).
 
 Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
 provided they have not been added to the config file.
