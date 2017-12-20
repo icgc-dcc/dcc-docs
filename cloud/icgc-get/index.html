@@ -735,6 +735,8 @@
                         
                         <li class=""><a href="#repository-precedence">Repository Precedence</a></li>
                         
+                        <li class=""><a href="#using-the-portal-generated-manifestid">Using the Portal generated ManifestId</a></li>
+                        
                         <li class=""><a href="#repository-credentials">Repository Credentials</a></li>
                         
                     </ul>
@@ -916,6 +918,9 @@ that non-default container versions may not be compatible with your installation
 <p>All clients require an absolute path to your local client installation set as <code>ICGCGET_REPO_PATH</code> as an environmental
 variable or under <code>--repo-path</code> in the config file unless they are being run through docker. All clients support the ability to configure the number of data streams to use when downloading under <code>--repo-transport-parallel</code> or <code>REPO_TRANSPORT_PARALLEL</code>
 Most clients can be made to download using the UDT protocol by using the <code>--repo-udt</code> config option.</p>
+<h3 id="using-the-portal-generated-manifestid">Using the Portal generated ManifestId</h3>
+<p>In addition to manually specifying repository precedence via command line, the precedence can also be specifed using a manifestId. When selecting files using Portal, a manifestId can be generated with a user defined precedence. When file copies reside in more than one repository, this feature can be used to download a <strong>unique</strong> file copy from the first available repository (i.e no duplicate file downloads). A typical usecase is when file copies exist in different geographical locations, and the user defines repositories ordered by increasing distance from their geographical location in order to optimize download speeds. </p>
+<p>The files can be downloaded using the following command: <code>./icgc-get download -m &lt;manifestId&gt;</code>. If one or more repositories defined by the manifestId are missing from the current configuration, an error message will be returned containing a list of the missing repositories.</p>
 <h3 id="repository-credentials">Repository Credentials</h3>
 <h4 id="collaboratory-and-aws-credentials">Collaboratory and AWS Credentials</h4>
 <p>These repositories are both accessed through the <a href="../../cloud/repositories/#icgc-storage-repositories">ICGC Storage Client</a>, and share their
@@ -1141,7 +1146,7 @@ and add a <code>downloaded</code> column that marks these files.</p>
 <p>The first required argument is the set of ICGC file ids or ICGC manifest id corresponding to the file or files you wish to download.
 This should either be in the form of one or more FI ids, FI followed by some amount of numbers, or a manifest uuid. If this is for a
 manifest id append the tag <code>-m</code> or <code>--manifest</code>. These ids may be retrieved from the <a href="https://dcc.icgc.org/repositories">ICGC data portal</a> through the
-icgc-get button on the Data Repositories page. <code>icgc-get</code> is not capable of parsing client manifest files on the local machine.</p>
+icgc-get button on the Data Repositories page. <code>icgc-get</code> is not capable of parsing client manifest files on the local machine. For more information on repository presendence using the manifestId, refer to <a href="#using-the-portal-generated-manifestid">Using the Portal generated ManifestId</a>.</p>
 <p>Using this command also requires you to specify the repository or repositories that are being targeted for download and the output directory,
 provided they have not been added to the config file.</p>
 <p><strong>Prepend each repository with <code>-r</code></strong>, for example <code>-r aws-virginia -r ega</code>. The order that the repositories
