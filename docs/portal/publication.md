@@ -78,6 +78,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [PRAD-FR][45] |  France | Prostate Cancer - Adenocarcinoma - FR |  Publication limitations in place until 2019-05-18 |
 | [UTCA-FR][46] |  France | Uterine Cancer - Carcinosarcoma - FR |  Publication limitations in place until 2019-05-18 |
 | [NKTL-SG][47] |  Singapore | Blood Cancer - T-cell and NK-cell lymphoma - SG |  Publication limitations in place until 2019-05-18 |
+| [BTCA-SG][50] |  Singapore | Biliary Tract Cancer - SG |  Publication limitations in place until 2020-12-12 |
 | [GBM-CN][48] |  China | Brain Cancer - CN |  Publication limitations in place until 2019-05-18 |
 | [THCA-CN][49] |  China | Thyroid Cancer - CN |  Publication limitations in place until 2019-05-18 |
 
@@ -138,3 +139,5 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [47]: https://dcc.icgc.org/projects/NKTL-SG
 [48]: https://dcc.icgc.org/projects/GBM-CN
 [49]: https://dcc.icgc.org/projects/THCA-CN
+[50]: https://dcc.icgc.org/projects/BTCA-SG
+
