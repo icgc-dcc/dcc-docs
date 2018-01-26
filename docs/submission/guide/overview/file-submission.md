@@ -53,6 +53,7 @@ sftp> mput PATH_TO_LOCAL_FOLDER/* PROJECT_FOLDER
 
 where PATH_TO_LOCAL_FOLDER is the folder containing your submission files and PROJECT_FOLDER is the name of your project on the SFTP server.
 
-4\. Validate your submission by going to the ICGC data submission web interface at . Log in using your ICGC submission system username and password.
+4\. Validate your submission by going to the ICGC data submission web interface at [https://submissions.dcc.icgc.org][2]. Log in using your ICGC submission system username and password.
 
 [1]: mailto:dcc-support@icgc.org
+[2]: https://submissions.dcc.icgc.org
