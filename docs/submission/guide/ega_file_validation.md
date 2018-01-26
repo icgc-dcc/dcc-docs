@@ -97,6 +97,18 @@ Ensure the EGA-submitted sample ID ("sample_alias" field in EGA Sample XML file)
 
 ####Error Message #3:####
 ```
+Missing EGA File ID for matched_sample_id: abc_n1
+```
+
+**Interpretation:**
+You are missing an EGA File ID for the 'matched_sample_id'.
+
+**Solution:**
+An EGA File ID is required for both the 'analyzed_sample_id' and 'matched_sample_id'. Ensure your data submission includes the EGA File ID(s) for the 'matched_sample_id' as well. 
+
+
+####Error Message #4:####
+```
 No files found with id EGAF00001563762
 ```
 
