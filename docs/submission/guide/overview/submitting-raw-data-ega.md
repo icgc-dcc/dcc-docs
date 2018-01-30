@@ -111,7 +111,7 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 | submitter_donor_id |  DCC submitted [donor_id][1] 
 | submitter_specimen_id | DCC submitted [specimen_id][2] 
 | specimen_type | DCC submitted [specimen_type][3] 
-| submitter_sample_id | DCC submitted [analyzed_sample_id][4]
+| submitter_sample_id | DCC submitted [analyzed_sample_id][4] or [matched_sample_id][11]
 | gender | DCC submitted [donor_sex][5]
 
 
@@ -179,7 +179,7 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
          </SAMPLE_ATTRIBUTE>
          <SAMPLE_ATTRIBUTE>
             <TAG>submitter_sample_id</TAG>
-            <VALUE>DCC-submitted analyzed_sample_id</VALUE>
+            <VALUE>DCC-submitted analyzed_sample_id or DCC-submitted matched_sample_id</VALUE>
          </SAMPLE_ATTRIBUTE>
       </SAMPLE_ATTRIBUTES>
    </SAMPLE>
@@ -232,3 +232,4 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 [8]: https://ega-archive.org/submission/sequence/programmatic_submissions/prepare_xml
 [9]: https://ega-archive.org/submission/sequence/metadata
 [10]: https://ega-archive.org/submission/array_based/metadata
+[11]: http://docs.icgc.org/dictionary/viewer/#?q=matched_sample_id
