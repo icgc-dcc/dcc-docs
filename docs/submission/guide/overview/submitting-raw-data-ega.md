@@ -48,22 +48,54 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
 ```xml
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <DATASETS>
-    <DATASET alias="DS20110311" center_name="OICR" broker_name="">
-        <TITLE>Pancreatic Cancer Genome Sequencing</TITLE>
-        <RUN_REF refname="SC_RUN_4050_1"/>
-        <RUN_REF refname="SC_RUN_4000_2"/>
-        <POLICY_REF refname="ICGC Data Access Agreements" refcenter="ICGC"/>
-        <DATASET_LINKS>
-            <DATASET_LINK>
-                <URL_LINK>
-                    <LABEL>ICGC Data Portal</LABEL>
-                    <URL>http://dcc.icgc.org</URL>
-                </URL_LINK>
-            </DATASET_LINK>
-        </DATASET_LINKS>
-    </DATASET>
+   <DATASET alias="TODO:UNIQUE NAME e.g. DS20110311" center_name="TODO: ACCOUNT CENTER_NAME ACRONYM e.g. OICR" broker_name="EGA">
+      <TITLE>TODO:DATASET TITLE e.g. Control samples for X</TITLE>
+      <DATASET_TYPE>TODO: CONTROLLED TERMS END OF XML e.g. Whole genome sequencing </DATASET_TYPE>
+      <RUN_REF accession="TODO:ACCESSION NUMBER(EGAR)"/>
+      <RUN_REF accession="TODO:ACCESSION NUMBER(EGAR)"/>
+      <ANALYSIS_REF accession="TO DO: ACCESSION NUMBER (EGAZ)"/>
+     <!--
+        EGAR/EGAZ accession numbers are provided upon the receipt of the submission of
+        an Run/analysis XML. 
+     -->
+     <POLICY_REF accession="EGAP00001000011" refcenter="ICGC"/>
+    <DATASET_LINKS>
+       <DATASET_LINK>
+          <URL_LINK>
+             <LABEL>ICGC Data Portal</LABEL>
+             <URL>http://dcc.icgc.org</URL>
+          </URL_LINK>
+       </DATASET_LINK>
+    </DATASET_LINKS>
+    <DATASET_ATTRIBUTES>
+       <DATASET_ATTRIBUTE>
+          <TAG>TO DO: Submitter defined tag name</TAG>
+          <VALUE>TO DO: Submitter defined value</VALUE>
+          <UNITS>TO DO: Submitter defined units</UNITS>
+       </DATASET_ATTRIBUTE>
+    </DATASET_ATTRIBUTES>
+   </DATASET>
+   <!--
+     If you are submitting more than one dataset, replicate the block <DATASET> to </DATASET> here,
+     as many times as necessary. 
+   -->
 </DATASETS>
+<!--
+   Controlled terms for Dataset type:
+   Whole genome sequencing
+   Exome sequencing
+   Genotyping by array
+   Transcriptome profiling by high-throughput sequencing
+   Transcriptome profiling by array
+   Amplicon sequencing
+   Methylation binding domain sequencing
+   Methylation profiling by high-throughput sequencing
+   Phenotype information
+   Study summary information
+   Genomic variant calling 
+-->
 ```
+
 
 ### STUDY XML file
 
@@ -73,7 +105,7 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
     <STUDY alias="TODO: UNIQUE NAME FOR SUBMISSION (eg. Pancreatic Cancer Genome Sequencing)" center_name="TODO: center name/abbreviation found at http://docs.icgc.org/submission/institutions/ (eg. OICR)">
         <DESCRIPTOR>
             <STUDY_TITLE>TODO: Title of publication</STUDY_TITLE>
-            <STUDY_TYPE existing_study_type="Whole Genome Sequencing"/>
+            <STUDY_TYPE existing_study_type="TODO: CONTROLLED VOCABULARY END OF XML eg. Whole Genome Sequencing"/>
             <STUDY_ABSTRACT>
                 TODO: STUDY ABSTRACT AS IT COULD APPEAR IN A PUBLICATION
             </STUDY_ABSTRACT>
@@ -95,6 +127,24 @@ The following examples of DATASET and STUDY xml files are written as per EGA's s
         </STUDY_ATTRIBUTES>
     </STUDY>
 </STUDY_SET>
+<!--
+ Controlled vocabulary for existing_study_type:
+    Whole Genome Sequencing
+    Metagenomics
+    Transcriptome Analysis
+    Resequencing
+    Epigenetics
+    Synthetic Genomics
+    Forensic or Paleo-genomics
+    Gene Regulation Study
+    Cancer Genomics
+    Population Genomics
+    RNASeq
+    Exome Sequencing
+    Pooled Clone Sequencing
+    Other
+    If using "Other" please add new_study_type="TODO: add own term" attribute
+-->
 ```
 
 ## SAMPLE, EXPERIMENT and RUN XML files
