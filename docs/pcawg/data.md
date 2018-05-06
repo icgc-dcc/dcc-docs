@@ -7,13 +7,13 @@ systems. This table gives you an overview where data for different types can be 
 
 | Repository | Storage type | Data types | Projects |
 | --- | --- | --- | --- |
+| ICGC Data Portal (<a href="https://dcc.icgc.org"><i class="fa-no-icon"></i>Portal</a>) | Web Accessible File | Downstream analysis results, cell line benchmarking, QC, reference genome etc | All Non-US projects |
 | Cancer Genome Collaboratory (<a href="https://cancercollaboratory.org"><i class="fa-no-icon"></i>Collab</a>) | Data Object | Aligned WGS, RNA-Seq, variant calls | All Non-US projects |
-| European Genome-phenome Archive (<a href="https://ega-archive.org"><i class="fa-no-icon"></i>EGA</a>) | Data Archive | Aligned WGS, RNA-Seq | All Non-US projects |
 | Amazon Web Service (<a href="https://aws.amazon.com"><i class="fa-no-icon"></i>AWS</a>) | Data Object | Aligned WGS, RNA-Seq, variant calls | Subset of Non-US projects |
-| ICGC Data Portal (<a href="https://dcc.icgc.org"><i class="fa-no-icon"></i>Portal</a>) | HTTP Accessible File | Downstream analysis results, cell line benchmarking, QC, reference genome etc | All Non-US projects |
+| European Genome-phenome Archive (<a href="https://ega-archive.org"><i class="fa-no-icon"></i>EGA</a>) | Data Archive | Aligned WGS, RNA-Seq | All Non-US projects |
 | Protected Data Cloud (<a href="https://bionimbus-pdc.opensciencedatacloud.org"><i class="fa-no-icon"></i>PDC</a>) | Data Object | Aligned WGS, RNA-Seq, variant calls, downstream analysis results | All US projects (TCGA projects) |
 
-*Note:* Subset of Non-US projects with policy permits data to be hosted at AWS can be downloaded
+*Note:* Subset of Non-US projects with policy permits data to be hosted at AWS can be found
 from <a href="aws_projects.txt"><i class="fa-no-icon"></i>here</a>.
 
 
@@ -36,8 +36,8 @@ QC, reference sequences) and downstream analysis results (usually associated wit
 PCAWG publications).
 
 The data portal presents a simple interface allowing users to navigate through the
-entire [_PCAWG_](https://dcc.icgc.org/releases/PCAWG) data directory. Most of the data
-directories contain a README file that
+entire [_PCAWG_](https://dcc.icgc.org/releases/PCAWG) data directory. Besides the data files,
+most of the sub-directories contain a README file that
 gives a summary of data content, and provides additional information about how to
 access related data in external systems. For example, the README in
 [germline_variations](https://dcc.icgc.org/releases/PCAWG/germline_variations) describes
@@ -62,13 +62,13 @@ down by repository. As many files are distributed in multiple locations, you may
 on certain repositories. You may enable *Remove duplicate files* as well, it will remove files in a
 repository that already presented in a previous one. Finally, you can click on *Download Manifest*
 which will download a tarball with manifest files each for a chosen repository. Manifest file format
-differs from one repository to the other. Manifest file can be used with corresponding client tool
-to actually download the data.
+differs from one repository to the other.
 
 ![](images/manifest-download.png)
 
-The following section will cover how to perform actual data download in different repositories
-using the downloaded manifest files.
+Manifest file can be used with corresponding client tool to actually download the data.
+The following section will cover how to perform data download from different
+repositories using manifest files.
 
 
 ### Download Data
@@ -89,39 +89,40 @@ already been approved by ICGC DACO for accessing controlled data).
 Once logged in, you will be able to browse the [_PCAWG_](https://dcc.icgc.org/releases/PCAWG)
 directory as usual with controlled access data files visible and downloadable.
 
-You may also use the _Token Manager_ (as shown below) to create access token used to download
-data from Collaboratory and AWS (see more details on how in the next section). Tokens expire
+You may also use the _Token Manager_ (as shown below) to create **access token** used to download
+data from *Collaboratory* and *AWS* (see more details on how in the next section). Tokens expire
 in a year, you can delete a token before expiry at anytime.
 
 ![](images/data-download-token.png)
 
 
+#### Download from Collaboratory or AWS
+ICGC Storage Client (should this be SCORE now?) is used to download from *Collaboratory* or *AWS*
+with a TSV manifest file containing necessary information about files to be downloaded.
+More instructions on download and usage of ICGC Storage Clint can be found [here]().
+One step at setup is to add the data **access token** in the ICGC Storage Client application
+property file, please use the token you prepared in the previous step.
+
+Important note about downloading PCAWG data from Collaboratory and AWS: the download
+client must run in the same environment as the object storage system. That means to
+download from Collaboratory, the ICGC Storage Client **must** run on a virtual
+machine (VM) that you launched within the Collaboratory cloud platform; to download from
+AWS (N. Virginia), the ICGC Storage Client **must** run on an AWS VM in the *N. Virginia*
+availability zone.
+
+
 #### Download from EGA
 After getting your ICGC DACO approval, you will need to get in touch with [_EGA_](mailto:ega-helpdesk@ebi.ac.uk) to have your EGA account set up. You will then be
-able to download any EGA Datasets that are under ICGC DACO.
+able to download any EGA Datasets that are under the control of the ICGC DACO.
 
-For EGA download, the manifest file you download from ICGC Data Portal is actually a shell
+For EGA data download, the manifest file you download from ICGC Data Portal is actually a shell
 script with a few variables need to be
 replaced by actual values, such as, username, password, output_dir etc. The script utilizes
 EGA Java download client which is documented with more details
-[here](https://ega-archive.org/download/using-ega-download-client). You may modify the script
+[here](https://ega-archive.org/download/using-ega-download-client). You may modify the manifest script
 to suit your own need. For example, if download involves too many files it could be inefficient
 to request all of them at once. You may change the script so that it requests one file at a time,
 finish downloading and decrypting one file, then move on to the next file.
-
-
-#### Download from Collaboratory or AWS
-Download from Collaboratory or AWS uses the same manifest file, it is a TSV file with one
-row per file. The manifest file is used by ICGC Storage Client (should this be SCORE now?)
-to perform the actual download. More details about how to use ICGC Storage Client
-can be found here.
-
-Important note about downloading PCAWG data from Collaboratory and AWS: the download
-client must be run in the same environment as the object storage system. That means to
-download from Collaboratory, the ICGC Storage Client **must** be run on a virtual
-machine (VM) that you launched within the Collaboratory cloud platform; to download from
-AWS (N. Virginia), the ICGC Storage Client **must** be run on a AWS VM in the N. Virginia
-availability zone.
 
 
 #### Download from PDC
@@ -135,7 +136,7 @@ Next, you will need to get credentials from PDC. Follow the _Login from NIH_ but
 back to PDC where you can now create access key.
 
 When you click on *Create access key* button, a popup will show the new access key id and
-secret key, please copy them and add them to the *awscli* credentials file, usual at here:
+secret key, please copy them and add them to the *awscli* credentials file, usually at here:
 `~/.aws/credentials` depending on your system. The file may look like below:
 
 ```
@@ -143,10 +144,11 @@ secret key, please copy them and add them to the *awscli* credentials file, usua
 aws_access_key_id = your_pdc_access_key_id
 aws_secret_access_key = your_pdc_secret_access_key
 ```
+
 Please edit it to include your own key ID and secret key.
 
-Manifest file for PDC is actually a shell script containing *aws* cli commands, one line per file.
-One line may look like this:
+Manifest file you downloaded from ICGC Data Portal for PDC is actually a shell script containing
+*aws* cli commands, one line per file. One line may look like this:
 `aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-brca-us/f99f7e36-8b6f-5cf0-854f-4b832d5962a4 .`
 
 You may execute the above line directly on the command line to download the object to local.
