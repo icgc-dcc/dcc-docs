@@ -71,6 +71,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [ESAD-UK][34] |  United Kingdom |  Esophageal Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | No Embargo. Data available without limitations |
+| [PEME-CA][51] |  Canada | Pediatric Medulloblastoma |  No Embargo. Data available without limitations |
 | [BRCA-FR][41] |  France |  Breast Cancer - FR |  Publication limitations in place until 2018-08-23 |
 | [LAML-CN][39] |  China |  Leukemia - CN |  Publication limitations in place until 2018-05-16 |
 | [BRCA-KR][40] |  South Korea | Breast Cancer - SK |  Publication limitations in place until 2018-08-23 |
@@ -81,6 +82,9 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [BTCA-SG][50] |  Singapore | Biliary Tract Cancer - SG |  Publication limitations in place until 2020-12-12 |
 | [GBM-CN][48] |  China | Brain Cancer - CN |  Publication limitations in place until 2019-05-18 |
 | [THCA-CN][49] |  China | Thyroid Cancer - CN |  Publication limitations in place until 2019-05-18 |
+| [NACA-CN][52] |  China | Nasopharyngeal cancer |  Publication limitations in place until 2020-04-30 |
+| [PRAD-CN][53] |  China | Prostate cancer |  Publication limitations in place until 2020-04-30 |
+| [GACA-JP][54] |  Japan | Gastric cancer |  Publication limitations in place until 2019-04-30 |
 
 
 
@@ -140,4 +144,7 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [48]: https://dcc.icgc.org/projects/GBM-CN
 [49]: https://dcc.icgc.org/projects/THCA-CN
 [50]: https://dcc.icgc.org/projects/BTCA-SG
-
+[51]: https://dcc.icgc.org/projects/PEME-CA
+[52]: https://dcc.icgc.org/projects/NACA-CN
+[53]: https://dcc.icgc.org/projects/PRAD-CN
+[54]: https://dcc.icgc.org/projects/GACA-JP
