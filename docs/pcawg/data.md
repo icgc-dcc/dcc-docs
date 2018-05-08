@@ -97,9 +97,10 @@ in a year, you can delete a token before expiry at anytime.
 
 
 #### Download from Collaboratory or AWS
-ICGC Storage Client (should this be SCORE now?) is used to download from *Collaboratory* or *AWS*
-with a TSV manifest file containing necessary information about files to be downloaded.
-More instructions on download and usage of ICGC Storage Clint can be found [here]().
+ICGC Storage Client is used to download from *Collaboratory* or *AWS*
+with a TSV manifest file containing necessary information about data objects to be downloaded.
+
+ICGC Storage Client can be downloaded from [URL?]().
 One step at setup is to add the data **access token** in the ICGC Storage Client application
 property file, please use the token you prepared in the previous step.
 
