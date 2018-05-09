@@ -82,7 +82,7 @@ webpackJsonp([1,2],{
 	  }
 	};
 
-	_angular2.default.module('icgc.software', []).component('versionsTable', versionsTable);
+	_angular2.default.module('icgc.software', []).component('versionsTable', versionsTable
 	// .controller('SoftwareController', function($scope) {
 	//   $scope.icgcGet = {
 	//     artifactId:'icgc-get'
@@ -105,6 +105,7 @@ webpackJsonp([1,2],{
 	//       $scope.icgcGetVersions = response.plain();
 	//       });
 	// });
+	);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
