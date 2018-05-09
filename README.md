@@ -48,13 +48,10 @@ npm run build
 
 ## Deploy
 
-To publish changes, run
+Changes are published through Netlify. 
 
-```shell
-npm run publish
-```
-
-It is not necessary to run the build task before publishing
+You can either run the build step and copy over the `site` directory to netlify, or have netlify watch the master branch and
+build and deploy it on changes. 
 
 ### NPM Notes
 
