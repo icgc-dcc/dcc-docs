@@ -94928,16 +94928,9 @@ webpackJsonp([0,2],[
 /***/ function(module, exports) {
 
 	module.exports = {
-		"_args": [
-			[
-				"jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-				"/Users/junjun/3.DCC/git/dcc-docs"
-			]
-		],
-		"_from": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_id": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_from": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_id": "jsondiffpatch@0.1.43",
 		"_inBundle": false,
-		"_integrity": "sha1-10VW8x+q7eGBDW7uyzMGKFFgoq4=",
 		"_location": "/jsondiffpatch",
 		"_phantomChildren": {},
 		"_requested": {
@@ -94953,8 +94946,9 @@ webpackJsonp([0,2],[
 		"_requiredBy": [
 			"/@icgc/dictionary-viewer"
 		],
-		"_spec": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
-		"_where": "/Users/junjun/3.DCC/git/dcc-docs",
+		"_resolved": "git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_spec": "jsondiffpatch@git+https://github.com/cheapsteak/jsondiffpatch.git#1bf3df4875e4af1d17034649332ed19f33dbc4b5",
+		"_where": "/home/dandric/Documents/workspace/dcc-docs/node_modules/@icgc/dictionary-viewer",
 		"author": {
 			"name": "Benjamin Eidelman",
 			"email": "beneidel@gmail.com"
@@ -94975,6 +94969,7 @@ webpackJsonp([0,2],[
 		"dependencies": {
 			"chalk": "^0.5.1"
 		},
+		"deprecated": false,
 		"description": "Diff & Patch for Javascript objects",
 		"devDependencies": {
 			"bulk-require": "^0.2.1",
