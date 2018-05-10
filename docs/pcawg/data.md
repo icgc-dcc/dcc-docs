@@ -89,7 +89,10 @@ already been approved by ICGC DACO for accessing controlled data).
 Once logged in, you will be able to browse the [_PCAWG_](https://dcc.icgc.org/releases/PCAWG)
 directory as usual with controlled access data files visible and downloadable.
 
-You may also use the _Token Manager_ (as shown below) to create **access token** used to download
+#### Retrieve Access Tokens from ICGC Data Portal
+
+When logged in should should be able to use the _Token Manager_ (as shown below) to create
+**access token** for yourself to be used to download
 data from *Collaboratory* and *AWS* (see more details on how in the next section). Tokens expire
 in a year, you can delete a token before expiry at anytime.
 
@@ -100,9 +103,34 @@ in a year, you can delete a token before expiry at anytime.
 ICGC Storage Client is used to download from *Collaboratory* or *AWS*
 with a TSV manifest file containing necessary information about data objects to be downloaded.
 
-ICGC Storage Client can be downloaded from [URL?]().
-One step at setup is to add the data **access token** in the ICGC Storage Client application
-property file, please use the token you prepared in the previous step.
+The latest version of ICGC Storage Client can be downloaded from [here](https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/1.0.23). If you are on a Linux
+system and already have Java 8 installed, you can have ICGC Storage Client ready to use with the following commands:
+```
+wget -O icgc-storage-client-1.0.23.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/1.0.23
+
+tar xvzf icgc-storage-client-1.0.23.tar.gz
+
+echo export PATH=$(pwd)/icgc-storage-client-1.0.23/bin:$PATH >> ~/.bashrc
+
+source ~/.bashrc
+
+# you will then be able to use it by running the following command anywhere is the system
+icgc-storage-client
+```
+
+Before you can actually download controlled access data, you will need to add the
+ICGC access token in the following file:
+`icgc-storage-client-1.0.23/conf/application.properties`, you should see a line like the
+follow, uncomment it and add your access token
+```
+# accessToken=your_collab_access_token
+```
+Assume you downloaded a manifest file (manifest.collaboratory.1525977569066.tsv)
+from ICGC data portal in the previous step, the manifest contains files from Collaboratory.
+The following command will download these files to the current directory:
+```
+icgc-storage-client --profile collab download --manifest manifest.collaboratory.1525977569066.tsv --output-dir .
+```
 
 Important note about downloading PCAWG data from Collaboratory and AWS: the download
 client must run in the same environment as the object storage system. That means to
