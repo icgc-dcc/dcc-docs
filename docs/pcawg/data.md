@@ -154,10 +154,10 @@ finish downloading and decrypting one file, then move on to the next file.
 
 
 #### Download from PDC
-PDC stores PCAWG TCGA data in OpenStack Ceph object store, direct download access to Ceph
+PDC stores PCAWG TCGA data in Cleversafe object store, direct download access to Cleversafe
 buckets is provided to authorized users.
 
-OpenStack Ceph is compatible with AWS S3, you can use *awscli* client to download Ceph objects.
+Cleversafe is compatible with AWS S3, you can use *awscli* client to download objects.
 To install *awscli*, please follow instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 
 Next, you will need to get credentials from PDC. Follow the _Login from NIH_ button on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access key. If you see `TCGA-PCAWG` is in the project list and you have `download` right, you can proceed with generating access key.
