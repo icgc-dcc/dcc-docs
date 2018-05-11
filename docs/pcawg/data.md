@@ -2,7 +2,7 @@
 
 ### Data Repositories
 
-Data produced by the PCAWG study has been deposited in multiple long-term storage
+Data produced by the PCAWG study has been deposited into multiple long-term storage
 systems. This table gives you an overview where data for different types can be downloaded.
 
 | Repository | Storage type | Data types | Projects |
@@ -13,13 +13,13 @@ systems. This table gives you an overview where data for different types can be 
 | European Genome-phenome Archive (<a href="https://ega-archive.org"><i class="fa-no-icon"></i>EGA</a>) | Data Archive | Aligned WGS, RNA-Seq | All Non-US projects |
 | Protected Data Cloud (<a href="https://bionimbus-pdc.opensciencedatacloud.org"><i class="fa-no-icon"></i>PDC</a>) | Data Object | Aligned WGS, RNA-Seq, variant calls, downstream analysis results | All US projects (TCGA projects) |
 
-*Note:* Subset of Non-US projects with policy permits data to be hosted at AWS can be found
+*NOTE:* Subset of Non-US projects with policy permits data to be hosted at AWS can be found
 from <a href="aws_projects.txt"><i class="fa-no-icon"></i>here</a>.
 
 
 ### Apply for Data Access
 
-Most of the PCAWG data are controlled access that are subjected to data usage agreement. Please follow instructions at [_ICGC DACO_](https://icgc.org/daco) to apply for access to controlled data of all non-US projects. For US TCGA portion of the PCAWG data, apply for access through [_dbGaP_](https://dbgap.ncbi.nlm.nih.gov).
+Most of the PCAWG data is controlled access that is subject to data usage agreement. Please follow instructions at [_ICGC DACO_](https://icgc.org/daco) to apply for access to controlled data of all non-US projects. For US TCGA portion of the PCAWG data, apply for access through [_dbGaP_](https://dbgap.ncbi.nlm.nih.gov).
 
 
 ### Browse / Search for PCAWG Data
@@ -53,20 +53,20 @@ This particular [query](https://icgc.org/ZEA) set a filter on *Study = 'PCAWG'*,
 all PCAWG data objects. Results are listed in a table with File ID, Donor ID, Repository etc
 important information. You can add more filters as needed, for examples, adding *RNA-Seq* in
 *Experimental Strategy*, will further narrow down the resulting data objects to *PCAWG RNA-Seq*.
-[Here](https://icgc.org/ZEd) is the new query likes like. If you prefer to download data from
+[Here](https://icgc.org/ZEd) is the new, resulting query. If you prefer to download data from
 certain repositories, you can select the desired repositories as needed.
 
-Once satisfied with resulting objects you'd like to download, click on the *Download Files* button
-which will bring up a dialog window displaying summary of file counts and total size broken
+After identifying files of interest, click on the *Download Files* button
+which will bring up a dialog window displaying a summary of file counts and total size broken
 down by repository. As many files are distributed in multiple locations, you may want to prioritize
-on certain repositories. You may enable *Remove duplicate files* as well, it will remove files in a
-repository that already presented in a previous one. Finally, you can click on *Download Manifest*
-which will download a tarball with manifest files each for a chosen repository. Manifest file format
-differs from one repository to the other.
+on certain repositories. You may enable *Remove duplicate files* as well, it will remove files that exist in a
+repository that was already presented. Finally, you can click on *Download Manifest*
+which will download a tarball of manifest files, one for each chosen repository.
 
 ![](images/manifest-download.png)
 
-Manifest file can be used with corresponding client tool to actually download the data.
+Manifest file format differs from one repository to the other, and thus each manifest
+must be used with the corresponding client tool to actually download the data.
 The following section will cover how to perform data download from different
 repositories using manifest files.
 
@@ -81,8 +81,8 @@ Open access data hosted under the _PCAWG_ directory and its subdirectories can b
 without logging in. However, you must login to the Data Portal before you are able to download or
 even see the controlled access data files. Click on the _Login_ button on the top right corner,
 and follow steps. Once successfully logged in, you should be able to see two green icons
-(beside your account name) like shown below on the top row of the portal (assuming you have
-already been approved by ICGC DACO for accessing controlled data).
+(beside your account name) like shown below on the top row of the portal. This assumes that you have
+already been approved by ICGC DACO for accessing controlled data.
 
 ![](images/daco-cloud-access.png)
 
@@ -91,7 +91,7 @@ directory as usual with controlled access data files visible and downloadable.
 
 #### Retrieve Access Tokens from ICGC Data Portal
 
-When logged in should should be able to use the _Token Manager_ (as shown below) to create
+When logged in you should be able to use the _Token Manager_ (as shown above) to create
 **access token** for yourself to be used to download
 data from *Collaboratory* and *AWS* (see more details on how in the next section). Tokens expire
 in a year, you can delete a token before expiry at anytime.
@@ -120,19 +120,18 @@ icgc-storage-client
 
 Before you can actually download controlled access data, you will need to add the
 ICGC access token in the following file:
-`icgc-storage-client-1.0.23/conf/application.properties`, you should see a line like the
-follow, uncomment it and add your access token
+`icgc-storage-client-1.0.23/conf/application.properties`. In the file, you should see a line like shown below. Uncomment it, add your access token, and save the file.
 ```
 # accessToken=your_collab_access_token
 ```
-Assume you downloaded a manifest file (manifest.collaboratory.1525977569066.tsv)
-from ICGC data portal in the previous step, the manifest contains files from Collaboratory.
+Assuming that you downloaded a manifest file (`manifest.collaboratory.1525977569066.tsv`)
+from ICGC data portal in the previous step, the manifest will contain files from Collaboratory.
 The following command will download these files to the current directory:
 ```
 icgc-storage-client --profile collab download --manifest manifest.collaboratory.1525977569066.tsv --output-dir .
 ```
 
-Important note about downloading PCAWG data from Collaboratory and AWS: the download
+**NOTE:** when downloading PCAWG data from Collaboratory or AWS, the download
 client must run in the same environment as the object storage system. That means to
 download from Collaboratory, the ICGC Storage Client **must** run on a virtual
 machine (VM) that you launched within the Collaboratory cloud platform; to download from
@@ -161,12 +160,10 @@ buckets is provided to authorized users.
 OpenStack Ceph is compatible with AWS S3, you can use *awscli* client to download Ceph objects.
 To install *awscli*, please follow instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 
-Next, you will need to get credentials from PDC. Follow the _Login from NIH_ button on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon success login at NIH, you will be redirected
-back to PDC where you can now create access key.
+Next, you will need to get credentials from PDC. Follow the _Login from NIH_ button on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access key. If you see `TCGA-PCAWG` is in the project list and you have `download` right, you can proceed with generating access key.
 
 When you click on *Create access key* button, a popup will show the new access key id and
-secret key, please copy them and add them to the *awscli* credentials file, usually at here:
-`~/.aws/credentials` depending on your system. The file may look like below:
+secret key. Copy the keys and add them to the *awscli* credentials file, which, depending on your system, is usually at here: `~/.aws/credentials`. The file may look like below:
 
 ```
 [pdc]
@@ -176,7 +173,7 @@ aws_secret_access_key = your_pdc_secret_access_key
 
 Please edit it to include your own key ID and secret key.
 
-Manifest file you downloaded from ICGC Data Portal for PDC is actually a shell script containing
+The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing
 *aws* cli commands, one line per file. One line may look like this:
 `aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-brca-us/f99f7e36-8b6f-5cf0-854f-4b832d5962a4 .`
 
