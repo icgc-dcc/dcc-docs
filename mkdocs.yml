@@ -13,13 +13,13 @@ pages:
   - About: 'portal/about.md'
   - Access: 'portal/access.md'
   - Analysis: 'portal/analysis.md'
-  - API: 
+  - API:
     -  Guide: 'portal/api.md'
     -  Endpoints: 'portal/api-endpoints.md'
   - Methods: 'portal/methods.md'
   - Projects: 'portal/projects.md'
   - Publication: 'portal/publication.md'
-  - Releases: 'portal/releases.md' 
+  - Releases: 'portal/releases.md'
   - Repositories: 'portal/repositories.md'
   - Search: 'portal/search.md'
   - Browsers: 'portal/browsers.md'
@@ -78,10 +78,12 @@ pages:
     - icgc-get: 'software/releases/icgc-get.md'
   - Binaries: 'software/binaries.md'
   - Source Code: 'software/code.md'
-  - Development: 
+  - Development:
     - Setup: 'software/development/setup.md'
     - General: 'software/development/general.md'
-- PCAWG: pcawg/index.md
+- PCAWG:
+  - About: 'pcawg/index.md'
+  - Data Download: 'pcawg/data.md'
 extra:
   project_root_dir: '/'
   project_org: 'ICGC'
