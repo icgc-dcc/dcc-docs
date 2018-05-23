@@ -106,26 +106,26 @@ Amazon cloud service containing ICGC data.
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D)|
 |Repo Code             | `aws-virginia` |
 
-## [EGA](https://www.ebi.ac.uk/ega/about)
+## [EGA](https://ega-archive.org/)
 
-The [EBI](http://www.ebi.ac.uk/)'s European Genome-Phenome Archive ([EGA](https://www.ebi.ac.uk/ega/home)).  Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
+The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](http://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. 
 
 | Property | Value |
 |:---------------------| ----------------
 | Name                 | European Genome Archive |
-| Governing Body       | European Bioinformatics Institute |                                                                                                           
-| Contact              | <ega-helpdesk@ebi.ac.uk> |
-| Offical Website      | <https://www.ebi.ac.uk/ega/home> |
+| Governing Body       | European Bioinformatics Institute (EBI) and Centre for Genomic Regulation (CRG) |                                                                                                           
+| Contact              | <helpdesk@ega-archive.org> |
+| Offical Website      | <https://ega-archive.org> |
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D) |
-| Download Client      | [Zipfile](https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client#download) |
+| Download Client      | [Zipfile](https://ega-archive.org/download/using-ega-download-client#DownloadClient) |
 | Repo Code            | `ega`
 
 
 #### Obtaining Data Access
-To access controlled-access data at the EGA you need to be granted access after completing a DACO application. Once approval is obtained from DACO, your user account will be activated and you will have access to controlled access datasets in the ICGC Data Portal and EBI’S EGA repository.  **Your account will use the same username and password as your OpenID account**.
+To access controlled-access data at the EGA you need to be granted access after completing a DACO application. Once approval is obtained from DACO, your user account will be activated and you will have access to controlled access datasets in the ICGC Data Portal and the EGA repository.
 
 #### Download Client Operation
-To operate the EGA download client, follow the instructions [here](https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client).
+To operate the EGA download client, follow the instructions [here](https://ega-archive.org/download/using-ega-download-client#DownloadClient).
 
 ## [GDC](https://gdc.nci.nih.gov)
 
