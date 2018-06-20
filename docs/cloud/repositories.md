@@ -187,26 +187,6 @@ The following are some general resources that may be useful to users interested 
 - [Analysis user guide](https://annaisystems.zendesk.com/hc/en-us/article_attachments/201188358/Pan-Cancer_Researcher_Guide.pdf)
 - [PCAWG operational reports](http://pancancer.info/)
 
-### PCAWG Barcelona 
-
-| Property | Value |
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Barcelona |
-| Type                 | [GNOS](#gnos) |
-| Repo Code            | `pcawg-barcelona` |
-| ICGC Data Portal     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D) |
-| Data Path            | https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/
-
-
-### PCAWG Chicago (ICGC)
-
-| Property | Value |
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Chicago<sup>[\*](#chicago_note)</sup> |
-| Type                 | [GNOS](#gnos) |
-| Repo Code            | `pcawg-chicago-icgc` |
-| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(ICGC)%22%5D%7D%7D%7D)|
-| Data Path | https://gtrepo-osdc-icgc.annailabs.com/cghub/data/analysis/download/
 
 ### PCAWG Chicago (TCGA)
  
@@ -218,15 +198,6 @@ The following are some general resources that may be useful to users interested 
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(TCGA)%22%5D%7D%7D%7D) |
 | Data Path            | https://gtrepo-osdc-tcga.annailabs.com/cghub/data/analysis/download/
 
-### PCAWG Heidelberg  
-
-| Property | Value |
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Heidelberg |
-| Type                 | [GNOS](#gnos) |
-| Repo Code            | `pcawg-heidelberg` |
-| ICGC Portal Page     |[Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Heidelberg%22%5D%7D%7D%7D) |
-| Data Path            | https://gtrepo-dkfz.annailabs.com/cghub/data/analysis/download/
 
 ### PCAWG London 
 
@@ -238,34 +209,6 @@ The following are some general resources that may be useful to users interested 
 | ICGC Data Portal     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20London%22%5D%7D%7D%7D) |
 | Data Path            | https://gtrepo-ebi.annailabs.com/cghub/data/analysis/download/|
 
-### PCAWG Tokyo 
 
-| Property | Value |
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Tokyo |
-| Type                 | [GNOS](#gnos) |
-| Repo Code            | `pcawg-tokyo` 
-| ICGC Data Portal     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Tokyo%22%5D%7D%7D%7D) |
-| Data Path            | https://gtrepo-riken.annailabs.com/cghub/data/analysis/download/|
-
-### PCAWG Seoul 
-
-| Property | Value |
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Seoul |
-| Type                 | [GNOS](#gnos) |
-| Repo Code            | `pcawg-seoul` |
-| ICGC Data Portal     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Seoul%22%5D%7D%7D%7D) |
-| Data Path            | https://gtrepo-etri.annailabs.com/cghub/data/analysis/download/|
-
-### PCAWG Santa-Cruz
-
-| Property | Value |
-|:---------------------| ----------------
-| Name                 | Pancancer Analysis of Whole Genomes Santa-Cruz |
-| Type                 | [GNOS](#gnos) |
-| Repo Code             | `pcawg-cghub`   |
-| ICGC Data Portal     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Santa%20Cruz%22%5D%7D%7D%7D) |
-| Data Path            | https://cghub.ucsc.edu/cghub/data/analysis/download/|
 
 <a id=chicago_note></a>\* Two separate PCAWG repositories are hosted in Chicago, each for a different research project.
