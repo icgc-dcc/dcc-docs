@@ -17,22 +17,21 @@ The figure below illustrates the overall process and systems involved:
 2.  [Compute Prerequistes](#compute-prerequisites)
     Provision a _Compute Instance_ in the target cloud
 3.  [Installation](#installation)
-    Download and install the ICGC _Storage Client_
+    Download and install the _Score Client_
 4.  [Configuration](#configuration)
-    Configure the Storage Client to use the generated Access Token
+    Configure the Score Client to use the generated Access Token
 5.  [File Search](#file-search)
     Identify files of interest using the Data Portal
-6.  [Storage Client Usage](#storage-client-usage)
-    Download or view data with the provided Storage Client or via an external tool
+6.  [Score Client Usage](#score-client-usage)
+    Download or view data with the provided Score Client or via an external tool
 
-
-[![Cloud Process Diagram](images/process-diagram.png)](images/process-diagram.png "Click Cloud Process Diagram to see the full image.")
+[![Cloud Process Diagram](images/process-diagram.png)](images/process-diagram.png 'Click Cloud Process Diagram to see the full image.')
 
 The subsequent sections will provide additional details on each of these topics.
 
 ### Security
 
-The usage of the distributed [Storage Client](/software/binaries) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
+The usage of the distributed [Score Client](/software/binaries) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
 
 #### AWS
 
@@ -48,11 +47,11 @@ Lastly, it is the user’s responsibility to protect the data after it has been 
 
 ## Authorization
 
-There are two prerequesites to using the Storage Client: DACO Cloud Access status and a self-provisioned Access Token.
+There are two prerequesites to using the Score Client: DACO Cloud Access status and a self-provisioned Access Token.
 
 ### DACO Cloud Access
 
-DACO Cloud Access is prerequisite to using the Storage Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon: 
+DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
 
 ![DACO Cloud Acces Link](images/daco-cloud-access.png)
 
@@ -66,11 +65,11 @@ Related to Access Tokens is the concept of _Scopes_. Tokens allow you to associa
 
 To acquire an Access Token, you must first obtain DACO Clould Access and login to the Data Portal. After a successful login, there will be _Token Manager_ link in the upper right corner of the page. Clicking on this link will display the Token Manager dialog:
 
-[![Token Manager Link](images/token-manager-link.png)](images/token-manager-link.png "Click the Token Manager toolbar to see the full image.")
+[![Token Manager Link](images/token-manager-link.png)](images/token-manager-link.png 'Click the Token Manager toolbar to see the full image.')
 
 From this dialog, you can manage the Access Tokens associated with your account. Importantly, you may delete and regenerate an access token if you believe that it has been compromised.
 
-[![Token Manager Screenshot](images/token-manager-screenshot.png)](images/token-manager-screenshot.png "Click the Token <anager screenshot to see the full image.")
+[![Token Manager Screenshot](images/token-manager-screenshot.png)](images/token-manager-screenshot.png 'Click the Token <anager screenshot to see the full image.')
 
 When creating an Access Token, you will need to specify the Scope associated with the target cloud(s).
 
@@ -82,22 +81,19 @@ In the case of the ICGC AWS data set, an access token with the <span class="badg
 
 In the case of the ICGC Collaboratory data set, an access token with the <span class="badge token-badge token-scopes">collab.download</span> scope is required to access the [controlled access data](/portal/access)
 
-
 You can verify that your Access Token has the desired scopes by inspecting it in the table at the bottom of the dialog. For security purposes, Access Tokens must remain private and not be shared with anyone.
 
-Following the creation of a Compute Instance, discussed in the next section, you will need to edit the Storage Client client configuration file to include the generated Access Token. See the [Configuration](#configuration) section for additional information.
+Following the creation of a Compute Instance, discussed in the next section, you will need to edit the Score Client client configuration file to include the generated Access Token. See the [Configuration](#configuration) section for additional information.
 
 ## Compute Prerequisites
 
 ### Compute Instance
 
-As a first step in analyzing data, you will need to create a Compute Instance to run the Storage Client and any other supporting software.
-
+As a first step in analyzing data, you will need to create a Compute Instance to run the Score Client and any other supporting software.
 
 #### AWS
 
 In order to run within [EC2](https://aws.amazon.com/ec2/), you will need your own AWS account to provision a running EC2 instance. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions.
-
 
 #### Collaboratory
 
@@ -111,54 +107,54 @@ As data files are quite large, users should have enough local disk space to stor
 
 More processing cores will give greater parallelism, and therefore, better thoughput of downloads.
 
-By default the storage client is configured to use a maximum of 3G of RAM. Most of time this is more than sufficient.
+By default the Score Client is configured to use a maximum of 3G of RAM. Most of time this is more than sufficient.
 
 ### Operating System
 
-The Storage Client has been designed to work on modern Mac and Linux distributions. Windows should work as well but remains untested.
+The Score Client has been designed to work on modern Mac and Linux distributions. Windows should work as well but remains untested.
 
 ### Dependencies
 
-The Storage Client requires Java 8 to be installed. It has been tested using the Oracle distribution. The procedure for installing Java 8 will vary depending on the operating system and package manager used.
+The Score Client requires Java 8 to be installed. It has been tested using the Oracle distribution. The procedure for installing Java 8 will vary depending on the operating system and package manager used.
 
 In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev` and `fuse` packages.
 
 ## Installation
 
-This section describes how to install the Storage Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
+This section describes how to install the Score Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
 
 ### Install from Tarball
 
-To begin using the Storage Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software/binaries#storage-client).
+To begin using the Score Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software/binaries#score-client).
 
 ```
-wget -O icgc-storage-client.tar.gz https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest
-tar -xvzf icgc-storage-client.tar.gz
+wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/\[RELEASE\]/score-client-\[RELEASE\]-dist.tar.gz
+tar -xvzf score-client.tar.gz
 ```
 
-After untaring the archive, the Storage Client will be available at `bin/icgc-storage-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](/software/binaries) page.
+After untaring the archive, the Score Client will be available at `bin/score-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](/software/binaries) page.
 
 ### Install from Docker Image
 
-We also support a Docker image of the Storage Client that is bundled with Java 8 for easy deployment.
+We also support a Docker image of the Score Client that is bundled with Java 8 for easy deployment.
 
-The image is hosted at [https://hub.docker.com/r/icgc/icgc-storage-client/](https://hub.docker.com/r/icgc/icgc-storage-client/) and downloaded by issuing the following command:
+The image is hosted at [https://hub.docker.com/r/overture/score/](https://hub.docker.com/r/overture/score/) and downloaded by issuing the following command:
 
 ```
-docker pull icgc/icgc-storage-client
+docker pull overture/score
 ```
 
 Once pulled, you can open a shell in the container by executing:
 
 ```
-docker run -it icgc/icgc-storage-client
+docker run -it score-client
 ```
 
-There is no entry point or command defined for the image. The software may be located at `/icgc/icgc-storage-client` which is also the working directory of the container. All other steps for [using the Storage Client](#storage-client-usage) will be the same for both Docker and tarball installations.
+There is no entry point or command defined for the image. The software may be located at `score-client` which is also the working directory of the container. All other steps for [using the Score Client](#score-client-usage) will be the same for both Docker and tarball installations.
 
 ## Configuration
 
-The configuration of the Storage Client is stored in the `conf/application.properties` file of the distribution.
+The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution.
 
 ### Access Configuration
 
@@ -173,73 +169,73 @@ accessToken=<access token>
 When using Docker, this can also be set with an environmental variable:
 
 ```
-docker run -it -e ACCESSTOKEN=<access token> icgc/icgc-storage-client
+docker run -it -e ACCESSTOKEN=<access token> score-client
 ```
 
 #### Collaboratory
 
-In addition to the above, you will need to change the `bin/icgc-storage-client` script to set `STORAGE_PROFILE=collab`. This can also performed externally via the environmental variable of the same name. Note that it is also possible to override this per execution using `bin/icgc-storage-client`'s `--profile collab` argument.
+In addition to the above, you will need to change the `bin/score-client` script to set `STORAGE_PROFILE=collab`. This can also performed externally via the environmental variable of the same name. Note that it is also possible to override this per execution using `bin/score-client`'s `--profile collab` argument.
 
 ### Transport Configuration
 
-Based on the target Compute Instance defined in [Compute Prerequisites](#compute-prerequisites) and transfer speed requirements, it may be necessary to make changes to how the Storage Client transfers data. This is achieved by setting `transport.parallel` and `transport.memory`:
+Based on the target Compute Instance defined in [Compute Prerequisites](#compute-prerequisites) and transfer speed requirements, it may be necessary to make changes to how the Score Client transfers data. This is achieved by setting `transport.parallel` and `transport.memory`:
 
-*   `transport.parallel` controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
-*   `transport.memory` is the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of `1` (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance.
+- `transport.parallel` controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+- `transport.memory` is the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of `1` (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance.
 
 ## File Search
 
 Finding files of interest can be done via the Data Portal. Objects are identified by their _Object ID_.
 
-*   Navigate to [repository file search](https://dcc.icgc.org/repositories)
-*   Click on the `AWS` or `Collaboratory` filter in the left hand pane
-*   Filter based on properties of interest (e.g. donor id, specimen id, etc.)
-*   Export a _Manifest_ for future use with the Storage Client
+- Navigate to [repository file search](https://dcc.icgc.org/repositories)
+- Click on the `AWS` or `Collaboratory` filter in the left hand pane
+- Filter based on properties of interest (e.g. donor id, specimen id, etc.)
+- Export a _Manifest_ for future use with the Score Client
 
-The Manifest is the main way to define what files should be downloaded by the Storage Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:
+The Manifest is the main way to define what files should be downloaded by the Score Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:
 
-[![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png "Click the Download Manifest Dialog screenshot to see the full image.")
+[![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png 'Click the Download Manifest Dialog screenshot to see the full image.')
 
-Manifests downloaded from the Data Portal can be transferred to the Storage Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Storage Client Usage](#storage-client-usage) section for usage information.
+Manifests downloaded from the Data Portal can be transferred to the Score Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Score Client Usage](#score-client-usage) section for usage information.
 
-## Storage Client Usage
+## Score Client Usage
 
-This section provides information on how to use the Storage Client once it has been properly downloaded and configured. It assumes the user possesses and has configured the requisite access token discussed previously.
+This section provides information on how to use the Score Client once it has been properly downloaded and configured. It assumes the user possesses and has configured the requisite access token discussed previously.
 
-The Storage Client has the general syntax:
+The Score Client has the general syntax:
 
 ```
-icgc-storage-client [options] [command] [command options]
+score-client [options] [command] [command options]
 ```
 
 It offers a set of commands, where each command has its own set of options to influence its operation.
 
 ### Help
 
-The Storage Client provides a `--help` option to list the available commands and a brief description of their supported options:
+The Score Client provides a `--help` option to list the available commands and a brief description of their supported options:
 
 ```
-bin/icgc-storage-client --help
+bin/score-client --help
 ```
 
 It is also possible to get information on a specific command using the `help` command:
 
 ```
-bin/icgc-storage-client help download
+bin/score-client help download
 ```
 
 ### URL Command
 
-The `url` command is the most basic command supported by the Storage Client. It allows one to resolve the underyling S3 URL for the requested object. This is useful if one wants to directly access the URL via HTTPS with an external client or tool (e.g. `curl`, `wget`, etc.)
+The `url` command is the most basic command supported by the Score Client. It allows one to resolve the underyling S3 URL for the requested object. This is useful if one wants to directly access the URL via HTTPS with an external client or tool (e.g. `curl`, `wget`, etc.)
 
 ```
-bin/icgc-storage-client url --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
+bin/score-client url --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
 ```
 
 An example of using `wget`:
 
 ```bash
-bin/icgc-storage-client url --object-id <Object ID>
+bin/score-client url --object-id <Object ID>
 Resolving URL for object: ddcdd044-adda-5f09-8849-27d6038f8ccd (offset = 0, length = -1)
 https://s3-external-1.amazonaws.com/...[snip]
 
@@ -252,20 +248,20 @@ You should always double-quote the URL that you pass to wget.
 
 The `download` command allows fast parallel download of remote objects. It can be run in one of two modes: (a) single object mode and (b) Manifest driven mode
 
-Note that the Storage Client is able to resume an interrupted download session. Simply rerun the same command again and it will continue.
+Note that the Score Client is able to resume an interrupted download session. Simply rerun the same command again and it will continue.
 
 #### Object ID
 
 This mode is useful when downloading an ad-hoc list of one or more objects with known Object ID's, perhaps acquired from the Data Portal:
 
 ```
-bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --output-dir data
+bin/score-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --output-dir data
 ```
 
 You can also specify multiple object id's separated by spaces
 
 ```
-bin/icgc-storage-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 008da0c1-70cc-61ae-3bab-09aa17fad451 --output-dir data
+bin/score-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 008da0c1-70cc-61ae-3bab-09aa17fad451 --output-dir data
 ```
 
 Downloads will be stored in the `--output-dir`.
@@ -275,7 +271,7 @@ Downloads will be stored in the `--output-dir`.
 Using a Manifest is ideal for downloading multiple files identified through the Data Portal. The [repository file search](https://dcc.icgc.org/repositories) allows one to generate a Manifest file that can be supplied for bulk downloading files. It also provides some additional metadata for selected files that gives the donor, specimen and sample context.
 
 ```
-bin/icgc-storage-client download --manifest manifest.txt --output-dir data
+bin/score-client download --manifest manifest.txt --output-dir data
 ```
 
 The optional `--output-layout` option can be used to organize the downloads into a couple of predefined directory layouts. See the `--help` for addional information.
@@ -284,9 +280,9 @@ The optional `--output-layout` option can be used to organize the downloads into
 
 The `manifest` command allows a user to quickly view the contents of a download Manifest produced by the Data Portal. A Manifest can come from:
 
-*   The local file system
-*   A Manifest ID that is hosted on the Data Portal
-*   Any URL
+- The local file system
+- A Manifest ID that is hosted on the Data Portal
+- Any URL
 
 A Manifest is a TSV file that contains both file identifying fields and satellite metadata for understanding the relationships to other data including donor, project and study.
 
@@ -295,7 +291,7 @@ A Manifest is a TSV file that contains both file identifying fields and satellit
 An example of using a local file system Manifest:
 
 ```
-bin/icgc-storage-client manifest --manifest manifest.aws-virginia.1444232116728.txt
+bin/score-client manifest --manifest manifest.aws-virginia.1444232116728.txt
 ```
 
 #### Manifest from the Data Portal
@@ -303,7 +299,7 @@ bin/icgc-storage-client manifest --manifest manifest.aws-virginia.1444232116728.
 An example of using a Data Portal hosted Manifest:
 
 ```
-bin/icgc-storage-client manifest --manifest 49e91614-7811-11e5-8a58-34363bcf803c
+bin/score-client manifest --manifest 49e91614-7811-11e5-8a58-34363bcf803c
 ```
 
 #### Manifest from a URL
@@ -311,7 +307,7 @@ bin/icgc-storage-client manifest --manifest 49e91614-7811-11e5-8a58-34363bcf803c
 An example of using a URL hosted Manifest:
 
 ```
-bin/icgc-storage-client manifest --manifest http://hastebin.com/raw/ujajodilih
+bin/score-client manifest --manifest http://hastebin.com/raw/ujajodilih
 ```
 
 ### View Command
@@ -321,7 +317,7 @@ The `view` command is a minimal version of [samtools view](http://www.htslib.org
 The following example will download reads overlapping the region 1 - 100000 in chromosome 1:
 
 ```
-bin/icgc-storage-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --query 1:1-100000
+bin/score-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --query 1:1-100000
 ```
 
 The BAI is automatically discovered and streamed as part of the operation.
@@ -329,13 +325,13 @@ The BAI is automatically discovered and streamed as part of the operation.
 For quickly accessing only the BAM header one can issue:
 
 ```
-bin/icgc-storage-client view --header-only --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
+bin/score-client view --header-only --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
 ```
 
 It is also possible to pipe the output of the above to `samtools`, etc. for pipelining a workflow:
 
 ```
-bin/icgc-storage-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
+bin/score-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
 ```
 
 #### Batch/Manifest Slicing
@@ -344,21 +340,21 @@ As of version 1.0.14, the client supports slicing across "batches" of specimens 
 
 <a href="../images/batch-slice-one-to-one.png"><img width=550 src="../images/batch-slice-one-to-one.png"></a>
 
-Multiple query regions can be specified at the command line, 
+Multiple query regions can be specified at the command line,
 
 ```
-bin/icgc-storage-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
+bin/score-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
 ```
 
 or in a [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
 
 ```
-bin/icgc-storage-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
+bin/score-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
 ```
 
 There is also a switch to have indexes generated for the output
 
-<pre><code>bin/icgc-storage-client view --manifest /data/manifest.txt <b>--output-index</b> --bed-query /data/query/profile12.bed --output-dir /data/query-results</code></pre>
+<pre><code>bin/score-client view --manifest /data/manifest.txt <b>--output-index</b> --bed-query /data/query/profile12.bed --output-dir /data/query-results</code></pre>
 
 ### Mount Command
 
@@ -391,7 +387,7 @@ To mount all available files locally, issue the following:
 mkdir /mnt/icgc
 
 # Mount
-bin/icgc-storage-client mount --mount-point /mnt/icgc
+bin/score-client mount --mount-point /mnt/icgc
 ```
 
 To speed up subsequent mounts, one can specify the `--cache-metadata` flag above which will locally store an index of the file system.
@@ -412,14 +408,14 @@ To filter the mount to only include the files specified in a Manifest, issue the
 mkdir /mnt/icgc
 
 # Mount
-bin/icgc-storage-client mount --mount-point /mnt/icgc --manifest manifest>
+bin/score-client mount --mount-point /mnt/icgc --manifest manifest>
 ```
 
 See the `manifest` command for more details on how to specify a Manifest.
 
 #### Mount in Docker
 
-To avoid having to install the FUSE and Java dependencies when working with the `mount` command, it is very convenient to mount from within a Docker container. This is also useful for creating a custom image for analysis that derives from the one published by ICGC. First, ensure that Docker and the Storage Client image is installed. See the [Installation](#installation) section for details.
+To avoid having to install the FUSE and Java dependencies when working with the `mount` command, it is very convenient to mount from within a Docker container. This is also useful for creating a custom image for analysis that derives from the one published by ICGC. First, ensure that Docker and the Score Client image is installed. See the [Installation](#installation) section for details.
 
 Next, export the access token generated from the portal:
 
@@ -432,12 +428,12 @@ And then mount the file system inside the container against the empty `/mnt` dir
 
 ```
 # Alias for ease of use
-alias icgc-storage-client="docker run -it --rm -e ACCESSTOKEN --privileged icgc/icgc-storage-client bin/icgc-storage-client"
+alias score-client="docker run -it --rm -e ACCESSTOKEN --privileged score-client bin/score-client"
 ```
 
 ```
 # Mount the file system in the container
-icgc-storage-client mount --mount-point /mnt
+score-client mount --mount-point /mnt
 ```
 
 Note that the `--privileged` Docker option is required for FUSE in order to access the host's `/dev/fuse` device.
@@ -470,9 +466,9 @@ Due to a limitation of Docker it is not possible to access a FUSE mounted file s
 
 Currently the only way to retrieve the Bundle ID of an Object ID is by viewing the file entity page in the Data Portal. Navigate to the Data Repository browser and enter the Object ID in the "File" filter and click on the resulting record.
 
-##### Where are detailed Storage Client logs stored?
+##### Where are detailed Score Client logs stored?
 
-The Storage Client log file is stored at `logs/client.log`
+The Score Client log file is stored at `logs/client.log`
 
 ##### How long will pre-signed URLs remain valid?
 
@@ -480,7 +476,7 @@ Pre-signed URLs are valid for 1 day from the time they are issued. For security 
 
 ##### Does the client maintain state?
 
-Yes, the client maintains state, for *downloads*, in the working directory in a hidden file `.<Object ID>/meta`. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the `mount` command with the `--cache-metadata` option, `.entities.cache` and `.objects.cache` are stored in the current working directory.
+Yes, the client maintains state, for _downloads_, in the working directory in a hidden file `.<Object ID>/meta`. This file includes cached pre-signed URLS. If your downloads fail unexpectedly, then try deleting this directory to purge pre-signed URLs that may have expired. Also, when using the `mount` command with the `--cache-metadata` option, `.entities.cache` and `.objects.cache` are stored in the current working directory.
 
 ##### Why do I get a security exception when I try to download an object?
 
@@ -488,14 +484,14 @@ If you are targeting the AWS cloud, ensure that you are running within the `us-e
 
 ##### I can’t use the result of a `url` command with `samtools`:
 
-`samtools` doesn’t support the HTTPS protocol<span style="color: rgb(160, 58, 58);">*</span>, which is required by ICGC to access S3-stored data files. Use the client `view` command to pipe data to samtools, download the desired files locally, or use the mount command to create a FUSE mount of the ICGC data files.
+`samtools` doesn’t support the HTTPS protocol<span style="color: rgb(160, 58, 58);">\*</span>, which is required by ICGC to access S3-stored data files. Use the client `view` command to pipe data to samtools, download the desired files locally, or use the mount command to create a FUSE mount of the ICGC data files.
 
-<span style="color: rgb(160, 58, 58);">*</span> **Update**: As of commit [fe1f08a](https://github.com/samtools/htslib/commit/fe1f08a3a80b8a5a17fa56b3fc1808ab2ac25d63) `samtools` now supports file access over HTTPS and Amazon S3.
+<span style="color: rgb(160, 58, 58);">\*</span> **Update**: As of commit [fe1f08a](https://github.com/samtools/htslib/commit/fe1f08a3a80b8a5a17fa56b3fc1808ab2ac25d63) `samtools` now supports file access over HTTPS and Amazon S3.
 
 ##### Why is my 'Total bytes read' count different from my 'Total bytes written'?
 
 ```
-./icgc/bin/icgc-storage-client --profile collab download --object-id 6d89e978-34f6-5074-b30e-01b7203fcbb3 --output-dir /tmp
+./bin/score-client --profile collab download --object-id 6d89e978-34f6-5074-b30e-01b7203fcbb3 --output-dir /tmp
 Downloading...
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 100% [##################################################]  Parts: 208/208, Checksum: 100%, Write/sec: 47.7M/s, Read/sec: 48.1M/s
@@ -510,27 +506,26 @@ Because of the size of BAM files, ICGC upload/downloads tend to be long-running,
 
 ##### How do I report a bug in the software?
 
-Please contact [dcc-support@icgc.org](mailto:dcc-support@icgc.org) and include the version of the software in the body of the message (`bin/icgc-storage-client --version`).
+Please contact [dcc-support@icgc.org](mailto:dcc-support@icgc.org) and include the version of the software in the body of the message (`bin/score-client --version`).
 
 ## Terms
 
 Related terms and their definitions are given below:
 
-| Term | Meaning |
-| --- | --- |
-| _Access Token_ | An authorization mechanism created by the _Data Portal_ to access data. |
-| _Bundle ID_ | An identifier that refers to a submission bundle of related files. Typically the files produced by analysis workflows are packaged as a single unit. However, when a bundle is imported into a cloud repository each file in the bundle is given its own Object ID. |
-| _Compute Instance_ | A user virtual machine operating in a cloud environment. |
-| _DACO_ | The Data Access Compliance Office which handles requests from researchers for access to controlled data from the ICGC. |
-| _DACO Cloud Access_ | DACO access with supplemental approved Cloud Access status. |
-| _DCC_ | The ICGC Data Coordination Center ([DCC](https://icgc.org/icgc/goals-structure-policies-guidelines/coordination)) performs quality assessment, curation and data releases and also manages the data flow from projects and centers to the central ICGC database and public repositories. |
-| _Data Portal_ | The ICGC data portal located at [https://dcc.icgc.org](https://dcc.icgc.org). |
-| _FUSE_ | [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) is an operating system mechanism for Unix-like computer operating systems that lets non-privileged users create their own file systems without editing kernel code. |
-| _Manifest_ | A file used as input to the Storage Client to describe and identify files to be downloaded. |
-| _Object ID_ | The unique identifier of an object expressed as a UUID. In the command line interface this is refered to as `--object-id`. |
-| _OpenStack_ | OpenStack is a cloud operating system that controls large pools of compute, storage, and networking resources throughout a datacenter, all managed through a dashboard that gives administrators control while empowering their users to provision resources through a web interface. |
-| _Scope_ | A user permission or authorization to access a resource. |
-| _Storage Client_ | Sofware provided by ICGC required to download data from AWS S3. |
-| _S3_ | [Amazon Simple Storage Service](https://aws.amazon.com/s3/), the physical store of the ICGC AWS data. |
-| _Token Manager_ | Section of the portal used to manage Access Tokens. |
-
+| Term                | Meaning                                                                                                                                                                                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Access Token_      | An authorization mechanism created by the _Data Portal_ to access data.                                                                                                                                                                                                                  |
+| _Bundle ID_         | An identifier that refers to a submission bundle of related files. Typically the files produced by analysis workflows are packaged as a single unit. However, when a bundle is imported into a cloud repository each file in the bundle is given its own Object ID.                      |
+| _Compute Instance_  | A user virtual machine operating in a cloud environment.                                                                                                                                                                                                                                 |
+| _DACO_              | The Data Access Compliance Office which handles requests from researchers for access to controlled data from the ICGC.                                                                                                                                                                   |
+| _DACO Cloud Access_ | DACO access with supplemental approved Cloud Access status.                                                                                                                                                                                                                              |
+| _DCC_               | The ICGC Data Coordination Center ([DCC](https://icgc.org/icgc/goals-structure-policies-guidelines/coordination)) performs quality assessment, curation and data releases and also manages the data flow from projects and centers to the central ICGC database and public repositories. |
+| _Data Portal_       | The ICGC data portal located at [https://dcc.icgc.org](https://dcc.icgc.org).                                                                                                                                                                                                            |
+| _FUSE_              | [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) is an operating system mechanism for Unix-like computer operating systems that lets non-privileged users create their own file systems without editing kernel code.                                     |
+| _Manifest_          | A file used as input to the Score Client to describe and identify files to be downloaded.                                                                                                                                                                                              |
+| _Object ID_         | The unique identifier of an object expressed as a UUID. In the command line interface this is refered to as `--object-id`.                                                                                                                                                               |
+| _OpenStack_         | OpenStack is a cloud operating system that controls large pools of compute, storage, and networking resources throughout a datacenter, all managed through a dashboard that gives administrators control while empowering their users to provision resources through a web interface.    |
+| _Scope_             | A user permission or authorization to access a resource.                                                                                                                                                                                                                                 |
+| _Score Client_    | Sofware provided by ICGC required to download data from AWS S3.                                                                                                                                                                                                                          |
+| _S3_                | [Amazon Simple Storage Service](https://aws.amazon.com/s3/), the physical store of the ICGC AWS data.                                                                                                                                                                                    |
+| _Token Manager_     | Section of the portal used to manage Access Tokens.                                                                                                                                                                                                                                      |
