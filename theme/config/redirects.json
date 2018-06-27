@@ -2,8 +2,7 @@
   "defaultBaseFromURL": "http://docs.icgc.org",
   "defaultBaseToURL": "http://docs.icgc.org",
 
-  "redirects": [
-    {
+  "redirects": [{
       "from": "/data-portal-usage#troubledownloading",
       "to": "/portal/repositories/#having-trouble-downloading-a-file-from-dcc-repository"
     },
@@ -47,9 +46,9 @@
       "from": "/donor-clinical-data-guidelines",
       "to": "/submission/guide/donor-clinical-data-guidelines/"
     },
-	{
+    {
       "from": "/software/releases",
-      "to": "/software/storage-client"
+      "to": "/software/score-client"
     },
     {
       "from": "/portal/software",

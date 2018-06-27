@@ -72,7 +72,7 @@ pages:
 - Software:
   - About: 'software/about.md'
   - Releases:
-    - Storage Client: 'software/releases/storage-client.md'
+    - Score Client: 'software/releases/score-client.md'
     - Portal: 'software/releases/portal.md'
     - Submission: 'software/releases/submission.md'
     - icgc-get: 'software/releases/icgc-get.md'
