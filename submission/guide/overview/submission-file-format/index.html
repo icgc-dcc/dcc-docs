@@ -572,7 +572,7 @@
             
 <li >
     
-    <a href="../../../../software/releases/storage-client/">Storage Client</a>
+    <a href="../../../../software/releases/score-client/">Score Client</a>
     
 </li>
 
@@ -651,8 +651,27 @@
             
             
             
-                <li >
-                    <a href="/../../../../pcawg/">PCAWG</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PCAWG <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../../../pcawg/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../../../pcawg/data/">Data Download</a>
+    
+</li>
+
+                    
+                    </ul>
                 </li>
             
             
@@ -746,13 +765,102 @@
 <li>Each mutation/variant is represented as a row (one mutation per row)</li>
 </ul>
 <p>An example file is shown below (note that parts of the lines are omitted for readability):</p>
-<p>| analysis_id | analyzed_sample_id | mutation_type | chromosome | chromosome_start | chromosome_end | reference_genome_allele | control_genotype | mutated_from_allele | mutated_to_allele | tumour_genotype
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| m124  |  ssm_3396649   |  3 | 20 | 49510011    |    49510012 | GA     |   GA/GA  |   GA | - | GA/-
-| m124  |  ssm_61023021  |  2 | X | 115303927    |   115303927 | -     |    -/-   |    - | T | -/T
-| m124  |  ssm_175270973 |  4 | 15 | 39884779    |    39884787 | ACTCAGACC | ACTCAGACC/ACTCAGACC | ACTCAGACC | TTGT | ACTCAGACC/TTGT
-| m124  |  ssm_175270973 |  1 | 15 | 39884792    |   39884792 | C | C/C |    C | T | C/T
-| m124  |  ssm_4545634   |  3 | 12 | 23454340    |    23454341 | GA    |    GA/GA  |   GA | - | GA/-</p>
+<table>
+<thead>
+<tr>
+<th>analysis_id</th>
+<th>analyzed_sample_id</th>
+<th>mutation_type</th>
+<th>chromosome</th>
+<th>chromosome_start</th>
+<th>chromosome_end</th>
+<th>reference_genome_allele</th>
+<th>control_genotype</th>
+<th>mutated_from_allele</th>
+<th>mutated_to_allele</th>
+<th>tumour_genotype</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m124</td>
+<td>ssm_3396649</td>
+<td>3</td>
+<td>20</td>
+<td>49510011</td>
+<td>49510012</td>
+<td>GA</td>
+<td>GA/GA</td>
+<td>GA</td>
+<td>-</td>
+<td>GA/-</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>m124</td>
+<td>ssm_61023021</td>
+<td>2</td>
+<td>X</td>
+<td>115303927</td>
+<td>115303927</td>
+<td>-</td>
+<td>-/-</td>
+<td>-</td>
+<td>T</td>
+<td>-/T</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>m124</td>
+<td>ssm_175270973</td>
+<td>4</td>
+<td>15</td>
+<td>39884779</td>
+<td>39884787</td>
+<td>ACTCAGACC</td>
+<td>ACTCAGACC/ACTCAGACC</td>
+<td>ACTCAGACC</td>
+<td>TTGT</td>
+<td>ACTCAGACC/TTGT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>m124</td>
+<td>ssm_175270973</td>
+<td>1</td>
+<td>15</td>
+<td>39884792</td>
+<td>39884792</td>
+<td>C</td>
+<td>C/C</td>
+<td>C</td>
+<td>T</td>
+<td>C/T</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>m124</td>
+<td>ssm_4545634</td>
+<td>3</td>
+<td>12</td>
+<td>23454340</td>
+<td>23454341</td>
+<td>GA</td>
+<td>GA/GA</td>
+<td>GA</td>
+<td>-</td>
+<td>GA/-</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="icgc-dcc-data-file-specification">ICGC DCC Data File Specification</h3>
 <p>ICGC DCC provides a data file specification for each data type which details the required format to construct a valid submission file. You can view the current ICGC DCC Data Specification <a href="../../../../dictionary/release-17/">here </a>.</p>
 <table>

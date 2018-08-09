@@ -572,7 +572,7 @@
             
 <li >
     
-    <a href="../../software/releases/storage-client/">Storage Client</a>
+    <a href="../../software/releases/score-client/">Score Client</a>
     
 </li>
 
@@ -651,8 +651,27 @@
             
             
             
-                <li >
-                    <a href="/../../pcawg/">PCAWG</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PCAWG <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../pcawg/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../pcawg/data/">Data Download</a>
+    
+</li>
+
+                    
+                    </ul>
                 </li>
             
             
@@ -781,21 +800,9 @@
                
                     <ul class="nav">
                         
-                        <li class=""><a href="#pcawg-barcelona">PCAWG Barcelona</a></li>
-                        
-                        <li class=""><a href="#pcawg-chicago-icgc">PCAWG Chicago (ICGC)</a></li>
-                        
                         <li class=""><a href="#pcawg-chicago-tcga">PCAWG Chicago (TCGA)</a></li>
                         
-                        <li class=""><a href="#pcawg-heidelberg">PCAWG Heidelberg</a></li>
-                        
                         <li class=""><a href="#pcawg-london">PCAWG London</a></li>
-                        
-                        <li class=""><a href="#pcawg-tokyo">PCAWG Tokyo</a></li>
-                        
-                        <li class=""><a href="#pcawg-seoul">PCAWG Seoul</a></li>
-                        
-                        <li class=""><a href="#pcawg-santa-cruz">PCAWG Santa-Cruz</a></li>
                         
                     </ul>
                
@@ -820,11 +827,11 @@
 <p>The data for the ICGC resides in several repositories around the world:</p>
 <iframe src="https://www.google.com/maps/d/embed?mid=1unT7z8PymhYTGAm9xZFrgomkHOU" width="520" height="240" frameBorder="0"></iframe>
 
-<p>On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories' important pages and resources. </p>
+<p>On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories' important pages and resources.</p>
 <p>All of the ICGC data be searched for using the <a href="https://dcc.icgc.org/repositories">ICGC Data Portal</a>, and downloaded using the <a href="../../cloud/icgc-get">icgc-get</a> tool. Generally the data is divided into projects.</p>
 <p>Every repository has a repository code / id that is used to identify it in the <a href="../../portal/api-endpoints/#!/repositories/get">ICGC API</a> and <code>icgc-get</code>.</p>
 <h2 id="common-data-access-control-bodies">Common Data Access Control Bodies</h2>
-<p>ICGC projects have two separate access control bodies. US based projects are controlled by the eRA Commons and dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). </p>
+<p>ICGC projects have two separate access control bodies. US based projects are controlled by the eRA Commons and dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO).</p>
 <h3 id="icgc-daco">ICGC DACO</h3>
 <p>Follow the proceedure outlined at the <a href="https://icgc.org/daco">DACO page</a>.</p>
 <p>Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through the EBI’s EGA repository and ICGC Data Portal.</p>
@@ -832,110 +839,110 @@
 <h3 id="era-commons">eRA Commons</h3>
 <p>Many of the repositories that participate in the ICGC program require an account with the <a href="https://public.era.nih.gov/commons/commonsInit.do">electronic Research Administration</a> as a fist step in access authentication process. The eRA functions only as the authentication layer, it does not control any data repositories directly. It is used by dbGaP as a credible way to authenticate a user or organiztion.</p>
 <p>If your organization has not used the eRA commons before you will need to <a href="https://era.nih.gov/commons/faq_commons.cfm#II1">register your organization.</a> <em>This process will need your organization's signing offcial to participate.</em></p>
-<p>Support for the eRA may be reached at <a href="http://grants.nih.gov/support">http://grants.nih.gov/support</a>.  </p>
+<p>Support for the eRA may be reached at <a href="http://grants.nih.gov/support">http://grants.nih.gov/support</a>.</p>
 <h3 id="dbgap">dbGaP</h3>
 <p>One of the widely used access control system is <a href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login">database of Genotypes and Phenotypes Authorized Access program</a>. <em>dbGaP requires an eRA account to log in and register. If you need to register your organization you will need your organization's signing offical to participate in the registration process.</em></p>
 <p>If you encounter difficulties, the <a href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=email&amp;filter=from&amp;from=login">dbGaP help desk</a> is available.</p>
 <h2 id="repository-types">Repository Types</h2>
 <h3 id="gnos">GNOS</h3>
-<p><a href="https://annaisystems.zendesk.com/hc/en-us/sections/200575407-GNOS-and-GeneTorrent">GNOS</a> is a commonly used commercially available genomic data database. <a href="https://dcc.icgc.org/pcawg">The Pancancer Analysis of Whole Genomes</a> (PCAWG) study is an international research project which uses the GNOS software to host published data.  Due to the volume of data, files from this initiative are stored on multiple smaller repositories around the world. Each of these repositories uses the same architecture and download client, but have their own data access controls which are not synchronized. </p>
+<p><a href="https://annaisystems.zendesk.com/hc/en-us/sections/200575407-GNOS-and-GeneTorrent">GNOS</a> is a commonly used commercially available genomic data database. <a href="https://dcc.icgc.org/pcawg">The Pancancer Analysis of Whole Genomes</a> (PCAWG) study is an international research project which uses the GNOS software to host published data. Due to the volume of data, files from this initiative are stored on multiple smaller repositories around the world. Each of these repositories uses the same architecture and download client, but have their own data access controls which are not synchronized.</p>
 <p><em>GNOS is currently being phased out by the ICGC in favour of newer systems.</em></p>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>Pancancer Analysis of Whole Genomes</td>
 </tr>
 <tr>
-<td align="left">Contact</td>
-<td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;</a></td>
+<td>Contact</td>
+<td><a href="../&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;</a></td>
 </tr>
 <tr>
-<td align="left">Official Website</td>
+<td>Official Website</td>
 <td><a href="https://pancancer-token.annailabs.com/">https://pancancer-token.annailabs.com/</a></td>
 </tr>
 <tr>
-<td align="left">Download Client</td>
+<td>Download Client</td>
 <td><a href="https://annaisystems.zendesk.com/hc/en-us/articles/205449647-GeneTorrent-Downloads">GeneTorrent</a></td>
 </tr>
 <tr>
-<td align="left">Client Documentation</td>
+<td>Client Documentation</td>
 <td><a href="https://annai.egnyte.com/dl/H87r6b0MCS">Manual</a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="obtaining-data-access">Obtaining Data Access</h4>
-<p>Provided you have the proper permissions from DACO, you can download your access key for all the pancancer GNOS repositories from <a href="https://pancancer-token.annailabs.com/">the Annai Systems site</a> using the "Sign in with Google" or "Sign in with OpenID" options depending on what email address is associate with your DACO account.  If you have forgotten which email the account is tied to, or need any other form of assistance, contact the help desk at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;</a>.</p>
+<p>Provided you have the proper permissions from DACO, you can download your access key for all the pancancer GNOS repositories from <a href="https://pancancer-token.annailabs.com/">the Annai Systems site</a> using the "Sign in with Google" or "Sign in with OpenID" options depending on what email address is associate with your DACO account. If you have forgotten which email the account is tied to, or need any other form of assistance, contact the help desk at <a href="../&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#112;&#64;&#97;&#110;&#110;&#97;&#105;&#115;&#121;&#115;&#116;&#101;&#109;&#115;&#46;&#99;&#111;&#109;</a>.</p>
 <h4 id="download-client-operation">Download Client Operation</h4>
-<p>The manual for the operation of the Genetorrent client can be found <a href="https://annai.egnyte.com/dl/H87r6b0MCS">here</a>. Remember to prepend all download requests with the client specific data path provided in the table above.  </p>
+<p>The manual for the operation of the Genetorrent client can be found <a href="https://annai.egnyte.com/dl/H87r6b0MCS">here</a>. Remember to prepend all download requests with the client specific data path provided in the table above.</p>
 <h3 id="icgc-storage-repositories">ICGC Storage Repositories</h3>
-<p>These systems use the <a href="https://github.com/icgc-dcc/dcc-storage">ICGC Storage</a> software to provide access to data sets.</p>
+<p>These systems use the <a href="https://github.com/overture-stack/score">Overture Score</a> software to provide access to data sets.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
-<td>ICGC Storage Repositories</td>
+<td>Name</td>
+<td>Overture Score Repositories</td>
 </tr>
 <tr>
-<td align="left">Governing Body</td>
-<td>International Cancer Genome Consortium</td>
+<td>Governing Body</td>
+<td>Otario Institute for Cancer Research</td>
 </tr>
 <tr>
-<td align="left">Contact</td>
-<td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#99;&#99;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#105;&#99;&#103;&#99;&#46;&#111;&#114;&#103;">&#100;&#99;&#99;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#105;&#99;&#103;&#99;&#46;&#111;&#114;&#103;</a></td>
+<td>Contact</td>
+<td><a href="../&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#99;&#99;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#105;&#99;&#103;&#99;&#46;&#111;&#114;&#103;">&#100;&#99;&#99;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#105;&#99;&#103;&#99;&#46;&#111;&#114;&#103;</a></td>
 </tr>
 <tr>
-<td align="left">Official Website</td>
+<td>Official Website</td>
 <td><a href="https://dcc.icgc.org">https://dcc.icgc.org</a></td>
 </tr>
 <tr>
-<td align="left">Download Client</td>
-<td><a href="../../software/binaries/#storage-client">Tarball</a> <a href="https://hub.docker.com/r/icgc/icgc-storage-client/">Docker</a></td>
+<td>Download Client</td>
+<td><a href="../../software/binaries/#score-client">Tarball</a> <a href="https://hub.docker.com/r/overture/score/">Docker</a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="obtaining-data-access_1">Obtaining Data Access</h4>
-<p>A username and password to the ICGC data portal will be provided upon the completion of a DACO application.  </p>
+<p>A username and password to the ICGC data portal will be provided upon the completion of a DACO application.</p>
 <h4 id="download-client-operation_1">Download Client Operation</h4>
 <p>The ICGC download clients need access tokens to authenticate your download permissions. These tokens can be obtained from the token manager tab of the ICGC data portal once you have logged into the portal. Keep in mind that you must define the scope of your token based on which datasets you need access for.</p>
 <p>For general operation of the client, follow the <a href="../../cloud/guide/">instructions.</a></p>
 <h2 id="icgc-clouds"><a href="https://dcc.icgc.org/icgc-in-the-cloud">ICGC Clouds</a></h2>
 <h3 id="collaboratory"><a href="https://dcc.icgc.org/icgc-in-the-cloud/collaboratory">Collaboratory</a></h3>
-<p>Academic research cloud built to house ICGC data.  Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.</p>
+<p>Academic research cloud built to house ICGC data. Currently in Beta test and only houses non-US data, but the goal for this repository is to host all of the ICGC data and gathering all newly submitted ICGC data.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>Cancer Genome Collaboratory</td>
 </tr>
 <tr>
-<td align="left">Type</td>
+<td>Type</td>
 <td><a href="#icgc-storage-repositories">ICGC Storage</a></td>
 </tr>
 <tr>
-<td align="left">ICGC Portal Page</td>
+<td>ICGC Portal Page</td>
 <td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>collaboratory</code></td>
 </tr>
 </tbody>
@@ -945,159 +952,159 @@
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>ICGC Storage Server</td>
 </tr>
 <tr>
-<td align="left">Type</td>
+<td>Type</td>
 <td><a href="#icgc-storage-repositories">ICGC Storage</a></td>
 </tr>
 <tr>
-<td align="left">ICGC Portal Page</td>
+<td>ICGC Portal Page</td>
 <td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>aws-virginia</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="ega"><a href="https://www.ebi.ac.uk/ega/about">EGA</a></h2>
-<p>The <a href="http://www.ebi.ac.uk/">EBI</a>'s European Genome-Phenome Archive (<a href="https://www.ebi.ac.uk/ega/home">EGA</a>).  Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data. </p>
+<h2 id="ega"><a href="https://ega-archive.org/">EGA</a></h2>
+<p>The European Genome-Phenome Archive (<a href="https://ega-archive.org/">EGA</a>) is co-managed by <a href="https://www.ebi.ac.uk/">EBI</a> and <a href="http://www.crg.eu/">CRG</a>. Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>European Genome Archive</td>
 </tr>
 <tr>
-<td align="left">Governing Body</td>
-<td>European Bioinformatics Institute</td>
+<td>Governing Body</td>
+<td>European Bioinformatics Institute (EBI) and Centre for Genomic Regulation (CRG)</td>
 </tr>
 <tr>
-<td align="left">Contact</td>
-<td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#103;&#97;&#45;&#104;&#101;&#108;&#112;&#100;&#101;&#115;&#107;&#64;&#101;&#98;&#105;&#46;&#97;&#99;&#46;&#117;&#107;">&#101;&#103;&#97;&#45;&#104;&#101;&#108;&#112;&#100;&#101;&#115;&#107;&#64;&#101;&#98;&#105;&#46;&#97;&#99;&#46;&#117;&#107;</a></td>
+<td>Contact</td>
+<td><a href="../&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#100;&#101;&#115;&#107;&#64;&#101;&#103;&#97;&#45;&#97;&#114;&#99;&#104;&#105;&#118;&#101;&#46;&#111;&#114;&#103;">&#104;&#101;&#108;&#112;&#100;&#101;&#115;&#107;&#64;&#101;&#103;&#97;&#45;&#97;&#114;&#99;&#104;&#105;&#118;&#101;&#46;&#111;&#114;&#103;</a></td>
 </tr>
 <tr>
-<td align="left">Offical Website</td>
-<td><a href="https://www.ebi.ac.uk/ega/home">https://www.ebi.ac.uk/ega/home</a></td>
+<td>Offical Website</td>
+<td><a href="https://ega-archive.org">https://ega-archive.org</a></td>
 </tr>
 <tr>
-<td align="left">ICGC Portal Page</td>
+<td>ICGC Portal Page</td>
 <td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Download Client</td>
-<td><a href="https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client#download">Zipfile</a></td>
+<td>Download Client</td>
+<td><a href="https://ega-archive.org/download/using-ega-download-client#DownloadClient">Zipfile</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>ega</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="obtaining-data-access_2">Obtaining Data Access</h4>
-<p>To access controlled-access data at the EGA you need to be granted access after completing a DACO application. Once approval is obtained from DACO, your user account will be activated and you will have access to controlled access datasets in the ICGC Data Portal and EBI’S EGA repository.  <strong>Your account will use the same username and password as your OpenID account</strong>.</p>
+<p>To access controlled-access data at the EGA you need to be granted access after completing a DACO application. Once approval is obtained from DACO, your user account will be activated and you will have access to controlled access datasets in the ICGC Data Portal and the EGA repository.</p>
 <h4 id="download-client-operation_2">Download Client Operation</h4>
-<p>To operate the EGA download client, follow the instructions <a href="https://www.ebi.ac.uk/ega/about/your_EGA_account/download_streaming_client">here</a>.</p>
+<p>To operate the EGA download client, follow the instructions <a href="https://ega-archive.org/download/using-ega-download-client#DownloadClient">here</a>.</p>
 <h2 id="gdc"><a href="https://gdc.nci.nih.gov">GDC</a></h2>
 <p>The Genomic Data Commons is a US government (<a href="https://www.nih.gov/">NIH</a> / <a href="https://www.cancer.gov/">NCI</a>) run data repository for cancer genomic information. Notably, the it carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments(TARGET). Currently the GDC is the largest single repository of ICGC data. It focuses on studies in the United States.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>Genomic Data Commons</td>
 </tr>
 <tr>
-<td align="left">Governing Body</td>
+<td>Governing Body</td>
 <td>National Cancer Institute</td>
 </tr>
 <tr>
-<td align="left">Contact</td>
-<td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#99;&#105;&#45;&#103;&#100;&#99;&#46;&#100;&#97;&#116;&#97;&#99;&#111;&#109;&#109;&#111;&#110;&#115;&#46;&#105;&#111;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#99;&#105;&#45;&#103;&#100;&#99;&#46;&#100;&#97;&#116;&#97;&#99;&#111;&#109;&#109;&#111;&#110;&#115;&#46;&#105;&#111;</a></td>
+<td>Contact</td>
+<td><a href="../&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#99;&#105;&#45;&#103;&#100;&#99;&#46;&#100;&#97;&#116;&#97;&#99;&#111;&#109;&#109;&#111;&#110;&#115;&#46;&#105;&#111;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#99;&#105;&#45;&#103;&#100;&#99;&#46;&#100;&#97;&#116;&#97;&#99;&#111;&#109;&#109;&#111;&#110;&#115;&#46;&#105;&#111;</a></td>
 </tr>
 <tr>
-<td align="left">Official Data Portal</td>
+<td>Official Data Portal</td>
 <td><a href="https://gdc-portal.nci.nih.gov/">https://gdc-portal.nci.nih.gov/</a></td>
 </tr>
 <tr>
-<td align="left">ICGC Portal Page</td>
+<td>ICGC Portal Page</td>
 <td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Download Client</td>
+<td>Download Client</td>
 <td><a href="https://gdc.nci.nih.gov/access-data/gdc-data-transfer-tool">Binaries</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>gdc</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="obtaining-data-access_3">Obtaining Data Access</h4>
-<p>To obtain access you must have an eRA commons account, and you must have dbGap access to the data on the GDC you are interested in.  Talk to your team leader if you do not have this access.  Once this account is set up, you can log in to the GDC <strong>using the your dbGaP credentials</strong>.</p>
+<p>To obtain access you must have an eRA commons account, and you must have dbGap access to the data on the GDC you are interested in. Talk to your team leader if you do not have this access. Once this account is set up, you can log in to the GDC <strong>using the your dbGaP credentials</strong>.</p>
 <p><a href="https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data">https://gdc.nci.nih.gov/access-data/obtaining-access-controlled-data</a></p>
 <h4 id="download-client-operation_3">Download Client Operation</h4>
 <p>Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available <a href="https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/">here.</a></p>
 <h2 id="pdc">PDC</h2>
 <p>The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion.</p>
-<p>It is a secure data cloud that stores US <a href="https://dcc.icgc.org/pcawg">PCAWG</a> data.  </p>
+<p>It is a secure data cloud that stores US <a href="https://dcc.icgc.org/pcawg">PCAWG</a> data.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>Bionimbus Protected Data Cloud</td>
 </tr>
 <tr>
-<td align="left">Governing Body</td>
+<td>Governing Body</td>
 <td>University of Chicago/Open Commons Consortium</td>
 </tr>
 <tr>
-<td align="left">Contact</td>
-<td><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#100;&#97;&#116;&#97;&#99;&#108;&#111;&#117;&#100;&#46;&#111;&#114;&#103;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#100;&#97;&#116;&#97;&#99;&#108;&#111;&#117;&#100;&#46;&#111;&#114;&#103;</a></td>
+<td>Contact</td>
+<td><a href="../&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#100;&#97;&#116;&#97;&#99;&#108;&#111;&#117;&#100;&#46;&#111;&#114;&#103;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#100;&#97;&#116;&#97;&#99;&#108;&#111;&#117;&#100;&#46;&#111;&#114;&#103;</a></td>
 </tr>
 <tr>
-<td align="left">Official Website</td>
+<td>Official Website</td>
 <td><a href="https://bionimbus-pdc.opensciencedatacloud.org">https://bionimbus-pdc.opensciencedatacloud.org</a></td>
 </tr>
 <tr>
-<td align="left">ICGC Portal Page</td>
+<td>ICGC Portal Page</td>
 <td><a href="https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Download Client</td>
+<td>Download Client</td>
 <td><a href="http://docs.aws.amazon.com/cli/latest/userguide/installing.html">Amazon Web Services Command Line Interface</a></td>
 </tr>
 <tr>
-<td align="left">Client Documentation</td>
+<td>Client Documentation</td>
 <td><a href="http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html">AWS Guide</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>pdc</code></td>
 </tr>
 </tbody>
@@ -1105,7 +1112,7 @@
 <h4 id="obtaining-data-access_4">Obtaining Data Access</h4>
 <p>You can apply for access to the PDC by following <a href="https://bionimbus-pdc.opensciencedatacloud.org/pre_apply/?next=/apply/">this link.</a> You will need both an eRA Commons account and dbGAP access to the ICGC PCAWG. Once your application is submitted, you will be contacted by a representative of the PDC who will provide you with legal documents and required training courses.</p>
 <h4 id="download-client-operation_4">Download Client Operation</h4>
-<p>The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with <code>aws configure</code> and follow the prompts.  This key can be download from the projects tab of the <a href="https://bionimbus-pdc.opensciencedatacloud.org">official PDC website.</a>  Once your credentials have been entered the general structure for download commands is: </p>
+<p>The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with <code>aws configure</code> and follow the prompts. This key can be download from the projects tab of the <a href="https://bionimbus-pdc.opensciencedatacloud.org">official PDC website.</a> Once your credentials have been entered the general structure for download commands is:</p>
 <pre><code>aws s3 --endpoint-url=https://bionimbus-objstore-cs.opensciencedatacloud.org/ cp $DATA_PATH $OUTPUT_DIR
 </code></pre>
 
@@ -1117,127 +1124,34 @@
 <li><a href="https://annaisystems.zendesk.com/hc/en-us/article_attachments/201188358/Pan-Cancer_Researcher_Guide.pdf">Analysis user guide</a></li>
 <li><a href="http://pancancer.info/">PCAWG operational reports</a></li>
 </ul>
-<h3 id="pcawg-barcelona">PCAWG Barcelona</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td>Pancancer Analysis of Whole Genomes Barcelona</td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td><a href="#gnos">GNOS</a></td>
-</tr>
-<tr>
-<td align="left">Repo Code</td>
-<td><code>pcawg-barcelona</code></td>
-</tr>
-<tr>
-<td align="left">ICGC Data Portal</td>
-<td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Barcelona%22%5D%7D%7D%7D">Portal</a></td>
-</tr>
-<tr>
-<td align="left">Data Path</td>
-<td>https://gtrepo-bsc.annailabs.com/cghub/data/analysis/download/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pcawg-chicago-icgc">PCAWG Chicago (ICGC)</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td>Pancancer Analysis of Whole Genomes Chicago<sup><a href="#chicago_note">*</a></sup></td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td><a href="#gnos">GNOS</a></td>
-</tr>
-<tr>
-<td align="left">Repo Code</td>
-<td><code>pcawg-chicago-icgc</code></td>
-</tr>
-<tr>
-<td align="left">ICGC Portal Page</td>
-<td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(ICGC)%22%5D%7D%7D%7D">Portal</a></td>
-</tr>
-<tr>
-<td align="left">Data Path</td>
-<td>https://gtrepo-osdc-icgc.annailabs.com/cghub/data/analysis/download/</td>
-</tr>
-</tbody>
-</table>
 <h3 id="pcawg-chicago-tcga">PCAWG Chicago (TCGA)</h3>
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>Pancancer Analysis of Whole Genomes Chicago<sup><a href="#chicago_note">*</a></sup></td>
 </tr>
 <tr>
-<td align="left">Type</td>
+<td>Type</td>
 <td><a href="#gnos">GNOS</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>pcawg-chicago-tcga</code></td>
 </tr>
 <tr>
-<td align="left">ICGC Portal Page</td>
+<td>ICGC Portal Page</td>
 <td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Chicago%20(TCGA)%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Data Path</td>
+<td>Data Path</td>
 <td>https://gtrepo-osdc-tcga.annailabs.com/cghub/data/analysis/download/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pcawg-heidelberg">PCAWG Heidelberg</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td>Pancancer Analysis of Whole Genomes Heidelberg</td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td><a href="#gnos">GNOS</a></td>
-</tr>
-<tr>
-<td align="left">Repo Code</td>
-<td><code>pcawg-heidelberg</code></td>
-</tr>
-<tr>
-<td align="left">ICGC Portal Page</td>
-<td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Heidelberg%22%5D%7D%7D%7D">Portal</a></td>
-</tr>
-<tr>
-<td align="left">Data Path</td>
-<td>https://gtrepo-dkfz.annailabs.com/cghub/data/analysis/download/</td>
 </tr>
 </tbody>
 </table>
@@ -1245,123 +1159,30 @@
 <table>
 <thead>
 <tr>
-<th align="left">Property</th>
+<th>Property</th>
 <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Name</td>
+<td>Name</td>
 <td>Pancancer Analysis of Whole Genomes London</td>
 </tr>
 <tr>
-<td align="left">Type</td>
+<td>Type</td>
 <td><a href="#gnos">GNOS</a></td>
 </tr>
 <tr>
-<td align="left">Repo Code</td>
+<td>Repo Code</td>
 <td><code>pcawg-london</code></td>
 </tr>
 <tr>
-<td align="left">ICGC Data Portal</td>
+<td>ICGC Data Portal</td>
 <td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20London%22%5D%7D%7D%7D">Portal</a></td>
 </tr>
 <tr>
-<td align="left">Data Path</td>
+<td>Data Path</td>
 <td>https://gtrepo-ebi.annailabs.com/cghub/data/analysis/download/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pcawg-tokyo">PCAWG Tokyo</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td>Pancancer Analysis of Whole Genomes Tokyo</td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td><a href="#gnos">GNOS</a></td>
-</tr>
-<tr>
-<td align="left">Repo Code</td>
-<td><code>pcawg-tokyo</code></td>
-</tr>
-<tr>
-<td align="left">ICGC Data Portal</td>
-<td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Tokyo%22%5D%7D%7D%7D">Portal</a></td>
-</tr>
-<tr>
-<td align="left">Data Path</td>
-<td>https://gtrepo-riken.annailabs.com/cghub/data/analysis/download/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pcawg-seoul">PCAWG Seoul</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td>Pancancer Analysis of Whole Genomes Seoul</td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td><a href="#gnos">GNOS</a></td>
-</tr>
-<tr>
-<td align="left">Repo Code</td>
-<td><code>pcawg-seoul</code></td>
-</tr>
-<tr>
-<td align="left">ICGC Data Portal</td>
-<td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Seoul%22%5D%7D%7D%7D">Portal</a></td>
-</tr>
-<tr>
-<td align="left">Data Path</td>
-<td>https://gtrepo-etri.annailabs.com/cghub/data/analysis/download/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pcawg-santa-cruz">PCAWG Santa-Cruz</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td>Pancancer Analysis of Whole Genomes Santa-Cruz</td>
-</tr>
-<tr>
-<td align="left">Type</td>
-<td><a href="#gnos">GNOS</a></td>
-</tr>
-<tr>
-<td align="left">Repo Code</td>
-<td><code>pcawg-cghub</code></td>
-</tr>
-<tr>
-<td align="left">ICGC Data Portal</td>
-<td><a href="https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PCAWG%20-%20Santa%20Cruz%22%5D%7D%7D%7D">Portal</a></td>
-</tr>
-<tr>
-<td align="left">Data Path</td>
-<td>https://cghub.ucsc.edu/cghub/data/analysis/download/</td>
 </tr>
 </tbody>
 </table>

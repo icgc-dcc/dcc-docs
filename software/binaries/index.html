@@ -574,7 +574,7 @@
             
 <li >
     
-    <a href="../releases/storage-client/">Storage Client</a>
+    <a href="../releases/score-client/">Score Client</a>
     
 </li>
 
@@ -653,8 +653,27 @@
             
             
             
-                <li >
-                    <a href="/../../pcawg/">PCAWG</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PCAWG <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    
+    <a href="../../pcawg/">About</a>
+    
+</li>
+
+                    
+                        
+<li >
+    
+    <a href="../../pcawg/data/">Data Download</a>
+    
+</li>
+
+                    
+                    </ul>
                 </li>
             
             
@@ -705,15 +724,27 @@
         <li class="main active"><a href="#binaries">Binaries</a>
            <ul class="nav">
            
-               <li class=""><a href="#storage-client">Storage Client</a>
+               <li class=""><a href="#score-client">Score Client</a>
                
                     <ul class="nav">
                         
                         <li class=""><a href="#latest-release-tarball">Latest Release Tarball</a></li>
                         
+                        <li class=""><a href="#docker-images">Docker Images</a></li>
+                        
+                    </ul>
+               
+               </li>
+           
+               <li class=""><a href="#legacy-storage-client">[Legacy] Storage Client</a>
+               
+                    <ul class="nav">
+                        
+                        <li class=""><a href="#latest-release-tarball_1">Latest Release Tarball</a></li>
+                        
                         <li class=""><a href="#previous-release-tarballs">Previous Release Tarballs</a></li>
                         
-                        <li class=""><a href="#docker-images">Docker Images</a></li>
+                        <li class=""><a href="#docker-images_1">Docker Images</a></li>
                         
                     </ul>
                
@@ -727,7 +758,7 @@
                         
                         <li class=""><a href="#previous-release-zipfile">Previous Release Zipfile</a></li>
                         
-                        <li class=""><a href="#docker-images_1">Docker Images</a></li>
+                        <li class=""><a href="#docker-images_2">Docker Images</a></li>
                         
                     </ul>
                
@@ -758,16 +789,23 @@
 <h1 id="binaries">Binaries</h1>
 <p>All binaries are hosted on <a href="https://artifacts.oicr.on.ca/artifactory">OICR's Artifactory repository</a>. You can find them in the <a href="https://artifacts.oicr.on.ca/artifactory/simple/dcc-release/org/icgc/dcc/"><code>dcc-release</code> repository</a>.</p>
 <p>This is the official DCC software page which publishes various tools for working with ICGC data. Software is provided in both tarball and Docker image format.</p>
-<h2 id="storage-client">Storage Client</h2>
-<p>To interact with cloud repositories such as <a href="https://dcc.icgc.org/icgc-in-the-cloud/aws">AWS</a> and <a href="https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/">Collaboratory</a>, you will require the Storage Client software. For system requirements and usage information, please see the <a href="http://docs.icgc.org/cloud/guide/">User Guide</a></p>
+<h2 id="score-client">Score Client</h2>
+<p>Score client replaces the ICGC Storage client. To interact with cloud repositories such as <a href="https://dcc.icgc.org/icgc-in-the-cloud/aws">AWS</a> and <a href="https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/">Collaboratory</a>, you will require the Score Client software. For system requirements and usage information, please see the <a href="http://docs.icgc.org/cloud/guide/">User Guide</a></p>
 <h3 id="latest-release-tarball">Latest Release Tarball</h3>
+<p>Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client package:</p>
+<p><a href="https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/[RELEASE]/score-client-[RELEASE]-dist.tar.gz">Download</a></p>
+<h3 id="docker-images">Docker Images</h3>
+<p>For Docker images, please visit our <a href="https://hub.docker.com/r/overture/score/">Docker Hub repository</a>.</p>
+<h2 id="legacy-storage-client">[Legacy] Storage Client</h2>
+<p>To interact with cloud repositories such as <a href="https://dcc.icgc.org/icgc-in-the-cloud/aws">AWS</a> and <a href="https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/">Collaboratory</a>, you will require the Storage Client software. For system requirements and usage information, please see the <a href="http://docs.icgc.org/cloud/guide/">User Guide</a></p>
+<h3 id="latest-release-tarball_1">Latest Release Tarball</h3>
 <p>Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client package:</p>
 <p><a href="https://dcc.icgc.org/api/v1/ui/software/icgc-storage-client/latest">Download</a></p>
 <h3 id="previous-release-tarballs">Previous Release Tarballs</h3>
 <p>It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.
 However, if you wish to use an old version you may choose from the following:</p>
 <p><versions-table client-type="0"></versions-table></p>
-<h3 id="docker-images">Docker Images</h3>
+<h3 id="docker-images_1">Docker Images</h3>
 <p>For Docker images, please visit our <a href="https://hub.docker.com/r/icgc/icgc-storage-client/">Docker Hub repository</a>.</p>
 <h2 id="icgc-get">icgc-get</h2>
 <p>To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the <a href="../../cloud/icgc-get/">User Guide</a></p>
@@ -775,9 +813,9 @@ However, if you wish to use an old version you may choose from the following:</p
 <p>Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client version:</p>
 <p><a href="https://dcc.icgc.org/api/v1/ui/software/icgc-get/osx/latest">Download for Mac</a> <a href="https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest">Download for Linux</a></p>
 <h3 id="previous-release-zipfile">Previous Release Zipfile</h3>
-<p>It is strongly recommended to use the latest release to take advantage of newest features and bug fixes.  However, if you wish to use an old version you may choose from the following:</p>
+<p>It is strongly recommended to use the latest release to take advantage of newest features and bug fixes. However, if you wish to use an old version you may choose from the following:</p>
 <p><versions-table client-type="1"></versions-table></p>
-<h3 id="docker-images_1">Docker Images</h3>
+<h3 id="docker-images_2">Docker Images</h3>
 <p>For a Docker image of client tools, please visit our <a href="https://hub.docker.com/r/icgc/icgc-get/">Docker Hub repository</a> . This provides the necessary operating environment for ICGC get, and will be automatically downloaded by the tool if the docker daemon is running on your computer.</p>
 <h2 id="verifying-downloads">Verifying Downloads</h2>
 <p>In order to ensure safe downloads and binary integrity, all software releases are signed using GPG. The following sections detail how to verify our published software.</p>
