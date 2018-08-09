@@ -29,7 +29,7 @@ ICGC is made up of a number of projects from around the world. [Project codes](p
 | COAD-US |  Colon Adenocarcinoma - TCGA, US |  US |
 | COCA-CN |  Colorectal Cancer - CN |  China |
 | DLBC-US |  Lymphoid Neoplasm Diffuse Large B-cell Lymphoma - TCGA, US |  US |
-| EOPC-DE |  Early Onset Prostate Cancer - DE |  Ger |
+| EOPC-DE |  Early Onset Prostate Cancer - DE |  Germany |
 | ESAD-UK |  Esophageal Adenocarcinoma - UK |  United Kingdom |
 | ESCA-CN |  Esophageal Cancer - CN |  China |
 | GACA-CN |  Gastric Cancer - CN |  China |
