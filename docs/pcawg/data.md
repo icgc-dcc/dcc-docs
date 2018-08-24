@@ -161,7 +161,7 @@ buckets is provided to authorized users.
 Cleversafe is compatible with AWS S3, you can use _awscli_ client to download objects.
 To install _awscli_, please follow instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 
-Next, you will need to get credentials from PDC. Follow the _Login from NIH_ button on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access key. If you see `TCGA-PCAWG` is in the project list and you have `download` right, you can proceed with generating access key.
+Next, you will need to log into the Bionimbus PDC. Follow the _Login from NIH_ button on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access key. If you see `TCGA-PCAWG` is in the project list and you have `download` right, you can proceed with generating access key.
 
 When you click on _Create access key_ button, a popup will show the new access key id and
 secret key. Copy the keys and add them to the _awscli_ credentials file, which, depending on your system, is usually at here: `~/.aws/credentials`. The file may look like below:
