@@ -1,6 +1,6 @@
 # About
 
-## Overviews
+## Overview
 
 The ICGC has joined forces with commercial and academic compute cloud partners to remove many of the barriers that prevent researchers from using the ICGC's vast genomic database. The large size of the ICGC datasets means that they can take months to download and analysing them requires computing power that many research groups do not have. These partnerships will allow scientists to access and analyze ICGC datasets through multiple cloud computing platforms, enhancing collaboration and accelerating the development of new tools and treatments for cancer patients.
 
