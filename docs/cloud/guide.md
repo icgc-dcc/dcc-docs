@@ -29,7 +29,6 @@ The figure below illustrates the overall process and systems involved:
 
 The subsequent sections will provide additional details on each of these topics.
 
-
 ### Security
 
 The usage of the distributed [Score Client](/software/binaries) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
