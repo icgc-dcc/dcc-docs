@@ -6,7 +6,7 @@ The ICGC has joined forces with commercial and academic compute cloud partners t
 
 The Data Coordination Center has developed a unified interface for searching and accessing data across all supported clouds. Authorized users can now access the ICGC BAM, VCF and other types of files through the [Repository search tool](https://dcc.icgc.org/repositories) on the Portal and retrieve manifest files that allow for bulk file downloads from the cloud repositories. User authentication and authorization is achieved through the standard ICGC DACO controlled access mechanism ensuring safe access to these datasets.
 
-## ICGC Compute Cloud Partners
+## ICCG Compute Cloud Partners
 
 ### AWS
 
