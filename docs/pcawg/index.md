@@ -28,7 +28,7 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:60;">
-        <a href="https://xenabrowser.net/heatmap/?bookmark=6ed1033f5c514965d9a5839bbaa6e052"><i class="fa-no-icon"></i><img src="images/ucsc_xena_1.png" width="700"/></a>
+        <a href="https://xenabrowser.net/heatmap/?bookmark=98a47a7ca63aa7973a0c08f60d3e3ea7"><i class="fa-no-icon"></i><img src="images/ucsc_xena_1.png" width="700"/></a>
     </div>
     <div style="flex:5;">
     </div>
