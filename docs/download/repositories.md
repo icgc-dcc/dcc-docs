@@ -67,7 +67,7 @@ Follow the proceedure outlined at the [DACO page](https://icgc.org/daco). Once a
 
 To operate the EGA download client, follow the instructions [here](https://ega-archive.org/download/using-ega-download-client#DownloadClient).
 
-## [GDC](https://gdc.nci.nih.gov)
+## [GDC](https://gdc.cancer.gov/)
 
 The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI](https://www.cancer.gov/)) run data repository for cancer genomic information. Notably, the it carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Currently the GDC is the largest single repository of ICGC data. It focuses on studies in the United States.
 
@@ -89,7 +89,7 @@ To obtain access you must have an eRA commons account, and you must have dbGap a
 
 #### Download Client Operation
 
-Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.](https://gdc-docs.nci.nih.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
+Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
 
 ## PDC
 
