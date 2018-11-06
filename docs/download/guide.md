@@ -16,7 +16,7 @@ The figure below illustrates the overall process and systems involved:
     Generate an _Access Token_ for cloud download
 2.  [Compute Prerequistes](#compute-prerequisites)
     Provision a _Compute Instance_ in the target cloud
-3.  [Installation](#installation)
+3.  [Installation](#installation-of-the-score-client)
     Download and install the _Score Client_
 4.  [Configuration](#configuration)
     Configure the Score Client to use the generated Access Token
