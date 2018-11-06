@@ -68,13 +68,13 @@ Valid repositories are:
 | --------            | -------------------------------          |
 | `aws-virginia`      | [Amazon Web Services](/download/repositories/#aws)                      |
 | `collaboratory`     | [Collaboratory](/download/repositories/#collaboratory)                            |
-| `ega`               | [European Genome Association](/download/repositories/#ega)              |
+| `ega`               | [European Genome Archive](/download/repositories/#ega)              |
 | `gdc`               | [Genomic Data Commons](/download/repositories/#gdc)                     |
 | `pdc`               | [Bionimbus Protected Data Cloud](/download/repositories/#pdc)           |
 
 ### Example Configuration File
 
-By defaul configuration file exists at `~/.icgc-get/config.yaml`. Below is an example. You can manually edit the file as needed.
+By default configuration file exists at `~/.icgc-get/config.yaml`. Below is an example. You can manually edit the file as needed.
 
 ```yaml
 # Location of the log file that icgc-get will log to.
@@ -165,7 +165,7 @@ being downloaded from any of these repositories.
 
 | Option            | Description                                                        |
 |-------------------|--------------------------------------------------------------------|
-| IDS               | Specify FI ids to check access to.  Only requiered for PDC and GDC |
+| IDS               | Specify FI ids to check access to.  Only required for PDC and GDC |
 | `-r`, `--repos`   | Repeatable option used to specify repositories to download from    |
 | `-o`, `--override`| Flag used to override warning messages                             |
 | `--no-ssl-verify` | Flag used to disable ssl verification.  Not recommended            |

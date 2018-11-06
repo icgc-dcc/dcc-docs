@@ -402,7 +402,7 @@ See the `manifest` command for more details on how to specify a Manifest.
 
 #### Mount in Docker
 
-To avoid having to install the FUSE and Java dependencies when working with the `mount` command, it is very convenient to mount from within a Docker container. This is also useful for creating a custom image for analysis that derives from the one published by ICGC. First, ensure that Docker and the Score Client image is installed. See the [Installation](#installation) section for details.
+To avoid having to install the FUSE and Java dependencies when working with the `mount` command, it is very convenient to mount from within a Docker container. This is also useful for creating a custom image for analysis that derives from the one published by ICGC. First, ensure that Docker and the Score Client image is installed. See the [Installation](#installation-of-the-score-client) section for details.
 
 Next, export the access token generated from the portal:
 
