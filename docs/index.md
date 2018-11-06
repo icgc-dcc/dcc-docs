@@ -10,40 +10,6 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
   <section class="background-grey">
     <div class="flex-wrapper l-max-width-standard l-pad-top-7">
       <div class="product-card">
-        <a href="/cloud/guide/#authorization">
-          <h2><i class="material-icons notranslate">file_download</i>Data Download</h2>
-          <i class="material-icons notranslate">keyboard_arrow_right</i>
-        </a>
-        <a href="/cloud/repositories/#obtaining-data-access_3">
-          <div>
-            <h3>Requesting Access</h3>
-            <p>Procedures for requesting access from data repositories</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-        <a href="/cloud/icgc-get/#quickstart">
-          <div>
-            <h3>Quick Start using icgc-get</h3>
-            <p>Download from multiple data repositories with a unified command line tool</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-        <a href="/cloud/icgc-get/#commands">
-          <div>
-            <h3>Examples using icgc-get</h3>
-            <p>Commands to configure, report, and download using icgc-get</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-        <a href="/cloud/guide/#faqs">
-          <div>
-            <h3>Troubleshooting and FAQ</h3>
-            <p>Solutions to common errors and answers to frequently asked questions.</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-      </div>
-      <div class="product-card">
         <a href="/portal/api/">
           <h2>
             <i class="material-icons notranslate">swap_horiz</i>
@@ -73,6 +39,40 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
           </div>
         </a>
         <a href="/portal/api/#common-errors">
+          <div>
+            <h3>Troubleshooting and FAQ</h3>
+            <p>Solutions to common errors and answers to frequently asked questions.</p>
+            <i class="material-icons notranslate">keyboard_arrow_right</i>
+          </div>
+        </a>
+      </div>
+      <div class="product-card">
+        <a href="/download/guide/#authorization">
+          <h2><i class="material-icons notranslate">file_download</i>Data Download</h2>
+          <i class="material-icons notranslate">keyboard_arrow_right</i>
+        </a>
+        <a href="/download/repositories/#obtaining-data-access_3">
+          <div>
+            <h3>Requesting Access</h3>
+            <p>Procedures for requesting access from data repositories</p>
+            <i class="material-icons notranslate">keyboard_arrow_right</i>
+          </div>
+        </a>
+        <a href="/download/icgc-get/#quickstart">
+          <div>
+            <h3>Quick Start using icgc-get</h3>
+            <p>Download from multiple data repositories with a unified command line tool</p>
+            <i class="material-icons notranslate">keyboard_arrow_right</i>
+          </div>
+        </a>
+        <a href="/download/icgc-get/#commands">
+          <div>
+            <h3>Examples using icgc-get</h3>
+            <p>Commands to configure, report, and download using icgc-get</p>
+            <i class="material-icons notranslate">keyboard_arrow_right</i>
+          </div>
+        </a>
+        <a href="/download/guide/#faqs">
           <div>
             <h3>Troubleshooting and FAQ</h3>
             <p>Solutions to common errors and answers to frequently asked questions.</p>

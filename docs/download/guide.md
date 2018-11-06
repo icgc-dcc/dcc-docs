@@ -1,12 +1,12 @@
-# Cloud Guide
+# Data Download Guide
 
 ## Overview
 
-This user guide describes the steps to securely explore and analyze ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](http://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](https://dcc.icgc.org/icgc-in-the-cloud).
+This user guide describes the steps to securely explore and download ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](http://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](https://dcc.icgc.org/icgc-in-the-cloud).
 
 Please see [Terms](#terms) for a glossary of terms used in this guide.
 
-### Process
+### Process at a glance
 
 The figure below illustrates the overall process and systems involved:
 
@@ -28,22 +28,6 @@ The figure below illustrates the overall process and systems involved:
 [![Cloud Process Diagram](images/process-diagram.png)](images/process-diagram.png 'Click Cloud Process Diagram to see the full image.')
 
 The subsequent sections will provide additional details on each of these topics.
-
-### Security
-
-The usage of the distributed [Score Client](/software/binaries) is required to provide additional security while operating in participating cloud environments and to enhance user download speeds.
-
-#### AWS
-
-Security is enforced by a coordinating ICGC storage server. The client communicates with the server which brokers downloads and converts ICGC Access Tokens into Amazon [pre-signed urls](http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html). Once a successful authorization handshake between the client and the server is established, downloads will be transferred directly from _S3_ to the client, maintaining fast access to the data.
-
-It is important to note that the provided software only functions within the `us-east-1` EC2 region of AWS located in Northern Virginia, U.S. where the data is physically stored. Attempting to use the software outside of this region will be denied data access.
-
-#### Collaboratory
-
-Downloads only function inside Collaboratory's OpenStack environment.
-
-Lastly, it is the user’s responsibility to protect the data after it has been attained. This includes any subsequent analyses and storage on cloud and downstream resources.
 
 ## Authorization
 
@@ -89,7 +73,7 @@ Following the creation of a Compute Instance, discussed in the next section, you
 
 ### Compute Instance
 
-As a first step in analyzing data, you will need to create a Compute Instance to run the Score Client and any other supporting software.
+As a first step in downloading data, you will need to create a Compute Instance to run the Score Client and any other supporting software.
 
 #### AWS
 
@@ -98,6 +82,8 @@ In order to run within [EC2](https://aws.amazon.com/ec2/), you will need your ow
 #### Collaboratory
 
 In order to run within [Collaboratory](https://www.cancercollaboratory.org/), you will need to be enrolled. To begin the enrollment process, please send an email to [help@cancercollaboratory.org](mailto:help@cancercollaboratory.org).
+
+**UPDATE**: Downloading data objects hosted in Collaboratory is no longer required to be performed in a Collaboratory compute instance.
 
 The following sections provide guidance on selecting and configuring the chosen instance type.
 
@@ -119,20 +105,18 @@ The Score Client requires Java 8 to be installed. It has been tested using the O
 
 In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev` and `fuse` packages.
 
-## Installation
+## Installation of the Score Client
 
-This section describes how to install the Score Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
+This section describes how to install the **Score** Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
 
 ### Install from Tarball
 
-To begin using the Score Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software/binaries#score-client).
+To begin using the Score Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software/download#score-client), or use the following commands to download from command line.
 
 ```
 wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/\[RELEASE\]/score-client-\[RELEASE\]-dist.tar.gz
 tar -xvzf score-client.tar.gz
 ```
-
-After untaring the archive, the Score Client will be available at `bin/score-client`. Steps to verify the authenticity and integrity of the download can be found on our [software](/software/binaries) page.
 
 ### Install from Docker Image
 
@@ -147,7 +131,8 @@ docker pull overture/score
 Once pulled, you can open a shell in the container by executing:
 
 ```
-docker run -it score-client
+docker run -it overture/score
+./bin/score-client
 ```
 
 There is no entry point or command defined for the image. The software may be located at `score-client` which is also the working directory of the container. All other steps for [using the Score Client](#score-client-usage) will be the same for both Docker and tarball installations.
@@ -169,12 +154,12 @@ accessToken=<access token>
 When using Docker, this can also be set with an environmental variable:
 
 ```
-docker run -it -e ACCESSTOKEN=<access token> score-client
+docker run -it -e ACCESSTOKEN=<access token> overture/score
 ```
 
 #### Collaboratory
 
-In addition to the above, you will need to change the `bin/score-client` script to set `STORAGE_PROFILE=collab`. This can also performed externally via the environmental variable of the same name. Note that it is also possible to override this per execution using `bin/score-client`'s `--profile collab` argument.
+In addition to the above, you will need to change the `bin/score-client` script to add this line `STORAGE_PROFILE=collab`. This can also performed externally via the environmental variable of the same name. Note that it is also possible to override this per execution using `bin/score-client`'s `--profile collab` argument.
 
 ### Transport Configuration
 
@@ -389,6 +374,8 @@ mkdir /mnt/icgc
 # Mount
 bin/score-client mount --mount-point /mnt/icgc
 ```
+**NOTE**: Please be advised it is not advisable to mount all files, it may take very long time. See following section how to mount fewer objects using manifest_id. 
+
 
 To speed up subsequent mounts, one can specify the `--cache-metadata` flag above which will locally store an index of the file system.
 
@@ -408,7 +395,7 @@ To filter the mount to only include the files specified in a Manifest, issue the
 mkdir /mnt/icgc
 
 # Mount
-bin/score-client mount --mount-point /mnt/icgc --manifest manifest>
+bin/score-client mount --mount-point /mnt/icgc --manifest <manifest_id>
 ```
 
 See the `manifest` command for more details on how to specify a Manifest.
@@ -421,19 +408,19 @@ Next, export the access token generated from the portal:
 
 ```
 # Export access token
-export ACCESSTOKEN=accessToken>
+export ACCESSTOKEN=<accessToken>
 ```
 
 And then mount the file system inside the container against the empty `/mnt` directory:
 
 ```
-# Alias for ease of use
-alias score-client="docker run -it --rm -e ACCESSTOKEN --privileged score-client bin/score-client"
+# Alias for ease of use, assume we use collab profile
+alias score-client="docker run -it --rm -e ACCESSTOKEN --privileged overture/score bin/score-client --profile collab"
 ```
 
 ```
 # Mount the file system in the container
-score-client mount --mount-point /mnt
+score-client mount --mount-point /mnt --manifest <manifest_id> 
 ```
 
 Note that the `--privileged` Docker option is required for FUSE in order to access the host's `/dev/fuse` device.
