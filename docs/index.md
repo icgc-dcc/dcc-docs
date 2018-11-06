@@ -6,6 +6,10 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
 
 </center>
 
+<center>
+<b>Quick Entry Points</b>
+</center>
+
 <div class="use-cases">
   <section class="background-grey">
     <div class="flex-wrapper l-max-width-standard l-pad-top-7">
@@ -17,65 +21,37 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
           </h2>
           <i class="material-icons notranslate">keyboard_arrow_right</i>
         </a>
-        <a href="/portal/access/">
-          <div>
-            <h3>Access Controlled Data</h3>
-            <p>Log in from the command line</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-        <a href="/portal/api/#downloading-static-files">
-          <div>
-            <h3>Examples</h3>
-            <p>Commands to download files with curl and httpie</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
         <a href="/portal/api-endpoints/">
           <div>
-            <h3>Documentation</h3>
-            <p>List of available endpoints, along with their inputs and outputs</p>
+            <h3>API Endpoints</h3>
+            <p>API endpoints for search and download</p>
             <i class="material-icons notranslate">keyboard_arrow_right</i>
           </div>
         </a>
-        <a href="/portal/api/#common-errors">
+        <a href="/portal/methods/">
           <div>
-            <h3>Troubleshooting and FAQ</h3>
-            <p>Solutions to common errors and answers to frequently asked questions.</p>
+            <h3>Portal Methods</h3>
+            <p>Details about gene model, annotation and enrichment analysis etc </p>
             <i class="material-icons notranslate">keyboard_arrow_right</i>
           </div>
         </a>
       </div>
       <div class="product-card">
-        <a href="/download/guide/#authorization">
+        <a href="/download/guide/">
           <h2><i class="material-icons notranslate">file_download</i>Data Download</h2>
           <i class="material-icons notranslate">keyboard_arrow_right</i>
         </a>
-        <a href="/download/repositories/#obtaining-data-access_3">
+        <a href="/download/data-access/">
           <div>
-            <h3>Requesting Access</h3>
-            <p>Procedures for requesting access from data repositories</p>
+            <h3>Requesting Access to Controlled Data</h3>
+            <p>Procedures for requesting access to controlled data</p>
             <i class="material-icons notranslate">keyboard_arrow_right</i>
           </div>
         </a>
         <a href="/download/icgc-get/#quickstart">
           <div>
-            <h3>Quick Start using icgc-get</h3>
+            <h3>Download using icgc-get</h3>
             <p>Download from multiple data repositories with a unified command line tool</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-        <a href="/download/icgc-get/#commands">
-          <div>
-            <h3>Examples using icgc-get</h3>
-            <p>Commands to configure, report, and download using icgc-get</p>
-            <i class="material-icons notranslate">keyboard_arrow_right</i>
-          </div>
-        </a>
-        <a href="/download/guide/#faqs">
-          <div>
-            <h3>Troubleshooting and FAQ</h3>
-            <p>Solutions to common errors and answers to frequently asked questions.</p>
             <i class="material-icons notranslate">keyboard_arrow_right</i>
           </div>
         </a>
@@ -88,7 +64,7 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
           </h2>
           <i class="material-icons notranslate">keyboard_arrow_right</i>
         </a>
-        <a href="/submission/faq/">
+        <a href="/dictionary/viewer/">
           <div>
             <h3>Dictionary</h3>
             <p>Describes the schema submitters must conform to and track changes to updates.</p>
@@ -103,11 +79,10 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
           </div>
         </a>
       </div>
-
     </div>
   </section>
 </div>
 
-| Contributing | Contact |
+|  | Contact |
 |-----------|-----------|
-| To help contribute to the documentation, open a pull request at <a href="https://github.com/icgc-dcc/dcc-docs"><i class="fa fa-github"></i> https://github.com/icgc-dcc/dcc-docs</a>. | For user support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org). For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/). |
+|  | For user support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org). For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/). |
