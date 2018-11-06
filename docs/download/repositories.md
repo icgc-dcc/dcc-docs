@@ -89,7 +89,7 @@ To obtain access you must have an eRA commons account, and you must have dbGap a
 
 #### Download Client Operation
 
-Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
+Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
 
 ## PDC
 
