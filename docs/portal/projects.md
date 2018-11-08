@@ -10,7 +10,7 @@ A cancer project is characterized by a catalogue of genomic abnormalities (somat
 
 ### Filtering
 
-ICGC cancer projects can be filtered through the use of filtering facets, much like [Advanced Search](search.md) and [Data Repositories](repositories.md#filtering). Users can use the facets to check off desired attributes within a project file, and all the files with that attribute will be returned. Filters within the same facet, and across multiple facets can be overlapped.
+ICGC cancer projects can be filtered through the use of filtering facets, much like [Advanced Search](search.md). Users can use the facets to check off desired attributes within a project file, and all the files with that attribute will be returned. Filters within the same facet, and across multiple facets can be overlapped.
 
 | | |
 | ---- | ---- |

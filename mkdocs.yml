@@ -20,14 +20,13 @@ pages:
   - Projects: 'portal/projects.md'
   - Publication: 'portal/publication.md'
   - Releases: 'portal/releases.md'
-  - Repositories: 'portal/repositories.md'
   - Search: 'portal/search.md'
   - Browsers: 'portal/browsers.md'
-- Cloud:
-  - About: 'cloud/about.md'
-  - Guide: 'cloud/guide.md'
-  - icgc-get: 'cloud/icgc-get.md'
-  - Repositories: 'cloud/repositories.md'
+- Download:
+  - Data Access: 'download/data-access.md'
+  - Guide: 'download/guide.md'
+  - icgc-get: 'download/icgc-get.md'
+  - Repositories: 'download/repositories.md'
 - Submission:
   - About: 'submission/about.md'
   - API: 'submission/api.md'
@@ -50,7 +49,6 @@ pages:
     - Sample Type Specification: 'submission/guide/sample-type-specification.md'
     - Experimental Data Submission File Specifications: 'submission/guide/experimental-data-submission-file-specifications.md'
     - Simple Somatic Mutation Format: 'submission/guide/icgc-simple-somatic-mutation-format.md'
-
   - PCAWG:
     - PanCancer Clinical Data Requirements: 'submission/pcawg/pancancer-clinical-data-requirements.md'
     - FAQ: 'submission/pcawg/pcawg-faq.md'
@@ -70,17 +68,8 @@ pages:
     - Release 16: 'dictionary/release-16.md'
     - Release 15: 'dictionary/release-15.md'
 - Software:
-  - About: 'software/about.md'
-  - Releases:
-    - Score Client: 'software/releases/score-client.md'
-    - Portal: 'software/releases/portal.md'
-    - Submission: 'software/releases/submission.md'
-    - icgc-get: 'software/releases/icgc-get.md'
-  - Binaries: 'software/binaries.md'
   - Source Code: 'software/code.md'
-  - Development:
-    - Setup: 'software/development/setup.md'
-    - General: 'software/development/general.md'
+  - Download: 'software/download.md'
 - PCAWG:
   - About: 'pcawg/index.md'
   - Data Download: 'pcawg/data.md'
