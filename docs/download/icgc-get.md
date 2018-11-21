@@ -4,7 +4,7 @@
 
 ICGC data resides in many data repositories and compute clouds around the world. These  [data repositories](/download/repositories/) each have their own environment (public cloud, private cloud, on-premise file systems, etc.), access controls (DACO, OAuth, asymmetric keys, IP filtering), data download clients and configuration mechanisms. Thus, there is much for a user to learn and perform before actually acquiring the data. This is compounded by the fact that the number of environments are increasing over time and their characteristics are frequently changing. A coordinated mechanism to bootstrap and streamline the data access process is highly desirable. This is the problem the `icgc-get` tool helps to solve.
 
-<span style="color:red">***Please note:***</span>  Pre-requisites for accessing the different repositories, as described in the [Data Download Guide](/download/guide/#compute-prerequisites), still apply. Most notably, that access to AWS-Virginia require `icgc-get` to be run from an EC2 instance launched in AWS-Virginia. 
+<span style="color:red">***Please note:***</span>  Pre-requisites for accessing the different repositories, as described in the [Data Download Guide](/download/guide/#compute-prerequisites), still apply. Most notably, that access to AWS-Virginia requires `icgc-get` to be run from an EC2 instance launched in AWS-Virginia. 
 
 
 As depicted in the figure below, downloading data with `icgc-get` is a three easy-step process: 
