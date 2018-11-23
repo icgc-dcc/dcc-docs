@@ -1,6 +1,6 @@
 # Repositories
 
-A _Data Repository_ is a system that stores and publishes _Data Files_ for download. Such repositories have their own architecture, governing bodies, data access controls, data portals and download clients. Generally speaking, there are two types of repositories:
+A _Data Repository_ is a system that stores and publishes _Data Files_ for download. Such repositories have their own architecture, data access controls, data portals and download clients. Generally speaking, there are two types of repositories:
 
 1.  **Cloud** - offers facilities for compute and storage
 2.  **Non-Cloud** - provides storage functionality only
@@ -59,7 +59,6 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 | Property         | Value                                                                                                                                  |
 | :--------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Name             | European Genome Archive                                                                                                                |
-| Governing Body   | European Bioinformatics Institute (EBI) and Centre for Genomic Regulation (CRG)                                                        |
 | Contact          | <mailto:helpdesk@ega-archive.org>                                                                                                      |
 | Repository type  | Non-Cloud                                                                                                      |
 | Offical Website  | <https://ega-archive.org>                                                                                                              |
@@ -82,7 +81,6 @@ The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI]
 | Property             | Value                                                                                                                                  |
 | :------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                 | Genomic Data Commons                                                                                                                   |
-| Governing Body       | National Cancer Institute                                                                                                              |
 | Contact              | <mailto:support@nci-gdc.datacommons.io>                                                                                                |
 | Repository type      | Non-Cloud                                                                                                      |
 | Official Data Portal | <https://portal.gdc.cancer.gov/>                                                                                                      |
@@ -109,7 +107,6 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 | Property             | Value                                                                                                                                   |
 | :------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                 | Bionimbus Protected Data Cloud                                                                                                          |
-| Governing Body       | University of Chicago/Open Commons Consortium                                                                                           |
 | Contact              | <mailto:support@opensciencedatacloud.org>                                                                                               |
 | Repository type      | Cloud                                                                                                      |
 | Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>                                                                                        |
