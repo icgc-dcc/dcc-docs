@@ -111,7 +111,7 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 | Name                 | Bionimbus Protected Data Cloud                                                                                                          |
 | Governing Body       | University of Chicago/Open Commons Consortium                                                                                           |
 | Contact              | <mailto:support@opensciencedatacloud.org>                                                                                               |
-| Repository type      | Non-Cloud                                                                                                      |
+| Repository type      | Cloud                                                                                                      |
 | Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>                                                                                        |
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
 | Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)                           |
