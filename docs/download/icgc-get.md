@@ -75,7 +75,7 @@ Valid repositories are:
 
 ### Data Access Tokens / Credentials
 
-Different repositories may use different mechanisms to authenticate and authorize access their download clients.
+Different repositories use different mechanisms to authenticate their users and authorize data access.
 
 * ICGC and GDC use pre-generated tokens with specific scope of privileges. Details about generating ICGC token is described [here](/download/guide/#access-tokens). For GDC tokens, check [here](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Authentication/#gdc-authentication-tokens).
 
