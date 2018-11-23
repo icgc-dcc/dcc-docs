@@ -58,7 +58,7 @@ Please use the following format to define your repositories in the configuration
 ```yaml
 repos:
  - collaboratory
- - pcawg-chicago-icgc
+ - ega
  - pdc
 ```
 
@@ -67,10 +67,22 @@ Valid repositories are:
 | Code                | Repository                     |
 | --------            | -------------------------------          |
 | `aws-virginia`      | [Amazon Web Services](/download/repositories/#aws)                      |
-| `collaboratory`     | [Collaboratory](/download/repositories/#collaboratory)                            |
+| `collaboratory`     | [Cancer Genome Collaboratory](/download/repositories/#collaboratory)                            |
 | `ega`               | [European Genome Archive](/download/repositories/#ega)              |
 | `gdc`               | [Genomic Data Commons](/download/repositories/#gdc)                     |
 | `pdc`               | [Bionimbus Protected Data Cloud](/download/repositories/#pdc)           |
+
+
+### Data Access Tokens / Credentials
+
+Different repositories may use different mechanisms to authenticate and authorize access their download clients.
+
+* ICGC and GDC use pre-generated tokens with specific scope of privileges. Details about generating ICGC token is described [here](/download/guide/#access-tokens). For GDC tokens, check [here](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Authentication/#gdc-authentication-tokens).
+
+* EGA uses username / password combination. You will have them set up when you create your EGA account. For support, contact <mailto:helpdesk@ega-archive.org>.
+
+* PDC uses access keys (a pair of access key ID and secret access key). Follow the **Login from NIH** button on this [page](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access keys.
+
 
 ### Example Configuration File
 
