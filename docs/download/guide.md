@@ -99,23 +99,37 @@ By default the Score Client is configured to use a maximum of 3G of RAM. Most of
 
 The Score Client has been designed to work on modern Mac and Linux distributions. Windows should work as well but remains untested.
 
-### Dependencies
-
-The Score Client requires Java 8 to be installed. It has been tested using the Oracle distribution. The procedure for installing Java 8 will vary depending on the operating system and package manager used.
-
-In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev` and `fuse` packages.
 
 ## Installation of the Score Client
 
 This section describes how to install the **Score** Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
 
+
 ### Install from Tarball
 
-To begin using the Score Client, the first step is to download the distribution. The latest version can be downloaded from [here](/software/download#score-client), or use the following commands to download from command line.
+The Score Client requires Oracle Java 8 to be installed. The procedure for installing Java 8 will vary depending on the operating system and package manager used. As an example, here we show how to install Oracle JDK 8 on Ubuntu Linux distribution.
+
+```
+# Install Oracle JDK 8
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y oracle-java8-installer oracle-java8-set-default
+```
+
+In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev`, `fuse` and other packages, below is the command to install them on Ubuntu.
+
+```
+sudo apt-get install -y libfuse-dev fuse curl wget software-properties-common
+```
+
+With dependencies installed, now we can install the Score Client itself. The latest version can be downloaded from [here](/software/download#score-client), or use the following commands to download from command line.
 
 ```
 wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/\[RELEASE\]/score-client-\[RELEASE\]-dist.tar.gz
 tar -xvzf score-client.tar.gz
+cd score-client-1.4.0  # or newer version
+bin/score-client
 ```
 
 ### Install from Docker Image
@@ -132,10 +146,10 @@ Once pulled, you can open a shell in the container by executing:
 
 ```
 docker run -it overture/score
-./bin/score-client
+bin/score-client
 ```
 
-There is no entry point or command defined for the image. The software may be located at `score-client` which is also the working directory of the container. All other steps for [using the Score Client](#score-client-usage) will be the same for both Docker and tarball installations.
+There is no entry point or command defined for the image. The software is located at `score-client` which is also the working directory of the container. All other steps for [using the Score Client](#score-client-usage) will be the same for both Docker and tarball installations.
 
 ## Configuration
 
@@ -143,9 +157,9 @@ The configuration of the Score Client is stored in the `conf/application.propert
 
 ### Access Configuration
 
-The main configuration element is the access token generated in [Access Token](#access-tokens) above. Configuration is stored in the `conf/` directory of the distribution.
+The main configuration element is the access token generated in [Access Token](#access-tokens) above.
 
-Edit `application.properties` and add the generated accesss token to the line:
+Edit `application.properties` and add the generated accesss token to the line like below (remember to remove the leading '#' to uncomment the line):
 
 ```
 accessToken=<access token>
@@ -159,11 +173,11 @@ docker run -it -e ACCESSTOKEN=<access token> overture/score
 
 #### Collaboratory
 
-In addition to the above, you will need to change the `bin/score-client` script to add this line `STORAGE_PROFILE=collab`. This can also performed externally via the environmental variable of the same name. Note that it is also possible to override this per execution using `bin/score-client`'s `--profile collab` argument.
+In addition to the above, you will need to change the `bin/score-client` script to add this line `STORAGE_PROFILE=collab`. This can also performed externally via the environmental variable of the same name: `export STORAGE_PROFILE=collab`. Note that it is also possible to override this per execution using `bin/score-client`'s `--profile collab` argument.
 
 ### Transport Configuration
 
-Based on the target Compute Instance defined in [Compute Prerequisites](#compute-prerequisites) and transfer speed requirements, it may be necessary to make changes to how the Score Client transfers data. This is achieved by setting `transport.parallel` and `transport.memory`:
+Based on the target Compute Instance defined in [Compute Prerequisites](#compute-prerequisites) and transfer speed requirements, it may be necessary to make changes to how the Score Client transfers data. This is achieved by setting `transport.parallel` and `transport.memory` in file `conf/application.properties`:
 
 - `transport.parallel` controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
 - `transport.memory` is the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of `1` (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance.
@@ -172,16 +186,16 @@ Based on the target Compute Instance defined in [Compute Prerequisites](#compute
 
 Finding files of interest can be done via the Data Portal. Objects are identified by their _Object ID_.
 
-- Navigate to [repository file search](https://dcc.icgc.org/repositories)
+- Navigate to [Data Repositories](https://dcc.icgc.org/repositories) section of the ICGC Data Portal
 - Click on the `AWS` or `Collaboratory` filter in the left hand pane
 - Filter based on properties of interest (e.g. donor id, specimen id, etc.)
 - Export a _Manifest_ for future use with the Score Client
 
-The Manifest is the main way to define what files should be downloaded by the Score Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download manifests" link the the Data Repository browser. You will be prompted with a "Download manifests" dialog:
+The Manifest is the main way to define what files should be downloaded by the Score Client. However, knowing the Object ID is sufficient for a single file download. To generate a Manifest, click on the "Download Files" link the the Data Repository browser. You will be prompted with a "Download Files" dialog:
 
 [![Download Manifest Dialog](images/download-manifest-dialog.png)](images/download-manifest-dialog.png 'Click the Download Manifest Dialog screenshot to see the full image.')
 
-Manifests downloaded from the Data Portal can be transferred to the Score Client instance by using SFTP or SCP. For convenience, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Score Client Usage](#score-client-usage) section for usage information.
+Manifests downloaded from the Data Portal can be transferred to the Score Client instance by using SFTP or SCP. For convenience, when files to be downloaded are all from a single repository, it is also possible to use a Manifest ID saved on the Data Portal by clicking on the "Manifest ID" button. See the [Score Client Usage](#score-client-usage) section for usage information.
 
 ## Score Client Usage
 
@@ -194,6 +208,12 @@ score-client [options] [command] [command options]
 ```
 
 It offers a set of commands, where each command has its own set of options to influence its operation.
+
+Note that: the example commands used below assume we download from Collaboratory, this can be achieved by set STORAGE_PROFILE environment variable to `collab`:
+
+```
+export STORAGE_PROFILE=collab
+```
 
 ### Help
 
@@ -220,11 +240,11 @@ bin/score-client url --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
 An example of using `wget`:
 
 ```bash
-bin/score-client url --object-id <Object ID>
-Resolving URL for object: ddcdd044-adda-5f09-8849-27d6038f8ccd (offset = 0, length = -1)
-https://s3-external-1.amazonaws.com/...[snip]
+bin/score-client url --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd
+Resolving URL for object: ddcdd044-adda-5f09-8849-27d6038f8ccd
+https://object.cancercollaboratory.org:9080/oicr.icgc.28/data/ddcdd044-adda-5f09-8849-27d6038f8ccd?...[snip]
 
-wget "https://s3-external-1.amazonaws.com/...[snip]"
+wget -O ddcdd044-adda-5f09-8849-27d6038f8ccd "https://object.cancercollaboratory.org:9080/oicr.icgc.28/data/ddcdd044-adda-5f09-8849-27d6038f8ccd?...[snip]"
 ```
 
 You should always double-quote the URL that you pass to wget.
@@ -246,17 +266,18 @@ bin/score-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --out
 You can also specify multiple object id's separated by spaces
 
 ```
-bin/score-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 008da0c1-70cc-61ae-3bab-09aa17fad451 --output-dir data
+bin/score-client download --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd 5cc35183-9291-5711-967d-30afcf20e71f --output-dir data
 ```
 
-Downloads will be stored in the `--output-dir`.
+Downloads will be stored in the folder specified by `--output-dir`.
 
 #### Manifest
 
 Using a Manifest is ideal for downloading multiple files identified through the Data Portal. The [repository file search](https://dcc.icgc.org/repositories) allows one to generate a Manifest file that can be supplied for bulk downloading files. It also provides some additional metadata for selected files that gives the donor, specimen and sample context.
 
+
 ```
-bin/score-client download --manifest manifest.txt --output-dir data
+bin/score-client download --manifest manifest.tsv --output-dir data
 ```
 
 The optional `--output-layout` option can be used to organize the downloads into a couple of predefined directory layouts. See the `--help` for addional information.
@@ -299,10 +320,10 @@ bin/score-client manifest --manifest http://hastebin.com/raw/ujajodilih
 
 The `view` command is a minimal version of [samtools view](http://www.htslib.org/doc/samtools.html). It allows one to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.
 
-The following example will download reads overlapping the region 1 - 100000 in chromosome 1:
+The following example will download reads overlapping the region 1 - 10,000 on chromosome 1:
 
 ```
-bin/score-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --query 1:1-100000
+bin/score-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --query 1:1-10000
 ```
 
 The BAI is automatically discovered and streamed as part of the operation.
@@ -316,7 +337,7 @@ bin/score-client view --header-only --object-id ddcdd044-adda-5f09-8849-27d6038f
 It is also possible to pipe the output of the above to `samtools`, etc. for pipelining a workflow:
 
 ```
-bin/score-client view --stdout --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd | samtools mpileup -
+bin/score-client view --object-id ddcdd044-adda-5f09-8849-27d6038f8ccd --query 1:1-100000 | samtools mpileup -
 ```
 
 #### Batch/Manifest Slicing
@@ -328,18 +349,18 @@ As of version 1.0.14, the client supports slicing across "batches" of specimens 
 Multiple query regions can be specified at the command line,
 
 ```
-bin/score-client view --manifest /data/manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir /data/query-results
+bin/score-client view --manifest manifest.txt --query 1:1245-1425 1:1578-1818 1:18100-19780 1:81011-81491 1:18100-19780 1:2772220-2772272 --output-dir data
 ```
 
 or in a [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
 
 ```
-bin/score-client view --manifest /data/manifest.txt --bed-query /data/query/profile12.bed --output-dir /data/query-results
+bin/score-client view --manifest manifest.txt --bed-query test.bed --output-dir data
 ```
 
 There is also a switch to have indexes generated for the output
 
-<pre><code>bin/score-client view --manifest /data/manifest.txt <b>--output-index</b> --bed-query /data/query/profile12.bed --output-dir /data/query-results</code></pre>
+<pre><code>bin/score-client view --manifest manifest.txt <b>--output-index</b> --bed-query test.bed --output-dir data</code></pre>
 
 ### Mount Command
 
@@ -369,13 +390,14 @@ To mount all available files locally, issue the following:
 
 ```
 # Create the mount point
-mkdir /mnt/icgc
+sudo mkdir /mnt/icgc
+sudo chmod 777 /mnt/icgc/
 
 # Mount
-bin/score-client mount --mount-point /mnt/icgc
+bin/score-client mount --mount-point /mnt/icgc --cache-metadata
 ```
-**NOTE**: Please be advised it is not advisable to mount all files, it may take very long time. See following section how to mount fewer objects using manifest_id. 
 
+**NOTE**: Please be advised it is not advisable to mount all files, it may take very long time. See following section how to mount fewer objects using manifest_id. 
 
 To speed up subsequent mounts, one can specify the `--cache-metadata` flag above which will locally store an index of the file system.
 
@@ -391,11 +413,8 @@ samtools view /mnt/icgc/fff75930-0f8c-4c99-9b48-732e7ed4c625/443a7a6ab964e41c011
 To filter the mount to only include the files specified in a Manifest, issue the following:
 
 ```
-# Create the mount point
-mkdir /mnt/icgc
-
 # Mount
-bin/score-client mount --mount-point /mnt/icgc --manifest <manifest_id>
+bin/score-client mount --mount-point /mnt/icgc --manifest <manifest_id or manifest_file>
 ```
 
 See the `manifest` command for more details on how to specify a Manifest.
@@ -407,7 +426,7 @@ To avoid having to install the FUSE and Java dependencies when working with the 
 Next, export the access token generated from the portal:
 
 ```
-# Export access token
+# Export access token, please replace <accessToken> with your own token
 export ACCESSTOKEN=<accessToken>
 ```
 
@@ -415,12 +434,12 @@ And then mount the file system inside the container against the empty `/mnt` dir
 
 ```
 # Alias for ease of use, assume we use collab profile
-alias score-client="docker run -it --rm -e ACCESSTOKEN --privileged overture/score bin/score-client --profile collab"
+alias docker-score-client="docker run -it --rm -e ACCESSTOKEN --privileged -v `pwd`:/score-client/manifest overture/score bin/score-client --profile collab"
 ```
 
 ```
 # Mount the file system in the container
-score-client mount --mount-point /mnt --manifest <manifest_id> 
+docker-score-client mount --mount-point /mnt --manifest <manifest_id or manifest/manifest_file> 
 ```
 
 Note that the `--privileged` Docker option is required for FUSE in order to access the host's `/dev/fuse` device.
@@ -467,7 +486,7 @@ Yes, the client maintains state, for _downloads_, in the working directory in a 
 
 ##### Why do I get a security exception when I try to download an object?
 
-If you are targeting the AWS cloud, ensure that you are running within the `us-east-1` [region](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones). If you are targeting Collaboratory, make sure you are inside the OpenStack environment.
+If you are targeting the AWS cloud, ensure that you are running within the `us-east-1` [region](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones).
 
 ##### I can’t use the result of a `url` command with `samtools`:
 
