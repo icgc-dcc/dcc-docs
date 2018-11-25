@@ -28,7 +28,13 @@ As depicted in the figure below, downloading data with `icgc-get` is a three eas
 
 Docker is required to use the pre-packaged download clients of the various respositories. To install Docker, please see the [installation guide](https://docs.docker.com/engine/installation/).
 
-If not using Docker, it is expected that the user will have installed each of the data download clients for [different repositories](/download/repositories/) required to access repositories of interest.
+If not using Docker, it is expected that the user will have installed each of the data download clients for different repositories required to access repositories of interest. Information for installing the download clients can be found as follows:
+
+* Collabortory and AWS: [score-client](repositories/#collaboratory)
+* EGA: [ega-download-client](repositories/#ega)
+* GDC: [data-transfer-tool](repositories/#gdc)
+* PDC: [aws-cli](repositories/#pdc)
+
 
 ## Installation
 
@@ -57,6 +63,11 @@ such as your access credentials, usage mode and output directory. The simplest w
 
 and then follow the instructions of the prompts. The information you provided will be kept in a configuration file saved to `~/.icgc-get/config.yaml`.
 
+<span style="color:red">***Please note:***</span>, if you wish to use Dockerized download clients so you don't need to install them locally, please ensure [Docker](https://docs.docker.com/engine/installation/) is installed and response with ***true*** to the follow prompt:
+```
+Enter true or false if you wish to use a docker container to download and run all download clients
+docker []: true
+```
 
 ### Repository Precedence
 
@@ -75,8 +86,8 @@ Valid repositories are:
 
 | Code                | Repository                     |
 | --------            | -------------------------------          |
-| `aws-virginia`      | [Amazon Web Services](/download/repositories/#aws)                      |
 | `collaboratory`     | [Cancer Genome Collaboratory](/download/repositories/#collaboratory)                            |
+| `aws-virginia`      | [Amazon Web Services](/download/repositories/#aws)                      |
 | `ega`               | [European Genome Archive](/download/repositories/#ega)              |
 | `gdc`               | [Genomic Data Commons](/download/repositories/#gdc)                     |
 | `pdc`               | [Bionimbus Protected Data Cloud](/download/repositories/#pdc)           |
@@ -118,26 +129,26 @@ repos:
 # ICGC
 icgc:
   token: <your_icgc_download_token>
-  path: /path/to/icgc/score/client  # full path to score client
+  #path: /path/to/icgc/score/client  # full path to locally installed score-client
 
 # EGA
 ega:
  username: <username>
  password: <password>
- path: /path/to/ega/client  # full path to EGA download client
+ #path: /path/to/ega/client  # full path to locally installed EGA download client
 
 
 # GDC
 gdc:
  token: <gdc_token>
- path: /path/to/gdc/client   # full path to GDC download client
+ #path: /path/to/gdc/client   # full path to locally installed GDC download client
 
 
 # PDC
 pdc:
   key: <pdc_key>
   secret: <pdc_secret>
-  path: /path/to/pdc/client  # full path to aws cli client
+  #path: /path/to/pdc/client  # full path to locally installed aws cli client
 ```
 
 ## Usage
@@ -157,6 +168,8 @@ All commands share the `--config`, `--logfile` `--verbose/-v` and the `--docker`
 | `--logfile`       | Path to log file                                     |
 | `--verbose` `-v`  | Flag that increases tool verbosity                   |
 | `-d`, `--docker`  | Boolean option whether to use in docker or not|
+
+***Please note***: if configured to use Docker (with `docker: True` in the configuration file), it may take a few minutes when *first time* invoking an icgc-get command while the icgc-get Docker image is being pulled.
 
 ### Configure Command
 
