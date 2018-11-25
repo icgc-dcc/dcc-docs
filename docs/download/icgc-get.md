@@ -28,7 +28,7 @@ As depicted in the figure below, downloading data with `icgc-get` is a three eas
 
 Docker is required to use the pre-packaged download clients of the various respositories. To install Docker, please see the [installation guide](https://docs.docker.com/engine/installation/).
 
-If not using Docker, it is expected that the user will have installed each of the [data download clients](/download/repositories/) required to access repositories of interest.
+If not using Docker, it is expected that the user will have installed each of the data download clients for [different repositories](/download/repositories/) required to access repositories of interest.
 
 ## Installation
 
@@ -41,12 +41,21 @@ curl https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest -o icgc-get.l
 unzip icgc-get.latest.zip
 ```
 
-This will extract the `icgc-get` executable in the current directory.
+This will extract the `icgc-get` executable in the current directory. It can be run as:
+```
+./icgc-get
+```
 
 ## Configuration
 
 After installing `icgc-get`, you will need to configure some of the essential usage parameters,
-such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the `icgc-get configure` command and follow the instructions of the prompts. The information you provided will be kept in a configuration file saved to `~/.icgc-get/config.yaml`.
+such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the command:
+
+```
+./icgc-get configure
+```
+
+and then follow the instructions of the prompts. The information you provided will be kept in a configuration file saved to `~/.icgc-get/config.yaml`.
 
 
 ### Repository Precedence
@@ -58,7 +67,7 @@ Please use the following format to define your repositories in the configuration
 ```yaml
 repos:
  - collaboratory
- - pcawg-chicago-icgc
+ - ega
  - pdc
 ```
 
@@ -67,10 +76,22 @@ Valid repositories are:
 | Code                | Repository                     |
 | --------            | -------------------------------          |
 | `aws-virginia`      | [Amazon Web Services](/download/repositories/#aws)                      |
-| `collaboratory`     | [Collaboratory](/download/repositories/#collaboratory)                            |
+| `collaboratory`     | [Cancer Genome Collaboratory](/download/repositories/#collaboratory)                            |
 | `ega`               | [European Genome Archive](/download/repositories/#ega)              |
 | `gdc`               | [Genomic Data Commons](/download/repositories/#gdc)                     |
 | `pdc`               | [Bionimbus Protected Data Cloud](/download/repositories/#pdc)           |
+
+
+### Data Access Tokens / Credentials
+
+Different repositories use different mechanisms to authenticate their users and authorize data access.
+
+* ICGC and GDC use pre-generated tokens with specific scope of privileges. Details about generating ICGC token is described [here](/download/guide/#access-tokens). For GDC tokens, check [here](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Authentication/#gdc-authentication-tokens).
+
+* EGA uses username / password combination. You will have them set up when you create your EGA account. For support, contact <mailto:helpdesk@ega-archive.org>.
+
+* PDC uses access keys (a pair of access key ID and secret access key). Follow the **Login from NIH** button on this [page](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access keys.
+
 
 ### Example Configuration File
 
@@ -281,6 +302,7 @@ Sample invocation of the `download` command using FI ID:
 ```shell
 ./icgc-get download FI378424 -r collaboratory -r ega
 ```
+Please check the output directory you configured earlier for the downloaded files.
 
 #### Download using manifest ID
 
@@ -309,11 +331,11 @@ This is an informative command that displays the version of all clients used by 
 Sample output:
 
 ```
-ICGC-Get Version: 0.2.8
+ICGC-Get Version: 0.6.0
 Clients:
- AWS CLI Version:             1.10.34
+ AWS CLI Version:             1.16.60
  EGA Client Version:          2.2.2
- GDC Client Version:          0.7
- ICGC Storage Client Version: 1.0.13
+ GDC Client Version:          1.3.0
+ ICGC Storage Client Version: 1.4.0
 ```
 

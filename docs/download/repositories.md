@@ -1,6 +1,6 @@
 # Repositories
 
-A _Data Repository_ is a system that stores and publishes _Data Files_ for download. Such repositories have their own architecture, governing bodies, data access controls, data portals and download clients. Generally speaking, there are two types of repositories:
+A _Data Repository_ is a system that stores and publishes _Data Files_ for download. Such repositories have their own architecture, data access controls, data portals and download clients. Generally speaking, there are two types of repositories:
 
 1.  **Cloud** - offers facilities for compute and storage
 2.  **Non-Cloud** - provides storage functionality only
@@ -12,24 +12,27 @@ All of the ICGC data be searched for using the [ICGC Data Portal](https://dcc.ic
 Every repository has a repository code / id that is used to identify it in the [ICGC API](/portal/api-endpoints/#!/repositories/get) and `icgc-get`.
 
 
-## [ICGC Clouds](https://dcc.icgc.org/icgc-in-the-cloud)
+## [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
 
-### [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
-
-Academic research cloud built to house ICGC data.
+Academic research cloud infrastructure built to house ICGC data.
 
 | Property         | Value                                                                                                                                            |
 | :--------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Name             | Cancer Genome Collaboratory                                                                                                                      |
 | Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Repository type  | Cloud                                                                                                      |
 | ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D) |
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `collaboratory`                                                                                                                                  |
 
-#### Obtaining Data Access
+### Obtaining Data Access
 Follow the proceedure outlined at the [DACO page](https://icgc.org/daco).
 
-### [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws)
+### Download Client Operation
+To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
+
+
+## [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws)
 
 Amazon cloud service containing ICGC data.
 
@@ -37,12 +40,16 @@ Amazon cloud service containing ICGC data.
 | :--------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | Name             | ICGC Storage Server (hosted at AWS)                                                                                                                 |
 | Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Repository type  | Cloud                                                                                                      |
 | ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D) |
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `aws-virginia`                                                                                                                          |
 
-#### Obtaining Data Access
+### Obtaining Data Access
 Follow the proceedure outlined at the [DACO page](https://icgc.org/daco).
+
+### Download Client Operation
+To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
 
 
 ## [EGA](https://ega-archive.org/)
@@ -52,18 +59,18 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 | Property         | Value                                                                                                                                  |
 | :--------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Name             | European Genome Archive                                                                                                                |
-| Governing Body   | European Bioinformatics Institute (EBI) and Centre for Genomic Regulation (CRG)                                                        |
 | Contact          | <mailto:helpdesk@ega-archive.org>                                                                                                      |
+| Repository type  | Non-Cloud                                                                                                      |
 | Offical Website  | <https://ega-archive.org>                                                                                                              |
 | ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D) |
 | Download Client  | [Zipfile](https://ega-archive.org/download/using-ega-download-client#DownloadClient)                                                   |
 | Repo Code        | `ega`                                                                                                                                  |
 
-#### Obtaining Data Access
+### Obtaining Data Access
 Follow the proceedure outlined at the [DACO page](https://icgc.org/daco). Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
 
 
-#### Download Client Operation
+### Download Client Operation
 
 To operate the EGA download client, follow the instructions [here](https://ega-archive.org/download/using-ega-download-client#DownloadClient).
 
@@ -74,20 +81,20 @@ The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI]
 | Property             | Value                                                                                                                                  |
 | :------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                 | Genomic Data Commons                                                                                                                   |
-| Governing Body       | National Cancer Institute                                                                                                              |
 | Contact              | <mailto:support@nci-gdc.datacommons.io>                                                                                                |
+| Repository type      | Non-Cloud                                                                                                      |
 | Official Data Portal | <https://portal.gdc.cancer.gov/>                                                                                                      |
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D) |
 | Download Client      | Download the client [here](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)                                                                 |
 | Repo Code            | `gdc`                                                                                                                                  |
 
-#### Obtaining Data Access
+### Obtaining Data Access
 
 To obtain access you must have an eRA commons account, and you must have dbGap access to the data on the GDC you are interested in. Talk to your team leader if you do not have this access. Once this account is set up, you can log in to the GDC **using the your dbGaP credentials**.
 
 <https://gdc.cancer.gov/access-data/obtaining-access-controlled-data>
 
-#### Download Client Operation
+### Download Client Operation
 
 Once you or your project leader have attained access to the reseach project,you will need to download access tokens from the gdc data portal. A comprehensive guide on how to use the GDC client is available [here.](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/)
 
@@ -100,19 +107,19 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 | Property             | Value                                                                                                                                   |
 | :------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                 | Bionimbus Protected Data Cloud                                                                                                          |
-| Governing Body       | University of Chicago/Open Commons Consortium                                                                                           |
 | Contact              | <mailto:support@opensciencedatacloud.org>                                                                                               |
+| Repository type      | Cloud                                                                                                      |
 | Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>                                                                                        |
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
 | Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)                           |
 | Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html)                                                     |
 | Repo Code            | `pdc`                                                                                                                                   |
 
-#### Obtaining Data Access
+### Obtaining Data Access
 
 Same as obtaining Data Access to [GDC](#obtaining-data-access_3)
 
-#### Download Client Operation
+### Download Client Operation
 
 The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with `aws configure` and follow the prompts. This key can be download from the projects tab of the [official PDC website.](https://bionimbus-pdc.opensciencedatacloud.org) Once your credentials have been entered the general structure for download commands is:
 
