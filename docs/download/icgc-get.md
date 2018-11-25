@@ -302,7 +302,7 @@ Sample invocation of the `download` command using FI ID:
 ```shell
 ./icgc-get download FI378424 -r collaboratory -r ega
 ```
-Please check the `output` directory you configured earlier for the downloaded files.
+Please check the output directory you configured earlier for the downloaded files.
 
 #### Download using manifest ID
 
