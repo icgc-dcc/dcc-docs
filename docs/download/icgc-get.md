@@ -28,7 +28,7 @@ As depicted in the figure below, downloading data with `icgc-get` is a three eas
 
 Docker is required to use the pre-packaged download clients of the various respositories. To install Docker, please see the [installation guide](https://docs.docker.com/engine/installation/).
 
-If not using Docker, it is expected that the user will have installed each of the [data download clients](/download/repositories/) required to access repositories of interest.
+If not using Docker, it is expected that the user will have installed each of the data download clients for [different repositories](/download/repositories/) required to access repositories of interest.
 
 ## Installation
 
@@ -41,12 +41,21 @@ curl https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest -o icgc-get.l
 unzip icgc-get.latest.zip
 ```
 
-This will extract the `icgc-get` executable in the current directory.
+This will extract the `icgc-get` executable in the current directory. It can be run as:
+```
+./icgc-get
+```
 
 ## Configuration
 
 After installing `icgc-get`, you will need to configure some of the essential usage parameters,
-such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the `icgc-get configure` command and follow the instructions of the prompts. The information you provided will be kept in a configuration file saved to `~/.icgc-get/config.yaml`.
+such as your access credentials, usage mode and output directory. The simplest way to do this is to invoke the command:
+
+```
+./icgc-get configure
+```
+
+and then follow the instructions of the prompts. The information you provided will be kept in a configuration file saved to `~/.icgc-get/config.yaml`.
 
 
 ### Repository Precedence
@@ -293,6 +302,7 @@ Sample invocation of the `download` command using FI ID:
 ```shell
 ./icgc-get download FI378424 -r collaboratory -r ega
 ```
+Please check the `output` directory you configured earlier for the downloaded files.
 
 #### Download using manifest ID
 
@@ -321,11 +331,11 @@ This is an informative command that displays the version of all clients used by 
 Sample output:
 
 ```
-ICGC-Get Version: 0.2.8
+ICGC-Get Version: 0.6.0
 Clients:
- AWS CLI Version:             1.10.34
+ AWS CLI Version:             1.16.60
  EGA Client Version:          2.2.2
- GDC Client Version:          0.7
- ICGC Storage Client Version: 1.0.13
+ GDC Client Version:          1.3.0
+ ICGC Storage Client Version: 1.4.0
 ```
 
