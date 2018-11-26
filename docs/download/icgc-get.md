@@ -40,10 +40,11 @@ If not using Docker, it is expected that the user will have installed each of th
 
 The `icgc-get` client may be downloaded from the [Software Download page](/software/download/#icgc-get)
 
-To install the latest version on Mac or Linux, issue the following in a terminal:
+To install the latest version on Linux, issue the following in a terminal:
 
 ```shell
 curl https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest -o icgc-get.latest.zip -L
+
 unzip icgc-get.latest.zip
 ```
 
