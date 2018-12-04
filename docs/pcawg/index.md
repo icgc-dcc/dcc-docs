@@ -69,3 +69,27 @@ full_width: true
         PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in BSC PCAWG-Scout at <a href="http://pcawgscout.bsc.es">http://pcawgscout.bsc.es</a>.
     </div>
 </div>
+
+<br>
+<hr>
+<br>
+
+<div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
+    <div style="flex:35;">
+        <a href="https://www.ebi.ac.uk/gxa/experiments/E-MTAB-5200"><i class="fa-no-icon"></i><img src="images/chromothripsis_explorer_logo.png" height="70"/></a><br><br>
+        Chromothripsis Explorer provides highly interactive Circos plots for
+        all tumors in the PCAWG cohort, allowing researchers to explore
+        large-scale alterations such as chromosome arm deletions, and complex
+        mutational patterns such as chromothripsis. Each Circos plots reports
+        the point mutations, small insertions and deletions, structural
+        variations, and copy number profiles detected in each tumor. Explore
+        PCAWG data in Chromothripsis Explorer at
+        <a href="http://compbio.med.harvard.edu/chromothripsis/">http://compbio.med.harvard.edu/chromothripsis/</a>.
+    </div>
+    <div style="flex:5;">
+    </div>
+    <div style="flex:60;">
+        <a href="http://compbio.med.harvard.edu/chromothripsis/">
+        <i class="fa-no-icon"></i><img src="images/Chromothripsis_explorer_landing_page_main_image_v1.png" width="700"/></a>
+    </div>
+</div>
