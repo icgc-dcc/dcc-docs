@@ -2,7 +2,44 @@
   "defaultBaseFromURL": "http://docs.icgc.org",
   "defaultBaseToURL": "http://docs.icgc.org",
 
-  "redirects": [{
+  "redirects": [
+    {
+      "from": "/software/binaries",
+      "to": "/software/download"
+    },
+    {
+      "from": "/software/about",
+      "to": "/software/code"
+    },
+    {
+      "from": "/cloud/guide",
+      "to": "/download/guide"
+    },
+    {
+      "from": "/cloud/icgc-get",
+      "to": "/download/icgc-get"
+    },
+    {
+      "from": "/cloud/repositories",
+      "to": "/download/repositories"
+    },
+    {
+      "from": "/portal/repositories",
+      "to": "/download/repositories"
+    },
+    {
+      "from": "/software/releases",
+      "to": "/software/download"
+    },
+    {
+      "from": "/software/releases/score-client",
+      "to": "/software/download/#score-client"
+    },
+    {
+      "from": "/software/releases/icgc-get",
+      "to": "/software/download/#icgc-get"
+    },
+    {
       "from": "/data-portal-usage#troubledownloading",
       "to": "/portal/repositories/#having-trouble-downloading-a-file-from-dcc-repository"
     },
