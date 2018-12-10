@@ -12,10 +12,6 @@
       "to": "/software/code"
     },
     {
-      "from": "/cloud/guide/",
-      "to": "/download/guide/"
-    },
-    {
       "from": "/cloud/guide/#batchmanifest-slicing",
       "to": "/download/guide/#batchmanifest-slicing"
     },
@@ -32,20 +28,20 @@
       "to": "/download/repositories"
     },
     {
-      "from": "/software/releases/",
-      "to": "/software/download/"
-    },
-    {
       "from": "/software/releases/score-client",
       "to": "/software/download/#score-client"
+    },
+    {
+      "from": "/cloud/guide",
+      "to": "/download/guide"
     },
     {
       "from": "/software/releases/icgc-get",
       "to": "/software/download/#icgc-get"
     },
     {
-      "from": "/data-portal-usage#troubledownloading",
-      "to": "/portal/repositories/#having-trouble-downloading-a-file-from-dcc-repository"
+      "from": "/software/releases",
+      "to": "/software/download"
     },
     {
       "from": "/data-portal-api",
@@ -53,19 +49,11 @@
     },
     {
       "from": "/data-portal-usage#ExternalRepoList",
-      "to": "/portal/repositories"
+      "to": "/download/repositories"
     },
     {
       "from": "/data-submission",
       "to": "/submission/about"
-    },
-    {
-      "from": "/pcawg",
-      "to": "/submission/pcawg/pancancer-clinical-data-requirements"
-    },
-    {
-      "from": "/data-portal",
-      "to": "/portal/about"
     },
     {
       "from": "/dictionary",
@@ -88,18 +76,17 @@
       "to": "/submission/guide/donor-clinical-data-guidelines/"
     },
     {
-      "from": "/software/releases",
-      "to": "/software/score-client"
+      "from": "/portal/software",
+      "to": "/software/code/#data-portal-dcc-portal"
     },
     {
-      "from": "/portal/software",
-      "to": "/software/portal"
+      "from": "/data-portal",
+      "to": "/portal/about"
     },
     {
       "from": "/submission/software",
-      "to": "/software/submission"
+      "to": "/software/code/#submission-system-dcc-submission"
     }
-
   ]
 
 }
