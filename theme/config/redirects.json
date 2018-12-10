@@ -2,9 +2,46 @@
   "defaultBaseFromURL": "http://docs.icgc.org",
   "defaultBaseToURL": "http://docs.icgc.org",
 
-  "redirects": [{
-      "from": "/data-portal-usage#troubledownloading",
-      "to": "/portal/repositories/#having-trouble-downloading-a-file-from-dcc-repository"
+  "redirects": [
+    {
+      "from": "/software/binaries",
+      "to": "/software/download"
+    },
+    {
+      "from": "/software/about",
+      "to": "/software/code"
+    },
+    {
+      "from": "/cloud/guide/#batchmanifest-slicing",
+      "to": "/download/guide/#batchmanifest-slicing"
+    },
+    {
+      "from": "/cloud/icgc-get",
+      "to": "/download/icgc-get"
+    },
+    {
+      "from": "/cloud/repositories",
+      "to": "/download/repositories"
+    },
+    {
+      "from": "/portal/repositories",
+      "to": "/download/repositories"
+    },
+    {
+      "from": "/software/releases/score-client",
+      "to": "/software/download/#score-client"
+    },
+    {
+      "from": "/cloud/guide",
+      "to": "/download/guide"
+    },
+    {
+      "from": "/software/releases/icgc-get",
+      "to": "/software/download/#icgc-get"
+    },
+    {
+      "from": "/software/releases",
+      "to": "/software/download"
     },
     {
       "from": "/data-portal-api",
@@ -12,19 +49,11 @@
     },
     {
       "from": "/data-portal-usage#ExternalRepoList",
-      "to": "/portal/repositories"
+      "to": "/download/repositories"
     },
     {
       "from": "/data-submission",
       "to": "/submission/about"
-    },
-    {
-      "from": "/pcawg",
-      "to": "/submission/pcawg/pancancer-clinical-data-requirements"
-    },
-    {
-      "from": "/data-portal",
-      "to": "/portal/about"
     },
     {
       "from": "/dictionary",
@@ -47,18 +76,17 @@
       "to": "/submission/guide/donor-clinical-data-guidelines/"
     },
     {
-      "from": "/software/releases",
-      "to": "/software/score-client"
+      "from": "/portal/software",
+      "to": "/software/code/#data-portal-dcc-portal"
     },
     {
-      "from": "/portal/software",
-      "to": "/software/portal"
+      "from": "/data-portal",
+      "to": "/portal/about"
     },
     {
       "from": "/submission/software",
-      "to": "/software/submission"
+      "to": "/software/code/#submission-system-dcc-submission"
     }
-
   ]
 
 }
