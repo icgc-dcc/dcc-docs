@@ -12,8 +12,12 @@
       "to": "/software/code"
     },
     {
-      "from": "/cloud/guide",
-      "to": "/download/guide"
+      "from": "/cloud/guide/",
+      "to": "/download/guide/"
+    },
+    {
+      "from": "/cloud/guide/#batchmanifest-slicing",
+      "to": "/download/guide/#batchmanifest-slicing"
     },
     {
       "from": "/cloud/icgc-get",
@@ -28,8 +32,8 @@
       "to": "/download/repositories"
     },
     {
-      "from": "/software/releases",
-      "to": "/software/download"
+      "from": "/software/releases/",
+      "to": "/software/download/"
     },
     {
       "from": "/software/releases/score-client",
