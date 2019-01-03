@@ -2,5 +2,4 @@ site/
 python
 node_modules/
 theme/js-out/
-theme/css-out/
 npm-debug.log
