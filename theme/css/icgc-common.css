@@ -550,6 +550,7 @@ code {
 .navbar-default .navbar-form {
   height: 4rem;
   font-size: 1.0rem;
+  padding-left:50px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
