@@ -278,7 +278,7 @@ NOTE: The sample ID specified in the SAMPLE alias field MUST match the DCC-submi
 [4]: http://docs.icgc.org/dictionary/viewer/#?q=analyzed_sample_id&viewMode=details&dataType=sample
 [5]: http://docs.icgc.org/dictionary/viewer/#?q=donor_sex&viewMode=codelist&dataType=donor
 [6]: http://docs.icgc.org/submission/projects/
-[7]: https://ega-archive.org/quickguide 
+[7]: https://ega-archive.org/submission/quickguide 
 [8]: https://ega-archive.org/submission/sequence/programmatic_submissions/prepare_xml
 [9]: https://ega-archive.org/submission/sequence/metadata
 [10]: https://ega-archive.org/submission/array_based/metadata

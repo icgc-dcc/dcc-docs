@@ -25,7 +25,7 @@ as docker containers for provisioning software on docker hosts.
 
 [Storage System GitHub repository](https://github.com/icgc-dcc/dcc-storage)
 
-Software for uploading and downloading ICGC files in cloud environments. This system powers [ICGC in the Cloud](/cloud/about/).
+Software for uploading and downloading ICGC files in cloud environments. This system powers ICGC in the Cloud hosted at [Collaboratory](../../download/repositories/#collaboratory) and [AWS](../../download/repositories/#aws).
 
 ### Submission System (`dcc-submission`)
 

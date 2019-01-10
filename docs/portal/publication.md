@@ -118,14 +118,14 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [22]: https://dcc.icgc.org/projects/PAEN-AU
 [23]: https://dcc.icgc.org/projects/SKCA-BR
 [24]: https://dcc.icgc.org/projects/RECA-CN
-[25]: https://dcc.icgc.org/projects/
+[25]: https://dcc.icgc.org/projects/ESCA-CN
 [26]: https://dcc.icgc.org/projects/COCA-CN
 [27]: https://dcc.icgc.org/projects/LUSC-CN
 [28]: https://dcc.icgc.org/projects/RECA-EU
 [29]: https://dcc.icgc.org/projects/LIAD-FR
 [30]: https://dcc.icgc.org/projects/BOCA-FR
 [31]: https://dcc.icgc.org/projects/LIHM-FR
-[32]: https://dcc.icgc.org/projects/PACA-IT
+[32]: https://dcc.icgc.org/projects/PAEN-IT
 [33]: https://dcc.icgc.org/projects/THCA-SA
 [34]: https://dcc.icgc.org/projects/ESAD-UK
 [35]: https://icgc.org/icgc/cgp-template-letters
