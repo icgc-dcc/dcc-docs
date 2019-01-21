@@ -98,7 +98,7 @@ Valid repositories are:
 
 Different repositories use different mechanisms to authenticate their users and authorize data access.
 
-* ICGC and GDC use pre-generated tokens with specific scope of privileges. Details about generating ICGC token is described [here](/download/guide/#access-tokens). For GDC tokens, check [here](https://docs.gdc.cancer.gov/Data_Portal/Users_Guide/Authentication/#gdc-authentication-tokens).
+* ICGC and GDC use pre-generated tokens with specific scope of privileges. Details about generating ICGC token is described [here](/download/guide/#access-tokens). For GDC tokens, check [here](https://docs.gdc.cancer.gov/Data/Data_Security/Data_Security/#authentication-tokens).
 
 * EGA uses username / password combination. You will have them set up when you create your EGA account. For support, contact <mailto:helpdesk@ega-archive.org>.
 
