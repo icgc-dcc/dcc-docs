@@ -72,9 +72,9 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [PRAD-UK][17] |  United Kingdom |  Prostate Adenocarcinoma - UK |  No Embargo. Data available without limitations |
 | [BRCA-EU][43] |  European Union/United Kingdom |  Breast ER+ and HER2- Cancer - EU/UK | No Embargo. Data available without limitations |
 | [PEME-CA][51] |  Canada | Pediatric Medulloblastoma |  No Embargo. Data available without limitations |
-| [BRCA-FR][41] |  France |  Breast Cancer - FR |  Publication limitations in place until 2018-08-23 |
-| [LAML-CN][39] |  China |  Leukemia - CN |  Publication limitations in place until 2018-05-16 |
-| [BRCA-KR][40] |  South Korea | Breast Cancer - SK |  Publication limitations in place until 2018-08-23 |
+| [BRCA-FR][41] |  France |  Breast Cancer - FR |  No Embargo. Data available without limitations |
+| [LAML-CN][39] |  China |  Leukemia - CN |  No Embargo. Data available without limitations |
+| [BRCA-KR][40] |  South Korea | Breast Cancer - SK |  No Embargo. Data available without limitations |
 | [LMS-FR][44] |  France | Soft tissue cancer - Leiomyosarcoma - FR |  Publication limitations in place until 2019-05-18 |
 | [PRAD-FR][45] |  France | Prostate Cancer - Adenocarcinoma - FR |  Publication limitations in place until 2019-05-18 |
 | [UTCA-FR][46] |  France | Uterine Cancer - Carcinosarcoma - FR |  Publication limitations in place until 2019-05-18 |
