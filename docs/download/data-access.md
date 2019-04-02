@@ -8,8 +8,8 @@ ICGC projects have two separate access control bodies. US based projects are con
 
 |	                |                         Repository                            ||
 |  Authorization From	| Data Portal |	Collaboratory |	AWS    |  EGA   | GDC   |  PDC   |
-|    DACO	        |    ![tick](images/green_checkmark.png)   | ![tick](images/green_checkmark.png)  |  ![tick](images/green_checkmark.png) | ![tick](images/green_checkmark.png)	|       |        |
-|   dbGaP/eRA Commons	|             |               |        |        | ![tick](images/green_checkmark.png)	| ![tick](images/green_checkmark.png) |
+|    DACO	        |    tick     | tick          | tick   |  tick  |       |        |
+|   dbGaP/eRA Commons	|             |               |        |        | tick  |  tick  |
 
 
 ### ICGC DACO
