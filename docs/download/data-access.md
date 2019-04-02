@@ -6,10 +6,10 @@
 ICGC projects have two separate access control bodies. US based projects are controlled by dbGap, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). To download controlled data, user must apply for access at corresponding data access control body.
 
 
-|	                |                         Repository                            ||
-|  Authorization From	| Data Portal |	Collaboratory |	AWS    |  EGA   | GDC   |  PDC   |
-|    DACO	        |    tick     | tick          | tick   |  tick  |       |        |
-|   dbGaP/eRA Commons	|             |               |        |        | tick  |  tick  |
+| Authorization From   | Data Portal |	Collaboratory |	AWS |  EGA  | GDC   |  PDC  |
+| :--------------------| ----------- | ------------- | ---- | ----- | ----- | ----- |
+|    DACO	       |    tick     |    tick       | tick |  tick |       |       |
+|   dbGaP/eRA Commons  |             |               |      |       | tick  |  tick |
 
 
 ### ICGC DACO
