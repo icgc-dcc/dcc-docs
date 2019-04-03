@@ -25,6 +25,7 @@ ICGC projects have two separate access control bodies. US based projects are con
 <span style="color:red">***Please note:***</span> EGA is not responsible to grant access to ICGC data hosted at EGA.
 
 
+### Obtaining Access to ICGC-Controlled Data in GDC or PDC 
 
 ### dbGaP
 
