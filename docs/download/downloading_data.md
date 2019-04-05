@@ -5,8 +5,7 @@
 Prerequisites:
 
 1. Apply for DACO access
-2. Request a Collaboratory account at https://cancercollaboratory.org/
-3. Download and install score-client software and/or icgc-get (include link to software)
+2. Download and install score-client software and/or icgc-get (include link to software)
 
 Download Data Instructions:
 
@@ -35,5 +34,10 @@ Download Data Instructions:
 accessToken=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-
 ```
 
-6. Find your data of interest at https://dcc.icgc.org/repositories, and generate a manifest. There are two ways to do this:
+6. Find your data of interest at https://dcc.icgc.org/repositories in the Collaboratory repository, and then download the manifest file
+
+
+7. Run score-client and downloaded manifest file to download data
+
+
 
