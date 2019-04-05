@@ -36,8 +36,11 @@ accessToken=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUME
 
 6. Find your data of interest at https://dcc.icgc.org/repositories in the Collaboratory repository, and then download the manifest file
 
+![Download-Manifest](images/download-manifest.png)
 
-7. Run score-client and downloaded manifest file to download data
+7. Decompress file. Run score-client with  manifest file to download data
 
-
-
+```
+tar xvzf manifest.1554492262428.tar.gz
+./bin/score-client --profile collab download --manifest manifest.collaboratory.1554492262428.tsv --output-dir score-client_downloads
+```
