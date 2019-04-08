@@ -121,5 +121,18 @@ aws_access_key_id = your_pdc_access_key_id
 aws_secret_access_key = your_pdc_secret_access_key
 ```
 
+Download Data Instructions:
+
+1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'PDC'  repository). Click on "Download Files" and download manifest file.
+![Download-PDC-Manifest](images/download-pdc-manifest.png)
+
+2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example:
+```
+aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
+```
+You can execute the above line directly on the command line, or you can execute the manifest script file to download the object(s) to local.
+
+
+ 
 
 
