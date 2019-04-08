@@ -107,6 +107,8 @@ Prerequisites:
 
 4. This will redirect you to the login page for NIH iTrust.
 
+![NIH-iTrust-login](images/NIH-iTrust-login.png)
+
 5. After you have successfully logged in, you will be redirected back to PDC where you can create an access key. If you see "TCGA-PCAWG" in the project list and you have "downlod" rights, you can proceed with generating an access key. Click on "Create access key" button. A popup will show you the new access key and secret key.
 
 ![Example-PDC-Keys](images/example-pdc-keys.png)
