@@ -4,7 +4,7 @@
 
 #### Prerequisites:
 
-1. Apply for DACO access
+1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
 2. Download and install score-client software and/or icgc-get (include link to software)
 
 #### Download Data Instructions:
@@ -71,7 +71,7 @@ tar xvzf manifest.1554492262428.tar.gz
 
 #### Prerequisites:
 
-1. Apply for DACO access. Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 2. Download EGA Download Client (refer to https://ega-archive.org/download/using-ega-download-client)
 
 #### Download Data Instructions:
