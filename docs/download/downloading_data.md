@@ -36,7 +36,7 @@ accessToken=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUME
 
 6. Find your data of interest at https://dcc.icgc.org/repositories in the Collaboratory repository. Click on "Download Files" and download the manifest file
 
-![Download-Manifest](images/download-collab-manifest.png)
+![Download-Collab-Manifest](images/download-collab-manifest.png)
 
 7. Decompress file. Run score-client with  manifest file to download data
 
@@ -59,7 +59,7 @@ Download Data Instructions:
 
 1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'GDC'  repository). Click on "Download Files" and download the manifest file
 
-![Download-Manifest](images/download-gdc-manifest.png)
+![Download-GDC-Manifest](images/download-gdc-manifest.png)
 
 2. Run the GDC Client tool to download data
 
@@ -77,6 +77,7 @@ Prerequisites:
 Download Data Instructions:
 
 1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'EGA'  repository). Click on "Download Files" and download manifest file.
+![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script:
  - enter your EGA username
@@ -84,11 +85,14 @@ Download Data Instructions:
  - enter the directory you want to download files to
  - enter path to EGA Download Client
 
+ Example manifest user configuration:
+ ![Example-EGA-Manifest](images/example-ega-manifest.png)
 
 3. Run script:
 
+```
 ./manifest.ega.1554736977052.sh
-
+```
 
 
 ## Downloading data from PDC repository
