@@ -51,18 +51,17 @@ Prerequisites:
 
 1. Obtain dbGaP access and an NIH eRA Commons account (https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
 2. Download GDC Data Transfer Tool from https://gdc.cancer.gov/access-data/gdc-data-transfer-tool
+3. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to (https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
+4. Save the GDC authentication token in a text file
 
 Download Data Instructions:
 
-1. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to (https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
 
-2. Save the GDC authentication token in a text file
-
-3. Find your data of interest at https://dcc.icgc.org/repositories (click on 'GDC'  repository). Click on "Download Files" and download the manifest file
+1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'GDC'  repository). Click on "Download Files" and download the manifest file
 
 ![Download-Manifest](images/download-gdc-manifest.png)
 
-4. Run the GDC Client tool to download data
+2. Run the GDC Client tool to download data
 
 ```
 ./gdc-client download -m test/manifest.gdc.1554495935637.tsv -t gdc-user-token.txt -d gdc_downloads
@@ -70,3 +69,31 @@ Download Data Instructions:
 
 ## Downloading data from EGA repository
 
+Prerequisites:
+
+1. Apply for DACO access. Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+2. Download EGA Download Client (refer to https://ega-archive.org/download/using-ega-download-client)
+
+Download Data Instructions:
+
+1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'EGA'  repository). Click on "Download Files" and download manifest file.
+
+2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script:
+ - enter your EGA username
+ - enter your EGA password
+ - enter the directory you want to download files to
+ - enter path to EGA Download Client
+
+
+3. Run script:
+
+./manifest.ega.1554736977052.sh
+
+
+
+## Downloading data from PDC repository
+
+Prerequisites:
+
+1. Obtain dbGaP access and an NIH eRA Commons account (https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
+2. Download AWS CLI (refer to instructions at https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
