@@ -101,3 +101,23 @@ Prerequisites:
 
 1. Obtain dbGaP access and an NIH eRA Commons account (https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
 2. Download AWS CLI (refer to instructions at https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+3. Once you are approved by dbGaP, you will need to obtain your PDC keys. Click on "Login from NIH" on this page: https://bionimbus-pdc.opensciencedatacloud.org/datasets
+
+![Bionumbus-Page](images/bionimbus-page.png)
+
+4. This will redirect you to the login page for NIH iTrust.
+
+5. After you have successfully logged in, you will be redirected back to PDC where you can create an access key. If you see "TCGA-PCAWG" in the project list and you have "downlod" rights, you can proceed with generating an access key. Click on "Create access key" button. A popup will show you the new access key and secret key.
+
+![Example-PDC-Keys](images/example-pdc-keys.png)
+
+7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The file may look like this. Please edit it to include your own key ID and secret key:
+
+```
+[pdc]
+aws_access_key_id = your_pdc_access_key_id
+aws_secret_access_key = your_pdc_secret_access_key
+```
+
+
+
