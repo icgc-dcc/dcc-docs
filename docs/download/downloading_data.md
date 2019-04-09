@@ -22,51 +22,51 @@ Academic research cloud infrastructure built to house ICGC data.
 
 1.  Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
-![Portal-Login](images/Portal_login.png)
+   ![Portal-Login](images/Portal_login.png)
 
 2.  After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login" link is replaced with a green cloud icon
 
-![DACO-Cloud-Access](images/daco-cloud-access.png)
+   ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
 3.  Click on Token Manager
-![Token-Manager-Link](images/token-manager-link.png)
+   ![Token-Manager-Link](images/token-manager-link.png)
 
 4.  Select `collab.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
-![Token-Manager](images/token-manager-collab.png)
+   ![Token-Manager](images/token-manager-collab.png)
 
 
 5.  Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
-- The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
-- Example configuration
+   - The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
+   - Example configuration
 
-```
-#
-# Defines the ICGC access token for authorized access to data
-#
-accessToken=paste_your_token_here
-
-#
-# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
-#
-transport.parallel=6
-
-#
-# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
-#
-transport.memory=1
-```
+   ```
+   #
+   # Defines the ICGC access token for authorized access to data
+   #
+   accessToken=paste_your_token_here
+   
+   #
+   # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+   #
+   transport.parallel=6
+   
+   #
+   # Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+   #
+   transport.memory=1
+   ```
 
 6.  Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
-![Download-Collab-Manifest](images/download-collab-manifest.png)
+   ![Download-Collab-Manifest](images/download-collab-manifest.png)
 
 7.  Decompress file. Run score-client with manifest file to download data
 
-```
-tar xvzf manifest.1554492262428.tar.gz
-./bin/score-client --profile collab download --manifest manifest.collaboratory.1554492262428.tsv --output-dir score-client_downloads
-```
+   ```
+   tar xvzf manifest.1554492262428.tar.gz
+   ./bin/score-client --profile collab download --manifest manifest.collaboratory.1554492262428.tsv --output-dir score-client_downloads
+   ```
 
 ## Downloading data from GDC repository
 
@@ -93,13 +93,13 @@ The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI]
 
 1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `GDC` repository. Click on "Download Files" and download the manifest file
 
-![Download-GDC-Manifest](images/download-gdc-manifest.png)
+   ![Download-GDC-Manifest](images/download-gdc-manifest.png)
 
 2. Run the GDC Client tool to download data
 
-```
-./gdc-client download -m test/manifest.gdc.1554495935637.tsv -t gdc-user-token.txt -d gdc_downloads
-```
+   ```
+   ./gdc-client download -m test/manifest.gdc.1554495935637.tsv -t gdc-user-token.txt -d gdc_downloads
+   ```
 
 ## Downloading data from EGA repository
 
@@ -123,38 +123,38 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 #### Download Data Instructions
 
 1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'EGA'  repository). Click on "Download Files" and download manifest file.
-![Download-EGA-Manifest](images/download-ega-manifest.png)
+   ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
-- enter your EGA username
-- enter your EGA password
-- enter the directory you want to download files to
-- enter path to EGA Download Client
+   - enter your EGA username
+   - enter your EGA password
+   - enter the directory you want to download files to
+   - enter path to EGA Download Client
 
-Example manifest user configuration
-```
-###############################################################################
-# User Configuration (Required)
-###############################################################################
-
-# Your EGA username (e.g. user@example.org):
-username=some_user@oicr.on.ca
-
-# Your EGA password:
-password=Your_EGA_password
-
-# Where to place downloads (must exist):
-output_dir=/home/ega_downloads
-
-# Path to EgaDemoClient.jar (must exist at this location):
-bin_dir=/home/ega_download_tool/
-```
+   Example manifest user configuration
+   ```
+   ###############################################################################
+   # User Configuration (Required)
+   ###############################################################################
+   
+   # Your EGA username (e.g. user@example.org):
+   username=some_user@oicr.on.ca
+   
+   # Your EGA password:
+   password=Your_EGA_password
+   
+   # Where to place downloads (must exist):
+   output_dir=/home/ega_downloads
+   
+   # Path to EgaDemoClient.jar (must exist at this location):
+   bin_dir=/home/ega_download_tool/
+   ```
 
 3. Run script
 
-```
-./manifest.ega.1554736977052.sh
-```
+   ```
+   ./manifest.ega.1554736977052.sh
+   ```
 
 
 ## Downloading data from PDC repository
@@ -181,23 +181,23 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 2. Download [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 3. The data in the PDC can be accessed using the AWS CLI. Once you are approved by dbGaP, you will need to obtain your PDC keys to configure AWS CLI. To get these keys, click on "Login from NIH" on this page: https://bionimbus-pdc.opensciencedatacloud.org/datasets
 
-![Bionumbus-Page](images/bionimbus-page.png)
+   ![Bionumbus-Page](images/bionimbus-page.png)
 
 4. This will redirect you to the login page for NIH iTrust.
 
-![NIH-iTrust-login](images/NIH-iTrust-login.png)
+   ![NIH-iTrust-login](images/NIH-iTrust-login.png)
 
 5. After you have successfully logged in, you will be redirected back to PDC where you can create an access key. If you see "TCGA-PCAWG" in the project list and you have "downlod" rights, you can proceed with generating an access key. Click on "Create access key" button. A popup will show you the new access key and secret key.
 
-![Example-PDC-Keys](images/example-pdc-keys.png)
+   ![Example-PDC-Keys](images/example-pdc-keys.png)
 
 7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The aws credentials file may look like this. Please edit it to include your own key ID and secret key
 
-```
-[pdc]
-aws_access_key_id = your_pdc_access_key_id
-aws_secret_access_key = your_pdc_secret_access_key
-```
+   ```
+   [pdc]
+   aws_access_key_id = your_pdc_access_key_id
+   aws_secret_access_key = your_pdc_secret_access_key
+   ```
 
 You can also run `aws configure` and follow the prompts.
 
@@ -205,12 +205,12 @@ You can also run `aws configure` and follow the prompts.
 #### Download Data Instructions
 
 1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `PDC` repository. Click on "Download Files" and download manifest file.
-![Download-PDC-Manifest](images/download-pdc-manifest.png)
+   ![Download-PDC-Manifest](images/download-pdc-manifest.png)
 
 2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example
-```
-aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
-```
+   ```
+   aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
+   ```
 You can execute the above line directly on the command line, or you can execute the manifest script file to download the object(s) to local.
 
 
@@ -231,7 +231,7 @@ Amazon cloud service containing ICGC data.
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
-<span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
+   <span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
 
 2. Set up EC2 instance in AWS. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions. Ensure that you are running within the `us-east-1` region.
 
@@ -239,25 +239,25 @@ Amazon cloud service containing ICGC data.
 
 4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
-![Portal-Login](images/Portal_login.png)
+   ![Portal-Login](images/Portal_login.png)
 
 5. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon
 
-![DACO-Cloud-Access](images/daco-cloud-access.png)
+   ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
 6. Click on Token Manager
-![Token-Manager-Link](images/token-manager-link.png)
+   ![Token-Manager-Link](images/token-manager-link.png)
 
 7. Select `aws.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
-![Token-Manager](images/token-manager-collab.png)
+   ![Token-Manager](images/token-manager-collab.png)
 
 
 8. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
- * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+   * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
 Example configuration
-```
+````
 #
 # Defines the ICGC access token for authorized access to data
 #
