@@ -40,22 +40,22 @@ Academic research cloud infrastructure built to house ICGC data.
    - The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
    - Example configuration
 
-    ```
-    #
-    # Defines the ICGC access token for authorized access to data
-    #
-    accessToken=paste_your_token_here
-    
-    #
-    # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
-    #
-    transport.parallel=6
-    
-    #
-    # Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
-    #
-    transport.memory=1
-    ```
+```
+#
+# Defines the ICGC access token for authorized access to data
+#
+accessToken=paste_your_token_here
+
+#
+# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+#
+transport.parallel=6
+
+#
+# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+#
+transport.memory=1
+```
 
 6.  Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
@@ -63,10 +63,10 @@ Academic research cloud infrastructure built to house ICGC data.
 
 7.  Decompress file. Run score-client with manifest file to download data
 
-    ```
-    tar xvzf manifest.1554492262428.tar.gz
-    ./bin/score-client --profile collab download --manifest manifest.collaboratory.1554492262428.tsv --output-dir score-client_downloads
-    ```
+```
+tar xvzf manifest.1554492262428.tar.gz
+./bin/score-client --profile collab download --manifest manifest.collaboratory.1554492262428.tsv --output-dir score-client_downloads
+```
 
 ## Downloading data from GDC repository
 
@@ -97,9 +97,9 @@ The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI]
 
 2. Run the GDC Client tool to download data
 
-    ```
-    ./gdc-client download -m test/manifest.gdc.1554495935637.tsv -t gdc-user-token.txt -d gdc_downloads
-    ```
+```
+./gdc-client download -m test/manifest.gdc.1554495935637.tsv -t gdc-user-token.txt -d gdc_downloads
+```
 
 ## Downloading data from EGA repository
 
@@ -131,30 +131,30 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
     - enter the directory you want to download files to
     - enter path to EGA Download Client
 
-    Example manifest user configuration
-    ```
-    ###############################################################################
-    # User Configuration (Required)
-    ###############################################################################
-    
-    # Your EGA username (e.g. user@example.org):
-    username=some_user@oicr.on.ca
-    
-    # Your EGA password:
-    password=Your_EGA_password
-    
-    # Where to place downloads (must exist):
-    output_dir=/home/ega_downloads
-    
-    # Path to EgaDemoClient.jar (must exist at this location):
-    bin_dir=/home/ega_download_tool/
-    ```
+Example manifest user configuration
+```
+###############################################################################
+# User Configuration (Required)
+###############################################################################
+
+# Your EGA username (e.g. user@example.org):
+username=some_user@oicr.on.ca
+
+# Your EGA password:
+password=Your_EGA_password
+
+# Where to place downloads (must exist):
+output_dir=/home/ega_downloads
+
+# Path to EgaDemoClient.jar (must exist at this location):
+bin_dir=/home/ega_download_tool/
+```
 
 3. Run script
 
-    ```
-    ./manifest.ega.1554736977052.sh
-    ```
+```
+./manifest.ega.1554736977052.sh
+```
 
 
 ## Downloading data from PDC repository
@@ -193,11 +193,11 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 
 7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The aws credentials file may look like this. Please edit it to include your own key ID and secret key
 
-    ```
-    [pdc]
-    aws_access_key_id = your_pdc_access_key_id
-    aws_secret_access_key = your_pdc_secret_access_key
-    ```
+```
+[pdc]
+aws_access_key_id = your_pdc_access_key_id
+aws_secret_access_key = your_pdc_secret_access_key
+```
 
 You can also run `aws configure` and follow the prompts.
 
@@ -208,9 +208,9 @@ You can also run `aws configure` and follow the prompts.
     ![Download-PDC-Manifest](images/download-pdc-manifest.png)
 
 2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example
-    ```
-    aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
-    ```
+```
+aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
+```
 You can execute the above line directly on the command line, or you can execute the manifest script file to download the object(s) to local.
 
 
@@ -256,23 +256,23 @@ Amazon cloud service containing ICGC data.
 8. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
     * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
-    Example configuration
-    ````
-    #
-    # Defines the ICGC access token for authorized access to data
-    #
-    accessToken=past_your_aws_token_here
-    
-    #
-    # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
-    #
-    transport.parallel=6
-    
-    #
-    # Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
-    #
-    transport.memory=1
-    ```
+Example configuration
+````
+#
+# Defines the ICGC access token for authorized access to data
+#
+accessToken=past_your_aws_token_here
+
+#
+# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+#
+transport.parallel=6
+
+#
+# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+#
+transport.memory=1
+```
 
 #### Download Data Instructions
 9. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and download the manifest file
