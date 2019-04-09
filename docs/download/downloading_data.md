@@ -24,7 +24,7 @@ Academic research cloud infrastructure built to house ICGC data.
 
 ![Portal-Login](images/Portal_login.png)
 
-2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon:
+2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon
 
 ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
@@ -37,8 +37,8 @@ Academic research cloud infrastructure built to house ICGC data.
 
 
 5. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
-- The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
-Example configuration:
+ * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+Example configuration
 
 ```
 #
@@ -131,7 +131,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
   * enter the directory you want to download files to
   * enter path to EGA Download Client
 
-Example manifest user configuration:
+Example manifest user configuration
 ```
 ###############################################################################
 # User Configuration (Required)
@@ -150,7 +150,7 @@ output_dir=/home/ega_downloads
 bin_dir=/home/ega_download_tool/
 ```
 
-3. Run script:
+3. Run script
 
 ```
 ./manifest.ega.1554736977052.sh
@@ -275,4 +275,4 @@ transport.memory=1
 ```
 
 #### Download Data Instructions
-9. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
+9. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and download the manifest file
