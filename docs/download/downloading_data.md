@@ -22,18 +22,18 @@ Academic research cloud infrastructure built to house ICGC data.
 
 1.  Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
-   ![Portal-Login](images/Portal_login.png)
+    ![Portal-Login](images/Portal_login.png)
 
 2.  After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login" link is replaced with a green cloud icon
 
-   ![DACO-Cloud-Access](images/daco-cloud-access.png)
+    ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
 3.  Click on Token Manager
-   ![Token-Manager-Link](images/token-manager-link.png)
+    ![Token-Manager-Link](images/token-manager-link.png)
 
 4.  Select `collab.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
-   ![Token-Manager](images/token-manager-collab.png)
+    ![Token-Manager](images/token-manager-collab.png)
 
 
 5.  Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
