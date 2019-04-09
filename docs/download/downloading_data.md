@@ -5,7 +5,7 @@
 #### Prerequisites:
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
-2. Download and install score-client software and/or icgc-get (include link to software)
+2. Download and install score-client software (instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
 #### Download Data Instructions:
 
@@ -27,11 +27,27 @@
 
 5. Copy and paste this token into your config file for score-client
 
-    * The configuration of the Score Client is stored in the conf/application.properties file of the distribution
-    * Edit application.properties and add the generated accesss token to the line:
+    - The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution
+    - Edit the `application.properties` file:
+       * add the generated acesss token
+       * set `transport.memory` (default 1)
+       * set `transport.parallel` (default 6) 
 
 ```
-accessToken=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-
+#
+# Defines the ICGC access token for authorized access to data
+#
+accessToken=paste_your_token_here
+
+#
+# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+#
+transport.parallel=6
+
+#
+# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+#
+transport.memory=1
 ```
 
 6. Find your data of interest at https://dcc.icgc.org/repositories in the Collaboratory repository. Click on "Download Files" and download the manifest file
@@ -49,12 +65,12 @@ tar xvzf manifest.1554492262428.tar.gz
 
 #### Prerequisites:
 
-1. Obtain dbGaP access and an NIH eRA Commons account (https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
+1. Obtain dbGaP access and an NIH eRA Commons account (refer to https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
 2. Download GDC Data Transfer Tool from https://gdc.cancer.gov/access-data/gdc-data-transfer-tool
 3. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to (https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
 4. Save the GDC authentication token in a text file
 
-#### Download Data Instructions:
+#### Download Data Instructions
 
 
 1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'GDC'  repository). Click on "Download Files" and download the manifest file
@@ -69,12 +85,12 @@ tar xvzf manifest.1554492262428.tar.gz
 
 ## Downloading data from EGA repository
 
-#### Prerequisites:
+#### Prerequisites
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 2. Download EGA Download Client (refer to https://ega-archive.org/download/using-ega-download-client)
 
-#### Download Data Instructions:
+#### Download Data Instructions
 
 1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'EGA'  repository). Click on "Download Files" and download manifest file.
 ![Download-EGA-Manifest](images/download-ega-manifest.png)
@@ -97,7 +113,7 @@ tar xvzf manifest.1554492262428.tar.gz
 
 ## Downloading data from PDC repository
 
-#### Prerequisites:
+#### Prerequisites
 
 1. Obtain dbGaP access and an NIH eRA Commons account (https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
 2. Download AWS CLI (refer to instructions at https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
