@@ -125,7 +125,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'EGA'  repository). Click on "Download Files" and download manifest file.
 ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
-2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script:
+2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
   * enter your EGA username
   * enter your EGA password
   * enter the directory you want to download files to
@@ -191,7 +191,7 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 
 ![Example-PDC-Keys](images/example-pdc-keys.png)
 
-7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The aws credentials file may look like this. Please edit it to include your own key ID and secret key:
+7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The aws credentials file may look like this. Please edit it to include your own key ID and secret key
 
 ```
 [pdc]
@@ -207,7 +207,7 @@ You can also run `aws configure` and follow the prompts.
 1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `PDC` repository. Click on "Download Files" and download manifest file.
 ![Download-PDC-Manifest](images/download-pdc-manifest.png)
 
-2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example:
+2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example
 ```
 aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
 ```
@@ -237,11 +237,11 @@ Amazon cloud service containing ICGC data.
 
 3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
-4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org):
+4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
 ![Portal-Login](images/Portal_login.png)
 
-5. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon:
+5. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon
 
 ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
@@ -255,8 +255,8 @@ Amazon cloud service containing ICGC data.
 
 8. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
  * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
-Example configuration:
 
+Example configuration
 ```
 #
 # Defines the ICGC access token for authorized access to data
