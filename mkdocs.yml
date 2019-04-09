@@ -28,6 +28,7 @@ pages:
   - Guide: 'download/guide.md'
   - icgc-get: 'download/icgc-get.md'
   - Repositories: 'download/repositories.md'
+  - Downloading Data: 'download/downloading_data.md'
 - Submission:
   - About: 'submission/about.md'
   - API: 'submission/api.md'
