@@ -2,36 +2,43 @@
 
 ## Downloading data from Collaboratory repository
 
-#### Prerequisites:
+Academic research cloud infrastructure built to house ICGC data.
+
+| Property         | Value                                                                                                                                            |
+| :--------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name             | Cancer Genome Collaboratory                                                                                                                      |
+| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Repository type  | Cloud                                                                                                      |
+| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D) |
+| Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
+| Repo Code        | `collaboratory`                                                                                                                                  |
+
+#### Prerequisites
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
-2. Download and install score-client software (instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
+2. Download and install score-client software [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
-#### Download Data Instructions:
+#### Download Data Instructions
 
-1. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into https://dcc.icgc.org/:
+1. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org):
 
 ![Portal-Login](images/Portal_login.png)
 
-2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
+2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon:
 
 ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
 3. Click on Token Manager
 ![Token-Manager-Link](images/token-manager-link.png)
 
-4. Select "collab.download" and click "Generate" button to create an access token for downloading data from Collaboratory
+4. Select `collab.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
 ![Token-Manager](images/token-manager-collab.png)
 
 
-5. Copy and paste this token into your config file for score-client
-
-    - The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution
-    - Edit the `application.properties` file:
-       * add the generated acesss token
-       * set `transport.memory` (default 1)
-       * set `transport.parallel` (default 6) 
+5. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
+- The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+Example configuration:
 
 ```
 #
@@ -50,11 +57,11 @@ transport.parallel=6
 transport.memory=1
 ```
 
-6. Find your data of interest at https://dcc.icgc.org/repositories in the Collaboratory repository. Click on "Download Files" and download the manifest file
+6. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
 ![Download-Collab-Manifest](images/download-collab-manifest.png)
 
-7. Decompress file. Run score-client with  manifest file to download data
+7. Decompress file. Run score-client with manifest file to download data
 
 ```
 tar xvzf manifest.1554492262428.tar.gz
@@ -63,17 +70,28 @@ tar xvzf manifest.1554492262428.tar.gz
 
 ## Downloading data from GDC repository
 
-#### Prerequisites:
+The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI](https://www.cancer.gov/)) run data repository for cancer genomic information. Notably, the it carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Currently the GDC is the largest single repository of ICGC data. It focuses on studies in the United States.
 
-1. Obtain dbGaP access and an NIH eRA Commons account (refer to https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
-2. Download GDC Data Transfer Tool from https://gdc.cancer.gov/access-data/gdc-data-transfer-tool
-3. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to (https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
+| Property             | Value                                                                                                                                  |
+| :------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                 | Genomic Data Commons                                                                                                                   |
+| Contact              | <mailto:support@nci-gdc.datacommons.io>                                                                                                |
+| Repository type      | Non-Cloud                                                                                                      |
+| Official Data Portal | <https://portal.gdc.cancer.gov/>                                                                                                      |
+| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D) |
+| Download Client      | Download the client [here](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)                                                                 |
+| Repo Code            | `gdc`                                                                                                                                  |
+
+#### Prerequisites
+
+1. Obtain dbGaP access and an NIH eRA Commons account (refer to instructions [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data))
+2. Download the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
+3. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to GDC documnetation [here](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
 4. Save the GDC authentication token in a text file
 
 #### Download Data Instructions
 
-
-1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'GDC'  repository). Click on "Download Files" and download the manifest file
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `GDC` repository. Click on "Download Files" and download the manifest file
 
 ![Download-GDC-Manifest](images/download-gdc-manifest.png)
 
@@ -85,10 +103,22 @@ tar xvzf manifest.1554492262428.tar.gz
 
 ## Downloading data from EGA repository
 
+The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](http://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.
+
+| Property         | Value                                                                                                                                  |
+| :--------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Name             | European Genome Archive                                                                                                                |
+| Contact          | <mailto:helpdesk@ega-archive.org>                                                                                                      |
+| Repository type  | Non-Cloud                                                                                                      |
+| Offical Website  | <https://ega-archive.org>                                                                                                              |
+| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D) |
+| Download Client  | [Zipfile](https://ega-archive.org/download/using-ega-download-client#DownloadClient)                                                   |
+| Repo Code        | `ega`                                                                                                                                  |
+
 #### Prerequisites
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
-2. Download EGA Download Client (refer to https://ega-archive.org/download/using-ega-download-client)
+2. Download the [EGA Download Client](https://ega-archive.org/download/using-ega-download-client)
 
 #### Download Data Instructions
 
@@ -96,13 +126,29 @@ tar xvzf manifest.1554492262428.tar.gz
 ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script:
- - enter your EGA username
- - enter your EGA password
- - enter the directory you want to download files to
- - enter path to EGA Download Client
+- enter your EGA username
+- enter your EGA password
+- enter the directory you want to download files to
+- enter path to EGA Download Client
 
- Example manifest user configuration:
- ![Example-EGA-Manifest](images/example-ega-manifest.png)
+Example manifest user configuration:
+```
+###############################################################################
+# User Configuration (Required)
+###############################################################################
+
+# Your EGA username (e.g. user@example.org):
+username=some_user@oicr.on.ca
+
+# Your EGA password:
+password=Your_EGA_password
+
+# Where to place downloads (must exist):
+output_dir=/home/ega_downloads
+
+# Path to EgaDemoClient.jar (must exist at this location):
+bin_dir=/home/ega_download_tool/
+```
 
 3. Run script:
 
@@ -113,11 +159,27 @@ tar xvzf manifest.1554492262428.tar.gz
 
 ## Downloading data from PDC repository
 
+The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion.
+
+It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) data.
+
+| Property             | Value                                                                                                                                   |
+| :------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                 | Bionimbus Protected Data Cloud                                                                                                          |
+| Contact              | <mailto:support@opensciencedatacloud.org>                                                                                               |
+| Repository type      | Cloud                                                                                                      |
+| Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>                                                                                        |
+| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
+| Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)                           |
+| Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html)                                                     |
+| Repo Code            | `pdc`                                                                                                                                   |
+
+
 #### Prerequisites
 
-1. Obtain dbGaP access and an NIH eRA Commons account (https://gdc.cancer.gov/access-data/obtaining-access-controlled-data)
-2. Download AWS CLI (refer to instructions at https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-3. Once you are approved by dbGaP, you will need to obtain your PDC keys. Click on "Login from NIH" on this page: https://bionimbus-pdc.opensciencedatacloud.org/datasets
+1. Obtain dbGaP access and an NIH eRA Commons account (refer to instructions [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data))
+2. Download [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+3. The data in the PDC can be accessed using the AWS CLI. Once you are approved by dbGaP, you will need to obtain your PDC keys to configure AWS CLI. To get these keys, click on "Login from NIH" on this page: https://bionimbus-pdc.opensciencedatacloud.org/datasets
 
 ![Bionumbus-Page](images/bionimbus-page.png)
 
@@ -129,7 +191,7 @@ tar xvzf manifest.1554492262428.tar.gz
 
 ![Example-PDC-Keys](images/example-pdc-keys.png)
 
-7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The file may look like this. Please edit it to include your own key ID and secret key:
+7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The aws credentials file may look like this. Please edit it to include your own key ID and secret key:
 
 ```
 [pdc]
@@ -137,9 +199,12 @@ aws_access_key_id = your_pdc_access_key_id
 aws_secret_access_key = your_pdc_secret_access_key
 ```
 
-#### Download Data Instructions:
+You can also run `aws configure` and follow the prompts.
 
-1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'PDC'  repository). Click on "Download Files" and download manifest file.
+
+#### Download Data Instructions
+
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `PDC` repository. Click on "Download Files" and download manifest file.
 ![Download-PDC-Manifest](images/download-pdc-manifest.png)
 
 2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example:
@@ -147,6 +212,31 @@ aws_secret_access_key = your_pdc_secret_access_key
 aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
 ```
 You can execute the above line directly on the command line, or you can execute the manifest script file to download the object(s) to local.
+
+
+## Downloading Data from the AWS repository
+
+Amazon cloud service containing ICGC data.
+
+| Property         | Value                                                                                                                                   |
+| :--------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Name             | ICGC Storage Server (hosted at AWS)                                                                                                                 |
+| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Repository type  | Cloud                                                                                                      |
+| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D) |
+| Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
+| Repo Code        | `aws-virginia`                                                                                                                          |
+
+#### Prerequisites
+
+1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+2. In order to download data from AWS, you will need to run the score-client  in the same environment as the object storage. This means you will need your own AWS account to provision a running EC2 instance and run score-client in that instance. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions.
+2. Download and install score-client software in AWS VM [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
+
+Ensure that you are running within the `us-east-1` region.
+
+
+
 
 
  
