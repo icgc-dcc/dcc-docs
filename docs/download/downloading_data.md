@@ -126,10 +126,10 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script:
-- enter your EGA username
-- enter your EGA password
-- enter the directory you want to download files to
-- enter path to EGA Download Client
+ - enter your EGA username
+ - enter your EGA password
+ - enter the directory you want to download files to
+ - enter path to EGA Download Client
 
 Example manifest user configuration:
 ```
@@ -230,10 +230,51 @@ Amazon cloud service containing ICGC data.
 #### Prerequisites
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
-2. In order to download data from AWS, you will need to run the score-client  in the same environment as the object storage. This means you will need your own AWS account to provision a running EC2 instance and run score-client in that instance. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions.
-2. Download and install score-client software in AWS VM [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
-Ensure that you are running within the `us-east-1` region.
+<span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
+
+2. Set up EC2 instance in AWS. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions. Ensure that you are running within the `us-east-1` region.
+
+3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
+
+4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org):
+
+![Portal-Login](images/Portal_login.png)
+
+2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon:
+
+![DACO-Cloud-Access](images/daco-cloud-access.png)
+
+3. Click on Token Manager
+![Token-Manager-Link](images/token-manager-link.png)
+
+4. Select `aws.download` and click "Generate" button to create an access token for downloading data from Collaboratory
+
+![Token-Manager](images/token-manager-collab.png)
+
+
+5. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
+- The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+Example configuration:
+
+```
+#
+# Defines the ICGC access token for authorized access to data
+#
+accessToken=past_your_aws_token_here
+
+#
+# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+#
+transport.parallel=6
+
+#
+# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+#
+transport.memory=1
+```
+
+6. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
 
 
