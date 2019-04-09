@@ -15,30 +15,30 @@ Academic research cloud infrastructure built to house ICGC data.
 
 #### Prerequisites
 
-1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
-2. Download and install score-client software [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
+1.  [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
+2.  Download and install score-client software [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
 #### Download Data Instructions
 
-1. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org):
+1.  Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
 ![Portal-Login](images/Portal_login.png)
 
-2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon
+2.  After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login" link is replaced with a green cloud icon
 
 ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
-3. Click on Token Manager
+3.  Click on Token Manager
 ![Token-Manager-Link](images/token-manager-link.png)
 
-4. Select `collab.download` and click "Generate" button to create an access token for downloading data from Collaboratory
+4.  Select `collab.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
 ![Token-Manager](images/token-manager-collab.png)
 
 
-5. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
- * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
-Example configuration
+5.  Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
+- The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
+- Example configuration
 
 ```
 #
@@ -57,11 +57,11 @@ transport.parallel=6
 transport.memory=1
 ```
 
-6. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
+6.  Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
 ![Download-Collab-Manifest](images/download-collab-manifest.png)
 
-7. Decompress file. Run score-client with manifest file to download data
+7.  Decompress file. Run score-client with manifest file to download data
 
 ```
 tar xvzf manifest.1554492262428.tar.gz
@@ -126,10 +126,10 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
-  * enter your EGA username
-  * enter your EGA password
-  * enter the directory you want to download files to
-  * enter path to EGA Download Client
+- enter your EGA username
+- enter your EGA password
+- enter the directory you want to download files to
+- enter path to EGA Download Client
 
 Example manifest user configuration
 ```
