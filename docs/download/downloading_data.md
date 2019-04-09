@@ -126,10 +126,10 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script:
- - enter your EGA username
- - enter your EGA password
- - enter the directory you want to download files to
- - enter path to EGA Download Client
+  * enter your EGA username
+  * enter your EGA password
+  * enter the directory you want to download files to
+  * enter path to EGA Download Client
 
 Example manifest user configuration:
 ```
@@ -254,7 +254,7 @@ Amazon cloud service containing ICGC data.
 
 
 5. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
-- The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+ * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 Example configuration:
 
 ```
@@ -275,11 +275,3 @@ transport.memory=1
 ```
 
 6. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
-
-
-
-
-
- 
-
-
