@@ -241,19 +241,19 @@ Amazon cloud service containing ICGC data.
 
 ![Portal-Login](images/Portal_login.png)
 
-2. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon:
+5. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon:
 
 ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
-3. Click on Token Manager
+6. Click on Token Manager
 ![Token-Manager-Link](images/token-manager-link.png)
 
-4. Select `aws.download` and click "Generate" button to create an access token for downloading data from Collaboratory
+7. Select `aws.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
 ![Token-Manager](images/token-manager-collab.png)
 
 
-5. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
+8. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
  * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 Example configuration:
 
@@ -274,4 +274,5 @@ transport.parallel=6
 transport.memory=1
 ```
 
-6. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
+#### Download Data Instructions
+9. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
