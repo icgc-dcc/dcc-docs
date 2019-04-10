@@ -236,7 +236,7 @@ Amazon cloud service containing ICGC data.
    * [Amazon User Guide on EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
    * [Launching a Linux Virtual Machine (VM)](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/?trk=gs_card)
 
-3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
+3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client)
 
 4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
@@ -251,18 +251,17 @@ Amazon cloud service containing ICGC data.
 
 7. Select `aws.download` and click "Generate" button to create an access token for downloading data from Collaboratory
 
-    ![Token-Manager](images/token-manager-collab.png)
+    ![Token-Manager](images/aws-token-manager-screenshot.png)
 
 
-8. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client.
-    * The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+8\. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
 Example configuration
 ````
 #
 # Defines the ICGC access token for authorized access to data
 #
-accessToken=past_your_aws_token_here
+accessToken=paste_your_aws_token_here
 
 #
 # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
@@ -276,4 +275,7 @@ transport.memory=1
 ```
 
 #### Download Data Instructions
-9. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and download the manifest file
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and download the manifest file
+    ![Download-AWS-Manifest](images/download-aws-manifest.png)
+
+
