@@ -36,8 +36,9 @@ Academic research cloud infrastructure built to house ICGC data.
     ![Token-Manager](images/token-manager-collab.png)
 
 
-5\.  Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
-
+5\. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
+   
+    Example manifest user configuration
     ```
     #
     # Defines the ICGC access token for authorized access to data
@@ -55,7 +56,7 @@ Academic research cloud infrastructure built to house ICGC data.
     transport.memory=1
     ```
 
-6\.  Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
+6\. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
     ![Download-Collab-Manifest](images/download-collab-manifest.png)
 
@@ -232,7 +233,7 @@ Amazon cloud service containing ICGC data.
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
 
-2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:
+2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region (N. Virginia availability zone). Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:
    * [Amazon User Guide on EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
    * [Launching a Linux Virtual Machine (VM)](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/?trk=gs_card)
 
@@ -254,10 +255,10 @@ Amazon cloud service containing ICGC data.
     ![Token-Manager](images/aws-token-manager-screenshot.png)
 
 
-8\. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+8\. Copy and paste this token into your config file for score-client *on the AWS VM*. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
-    Example configuration
-    ````
+    Example manifest user configuration
+    ```
     #
     # Defines the ICGC access token for authorized access to data
     # 
@@ -281,9 +282,8 @@ Amazon cloud service containing ICGC data.
 2. This will generate a score-client command which you can use to download files from AWS
     ![Score-client-command](images/score-client-command.png)
 
+3. Run the score-client command *on the AWS VM* (Remember to specify the download directory using the `--output-dir` flag)
 
-
-
-
-
-
+    ```
+    bin/score-client download --manifest 19fa5fe2-ce2e-4657-8072-8c7a30e70847
+    ```
