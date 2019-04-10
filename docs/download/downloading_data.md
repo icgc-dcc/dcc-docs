@@ -120,10 +120,10 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 
 #### Download Data Instructions
 
-1. Find your data of interest at https://dcc.icgc.org/repositories (click on 'EGA'  repository). Click on "Download Files" and download manifest file.
+1. Find your data of interest at [https://dcc.icgc.org/repositories](https://dcc.icgc.org/repositories) (click on `EGA` repository). Click on `Download Files` and download manifest file.
     ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
-2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
+2\. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
     - enter your EGA username
     - enter your EGA password
     - enter the directory you want to download files to
@@ -148,7 +148,7 @@ output_dir=/home/ega_downloads
 bin_dir=/home/ega_download_tool/
 ```
 
-3. Run script
+3\. Run manifest script
 
 ```
 ./manifest.ega.1554736977052.sh
@@ -157,9 +157,7 @@ bin_dir=/home/ega_download_tool/
 
 ## Downloading data from PDC repository
 
-The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion.
-
-It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) data.
+The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion. It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) data.
 
 | Property             | Value                                                                                                                                   |
 | :------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -177,7 +175,7 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 
 1. Obtain dbGaP access and an NIH eRA Commons account (refer to instructions [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data))
 2. Download [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-3. The data in the PDC can be accessed using the AWS CLI. Once you are approved by dbGaP, you will need to obtain your PDC keys to configure AWS CLI. To get these keys, click on "Login from NIH" on this page: https://bionimbus-pdc.opensciencedatacloud.org/datasets
+3. The data in the PDC can be accessed using the AWS CLI. Once you are approved by dbGaP, you will need to obtain your PDC keys to configure AWS CLI. To get these keys, click on `Login from NIH` on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets)
 
     ![Bionumbus-Page](images/bionimbus-page.png)
 
@@ -185,11 +183,11 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 
     ![NIH-iTrust-login](images/NIH-iTrust-login.png)
 
-5. After you have successfully logged in, you will be redirected back to PDC where you can create an access key. If you see "TCGA-PCAWG" in the project list and you have "downlod" rights, you can proceed with generating an access key. Click on "Create access key" button. A popup will show you the new access key and secret key.
+5. After you have successfully logged in, you will be redirected back to PDC where you can create an access key. If you see `TCGA-PCAWG` in the project list and you have `download` rights, you can proceed with generating an access key. Click on `Create access key` button. A popup will show you the new access key and secret key.
 
     ![Example-PDC-Keys](images/example-pdc-keys.png)
 
-7. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: ~/.aws/credentials. The aws credentials file may look like this. Please edit it to include your own key ID and secret key
+6\. Copy these keys and add them to your awscli credentials file, which depending on your system, is usually at: `~/.aws/credentials`. The aws credentials file may look like this. Please edit it to include your own key ID and secret key
 
 ```
 [pdc]
@@ -205,7 +203,7 @@ You can also run `aws configure` and follow the prompts.
 1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `PDC` repository. Click on "Download Files" and download manifest file.
     ![Download-PDC-Manifest](images/download-pdc-manifest.png)
 
-2. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example
+2\. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example
 ```
 aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-lihc-us/230e20d7-38da-5aa0-89ac-071bd509cd53 .
 ```
@@ -225,11 +223,14 @@ Amazon cloud service containing ICGC data.
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `aws-virginia`                                                                                                                          |
 
+---
+<span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
+---
+
 #### Prerequisites
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
-    <span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
 
 2. Set up EC2 instance in AWS. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions. Ensure that you are running within the `us-east-1` region.
 
