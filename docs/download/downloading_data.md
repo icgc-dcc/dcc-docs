@@ -256,26 +256,28 @@ Amazon cloud service containing ICGC data.
 
 8\. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
-Example configuration
-````
-#
-# Defines the ICGC access token for authorized access to data
-#
-accessToken=paste_your_aws_token_here
-
-#
-# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
-#
-transport.parallel=6
-
-#
-# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
-#
-transport.memory=1
-```
+    Example configuration
+    ````
+    #
+    # Defines the ICGC access token for authorized access to data
+    # 
+    accessToken=paste_your_aws_token_here
+    
+    #
+    # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+    #
+    transport.parallel=6
+    
+    #
+    # Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+    #
+    transport.memory=1
+    ```
 
 #### Download Data Instructions
 1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and download the manifest file
     ![Download-AWS-Manifest](images/download-aws-manifest.png)
+
+
 
 
