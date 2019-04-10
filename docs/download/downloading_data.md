@@ -223,16 +223,18 @@ Amazon cloud service containing ICGC data.
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `aws-virginia`                                                                                                                          |
 
----
-<span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
----
+
+   <span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
+
 
 #### Prerequisites
 
 1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
 
-2. Set up EC2 instance in AWS. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation for detailed instructions. Ensure that you are running within the `us-east-1` region.
+2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region. Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:
+   * [Amazon User Guide on EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
+   * [Launching a Linux Virtual Machine (VM)](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/?trk=gs_card)
 
 3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
