@@ -126,7 +126,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 1. Find your data of interest at [https://dcc.icgc.org/repositories](https://dcc.icgc.org/repositories) (click on `EGA` repository). Click on `Download Files` and download manifest file.
     ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
-2\. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
+2. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
 
     * enter your EGA username
     * enter your EGA password
@@ -213,6 +213,12 @@ aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacl
 ```
 You can execute the above line directly on the command line, or you can execute the manifest script file to download the object(s) to local.
 
+```
+./manifest.pdc.1554823121273.sh
+```
+
+The file names of the downloaded files will be object IDs.
+
 
 ## Downloading Data from the AWS repository
 
@@ -288,6 +294,6 @@ Amazon cloud service containing ICGC data.
 
 3. Run the score-client command *on the AWS VM* (Remember to specify the download directory using the `--output-dir` flag)
 
-    ```
-    bin/score-client download --manifest 19fa5fe2-ce2e-4657-8072-8c7a30e70847
-    ```
+```
+bin/score-client download --manifest 19fa5fe2-ce2e-4657-8072-8c7a30e70847
+```
