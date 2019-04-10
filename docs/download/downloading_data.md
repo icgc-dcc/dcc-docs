@@ -127,6 +127,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
     ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2\. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
+
     * enter your EGA username
     * enter your EGA password
     * enter the directory you want to download files to
