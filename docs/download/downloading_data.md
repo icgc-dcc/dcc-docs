@@ -275,8 +275,14 @@ Amazon cloud service containing ICGC data.
     ```
 
 #### Download Data Instructions
-1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and download the manifest file
-    ![Download-AWS-Manifest](images/download-aws-manifest.png)
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Manifest ID"
+    ![Generate-AWS-Manifest](images/generate-aws-manifest.png)
+
+2. This will generate a score-client command which you can use to download files from AWS
+    ![Score-client-command](images/score-client-command.png)
+
+
+
 
 
 
