@@ -292,8 +292,8 @@ Amazon cloud service containing ICGC data.
 2. This will generate a score-client command which you can use to download files from AWS
     ![Score-client-command](images/score-client-command.png)
 
-3. Run the score-client command *on the AWS VM* (Remember to specify the download directory using the `--output-dir` flag)
+3. Make sure you are logged into your AWS VM. Once logged in, run the score-client command *on the AWS VM* (Remember to specify the download directory using the `--output-dir` flag)
 
 ```
-bin/score-client download --manifest 19fa5fe2-ce2e-4657-8072-8c7a30e70847
+bin/score-client download --manifest 19fa5fe2-ce2e-4657-8072-8c7a30e70847 --output-dir aws_downloads
 ```
