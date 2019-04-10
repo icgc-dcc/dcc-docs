@@ -24,14 +24,14 @@ Academic research cloud infrastructure built to house ICGC data.
 
     ![Portal-Login](images/Portal_login.png)
 
-2.  After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login" link is replaced with a green cloud icon
+2.  After successful authentication, you will know that you have Cloud Access to the controlled tier if the `Login` link is replaced with a green cloud icon
 
     ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
-3.  Click on Token Manager
+3.  Click on `Token Manager`
     ![Token-Manager-Link](images/token-manager-link.png)
 
-4.  Select `collab.download` and click "Generate" button to create an access token for downloading data from Collaboratory
+4.  Select `collab.download` and click `Generate` button to create an access token for downloading data from Collaboratory
 
     ![Token-Manager](images/token-manager-collab.png)
 
@@ -39,11 +39,12 @@ Academic research cloud infrastructure built to house ICGC data.
 5\. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
    
     Example manifest user configuration
+
     ```
     #
     # Defines the ICGC access token for authorized access to data
     #
-    accessToken=paste_your_token_here
+    accessToken=paste_your_collab.download_token_here
     
     #
     # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
@@ -58,9 +59,9 @@ Academic research cloud infrastructure built to house ICGC data.
 
 6\. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Collaboratory` repository. Click on "Download Files" and download the manifest file
 
-    ![Download-Collab-Manifest](images/download-collab-manifest.png)
+   ![Download-Collab-Manifest](images/download-collab-manifest.png)
 
-7\.  Decompress file. Run score-client with manifest file to download data
+7\.  Decompress manifest tarball file. Run score-client with manifest file to download data
 
 ```
 tar xvzf manifest.1554492262428.tar.gz
@@ -85,12 +86,12 @@ The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI]
 
 1. Obtain dbGaP access and an NIH eRA Commons account (refer to instructions [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data))
 2. Download the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)
-3. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to GDC documnetation [here](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
-4. Save the GDC authentication token in a text file
+3. Once you have obtained controlled data access from dbGaP, you will need to download your access authentication token from the GDC Data Portal. Refer to GDC documentation [here](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload/#obtaining-an-authentication-token-for-data-downloads) for instructions. 
+4. Save the GDC authentication token in a text file (example: `gdc-user-token.txt`)
 
 #### Download Data Instructions
 
-1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `GDC` repository. Click on "Download Files" and download the manifest file
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `GDC` repository. Click on `Download Files` and download the manifest file
 
     ![Download-GDC-Manifest](images/download-gdc-manifest.png)
 
@@ -125,10 +126,10 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
     ![Download-EGA-Manifest](images/download-ega-manifest.png)
 
 2\. The downloaded manifest file is actually a shell script and you will need to edit some variables in it before running the script
-    - enter your EGA username
-    - enter your EGA password
-    - enter the directory you want to download files to
-    - enter path to EGA Download Client
+    * enter your EGA username
+    * enter your EGA password
+    * enter the directory you want to download files to
+    * enter path to EGA Download Client
 
 Example manifest user configuration
 ```
@@ -174,9 +175,9 @@ The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated a
 
 #### Prerequisites
 
-1. Obtain dbGaP access and an NIH eRA Commons account (refer to instructions [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data))
-2. Download [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-3. The data in the PDC can be accessed using the AWS CLI. Once you are approved by dbGaP, you will need to obtain your PDC keys to configure AWS CLI. To get these keys, click on `Login from NIH` on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets)
+1. Obtain dbGaP access and an NIH eRA Commons account (follow same instructions as GDC [here](https://gdc.cancer.gov/access-data/obtaining-access-controlled-data))
+2. PDC stores PCAWG TCGA data in Cleversafe object stores, where direct download access to Cleversafe buckets is provided to authorized users. Cleversafe is compatible with AWS S3, so you will need to use the `awscli` client to download objects. Download [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+3. Once you are approved by dbGaP, you will need to obtain your PDC keys to configure AWS CLI. To get these keys, click on `Login from NIH` on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets)
 
     ![Bionumbus-Page](images/bionimbus-page.png)
 
@@ -201,7 +202,7 @@ You can also run `aws configure` and follow the prompts.
 
 #### Download Data Instructions
 
-1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `PDC` repository. Click on "Download Files" and download manifest file.
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `PDC` repository. Click on `Download Files` and download manifest file.
     ![Download-PDC-Manifest](images/download-pdc-manifest.png)
 
 2\. The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing aws cli commands, one line per file. Here's an example
@@ -234,8 +235,9 @@ Amazon cloud service containing ICGC data.
 
 
 2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region (N. Virginia availability zone). Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:
-   * [Amazon User Guide on EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
-   * [Launching a Linux Virtual Machine (VM)](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/?trk=gs_card)
+   
+    * [Amazon User Guide on EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
+    * [Launching a Linux Virtual Machine (VM)](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/?trk=gs_card)
 
 3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client)
 
