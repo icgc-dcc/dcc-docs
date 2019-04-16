@@ -132,12 +132,8 @@ The following command will download these files to the current directory:
 score-client --profile collab download --manifest manifest.collaboratory.1525977569066.tsv --output-dir .
 ```
 
-**NOTE:** when downloading PCAWG data from Collaboratory or AWS, the download
-client must run in the same environment as the object storage system. That means to
-download from Collaboratory, the Score Client **must** run on a virtual
-machine (VM) that you launched within the Collaboratory cloud platform; to download from
-AWS (N. Virginia), the Score Client **must** run on an AWS VM in the _N. Virginia_
-availability zone.
+**NOTE:** Downloading data objects hosted in Collaboratory is no longer required to be performed in a Collaboratory compute instance. When downloading PCAWG data from AWS, the download
+client must run in the same environment as the object storage system. That means to download from AWS (N. Virginia), the Score Client **must** run on an AWS VM in the _N. Virginia_ availability zone.
 
 #### Download from EGA
 
