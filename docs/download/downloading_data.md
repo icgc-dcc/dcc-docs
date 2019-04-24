@@ -4,20 +4,14 @@
 
 Academic research cloud infrastructure built to house ICGC data.
 
-| Property         | Value                                                                                                                                            |
-| :--------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Name             | Cancer Genome Collaboratory                                                                                                                      |
-| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
-| Repository type  | Cloud                                                                                                      |
-| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D) |
-| Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
-| Repo Code        | `collaboratory`                                                                                                                                  |
+Repository information can be found [here](https://docs.icgc.org/download/repositories/#collaboratory)
 
 #### Prerequisites
 
 1.  [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
 2.  Download and install score-client software [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
 
+<span style="color:blue">NOTE: We are currently actively copying controlled data from [EGA](https://ega-archive.org) to Collaboratory so it can be available to download from either repository. This is an on-going process, so we do not currently have all the EGA datasets in Collaboratory yet.</span>
 
 #### Download Data Instructions
 
@@ -73,15 +67,7 @@ tar xvzf manifest.1554492262428.tar.gz
 
 The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI](https://www.cancer.gov/)) run data repository for cancer genomic information. Notably, the it carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Currently the GDC is the largest single repository of ICGC data. It focuses on studies in the United States.
 
-| Property             | Value                                                                                                                                  |
-| :------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                 | Genomic Data Commons                                                                                                                   |
-| Contact              | <mailto:support@nci-gdc.datacommons.io>                                                                                                |
-| Repository type      | Non-Cloud                                                                                                      |
-| Official Data Portal | <https://portal.gdc.cancer.gov/>                                                                                                      |
-| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22GDC%20-%20Chicago%22%5D%7D%7D%7D) |
-| Download Client      | Download the client [here](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool)                                                                 |
-| Repo Code            | `gdc`                                                                                                                                  |
+Repository information can be found [here](https://docs.icgc.org/download/repositories/#gdc)
 
 #### Prerequisites
 
@@ -106,15 +92,9 @@ The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI]
 
 The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](http://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.
 
-| Property         | Value                                                                                                                                  |
-| :--------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Name             | European Genome Archive                                                                                                                |
-| Contact          | <mailto:helpdesk@ega-archive.org>                                                                                                      |
-| Repository type  | Non-Cloud                                                                                                      |
-| Offical Website  | <https://ega-archive.org>                                                                                                              |
-| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D) |
-| Download Client  | [Zipfile](https://ega-archive.org/download/using-ega-download-client#DownloadClient)                                                   |
-| Repo Code        | `ega`                                                                                                                                  |
+<span style="color:blue">NOTE: The "EGA - Hinxton" repository in the [Data Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) only contains PCAWG data. You can download other non-PCAWG ICGC data directly from [EGA](https://ega-archive.org/) (instructions on their website using their [EGA Download Client](https://ega-archive.org/download/using-ega-download-client) or [API](https://ega-archive.org/download/using-ega-api))</span>
+
+Repository information can be found [here](https://docs.icgc.org/download/repositories/#ega)
 
 #### Prerequisites
 
@@ -163,17 +143,7 @@ bin_dir=/home/ega_download_tool/
 
 The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion. It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) data.
 
-| Property             | Value                                                                                                                                   |
-| :------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                 | Bionimbus Protected Data Cloud                                                                                                          |
-| Contact              | <mailto:support@opensciencedatacloud.org>                                                                                               |
-| Repository type      | Cloud                                                                                                      |
-| Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>                                                                                        |
-| ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
-| Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)                           |
-| Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html)                                                     |
-| Repo Code            | `pdc`                                                                                                                                   |
-
+Repository information can be found [here](https://docs.icgc.org/download/repositories/#pdc)
 
 #### Prerequisites
 
@@ -224,15 +194,7 @@ The file names of the downloaded files will be object IDs.
 
 Amazon cloud service containing ICGC data.
 
-| Property         | Value                                                                                                                                   |
-| :--------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Name             | ICGC Storage Server (hosted at AWS)                                                                                                                 |
-| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
-| Repository type  | Cloud                                                                                                      |
-| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D) |
-| Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
-| Repo Code        | `aws-virginia`                                                                                                                          |
-
+Repository information can be found [here](https://docs.icgc.org/download/repositories/#aws)
 
    <span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
 
