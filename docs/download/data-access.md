@@ -14,7 +14,7 @@ ICGC projects have two separate access control bodies. US based projects are aut
 
 ### Obtaining Access to ICGC-Controlled Data in Data Portal, Collaboratory, AWS and/or EGA 
 
-1. Create an ICGC account at https://icgc.org/user/register
+1. Create an ICGC account at [https://icgc.org/user/register](https://icgc.org/user/register)
 2. Follow the procedure of applying for DACO access at [DACO](https://icgc.org/daco). **NOTE: Please ensure you submit your Gmail email address where it asks for an "OpenID"**
 3. Submit your DACO application
 4. DACO will notify you when your DACO application has been approved, or if they require any further information
@@ -27,9 +27,7 @@ ICGC projects have two separate access control bodies. US based projects are aut
 <span style="color:red">***Please note:***</span> EGA is not responsible to grant access to ICGC data hosted at EGA.
 
 
-### Obtaining Access to ICGC-Controlled Data in GDC or PDC 
-
-### dbGaP
+### Obtaining Access to dbGaP-Controlled Data in GDC or PDC 
 
 One of the widely used access control system is [database of Genotypes and Phenotypes Authorized Access program](https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login). _dbGaP requires an eRA account to log in and register. If you need to register your organization you will need your organization's signing offical to participate in the registration process._
 
