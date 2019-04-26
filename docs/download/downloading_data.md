@@ -255,5 +255,5 @@ Repository information can be found [here](/download/repositories/#aws)
 
 On AWS VM:
 ```
-bin/score-client --profile download --manifest manifest.aws-virginia.1556307429042.tsv --output-dir aws_downloads
+bin/score-client --profile aws download --manifest manifest.aws-virginia.1556307429042.tsv --output-dir aws_downloads
 ```
