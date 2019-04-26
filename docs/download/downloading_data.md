@@ -4,14 +4,14 @@
 
 Academic research cloud infrastructure built to house ICGC data.
 
-Repository information can be found [here](https://docs.icgc.org/download/repositories/#collaboratory)
+Repository information can be found [here](/download/repositories/#collaboratory)
 
 #### Prerequisites
 
-1.  [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data)
-2.  Download and install score-client software [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) (Download/configuration instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client))
+1.  [Apply for DACO access](/download/data-access.md#apply-for-access-to-controlled-data)
+2.  Download and install score-client software [Tarball](/software/download/#score-client) (Download/configuration instructions [here](/download/guide/#installation-of-the-score-client))
 
-<span style="color:blue">NOTE: We are currently actively copying controlled data from [EGA](https://ega-archive.org) to Collaboratory so it can be available to download from either repository. This is an on-going process, so we do not currently have all the EGA datasets in Collaboratory yet.</span>
+<span style="color:blue">NOTE: We are currently actively copying controlled data from [EGA](https://ega-archive.org) to Collaboratory so some files which originated from EGA may be available from either EGA or the Collaboratory repository. This is an on-going process, so we do not currently have all the EGA datasets in Collaboratory yet.</span>
 
 #### Download Data Instructions
 
@@ -31,7 +31,7 @@ Repository information can be found [here](https://docs.icgc.org/download/reposi
     ![Token-Manager](images/token-manager-collab.png)
 
 
-5\. Copy and paste this token into your config file for score-client. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
+5\. Copy and paste this token into your config file for score-client. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
    
 Example manifest user configuration
 
@@ -194,14 +194,14 @@ The file names of the downloaded files will be object IDs.
 
 Amazon cloud service containing ICGC data.
 
-Repository information can be found [here](https://docs.icgc.org/download/repositories/#aws)
+Repository information can be found [here](/download/repositories/#aws)
 
    <span style="color:blue">NOTE: In order to download data from AWS, the score-client tool must run in the same environment as the object storage system. That means you will need your own AWS account to provision a running EC2 instance and the Score Client must run on an AWS VM in the N. Virginia availability zone.</span>
 
 
 #### Prerequisites
 
-1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1. [Apply for DACO access](/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
 
 2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region (N. Virginia availability zone). Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:
@@ -209,7 +209,7 @@ Repository information can be found [here](https://docs.icgc.org/download/reposi
     * [Amazon User Guide on EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
     * [Launching a Linux Virtual Machine (VM)](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/?trk=gs_card)
 
-3. Download and install score-client software on the AWS VM. Score-client download instructions [here](https://docs.icgc.org/download/guide/#installation-of-the-score-client)
+3. Download and install score-client software on the AWS VM. Score-client download instructions [here](/download/guide/#installation-of-the-score-client)
 
 4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
@@ -227,7 +227,7 @@ Repository information can be found [here](https://docs.icgc.org/download/reposi
     ![Token-Manager](images/aws-token-manager-screenshot.png)
 
 
-8\. Copy and paste this token into your config file for score-client *on the AWS VM*. Click [here](https://docs.icgc.org/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
+8\. Copy and paste this token into your config file for score-client *on the AWS VM*. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
     Example manifest user configuration
     ```
@@ -248,14 +248,12 @@ Repository information can be found [here](https://docs.icgc.org/download/reposi
     ```
 
 #### Download Data Instructions
-1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Manifest ID"
+1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and then "Download Manifest" 
     ![Generate-AWS-Manifest](images/generate-aws-manifest.png)
 
-2. This will generate a score-client command which you can use to download files from AWS
-    ![Score-client-command](images/score-client-command.png)
+2. Copy the downloaded manifest tarball file to your AWS VM and decompress the file. Run the score-client command *on the AWS VM* (Remember to specify the download directory using the `--output-dir` flag)
 
-3. Make sure you are logged into your AWS VM. Once logged in, run the score-client command *on the AWS VM* (Remember to specify the download directory using the `--output-dir` flag)
-
+On AWS VM:
 ```
-bin/score-client download --manifest 19fa5fe2-ce2e-4657-8072-8c7a30e70847 --output-dir aws_downloads
+bin/score-client --profile download --manifest manifest.aws-virginia.1556307429042.tsv --output-dir aws_downloads
 ```
