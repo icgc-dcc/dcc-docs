@@ -215,7 +215,7 @@ Repository information can be found [here](/download/repositories/#aws)
 
     ![Portal-Login](images/Portal_login.png)
 
-5. After successful authentication, you will know that you have Cloud Access to the controlled tier if the "Login link is replaced with a green cloud icon
+5. After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
 
     ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
@@ -229,23 +229,23 @@ Repository information can be found [here](/download/repositories/#aws)
 
 8\. Copy and paste this token into your config file for score-client *on the AWS VM*. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
 
-    Example manifest user configuration
-    ```
-    #
-    # Defines the ICGC access token for authorized access to data
-    # 
-    accessToken=paste_your_aws_token_here
-    
-    #
-    # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
-    #
-    transport.parallel=6
-    
-    #
-    # Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
-    #
-    transport.memory=1
-    ```
+Example manifest user configuration
+```
+#
+# Defines the ICGC access token for authorized access to data
+# 
+accessToken=paste_your_aws_token_here
+
+#
+# Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
+#
+transport.parallel=6
+
+#
+# Controls the amount of non-heap memory per thread, in gigabytes. It is recommended set this to a value of 1 (1 GB). Be sure to leave enough memory for the operating system and any other software that may be running on the Compute Instance
+#
+transport.memory=1
+```
 
 #### Download Data Instructions
 1. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `AWS` repository. Click on "Download Files" and then "Download Manifest" 
