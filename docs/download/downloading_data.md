@@ -19,7 +19,7 @@ Repository information can be found [here](/download/repositories/#collaboratory
 
     ![Portal-Login](images/Portal_login.png)
 
-2.  After successful authentication, you will know that you have Cloud Access to the controlled tier if the `Login` link is replaced with a green cloud icon
+2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
 
     ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
