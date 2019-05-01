@@ -67,7 +67,7 @@ tar xvzf manifest.1554492262428.tar.gz
 
 The Genomic Data Commons is a US government ([NIH](https://www.nih.gov/) / [NCI](https://www.cancer.gov/)) run data repository for cancer genomic information. Notably, the it carries data from The Cancer Genome Atlas (TCGA) and the Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Currently the GDC is the largest single repository of ICGC data. It focuses on studies in the United States.
 
-Repository information can be found [here](https://docs.icgc.org/download/repositories/#gdc)
+Repository information can be found [here](/download/repositories/#gdc)
 
 #### Prerequisites
 
@@ -94,7 +94,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 
 <span style="color:blue">NOTE: The "EGA - Hinxton" repository in the [Data Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) only contains PCAWG data. You can download other non-PCAWG ICGC data directly from [EGA](https://ega-archive.org/) (instructions on their website using their [EGA Download Client](https://ega-archive.org/download/using-ega-download-client) or [API](https://ega-archive.org/download/using-ega-api))</span>
 
-Repository information can be found [here](https://docs.icgc.org/download/repositories/#ega)
+Repository information can be found [here](/download/repositories/#ega)
 
 #### Prerequisites
 
@@ -143,7 +143,7 @@ bin_dir=/home/ega_download_tool/
 
 The Bionimbus Protected Data Cloud (PDC) is a secure biomedical cloud operated at FISMA moderate as IaaS with an NIH Trusted Partner status for analyzing and sharing protected datasets. The Bionimbus PDC is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion. It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) data.
 
-Repository information can be found [here](https://docs.icgc.org/download/repositories/#pdc)
+Repository information can be found [here](/download/repositories/#pdc)
 
 #### Prerequisites
 
