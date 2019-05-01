@@ -98,7 +98,7 @@ Repository information can be found [here](/download/repositories/#ega)
 
 #### Prerequisites
 
-1. [Apply for DACO access](https://github.com/icgc-dcc/dcc-docs/blob/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1. [Apply for DACO access](/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 2. Download the [EGA Download Client](https://ega-archive.org/download/using-ega-download-client)
 
 #### Download Data Instructions
