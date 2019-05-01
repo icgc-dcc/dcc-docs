@@ -3,7 +3,7 @@
 
 ## Data Access Control Bodies
 
-ICGC projects have two separate access control bodies. US based projects are authorized by *dbGaP*, while non-US projects are authorized by the ICGC Data Access Compliance Office (*DACO*). To download controlled data, a user must apply for access at the corresponding data access control body. The following table shows you which repository you are able to download from if you have been granted authorization from *dbGaP* or ICGC *DACO*.
+ICGC projects have two separate access control bodies. US based projects are authorized by **dbGaP**, while non-US projects are authorized by the ICGC Data Access Compliance Office (**DACO**). To download controlled data, a user must apply for access at the corresponding data access control body. The following table shows you which repository you are able to download from if you have been granted authorization from **dbGaP** or ICGC **DACO**.
 
 
 | *Authorization From:*  | Data Portal | Collaboratory |  AWS |  EGA  | GDC   |  PDC  |
