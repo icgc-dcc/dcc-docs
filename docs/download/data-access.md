@@ -3,7 +3,7 @@
 
 ## Data Access Control Bodies
 
-ICGC projects have two separate access control bodies. US based projects are authorized by dbGaP, while non-US projects are authorized by the ICGC Data Access Compliance Office (DACO). To download controlled data, a user must apply for access at the corresponding data access control body. The following table shows you which repository you are able to download from if you have been granted authorization from dbGaP or ICGC DACO.
+ICGC projects have two separate access control bodies. US based projects are authorized by *dbGaP*, while non-US projects are authorized by the ICGC Data Access Compliance Office (*DACO*). To download controlled data, a user must apply for access at the corresponding data access control body. The following table shows you which repository you are able to download from if you have been granted authorization from *dbGaP* or ICGC *DACO*.
 
 
 | *Authorization From:*  | Data Portal | Collaboratory |  AWS |  EGA  | GDC   |  PDC  |
@@ -16,7 +16,7 @@ ICGC projects have two separate access control bodies. US based projects are aut
 
 1. Create an ICGC account at [https://icgc.org/user/register](https://icgc.org/user/register)
 2. Follow the procedure of applying for DACO access at [DACO](https://icgc.org/daco). **NOTE: Please ensure you submit your Gmail email address where it asks for an "OpenID"**
-3. Submit your DACO application
+3. Submit your DACO application. The approval process usually takes 24-48 hours.
 4. DACO will notify you when your DACO application has been approved, or if they require any further information
 5. Once your DACO access application is completed and approved, your email will become associated with an OpenID, and you will be granted access to the ICGC controlled access datasets available through [Cancer Genome Collaboratory](repositories/#collaboratory), [AWS Virginia](repositories/#aws), the EBI’s [EGA repository](repositories/#ega) and [ICGC Data Portal](https://dcc.icgc.org/releases). You will recieve an email from EGA about setting up your password to access controlled data at [https://ega-archive.org/](https://ega-archive.org/). If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
