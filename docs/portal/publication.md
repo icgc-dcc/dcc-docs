@@ -85,6 +85,7 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [NACA-CN][52] |  China | Nasopharyngeal cancer |  Publication limitations in place until 2020-04-30 |
 | [PRAD-CN][53] |  China | Prostate cancer |  Publication limitations in place until 2020-04-30 |
 | [GACA-JP][54] |  Japan | Gastric cancer | No Embargo. Data available without limitations |
+| [BPLL-FR][55] |  France | B-Cell Prolymphocytic Leukemia | Publication limitations in place until 2021-04-02 |
 
 
 
@@ -148,3 +149,5 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [52]: https://dcc.icgc.org/projects/NACA-CN
 [53]: https://dcc.icgc.org/projects/PRAD-CN
 [54]: https://dcc.icgc.org/projects/GACA-JP
+[55]: https://dcc.icgc.org/projects/BPLL-FR
+
