@@ -75,16 +75,16 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [BRCA-FR][41] |  France |  Breast Cancer - FR |  No Embargo. Data available without limitations |
 | [LAML-CN][39] |  China |  Leukemia - CN |  No Embargo. Data available without limitations |
 | [BRCA-KR][40] |  South Korea | Breast Cancer - SK |  No Embargo. Data available without limitations |
-| [LMS-FR][44] |  France | Soft tissue cancer - Leiomyosarcoma - FR |  Publication limitations in place until 2019-05-18 |
-| [PRAD-FR][45] |  France | Prostate Cancer - Adenocarcinoma - FR |  Publication limitations in place until 2019-05-18 |
-| [UTCA-FR][46] |  France | Uterine Cancer - Carcinosarcoma - FR |  Publication limitations in place until 2019-05-18 |
-| [NKTL-SG][47] |  Singapore | Blood Cancer - T-cell and NK-cell lymphoma - SG |  Publication limitations in place until 2019-05-18 |
-| [BTCA-SG][50] |  Singapore | Biliary Tract Cancer - SG |  Publication limitations in place until 2020-12-12 |
-| [GBM-CN][48] |  China | Brain Cancer - CN |  Publication limitations in place until 2019-05-18 |
-| [THCA-CN][49] |  China | Thyroid Cancer - CN |  Publication limitations in place until 2019-05-18 |
+| [LMS-FR][44] |  France | Soft tissue cancer - Leiomyosarcoma - FR |  No Embargo. Data available without limitations |
+| [PRAD-FR][45] |  France | Prostate Cancer - Adenocarcinoma - FR |  No Embargo. Data available without limitations |
+| [UTCA-FR][46] |  France | Uterine Cancer - Carcinosarcoma - FR |  No Embargo. Data available without limitations |
+| [NKTL-SG][47] |  Singapore | Blood Cancer - T-cell and NK-cell lymphoma - SG | No Embargo. Data available without limitations |
+| [BTCA-SG][50] |  Singapore | Biliary Tract Cancer - SG | No Embargo. Data available without limitations |
+| [GBM-CN][48] |  China | Brain Cancer - CN |  No Embargo. Data available without limitations |
+| [THCA-CN][49] |  China | Thyroid Cancer - CN | No Embargo. Data available without limitations |
 | [NACA-CN][52] |  China | Nasopharyngeal cancer |  Publication limitations in place until 2020-04-30 |
 | [PRAD-CN][53] |  China | Prostate cancer |  Publication limitations in place until 2020-04-30 |
-| [GACA-JP][54] |  Japan | Gastric cancer |  Publication limitations in place until 2019-04-30 |
+| [GACA-JP][54] |  Japan | Gastric cancer | No Embargo. Data available without limitations |
 
 
 
