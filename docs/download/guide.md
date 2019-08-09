@@ -107,7 +107,7 @@ This section describes how to install the **Score** Client. The are two options:
 
 ### Install from Tarball
 
-The Score Client requires Oracle Java 11 to be installed. The procedure for installing Java 11 will vary depending on the operating system and package manager used. As an example, here we show how to install Oracle JDK 11 on Ubuntu Linux distribution.
+The Score Client requires Java 11 to be installed. The procedure for installing Java 11 will vary depending on the operating system and package manager used. As an example, here we show how to install Oracle JDK 11 or Open JDK 11 on Ubuntu Linux distribution 
 
 ```
 # Install Oracle JDK 11
@@ -115,6 +115,11 @@ sudo add-apt-repository ppa:linuxuprising/java
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt install oracle-java11-installer-local oracle-java11-set-default-local
+```
+
+```
+# Or you can install OpenJDK 11:
+apt-get install openjdk-11-jdk
 ```
 
 In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev`, `fuse` and other packages, below is the command to install them on Ubuntu.
