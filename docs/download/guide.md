@@ -107,14 +107,14 @@ This section describes how to install the **Score** Client. The are two options:
 
 ### Install from Tarball
 
-The Score Client requires Oracle Java 8 to be installed. The procedure for installing Java 8 will vary depending on the operating system and package manager used. As an example, here we show how to install Oracle JDK 8 on Ubuntu Linux distribution.
+The Score Client requires Oracle Java 11 to be installed. The procedure for installing Java 11 will vary depending on the operating system and package manager used. As an example, here we show how to install Oracle JDK 11 on Ubuntu Linux distribution.
 
 ```
-# Install Oracle JDK 8
-sudo add-apt-repository ppa:webupd8team/java
+# Install Oracle JDK 11
+sudo add-apt-repository ppa:linuxuprising/java
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y oracle-java8-installer oracle-java8-set-default
+sudo apt install oracle-java11-installer-local oracle-java11-set-default-local
 ```
 
 In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev`, `fuse` and other packages, below is the command to install them on Ubuntu.
@@ -128,7 +128,7 @@ With dependencies installed, now we can install the Score Client itself. The lat
 ```
 wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/\[RELEASE\]/score-client-\[RELEASE\]-dist.tar.gz
 tar -xvzf score-client.tar.gz
-cd score-client-1.4.0  # or newer version
+cd score-client-2.0.0  # or newer version
 bin/score-client
 ```
 
