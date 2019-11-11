@@ -26,7 +26,7 @@ Repository information can be found [here](/download/repositories/#collaboratory
 3.  Click on `Token Manager`
     ![Token-Manager-Link](images/token-manager-link.png)
 
-4.  Select `collab.download` and click `Generate` button to create an access token for downloading data from Collaboratory
+4.  Select `collab.read` and click `Generate` button to create an access token for downloading data from Collaboratory
 
     ![Token-Manager](images/token-manager-collab.png)
 
@@ -222,9 +222,9 @@ Repository information can be found [here](/download/repositories/#aws)
 6. Click on Token Manager
     ![Token-Manager-Link](images/token-manager-link.png)
 
-7. Select `aws.download` and click "Generate" button to create an access token for downloading data from Collaboratory
+7. Select `aws.read` and click "Generate" button to create an access token for downloading data from Collaboratory
 
-    ![Token-Manager](images/aws-token-manager-screenshot.png)
+    ![Token-Manager](images/token-manager-aws.png)
 
 
 8\. Copy and paste this token into your config file for score-client *on the AWS VM*. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token.
