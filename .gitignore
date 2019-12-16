@@ -4,3 +4,6 @@ node_modules/
 theme/js-out/
 theme/css-out/
 npm-debug.log
+package-lock.json
+venv/
+env/

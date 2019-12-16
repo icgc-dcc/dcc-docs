@@ -6,7 +6,7 @@ angular.module('DocsDictionaryViewerApp', ['DictionaryViewerApp', 'ngAnimate', '
       _firstRun = true;
 
     _controller.searchQuery = '';
-    _controller.baseDictionaryURL = window.$icgcApp.dictionaryViewer.config.baseDictionaryURL || 'https://submissions.dcc.icgc.org';
+    _controller.baseDictionaryURL = window.$icgcApp.dictionaryViewer.config.baseDictionaryURL || 'https://legacy-dictionary.cancercollaboratory.org/';
 
     _controller.viewTypes = DictionaryService.getViewTypes();
 
