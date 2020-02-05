@@ -1,4 +1,4 @@
-# PCAWG Data Download
+# Download PCAWG Data
 
 ### Data Repositories
 
@@ -175,3 +175,25 @@ _aws_ cli commands, one line per file. One line may look like this:
 `aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-brca-us/f99f7e36-8b6f-5cf0-854f-4b832d5962a4 .`
 
 You may execute the above line directly on the command line to download the object to local.
+
+# Analyze PCAWG Data on Collaboratory
+
+### Leverage compute and data colocation
+
+As noted above, [a large portion of the PCAWG data](https://icgc.org/447) is hosted at
+the [Cancer Genome Collaboratory](https://cancercollaboratory.org) - an
+OpenStack based academic cloud computing platform. This makes Collaboratory an ideal choice to perform your own analyses
+on PCAWG data, following a commonly practised <i>move compute to data</i> approach. In essence, there is no need to download
+large amount of data into your own computing facilities and manage them, instead you launch virtual machines (VMs) and run your
+code on PCAWG data provisioned from within the Collaboratory environment which is much more efficient and cost effective.
+
+
+### Request a Collabotory account
+
+You can find out more about services provided by Collaboratory at
+[https://cancercollaboratory.org/services](https://cancercollaboratory.org/services) and available cloud resources
+at [https://cancercollaboratory.org/services-cloud-resources](https://cancercollaboratory.org/services-cloud-resources).
+
+To request a Collaboratory account please visit:
+[https://cancercollaboratory.org/services-request-account](https://cancercollaboratory.org/services-request-account).
+
