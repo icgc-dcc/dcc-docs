@@ -183,7 +183,7 @@ You may execute the above line directly on the command line to download the obje
 As noted above, [a large portion of the PCAWG data](https://icgc.org/447) is hosted at
 the [Cancer Genome Collaboratory](https://cancercollaboratory.org) - an
 OpenStack based academic cloud computing platform. This makes Collaboratory an ideal choice to perform your own analyses
-on PCAWG data, it's so-called <i>move compute to data</i> approach. In essence, there is no need to download
+on PCAWG data, following a commonly practised <i>move compute to data</i> approach. In essence, there is no need to download
 large amount of data into your own computing facilities and manage them, instead you launch virtual machines (VMs) and run your
 code on PCAWG data provisioned from within the Collaboratory environment which is much more efficient and cost effective.
 
