@@ -160,13 +160,13 @@ As described in the [Search for PCAWG data section](#search-for-pcawg-data), onc
 
 ##### Convert ICGC manifest file to PDC's Gen3 manifest file
 
-We need to convert the mainfest file to PDC' Indexd Record file before downloading the actual data file. A Python script (dcc_to_gen3.py) is needed to perform the conversion, the script can be downloaded with the following command:
+We need to convert the mainfest file to PDC's Gen3 manifest file before downloading the actual data files. A Python script (`dcc_to_gen3.py`) is needed to perform the conversion, the script can be downloaded with the following command:
 
 ```
 wget https://raw.githubusercontent.com/uc-cdis/planx-bioinfo-tools/master/pdc_tools/dcc_to_gen3.py
 ```
 
-You need to have Python 3 and required libraries (such as numpy and pandas) installed. Once installed, you can run the script to get Indexd Record file. Remember to replace the manifest with your own file name.
+You need to have Python 3 and required libraries (such as numpy and pandas) installed. Once installed, you can run the script to get Gen3 manifest file. Remember to replace the ICGC manifest with your own file name.
 ```
 python dcc_to_gen3.py --manifest manifest.pdc.1586448715169.sh
 ```
@@ -175,7 +175,7 @@ This will produce a Gen3 manifest file named as `gen3_manifest_manifest.pdc.1586
 
 ##### Install Gen3-client
 
-Run the following commands to install `gen3-client` if you are using MacOS:
+Run the following commands to install `gen3-client` if you are using macOS:
 ```
 mkdir -p ~/.gen3
 echo "" >> ~/.bashrc
@@ -189,12 +189,13 @@ source ~/.bashrc
 
 With that you should be able to run `gen3-client` command from your console and see the usage message.
 
+For installing `gen3-client` on other OS, please follow instructions [here](https://gen3.org/resources/user/gen3-client).
+
 ##### Get gen3-client API key and configure your profile
 
-Now you need to create `gen3-client` API key from https://icgc.bionimbus.org after authentication via NIH eRA commons.
-To do that goto https://icgc.bionimbus.org/login, and click on "Login with NIH" button. After authenticated successfully,
-please goto https://icgc.bionimbus.org/identity to create the API key. On the popup dialog click on "Download json" to
-retrive API key, as shown below:
+Now you need to create `gen3-client` API key from [https://icgc.bionimbus.org](https://icgc.bionimbus.org) after authentication
+via NIH eRA commons. To do that goto [login page](https://icgc.bionimbus.org/login), and click on "Login with NIH" button. After authenticated successfully, please goto [https://icgc.bionimbus.org/identity](https://icgc.bionimbus.org/identity) to create
+the API key. On the popup dialog click on "Download json" to retrive API key, as shown below:
 
 ![](images/get-gen3-client-api-key.png)
 
