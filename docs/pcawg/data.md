@@ -208,7 +208,7 @@ Upon success, you should see a message: Profile 'icgc' has been configured succe
 
 ##### Download data using gen3-client download-multiple command
 
-With `icgc` profile configured, you can download the PCAWG data you previously searched using the gen3 manifest as follow:
+With `icgc` profile configured, you can download the PCAWG data using the gen3 manifest prepared earlier as follow:
 
 ```
 gen3-client download-multiple --profile=icgc --manifest=gen3_manifest_manifest.pdc.1586448715169.sh.json --no-prompt
