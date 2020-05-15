@@ -163,7 +163,7 @@ As described in the [Search for PCAWG data section](#search-for-pcawg-data), onc
 We need to convert the mainfest file to PDC's Gen3 manifest file before downloading the actual data files. A Python script (`dcc_to_gen3.py`) is needed to perform the conversion, the script can be downloaded with the following command:
 
 ```
-wget https://raw.githubusercontent.com/uc-cdis/planx-bioinfo-tools/master/pdc_tools/dcc_to_gen3.py
+wget https://raw.githubusercontent.com/uc-cdis/pdc_tools/1.0/dcc_manifest_conversion/dcc_to_gen3.py
 ```
 
 You need to have Python 3 and required libraries (such as numpy and pandas) installed. Once installed, you can run the script to get Gen3 manifest file. Remember to replace the ICGC manifest with your own file name.
