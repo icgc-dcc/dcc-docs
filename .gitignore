@@ -7,3 +7,5 @@ npm-debug.log
 package-lock.json
 venv/
 env/
+.DS_Store
+.python-version

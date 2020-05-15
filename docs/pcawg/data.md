@@ -151,30 +151,70 @@ finish downloading and decrypting one file, then move on to the next file.
 
 #### Download from PDC
 
-PDC stores PCAWG TCGA data in Cleversafe object store, direct download access to Cleversafe
-buckets is provided to authorized users.
+##### Download manifest file from ICGC Portal
 
-Cleversafe is compatible with AWS S3, you can use _awscli_ client to download objects.
-To install _awscli_, please follow instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
+As described in the [Search for PCAWG data section](#search-for-pcawg-data), once you satisfied with the search result of TCGA data files, click on the "Download Manifest" button as illustrated below to retrieve the manifest tarball (named as `manifest.*.tar.gz`). Unpack the tarbal, you should get a file named as `manifest.pdc.*.sh`, eg, `manifest.pdc.1586448715169.sh`.
 
-Next, follow the _Login from NIH_ button on this page: [https://bionimbus-pdc.opensciencedatacloud.org/datasets](https://bionimbus-pdc.opensciencedatacloud.org/datasets) you will be directed to login via NIH iTrust. Upon successful login at NIH, you will be redirected back to PDC where you can now create access key. If you see `TCGA-PCAWG` is in the project list and you have `download` right, you can proceed with generating access key.
+![](images/download-manifest-from-icgc-portal.png)
 
-When you click on _Create access key_ button, a popup will show the new access key id and
-secret key. Copy the keys and add them to the _awscli_ credentials file, which, depending on your system, is usually at here: `~/.aws/credentials`. The file may look like below:
+
+##### Convert ICGC manifest file to PDC's Gen3 manifest file
+
+We need to convert the mainfest file to PDC's Gen3 manifest file before downloading the actual data files. A Python script (`dcc_to_gen3.py`) is needed to perform the conversion, the script can be downloaded with the following command:
 
 ```
-[pdc]
-aws_access_key_id = your_pdc_access_key_id
-aws_secret_access_key = your_pdc_secret_access_key
+wget https://raw.githubusercontent.com/uc-cdis/pdc_tools/1.0/dcc_manifest_conversion/dcc_to_gen3.py
 ```
 
-Please edit it to include your own key ID and secret key.
+You need to have Python 3 and required libraries (such as numpy and pandas) installed. Once installed, you can run the script to get Gen3 manifest file. Remember to replace the ICGC manifest with your own file name.
+```
+python dcc_to_gen3.py --manifest manifest.pdc.1586448715169.sh
+```
 
-The manifest file that you downloaded from ICGC Data Portal for PDC is actually a shell script containing
-_aws_ cli commands, one line per file. One line may look like this:
-`aws --profile pdc --endpoint-url https://bionimbus-objstore-cs.opensciencedatacloud.org s3 cp s3://pcawg-tcga-brca-us/f99f7e36-8b6f-5cf0-854f-4b832d5962a4 .`
+This will produce a Gen3 manifest file named as `gen3_manifest_manifest.pdc.1586448715169.sh.json`, which contains information needed to download the acctual data from PDC using `gen3-client` tool.
 
-You may execute the above line directly on the command line to download the object to local.
+##### Install Gen3-client
+
+Run the following commands to install `gen3-client` if you are using macOS:
+```
+mkdir -p ~/.gen3
+echo "" >> ~/.bashrc
+echo "export PATH=\$PATH:~/.gen3" >> ~/.bashrc
+curl https://api.github.com/repos/uc-cdis/cdis-data-client/releases/latest | grep browser_download_url.*osx |  cut -d '"' -f 4 | wget -qi -
+unzip dataclient_osx.zip
+mv gen3-client ~/.gen3
+rm dataclient_osx.zip
+source ~/.bashrc
+```
+
+With that you should be able to run `gen3-client` command from your console and see the usage message.
+
+For installing `gen3-client` on other OS, please follow instructions [here](https://gen3.org/resources/user/gen3-client).
+
+##### Get gen3-client API key and configure your profile
+
+Now you need to create `gen3-client` API key from [https://icgc.bionimbus.org](https://icgc.bionimbus.org) after authentication
+via NIH eRA commons. To do that goto [login page](https://icgc.bionimbus.org/login), and click on "Login with NIH" button. After authenticated successfully, please goto [https://icgc.bionimbus.org/identity](https://icgc.bionimbus.org/identity) to create
+the API key. On the popup dialog click on "Download json" to retrive API key, as shown below:
+
+![](images/get-gen3-client-api-key.png)
+
+The API key will be saved as `credentials.json`. You can then use it to configure a profile, let's name the profile `icgc`:
+
+```
+gen3-client configure  --profile=icgc --cred=credentials.json --apiendpoint=https://icgc.bionimbus.org/
+```
+Upon success, you should see a message: Profile 'icgc' has been configured successfully.
+
+
+##### Download data using gen3-client download-multiple command
+
+With `icgc` profile configured, you can download the PCAWG data using the gen3 manifest prepared earlier as follow:
+
+```
+gen3-client download-multiple --profile=icgc --manifest=gen3_manifest_manifest.pdc.1586448715169.sh.json --no-prompt
+```
+
 
 # Analyze PCAWG Data on Collaboratory
 
