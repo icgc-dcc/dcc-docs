@@ -7,9 +7,7 @@ A _Data Repository_ is a system that stores and publishes _Data Files_ for downl
 
 On this page you can find an overview of all of these repositories, their purpose and function, as well as providing links to each repositories' important pages and resources.
 
-All of the ICGC data be searched for using the [ICGC Data Portal](https://dcc.icgc.org/repositories), and downloaded using the [icgc-get](/download/icgc-get) tool. Generally the data is divided into projects.
-
-Every repository has a repository code / id that is used to identify it in the [ICGC API](/portal/api-endpoints/#!/repositories/get) and `icgc-get`.
+All of the ICGC data be searched for using the [ICGC Data Portal](https://dcc.icgc.org/repositories). Generally the data is divided into projects. Every repository has a repository code / id that is used to identify it in the [ICGC API](/portal/api-endpoints/#!/repositories/get).
 
 
 ## [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory)
