@@ -48,10 +48,10 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
             <i class="material-icons notranslate">keyboard_arrow_right</i>
           </div>
         </a>
-        <a href="/download/icgc-get/#quickstart">
+        <a href="/download/guide/#installation-of-the-score-client">
           <div>
-            <h3>Download using icgc-get</h3>
-            <p>Download from multiple data repositories with a unified command line tool</p>
+            <h3>Download using score-client</h3>
+            <p>Using score-client to download data from Collaboratory / AWS</p>
             <i class="material-icons notranslate">keyboard_arrow_right</i>
           </div>
         </a>

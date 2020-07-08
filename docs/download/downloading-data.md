@@ -8,7 +8,7 @@ Repository information can be found [here](/download/repositories/#collaboratory
 
 #### Prerequisites
 
-1.  [Apply for DACO access](/download/data-access.md#apply-for-access-to-controlled-data)
+1.  [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data)
 2.  Download and install score-client software [Tarball](/software/download/#score-client) (Download/configuration instructions [here](/download/guide/#installation-of-the-score-client))
 
 <span style="color:blue">NOTE: We are currently actively copying controlled data from [EGA](https://ega-archive.org) to Collaboratory so some files which originated from EGA may be available from either EGA or the Collaboratory repository. This is an on-going process, so we do not currently have all the EGA datasets in Collaboratory yet.</span>
@@ -98,7 +98,7 @@ Repository information can be found [here](/download/repositories/#ega)
 
 #### Prerequisites
 
-1. [Apply for DACO access](/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1. [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 2. Download the [EGA Download Client](https://ega-archive.org/download/using-ega-download-client)
 
 #### Download Data Instructions
@@ -201,7 +201,7 @@ Repository information can be found [here](/download/repositories/#aws)
 
 #### Prerequisites
 
-1. [Apply for DACO access](/download-doc-update/docs/download/data-access.md#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1. [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
 
 2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region (N. Virginia availability zone). Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:

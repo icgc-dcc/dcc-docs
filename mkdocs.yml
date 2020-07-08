@@ -26,7 +26,6 @@ pages:
 - Download:
   - Data Access: 'download/data-access.md'
   - Guide: 'download/guide.md'
-  - icgc-get: 'download/icgc-get.md'
   - Repositories: 'download/repositories.md'
   - Downloading Data: 'download/downloading-data.md'
 - Submission:

@@ -38,18 +38,3 @@ However, if you wish to use an old version you may choose from the following:
 ### Docker Images
 
 For Docker images, please visit our [Docker Hub repository](https://hub.docker.com/r/icgc/icgc-storage-client/).
-
-## icgc-get
-
-To interact with all ICGC data repositories, you can use the icgc-get software. For system requirements and usage information, please see the [Data Download Guide](/download/icgc-get/)
-
-### Latest Release Zipfile
-
-Users are encouraged to use the latest version of our software to keep current with bug fixes, enhancements and new features. Click on the following to download the latest client version:
-
-[Download for Mac](https://dcc.icgc.org/api/v1/ui/software/icgc-get/osx/latest) [Download for Linux](https://dcc.icgc.org/api/v1/ui/software/icgc-get/linux/latest)
-
-### Docker Images
-
-For a Docker image of client tools, please visit our [Docker Hub repository](https://hub.docker.com/r/icgc/icgc-get/) . This provides the necessary operating environment for ICGC get, and will be automatically downloaded by the tool if the docker daemon is running on your computer.
-

@@ -16,10 +16,6 @@
       "to": "/download/guide/#batchmanifest-slicing"
     },
     {
-      "from": "/cloud/icgc-get",
-      "to": "/download/icgc-get"
-    },
-    {
       "from": "/cloud/repositories",
       "to": "/download/repositories"
     },
@@ -34,10 +30,6 @@
     {
       "from": "/cloud/guide",
       "to": "/download/guide"
-    },
-    {
-      "from": "/software/releases/icgc-get",
-      "to": "/software/download/#icgc-get"
     },
     {
       "from": "/software/releases",
