@@ -119,11 +119,68 @@ Same as obtaining Data Access to [GDC](#obtaining-data-access_3)
 
 ### Download Client Operation
 
-The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with `aws configure` and follow the prompts. This key can be download from the projects tab of the [official PDC website.](https://bionimbus-pdc.opensciencedatacloud.org) Once your credentials have been entered the general structure for download commands is:
+The data in the PDC can be accessed using the AWS CLI. You will first need to enter your key and secret key with `aws configure` and follow the prompts. This key can be download from the projects tab of the [official PDC website.](https://bionimbus-pdc.opensciencedatacloud.org) Once your credentials have been entered, you can begin downloading.
+
+##### Download manifest file from ICGC Portal
+
+As described in the [Search for PCAWG data section](/pcawg/data/#search-for-pcawg-data), once you satisfied with the search result of TCGA data files, click on the "Download Manifest" button as illustrated below to retrieve the manifest tarball (named as `manifest.*.tar.gz`). Unpack the tarbal, you should get a file named as `manifest.pdc.*.sh`, eg, `manifest.pdc.1586448715169.sh`.
+
+![](/pcawg/images/download-manifest-from-icgc-portal.png)
+
+
+##### Convert ICGC manifest file to PDC's Gen3 manifest file
+
+We need to convert the mainfest file to PDC's Gen3 manifest file before downloading the actual data files. A Python script (`dcc_to_gen3.py`) is needed to perform the conversion, the script can be downloaded with the following command:
 
 ```
-aws s3 --endpoint-url=https://bionimbus-objstore-cs.opensciencedatacloud.org/ cp $DATA_PATH $OUTPUT_DIR
+wget https://raw.githubusercontent.com/uc-cdis/pdc_tools/1.0/dcc_manifest_conversion/dcc_to_gen3.py
 ```
 
-Where the data path can be retrieved from the ICGC data portal by selecting the download manifest action on the pdc file copy, and the output directory is where you want to save the file on your local computer.
+You need to have Python 3 and required libraries (such as numpy and pandas) installed. Once installed, you can run the script to get Gen3 manifest file. Remember to replace the ICGC manifest with your own file name.
+```
+python dcc_to_gen3.py --manifest manifest.pdc.1586448715169.sh
+```
 
+This will produce a Gen3 manifest file named as `gen3_manifest_manifest.pdc.1586448715169.sh.json`, which contains information needed to download the acctual data from PDC using `gen3-client` tool.
+
+##### Install Gen3-client
+
+Run the following commands to install `gen3-client` if you are using macOS:
+```
+mkdir -p ~/.gen3
+echo "" >> ~/.bashrc
+echo "export PATH=\$PATH:~/.gen3" >> ~/.bashrc
+curl https://api.github.com/repos/uc-cdis/cdis-data-client/releases/latest | grep browser_download_url.*osx |  cut -d '"' -f 4 | wget -qi -
+unzip dataclient_osx.zip
+mv gen3-client ~/.gen3
+rm dataclient_osx.zip
+source ~/.bashrc
+```
+
+With that you should be able to run `gen3-client` command from your console and see the usage message.
+
+For installing `gen3-client` on other OS, please follow instructions [here](https://gen3.org/resources/user/gen3-client).
+
+##### Get gen3-client API key and configure your profile
+
+Now you need to create `gen3-client` API key from [https://icgc.bionimbus.org](https://icgc.bionimbus.org) after authentication
+via NIH eRA commons. To do that goto [login page](https://icgc.bionimbus.org/login), and click on "Login with NIH" button. After authenticated successfully, please goto [https://icgc.bionimbus.org/identity](https://icgc.bionimbus.org/identity) to create
+the API key. On the popup dialog click on "Download json" to retrive API key, as shown below:
+
+![](/pcawg/images/get-gen3-client-api-key.png)
+
+The API key will be saved as `credentials.json`. You can then use it to configure a profile, let's name the profile `icgc`:
+
+```
+gen3-client configure  --profile=icgc --cred=credentials.json --apiendpoint=https://icgc.bionimbus.org/
+```
+Upon success, you should see a message: Profile 'icgc' has been configured successfully.
+
+
+##### Download data using gen3-client download-multiple command
+
+With `icgc` profile configured, you can download the PCAWG data using the gen3 manifest prepared earlier as follow:
+
+```
+gen3-client download-multiple --profile=icgc --manifest=gen3_manifest_manifest.pdc.1586448715169.sh.json --no-prompt
+```
