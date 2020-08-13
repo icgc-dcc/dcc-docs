@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@icgc/dictionary-viewer": "^1.0.13",
-    "angular": "1.5.8",
+    "angular": "1.8.0",
     "angular-animate": "1.5.8",
     "angular-loading-bar": "0.9.0",
     "bootstrap": "3.3.7",
