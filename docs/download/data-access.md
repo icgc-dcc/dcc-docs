@@ -26,7 +26,7 @@ As a prerequisite to applying for DACO access, please ensure that you:
 
 The instructions for applying for DACO can be found here on the [ICGC DACO website](https://daco.icgc.org/), as well as a selection of [help guide videos](https://daco.icgc.org/help-guides/daco-help-guides/).
 
-1. Register a DACO account at https://daco.icgc.org/user/#/register. If you already have an account, you can log in from https://daco.icgc.org/user/#/login. 
+1. Register a DACO account at [https://daco.icgc.org/user/#/register](https://daco.icgc.org/user/#/register). If you already have an account, you can log in from [https://daco.icgc.org/user/#/login](https://daco.icgc.org/user/#/login). 
 1. After registering, you will receive an email instructing you to set your Central User Directory password. Click the link from the email to set up your account password.
 1. Once you save your password, you will be taken to your ICGC Dashboard. From your Dashboard, click the "Start New Application" button the box entitled “Manage Your Submissions”.
 1. Complete the entire application form. All sections, as well as Appendices, are integral components of the application.
