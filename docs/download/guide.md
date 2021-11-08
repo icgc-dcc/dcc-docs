@@ -59,11 +59,15 @@ When creating an Access Token, you will need to specify the Scope associated wit
 
 #### AWS
 
-In the case of the ICGC AWS data set, an access token with the <span class="badge token-badge token-scopes">aws.download</span> scope is required to access the [controlled access data](/portal/access)
+In the case of the ICGC AWS data set, an access token with the <span class="badge token-badge token-scopes">aws.read</span> scope is required to access the [controlled access data](/portal/access)
 
 #### Collaboratory
 
-In the case of the ICGC Collaboratory data set, an access token with the <span class="badge token-badge token-scopes">collab.download</span> scope is required to access the [controlled access data](/portal/access)
+In the case of the ICGC Collaboratory data set, an access token with the <span class="badge token-badge token-scopes">collab.read</span> scope is required to access the [controlled access data](/portal/access)
+
+#### Azure
+In the case of the ICGC Azure data set, an access token with the <span class="badge token-badge token-scopes">azure.read</span> scope is required to access the [controlled access data](/portal/access)
+
 
 You can verify that your Access Token has the desired scopes by inspecting it in the table at the bottom of the dialog. For security purposes, Access Tokens must remain private and not be shared with anyone.
 
@@ -84,6 +88,10 @@ In order to run within [EC2](https://aws.amazon.com/ec2/), you will need your ow
 In order to run within [Collaboratory](https://www.cancercollaboratory.org/), you will need to be enrolled. To begin the enrollment process, please send an email to [help@cancercollaboratory.org](mailto:help@cancercollaboratory.org).
 
 **UPDATE**: Downloading data objects hosted in Collaboratory is no longer required to be performed in a Collaboratory compute instance.
+
+#### Azure
+
+In order to run within [Azure](https://azure.microsoft.com/en-ca/), you will need your own Microsoft Azure account to provision a running Azure instance. Any data processing will be charged to this account. 
 
 The following sections provide guidance on selecting and configuring the chosen instance type.
 
