@@ -12,6 +12,7 @@ systems. This table gives you an overview where data for different types can be 
 | Amazon Web Service (<a href="https://aws.amazon.com"><i class="fa-no-icon"></i>AWS</a>)                           | Data Object         | Aligned WGS, RNA-Seq, variant calls                                           | Subset of Non-US projects       |
 | European Genome-phenome Archive (<a href="https://ega-archive.org"><i class="fa-no-icon"></i>EGA</a>)             | Data Archive        | Aligned WGS, RNA-Seq                                                          | All Non-US projects             |
 | Protected Data Cloud (<a href="https://bionimbus-pdc.opensciencedatacloud.org"><i class="fa-no-icon"></i>PDC</a>) | Data Object         | Aligned WGS, RNA-Seq, variant calls, downstream analysis results              | All US projects (TCGA projects) |
+| Microsoft Azure (<a href="https://azure.microsoft.com/en-ca/"><i class="fa-no-icon"></i>Azure</a>) | Data Object | Aligned WGS, RNA-Seq, variant calls, downstream analysis results              | Subset of Non-US projects |
 
 _NOTE:_ Subset of Non-US projects with policy permits data to be hosted at AWS can be found
 from <a href="aws_projects.txt"><i class="fa-no-icon"></i>here</a>.
@@ -46,11 +47,11 @@ of the results can be downloaded.
 A faceted search interface at the ICGC portal offers an easy way to interactively search
 for PCAWG data of your interest.
 
-This particular [query](https://icgc.org/ZEA) set a filter on _Study = 'PCAWG'_, it returns
+This particular [query](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) set a filter on _Study = 'PCAWG'_, it returns
 all PCAWG data objects. Results are listed in a table with File ID, Donor ID, Repository etc
 important information. You can add more filters as needed, for examples, adding _RNA-Seq_ in
 _Experimental Strategy_, will further narrow down the resulting data objects to _PCAWG RNA-Seq_.
-[Here](https://icgc.org/ZEd) is the new, resulting query. If you prefer to download data from
+[Here](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D,%22experimentalStrategy%22:%7B%22is%22:%5B%22RNA-Seq%22%5D%7D%7D%7D&files=%7B%22from%22:1,%22size%22:25%7D) is the new, resulting query. If you prefer to download data from
 certain repositories, you can select the desired repositories as needed.
 
 After identifying files of interest, click on the _Download Files_ button
@@ -95,9 +96,9 @@ in a year, you can delete a token before expiry at anytime.
 
 ![](images/data-download-token.png)
 
-#### Download from Collaboratory or AWS
+#### Download from Collaboratory or AWS or Azure
 
-Score Client is used to download from _Collaboratory_ or _AWS_
+Score Client is used to download from _Collaboratory_ or _AWS_ or _Azure_
 with a TSV manifest file containing necessary information about data objects to be downloaded.
 
 The latest version of Score Client can be downloaded from [here](https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/[RELEASE]/score-client-[RELEASE]-dist.tar.gz). If you are on a Linux
@@ -121,7 +122,7 @@ ICGC access token in the following file:
 `score-client-x.x.x/conf/application.properties`. In the file, you should see a line like shown below. Uncomment it, add your access token, and save the file.
 
 ```
-# accessToken=your_collab_access_token
+# accessToken=your_access_token
 ```
 
 Assuming that you downloaded a manifest file (`manifest.collaboratory.1525977569066.tsv`)
@@ -132,8 +133,8 @@ The following command will download these files to the current directory:
 score-client --profile collab download --manifest manifest.collaboratory.1525977569066.tsv --output-dir .
 ```
 
-**NOTE:** Downloading data objects hosted in Collaboratory is no longer required to be performed in a Collaboratory compute instance. When downloading PCAWG data from AWS, the download
-client must run in the same environment as the object storage system. That means to download from AWS (N. Virginia), the Score Client **must** run on an AWS VM in the _N. Virginia_ availability zone.
+**NOTE:** Downloading data objects hosted in Collaboratory is no longer required to be performed in a Collaboratory compute instance. When downloading PCAWG data from AWS or Azure, the download
+client must run in the same environment as the object storage system. That means to download from AWS (N. Virginia), the Score Client **must** run on an AWS VM in the _N. Virginia_ availability zone. To download data from Azure, you will need your own Azure account to provision a running Azure instance and the score-client must run on an Azure VM.
 
 #### Download from EGA
 
