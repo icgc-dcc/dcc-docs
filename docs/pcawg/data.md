@@ -91,7 +91,7 @@ directory as usual with controlled access data files visible and downloadable.
 
 When logged in you should be able to use the _Token Manager_ (as shown above) to create
 **access token** for yourself to be used to download
-data from _Collaboratory_ and _AWS_ (see more details on how in the next section). Tokens expire
+data from _Collaboratory_,  _AWS_ and _Azure_ (see more details on how in the next section). Tokens expire
 in a year, you can delete a token before expiry at anytime.
 
 ![](images/data-download-token.png)

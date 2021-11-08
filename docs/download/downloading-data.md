@@ -15,11 +15,13 @@ Repository information can be found [here](/download/repositories/#collaboratory
 
 #### Download Data Instructions
 
-1.  Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
+1.  Once your DACO application has been approved, use your OpenID (ie. the Google email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
     ![Portal-Login](images/Portal_login.png)
 
 2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+
+    ![User-Logged-In](images/user-logged-in.png)
 
     ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
@@ -39,7 +41,7 @@ Example manifest user configuration
 #
 # Defines the ICGC access token for authorized access to data
 #
-accessToken=paste_your_collab.download_token_here
+accessToken=paste_your_collab.read_token_here
 
 #
 # Controls the number of concurrent threads for multi-part data transfers. It is recommended to set this to the number of cores of the Compute Instance.
@@ -284,6 +286,8 @@ Repository information can be found [here](/download/repositories/#azure)
     ![Portal-Login](images/Portal_login.png)
 
 2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+    
+    ![User-Logged-In](images/user-logged-in.png)
 
     ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
@@ -291,7 +295,7 @@ Repository information can be found [here](/download/repositories/#azure)
 
     ![Token-Manager-Link](images/token-manager-link.png)
 
-4.  Select `azure.read` and click `Generate` button to create an access token for downloading data from Collaboratory
+4.  Select `azure.read` and click `Generate` button to create an access token for downloading data from Azure repository.
 
     ![Token-Manager](images/token-manager-azure.png)
 
@@ -318,11 +322,11 @@ transport.parallel=6
 transport.memory=1
 ```
 
-6\. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Azure` repository. Click on "Download Files" and download the manifest file
+6\. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting the `Azure - Toronto` in the "Repository" facet. Click on "Download Files" and download the manifest file.
 
    ![Download-Azure-Manifest](images/download-azure-manifest.png)
 
-7\.  Decompress manifest tarball file. Run score-client with manifest file to download data
+7\.  Decompress manifest tarball file. Run score-client with manifest file to download data.
 
 ```
 tar xvzf manifest.1554492262428.tar.gz
