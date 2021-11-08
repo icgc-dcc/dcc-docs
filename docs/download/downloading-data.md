@@ -31,7 +31,7 @@ Repository information can be found [here](/download/repositories/#collaboratory
     ![Token-Manager](images/token-manager-collab.png)
 
 
-5\. Copy and paste this token into your config file for score-client. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
+5\. Copy and paste this token into your config file for score-client. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated access token. 
    
 Example manifest user configuration
 
@@ -256,4 +256,75 @@ transport.memory=1
 On AWS VM:
 ```
 bin/score-client --profile aws download --manifest manifest.aws-virginia.1556307429042.tsv --output-dir aws_downloads
+```
+
+
+## Downloading Data from the Azure repository
+
+Microsft cloud service containing ICGC data.
+
+Repository information can be found [here](/download/repositories/#azure)
+
+
+#### Prerequisites
+
+1. [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data). 
+
+2. Log into your Microsoft Azure account and set up an Azure instance.
+
+3. Download and install score-client software on the Azure VM. Score-client download instructions [here](/download/guide/#installation-of-the-score-client)
+  
+ <span style="color:blue">NOTE: In order to download data from Azure, the score-client tool must run in the same environment as the object storage system. That means you will need your own Azure account to provision a running Azure instance and the Score Client must run on an Azure VM.</span>
+
+
+#### Download Data Instructions
+
+1.  Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
+
+    ![Portal-Login](images/Portal_login.png)
+
+2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+
+    ![DACO-Cloud-Access](images/daco-cloud-access.png)
+
+3.  Click on `Token Manager`
+
+    ![Token-Manager-Link](images/token-manager-link.png)
+
+4.  Select `azure.read` and click `Generate` button to create an access token for downloading data from Collaboratory
+
+    ![Token-Manager](images/token-manager-azure.png)
+
+
+5\. Copy and paste this token into your config file for score-client. Click [here](/download/guide/#access-configuration) for instructions on how to configure other elements of score-client. The configuration of the Score Client is stored in the `conf/application.properties` file of the distribution. Edit `application.properties` file to add the generated acesss token. 
+   
+Example manifest user configuration
+
+```
+# The access token for authorized access to data
+accessToken=paste_your_azure.read_token_here
+
+# The location of the metadata service (SONG)
+metadata.url=https://song.azure.icgc.overture.bio
+
+# The location of the object storage service (SCORE)
+storage.url=https://score.azure.icgc.overture.bio
+
+# The number of concurrent threads for multi-part data transfers.
+# It is recommended to set this to the number of CPU cores available
+transport.parallel=6
+
+# The amount of non-heap memory to use per thread, in gigabytes.
+transport.memory=1
+```
+
+6\. Find your data of interest in the [Data Repository](https://dcc.icgc.org/repositories) by selecting `Azure` repository. Click on "Download Files" and download the manifest file
+
+   ![Download-Azure-Manifest](images/download-azure-manifest.png)
+
+7\.  Decompress manifest tarball file. Run score-client with manifest file to download data
+
+```
+tar xvzf manifest.1554492262428.tar.gz
+./bin/score-client --profile azure download --manifest manifest.azure.1554492262428.tsv --output-dir score-client_downloads
 ```
