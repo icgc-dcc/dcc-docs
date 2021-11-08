@@ -24,7 +24,7 @@ Academic research cloud infrastructure built to house ICGC data.
 | Repo Code        | `collaboratory`                                                                                                                                  |
 
 ### Obtaining Data Access
-Follow the proceedure outlined at the [DACO page](https://icgc.org/daco).
+Follow the procedure outlined at the [DACO page](https://icgc.org/daco).
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
@@ -44,7 +44,7 @@ Amazon cloud service containing ICGC data.
 | Repo Code        | `aws-virginia`                                                                                                                          |
 
 ### Obtaining Data Access
-Follow the proceedure outlined at the [DACO page](https://icgc.org/daco).
+Follow the procedure outlined at the [DACO page](https://icgc.org/daco).
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
@@ -65,7 +65,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 | Repo Code        | `ega`                                                                                                                                  |
 
 ### Obtaining Data Access
-Follow the proceedure outlined at the [DACO page](https://icgc.org/daco). Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
+Follow the procedure outlined at the [DACO page](https://icgc.org/daco). Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
 
 
 ### Download Client Operation
@@ -184,3 +184,25 @@ With `icgc` profile configured, you can download the PCAWG data using the gen3 m
 ```
 gen3-client download-multiple --profile=icgc --manifest=gen3_manifest_manifest.pdc.1586448715169.sh.json --no-prompt
 ```
+
+
+## [Azure](https://docs.icgc.org/download/repositories/#azure)
+
+Microsoft Azure cloud service containing ICGC data.
+
+| Property         | Value                                                                                                                                   |
+| :--------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Name             | Microsoft Azure                                                                                                                 |
+| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Repository type  | Cloud                                                                                                      |
+| ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Azure%20-%20Toronto%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) |
+| Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
+| Repo Code        | `azure`                                                                                                                          |
+
+### Obtaining Data Access
+Follow the procedure outlined at the [DACO page](https://icgc.org/daco).
+
+### Download Client Operation
+To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
+
+
