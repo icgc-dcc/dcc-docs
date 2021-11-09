@@ -213,7 +213,7 @@ Repository information can be found [here](/download/repositories/#aws)
 
 3. Download and install score-client software on the AWS VM. Score-client download instructions [here](/download/guide/#installation-of-the-score-client)
 
-4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
+4. Next, you will need to obtain your access token to download data from AWS. Once your DACO application has been approved, use your OpenID (ie. the Google email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
     ![Portal-Login](images/Portal_login.png)
 
@@ -281,7 +281,7 @@ Repository information can be found [here](/download/repositories/#azure)
 
 #### Download Data Instructions
 
-1.  Once your DACO application has been approved, use your OpenID (ie. the Gmail email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
+1.  Once your DACO application has been approved, use your OpenID (ie. the Google email address you specified in your DACO application) to log into [https://dcc.icgc.org/](https://dcc.icgc.org)
 
     ![Portal-Login](images/Portal_login.png)
 
