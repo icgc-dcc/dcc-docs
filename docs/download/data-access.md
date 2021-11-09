@@ -6,10 +6,10 @@
 ICGC projects have two separate access control bodies. US based projects are authorized by **dbGaP**, while non-US projects are authorized by the ICGC Data Access Compliance Office (**DACO**). To download controlled data, a user must apply for access at the corresponding data access control body. The following table shows you which repository you are able to download from if you have been granted authorization from **dbGaP** or ICGC **DACO**.
 
 
-| *Authorization From:*  | Data Portal | Collaboratory |  AWS |  EGA  | GDC   |  PDC  |
-| :--------------------| ----------- | ------------- | ---- | ----- | ----- | ----- |
-|   *ICGC DACO*	       |  ![checkmark](images/check_mark.png)  | ![checkmark](images/check_mark.png) | ![checkmark](images/check_mark.png) | ![checkmark](images/check_mark.png) |       |       |
-|   *dbGaP/eRA Commons*  |             |               |      |       | ![checkmark](images/check_mark.png)  | ![checkmark](images/check_mark.png) |
+| *Authorization From:*  | Data Portal | Collaboratory |  AWS |  EGA  | GDC   |  PDC  | Azure |
+| :--------------------| ----------- | ------------- | ---- | ----- | ----- | ----- | ----- |
+|   *ICGC DACO*	       |  ![checkmark](images/check_mark.png)  | ![checkmark](images/check_mark.png) | ![checkmark](images/check_mark.png) | ![checkmark](images/check_mark.png) |       |       | ![checkmark](images/check_mark.png) |
+|   *dbGaP/eRA Commons*  |             |               |      |       | ![checkmark](images/check_mark.png)  | ![checkmark](images/check_mark.png) | |
 
 
 ## Guidelines for Applying for Access to Controlled Data
@@ -36,7 +36,7 @@ The instructions for applying for DACO can be found here on the [ICGC DACO websi
 1. Once the application is complete, you can submit it by “finalizing your DACO Application”. This action will prevent you from making any further changes to your application without authorization from an administrator.
 1. You will receive an email with further instructions. The next steps will also be listed on the confirmation page. Download and print your finalized application and add the necessary signatures. Once signed, you can fax or mail the application to the DACO office (the contact details are provided on the confirmation page and email).
 1. The DACO office will notify you when your application has been approved, or if they require any further information.
-1. Once your DACO access application is approved, your “OpenID” Google email address will become associated with an ICGC account and you will be granted access to the ICGC controlled access datasets available through [Cancer Genome Collaboratory](repositories/#collaboratory), [AWS Virginia](repositories/#aws), the EBI’s [EGA repository](repositories/#ega) and [ICGC Data Portal](https://dcc.icgc.org/releases). You will receive an email from EGA about setting up your password to access controlled data at [https://ega-archive.org/](https://ega-archive.org/). If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1. Once your DACO access application is approved, your “OpenID” Google email address will become associated with an ICGC account and you will be granted access to the ICGC controlled access datasets available through [Cancer Genome Collaboratory](repositories/#collaboratory), [AWS Virginia](repositories/#aws), [Azure](repositories/#azure), the EBI’s [EGA repository](repositories/#ega) and [ICGC Data Portal](https://dcc.icgc.org/releases). You will receive an email from EGA about setting up your password to access controlled data at [https://ega-archive.org/](https://ega-archive.org/). If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
 ![Applying-to-DACO](images/Applying_to_DACO_Diagram.png)
 
