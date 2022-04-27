@@ -23,9 +23,9 @@ PCAWG data are stored in individual GNOS repositories hosted at different academ
 
 More details on how to download PCAWG data can be found [here](/pcawg/data/).
 
-[1]: https://icgc.org/daco
-[2]: http://www.ebi.ac.uk/ega/dacs/EGAC00001000010
-[3]: http://www.ebi.ac.uk/ega
+[1]: https://daco.icgc-argo.org/
+[2]: https://ega-archive.org/dacs/EGAC00001000010
+[3]: https://ega-archive.org/
 [4]: http://cancergenome.nih.gov/
 [5]: http://tcga-data.nci.nih.gov/
 [6]: https://cghub.ucsc.edu/

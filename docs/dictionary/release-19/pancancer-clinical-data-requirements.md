@@ -2180,9 +2180,9 @@ div.rbtoc1428521653453 li {margin-left: 0px;padding-left: 0px;}
               </h1>
               <ul style="list-style-type: square;">
                <li>
-                For questions or concerns regarding PCAWG Clinical data, please contact DCC Support at
-                <a href="mailto:dcc-support@oicr.on.ca">
-                 dcc-support@oicr.on.ca
+                For questions or concerns regarding PCAWG Clinical data, please contact 
+                <a href="https://platform.icgc-argo.org/contact">
+                 DCC.
                 </a>
                </li>
               </ul>

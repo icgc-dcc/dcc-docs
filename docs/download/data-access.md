@@ -24,32 +24,11 @@ As a prerequisite to applying for DACO access, please ensure that you:
 
 ## How to Apply for Access through DACO
 
-The instructions for applying for DACO can be found here on the [ICGC DACO website](https://daco.icgc.org/), as well as a selection of [help guide videos](https://daco.icgc.org/help-guides/daco-help-guides/).
-
-1. Register a DACO account at [https://daco.icgc.org/user/#/register](https://daco.icgc.org/user/#/register). If you already have an account, you can log in from [https://daco.icgc.org/user/#/login](https://daco.icgc.org/user/#/login). 
-1. After registering, you will receive an email instructing you to set your Central User Directory password. Click the link from the email to set up your account password.
-1. Once you save your password, you will be taken to your ICGC Dashboard. From your Dashboard, click the "Start New Application" button the box entitled “Manage Your Submissions”.
-1. Complete the entire application form. All sections, as well as Appendices, are integral components of the application.
-
-   > **IMPORTANT: For the applicant and any authorized personnel, you will be asked to provide an “OpenID”, which means providing a valid Google email address (Gmail or GSuite) for each authorized personnel.** This will be the email address you will use to log in to the ICGC Data Portal for accessing controlled data.
-
-1. Once the application is complete, you can submit it by “finalizing your DACO Application”. This action will prevent you from making any further changes to your application without authorization from an administrator.
-1. You will receive an email with further instructions. The next steps will also be listed on the confirmation page. Download and print your finalized application and add the necessary signatures. Once signed, you can fax or mail the application to the DACO office (the contact details are provided on the confirmation page and email).
-1. The DACO office will notify you when your application has been approved, or if they require any further information.
-1. Once your DACO access application is approved, your “OpenID” Google email address will become associated with an ICGC account and you will be granted access to the ICGC controlled access datasets available through [Cancer Genome Collaboratory](repositories/#collaboratory), [AWS Virginia](repositories/#aws), [Azure](repositories/#azure), the EBI’s [EGA repository](repositories/#ega) and [ICGC Data Portal](https://dcc.icgc.org/releases). You will receive an email from EGA about setting up your password to access controlled data at [https://ega-archive.org/](https://ega-archive.org/). If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+The instructions for applying for DACO can be found here on the [ICGC DACO website](https://daco.icgc.org/).
 
 ![Applying-to-DACO](images/Applying_to_DACO_Diagram.png)
 
 <span style="color:red">***Please note:***</span> EGA is not responsible for granting access to ICGC data hosted at EGA.
-
-
-## The DACO Approval Process
-
-The DACO approval process takes approximately 24-48 hours.
-
-Your research project will be checked for conformity with the goals and [policies of ICGC ARGO](https://www.icgc-argo.org/page/72/introduction-and-goals-) including, but not limited to, policies concerning the purpose and relevance of the research, the protection of the participants and the security of the participants' data.
-
-The DACO office will notify you by email when your DACO application has been approved, or if they require any further information. Upon approval, access to controlled data will be granted for a **one year period** (starting from the date of acceptance). If your application is refused it remains possible to reapply in the future.
 
 
 ## Next steps after DACO Approval

@@ -35,9 +35,9 @@ There are two prerequesites to using the Score Client: DACO Cloud Access status 
 
 ### DACO Cloud Access
 
-DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO access please follow the instructions provided at [https://icgc.org/daco](https://icgc.org/daco). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
+DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO access please follow the instructions provided at [https://daco.icgc-argo.org/](https://daco.icgc-argo.org/). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
 
-![DACO Cloud Acces Link](images/daco-cloud-access.png)
+![DACO Cloud Access Link](images/daco-cloud-access.png)
 
 ### Access Tokens
 
@@ -525,7 +525,7 @@ Because of the size of BAM files, ICGC upload/downloads tend to be long-running,
 
 ##### How do I report a bug in the software?
 
-Please contact [dcc-support@icgc.org](mailto:dcc-support@icgc.org) and include the version of the software in the body of the message (`bin/score-client --version`).
+Please contact the [DCC](https://platform.icgc-argo.org/contact) and include the version of the software in the body of the message (`bin/score-client --version`).
 
 ## Terms
 

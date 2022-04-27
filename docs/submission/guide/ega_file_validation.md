@@ -35,7 +35,7 @@ This validation check will validate the existence of the raw file at EGA, meanin
 * Once decompressed, the mapping file can be found at [EGA Dataset Accession ID]/delimited_maps/Sample_File.map. 
 * Please submit the EGA File accession ID(s) for each sample ID in your DCC submission.
 
-If the metadata for a given EGA Dataset has not been released and is not available via the website (and therefore cannot be downloaded as a tarball file), please contact EGA HelpDesk at [ega-helpdesk@ebi.ac.uk][2] who will provide data submitters with the Sample ID to EGA File Accession ID mapping information. 
+If the metadata for a given EGA Dataset has not been released and is not available via the website (and therefore cannot be downloaded as a tarball file), please contact EGA HelpDesk at [helpdesk@ega-archive.org][2] who will provide data submitters with the Sample ID to EGA File Accession ID mapping information. 
 
 *We strongly encourage ICGC member projects to start this process early as it may take time to gather and validate your data submission.*
 
@@ -124,7 +124,7 @@ Ensure the EGA dataset has been released and is under ICGC DAC at EGA, and the s
 
 
 [1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
-[2]: mailto:ega-helpdesk@ebi.ac.uk
+[2]: mailto:helpdesk@ega-archive.org
 [3]: https://ega-archive.org
 [4]: http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&viewMode=graph
 [5]: http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/

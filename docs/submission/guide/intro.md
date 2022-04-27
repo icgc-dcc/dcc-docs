@@ -39,11 +39,10 @@ We propose that the whole process be relatively short, maybe 1 or 2 months. Thus
 
 ## Support
 
-Please contact the DCC ([dcc-support@icgc.org][6]) if you have any questions or comments about the data submission process.
+Please contact the [DCC](https://platform.icgc-argo.org/contact) if you have any questions or comments about the data submission process.
 
-[1]: https://www.ebi.ac.uk/ega/
+[1]: https://ega-archive.org/
 [2]: overview/submitting-raw-data-ega.md
 [3]: overview/submission-file-format.md
 [4]: overview/file-submission
 [5]: overview/submission-validation
-[6]: mailto:dcc-support@icgc.org

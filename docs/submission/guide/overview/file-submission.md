@@ -25,7 +25,7 @@ donor.20130101.txt, donor.20130201.txt, donor.20130301.txt, etc.
 With this scheme in place, a submitter can upload donor.20130101.txt in Release 1, donor.20130201.txt in Release 2 and donor.20130301.txt in Release 3. The effective submission for the current release will be the combined set of files. Note that in this current implementation each time a validation is performed it will validate the entire data set. However, in combination with Selective Validation the total validation time should be greatly reduced.
 
 * Currently downloading files from the SFTP server is disabled; the directory files are write-only. Files can be renamed using the SFTP "rename" command.
-* Project submission directories are created by the DCC for all ICGC member projects recognized by the ICGC Secretariat office. If you experience an issue with accessing your project's directory please contact the DCC helpdesk at [dcc-support@icgc.org][1]
+* Project submission directories are created by the DCC for all ICGC member projects recognized by the ICGC Secretariat office. If you experience an issue with accessing your project's directory please contact the [DCC](https://platform.icgc-argo.org/contact).
 
 The following steps are involved in submitting your project's data files to the DCC:
 
@@ -55,5 +55,4 @@ where PATH_TO_LOCAL_FOLDER is the folder containing your submission files and PR
 
 4\. Validate your submission by going to the ICGC data submission web interface at [https://submissions.dcc.icgc.org][2]. Log in using your ICGC submission system username and password.
 
-[1]: mailto:dcc-support@icgc.org
 [2]: https://submissions.dcc.icgc.org

@@ -19,7 +19,7 @@ from <a href="aws_projects.txt"><i class="fa-no-icon"></i>here</a>.
 
 ### Apply for Data Access
 
-Most of the PCAWG data is controlled access that is subject to data usage agreement. Please follow instructions at [_ICGC DACO_](https://icgc.org/daco) to apply for access to controlled data of all non-US projects. For US TCGA portion of the PCAWG data, apply for access through [_dbGaP_](https://dbgap.ncbi.nlm.nih.gov).
+Most of the PCAWG data is controlled access that is subject to data usage agreement. Please follow instructions at [_ICGC DACO_](https://daco.icgc-argo.org/) to apply for access to controlled data of all non-US projects. For US TCGA portion of the PCAWG data, apply for access through [_dbGaP_](https://dbgap.ncbi.nlm.nih.gov).
 
 ### Browse / Search for PCAWG Data
 
@@ -138,8 +138,7 @@ client must run in the same environment as the object storage system. That means
 
 #### Download from EGA
 
-After getting your ICGC DACO approval, you will need to get in touch with [_EGA_](mailto:ega-helpdesk@ebi.ac.uk) to have your EGA account set up. You will then be
-able to download any EGA Datasets that are under the control of the ICGC DACO.
+After getting your ICGC DACO approval, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 
 For EGA data download, the manifest file you download from ICGC Data Portal is actually a shell
 script with a few variables need to be
@@ -221,7 +220,7 @@ gen3-client download-multiple --profile=icgc --manifest=gen3_manifest_manifest.p
 
 ### Leverage compute and data colocation
 
-As noted above, [a large portion of the PCAWG data](https://icgc.org/447) is hosted at
+As noted above, [a large portion of the PCAWG data](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22study%22:%7B%22is%22:%5B%22PCAWG%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) is hosted at
 the [Cancer Genome Collaboratory](https://cancercollaboratory.org) - an
 OpenStack based academic cloud computing platform. This makes Collaboratory an ideal choice to perform your own analyses
 on PCAWG data, following a commonly practised <i>move compute to data</i> approach. In essence, there is no need to download
