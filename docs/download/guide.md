@@ -35,7 +35,7 @@ There are two prerequesites to using the Score Client: DACO Cloud Access status 
 
 ### DACO Cloud Access
 
-DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO access please follow the instructions provided at [https://daco.icgc-argo.org/](https://daco.icgc-argo.org/). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with either your [ICGC.org login](https://icgc.org/user/login) or one of the supported OpenID providers (e.g. Google). After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
+DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO access please follow the instructions provided at [https://daco.icgc-argo.org/](https://daco.icgc-argo.org/). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with your ICGC DACO-approved account. After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
 
 ![DACO Cloud Access Link](images/daco-cloud-access.png)
 
@@ -110,7 +110,7 @@ The Score Client has been designed to work on modern Mac and Linux distributions
 
 ## Installation of the Score Client
 
-This section describes how to install the **Score** Client. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
+This section describes how to install the **Score Client**. The are two options: (a) from a tarball and (b) from a Docker image hosted on Dockerhub.
 
 
 ### Install from Tarball
@@ -136,7 +136,7 @@ In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is requi
 sudo apt-get install -y libfuse-dev fuse curl wget software-properties-common
 ```
 
-With dependencies installed, now we can install the Score Client itself. The latest version can be downloaded from [here](/software/download#score-client), or use the following commands to download from command line.
+With dependencies installed, now we can install the Score Client itself. The latest version can be downloaded from [here](https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/[RELEASE]/score-client-[RELEASE]-dist.tar.gz), or use the following commands to download from command line.
 
 ```
 wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/\[RELEASE\]/score-client-\[RELEASE\]-dist.tar.gz
@@ -538,7 +538,7 @@ Related terms and their definitions are given below:
 | _Compute Instance_  | A user virtual machine operating in a cloud environment.                                                                                                                                                                                                                                 |
 | _DACO_              | The Data Access Compliance Office which handles requests from researchers for access to controlled data from the ICGC.                                                                                                                                                                   |
 | _DACO Cloud Access_ | DACO access with supplemental approved Cloud Access status.                                                                                                                                                                                                                              |
-| _DCC_               | The ICGC Data Coordination Center ([DCC](https://icgc.org/icgc/goals-structure-policies-guidelines/coordination)) performs quality assessment, curation and data releases and also manages the data flow from projects and centers to the central ICGC database and public repositories. |
+| _DCC_               | The ICGC Data Coordination Center ([DCC](https://www.icgc-argo.org/page/133/e2-data-management)) performs quality assessment, curation and data releases and also manages the data flow from projects and centers to the central ICGC database and public repositories. |
 | _Data Portal_       | The ICGC data portal located at [https://dcc.icgc.org](https://dcc.icgc.org).                                                                                                                                                                                                            |
 | _FUSE_              | [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) is an operating system mechanism for Unix-like computer operating systems that lets non-privileged users create their own file systems without editing kernel code.                                     |
 | _Manifest_          | A file used as input to the Score Client to describe and identify files to be downloaded.                                                                                                                                                                                              |

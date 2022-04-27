@@ -24,7 +24,7 @@ As a prerequisite to applying for DACO access, please ensure that you:
 
 ## How to Apply for Access through DACO
 
-The instructions for applying for DACO can be found here on the [ICGC DACO website](https://daco.icgc.org/).
+The instructions for applying for DACO can be found here on the [ICGC DACO website](https://daco.icgc-argo.org/).
 
 ![Applying-to-DACO](images/Applying_to_DACO_Diagram.png)
 

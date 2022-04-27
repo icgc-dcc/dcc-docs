@@ -60,7 +60,7 @@ ICGC member projects are required by ICGC policies to submit their raw sequencin
 
 #### 13. What does open and controlled access mean?
 
-Open access refers to all data that is publicly available in the portal without restrictions. Controlled access refers to protected data, such as germline SNPs, that requires user certification for access. For more information on how to access controlled tier data in the ICGC Data Portal and data deposited to the EGA, please contact [DACO][10].
+Open access refers to all data that is publicly available in the portal without restrictions. Controlled access refers to protected data, such as germline SNPs, that requires user certification for access.
 
 
 #### 14. What language are the cross-field validation scripts written in?
