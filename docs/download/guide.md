@@ -11,7 +11,7 @@ Please see [Terms](#terms) for a glossary of terms used in this guide.
 The figure below illustrates the overall process and systems involved:
 
 1.  [Authorization](#authorization)
-    Apply for DACO _Cloud Access_ if not already approved
+    Apply for DACO Access if not already approved
     Upon approval, login to the _Data Portal_
     Generate an _Access Token_ for cloud download
 2.  [Compute Prerequistes](#compute-prerequisites)
@@ -31,11 +31,11 @@ The subsequent sections will provide additional details on each of these topics.
 
 ## Authorization
 
-There are two prerequesites to using the Score Client: DACO Cloud Access status and a self-provisioned Access Token.
+There are two prerequesites to using the Score Client: DACO Approval and a self-provisioned Access Token.
 
 ### DACO Cloud Access
 
-DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO access please follow the instructions provided at [https://daco.icgc-argo.org/](https://daco.icgc-argo.org/). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with your ICGC DACO-approved account. After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
+DACO Cloud Access is acquired after your DACO application was been approved. To apply for DACO access please follow the instructions provided at [https://daco.icgc-argo.org/](https://daco.icgc-argo.org/). Once approved, you will be able to [login](https://dcc.icgc.org/) to the Data Portal to generate an [Access Token](#access-tokens). To login, click on the “Login” link in the upper right-hand corner of the page. When prompted, choose to login with your ICGC DACO-approved account. After successful authentication, you will know that you have Cloud Access to the controlled tier if the “login” link is replaced with a green cloud icon:
 
 ![DACO Cloud Access Link](images/daco-cloud-access.png)
 
@@ -43,11 +43,11 @@ DACO Cloud Access is prerequisite to using the Score Client. To apply for DACO a
 
 The Access Token model used for protecting the cloud data set follows a similar process to Github’s [personal access tokens](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Tokens are used instead of a username / password to securely access ICGC resources.
 
-Related to Access Tokens is the concept of _Scopes_. Tokens allow you to associate Scopes which limit access to that needed for the target environment. This enhances security by following the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Cloud specific Scopes will become available after acquiring DACO Cloud Access. An instance of a cloud download token will grant access to all of the available data in that environment.
+Related to Access Tokens is the concept of _Scopes_. Tokens allow you to associate Scopes which limit access to that needed for the target environment. This enhances security by following the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Cloud specific Scopes will become available after acquiring DACO Approval. An instance of a cloud download token will grant access to all of the available data in that environment.
 
 ### Token Manager
 
-To acquire an Access Token, you must first obtain DACO Clould Access and login to the Data Portal. After a successful login, there will be _Token Manager_ link in the upper right corner of the page. Clicking on this link will display the Token Manager dialog:
+To acquire an Access Token, you must first obtain DACO Approval and login to the Data Portal. After a successful login, there will be _Token Manager_ link in the upper right corner of the page. Clicking on this link will display the Token Manager dialog:
 
 [![Token Manager Link](images/token-manager-link.png)](images/token-manager-link.png 'Click the Token Manager toolbar to see the full image.')
 
@@ -536,8 +536,8 @@ Related terms and their definitions are given below:
 | _Access Token_      | An authorization mechanism created by the _Data Portal_ to access data.                                                                                                                                                                                                                  |
 | _Bundle ID_         | An identifier that refers to a submission bundle of related files. Typically the files produced by analysis workflows are packaged as a single unit. However, when a bundle is imported into a cloud repository each file in the bundle is given its own Object ID.                      |
 | _Compute Instance_  | A user virtual machine operating in a cloud environment.                                                                                                                                                                                                                                 |
-| _DACO_              | The Data Access Compliance Office which handles requests from researchers for access to controlled data from the ICGC.                                                                                                                                                                   |
-| _DACO Cloud Access_ | DACO access with supplemental approved Cloud Access status.                                                                                                                                                                                                                              |
+| _DACO_              | The [ICGC Data Access Compliance Office](https://daco.icgc-argo.org) which handles requests from researchers for access to controlled data from the ICGC.                                                                                                                                                                   |
+| _DACO Cloud Access_ | DACO approval means automatic Cloud Access.                                                                                                                                                                                                                              |
 | _DCC_               | The ICGC Data Coordination Center ([DCC](https://www.icgc-argo.org/page/133/e2-data-management)) performs quality assessment, curation and data releases and also manages the data flow from projects and centers to the central ICGC database and public repositories. |
 | _Data Portal_       | The ICGC data portal located at [https://dcc.icgc.org](https://dcc.icgc.org).                                                                                                                                                                                                            |
 | _FUSE_              | [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) is an operating system mechanism for Unix-like computer operating systems that lets non-privileged users create their own file systems without editing kernel code.                                     |

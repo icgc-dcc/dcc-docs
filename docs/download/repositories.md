@@ -24,7 +24,7 @@ Academic research cloud infrastructure built to house ICGC data.
 | Repo Code        | `collaboratory`                                                                                                                                  |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page][1].
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1].
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
@@ -44,7 +44,7 @@ Amazon cloud service containing ICGC data.
 | Repo Code        | `aws-virginia`                                                                                                                          |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page][1].
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1].
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
@@ -65,7 +65,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 | Repo Code        | `ega`                                                                                                                                  |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page][1]. Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1]. Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
 
 
 ### Download Client Operation
@@ -200,7 +200,7 @@ Microsoft Azure cloud service containing ICGC data.
 | Repo Code        | `azure`                                                                                                                          |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page][1].
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1].
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).

@@ -5,7 +5,7 @@ Members of the ICGC are committed to the principles of rapid data release. Howev
 
 The members of the ICGC have adopted data release policies that will accelerate the dissemination of datasets through rapid data releases that will precede publication of the global analyses of ICGC member datasets, anticipating the data will be useful for many investigators. The Consortium anticipates that the Project's data will be used in many ways, such as in developing new analytical methods, in understanding patterns of somatic mutations, and in guiding selection of mutations, genes, and other targets that will be used to develop biomarkers for cancer detection, diagnosis and prognosis, and new therapeutic interventions. Thus, the Consortium recognizes that the data are available to many users for a variety of purposes.
 
-For more information on ICGC's Publication Policy, please see Section E3 of the Consortium Policies and Guidelines at [http://icgc.org/icgc/goals-structure-policies-guidelines/e3-publication-policy](https://www.icgc-argo.org/page/77/e3-publication-policy)
+For more information on ICGC's Publication Policy, please see [Section E3 of the Consortium Policies and Guidelines](https://www.icgc-argo.org/page/77/e3-publication-policy).
 
 
 ### **Time limits for publication moratoriums**

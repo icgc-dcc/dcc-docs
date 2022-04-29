@@ -14,17 +14,17 @@ ICGC projects have two separate access control bodies. US based projects are aut
 
 ## Guidelines for Applying for Access to Controlled Data
 
-While there is great potential of data sharing for scientific research, caution is required when sharing data about individuals participating in genomic research because genomic data, like other types of medical data, can contain personal and identifying information. As such, DACO applications will only be considered for qualified scientists (individuals or groups from an institution) researching public health objectives.
+While all ICGC data sources contain open data, sensitive genomic and clinical data is controlled and requires permission to access. To qualify for access, you must:
 
-As a prerequisite to applying for DACO access, please ensure that you:
-
-- are associated to a research institution or company,
-- have a signing officer at your institution (authorized institutional representative),
-- have a scientific abstract outlining the desired use of the ICGC data with at least 3 relevant publications of which you were an author or a co-author.
+- be an independent researcher affiliated with a legal entity (e.g. university professor, researcher in a private company, independent researchers able to apply for federal research grants, etc.)
+- have an institutional representative at your institution
+- have a scientific abstract and lay summary outlining the desired use of the ICGC Controlled Data
+- have at least 3 qualifying publications of which you were an author/co-author
+- include an ethics letter, if ethics approval for use of ICGC Controlled Data is required in your country/region
 
 ## How to Apply for Access through DACO
 
-The instructions for applying for DACO can be found here on the [ICGC DACO website](https://daco.icgc-argo.org/).
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application](https://daco.icgc-argo.org/).
 
 ![Applying-to-DACO](images/Applying_to_DACO_Diagram.png)
 
@@ -37,7 +37,7 @@ Once your DACO application has been approved, log in to the **[ICGC Data Portal]
 
    ![Portal-Login](images/Portal_login.png)
 
-After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier.
 
    ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
