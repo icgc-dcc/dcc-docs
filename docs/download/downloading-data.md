@@ -8,7 +8,7 @@ Repository information can be found [here](/download/repositories/#collaboratory
 
 #### Prerequisites
 
-1.  [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data)
+1.  Learn about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application](https://daco.icgc-argo.org/)
 2.  Download and install score-client software [Tarball](/software/download/#score-client) (Download/configuration instructions [here](/download/guide/#installation-of-the-score-client))
 
 <span style="color:blue">NOTE: We are currently actively copying controlled data from [EGA](https://ega-archive.org) to Collaboratory so some files which originated from EGA may be available from either EGA or the Collaboratory repository. This is an on-going process, so we do not currently have all the EGA datasets in Collaboratory yet.</span>
@@ -19,7 +19,7 @@ Repository information can be found [here](/download/repositories/#collaboratory
 
     ![Portal-Login](images/Portal_login.png)
 
-2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier.
 
     ![User-Logged-In](images/user-logged-in.png)
 
@@ -100,7 +100,7 @@ Repository information can be found [here](/download/repositories/#ega)
 
 #### Prerequisites
 
-1. [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
+1.  Learn about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application](https://daco.icgc-argo.org/). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
 2. Download the [EGA Download Client](https://ega-archive.org/download/using-ega-download-client)
 
 #### Download Data Instructions
@@ -202,9 +202,7 @@ Repository information can be found [here](/download/repositories/#aws)
 
 
 #### Prerequisites
-
-1. [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data). Once you are approved by DACO, you will recieve an email from EGA about setting up your password. If you already had an EGA account from before, you will use the same username/password to access ICGC controlled data at EGA.
-
+1.  Learn about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application](https://daco.icgc-argo.org/)
 
 2. Set up EC2 instance in AWS. Ensure that you are running within the `us-east-1` region (N. Virginia availability zone). Any data processing will be charged to this account. Note that ICGC data download from S3 to the same EC2 region is free of charge. Please see Amazon's documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html#how-to-get-started) for detailed instructions on how to set up your Amazon EC2 instance. If this is your first time setting up an Amazon EC2 instance, here is some helpful documentation from AWS to get you started:
    
@@ -217,7 +215,7 @@ Repository information can be found [here](/download/repositories/#aws)
 
     ![Portal-Login](images/Portal_login.png)
 
-5. After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+5. After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier.
 
     ![DACO-Cloud-Access](images/daco-cloud-access.png)
 
@@ -270,7 +268,7 @@ Repository information can be found [here](/download/repositories/#azure)
 
 #### Prerequisites
 
-1. [Apply for DACO access](/download/data-access#apply-for-access-to-controlled-data). 
+1.  Learn about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application](https://daco.icgc-argo.org/)
 
 2. Log into your Microsoft Azure account and set up an Azure instance.
 
@@ -285,7 +283,7 @@ Repository information can be found [here](/download/repositories/#azure)
 
     ![Portal-Login](images/Portal_login.png)
 
-2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier. Please note, if you intend to access controlled data in the Cloud, please ensure you complete the "Cloud Storage Access Agreement" section of your DACO application. Otherwise, you will see a red cloud icon.
+2.  After successful authentication, you will see a green shield icon if you are approved for DACO access, and a green cloud icon if you are approved for Cloud access to the controlled tier.
     
     ![User-Logged-In](images/user-logged-in.png)
 
