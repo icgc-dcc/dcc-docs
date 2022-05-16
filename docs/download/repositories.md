@@ -17,14 +17,14 @@ Academic research cloud infrastructure built to house ICGC data.
 | Property         | Value                                                                                                                                            |
 | :--------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Name             | Cancer Genome Collaboratory                                                                                                                      |
-| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Contact          | [ICGC ARGO Contact page](https://platform.icgc-argo.org/contact)                                                                                 |
 | Repository type  | Cloud                                                                                                      |
 | ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Collaboratory%20-%20Toronto%22%5D%7D%7D%7D) |
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `collaboratory`                                                                                                                                  |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page](https://icgc.org/daco).
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1].
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
@@ -36,15 +36,15 @@ Amazon cloud service containing ICGC data.
 
 | Property         | Value                                                                                                                                   |
 | :--------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Name             | ICGC Storage Server (hosted at AWS)                                                                                                                 |
-| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Name             | ICGC Storage Server (hosted at AWS)                                                                                                     |
+| Contact          | [ICGC ARGO Contact page](https://platform.icgc-argo.org/contact)                                                                        |
 | Repository type  | Cloud                                                                                                      |
 | ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22AWS%20-%20Virginia%22%5D%7D%7D%7D) |
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `aws-virginia`                                                                                                                          |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page](https://icgc.org/daco).
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1].
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
@@ -65,7 +65,7 @@ The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-mana
 | Repo Code        | `ega`                                                                                                                                  |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page](https://icgc.org/daco). Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1]. Once approved by ICGC DACO, you will need to contact EGA to have your EGA account set up.
 
 
 ### Download Client Operation
@@ -193,16 +193,18 @@ Microsoft Azure cloud service containing ICGC data.
 | Property         | Value                                                                                                                                   |
 | :--------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | Name             | Microsoft Azure                                                                                                                 |
-| Contact          | <mailto:dcc-support@icgc.org>                                                                                                      |
+| Contact          | [ICGC ARGO Contact page](https://platform.icgc-argo.org/contact)                                                                        |
 | Repository type  | Cloud                                                                                                      |
 | ICGC Portal Page | [Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22Azure%20-%20Toronto%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) |
 | Download Client  | [Tarball](/software/download/#score-client), [Docker](https://hub.docker.com/r/overture/score/) |
 | Repo Code        | `azure`                                                                                                                          |
 
 ### Obtaining Data Access
-Follow the procedure outlined at the [DACO page](https://icgc.org/daco).
+To obtain access to ICGC Controlled Data, learn more about the DACO application process [here](https://docs.icgc-argo.org/docs/data-access/daco/applying), and then [start a DACO application][1].
 
 ### Download Client Operation
 To operate the Score download client, follow the instructions [here](/download/guide/#installation-of-the-score-client).
 
+
+[1]: https://daco.icgc-argo.org/
 

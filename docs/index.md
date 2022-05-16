@@ -85,4 +85,4 @@ This is the official project documentation site of the [ICGC](https://icgc.org/)
 
 |  | Contact |
 |-----------|-----------|
-|  | For user support, please contact us at [dcc-support@icgc.org](mailto:dcc-support@icgc.org). For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/). |
+|  | For user support, please contact us through our contact page at [https://platform.icgc-argo.org/contact](https://platform.icgc-argo.org/contact). For developer support, please use our discussion board at [https://discuss.icgc.org/](https://discuss.icgc.org/). |

@@ -36,7 +36,7 @@ Submissions from ICGC members do not need to include a dac.xml, as the ICGC DAC 
 </POLICY_SET>
 ```
 
-* Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions at <http://docs.icgc.org/submission/institutions/>. If your center’s name is incorrect or missing from here, please contact the DCC at <dcc-support@icgc.org> to have your center’s record added or revised.
+* Please note in the above example that submitting centers must populate their own center name in the center_name attribute of the POLICY element. Please use your center name as specified in List of Institutions at <http://docs.icgc.org/submission/institutions/>. If your center’s name is incorrect or missing from here, please contact the [DCC](https://platform.icgc-argo.org/contact) to have your center’s record added or revised.
 * The value of center_name should reflect the submitter’s affiliation and should remain consistent in the metadata XML for all subsequent submissions to EGA.
 
 ## DATASET and STUDY XML files

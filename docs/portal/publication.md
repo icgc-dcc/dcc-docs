@@ -5,8 +5,7 @@ Members of the ICGC are committed to the principles of rapid data release. Howev
 
 The members of the ICGC have adopted data release policies that will accelerate the dissemination of datasets through rapid data releases that will precede publication of the global analyses of ICGC member datasets, anticipating the data will be useful for many investigators. The Consortium anticipates that the Project's data will be used in many ways, such as in developing new analytical methods, in understanding patterns of somatic mutations, and in guiding selection of mutations, genes, and other targets that will be used to develop biomarkers for cancer detection, diagnosis and prognosis, and new therapeutic interventions. Thus, the Consortium recognizes that the data are available to many users for a variety of purposes.
 
-For more information on ICGC's Publication Policy, please see Section E3 of the Consortium Policies and Guidelines at [http://icgc.org/icgc/goals-structure-policies-guidelines/e3-publication-policy](http://icgc.org/icgc/goals-structure-policies-guidelines/e3-publication-policy)
-
+For more information on ICGC's Publication Policy, please see [Section E3 of the Consortium Policies and Guidelines](https://www.icgc-argo.org/page/77/e3-publication-policy).
 
 
 ### **Time limits for publication moratoriums**
@@ -82,18 +81,18 @@ The quantity of data on which the initial global analysis will be carried out wi
 | [BTCA-SG][50] |  Singapore | Biliary Tract Cancer - SG | No Embargo. Data available without limitations |
 | [GBM-CN][48] |  China | Brain Cancer - CN |  No Embargo. Data available without limitations |
 | [THCA-CN][49] |  China | Thyroid Cancer - CN | No Embargo. Data available without limitations |
-| [NACA-CN][52] |  China | Nasopharyngeal cancer |  Publication limitations in place until 2020-04-30 |
-| [PRAD-CN][53] |  China | Prostate cancer |  Publication limitations in place until 2020-04-30 |
+| [NACA-CN][52] |  China | Nasopharyngeal cancer |  No Embargo. Data available without limitations |
+| [PRAD-CN][53] |  China | Prostate cancer |  No Embargo. Data available without limitations |
 | [GACA-JP][54] |  Japan | Gastric cancer | No Embargo. Data available without limitations |
-| [BPLL-FR][55] |  France | B-Cell Prolymphocytic Leukemia | Publication limitations in place until 2021-04-02 |
+| [BPLL-FR][55] |  France | B-Cell Prolymphocytic Leukemia | No Embargo. Data available without limitations |
 
 
 
-For Moratorium status on TCGA projects, please visit [http://cancergenome.nih.gov/publications/publicationguidelines](http://cancergenome.nih.gov/publications/publicationguidelines)
+For Moratorium status on TCGA projects, please visit [https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga](https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga)
 
 For Moratorium status on TARGET projects, please visit [https://ocg.cancer.gov/programs/target/target-publication-guidelines](https://ocg.cancer.gov/programs/target/target-publication-guidelines)
 
-Data users should freely analyze pre-publication data and act responsibly in publishing analyses of those data in a manner that respects the terms described by the data producers. Data users are responsible for accurately citing the source of pre-publication data, including the version of the dataset. Data users are encouraged to [contact the data producers][35] to discuss publication plans in cases of uncertainty. For questions regarding moratorium status, please contact DCC HelpDesk at [dcc-support@icgc.org][36]
+Data users should freely analyze pre-publication data and act responsibly in publishing analyses of those data in a manner that respects the terms described by the data producers. Data users are responsible for accurately citing the source of pre-publication data, including the version of the dataset. Data users are encouraged to contact the data producers to discuss publication plans in cases of uncertainty. For questions regarding moratorium status, please contact the [DCC](https://platform.icgc-argo.org/contact).
 
 [1]: /submission/images/ICGC-embargo.png
 [2]: https://dcc.icgc.org/projects/PACA-AU
@@ -129,8 +128,6 @@ Data users should freely analyze pre-publication data and act responsibly in pub
 [32]: https://dcc.icgc.org/projects/PAEN-IT
 [33]: https://dcc.icgc.org/projects/THCA-SA
 [34]: https://dcc.icgc.org/projects/ESAD-UK
-[35]: https://icgc.org/icgc/cgp-template-letters
-[36]: mailto:dcc-support@icgc.org
 [37]: https://dcc.icgc.org/projects/BTCA-JP
 [38]: https://dcc.icgc.org/projects/LICA-CN
 [39]: https://dcc.icgc.org/projects/LAML-CN

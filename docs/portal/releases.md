@@ -24,7 +24,7 @@ Each directory has a README.txt file, whose content is displayed below the table
 
 #### Legacy Directories
 
-Releases prior to *Release 14* can be located via the "legacy\_data\_releases" link below "release\_14". These are copies of the FTP archives which were previously hosted at [ftp://data.dcc.icgc.org]().
+Releases prior to *Release 14* can be located at [https://dcc.icgc.org/releases/legacy_data_releases](https://dcc.icgc.org/releases/legacy_data_releases).
 
 ## Downloads
 
