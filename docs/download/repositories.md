@@ -52,7 +52,7 @@ To operate the Score download client, follow the instructions [here](/download/g
 
 ## [EGA](https://ega-archive.org/)
 
-The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](http://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.
+The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](https://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.
 
 | Property         | Value                                                                                                                                  |
 | :--------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -109,8 +109,8 @@ It is a secure data cloud that stores US [PCAWG](https://dcc.icgc.org/pcawg) dat
 | Repository type      | Cloud                                                                                                      |
 | Official Website     | <https://bionimbus-pdc.opensciencedatacloud.org>                                                                                        |
 | ICGC Portal Page     | [Portal](https://dcc.icgc.org/repositories/?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22PDC%20-%20Chicago%22%5D%7D%7D%7D) |
-| Download Client      | [Amazon Web Services Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)                           |
-| Client Documentation | [AWS Guide](http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html)                                                     |
+| Download Client      | [Amazon Web Services Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)                           |
+| Client Documentation | [AWS Guide](https://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html)                                                     |
 | Repo Code            | `pdc`                                                                                                                                   |
 
 ### Obtaining Data Access

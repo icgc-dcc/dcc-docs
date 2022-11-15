@@ -19,7 +19,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;surgery\.txt(?:\.gz|\.bz2)?$&#39;
@@ -202,7 +202,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#surgery.0.procedure_type.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#surgery.0.procedure_type.v1">
                   surgery.0.procedure_type.v1
                  </a>
                  ]
@@ -402,7 +402,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#surgery.0.resection_status.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#surgery.0.resection_status.v1">
                   surgery.0.resection_status.v1
                  </a>
                  ]

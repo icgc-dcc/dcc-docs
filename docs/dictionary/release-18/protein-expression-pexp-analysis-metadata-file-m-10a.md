@@ -22,7 +22,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;^pexp_m(\.[a-zA-Z0-9]+)?\.txt(?:\.gz|\.bz2)?$&#39;
@@ -1128,7 +1128,7 @@
                <small>
                 <ul>
                  <li>
-                  Paired End http://www.illumina.com/technology/paired_end_sequencing_assay.ilmn
+                  Paired End https://www.illumina.com/technology/paired_end_sequencing_assay.ilmn
                  </li>
                 </ul>
                 <p>

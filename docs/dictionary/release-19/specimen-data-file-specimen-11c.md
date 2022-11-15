@@ -22,7 +22,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;^specimen(\.[a-zA-Z0-9]+)?\.txt(?:\.gz|\.bz2)?$&#39;
@@ -212,7 +212,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary#specimen.0.specimen_type.v3">
+                 <a href="https://docs.icgc.org/controlled-vocabulary#specimen.0.specimen_type.v3">
                   specimen.0.specimen_type.v3
                  </a>
                  ]
@@ -1550,8 +1550,8 @@
               <td class="element-description">
                <small>
                 &#39;WHO International Histological Classification of Tumours&#39; code. See
-                <a href="http://codes.iarc.fr/codegroup/2" title="http://codes.iarc.fr/codegroup/2">
-                 http://codes.iarc.fr/codegroup/2
+                <a href="https://codes.iarc.fr/codegroup/2" title="https://codes.iarc.fr/codegroup/2">
+                 https://codes.iarc.fr/codegroup/2
                 </a>
                 for details.
                </small>

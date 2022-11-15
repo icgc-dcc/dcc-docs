@@ -22,7 +22,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;^cnsm_m(\.[a-zA-Z0-9]+)?\.txt(?:\.gz|\.bz2)?$&#39;
@@ -1264,7 +1264,7 @@
                <small>
                 <ul>
                  <li>
-                  Paired End http://www.illumina.com/technology/paired_end_sequencing_assay.ilmn
+                  Paired End https://www.illumina.com/technology/paired_end_sequencing_assay.ilmn
                  </li>
                 </ul>
                 <p>
@@ -1322,7 +1322,7 @@
                <small>
                 <ul>
                  <li>
-                  CASAVA http://support.illumina.com/sequencing/sequencing_software/casava.ilmn
+                  CASAVA https://support.illumina.com/sequencing/sequencing_software/casava.ilmn
                  </li>
                 </ul>
                 <p>
@@ -1381,8 +1381,8 @@
                 <ul>
                  <li>
                   Tophat 2.0.10
-                  <a href="http://tophat.cbcb.umd.edu" title="http://tophat.cbcb.umd.edu">
-                   http://tophat.cbcb.umd.edu
+                  <a href="https://tophat.cbcb.umd.edu" title="https://tophat.cbcb.umd.edu">
+                   https://tophat.cbcb.umd.edu
                   </a>
                   tophat -p 3 -o s1_guided -G BH_WGS.gtf --no-novel-juncs sequence.txt
                  </li>
@@ -1442,7 +1442,7 @@
                <small>
                 <ul>
                  <li>
-                  Samtools http://samtools.sourceforge.net
+                  Samtools https://samtools.sourceforge.net
                  </li>
                 </ul>
                 <p>

@@ -116,11 +116,11 @@ In order to denote a mutation for simple somatic, copy number and structural som
 <td rowspan="3" class="confluenceTd">
 
 <li>If specimen_type for analyzed_sample_id is Normal:<br>
-<ul><a href="http://docs.icgc.org/dictionary/viewer/#?viewMode=codelist">reference_sample_type</a> cannot be "matched_normal"</ul>
+<ul><a href="https://docs.icgc.org/dictionary/viewer/#?viewMode=codelist">reference_sample_type</a> cannot be "matched_normal"</ul>
 </li>
 <p>
 </p><li>If the specimen_type for analyzed_sample_id is Non-normal:<br>
-<ul><a href="http://docs.icgc.org/dictionary/viewer/#?viewMode=codelist">reference_sample_type</a> can be any reference_sample_type</ul>
+<ul><a href="https://docs.icgc.org/dictionary/viewer/#?viewMode=codelist">reference_sample_type</a> can be any reference_sample_type</ul>
 </li>
 <p></p>
 

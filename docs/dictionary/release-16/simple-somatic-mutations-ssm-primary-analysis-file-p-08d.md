@@ -24,7 +24,7 @@
            </h3>
            <h3>
             File Name
-            <a href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum" target="_blank">
+            <a href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum" target="_blank">
              Pattern
             </a>
             : &#39;^ssm_p\.txt(?:\.gz|\.bz2)?$&#39;

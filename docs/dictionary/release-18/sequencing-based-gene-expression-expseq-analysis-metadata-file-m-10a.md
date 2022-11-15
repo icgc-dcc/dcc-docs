@@ -22,7 +22,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;^exp_seq_m(\.[a-zA-Z0-9]+)?\.txt(?:\.gz|\.bz2)?$&#39;
@@ -1254,7 +1254,7 @@
                <small>
                 <ul>
                  <li>
-                  Paired End http://www.illumina.com/technology/paired_end_sequencing_assay.ilmn
+                  Paired End https://www.illumina.com/technology/paired_end_sequencing_assay.ilmn
                  </li>
                 </ul>
                 <p>
@@ -1313,8 +1313,8 @@
                 <ul>
                  <li>
                   BWA 0.6.2
-                  <a href="http://bio-bwa.sourceforge.net" title="http://bio-bwa.sourceforge.net">
-                   http://bio-bwa.sourceforge.net
+                  <a href="https://bio-bwa.sourceforge.net" title="https://bio-bwa.sourceforge.net">
+                   https://bio-bwa.sourceforge.net
                   </a>
                   bwa aln -q20 HGref s1.fastq &gt; s1_bwa.sai
                  </li>
@@ -1374,7 +1374,7 @@
                <small>
                 <ul>
                  <li>
-                  Cufflinks 2.1.0 http://cufflinks.cbcb.umd.edu
+                  Cufflinks 2.1.0 https://cufflinks.cbcb.umd.edu
                  </li>
                 </ul>
                 <p>

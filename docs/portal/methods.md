@@ -1,7 +1,7 @@
 # Methods 
 
 ### Gene model
-The ICGC Data Portal uses gene models produced by Ensembl [http://www.ensembl.org](http://www.ensembl.org).
+The ICGC Data Portal uses gene models produced by Ensembl [https://www.ensembl.org](https://www.ensembl.org).
 
 The canonical gene data (release 75) is available from Ensembl FTP site at [ ftp://ftp.ensembl.org/pub/release-75/mysql/homo_sapiens_core_75_37][1]. We downloaded files with gene, transcript, translation, exon, xref, and domain etc data, built a document-oriented data store with essential gene information. We then further integrated gene summary information downloaded from NCBI Entrez Gene. This gene document is then integrated with somatic mutation datasets based on mutation consequence annotation (described in the next section) results.
 
@@ -60,21 +60,21 @@ Upon a valid submission, a report will be generated indicating the total number 
 
 **Reactome Pathways**
 
-* Pathway entries: [http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/ho...](http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens "http://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens")
-* Pathway to gene mapping file: [http://www.reactome.org/download/current/UniProt2Reactome.txt](http://www.reactome.org/download/current/UniProt2Reactome.txt "http://www.reactome.org/download/current/UniProt2Reactome.txt")
-* Pathway summation file: [http://www.reactome.org/download/current/pathway2summation.txt](http://www.reactome.org/download/current/pathway2summation.txt "http://www.reactome.org/download/current/pathway2summation.txt")
+* Pathway entries: [https://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/ho...](https://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens "https://www.reactome.org/ReactomeRESTfulAPI/RESTfulWS/pathwayHierarchy/homo+sapiens")
+* Pathway to gene mapping file: [https://www.reactome.org/download/current/UniProt2Reactome.txt](https://www.reactome.org/download/current/UniProt2Reactome.txt "https://www.reactome.org/download/current/UniProt2Reactome.txt")
+* Pathway summation file: [https://www.reactome.org/download/current/pathway2summation.txt](https://www.reactome.org/download/current/pathway2summation.txt "https://www.reactome.org/download/current/pathway2summation.txt")
 
 **Gene Ontology**
 
 Note that ICGC does not display complete list of GO terms available on GO website (exclusion of obsolete GO and GO that are not annotated to human genes).
 
-* Inferred Trees: [http://geneontology.org/ontology/go.owl](http://geneontology.org/ontology/go.owl "http://geneontology.org/ontology/go.owl")
-* GO Terms: [http://purl.obolibrary.org/obo/go.obo](http://purl.obolibrary.org/obo/go.obo "http://purl.obolibrary.org/obo/go.obo")
-* GO Associations: [http://geneontology.org/gene-associations/gene_association.goa_human.gz](http://geneontology.org/gene-associations/gene_association.goa_human.gz "http://geneontology.org/gene-associations/gene_association.goa_human.gz")
+* Inferred Trees: [https://geneontology.org/ontology/go.owl](https://geneontology.org/ontology/go.owl "https://geneontology.org/ontology/go.owl")
+* GO Terms: [https://purl.obolibrary.org/obo/go.obo](https://purl.obolibrary.org/obo/go.obo "https://purl.obolibrary.org/obo/go.obo")
+* GO Associations: [https://geneontology.org/gene-associations/gene_association.goa_human.gz](https://geneontology.org/gene-associations/gene_association.goa_human.gz "https://geneontology.org/gene-associations/gene_association.goa_human.gz")
 
 **Curated Gene Sets**
 
-* Cancer Gene Census: [http://cancer.sanger.ac.uk/cancergenome/projects/census/](http://cancer.sanger.ac.uk/cancergenome/projects/census/)
+* Cancer Gene Census: [https://cancer.sanger.ac.uk/cancergenome/projects/census/](https://cancer.sanger.ac.uk/cancergenome/projects/census/)
 
 ### Gene Set Enrichment Analysis ###
 
@@ -86,10 +86,10 @@ Statistical methods used in Gene Set Enrichment Analysis:
 * Benjamini-Hochberg procedure is used for multiple test correction by controlling user selected FDR threshold.
 
 [1]: ftp://ftp.ensembl.org/pub/release-75/mysql/homo_sapiens_core_75_37/
-[2]: http://www.sequenceontology.org
-[3]: http://www.ncbi.nlm.nih.gov/pubmed/?term=23900255
-[4]: http://www.sequenceontology.org/miso/current_release/term/SO:0001583
-[5]: http://www.ncbi.nlm.nih.gov/pubmed/23033316
-[6]: http://mutationassessor.org/
-[7]: http://sift.jcvi.org/
+[2]: https://www.sequenceontology.org
+[3]: https://www.ncbi.nlm.nih.gov/pubmed/?term=23900255
+[4]: https://www.sequenceontology.org/miso/current_release/term/SO:0001583
+[5]: https://www.ncbi.nlm.nih.gov/pubmed/23033316
+[6]: https://mutationassessor.org/
+[7]: https://sift.jcvi.org/
 [8]: https://daco.icgc-argo.org/

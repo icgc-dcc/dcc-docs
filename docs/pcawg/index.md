@@ -60,13 +60,13 @@ full_width: true
 
 <div style="display:flex;flex-direction: row;justify-content: center;align-items: top;">
     <div style="flex:60;">
-        <a href="http://pcawgscout.bsc.es/entity_list_action/Sample/characteristic_alterations/Prost-AdenoCa%20ERG%20non-fusion%20donors"><i class="fa-no-icon"></i><img src="images/pcawg_scout_1.png" width="700"/></a>
+        <a href="https://pcawgscout.bsc.es/entity_list_action/Sample/characteristic_alterations/Prost-AdenoCa%20ERG%20non-fusion%20donors"><i class="fa-no-icon"></i><img src="images/pcawg_scout_1.png" width="700"/></a>
     </div>
     <div style="flex:5;">
     </div>
     <div style="flex:35;">
-        <a href="http://pcawgscout.bsc.es"><i class="fa-no-icon"></i><img src="images/cnio_pcawg_scout.png" height="70"/></a><br><br>
-        PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in BSC PCAWG-Scout at <a href="http://pcawgscout.bsc.es">http://pcawgscout.bsc.es</a>.
+        <a href="https://pcawgscout.bsc.es"><i class="fa-no-icon"></i><img src="images/cnio_pcawg_scout.png" height="70"/></a><br><br>
+        PCAWG-Scout is an analysis platform to visualize and explore the PCAWG data. It consists of a portal that presents the original omics data and sample annotation along with the results from different analysis working-groups, and which servers as interface to an on-demand analysis infrastructure to help the user find interesting stories and follow them across different analysis and visualization tools. Explore PCAWG data in BSC PCAWG-Scout at <a href="https://pcawgscout.bsc.es">https://pcawgscout.bsc.es</a>.
     </div>
 </div>
 
@@ -84,12 +84,12 @@ full_width: true
         the point mutations, small insertions and deletions, structural
         variations, and copy number profiles detected in each tumor. Explore
         PCAWG data in Chromothripsis Explorer at
-        <a href="http://compbio.med.harvard.edu/chromothripsis/">http://compbio.med.harvard.edu/chromothripsis/</a>.
+        <a href="https://compbio.med.harvard.edu/chromothripsis/">https://compbio.med.harvard.edu/chromothripsis/</a>.
     </div>
     <div style="flex:5;">
     </div>
     <div style="flex:60;">
-        <a href="http://compbio.med.harvard.edu/chromothripsis/">
+        <a href="https://compbio.med.harvard.edu/chromothripsis/">
         <i class="fa-no-icon"></i><img src="images/Chromothripsis_explorer_landing_page_main_image_v1.png" width="700"/></a>
     </div>
 </div>

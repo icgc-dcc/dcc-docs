@@ -1,6 +1,6 @@
 {
-  "defaultBaseFromURL": "http://docs.icgc.org",
-  "defaultBaseToURL": "http://docs.icgc.org",
+  "defaultBaseFromURL": "https://docs.icgc.org",
+  "defaultBaseToURL": "https://docs.icgc.org",
 
   "redirects": [
     {

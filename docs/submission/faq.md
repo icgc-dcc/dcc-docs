@@ -82,8 +82,8 @@ Cellularity is defined as the proportion of tumour nuclei to total number of nuc
 [4]: guide/icgc-simple-somatic-mutation-format.md
 [5]: /dictionary/releases/
 [6]: guide/dcc-data-element-specifications.md#missing-or-unknown-values
-[8]: http://www.ebi.ac.uk/ega/dacs/EGAC00001000010
-[9]: http://www.ebi.ac.uk/ega
-[10]: http://www.icgc.org/daco
+[8]: https://www.ebi.ac.uk/ega/dacs/EGAC00001000010
+[9]: https://www.ebi.ac.uk/ega
+[10]: https://www.icgc.org/daco
 [11]: https://en.wikipedia.org/wiki/MVEL
 [12]: /submission/api/

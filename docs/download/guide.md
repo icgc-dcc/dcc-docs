@@ -2,7 +2,7 @@
 
 ## Overview
 
-This user guide describes the steps to securely explore and download ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](http://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](https://dcc.icgc.org/icgc-in-the-cloud).
+This user guide describes the steps to securely explore and download ICGC data stored in [Amazon (_AWS_)](https://aws.amazon.com/about-aws/) or [Collaboratory (_OpenStack_)](https://www.cancercollaboratory.org/) cloud environments. For more information about ICGC cloud initiatives, please see [ICGC in the Cloud](https://dcc.icgc.org/icgc-in-the-cloud).
 
 Please see [Terms](#terms) for a glossary of terms used in this guide.
 
@@ -130,7 +130,7 @@ sudo apt install oracle-java11-installer-local oracle-java11-set-default-local
 apt-get install openjdk-11-jdk
 ```
 
-In order to use the mount feature, [FUSE](http://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev`, `fuse` and other packages, below is the command to install them on Ubuntu.
+In order to use the mount feature, [FUSE](https://fuse.sourceforge.net/) is required. On most Linux based systems this will require installing `libfuse-dev`, `fuse` and other packages, below is the command to install them on Ubuntu.
 
 ```
 sudo apt-get install -y libfuse-dev fuse curl wget software-properties-common
@@ -326,12 +326,12 @@ bin/score-client manifest --manifest 49e91614-7811-11e5-8a58-34363bcf803c
 An example of using a URL hosted Manifest:
 
 ```
-bin/score-client manifest --manifest http://hastebin.com/raw/ujajodilih
+bin/score-client manifest --manifest https://hastebin.com/raw/ujajodilih
 ```
 
 ### View Command
 
-The `view` command is a minimal version of [samtools view](http://www.htslib.org/doc/samtools.html). It allows one to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.
+The `view` command is a minimal version of [samtools view](https://www.htslib.org/doc/samtools.html). It allows one to request a “genomic slice” of the remote BAM file, freeing the user from having to download the entire file locally, saving bytes and time.
 
 The following example will download reads overlapping the region 1 - 10,000 on chromosome 1:
 
@@ -377,7 +377,7 @@ There is also a switch to have indexes generated for the output
 
 ### Mount Command
 
-The `mount` command can be used to mount the remote S3 bucket as a read-only [FUSE](http://fuse.sourceforge.net/) file system. This is very useful to browse and explore the available files, as well as quickly see their size and date of modification using common commands such as `ls`, `find`, `du` and `tree`. It also works very well with standard analysis tools such as `samtools`.
+The `mount` command can be used to mount the remote S3 bucket as a read-only [FUSE](https://fuse.sourceforge.net/) file system. This is very useful to browse and explore the available files, as well as quickly see their size and date of modification using common commands such as `ls`, `find`, `du` and `tree`. It also works very well with standard analysis tools such as `samtools`.
 
 Files are organized into a virtual directory structure. The following shows the default `bundle` layout:
 
@@ -499,7 +499,7 @@ Yes, the client maintains state, for _downloads_, in the working directory in a 
 
 ##### Why do I get a security exception when I try to download an object?
 
-If you are targeting the AWS cloud, ensure that you are running within the `us-east-1` [region](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones).
+If you are targeting the AWS cloud, ensure that you are running within the `us-east-1` [region](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-regions-availability-zones).
 
 ##### I can’t use the result of a `url` command with `samtools`:
 

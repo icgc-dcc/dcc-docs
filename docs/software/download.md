@@ -6,7 +6,7 @@ This is the official DCC software page which publishes various tools for working
 
 ## Score Client
 
-Score client replaces the ICGC Storage client. To interact with cloud repositories such as [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws) and [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/), you will require the Score Client software. For system requirements and usage information, please see the [Data Download Guide](http://docs.icgc.org/download/guide/)
+Score client replaces the ICGC Storage client. To interact with cloud repositories such as [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws) and [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/), you will require the Score Client software. For system requirements and usage information, please see the [Data Download Guide](https://docs.icgc.org/download/guide/)
 
 ### Latest Release Tarball
 
@@ -20,7 +20,7 @@ For Docker images, please visit our [Docker Hub repository](https://hub.docker.c
 
 ## [Legacy] Storage Client
 
-To interact with cloud repositories such as [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws) and [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/), you will require the Storage Client software. For system requirements and usage information, please see the [Data Download Guide](http://docs.icgc.org/download/guide/)
+To interact with cloud repositories such as [AWS](https://dcc.icgc.org/icgc-in-the-cloud/aws) and [Collaboratory](https://dcc.icgc.org/icgc-in-the-cloud/collaboratory/), you will require the Storage Client software. For system requirements and usage information, please see the [Data Download Guide](https://docs.icgc.org/download/guide/)
 
 ### Latest Release Tarball
 

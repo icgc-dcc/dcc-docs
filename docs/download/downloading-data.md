@@ -92,7 +92,7 @@ Repository information can be found [here](/download/repositories/#gdc)
 
 ## Downloading data from EGA repository
 
-The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](http://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.
+The European Genome-Phenome Archive ([EGA](https://ega-archive.org/)) is co-managed by [EBI](https://www.ebi.ac.uk/) and [CRG](https://www.crg.eu/). Data can only be downloaded through their EGA download client, but metadata may be viewed on their website. Files are grouped into datasets based on the study they were collected in, and access is granted on a dataset by dataset basis. This repository carries both ICGC and non-ICGC data.
 
 <span style="color:blue">NOTE: The "EGA - Hinxton" repository in the [Data Portal](https://dcc.icgc.org/repositories?filters=%7B%22file%22:%7B%22repoName%22:%7B%22is%22:%5B%22EGA%20-%20Hinxton%22%5D%7D%7D%7D&files=%7B%22from%22:1%7D) only contains PCAWG data. You can download other non-PCAWG ICGC data directly from [EGA](https://ega-archive.org/) (instructions on their website using their [EGA Download Client](https://ega-archive.org/download/using-ega-download-client) or [API](https://ega-archive.org/download/using-ega-api))</span>
 
