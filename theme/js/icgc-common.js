@@ -208,7 +208,7 @@ $(function() {
         var $results = $('#mkdocs-search-results'),
             $searchContentBody = $('#search-body');
 
-        $.get(base_url + '/search/search_index.json', function (data) {
+        $.get('/search/search_index.json', function (data) {
           var index = lunr(function () {
             this.field('title', {
               boost: 10
@@ -222,7 +222,6 @@ $(function() {
 
           for (var i = 0; i < data.docs.length; i++) {
             doc = data.docs[i];
-            doc.location = base_url + doc.location;
             index.add(doc);
             documents[doc.location] = doc;
           }
@@ -262,14 +261,14 @@ $(function() {
                 doc = documents[result.ref];
                 doc.base_url = base_url;
                 doc.summary = doc.text.substring(0, 200);
-                var hostURL = baseHostURL + doc.location.replace(/[\.]+\//g, '');
+                var hostURL = baseHostURL + doc.location;
 
 
                 resultsHTML += '<div class="search-item animated fadeInLeft">' +
                                '<div class="doc-type-icon-container"><span class="header-badge"><i class="icon-book-open"></i></span></div>' +
                                '<div class="search-body">' +
-                               '<a href="' + doc.location + '">' + doc.title + '</a>' +
-                               '<p class="location-field"><a href="' + doc.location + '">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></a></p>' +
+                               '<a href="' + hostURL + '">' + doc.title + '</a>' +
+                               '<p class="location-field"><a href="' + hostURL + '">'  + hostURL + '&nbsp;<span class="icon-share-1"></span></a></p>' +
                                '<p>' + doc.summary + '</p>' +
                                '</div>' +
 
