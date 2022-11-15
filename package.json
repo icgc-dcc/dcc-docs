@@ -1,7 +1,7 @@
 {
   "name": "dcc-docs",
   "version": "1.0.0",
-  "description": "Documentation for ICGC DCC using [mkdocs](http://www.mkdocs.org/) and GitHub Pages hosted at [http://icgc-dcc.github.io/dcc-docs](http://icgc-dcc.github.io/dcc-docs)",
+  "description": "Documentation for ICGC DCC using [mkdocs](https://www.mkdocs.org/) and GitHub Pages hosted at [https://icgc-dcc.github.io/dcc-docs](https://icgc-dcc.github.io/dcc-docs)",
   "main": "none",
   "directories": {
     "doc": "docs"

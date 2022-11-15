@@ -25,7 +25,7 @@
                     <div><i class="fa fa-cloud"></i> <span class="endpoint-server-label"></span></div>
                     <div class="btn-group-container">
                         <div id="url-input-group" class="input-group input-group-sm">
-                            <input type="text" id="server-endpoint-url" class="form-control"  placeholder="http://some-api-server.org" value="" size="20">
+                            <input type="text" id="server-endpoint-url" class="form-control"  placeholder="https://some-api-server.org" value="" size="20">
                             <span class="input-group-addon" id="server-endpoint-url-path"></span>
                         </div>
                     </div>

@@ -22,7 +22,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;^ssm_p(\.[a-zA-Z0-9]+)?\.txt(?:\.gz|\.bz2)?$&#39;
@@ -321,7 +321,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.chromosome.v3">
+                 <a href="https://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.chromosome.v3">
                   GLOBAL.0.chromosome.v3
                  </a>
                  ]
@@ -1492,7 +1492,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.verification_status.v2">
+                 <a href="https://docs.icgc.org/docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.verification_status.v2">
                   GLOBAL.0.verification_status.v2
                  </a>
                  ]
@@ -1598,7 +1598,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.platform.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.platform.v1">
                   GLOBAL.0.platform.v1
                  </a>
                  ]
@@ -2487,7 +2487,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.biological_validation_status.v3">
+                 <a href="https://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.biological_validation_status.v3">
                   GLOBAL.0.biological_validation_status.v3
                  </a>
                  ]
@@ -2593,7 +2593,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.platform.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary-09a#GLOBAL.0.platform.v1">
                   GLOBAL.0.platform.v1
                  </a>
                  ]

@@ -19,7 +19,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;^donor\.txt(?:\.gz|\.bz2)?$&#39;
@@ -288,7 +288,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#donor.0.donor_vital_status.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#donor.0.donor_vital_status.v1">
                   donor.0.donor_vital_status.v1
                  </a>
                  ]
@@ -374,7 +374,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#donor.0.disease_status_last_followup.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#donor.0.disease_status_last_followup.v1">
                   donor.0.disease_status_last_followup.v1
                  </a>
                  ]
@@ -490,7 +490,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#donor.0.donor_relapse_type.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#donor.0.donor_relapse_type.v1">
                   donor.0.donor_relapse_type.v1
                  </a>
                  ]

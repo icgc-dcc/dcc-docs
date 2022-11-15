@@ -26,11 +26,11 @@ More details on how to download PCAWG data can be found [here](/pcawg/data/).
 [1]: https://daco.icgc-argo.org/
 [2]: https://ega-archive.org/dacs/EGAC00001000010
 [3]: https://ega-archive.org/
-[4]: http://cancergenome.nih.gov/
-[5]: http://tcga-data.nci.nih.gov/
+[4]: https://cancergenome.nih.gov/
+[5]: https://tcga-data.nci.nih.gov/
 [6]: https://cghub.ucsc.edu/
-[7]: http://dcc.icgc.org
+[7]: https://dcc.icgc.org
 [8]: methods#germline-data-masking
-[9]: http://pancancer.info/
-[10]: http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v5.p5
+[9]: https://pancancer.info/
+[10]: https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v5.p5
 [11]: https://tcga-data.nci.nih.gov/docs/publications/tcga/

@@ -133,5 +133,5 @@ Error(code=404, message=Download with id '/release_16/Projects/COAD-US/simple_so
 
 Make sure the path to the file is correct and if you are trying to download a controlled access file make sure your `dcc_access_token` is valid.
 
-[1]: http://curl.haxx.se/docs/manpage.html
+[1]: https://curl.haxx.se/docs/manpage.html
 [2]: https://github.com/jakubroztocil/httpie

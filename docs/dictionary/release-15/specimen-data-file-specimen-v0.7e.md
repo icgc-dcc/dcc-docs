@@ -19,7 +19,7 @@
            </h3>
            <h3>
             File Name
-            <a target="_blank" href="http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
+            <a target="_blank" href="https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">
              Pattern
             </a>
             : &#39;specimen\.txt(?:\.gz|\.bz2)?$&#39;
@@ -209,7 +209,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_type.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_type.v1">
                   specimen.0.specimen_type.v1
                  </a>
                  ]
@@ -493,7 +493,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_donor_treatment_type.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_donor_treatment_type.v1">
                   specimen.0.specimen_donor_treatment_type.v1
                  </a>
                  ]
@@ -693,7 +693,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_processing.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_processing.v1">
                   specimen.0.specimen_processing.v1
                  </a>
                  ]
@@ -903,7 +903,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_storage.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#specimen.0.specimen_storage.v1">
                   specimen.0.specimen_storage.v1
                  </a>
                  ]
@@ -1093,7 +1093,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#GLOBAL.0.yes_no.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#GLOBAL.0.yes_no.v1">
                   GLOBAL.0.yes_no.v1
                  </a>
                  ]
@@ -1287,7 +1287,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#GLOBAL.0.yes_no.v1">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#GLOBAL.0.yes_no.v1">
                   GLOBAL.0.yes_no.v1
                  </a>
                  ]
@@ -1867,7 +1867,7 @@
                <div class="link">
                 <small>
                  [
-                 <a href="http://docs.icgc.org/controlled-vocabulary/#specimen.0.cellularity.v2">
+                 <a href="https://docs.icgc.org/controlled-vocabulary/#specimen.0.cellularity.v2">
                   specimen.0.cellularity.v2
                  </a>
                  ]

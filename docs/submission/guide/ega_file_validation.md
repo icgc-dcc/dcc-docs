@@ -126,6 +126,6 @@ Ensure the EGA dataset has been released and is under ICGC DAC at EGA, and the s
 [1]: https://icgc.org/icgc/goals-structure-policies-guidelines/e2-data-release-policies
 [2]: mailto:helpdesk@ega-archive.org
 [3]: https://ega-archive.org
-[4]: http://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&viewMode=graph
-[5]: http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/
-[6]: http://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/#sample-xml-file
+[4]: https://docs.icgc.org/dictionary/viewer/#?q=raw_data_accession&viewMode=graph
+[5]: https://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/
+[6]: https://docs.icgc.org/submission/guide/overview/submitting-raw-data-ega/#sample-xml-file
