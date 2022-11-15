@@ -7,8 +7,10 @@ site_url: http://docs.icgc.org
 repo_url: https://github.com/icgc-dcc/dcc-docs
 copyright: "&copy; 2015-2016"
 google_analytics: ['UA-43425408-2', 'docs.icgc.org']
-theme_dir: theme
-pages:
+theme:
+  name: null
+  custom_dir: theme/
+nav:
 - Home: index.md
 - Portal:
   - About: 'portal/about.md'
