@@ -65,7 +65,7 @@
             <div id="docs-container" class="container">
                 {% include "search.html" %}
                 <div id="body">
-                {% if page.meta and page.meta.full_width == ['true'] %}
+                {% if page.meta and page.meta.full_width %}
                     <div class="col-md-12 main-container" role="main">
                         {% include "content.html" %}
                     </div>
