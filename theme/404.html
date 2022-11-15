@@ -21,7 +21,7 @@
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/icgc-common.css" rel="stylesheet">
         {%- for path in extra_css %}
-        <link href="{{ path }}" rel="stylesheet">
+        <link href="{{ path|url }}" rel="stylesheet">
         {%- endfor %}
 
 
@@ -122,7 +122,7 @@
             <script src="/js/404.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
-            <script src="{{ path }}"></script>
+            <script src="{{ path|url }}"></script>
             {%- endfor %}
         </div>
     </body>

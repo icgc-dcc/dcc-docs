@@ -28,11 +28,11 @@
         <link href="/css/base.css" rel="stylesheet">
         <link href="/css/icgc-common.css" rel="stylesheet">
         {%- for path in extra_css %}
-        <link href="{{ path }}" rel="stylesheet">
+        <link href="{{ path|url }}" rel="stylesheet">
         {%- endfor %}
         {% if config.extra.resources[page.title] %}
             {%- for path in config.extra.resources[page.title].styles %}
-                <link href="{{ path }}" rel="stylesheet">
+                <link href="{{ path|url }}" rel="stylesheet">
             {%- endfor %}
         {% endif %}
 
@@ -115,14 +115,14 @@
             <script src="/js/icgc-common.js"></script>
             <script>var base_url = '{{ base_url }}';</script>
             {%- for path in extra_javascript %}
-            <script src="{{ path }}"></script>
+            <script src="{{ path|url }}"></script>
             {%- endfor %}
         </div>
         <script src="/js-out/commons-chunk.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         {% if config.extra.resources[page.title] %}
             {%- for path in config.extra.resources[page.title].scripts %}
-                <script src="{{ path }}"></script>
+                <script src="{{ path|url }}"></script>
             {%- endfor %}
         {% endif %}
     </body>
