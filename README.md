@@ -9,7 +9,7 @@ A custom domain is setup on the `gh-pages` branch in the `CNAME` file:
 [http://docs.icgc.org](http://docs.icgc.org)
 
 ## Setup
-This project requires `mkdocs` version 0.15.3 or higher.
+This project requires `mkdocs` version 1.1 or higher.
 
 To install on Mac:
 
