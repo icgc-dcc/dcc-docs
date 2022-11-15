@@ -16,9 +16,9 @@ The basic conceptual model of the dictionary is presented below:
 
 ## Viewer
 
-To view the dictionary and compare existing versions, please see the [Dictionary Viewer](viewer).
+To view the dictionary and compare existing versions, please see the [Dictionary Viewer](/dictionary/viewer).
 
 ## Release Notes
 
-To view high level notes on dictionary changes, please see [Releases](releases).
+To view high level notes on dictionary changes, please see [Releases](/dictionary/releases).
 
