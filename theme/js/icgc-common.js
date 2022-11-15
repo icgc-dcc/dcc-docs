@@ -208,7 +208,7 @@ $(function() {
         var $results = $('#mkdocs-search-results'),
             $searchContentBody = $('#search-body');
 
-        $.get(base_url + '/mkdocs/search_index.json', function (data) {
+        $.get(base_url + '/search/search_index.json', function (data) {
           var index = lunr(function () {
             this.field('title', {
               boost: 10
